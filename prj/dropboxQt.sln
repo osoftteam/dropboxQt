@@ -1,19 +1,17 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dropboxQt", "dropboxQt.vcxproj", "{62848B66-C29B-329A-9E18-FF056C6FBBFE}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dropboxQt", "dropboxQt.vcxproj", "{5EF50B10-F5DC-34B0-8FA3-86E25AC2C0AC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "authorize", "..\examples\authorize\authorize.vcxproj", "{60913A3A-BC14-316F-B2C1-6DEFE17D729C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "authorize", "..\examples\authorize\authorize.vcxproj", "{6439D7B5-3DA5-35BA-ABAB-B14FD0EC5800}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "account-info", "..\examples\account-info\account-info.vcxproj", "{1C154079-FB7D-3514-A9A7-D49DEA0CB7FB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "account-info", "..\examples\account-info\account-info.vcxproj", "{13AE549D-E520-3B98-9683-0428F0438CC1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "download", "..\examples\download\download.vcxproj", "{2352F1D2-89A1-3CB5-9614-E88E72096B03}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "download", "..\examples\download\download.vcxproj", "{7B0B3762-5E2C-3DC7-82A2-C1C74547F81E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "upload", "..\examples\upload\upload.vcxproj", "{066290FC-0DAC-3632-941D-AC871CE39373}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "upload", "..\examples\upload\upload.vcxproj", "{EE936A8E-4880-332D-8FCD-AB107AAD99DE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "boxbash", "..\examples\boxbash\boxbash.vcxproj", "{D729B17E-79BD-3D33-AC46-0D3262476799}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "boxbash", "..\examples\boxbash\boxbash.vcxproj", "{0CF0C9A3-7B50-3727-87FA-2C107CF33C0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,30 +19,30 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{62848B66-C29B-329A-9E18-FF056C6FBBFE}.Debug|Win32.ActiveCfg = Debug|Win32
-		{62848B66-C29B-329A-9E18-FF056C6FBBFE}.Debug|Win32.Build.0 = Debug|Win32
-		{62848B66-C29B-329A-9E18-FF056C6FBBFE}.Release|Win32.ActiveCfg = Release|Win32
-		{62848B66-C29B-329A-9E18-FF056C6FBBFE}.Release|Win32.Build.0 = Release|Win32
-		{60913A3A-BC14-316F-B2C1-6DEFE17D729C}.Debug|Win32.ActiveCfg = Debug|Win32
-		{60913A3A-BC14-316F-B2C1-6DEFE17D729C}.Debug|Win32.Build.0 = Debug|Win32
-		{60913A3A-BC14-316F-B2C1-6DEFE17D729C}.Release|Win32.ActiveCfg = Release|Win32
-		{60913A3A-BC14-316F-B2C1-6DEFE17D729C}.Release|Win32.Build.0 = Release|Win32
-		{1C154079-FB7D-3514-A9A7-D49DEA0CB7FB}.Debug|Win32.ActiveCfg = Debug|Win32
-		{1C154079-FB7D-3514-A9A7-D49DEA0CB7FB}.Debug|Win32.Build.0 = Debug|Win32
-		{1C154079-FB7D-3514-A9A7-D49DEA0CB7FB}.Release|Win32.ActiveCfg = Release|Win32
-		{1C154079-FB7D-3514-A9A7-D49DEA0CB7FB}.Release|Win32.Build.0 = Release|Win32
-		{2352F1D2-89A1-3CB5-9614-E88E72096B03}.Debug|Win32.ActiveCfg = Debug|Win32
-		{2352F1D2-89A1-3CB5-9614-E88E72096B03}.Debug|Win32.Build.0 = Debug|Win32
-		{2352F1D2-89A1-3CB5-9614-E88E72096B03}.Release|Win32.ActiveCfg = Release|Win32
-		{2352F1D2-89A1-3CB5-9614-E88E72096B03}.Release|Win32.Build.0 = Release|Win32
-		{066290FC-0DAC-3632-941D-AC871CE39373}.Debug|Win32.ActiveCfg = Debug|Win32
-		{066290FC-0DAC-3632-941D-AC871CE39373}.Debug|Win32.Build.0 = Debug|Win32
-		{066290FC-0DAC-3632-941D-AC871CE39373}.Release|Win32.ActiveCfg = Release|Win32
-		{066290FC-0DAC-3632-941D-AC871CE39373}.Release|Win32.Build.0 = Release|Win32
-		{D729B17E-79BD-3D33-AC46-0D3262476799}.Debug|Win32.ActiveCfg = Debug|Win32
-		{D729B17E-79BD-3D33-AC46-0D3262476799}.Debug|Win32.Build.0 = Debug|Win32
-		{D729B17E-79BD-3D33-AC46-0D3262476799}.Release|Win32.ActiveCfg = Release|Win32
-		{D729B17E-79BD-3D33-AC46-0D3262476799}.Release|Win32.Build.0 = Release|Win32
+		{5EF50B10-F5DC-34B0-8FA3-86E25AC2C0AC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5EF50B10-F5DC-34B0-8FA3-86E25AC2C0AC}.Debug|Win32.Build.0 = Debug|Win32
+		{5EF50B10-F5DC-34B0-8FA3-86E25AC2C0AC}.Release|Win32.ActiveCfg = Release|Win32
+		{5EF50B10-F5DC-34B0-8FA3-86E25AC2C0AC}.Release|Win32.Build.0 = Release|Win32
+		{6439D7B5-3DA5-35BA-ABAB-B14FD0EC5800}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6439D7B5-3DA5-35BA-ABAB-B14FD0EC5800}.Debug|Win32.Build.0 = Debug|Win32
+		{6439D7B5-3DA5-35BA-ABAB-B14FD0EC5800}.Release|Win32.ActiveCfg = Release|Win32
+		{6439D7B5-3DA5-35BA-ABAB-B14FD0EC5800}.Release|Win32.Build.0 = Release|Win32
+		{13AE549D-E520-3B98-9683-0428F0438CC1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{13AE549D-E520-3B98-9683-0428F0438CC1}.Debug|Win32.Build.0 = Debug|Win32
+		{13AE549D-E520-3B98-9683-0428F0438CC1}.Release|Win32.ActiveCfg = Release|Win32
+		{13AE549D-E520-3B98-9683-0428F0438CC1}.Release|Win32.Build.0 = Release|Win32
+		{7B0B3762-5E2C-3DC7-82A2-C1C74547F81E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7B0B3762-5E2C-3DC7-82A2-C1C74547F81E}.Debug|Win32.Build.0 = Debug|Win32
+		{7B0B3762-5E2C-3DC7-82A2-C1C74547F81E}.Release|Win32.ActiveCfg = Release|Win32
+		{7B0B3762-5E2C-3DC7-82A2-C1C74547F81E}.Release|Win32.Build.0 = Release|Win32
+		{EE936A8E-4880-332D-8FCD-AB107AAD99DE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EE936A8E-4880-332D-8FCD-AB107AAD99DE}.Debug|Win32.Build.0 = Debug|Win32
+		{EE936A8E-4880-332D-8FCD-AB107AAD99DE}.Release|Win32.ActiveCfg = Release|Win32
+		{EE936A8E-4880-332D-8FCD-AB107AAD99DE}.Release|Win32.Build.0 = Release|Win32
+		{0CF0C9A3-7B50-3727-87FA-2C107CF33C0A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0CF0C9A3-7B50-3727-87FA-2C107CF33C0A}.Debug|Win32.Build.0 = Debug|Win32
+		{0CF0C9A3-7B50-3727-87FA-2C107CF33C0A}.Release|Win32.ActiveCfg = Release|Win32
+		{0CF0C9A3-7B50-3727-87FA-2C107CF33C0A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
