@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dropboxQt", "dropboxQt.vcxproj", "{62848B66-C29B-329A-9E18-FF056C6FBBFE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "authorize", "..\examples\authorize\authorize.vcxproj", "{60913A3A-BC14-316F-B2C1-6DEFE17D729C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "account-info", "..\examples\account-info\account-info.vcxproj", "{1C154079-FB7D-3514-A9A7-D49DEA0CB7FB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "download", "..\examples\download\download.vcxproj", "{2352F1D2-89A1-3CB5-9614-E88E72096B03}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "upload", "..\examples\upload\upload.vcxproj", "{066290FC-0DAC-3632-941D-AC871CE39373}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "boxbash", "..\examples\boxbash\boxbash.vcxproj", "{D729B17E-79BD-3D33-AC46-0D3262476799}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62848B66-C29B-329A-9E18-FF056C6FBBFE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{62848B66-C29B-329A-9E18-FF056C6FBBFE}.Debug|Win32.Build.0 = Debug|Win32
+		{62848B66-C29B-329A-9E18-FF056C6FBBFE}.Release|Win32.ActiveCfg = Release|Win32
+		{62848B66-C29B-329A-9E18-FF056C6FBBFE}.Release|Win32.Build.0 = Release|Win32
+		{60913A3A-BC14-316F-B2C1-6DEFE17D729C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{60913A3A-BC14-316F-B2C1-6DEFE17D729C}.Debug|Win32.Build.0 = Debug|Win32
+		{60913A3A-BC14-316F-B2C1-6DEFE17D729C}.Release|Win32.ActiveCfg = Release|Win32
+		{60913A3A-BC14-316F-B2C1-6DEFE17D729C}.Release|Win32.Build.0 = Release|Win32
+		{1C154079-FB7D-3514-A9A7-D49DEA0CB7FB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1C154079-FB7D-3514-A9A7-D49DEA0CB7FB}.Debug|Win32.Build.0 = Debug|Win32
+		{1C154079-FB7D-3514-A9A7-D49DEA0CB7FB}.Release|Win32.ActiveCfg = Release|Win32
+		{1C154079-FB7D-3514-A9A7-D49DEA0CB7FB}.Release|Win32.Build.0 = Release|Win32
+		{2352F1D2-89A1-3CB5-9614-E88E72096B03}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2352F1D2-89A1-3CB5-9614-E88E72096B03}.Debug|Win32.Build.0 = Debug|Win32
+		{2352F1D2-89A1-3CB5-9614-E88E72096B03}.Release|Win32.ActiveCfg = Release|Win32
+		{2352F1D2-89A1-3CB5-9614-E88E72096B03}.Release|Win32.Build.0 = Release|Win32
+		{066290FC-0DAC-3632-941D-AC871CE39373}.Debug|Win32.ActiveCfg = Debug|Win32
+		{066290FC-0DAC-3632-941D-AC871CE39373}.Debug|Win32.Build.0 = Debug|Win32
+		{066290FC-0DAC-3632-941D-AC871CE39373}.Release|Win32.ActiveCfg = Release|Win32
+		{066290FC-0DAC-3632-941D-AC871CE39373}.Release|Win32.Build.0 = Release|Win32
+		{D729B17E-79BD-3D33-AC46-0D3262476799}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D729B17E-79BD-3D33-AC46-0D3262476799}.Debug|Win32.Build.0 = Debug|Win32
+		{D729B17E-79BD-3D33-AC46-0D3262476799}.Release|Win32.ActiveCfg = Release|Win32
+		{D729B17E-79BD-3D33-AC46-0D3262476799}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
