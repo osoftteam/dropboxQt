@@ -1,0 +1,60 @@
+/**********************************************************
+ DO NOT EDIT
+ This file was generated from stone specification "files"
+***********************************************************/
+
+#include "dropbox/files/FilesCommitInfo.h"
+
+namespace dropboxQt{
+
+namespace files{
+///CommitInfo
+
+CommitInfo::operator QJsonObject()const{
+    QJsonObject js;
+    this->toJson(js);
+    return js;
+}
+
+
+void CommitInfo::toJson(QJsonObject& js)const{
+
+    if(!m_path.isEmpty())
+        js["path"] = m_path;
+    m_mode.toJson(js, "mode");
+    js["autorename"] = m_autorename;
+    if(m_client_modified.isValid())
+        js["client_modified"] = m_client_modified.toString("yyyy-MM-ddThh:mm:ssZ");
+    js["mute"] = m_mute;
+}
+
+void CommitInfo::fromJson(const QJsonObject& js){
+
+    m_path = js["path"].toString();
+    m_mode.fromJson(js["mode"].toObject());
+    m_autorename = js["autorename"].toVariant().toBool();
+    m_client_modified = QDateTime::fromString(js["client_modified"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_mute = js["mute"].toVariant().toBool();
+}
+
+QString CommitInfo::toString(bool multiline)const
+{
+    QJsonObject js;
+    toJson(js);
+    QJsonDocument doc(js);
+    QString s(doc.toJson(multiline ? QJsonDocument::Indented : QJsonDocument::Compact));
+    return s;
+}
+
+#ifdef DROPBOX_QT_AUTOTEST
+CommitInfo CommitInfo::EXAMPLE(){
+    CommitInfo rv;
+    rv.path = "test1value";
+    rv.mode = files::WriteMode::EXAMPLE();
+    rv.client_modified = QDateTime::currentDateTime();
+    return rv;
+}
+#endif //DROPBOX_QT_AUTOTEST
+
+}//files
+}//dropboxQt

@@ -1,0 +1,60 @@
+/**********************************************************
+ DO NOT EDIT
+ This file was generated from stone specification "sharing"
+***********************************************************/
+
+#pragma once
+
+#include "dropbox/endpoint/DropboxUtil.h"
+
+namespace dropboxQt{
+namespace sharing{
+    class AccessLevel{
+        /**
+            Defines the access levels for collaborators.
+
+            field: owner: The collaborator is the owner of the shared folder.
+                Owners can view and edit the shared folder as well as set the
+                folder's policies using :meth:`update_folder_policy`.
+            field: editor: The collaborator can both view and edit the shared
+                folder.
+            field: viewer: The collaborator can only view the shared folder.
+            field: viewer_no_comment: The collaborator can only view the shared
+                folder and does not have any access to comments.
+        */
+    public:
+        enum Tag{
+
+		/*The collaborator is the owner of the shared folder. Owners can view and edit the shared folder as well as set the folder's policies using :route:`update_folder_policy`.*/
+		AccessLevel_OWNER,
+		/*The collaborator can both view and edit the shared folder.*/
+		AccessLevel_EDITOR,
+		/*The collaborator can only view the shared folder.*/
+		AccessLevel_VIEWER,
+		/*The collaborator can only view the shared folder and does not have any access to comments.*/
+		AccessLevel_VIEWER_NO_COMMENT,
+		/*None*/
+		AccessLevel_OTHER
+        };
+
+        AccessLevel(){}
+        AccessLevel(Tag v):m_tag(v){}
+
+        Tag tag()const{return m_tag;}
+    public:
+        operator QJsonObject ()const;
+        void toJson(QJsonObject& js, QString name)const;
+        void fromJson(const QJsonObject& js);
+        QString toString(bool multiline = true)const;
+
+        #ifdef DROPBOX_QT_AUTOTEST
+        static AccessLevel EXAMPLE();
+        #endif //DROPBOX_QT_AUTOTEST
+
+
+    protected:
+        Tag m_tag;
+    };//AccessLevel
+
+}//sharing
+}//dropboxQt

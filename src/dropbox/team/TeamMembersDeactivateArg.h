@@ -1,0 +1,62 @@
+/**********************************************************
+ DO NOT EDIT
+ This file was generated from stone specification "team"
+***********************************************************/
+
+#pragma once
+#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/team/TeamUserSelectorArg.h"
+#include "dropbox/team/TeamUserSelectorArg.h"
+
+namespace dropboxQt{
+namespace team{
+    class MembersDeactivateArg{
+        /**
+            Exactly one of team_member_id, email, or external_id must be
+            provided to identify the user account.
+
+            field: user: Identity of user to remove/suspend.
+            field: wipe_data: If provided, controls if the user's data will be
+                deleted on their linked devices.
+        */
+
+    public:
+        MembersDeactivateArg():
+        m_wipe_data(false)
+        {};
+
+        MembersDeactivateArg(const UserSelectorArg& arg):
+        m_wipe_data(false)
+        { m_user = arg; };
+
+    public:
+        ///Identity of user to remove/suspend.
+        UserSelectorArg user()const{return m_user;};
+        const MembersDeactivateArg& setUser(const UserSelectorArg& arg){m_user=arg; return *this;};
+
+        ///If provided, controls if the user's data will be deleted on their linked devices.
+        bool wipeData()const{return m_wipe_data;};
+        const MembersDeactivateArg& setWipedata(const bool& arg){m_wipe_data=arg; return *this;};
+
+    public:
+        operator QJsonObject ()const;
+        void toJson(QJsonObject& js)const;
+        void fromJson(const QJsonObject& js);
+        QString toString(bool multiline = true)const;
+
+        #ifdef DROPBOX_QT_AUTOTEST
+        static MembersDeactivateArg EXAMPLE();
+        #endif //DROPBOX_QT_AUTOTEST
+
+
+    protected:
+        ///Identity of user to remove/suspend.
+        UserSelectorArg m_user;
+
+        ///If provided, controls if the user's data will be deleted on their linked devices.
+        bool m_wipe_data;
+
+    };//MembersDeactivateArg
+
+}//team
+}//dropboxQt

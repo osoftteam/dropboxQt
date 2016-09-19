@@ -1,0 +1,62 @@
+/**********************************************************
+ DO NOT EDIT
+ This file was generated from stone specification "sharing"
+***********************************************************/
+
+#include "dropbox/sharing/SharingFileLinkMetadata.h"
+
+namespace dropboxQt{
+
+namespace sharing{
+///FileLinkMetadata
+
+FileLinkMetadata::operator QJsonObject()const{
+    QJsonObject js;
+    this->toJson(js);
+    return js;
+}
+
+
+void FileLinkMetadata::toJson(QJsonObject& js)const{
+
+    SharedLinkMetadata::toJson(js);
+    if(m_client_modified.isValid())
+        js["client_modified"] = m_client_modified.toString("yyyy-MM-ddThh:mm:ssZ");
+    if(m_server_modified.isValid())
+        js["server_modified"] = m_server_modified.toString("yyyy-MM-ddThh:mm:ssZ");
+    if(!m_rev.isEmpty())
+        js["rev"] = m_rev;
+    js["size"] = m_size;
+}
+
+void FileLinkMetadata::fromJson(const QJsonObject& js){
+
+    SharedLinkMetadata::fromJson(js);
+    m_client_modified = QDateTime::fromString(js["client_modified"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_server_modified = QDateTime::fromString(js["server_modified"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_rev = js["rev"].toString();
+    m_size = js["size"].toVariant().toInt();
+}
+
+QString FileLinkMetadata::toString(bool multiline)const
+{
+    QJsonObject js;
+    toJson(js);
+    QJsonDocument doc(js);
+    QString s(doc.toJson(multiline ? QJsonDocument::Indented : QJsonDocument::Compact));
+    return s;
+}
+
+#ifdef DROPBOX_QT_AUTOTEST
+FileLinkMetadata FileLinkMetadata::EXAMPLE(){
+    FileLinkMetadata rv;
+    rv.client_modified = QDateTime::currentDateTime();
+    rv.server_modified = QDateTime::currentDateTime();
+    rv.rev = "test3value";
+    rv.size = 4;
+    return rv;
+}
+#endif //DROPBOX_QT_AUTOTEST
+
+}//sharing
+}//dropboxQt
