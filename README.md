@@ -2,8 +2,8 @@ dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API
 
 ###Code Example
 
-```
 ####get user account info
+```
     try
         {
             users::FullAccount accountInfo = m_c.getUsers()->getCurrentAccount();
@@ -13,8 +13,9 @@ dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API
         {
             std::cout << "Exception: " << e.what() << std::endl;
         }
-
+```
 ####create folder
+```
     try
         {
             files::CreateFolderArg arg(m_curr_dir + path);
@@ -25,8 +26,9 @@ dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API
         {
             std::cout << "Exception: " << e.what() << std::endl;
         }
-
+```
 ####download text file and point content on the screen
+```
 	QByteArray byteArray;
     QBuffer buffer(&byteArray);
     buffer.open(QIODevice::WriteOnly);
@@ -41,9 +43,9 @@ dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API
         {
             std::cout << "Exception: " << e.what() << std::endl;
         }
-
-
+```
 ####authorize and get access token
+```
     using namespace dropboxQt;
     DropboxAppInfo ai;
     ai.readFromFile(fileName);
@@ -66,7 +68,7 @@ dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API
 Qt 5.xx and C++11 compiler. The used C++11 features are limited to lambdas & smart pointers so C++11 implementation available in VC2010 compiler should be sufficient, also modern GCC 5.xx and clang that comes with XCode 6.xx should be ok.
 
 ###Installation
-Run qmake in 'prj' folder to generate Makefile, compile, see generated static library dropboxQt
+Run qmake in 'prj' folder to generate Makefile, compile, see generated static library dropboxQt.
 To create sample project, cd in 'examples' and run qmake for each subfolder. There is shell script to open IDE
 on windows and generate project files - see folder 'bin' and win-configure-open-ide.bat
 You have to add dropboxQt to your LIB list (as shown in sample) and add path to cprj/src to the INCLUDE list.
