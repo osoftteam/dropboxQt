@@ -35,23 +35,7 @@ namespace dropboxQt{
             rv.append(js);
         }
         return rv;
-    };
-
-    /*
-    template<class T> 
-    QJsonArray struct_list2jsonarray(const std::list<T>& lst)
-    {
-        QJsonArray rv;
-        for(typename std::list<T>::const_iterator i = lst.cbegin(); i != lst.end(); i++){
-            const T& o = *i;
-            QJsonObject js;
-#            o.toJson(js);
-            QJsonObject js(o);
-            rv.append(js);
-        }
-        return rv;
-        };*/
-    
+    };    
     
     template<class T> 
     QJsonArray list_of_struct_list2jsonarray(const std::list <std::list<T>> & lst)
