@@ -2,7 +2,7 @@ dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API
 
 ###Code Example
 
-####get user account info
+####Get user account info
 ```
     try
         {
@@ -14,7 +14,7 @@ dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API
             std::cout << "Exception: " << e.what() << std::endl;
         }
 ```
-####create folder
+####Create a folder
 ```
     try
         {
@@ -27,7 +27,7 @@ dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API
             std::cout << "Exception: " << e.what() << std::endl;
         }
 ```
-####download text file and point content on the screen
+####Download text file and print content on the screen
 ```
 	QByteArray byteArray;
     QBuffer buffer(&byteArray);
@@ -44,7 +44,7 @@ dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API
             std::cout << "Exception: " << e.what() << std::endl;
         }
 ```
-####authorize and get access token
+####Authorize and get access token
 ```
     using namespace dropboxQt;
     DropboxAppInfo ai;
