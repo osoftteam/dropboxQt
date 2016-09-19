@@ -1,4 +1,4 @@
-###dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API built on HTTP, OAuth 2.0, and JSON.
+dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API built on HTTP, OAuth 2.0, and JSON.
 
 ###Code Example
 
