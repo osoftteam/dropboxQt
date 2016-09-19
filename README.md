@@ -1,6 +1,6 @@
-dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API built on HTTP, OAuth 2.0, and JSON.
+###dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API built on HTTP, OAuth 2.0, and JSON.
 
-##Code Example
+###Code Example
 
 ```
 //get user account info
@@ -33,25 +33,25 @@ catch(DropboxException& e){
 }
 ```
 
-##Requirement.
+###Requirement.
 Qt 5.xx and C++11 compiler. The used C++11 features are limited to lambdas & smart pointers so C++11 implementation available in VC2010 compiler should be sufficient, also modern GCC 5.xx and clang that comes with XCode 6.xx should be ok.
 
-##Installation
+###Installation
 Run qmake in 'prj' folder to generate Makefile, compile, see generated static library dropboxQt
 To create sample project, cd in 'examples' and run qmake for each subfolder. There is shell script to open IDE
 on windows and generate project files - see folder 'bin' and win-configure-open-ide.bat
 You have to add dropboxQt to your LIB list (as shown in sample) and add path to cprj/src to the INCLUDE list.
 
-##Current status
+###Current status
 Work in progress (pre alpha version) - use it as reference at your discretion.
 Code base is not tested and not stable. First alpha expected in couple weeks along with more samples.
 
 
-##Features
+###Features
 - connect to Dropbox using Api v2.
 - request OAuth2 token
 - functions & classes to work with API from files, team, user namespaces.
 
-##License
+###License
  LGPL v3
 
