@@ -113,7 +113,6 @@ void BoxCommands::cat(QString fileName)
   
 
     buffer.close();
-	//std::cout << "running cat.. " << arg.toStdString() << std::endl;
 };
 
 void BoxCommands::cd(QString dirName)
@@ -151,12 +150,6 @@ void BoxCommands::cd(QString dirName)
                         }
                 }
 
-            //            if(newPath.compare("/") == 0)
-            //                newPath = "";
-            
-            //            files::GetMetadataArg arg(newPath);
-            //            files::Metadata md = m_c.getFiles()->getMetadata(arg);
-            //            std::cout << md.toString().toStdString() << std::endl;
             m_curr_dir = newPath;
             if(m_curr_dir.length() == 0 || m_curr_dir[m_curr_dir.length() - 1] != '/')
                 m_curr_dir += "/";            
@@ -212,16 +205,16 @@ void BoxCommands::get(QString fileName)
 	}
 
 	try
-	{
-		files::DownloadArg arg(m_curr_dir + fileName);
-		files::Metadata res = m_c.getFiles()->download(arg, &out);
-		std::cout << "file downloaded" << std::endl;
-		std::cout << res.toString().toStdString() << std::endl;
-	}
+        {
+            files::DownloadArg arg(m_curr_dir + fileName);
+            files::Metadata res = m_c.getFiles()->download(arg, &out);
+            std::cout << "file downloaded" << std::endl;
+            std::cout << res.toString().toStdString() << std::endl;
+        }
 	catch (DropboxException& e)
-	{
-		std::cout << "Exception: " << e.what() << std::endl;
-	}
+        {
+            std::cout << "Exception: " << e.what() << std::endl;
+        }
 
 	out.close();
 };

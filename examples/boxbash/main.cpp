@@ -18,7 +18,7 @@ using namespace dropboxQt;
 void ApiListener::progressUpload(qint64 bytesProcessed, qint64 total)
 {
     if(bytesProcessed != total && total != -1)
-  std::cout << "progress " << bytesProcessed << " " << total << std::endl;
+        std::cout << "progress " << bytesProcessed << " " << total << std::endl;
 };
 
 class Terminal
@@ -50,38 +50,38 @@ public:
 		std::string exit_option("exit");
 
 		while(true)
-		{
-			std::cout << std::endl;
-			std::cout << "-----------------------------------------" << std::endl;
+            {
+                std::cout << std::endl;
+                std::cout << "-----------------------------------------" << std::endl;
 
-			for(SELECTION_LIST::iterator i = m_sel.begin(); i != m_sel.end(); i++){
-				std::cout << " " << pad(i->name.toStdString(), 10) << " " << i->description.toStdString() << std::endl;
- 			}
-			std::cout << " " << pad(exit_option, 10) << " " << "Exit terminal" << std::endl << std::endl;
-			std::cout << " WD:" << m_cmd.wd().toStdString() << std::endl;
-			std::cout <<" dropbox> ";
+                for(SELECTION_LIST::iterator i = m_sel.begin(); i != m_sel.end(); i++){
+                    std::cout << " " << pad(i->name.toStdString(), 10) << " " << i->description.toStdString() << std::endl;
+                }
+                std::cout << " " << pad(exit_option, 10) << " " << "Exit terminal" << std::endl << std::endl;
+                std::cout << " WD:" << m_cmd.wd().toStdString() << std::endl;
+                std::cout <<" dropbox> ";
 
-			std::string tmp;			
-			getline(std::cin, tmp);
-			QString str = tmp.c_str();
-			QStringList arg_list = str.split(" ", QString::SkipEmptyParts);
-			if(!arg_list.empty()){
-				str = arg_list[0];
-				if(str.compare("exit", Qt::CaseInsensitive) == 0)
-					break;
+                std::string tmp;			
+                getline(std::cin, tmp);
+                QString str = tmp.c_str();
+                QStringList arg_list = str.split(" ", QString::SkipEmptyParts);
+                if(!arg_list.empty()){
+                    str = arg_list[0];
+                    if(str.compare("exit", Qt::CaseInsensitive) == 0)
+                        break;
 
-				arg_list.removeFirst();
-				QString arg = arg_list.join(" ");
+                    arg_list.removeFirst();
+                    QString arg = arg_list.join(" ");
 
-				SELECTION_MAP::iterator i = m_sel_map.find(str);
-				if(i == m_sel_map.end()){
-					std::cout << "invalid command: " << str.toStdString() << std::endl;
-				}
-				else{
-					i->second.action(arg);
-				}
-			}
-		}
+                    SELECTION_MAP::iterator i = m_sel_map.find(str);
+                    if(i == m_sel_map.end()){
+                        std::cout << "invalid command: " << str.toStdString() << std::endl;
+                    }
+                    else{
+                        i->second.action(arg);
+                    }
+                }
+            }
 	};
 
 	std::string pad(std::string s, const size_t num, const char paddingChar = ' ')
@@ -100,49 +100,49 @@ protected:
 
 int main(int argc, char *argv[]) 
 {
-  QCoreApplication app(argc, argv);
+    QCoreApplication app(argc, argv);
 
-  if (argc != 2) {
-      std::string  s = QString("\nUsage:   %1 <auth-file>\n"
-	  "Example: %1 ../token.info\n"
-      "\n"
-      "<auth-file>: An \"auth file\" that contains the information necessary to make"
-      "an authorized Dropbox API request.  Generate this file using the \"authorize\"\n"
-      "example program.\n"
-      "\n"
-      " Press ENTER to proceed.").arg(argv[0]).toStdString();
+    if (argc != 2) {
+        std::string  s = QString("\nUsage:   %1 <auth-file>\n"
+                                 "Example: %1 ../token.info\n"
+                                 "\n"
+                                 "<auth-file>: An \"auth file\" that contains the information necessary to make"
+                                 "an authorized Dropbox API request.  Generate this file using the \"authorize\"\n"
+                                 "example program.\n"
+                                 "\n"
+                                 " Press ENTER to proceed.").arg(argv[0]).toStdString();
 
-    std::cout << s << std::endl;
-    std::cout << std::endl;
-    std::cin.ignore();
-    return 0;
-  }
+        std::cout << s << std::endl;
+        std::cout << std::endl;
+        std::cin.ignore();
+        return 0;
+    }
 
-  QString argAuthFile = argv[1];
-  DropboxAuthInfo authInfo;
-  if(!authInfo.readFromFile(argAuthFile)){
-    std::cout << "Error reading <auth-file>" << std::endl;
-    std::cin.ignore();
-    return 0;        
-  }
+    QString argAuthFile = argv[1];
+    DropboxAuthInfo authInfo;
+    if(!authInfo.readFromFile(argAuthFile)){
+        std::cout << "Error reading <auth-file>" << std::endl;
+        std::cin.ignore();
+        return 0;        
+    }
 
-  ApiListener lsn;
-  DropboxClient c(authInfo.getAccessToken());
-  QObject::connect(&c, &DropboxClient::progress, &lsn, &ApiListener::progressUpload);
+    ApiListener lsn;
+    DropboxClient c(authInfo.getAccessToken());
+    QObject::connect(&c, &DropboxClient::progress, &lsn, &ApiListener::progressUpload);
 
-  BoxCommands cmd(c);
-  Terminal t(cmd);
+    BoxCommands cmd(c);
+    Terminal t(cmd);
   
-  t.addAction("account","Account info", [&](QString arg) {cmd.account(arg);} );
-  t.addAction("pwd",	"Print Working Directory", [&](QString arg) {cmd.pwd(arg);} );
-  t.addAction("ls",		"List Directory", [&](QString arg) {cmd.ls(arg);} );
-  t.addAction("mkdir",	"Create Directory", [&](QString arg) {cmd.mkdir(arg);} );
-  t.addAction("cat",	"Print file content", [&](QString arg) {cmd.cat(arg);} );
-  t.addAction("cd",	    "Change working directory", [&](QString arg) {cmd.cd(arg);} );
-  t.addAction("put",	"Upload file", [&](QString arg) {cmd.put(arg);} );
-  t.addAction("get",	"Download file", [&](QString arg) {cmd.get(arg);} );
-  t.addAction("rm",	    "Delete file or folder", [&](QString arg) {cmd.rm(arg);} );
-  t.start();
+    t.addAction("account","Account info", [&](QString arg) {cmd.account(arg);} );
+    t.addAction("pwd",	"Print Working Directory", [&](QString arg) {cmd.pwd(arg);} );
+    t.addAction("ls",		"List Directory", [&](QString arg) {cmd.ls(arg);} );
+    t.addAction("mkdir",	"Create Directory", [&](QString arg) {cmd.mkdir(arg);} );
+    t.addAction("cat",	"Print file content", [&](QString arg) {cmd.cat(arg);} );
+    t.addAction("cd",	    "Change working directory", [&](QString arg) {cmd.cd(arg);} );
+    t.addAction("put",	"Upload file", [&](QString arg) {cmd.put(arg);} );
+    t.addAction("get",	"Download file", [&](QString arg) {cmd.get(arg);} );
+    t.addAction("rm",	    "Delete file or folder", [&](QString arg) {cmd.rm(arg);} );
+    t.start();
 
-  return 0;
+    return 0;
 }
