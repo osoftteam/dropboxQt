@@ -243,14 +243,6 @@ namespace dropboxQt{
         const DropboxHost& getHost()const{return DropboxHost::DEFAULT();}
         void cancel();
 
-#ifdef DROPBOX_QT_AUTOTEST
-        /**
-           getWebPage - autotest routine, downloads web page an stores into 
-           autotest stream file, used to check basic QNetworkAccessManager slots
-        */
-        void getWebPage(QString path);
-#endif //DROPBOX_QT_AUTOTEST
-
     protected:
         void execEventLoop(QNetworkReply *reply);
         void exitEventLoop(QNetworkReply *reply);

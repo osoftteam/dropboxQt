@@ -34,25 +34,3 @@ void Endpoint::cancel()
     }
 };
 
-#ifdef DROPBOX_QT_AUTOTEST
-void Endpoint::getWebPage(QString path)
-{
-    QUrl url(path);
-    QNetworkRequest req(url);
-    QNetworkReply *reply = m_con_mgr.get(req);
-    DropboxAutotest::INSTANCE() << req;
-
-    SETUP_DEFAULT_SLOTS(reply);
-
-    QObject::connect(reply, &QNetworkReply::finished, [&]()
-                     {
-                         int status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-                         DropboxAutotest::INSTANCE() << QString("status-code: %1").arg(status_code);
-                         if(status_code == 200){
-                             DropboxAutotest::INSTANCE() << reply->readAll();
-                         }
-                         exitEventLoop(reply);
-                     });
-    execEventLoop(reply);
-}
-#endif //DROPBOX_QT_AUTOTEST

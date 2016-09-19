@@ -54,39 +54,6 @@ namespace dropboxQt{
         explicit IllegalStateException(const std::string& message, int state):
 			DropboxException(message, state)
         {};
-        };    
+    };    
     
-    /*
-    class ServerReplyException: public DropboxException
-    {
-    public:
-        explicit ServerReplyException(const std::string& message, int code):
-			DropboxException(message),
-            m_status_code(code)
-        {};
-
-
-        virtual int code()const throw(){
-            return m_status_code;
-        }        
-    protected:    
-        int m_status_code;
-    };
-
-    
-    class IllegalStateException: public DropboxException
-    {
-    public:
-        explicit IllegalStateException(const std::string& message, int state):
-			DropboxException(message),
-            m_state(state)
-        {};
-
-        virtual int state()const throw(){
-            return m_state;
-        }        
-    protected:
-        int m_state;	
-        };*/
-
 };
