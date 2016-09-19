@@ -22,19 +22,19 @@ void MemberSelector::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case MemberSelector_DROPBOX_ID:{
             if(!name.isEmpty())
-                js[name] = "dropbox_id";
+                js[name] = QString("dropbox_id");
             if(!m_dropbox_id.isEmpty())
-                js["dropbox_id"] = m_dropbox_id;
+                js["dropbox_id"] = QString(m_dropbox_id);
         }break;
         case MemberSelector_EMAIL:{
             if(!name.isEmpty())
-                js[name] = "email";
+                js[name] = QString("email");
             if(!m_email.isEmpty())
-                js["email"] = m_email;
+                js["email"] = QString(m_email);
         }break;
         case MemberSelector_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

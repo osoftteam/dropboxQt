@@ -20,10 +20,10 @@ AddFileMemberArgs::operator QJsonObject()const{
 void AddFileMemberArgs::toJson(QJsonObject& js)const{
 
     if(!m_file.isEmpty())
-        js["file"] = m_file;
+        js["file"] = QString(m_file);
     js["members"] = struct_list2jsonarray(m_members);
     if(!m_custom_message.isEmpty())
-        js["custom_message"] = m_custom_message;
+        js["custom_message"] = QString(m_custom_message);
     js["quiet"] = m_quiet;
     m_access_level.toJson(js, "access_level");
     js["add_message_as_comment"] = m_add_message_as_comment;

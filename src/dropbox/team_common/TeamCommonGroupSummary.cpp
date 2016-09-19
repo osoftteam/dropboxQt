@@ -20,11 +20,11 @@ GroupSummary::operator QJsonObject()const{
 void GroupSummary::toJson(QJsonObject& js)const{
 
     if(!m_group_name.isEmpty())
-        js["group_name"] = m_group_name;
+        js["group_name"] = QString(m_group_name);
     if(!m_group_id.isEmpty())
-        js["group_id"] = m_group_id;
+        js["group_id"] = QString(m_group_id);
     if(!m_group_external_id.isEmpty())
-        js["group_external_id"] = m_group_external_id;
+        js["group_external_id"] = QString(m_group_external_id);
     js["member_count"] = m_member_count;
     m_group_management_type.toJson(js, "group_management_type");
 }

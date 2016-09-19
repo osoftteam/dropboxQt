@@ -22,20 +22,20 @@ void PreviewError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case PreviewError_PATH:{
             if(!name.isEmpty())
-                js[name] = "path";
+                js[name] = QString("path");
             m_path.toJson(js, "path");
         }break;
         case PreviewError_IN_PROGRESS:{
             if(!name.isEmpty())
-                js[name] = "in_progress";
+                js[name] = QString("in_progress");
         }break;
         case PreviewError_UNSUPPORTED_EXTENSION:{
             if(!name.isEmpty())
-                js[name] = "unsupported_extension";
+                js[name] = QString("unsupported_extension");
         }break;
         case PreviewError_UNSUPPORTED_CONTENT:{
             if(!name.isEmpty())
-                js[name] = "unsupported_content";
+                js[name] = QString("unsupported_content");
         }break;
     }//switch
 }

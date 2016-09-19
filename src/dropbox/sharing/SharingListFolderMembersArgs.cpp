@@ -21,7 +21,7 @@ void ListFolderMembersArgs::toJson(QJsonObject& js)const{
 
     ListFolderMembersCursorArg::toJson(js);
     if(!m_shared_folder_id.isEmpty())
-        js["shared_folder_id"] = m_shared_folder_id;
+        js["shared_folder_id"] = QString(m_shared_folder_id);
 }
 
 void ListFolderMembersArgs::fromJson(const QJsonObject& js){

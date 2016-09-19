@@ -20,7 +20,7 @@ RelinquishFolderMembershipArg::operator QJsonObject()const{
 void RelinquishFolderMembershipArg::toJson(QJsonObject& js)const{
 
     if(!m_shared_folder_id.isEmpty())
-        js["shared_folder_id"] = m_shared_folder_id;
+        js["shared_folder_id"] = QString(m_shared_folder_id);
     js["leave_a_copy"] = m_leave_a_copy;
 }
 

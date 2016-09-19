@@ -22,11 +22,11 @@ void MediaInfo::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case MediaInfo_PENDING:{
             if(!name.isEmpty())
-                js[name] = "pending";
+                js[name] = QString("pending");
         }break;
         case MediaInfo_METADATA:{
             if(!name.isEmpty())
-                js[name] = "metadata";
+                js[name] = QString("metadata");
             js["metadata"] = (QJsonObject)m_metadata;
         }break;
     }//switch

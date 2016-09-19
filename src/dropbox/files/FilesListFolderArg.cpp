@@ -19,7 +19,7 @@ ListFolderArg::operator QJsonObject()const{
 
 void ListFolderArg::toJson(QJsonObject& js)const{
 
-    js["path"] = m_path;
+    js["path"] = QString(m_path);
     js["recursive"] = m_recursive;
     js["include_media_info"] = m_include_media_info;
     js["include_deleted"] = m_include_deleted;

@@ -22,12 +22,12 @@ void GroupsSelector::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case GroupsSelector_GROUP_IDS:{
             if(!name.isEmpty())
-                js[name] = "group_ids";
+                js[name] = QString("group_ids");
             js["group_ids"] = ingrl_list2jsonarray(m_group_ids);
         }break;
         case GroupsSelector_GROUP_EXTERNAL_IDS:{
             if(!name.isEmpty())
-                js[name] = "group_external_ids";
+                js[name] = QString("group_external_ids");
             js["group_external_ids"] = ingrl_list2jsonarray(m_group_external_ids);
         }break;
     }//switch

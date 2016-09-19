@@ -21,12 +21,12 @@ void DesktopClientSession::toJson(QJsonObject& js)const{
 
     DeviceSession::toJson(js);
     if(!m_host_name.isEmpty())
-        js["host_name"] = m_host_name;
+        js["host_name"] = QString(m_host_name);
     m_client_type.toJson(js, "client_type");
     if(!m_client_version.isEmpty())
-        js["client_version"] = m_client_version;
+        js["client_version"] = QString(m_client_version);
     if(!m_platform.isEmpty())
-        js["platform"] = m_platform;
+        js["platform"] = QString(m_platform);
     js["is_delete_on_unlink_supported"] = m_is_delete_on_unlink_supported;
 }
 

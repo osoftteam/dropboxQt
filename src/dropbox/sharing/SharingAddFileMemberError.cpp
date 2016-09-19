@@ -22,25 +22,25 @@ void AddFileMemberError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case AddFileMemberError_USER_ERROR:{
             if(!name.isEmpty())
-                js[name] = "user_error";
+                js[name] = QString("user_error");
             m_user_error.toJson(js, "user_error");
         }break;
         case AddFileMemberError_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case AddFileMemberError_RATE_LIMIT:{
             if(!name.isEmpty())
-                js[name] = "rate_limit";
+                js[name] = QString("rate_limit");
         }break;
         case AddFileMemberError_INVALID_COMMENT:{
             if(!name.isEmpty())
-                js[name] = "invalid_comment";
+                js[name] = QString("invalid_comment");
         }break;
         case AddFileMemberError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

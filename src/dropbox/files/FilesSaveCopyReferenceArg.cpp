@@ -20,9 +20,9 @@ SaveCopyReferenceArg::operator QJsonObject()const{
 void SaveCopyReferenceArg::toJson(QJsonObject& js)const{
 
     if(!m_copy_reference.isEmpty())
-        js["copy_reference"] = m_copy_reference;
+        js["copy_reference"] = QString(m_copy_reference);
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
 }
 
 void SaveCopyReferenceArg::fromJson(const QJsonObject& js){

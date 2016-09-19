@@ -20,9 +20,9 @@ TeamGetInfoResult::operator QJsonObject()const{
 void TeamGetInfoResult::toJson(QJsonObject& js)const{
 
     if(!m_name.isEmpty())
-        js["name"] = m_name;
+        js["name"] = QString(m_name);
     if(!m_team_id.isEmpty())
-        js["team_id"] = m_team_id;
+        js["team_id"] = QString(m_team_id);
     js["num_licensed_users"] = m_num_licensed_users;
     js["num_provisioned_users"] = m_num_provisioned_users;
     js["policies"] = (QJsonObject)m_policies;

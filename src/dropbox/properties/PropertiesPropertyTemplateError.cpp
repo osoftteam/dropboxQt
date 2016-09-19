@@ -22,17 +22,17 @@ void PropertyTemplateError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case PropertyTemplateError_TEMPLATE_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "template_not_found";
+                js[name] = QString("template_not_found");
             if(!m_template_not_found.isEmpty())
-                js["template_not_found"] = m_template_not_found;
+                js["template_not_found"] = QString(m_template_not_found);
         }break;
         case PropertyTemplateError_RESTRICTED_CONTENT:{
             if(!name.isEmpty())
-                js[name] = "restricted_content";
+                js[name] = QString("restricted_content");
         }break;
         case PropertyTemplateError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

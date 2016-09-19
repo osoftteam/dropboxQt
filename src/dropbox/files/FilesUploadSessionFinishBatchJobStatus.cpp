@@ -22,11 +22,11 @@ void UploadSessionFinishBatchJobStatus::toJson(QJsonObject& js, QString name)con
     switch(m_tag){
         case PollResultBase_IN_PROGRESS:{
             if(!name.isEmpty())
-                js[name] = "in_progress";
+                js[name] = QString("in_progress");
         }break;
         case UploadSessionFinishBatchJobStatus_COMPLETE:{
             if(!name.isEmpty())
-                js[name] = "complete";
+                js[name] = QString("complete");
             js["complete"] = (QJsonObject)m_complete;
         }break;
     }//switch

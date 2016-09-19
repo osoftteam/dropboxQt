@@ -21,7 +21,7 @@ void GroupMembersChangeResult::toJson(QJsonObject& js)const{
 
     js["group_info"] = (QJsonObject)m_group_info;
     if(!m_async_job_id.isEmpty())
-        js["async_job_id"] = m_async_job_id;
+        js["async_job_id"] = QString(m_async_job_id);
 }
 
 void GroupMembersChangeResult::fromJson(const QJsonObject& js){

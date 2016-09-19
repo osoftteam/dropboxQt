@@ -22,11 +22,11 @@ void SharingUserError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SharingUserError_EMAIL_UNVERIFIED:{
             if(!name.isEmpty())
-                js[name] = "email_unverified";
+                js[name] = QString("email_unverified");
         }break;
         case SharingUserError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

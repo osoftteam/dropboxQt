@@ -22,21 +22,21 @@ void UserSelectorArg::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case UserSelectorArg_TEAM_MEMBER_ID:{
             if(!name.isEmpty())
-                js[name] = "team_member_id";
+                js[name] = QString("team_member_id");
             if(!m_team_member_id.isEmpty())
-                js["team_member_id"] = m_team_member_id;
+                js["team_member_id"] = QString(m_team_member_id);
         }break;
         case UserSelectorArg_EXTERNAL_ID:{
             if(!name.isEmpty())
-                js[name] = "external_id";
+                js[name] = QString("external_id");
             if(!m_external_id.isEmpty())
-                js["external_id"] = m_external_id;
+                js["external_id"] = QString(m_external_id);
         }break;
         case UserSelectorArg_EMAIL:{
             if(!name.isEmpty())
-                js[name] = "email";
+                js[name] = QString("email");
             if(!m_email.isEmpty())
-                js["email"] = m_email;
+                js["email"] = QString(m_email);
         }break;
     }//switch
 }

@@ -20,9 +20,9 @@ SaveUrlArg::operator QJsonObject()const{
 void SaveUrlArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
     if(!m_url.isEmpty())
-        js["url"] = m_url;
+        js["url"] = QString(m_url);
 }
 
 void SaveUrlArg::fromJson(const QJsonObject& js){

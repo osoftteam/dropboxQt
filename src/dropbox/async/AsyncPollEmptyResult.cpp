@@ -22,11 +22,11 @@ void PollEmptyResult::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case PollResultBase_IN_PROGRESS:{
             if(!name.isEmpty())
-                js[name] = "in_progress";
+                js[name] = QString("in_progress");
         }break;
         case PollEmptyResult_COMPLETE:{
             if(!name.isEmpty())
-                js[name] = "complete";
+                js[name] = QString("complete");
         }break;
     }//switch
 }

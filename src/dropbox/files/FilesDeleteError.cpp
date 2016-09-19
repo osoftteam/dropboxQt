@@ -22,17 +22,17 @@ void DeleteError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case DeleteError_PATH_LOOKUP:{
             if(!name.isEmpty())
-                js[name] = "path_lookup";
+                js[name] = QString("path_lookup");
             m_path_lookup.toJson(js, "path_lookup");
         }break;
         case DeleteError_PATH_WRITE:{
             if(!name.isEmpty())
-                js[name] = "path_write";
+                js[name] = QString("path_write");
             m_path_write.toJson(js, "path_write");
         }break;
         case DeleteError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

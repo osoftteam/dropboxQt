@@ -20,7 +20,7 @@ PropertyGroupUpdate::operator QJsonObject()const{
 void PropertyGroupUpdate::toJson(QJsonObject& js)const{
 
     if(!m_template_id.isEmpty())
-        js["template_id"] = m_template_id;
+        js["template_id"] = QString(m_template_id);
     js["add_or_update_fields"] = struct_list2jsonarray(m_add_or_update_fields);
     js["remove_fields"] = ingrl_list2jsonarray(m_remove_fields);
 }

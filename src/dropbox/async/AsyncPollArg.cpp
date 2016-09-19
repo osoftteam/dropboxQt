@@ -20,7 +20,7 @@ PollArg::operator QJsonObject()const{
 void PollArg::toJson(QJsonObject& js)const{
 
     if(!m_async_job_id.isEmpty())
-        js["async_job_id"] = m_async_job_id;
+        js["async_job_id"] = QString(m_async_job_id);
 }
 
 void PollArg::fromJson(const QJsonObject& js){

@@ -22,11 +22,11 @@ void PendingUploadMode::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case PendingUploadMode_FILE:{
             if(!name.isEmpty())
-                js[name] = "file";
+                js[name] = QString("file");
         }break;
         case PendingUploadMode_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "folder";
+                js[name] = QString("folder");
         }break;
     }//switch
 }

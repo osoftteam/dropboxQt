@@ -22,21 +22,21 @@ void ListFileMembersContinueError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case ListFileMembersContinueError_USER_ERROR:{
             if(!name.isEmpty())
-                js[name] = "user_error";
+                js[name] = QString("user_error");
             m_user_error.toJson(js, "user_error");
         }break;
         case ListFileMembersContinueError_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case ListFileMembersContinueError_INVALID_CURSOR:{
             if(!name.isEmpty())
-                js[name] = "invalid_cursor";
+                js[name] = QString("invalid_cursor");
         }break;
         case ListFileMembersContinueError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

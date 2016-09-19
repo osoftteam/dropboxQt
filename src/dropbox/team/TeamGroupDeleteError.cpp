@@ -22,15 +22,15 @@ void GroupDeleteError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case GroupSelectorError_GROUP_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "group_not_found";
+                js[name] = QString("group_not_found");
         }break;
         case GroupSelectorError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
         case GroupDeleteError_GROUP_ALREADY_DELETED:{
             if(!name.isEmpty())
-                js[name] = "group_already_deleted";
+                js[name] = QString("group_already_deleted");
         }break;
     }//switch
 }

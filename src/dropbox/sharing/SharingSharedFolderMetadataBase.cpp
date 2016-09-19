@@ -24,7 +24,7 @@ void SharedFolderMetadataBase::toJson(QJsonObject& js)const{
     js["policy"] = (QJsonObject)m_policy;
     js["owner_team"] = (QJsonObject)m_owner_team;
     if(!m_parent_shared_folder_id.isEmpty())
-        js["parent_shared_folder_id"] = m_parent_shared_folder_id;
+        js["parent_shared_folder_id"] = QString(m_parent_shared_folder_id);
 }
 
 void SharedFolderMetadataBase::fromJson(const QJsonObject& js){

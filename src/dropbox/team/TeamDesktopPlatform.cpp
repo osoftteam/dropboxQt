@@ -22,19 +22,19 @@ void DesktopPlatform::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case DesktopPlatform_WINDOWS:{
             if(!name.isEmpty())
-                js[name] = "windows";
+                js[name] = QString("windows");
         }break;
         case DesktopPlatform_MAC:{
             if(!name.isEmpty())
-                js[name] = "mac";
+                js[name] = QString("mac");
         }break;
         case DesktopPlatform_LINUX:{
             if(!name.isEmpty())
-                js[name] = "linux";
+                js[name] = QString("linux");
         }break;
         case DesktopPlatform_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

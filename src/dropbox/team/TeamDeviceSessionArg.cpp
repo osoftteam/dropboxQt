@@ -20,9 +20,9 @@ DeviceSessionArg::operator QJsonObject()const{
 void DeviceSessionArg::toJson(QJsonObject& js)const{
 
     if(!m_session_id.isEmpty())
-        js["session_id"] = m_session_id;
+        js["session_id"] = QString(m_session_id);
     if(!m_team_member_id.isEmpty())
-        js["team_member_id"] = m_team_member_id;
+        js["team_member_id"] = QString(m_team_member_id);
 }
 
 void DeviceSessionArg::fromJson(const QJsonObject& js){

@@ -20,9 +20,9 @@ TransferFolderArg::operator QJsonObject()const{
 void TransferFolderArg::toJson(QJsonObject& js)const{
 
     if(!m_shared_folder_id.isEmpty())
-        js["shared_folder_id"] = m_shared_folder_id;
+        js["shared_folder_id"] = QString(m_shared_folder_id);
     if(!m_to_dropbox_id.isEmpty())
-        js["to_dropbox_id"] = m_to_dropbox_id;
+        js["to_dropbox_id"] = QString(m_to_dropbox_id);
 }
 
 void TransferFolderArg::fromJson(const QJsonObject& js){

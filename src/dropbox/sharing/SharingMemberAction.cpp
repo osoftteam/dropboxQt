@@ -22,31 +22,31 @@ void MemberAction::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case MemberAction_LEAVE_A_COPY:{
             if(!name.isEmpty())
-                js[name] = "leave_a_copy";
+                js[name] = QString("leave_a_copy");
         }break;
         case MemberAction_MAKE_EDITOR:{
             if(!name.isEmpty())
-                js[name] = "make_editor";
+                js[name] = QString("make_editor");
         }break;
         case MemberAction_MAKE_OWNER:{
             if(!name.isEmpty())
-                js[name] = "make_owner";
+                js[name] = QString("make_owner");
         }break;
         case MemberAction_MAKE_VIEWER:{
             if(!name.isEmpty())
-                js[name] = "make_viewer";
+                js[name] = QString("make_viewer");
         }break;
         case MemberAction_MAKE_VIEWER_NO_COMMENT:{
             if(!name.isEmpty())
-                js[name] = "make_viewer_no_comment";
+                js[name] = QString("make_viewer_no_comment");
         }break;
         case MemberAction_REMOVE:{
             if(!name.isEmpty())
-                js[name] = "remove";
+                js[name] = QString("remove");
         }break;
         case MemberAction_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

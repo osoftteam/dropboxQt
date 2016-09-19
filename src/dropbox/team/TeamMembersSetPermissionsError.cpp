@@ -22,27 +22,27 @@ void MembersSetPermissionsError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case UserSelectorError_USER_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "user_not_found";
+                js[name] = QString("user_not_found");
         }break;
         case MembersSetPermissionsError_LAST_ADMIN:{
             if(!name.isEmpty())
-                js[name] = "last_admin";
+                js[name] = QString("last_admin");
         }break;
         case MembersSetPermissionsError_USER_NOT_IN_TEAM:{
             if(!name.isEmpty())
-                js[name] = "user_not_in_team";
+                js[name] = QString("user_not_in_team");
         }break;
         case MembersSetPermissionsError_CANNOT_SET_PERMISSIONS:{
             if(!name.isEmpty())
-                js[name] = "cannot_set_permissions";
+                js[name] = QString("cannot_set_permissions");
         }break;
         case MembersSetPermissionsError_TEAM_LICENSE_LIMIT:{
             if(!name.isEmpty())
-                js[name] = "team_license_limit";
+                js[name] = QString("team_license_limit");
         }break;
         case MembersSetPermissionsError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

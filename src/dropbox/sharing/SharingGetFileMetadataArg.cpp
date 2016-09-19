@@ -20,7 +20,7 @@ GetFileMetadataArg::operator QJsonObject()const{
 void GetFileMetadataArg::toJson(QJsonObject& js)const{
 
     if(!m_file.isEmpty())
-        js["file"] = m_file;
+        js["file"] = QString(m_file);
     js["actions"] = struct_list2jsonarray(m_actions);
 }
 

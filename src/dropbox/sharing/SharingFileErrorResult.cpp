@@ -22,25 +22,25 @@ void FileErrorResult::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case FileErrorResult_FILE_NOT_FOUND_ERROR:{
             if(!name.isEmpty())
-                js[name] = "file_not_found_error";
+                js[name] = QString("file_not_found_error");
             if(!m_file_not_found_error.isEmpty())
-                js["file_not_found_error"] = m_file_not_found_error;
+                js["file_not_found_error"] = QString(m_file_not_found_error);
         }break;
         case FileErrorResult_INVALID_FILE_ACTION_ERROR:{
             if(!name.isEmpty())
-                js[name] = "invalid_file_action_error";
+                js[name] = QString("invalid_file_action_error");
             if(!m_invalid_file_action_error.isEmpty())
-                js["invalid_file_action_error"] = m_invalid_file_action_error;
+                js["invalid_file_action_error"] = QString(m_invalid_file_action_error);
         }break;
         case FileErrorResult_PERMISSION_DENIED_ERROR:{
             if(!name.isEmpty())
-                js[name] = "permission_denied_error";
+                js[name] = QString("permission_denied_error");
             if(!m_permission_denied_error.isEmpty())
-                js["permission_denied_error"] = m_permission_denied_error;
+                js["permission_denied_error"] = QString(m_permission_denied_error);
         }break;
         case FileErrorResult_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

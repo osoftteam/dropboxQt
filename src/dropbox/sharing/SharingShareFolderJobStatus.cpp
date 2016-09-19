@@ -22,16 +22,16 @@ void ShareFolderJobStatus::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case PollResultBase_IN_PROGRESS:{
             if(!name.isEmpty())
-                js[name] = "in_progress";
+                js[name] = QString("in_progress");
         }break;
         case ShareFolderJobStatus_COMPLETE:{
             if(!name.isEmpty())
-                js[name] = "complete";
+                js[name] = QString("complete");
             js["complete"] = (QJsonObject)m_complete;
         }break;
         case ShareFolderJobStatus_FAILED:{
             if(!name.isEmpty())
-                js[name] = "failed";
+                js[name] = QString("failed");
             m_failed.toJson(js, "failed");
         }break;
     }//switch

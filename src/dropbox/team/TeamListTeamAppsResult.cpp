@@ -22,7 +22,7 @@ void ListTeamAppsResult::toJson(QJsonObject& js)const{
     js["apps"] = struct_list2jsonarray(m_apps);
     js["has_more"] = m_has_more;
     if(!m_cursor.isEmpty())
-        js["cursor"] = m_cursor;
+        js["cursor"] = QString(m_cursor);
 }
 
 void ListTeamAppsResult::fromJson(const QJsonObject& js){

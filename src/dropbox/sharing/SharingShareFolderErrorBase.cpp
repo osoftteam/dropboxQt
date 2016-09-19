@@ -22,24 +22,24 @@ void ShareFolderErrorBase::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case ShareFolderErrorBase_EMAIL_UNVERIFIED:{
             if(!name.isEmpty())
-                js[name] = "email_unverified";
+                js[name] = QString("email_unverified");
         }break;
         case ShareFolderErrorBase_BAD_PATH:{
             if(!name.isEmpty())
-                js[name] = "bad_path";
+                js[name] = QString("bad_path");
             m_bad_path.toJson(js, "bad_path");
         }break;
         case ShareFolderErrorBase_TEAM_POLICY_DISALLOWS_MEMBER_POLICY:{
             if(!name.isEmpty())
-                js[name] = "team_policy_disallows_member_policy";
+                js[name] = QString("team_policy_disallows_member_policy");
         }break;
         case ShareFolderErrorBase_DISALLOWED_SHARED_LINK_POLICY:{
             if(!name.isEmpty())
-                js[name] = "disallowed_shared_link_policy";
+                js[name] = QString("disallowed_shared_link_policy");
         }break;
         case ShareFolderErrorBase_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

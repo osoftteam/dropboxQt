@@ -22,20 +22,20 @@ void SharedFolderMemberError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SharedFolderMemberError_INVALID_DROPBOX_ID:{
             if(!name.isEmpty())
-                js[name] = "invalid_dropbox_id";
+                js[name] = QString("invalid_dropbox_id");
         }break;
         case SharedFolderMemberError_NOT_A_MEMBER:{
             if(!name.isEmpty())
-                js[name] = "not_a_member";
+                js[name] = QString("not_a_member");
         }break;
         case SharedFolderMemberError_NO_EXPLICIT_ACCESS:{
             if(!name.isEmpty())
-                js[name] = "no_explicit_access";
+                js[name] = QString("no_explicit_access");
             js["no_explicit_access"] = (QJsonObject)m_no_explicit_access;
         }break;
         case SharedFolderMemberError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

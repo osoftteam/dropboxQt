@@ -22,11 +22,11 @@ void ListTeamDevicesError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case ListTeamDevicesError_RESET:{
             if(!name.isEmpty())
-                js[name] = "reset";
+                js[name] = QString("reset");
         }break;
         case ListTeamDevicesError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

@@ -22,17 +22,17 @@ void UsersSelectorArg::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case UsersSelectorArg_TEAM_MEMBER_IDS:{
             if(!name.isEmpty())
-                js[name] = "team_member_ids";
+                js[name] = QString("team_member_ids");
             js["team_member_ids"] = ingrl_list2jsonarray(m_team_member_ids);
         }break;
         case UsersSelectorArg_EXTERNAL_IDS:{
             if(!name.isEmpty())
-                js[name] = "external_ids";
+                js[name] = QString("external_ids");
             js["external_ids"] = ingrl_list2jsonarray(m_external_ids);
         }break;
         case UsersSelectorArg_EMAILS:{
             if(!name.isEmpty())
-                js[name] = "emails";
+                js[name] = QString("emails");
             js["emails"] = ingrl_list2jsonarray(m_emails);
         }break;
     }//switch

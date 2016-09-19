@@ -20,13 +20,13 @@ MemberProfile::operator QJsonObject()const{
 void MemberProfile::toJson(QJsonObject& js)const{
 
     if(!m_team_member_id.isEmpty())
-        js["team_member_id"] = m_team_member_id;
+        js["team_member_id"] = QString(m_team_member_id);
     if(!m_external_id.isEmpty())
-        js["external_id"] = m_external_id;
+        js["external_id"] = QString(m_external_id);
     if(!m_account_id.isEmpty())
-        js["account_id"] = m_account_id;
+        js["account_id"] = QString(m_account_id);
     if(!m_email.isEmpty())
-        js["email"] = m_email;
+        js["email"] = QString(m_email);
     js["email_verified"] = m_email_verified;
     m_status.toJson(js, "status");
     js["name"] = (QJsonObject)m_name;

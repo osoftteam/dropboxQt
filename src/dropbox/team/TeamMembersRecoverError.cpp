@@ -22,19 +22,19 @@ void MembersRecoverError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case UserSelectorError_USER_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "user_not_found";
+                js[name] = QString("user_not_found");
         }break;
         case MembersRecoverError_USER_UNRECOVERABLE:{
             if(!name.isEmpty())
-                js[name] = "user_unrecoverable";
+                js[name] = QString("user_unrecoverable");
         }break;
         case MembersRecoverError_USER_NOT_IN_TEAM:{
             if(!name.isEmpty())
-                js[name] = "user_not_in_team";
+                js[name] = QString("user_not_in_team");
         }break;
         case MembersRecoverError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

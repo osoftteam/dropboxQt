@@ -22,12 +22,12 @@ void FileMemberActionIndividualResult::toJson(QJsonObject& js, QString name)cons
     switch(m_tag){
         case FileMemberActionIndividualResult_SUCCESS:{
             if(!name.isEmpty())
-                js[name] = "success";
+                js[name] = QString("success");
             m_success.toJson(js, "success");
         }break;
         case FileMemberActionIndividualResult_MEMBER_ERROR:{
             if(!name.isEmpty())
-                js[name] = "member_error";
+                js[name] = QString("member_error");
             m_member_error.toJson(js, "member_error");
         }break;
     }//switch

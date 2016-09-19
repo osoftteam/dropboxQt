@@ -22,11 +22,11 @@ void GroupSelectorError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case GroupSelectorError_GROUP_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "group_not_found";
+                js[name] = QString("group_not_found");
         }break;
         case GroupSelectorError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

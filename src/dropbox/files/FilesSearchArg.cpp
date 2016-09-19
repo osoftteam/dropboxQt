@@ -20,9 +20,9 @@ SearchArg::operator QJsonObject()const{
 void SearchArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
     if(!m_query.isEmpty())
-        js["query"] = m_query;
+        js["query"] = QString(m_query);
     js["start"] = m_start;
     js["max_results"] = m_max_results;
     m_mode.toJson(js, "mode");

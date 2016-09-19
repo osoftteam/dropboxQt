@@ -22,7 +22,7 @@ void ListSharedLinksResult::toJson(QJsonObject& js)const{
     js["links"] = struct_list2jsonarray(m_links);
     js["has_more"] = m_has_more;
     if(!m_cursor.isEmpty())
-        js["cursor"] = m_cursor;
+        js["cursor"] = QString(m_cursor);
 }
 
 void ListSharedLinksResult::fromJson(const QJsonObject& js){

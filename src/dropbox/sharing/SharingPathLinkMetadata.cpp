@@ -21,7 +21,7 @@ void PathLinkMetadata::toJson(QJsonObject& js)const{
 
     LinkMetadata::toJson(js);
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
 }
 
 void PathLinkMetadata::fromJson(const QJsonObject& js){

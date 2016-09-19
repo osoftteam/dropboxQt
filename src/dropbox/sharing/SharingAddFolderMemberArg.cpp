@@ -20,11 +20,11 @@ AddFolderMemberArg::operator QJsonObject()const{
 void AddFolderMemberArg::toJson(QJsonObject& js)const{
 
     if(!m_shared_folder_id.isEmpty())
-        js["shared_folder_id"] = m_shared_folder_id;
+        js["shared_folder_id"] = QString(m_shared_folder_id);
     js["members"] = struct_list2jsonarray(m_members);
     js["quiet"] = m_quiet;
     if(!m_custom_message.isEmpty())
-        js["custom_message"] = m_custom_message;
+        js["custom_message"] = QString(m_custom_message);
 }
 
 void AddFolderMemberArg::fromJson(const QJsonObject& js){

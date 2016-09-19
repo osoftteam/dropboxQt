@@ -22,7 +22,7 @@ void MembershipInfo::toJson(QJsonObject& js)const{
     m_access_type.toJson(js, "access_type");
     js["permissions"] = struct_list2jsonarray(m_permissions);
     if(!m_initials.isEmpty())
-        js["initials"] = m_initials;
+        js["initials"] = QString(m_initials);
     js["is_inherited"] = m_is_inherited;
 }
 

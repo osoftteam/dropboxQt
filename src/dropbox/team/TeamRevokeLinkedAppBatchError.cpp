@@ -22,7 +22,7 @@ void RevokeLinkedAppBatchError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case RevokeLinkedAppBatchError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

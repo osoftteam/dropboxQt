@@ -22,15 +22,15 @@ void RevokeLinkedAppError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case RevokeLinkedAppError_APP_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "app_not_found";
+                js[name] = QString("app_not_found");
         }break;
         case RevokeLinkedAppError_MEMBER_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "member_not_found";
+                js[name] = QString("member_not_found");
         }break;
         case RevokeLinkedAppError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

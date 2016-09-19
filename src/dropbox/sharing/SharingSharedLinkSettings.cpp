@@ -21,7 +21,7 @@ void SharedLinkSettings::toJson(QJsonObject& js)const{
 
     m_requested_visibility.toJson(js, "requested_visibility");
     if(!m_link_password.isEmpty())
-        js["link_password"] = m_link_password;
+        js["link_password"] = QString(m_link_password);
     if(m_expires.isValid())
         js["expires"] = m_expires.toString("yyyy-MM-ddThh:mm:ssZ");
 }

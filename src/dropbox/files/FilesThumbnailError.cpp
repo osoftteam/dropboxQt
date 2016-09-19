@@ -22,20 +22,20 @@ void ThumbnailError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case ThumbnailError_PATH:{
             if(!name.isEmpty())
-                js[name] = "path";
+                js[name] = QString("path");
             m_path.toJson(js, "path");
         }break;
         case ThumbnailError_UNSUPPORTED_EXTENSION:{
             if(!name.isEmpty())
-                js[name] = "unsupported_extension";
+                js[name] = QString("unsupported_extension");
         }break;
         case ThumbnailError_UNSUPPORTED_IMAGE:{
             if(!name.isEmpty())
-                js[name] = "unsupported_image";
+                js[name] = QString("unsupported_image");
         }break;
         case ThumbnailError_CONVERSION_ERROR:{
             if(!name.isEmpty())
-                js[name] = "conversion_error";
+                js[name] = QString("conversion_error");
         }break;
     }//switch
 }

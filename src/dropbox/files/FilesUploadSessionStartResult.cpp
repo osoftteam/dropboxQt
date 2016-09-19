@@ -20,7 +20,7 @@ UploadSessionStartResult::operator QJsonObject()const{
 void UploadSessionStartResult::toJson(QJsonObject& js)const{
 
     if(!m_session_id.isEmpty())
-        js["session_id"] = m_session_id;
+        js["session_id"] = QString(m_session_id);
 }
 
 void UploadSessionStartResult::fromJson(const QJsonObject& js){

@@ -20,7 +20,7 @@ GetTemporaryLinkArg::operator QJsonObject()const{
 void GetTemporaryLinkArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
 }
 
 void GetTemporaryLinkArg::fromJson(const QJsonObject& js){

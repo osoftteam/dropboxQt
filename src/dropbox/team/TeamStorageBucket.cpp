@@ -20,7 +20,7 @@ StorageBucket::operator QJsonObject()const{
 void StorageBucket::toJson(QJsonObject& js)const{
 
     if(!m_bucket.isEmpty())
-        js["bucket"] = m_bucket;
+        js["bucket"] = QString(m_bucket);
     js["users"] = m_users;
 }
 

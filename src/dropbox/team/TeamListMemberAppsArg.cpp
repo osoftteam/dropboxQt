@@ -20,7 +20,7 @@ ListMemberAppsArg::operator QJsonObject()const{
 void ListMemberAppsArg::toJson(QJsonObject& js)const{
 
     if(!m_team_member_id.isEmpty())
-        js["team_member_id"] = m_team_member_id;
+        js["team_member_id"] = QString(m_team_member_id);
 }
 
 void ListMemberAppsArg::fromJson(const QJsonObject& js){

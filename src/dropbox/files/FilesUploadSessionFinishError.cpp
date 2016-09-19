@@ -22,21 +22,21 @@ void UploadSessionFinishError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case UploadSessionFinishError_LOOKUP_FAILED:{
             if(!name.isEmpty())
-                js[name] = "lookup_failed";
+                js[name] = QString("lookup_failed");
             m_lookup_failed.toJson(js, "lookup_failed");
         }break;
         case UploadSessionFinishError_PATH:{
             if(!name.isEmpty())
-                js[name] = "path";
+                js[name] = QString("path");
             m_path.toJson(js, "path");
         }break;
         case UploadSessionFinishError_TOO_MANY_SHARED_FOLDER_TARGETS:{
             if(!name.isEmpty())
-                js[name] = "too_many_shared_folder_targets";
+                js[name] = QString("too_many_shared_folder_targets");
         }break;
         case UploadSessionFinishError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

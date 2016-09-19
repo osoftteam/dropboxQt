@@ -22,20 +22,20 @@ void FileMemberActionError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case FileMemberActionError_INVALID_MEMBER:{
             if(!name.isEmpty())
-                js[name] = "invalid_member";
+                js[name] = QString("invalid_member");
         }break;
         case FileMemberActionError_NO_PERMISSION:{
             if(!name.isEmpty())
-                js[name] = "no_permission";
+                js[name] = QString("no_permission");
         }break;
         case FileMemberActionError_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case FileMemberActionError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

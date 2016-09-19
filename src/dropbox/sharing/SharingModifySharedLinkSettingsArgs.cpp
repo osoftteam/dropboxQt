@@ -20,7 +20,7 @@ ModifySharedLinkSettingsArgs::operator QJsonObject()const{
 void ModifySharedLinkSettingsArgs::toJson(QJsonObject& js)const{
 
     if(!m_url.isEmpty())
-        js["url"] = m_url;
+        js["url"] = QString(m_url);
     js["settings"] = (QJsonObject)m_settings;
     js["remove_expiration"] = m_remove_expiration;
 }

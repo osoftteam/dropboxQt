@@ -20,7 +20,7 @@ ListFolderMembersContinueArg::operator QJsonObject()const{
 void ListFolderMembersContinueArg::toJson(QJsonObject& js)const{
 
     if(!m_cursor.isEmpty())
-        js["cursor"] = m_cursor;
+        js["cursor"] = QString(m_cursor);
 }
 
 void ListFolderMembersContinueArg::fromJson(const QJsonObject& js){

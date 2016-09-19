@@ -20,7 +20,7 @@ UploadSessionCursor::operator QJsonObject()const{
 void UploadSessionCursor::toJson(QJsonObject& js)const{
 
     if(!m_session_id.isEmpty())
-        js["session_id"] = m_session_id;
+        js["session_id"] = QString(m_session_id);
     js["offset"] = m_offset;
 }
 

@@ -22,55 +22,55 @@ void AddFolderMemberError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case AddFolderMemberError_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case AddFolderMemberError_EMAIL_UNVERIFIED:{
             if(!name.isEmpty())
-                js[name] = "email_unverified";
+                js[name] = QString("email_unverified");
         }break;
         case AddFolderMemberError_BAD_MEMBER:{
             if(!name.isEmpty())
-                js[name] = "bad_member";
+                js[name] = QString("bad_member");
             m_bad_member.toJson(js, "bad_member");
         }break;
         case AddFolderMemberError_CANT_SHARE_OUTSIDE_TEAM:{
             if(!name.isEmpty())
-                js[name] = "cant_share_outside_team";
+                js[name] = QString("cant_share_outside_team");
         }break;
         case AddFolderMemberError_TOO_MANY_MEMBERS:{
             if(!name.isEmpty())
-                js[name] = "too_many_members";
+                js[name] = QString("too_many_members");
             js["too_many_members"] = m_too_many_members;
         }break;
         case AddFolderMemberError_TOO_MANY_PENDING_INVITES:{
             if(!name.isEmpty())
-                js[name] = "too_many_pending_invites";
+                js[name] = QString("too_many_pending_invites");
             js["too_many_pending_invites"] = m_too_many_pending_invites;
         }break;
         case AddFolderMemberError_RATE_LIMIT:{
             if(!name.isEmpty())
-                js[name] = "rate_limit";
+                js[name] = QString("rate_limit");
         }break;
         case AddFolderMemberError_TOO_MANY_INVITEES:{
             if(!name.isEmpty())
-                js[name] = "too_many_invitees";
+                js[name] = QString("too_many_invitees");
         }break;
         case AddFolderMemberError_INSUFFICIENT_PLAN:{
             if(!name.isEmpty())
-                js[name] = "insufficient_plan";
+                js[name] = QString("insufficient_plan");
         }break;
         case AddFolderMemberError_TEAM_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "team_folder";
+                js[name] = QString("team_folder");
         }break;
         case AddFolderMemberError_NO_PERMISSION:{
             if(!name.isEmpty())
-                js[name] = "no_permission";
+                js[name] = QString("no_permission");
         }break;
         case AddFolderMemberError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

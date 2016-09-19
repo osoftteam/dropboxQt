@@ -22,19 +22,19 @@ void AdminTier::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case AdminTier_TEAM_ADMIN:{
             if(!name.isEmpty())
-                js[name] = "team_admin";
+                js[name] = QString("team_admin");
         }break;
         case AdminTier_USER_MANAGEMENT_ADMIN:{
             if(!name.isEmpty())
-                js[name] = "user_management_admin";
+                js[name] = QString("user_management_admin");
         }break;
         case AdminTier_SUPPORT_ADMIN:{
             if(!name.isEmpty())
-                js[name] = "support_admin";
+                js[name] = QString("support_admin");
         }break;
         case AdminTier_MEMBER_ONLY:{
             if(!name.isEmpty())
-                js[name] = "member_only";
+                js[name] = QString("member_only");
         }break;
     }//switch
 }

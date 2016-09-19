@@ -22,32 +22,32 @@ void RelinquishFolderMembershipError::toJson(QJsonObject& js, QString name)const
     switch(m_tag){
         case RelinquishFolderMembershipError_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case RelinquishFolderMembershipError_FOLDER_OWNER:{
             if(!name.isEmpty())
-                js[name] = "folder_owner";
+                js[name] = QString("folder_owner");
         }break;
         case RelinquishFolderMembershipError_MOUNTED:{
             if(!name.isEmpty())
-                js[name] = "mounted";
+                js[name] = QString("mounted");
         }break;
         case RelinquishFolderMembershipError_GROUP_ACCESS:{
             if(!name.isEmpty())
-                js[name] = "group_access";
+                js[name] = QString("group_access");
         }break;
         case RelinquishFolderMembershipError_TEAM_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "team_folder";
+                js[name] = QString("team_folder");
         }break;
         case RelinquishFolderMembershipError_NO_PERMISSION:{
             if(!name.isEmpty())
-                js[name] = "no_permission";
+                js[name] = QString("no_permission");
         }break;
         case RelinquishFolderMembershipError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

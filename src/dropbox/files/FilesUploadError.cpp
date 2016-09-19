@@ -22,12 +22,12 @@ void UploadError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case UploadError_PATH:{
             if(!name.isEmpty())
-                js[name] = "path";
+                js[name] = QString("path");
             js["path"] = (QJsonObject)m_path;
         }break;
         case UploadError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

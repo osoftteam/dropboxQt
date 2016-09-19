@@ -20,7 +20,7 @@ ListTeamAppsArg::operator QJsonObject()const{
 void ListTeamAppsArg::toJson(QJsonObject& js)const{
 
     if(!m_cursor.isEmpty())
-        js["cursor"] = m_cursor;
+        js["cursor"] = QString(m_cursor);
 }
 
 void ListTeamAppsArg::fromJson(const QJsonObject& js){

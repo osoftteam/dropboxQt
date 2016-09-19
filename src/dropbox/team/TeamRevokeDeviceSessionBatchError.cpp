@@ -22,7 +22,7 @@ void RevokeDeviceSessionBatchError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case RevokeDeviceSessionBatchError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

@@ -22,15 +22,15 @@ void AccountType::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case AccountType_BASIC:{
             if(!name.isEmpty())
-                js[name] = "basic";
+                js[name] = QString("basic");
         }break;
         case AccountType_PRO:{
             if(!name.isEmpty())
-                js[name] = "pro";
+                js[name] = QString("pro");
         }break;
         case AccountType_BUSINESS:{
             if(!name.isEmpty())
-                js[name] = "business";
+                js[name] = QString("business");
         }break;
     }//switch
 }

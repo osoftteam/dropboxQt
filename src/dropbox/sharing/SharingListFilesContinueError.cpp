@@ -22,16 +22,16 @@ void ListFilesContinueError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case ListFilesContinueError_USER_ERROR:{
             if(!name.isEmpty())
-                js[name] = "user_error";
+                js[name] = QString("user_error");
             m_user_error.toJson(js, "user_error");
         }break;
         case ListFilesContinueError_INVALID_CURSOR:{
             if(!name.isEmpty())
-                js[name] = "invalid_cursor";
+                js[name] = QString("invalid_cursor");
         }break;
         case ListFilesContinueError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

@@ -22,16 +22,16 @@ void ListSharedLinksError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case ListSharedLinksError_PATH:{
             if(!name.isEmpty())
-                js[name] = "path";
+                js[name] = QString("path");
             m_path.toJson(js, "path");
         }break;
         case ListSharedLinksError_RESET:{
             if(!name.isEmpty())
-                js[name] = "reset";
+                js[name] = QString("reset");
         }break;
         case ListSharedLinksError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

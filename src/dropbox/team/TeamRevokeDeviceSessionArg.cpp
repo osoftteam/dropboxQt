@@ -22,17 +22,17 @@ void RevokeDeviceSessionArg::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case RevokeDeviceSessionArg_WEB_SESSION:{
             if(!name.isEmpty())
-                js[name] = "web_session";
+                js[name] = QString("web_session");
             js["web_session"] = (QJsonObject)m_web_session;
         }break;
         case RevokeDeviceSessionArg_DESKTOP_CLIENT:{
             if(!name.isEmpty())
-                js[name] = "desktop_client";
+                js[name] = QString("desktop_client");
             js["desktop_client"] = (QJsonObject)m_desktop_client;
         }break;
         case RevokeDeviceSessionArg_MOBILE_CLIENT:{
             if(!name.isEmpty())
-                js[name] = "mobile_client";
+                js[name] = QString("mobile_client");
             js["mobile_client"] = (QJsonObject)m_mobile_client;
         }break;
     }//switch

@@ -20,9 +20,9 @@ PreviewArg::operator QJsonObject()const{
 void PreviewArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
     if(!m_rev.isEmpty())
-        js["rev"] = m_rev;
+        js["rev"] = QString(m_rev);
 }
 
 void PreviewArg::fromJson(const QJsonObject& js){

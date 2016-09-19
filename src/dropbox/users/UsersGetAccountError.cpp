@@ -22,11 +22,11 @@ void GetAccountError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case GetAccountError_NO_ACCOUNT:{
             if(!name.isEmpty())
-                js[name] = "no_account";
+                js[name] = QString("no_account");
         }break;
         case GetAccountError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

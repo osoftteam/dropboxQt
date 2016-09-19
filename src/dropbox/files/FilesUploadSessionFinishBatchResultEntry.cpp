@@ -22,12 +22,12 @@ void UploadSessionFinishBatchResultEntry::toJson(QJsonObject& js, QString name)c
     switch(m_tag){
         case UploadSessionFinishBatchResultEntry_SUCCESS:{
             if(!name.isEmpty())
-                js[name] = "success";
+                js[name] = QString("success");
             js["success"] = (QJsonObject)m_success;
         }break;
         case UploadSessionFinishBatchResultEntry_FAILURE:{
             if(!name.isEmpty())
-                js[name] = "failure";
+                js[name] = QString("failure");
             m_failure.toJson(js, "failure");
         }break;
     }//switch

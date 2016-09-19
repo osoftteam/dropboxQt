@@ -22,33 +22,33 @@ void RemoveFolderMemberError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case RemoveFolderMemberError_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case RemoveFolderMemberError_MEMBER_ERROR:{
             if(!name.isEmpty())
-                js[name] = "member_error";
+                js[name] = QString("member_error");
             m_member_error.toJson(js, "member_error");
         }break;
         case RemoveFolderMemberError_FOLDER_OWNER:{
             if(!name.isEmpty())
-                js[name] = "folder_owner";
+                js[name] = QString("folder_owner");
         }break;
         case RemoveFolderMemberError_GROUP_ACCESS:{
             if(!name.isEmpty())
-                js[name] = "group_access";
+                js[name] = QString("group_access");
         }break;
         case RemoveFolderMemberError_TEAM_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "team_folder";
+                js[name] = QString("team_folder");
         }break;
         case RemoveFolderMemberError_NO_PERMISSION:{
             if(!name.isEmpty())
-                js[name] = "no_permission";
+                js[name] = QString("no_permission");
         }break;
         case RemoveFolderMemberError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

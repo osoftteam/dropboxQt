@@ -20,7 +20,7 @@ ShareFolderArg::operator QJsonObject()const{
 void ShareFolderArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
     m_member_policy.toJson(js, "member_policy");
     m_acl_update_policy.toJson(js, "acl_update_policy");
     m_shared_link_policy.toJson(js, "shared_link_policy");

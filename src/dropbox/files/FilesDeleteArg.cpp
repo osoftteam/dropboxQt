@@ -20,7 +20,7 @@ DeleteArg::operator QJsonObject()const{
 void DeleteArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
 }
 
 void DeleteArg::fromJson(const QJsonObject& js){

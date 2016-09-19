@@ -22,35 +22,35 @@ void FileAction::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case FileAction_EDIT_CONTENTS:{
             if(!name.isEmpty())
-                js[name] = "edit_contents";
+                js[name] = QString("edit_contents");
         }break;
         case FileAction_INVITE_VIEWER:{
             if(!name.isEmpty())
-                js[name] = "invite_viewer";
+                js[name] = QString("invite_viewer");
         }break;
         case FileAction_INVITE_VIEWER_NO_COMMENT:{
             if(!name.isEmpty())
-                js[name] = "invite_viewer_no_comment";
+                js[name] = QString("invite_viewer_no_comment");
         }break;
         case FileAction_UNSHARE:{
             if(!name.isEmpty())
-                js[name] = "unshare";
+                js[name] = QString("unshare");
         }break;
         case FileAction_RELINQUISH_MEMBERSHIP:{
             if(!name.isEmpty())
-                js[name] = "relinquish_membership";
+                js[name] = QString("relinquish_membership");
         }break;
         case FileAction_SHARE_LINK:{
             if(!name.isEmpty())
-                js[name] = "share_link";
+                js[name] = QString("share_link");
         }break;
         case FileAction_CREATE_LINK:{
             if(!name.isEmpty())
-                js[name] = "create_link";
+                js[name] = QString("create_link");
         }break;
         case FileAction_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

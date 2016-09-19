@@ -56,4 +56,35 @@ namespace dropboxQt{
         {};
     };    
     
+
+#define DECLARE_DBOX_ERR_EXCEPTION(E, F)     class E: public ReplyException{	\
+    public:																				\
+        const F& err()const {return m_err;}												\
+        static void raise(const QByteArray& data, int status_code, const std::string& message);\
+    protected:																			\
+        E(const F& err, const std::string& summary, int status_code, const std::string& message);\
+    protected:																			\
+        F m_err;																		\
+    };																					\
+
+
+#define IMPLEMENT_DBOX_ERR_EXCEPTION(E, F) E::E(const F& err, const std::string& summary, int status_code, const std::string& message)\
+	:ReplyException(message, status_code, summary), m_err(err){							\
+    build(m_err.toString().toStdString());												\
+}																						\
+void E::raise(const QByteArray& data, int status_code, const std::string& message)		\
+{																						\
+    F err;																				\
+    std::string summary;																\
+    if(!data.isEmpty()){																\
+        QJsonDocument doc = QJsonDocument::fromJson(data);								\
+        QJsonObject js_in = doc.object();												\
+        err.fromJson(js_in["error"].toObject());										\
+        summary = js_in["error_summary"].toString().toStdString();						\
+    }																					\
+    throw E(err, summary, status_code, message);										\
+}																						\
+
+
+
 };

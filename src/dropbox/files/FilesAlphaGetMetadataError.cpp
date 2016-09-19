@@ -22,12 +22,12 @@ void AlphaGetMetadataError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case GetMetadataError_PATH:{
             if(!name.isEmpty())
-                js[name] = "path";
+                js[name] = QString("path");
             m_path.toJson(js, "path");
         }break;
         case AlphaGetMetadataError_PROPERTIES_ERROR:{
             if(!name.isEmpty())
-                js[name] = "properties_error";
+                js[name] = QString("properties_error");
             m_properties_error.toJson(js, "properties_error");
         }break;
     }//switch

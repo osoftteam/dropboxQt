@@ -20,7 +20,7 @@ MemberLinkedApps::operator QJsonObject()const{
 void MemberLinkedApps::toJson(QJsonObject& js)const{
 
     if(!m_team_member_id.isEmpty())
-        js["team_member_id"] = m_team_member_id;
+        js["team_member_id"] = QString(m_team_member_id);
     js["linked_api_apps"] = struct_list2jsonarray(m_linked_api_apps);
 }
 

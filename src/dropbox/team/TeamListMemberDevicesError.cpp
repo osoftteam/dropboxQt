@@ -22,11 +22,11 @@ void ListMemberDevicesError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case ListMemberDevicesError_MEMBER_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "member_not_found";
+                js[name] = QString("member_not_found");
         }break;
         case ListMemberDevicesError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

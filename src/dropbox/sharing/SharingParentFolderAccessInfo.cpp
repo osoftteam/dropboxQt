@@ -20,9 +20,9 @@ ParentFolderAccessInfo::operator QJsonObject()const{
 void ParentFolderAccessInfo::toJson(QJsonObject& js)const{
 
     if(!m_folder_name.isEmpty())
-        js["folder_name"] = m_folder_name;
+        js["folder_name"] = QString(m_folder_name);
     if(!m_shared_folder_id.isEmpty())
-        js["shared_folder_id"] = m_shared_folder_id;
+        js["shared_folder_id"] = QString(m_shared_folder_id);
     js["permissions"] = struct_list2jsonarray(m_permissions);
 }
 

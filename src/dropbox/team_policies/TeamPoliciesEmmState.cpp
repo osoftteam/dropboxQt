@@ -22,19 +22,19 @@ void EmmState::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case EmmState_DISABLED:{
             if(!name.isEmpty())
-                js[name] = "disabled";
+                js[name] = QString("disabled");
         }break;
         case EmmState_OPTIONAL:{
             if(!name.isEmpty())
-                js[name] = "optional";
+                js[name] = QString("optional");
         }break;
         case EmmState_REQUIRED:{
             if(!name.isEmpty())
-                js[name] = "required";
+                js[name] = QString("required");
         }break;
         case EmmState_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

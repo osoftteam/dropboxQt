@@ -20,7 +20,7 @@ RevokeSharedLinkArg::operator QJsonObject()const{
 void RevokeSharedLinkArg::toJson(QJsonObject& js)const{
 
     if(!m_url.isEmpty())
-        js["url"] = m_url;
+        js["url"] = QString(m_url);
 }
 
 void RevokeSharedLinkArg::fromJson(const QJsonObject& js){

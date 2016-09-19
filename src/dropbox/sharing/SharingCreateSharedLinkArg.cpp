@@ -20,7 +20,7 @@ CreateSharedLinkArg::operator QJsonObject()const{
 void CreateSharedLinkArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
     js["short_url"] = m_short_url;
     m_pending_upload.toJson(js, "pending_upload");
 }

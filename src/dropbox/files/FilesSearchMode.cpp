@@ -22,15 +22,15 @@ void SearchMode::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SearchMode_FILENAME:{
             if(!name.isEmpty())
-                js[name] = "filename";
+                js[name] = QString("filename");
         }break;
         case SearchMode_FILENAME_AND_CONTENT:{
             if(!name.isEmpty())
-                js[name] = "filename_and_content";
+                js[name] = QString("filename_and_content");
         }break;
         case SearchMode_DELETED_FILENAME:{
             if(!name.isEmpty())
-                js[name] = "deleted_filename";
+                js[name] = QString("deleted_filename");
         }break;
     }//switch
 }

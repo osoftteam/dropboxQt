@@ -22,7 +22,7 @@ void CreateFolderError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case CreateFolderError_PATH:{
             if(!name.isEmpty())
-                js[name] = "path";
+                js[name] = QString("path");
             m_path.toJson(js, "path");
         }break;
     }//switch

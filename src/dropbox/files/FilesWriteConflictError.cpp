@@ -22,19 +22,19 @@ void WriteConflictError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case WriteConflictError_FILE:{
             if(!name.isEmpty())
-                js[name] = "file";
+                js[name] = QString("file");
         }break;
         case WriteConflictError_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "folder";
+                js[name] = QString("folder");
         }break;
         case WriteConflictError_FILE_ANCESTOR:{
             if(!name.isEmpty())
-                js[name] = "file_ancestor";
+                js[name] = QString("file_ancestor");
         }break;
         case WriteConflictError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

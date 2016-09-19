@@ -22,20 +22,20 @@ void UnshareFolderError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case UnshareFolderError_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case UnshareFolderError_TEAM_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "team_folder";
+                js[name] = QString("team_folder");
         }break;
         case UnshareFolderError_NO_PERMISSION:{
             if(!name.isEmpty())
-                js[name] = "no_permission";
+                js[name] = QString("no_permission");
         }break;
         case UnshareFolderError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

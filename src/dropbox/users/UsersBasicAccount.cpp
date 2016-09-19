@@ -22,7 +22,7 @@ void BasicAccount::toJson(QJsonObject& js)const{
     Account::toJson(js);
     js["is_teammate"] = m_is_teammate;
     if(!m_team_member_id.isEmpty())
-        js["team_member_id"] = m_team_member_id;
+        js["team_member_id"] = QString(m_team_member_id);
 }
 
 void BasicAccount::fromJson(const QJsonObject& js){

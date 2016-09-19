@@ -20,13 +20,13 @@ Metadata::operator QJsonObject()const{
 void Metadata::toJson(QJsonObject& js)const{
 
     if(!m_name.isEmpty())
-        js["name"] = m_name;
+        js["name"] = QString(m_name);
     if(!m_path_lower.isEmpty())
-        js["path_lower"] = m_path_lower;
+        js["path_lower"] = QString(m_path_lower);
     if(!m_path_display.isEmpty())
-        js["path_display"] = m_path_display;
+        js["path_display"] = QString(m_path_display);
     if(!m_parent_shared_folder_id.isEmpty())
-        js["parent_shared_folder_id"] = m_parent_shared_folder_id;
+        js["parent_shared_folder_id"] = QString(m_parent_shared_folder_id);
 }
 
 void Metadata::fromJson(const QJsonObject& js){

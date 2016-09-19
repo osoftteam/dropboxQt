@@ -22,11 +22,11 @@ void ListFoldersContinueError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case ListFoldersContinueError_INVALID_CURSOR:{
             if(!name.isEmpty())
-                js[name] = "invalid_cursor";
+                js[name] = QString("invalid_cursor");
         }break;
         case ListFoldersContinueError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

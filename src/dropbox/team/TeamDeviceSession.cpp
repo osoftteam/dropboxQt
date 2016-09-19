@@ -20,11 +20,11 @@ DeviceSession::operator QJsonObject()const{
 void DeviceSession::toJson(QJsonObject& js)const{
 
     if(!m_session_id.isEmpty())
-        js["session_id"] = m_session_id;
+        js["session_id"] = QString(m_session_id);
     if(!m_ip_address.isEmpty())
-        js["ip_address"] = m_ip_address;
+        js["ip_address"] = QString(m_ip_address);
     if(!m_country.isEmpty())
-        js["country"] = m_country;
+        js["country"] = QString(m_country);
     if(m_created.isValid())
         js["created"] = m_created.toString("yyyy-MM-ddThh:mm:ssZ");
     if(m_updated.isValid())

@@ -22,27 +22,27 @@ void MobileClientPlatform::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case MobileClientPlatform_IPHONE:{
             if(!name.isEmpty())
-                js[name] = "iphone";
+                js[name] = QString("iphone");
         }break;
         case MobileClientPlatform_IPAD:{
             if(!name.isEmpty())
-                js[name] = "ipad";
+                js[name] = QString("ipad");
         }break;
         case MobileClientPlatform_ANDROID:{
             if(!name.isEmpty())
-                js[name] = "android";
+                js[name] = QString("android");
         }break;
         case MobileClientPlatform_WINDOWS_PHONE:{
             if(!name.isEmpty())
-                js[name] = "windows_phone";
+                js[name] = QString("windows_phone");
         }break;
         case MobileClientPlatform_BLACKBERRY:{
             if(!name.isEmpty())
-                js[name] = "blackberry";
+                js[name] = QString("blackberry");
         }break;
         case MobileClientPlatform_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

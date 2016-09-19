@@ -20,7 +20,7 @@ ListFileMembersArg::operator QJsonObject()const{
 void ListFileMembersArg::toJson(QJsonObject& js)const{
 
     if(!m_file.isEmpty())
-        js["file"] = m_file;
+        js["file"] = QString(m_file);
     js["actions"] = struct_list2jsonarray(m_actions);
     js["include_inherited"] = m_include_inherited;
     js["limit"] = m_limit;

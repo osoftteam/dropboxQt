@@ -20,15 +20,15 @@ SharedLinkMetadata::operator QJsonObject()const{
 void SharedLinkMetadata::toJson(QJsonObject& js)const{
 
     if(!m_url.isEmpty())
-        js["url"] = m_url;
+        js["url"] = QString(m_url);
     if(!m_id.isEmpty())
-        js["id"] = m_id;
+        js["id"] = QString(m_id);
     if(!m_name.isEmpty())
-        js["name"] = m_name;
+        js["name"] = QString(m_name);
     if(m_expires.isValid())
         js["expires"] = m_expires.toString("yyyy-MM-ddThh:mm:ssZ");
     if(!m_path_lower.isEmpty())
-        js["path_lower"] = m_path_lower;
+        js["path_lower"] = QString(m_path_lower);
     js["link_permissions"] = (QJsonObject)m_link_permissions;
     js["team_member_info"] = (QJsonObject)m_team_member_info;
     js["content_owner_team_info"] = (QJsonObject)m_content_owner_team_info;

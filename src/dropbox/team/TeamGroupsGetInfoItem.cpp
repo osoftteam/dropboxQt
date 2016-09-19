@@ -22,13 +22,13 @@ void GroupsGetInfoItem::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case GroupsGetInfoItem_ID_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "id_not_found";
+                js[name] = QString("id_not_found");
             if(!m_id_not_found.isEmpty())
-                js["id_not_found"] = m_id_not_found;
+                js["id_not_found"] = QString(m_id_not_found);
         }break;
         case GroupsGetInfoItem_GROUP_INFO:{
             if(!name.isEmpty())
-                js[name] = "group_info";
+                js[name] = QString("group_info");
             js["group_info"] = (QJsonObject)m_group_info;
         }break;
     }//switch

@@ -20,7 +20,7 @@ ThumbnailArg::operator QJsonObject()const{
 void ThumbnailArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
     m_format.toJson(js, "format");
     m_size.toJson(js, "size");
 }

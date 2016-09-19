@@ -22,17 +22,17 @@ void UnshareFileError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case UnshareFileError_USER_ERROR:{
             if(!name.isEmpty())
-                js[name] = "user_error";
+                js[name] = QString("user_error");
             m_user_error.toJson(js, "user_error");
         }break;
         case UnshareFileError_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case UnshareFileError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

@@ -20,7 +20,7 @@ GetSharedLinksArg::operator QJsonObject()const{
 void GetSharedLinksArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
 }
 
 void GetSharedLinksArg::fromJson(const QJsonObject& js){

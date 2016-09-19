@@ -23,7 +23,7 @@ void SharedFileMembers::toJson(QJsonObject& js)const{
     js["groups"] = struct_list2jsonarray(m_groups);
     js["invitees"] = struct_list2jsonarray(m_invitees);
     if(!m_cursor.isEmpty())
-        js["cursor"] = m_cursor;
+        js["cursor"] = QString(m_cursor);
 }
 
 void SharedFileMembers::fromJson(const QJsonObject& js){

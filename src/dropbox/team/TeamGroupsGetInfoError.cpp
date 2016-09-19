@@ -22,11 +22,11 @@ void GroupsGetInfoError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case GroupsGetInfoError_GROUP_NOT_ON_TEAM:{
             if(!name.isEmpty())
-                js[name] = "group_not_on_team";
+                js[name] = QString("group_not_on_team");
         }break;
         case GroupsGetInfoError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

@@ -22,17 +22,17 @@ void ListFileMembersIndividualResult::toJson(QJsonObject& js, QString name)const
     switch(m_tag){
         case ListFileMembersIndividualResult_RESULT:{
             if(!name.isEmpty())
-                js[name] = "result";
+                js[name] = QString("result");
             js["result"] = (QJsonObject)m_result;
         }break;
         case ListFileMembersIndividualResult_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case ListFileMembersIndividualResult_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

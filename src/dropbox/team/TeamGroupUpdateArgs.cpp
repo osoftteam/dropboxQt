@@ -22,9 +22,9 @@ void GroupUpdateArgs::toJson(QJsonObject& js)const{
     IncludeMembersArg::toJson(js);
     m_group.toJson(js, "group");
     if(!m_new_group_name.isEmpty())
-        js["new_group_name"] = m_new_group_name;
+        js["new_group_name"] = QString(m_new_group_name);
     if(!m_new_group_external_id.isEmpty())
-        js["new_group_external_id"] = m_new_group_external_id;
+        js["new_group_external_id"] = QString(m_new_group_external_id);
     m_new_group_management_type.toJson(js, "new_group_management_type");
 }
 

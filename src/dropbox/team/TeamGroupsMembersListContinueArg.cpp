@@ -20,7 +20,7 @@ GroupsMembersListContinueArg::operator QJsonObject()const{
 void GroupsMembersListContinueArg::toJson(QJsonObject& js)const{
 
     if(!m_cursor.isEmpty())
-        js["cursor"] = m_cursor;
+        js["cursor"] = QString(m_cursor);
 }
 
 void GroupsMembersListContinueArg::fromJson(const QJsonObject& js){

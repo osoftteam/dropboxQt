@@ -22,24 +22,24 @@ void UploadSessionLookupError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case UploadSessionLookupError_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "not_found";
+                js[name] = QString("not_found");
         }break;
         case UploadSessionLookupError_INCORRECT_OFFSET:{
             if(!name.isEmpty())
-                js[name] = "incorrect_offset";
+                js[name] = QString("incorrect_offset");
             js["incorrect_offset"] = (QJsonObject)m_incorrect_offset;
         }break;
         case UploadSessionLookupError_CLOSED:{
             if(!name.isEmpty())
-                js[name] = "closed";
+                js[name] = QString("closed");
         }break;
         case UploadSessionLookupError_NOT_CLOSED:{
             if(!name.isEmpty())
-                js[name] = "not_closed";
+                js[name] = QString("not_closed");
         }break;
         case UploadSessionLookupError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

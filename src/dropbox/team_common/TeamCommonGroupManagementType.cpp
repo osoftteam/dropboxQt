@@ -22,15 +22,15 @@ void GroupManagementType::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case GroupManagementType_COMPANY_MANAGED:{
             if(!name.isEmpty())
-                js[name] = "company_managed";
+                js[name] = QString("company_managed");
         }break;
         case GroupManagementType_USER_MANAGED:{
             if(!name.isEmpty())
-                js[name] = "user_managed";
+                js[name] = QString("user_managed");
         }break;
         case GroupManagementType_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

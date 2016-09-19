@@ -22,27 +22,27 @@ void Visibility::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case Visibility_PUBLIC:{
             if(!name.isEmpty())
-                js[name] = "public";
+                js[name] = QString("public");
         }break;
         case Visibility_TEAM_ONLY:{
             if(!name.isEmpty())
-                js[name] = "team_only";
+                js[name] = QString("team_only");
         }break;
         case Visibility_PASSWORD:{
             if(!name.isEmpty())
-                js[name] = "password";
+                js[name] = QString("password");
         }break;
         case Visibility_TEAM_AND_PASSWORD:{
             if(!name.isEmpty())
-                js[name] = "team_and_password";
+                js[name] = QString("team_and_password");
         }break;
         case Visibility_SHARED_FOLDER_ONLY:{
             if(!name.isEmpty())
-                js[name] = "shared_folder_only";
+                js[name] = QString("shared_folder_only");
         }break;
         case Visibility_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

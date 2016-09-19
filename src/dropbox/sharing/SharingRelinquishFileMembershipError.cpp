@@ -22,20 +22,20 @@ void RelinquishFileMembershipError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case RelinquishFileMembershipError_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case RelinquishFileMembershipError_GROUP_ACCESS:{
             if(!name.isEmpty())
-                js[name] = "group_access";
+                js[name] = QString("group_access");
         }break;
         case RelinquishFileMembershipError_NO_PERMISSION:{
             if(!name.isEmpty())
-                js[name] = "no_permission";
+                js[name] = QString("no_permission");
         }break;
         case RelinquishFileMembershipError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

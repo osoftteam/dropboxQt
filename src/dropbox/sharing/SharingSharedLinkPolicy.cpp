@@ -22,15 +22,15 @@ void SharedLinkPolicy::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SharedLinkPolicy_ANYONE:{
             if(!name.isEmpty())
-                js[name] = "anyone";
+                js[name] = QString("anyone");
         }break;
         case SharedLinkPolicy_MEMBERS:{
             if(!name.isEmpty())
-                js[name] = "members";
+                js[name] = QString("members");
         }break;
         case SharedLinkPolicy_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

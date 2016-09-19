@@ -22,16 +22,16 @@ void ListFolderContinueError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case ListFolderContinueError_PATH:{
             if(!name.isEmpty())
-                js[name] = "path";
+                js[name] = QString("path");
             m_path.toJson(js, "path");
         }break;
         case ListFolderContinueError_RESET:{
             if(!name.isEmpty())
-                js[name] = "reset";
+                js[name] = QString("reset");
         }break;
         case ListFolderContinueError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

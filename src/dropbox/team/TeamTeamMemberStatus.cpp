@@ -22,19 +22,19 @@ void TeamMemberStatus::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case TeamMemberStatus_ACTIVE:{
             if(!name.isEmpty())
-                js[name] = "active";
+                js[name] = QString("active");
         }break;
         case TeamMemberStatus_INVITED:{
             if(!name.isEmpty())
-                js[name] = "invited";
+                js[name] = QString("invited");
         }break;
         case TeamMemberStatus_SUSPENDED:{
             if(!name.isEmpty())
-                js[name] = "suspended";
+                js[name] = QString("suspended");
         }break;
         case TeamMemberStatus_REMOVED:{
             if(!name.isEmpty())
-                js[name] = "removed";
+                js[name] = QString("removed");
             js["removed"] = (QJsonObject)m_removed;
         }break;
     }//switch

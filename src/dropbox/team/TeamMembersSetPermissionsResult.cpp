@@ -20,7 +20,7 @@ MembersSetPermissionsResult::operator QJsonObject()const{
 void MembersSetPermissionsResult::toJson(QJsonObject& js)const{
 
     if(!m_team_member_id.isEmpty())
-        js["team_member_id"] = m_team_member_id;
+        js["team_member_id"] = QString(m_team_member_id);
     m_role.toJson(js, "role");
 }
 

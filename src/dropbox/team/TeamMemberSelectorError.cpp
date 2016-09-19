@@ -22,11 +22,11 @@ void MemberSelectorError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case UserSelectorError_USER_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "user_not_found";
+                js[name] = QString("user_not_found");
         }break;
         case MemberSelectorError_USER_NOT_IN_TEAM:{
             if(!name.isEmpty())
-                js[name] = "user_not_in_team";
+                js[name] = QString("user_not_in_team");
         }break;
     }//switch
 }

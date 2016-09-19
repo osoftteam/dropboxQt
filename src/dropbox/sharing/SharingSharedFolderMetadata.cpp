@@ -21,16 +21,16 @@ void SharedFolderMetadata::toJson(QJsonObject& js)const{
 
     SharedFolderMetadataBase::toJson(js);
     if(!m_path_lower.isEmpty())
-        js["path_lower"] = m_path_lower;
+        js["path_lower"] = QString(m_path_lower);
     if(!m_name.isEmpty())
-        js["name"] = m_name;
+        js["name"] = QString(m_name);
     if(!m_shared_folder_id.isEmpty())
-        js["shared_folder_id"] = m_shared_folder_id;
+        js["shared_folder_id"] = QString(m_shared_folder_id);
     js["permissions"] = struct_list2jsonarray(m_permissions);
     if(m_time_invited.isValid())
         js["time_invited"] = m_time_invited.toString("yyyy-MM-ddThh:mm:ssZ");
     if(!m_preview_url.isEmpty())
-        js["preview_url"] = m_preview_url;
+        js["preview_url"] = QString(m_preview_url);
 }
 
 void SharedFolderMetadata::fromJson(const QJsonObject& js){

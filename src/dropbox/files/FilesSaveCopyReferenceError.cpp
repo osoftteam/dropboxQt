@@ -22,28 +22,28 @@ void SaveCopyReferenceError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SaveCopyReferenceError_PATH:{
             if(!name.isEmpty())
-                js[name] = "path";
+                js[name] = QString("path");
             m_path.toJson(js, "path");
         }break;
         case SaveCopyReferenceError_INVALID_COPY_REFERENCE:{
             if(!name.isEmpty())
-                js[name] = "invalid_copy_reference";
+                js[name] = QString("invalid_copy_reference");
         }break;
         case SaveCopyReferenceError_NO_PERMISSION:{
             if(!name.isEmpty())
-                js[name] = "no_permission";
+                js[name] = QString("no_permission");
         }break;
         case SaveCopyReferenceError_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "not_found";
+                js[name] = QString("not_found");
         }break;
         case SaveCopyReferenceError_TOO_MANY_FILES:{
             if(!name.isEmpty())
-                js[name] = "too_many_files";
+                js[name] = QString("too_many_files");
         }break;
         case SaveCopyReferenceError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

@@ -20,7 +20,7 @@ ListFileMembersBatchResult::operator QJsonObject()const{
 void ListFileMembersBatchResult::toJson(QJsonObject& js)const{
 
     if(!m_file.isEmpty())
-        js["file"] = m_file;
+        js["file"] = QString(m_file);
     m_result.toJson(js, "result");
 }
 

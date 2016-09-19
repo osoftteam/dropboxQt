@@ -22,28 +22,28 @@ void UpdateFolderPolicyError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case UpdateFolderPolicyError_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case UpdateFolderPolicyError_NOT_ON_TEAM:{
             if(!name.isEmpty())
-                js[name] = "not_on_team";
+                js[name] = QString("not_on_team");
         }break;
         case UpdateFolderPolicyError_TEAM_POLICY_DISALLOWS_MEMBER_POLICY:{
             if(!name.isEmpty())
-                js[name] = "team_policy_disallows_member_policy";
+                js[name] = QString("team_policy_disallows_member_policy");
         }break;
         case UpdateFolderPolicyError_DISALLOWED_SHARED_LINK_POLICY:{
             if(!name.isEmpty())
-                js[name] = "disallowed_shared_link_policy";
+                js[name] = QString("disallowed_shared_link_policy");
         }break;
         case UpdateFolderPolicyError_NO_PERMISSION:{
             if(!name.isEmpty())
-                js[name] = "no_permission";
+                js[name] = QString("no_permission");
         }break;
         case UpdateFolderPolicyError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

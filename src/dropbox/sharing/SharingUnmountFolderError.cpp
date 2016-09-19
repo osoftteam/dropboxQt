@@ -22,20 +22,20 @@ void UnmountFolderError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case UnmountFolderError_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case UnmountFolderError_NO_PERMISSION:{
             if(!name.isEmpty())
-                js[name] = "no_permission";
+                js[name] = QString("no_permission");
         }break;
         case UnmountFolderError_NOT_UNMOUNTABLE:{
             if(!name.isEmpty())
-                js[name] = "not_unmountable";
+                js[name] = QString("not_unmountable");
         }break;
         case UnmountFolderError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

@@ -20,7 +20,7 @@ UnmountFolderArg::operator QJsonObject()const{
 void UnmountFolderArg::toJson(QJsonObject& js)const{
 
     if(!m_shared_folder_id.isEmpty())
-        js["shared_folder_id"] = m_shared_folder_id;
+        js["shared_folder_id"] = QString(m_shared_folder_id);
 }
 
 void UnmountFolderArg::fromJson(const QJsonObject& js){

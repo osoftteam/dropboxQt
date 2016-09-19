@@ -20,9 +20,9 @@ PropertyField::operator QJsonObject()const{
 void PropertyField::toJson(QJsonObject& js)const{
 
     if(!m_name.isEmpty())
-        js["name"] = m_name;
+        js["name"] = QString(m_name);
     if(!m_value.isEmpty())
-        js["value"] = m_value;
+        js["value"] = QString(m_value);
 }
 
 void PropertyField::fromJson(const QJsonObject& js){

@@ -22,13 +22,13 @@ void GetAccountBatchError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case GetAccountBatchError_NO_ACCOUNT:{
             if(!name.isEmpty())
-                js[name] = "no_account";
+                js[name] = QString("no_account");
             if(!m_no_account.isEmpty())
-                js["no_account"] = m_no_account;
+                js["no_account"] = QString(m_no_account);
         }break;
         case GetAccountBatchError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

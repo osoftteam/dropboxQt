@@ -21,9 +21,9 @@ void TeamMemberInfo::toJson(QJsonObject& js)const{
 
     js["team_info"] = (QJsonObject)m_team_info;
     if(!m_display_name.isEmpty())
-        js["display_name"] = m_display_name;
+        js["display_name"] = QString(m_display_name);
     if(!m_member_id.isEmpty())
-        js["member_id"] = m_member_id;
+        js["member_id"] = QString(m_member_id);
 }
 
 void TeamMemberInfo::fromJson(const QJsonObject& js){

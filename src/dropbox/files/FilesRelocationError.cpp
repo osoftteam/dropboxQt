@@ -22,38 +22,38 @@ void RelocationError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case RelocationError_FROM_LOOKUP:{
             if(!name.isEmpty())
-                js[name] = "from_lookup";
+                js[name] = QString("from_lookup");
             m_from_lookup.toJson(js, "from_lookup");
         }break;
         case RelocationError_FROM_WRITE:{
             if(!name.isEmpty())
-                js[name] = "from_write";
+                js[name] = QString("from_write");
             m_from_write.toJson(js, "from_write");
         }break;
         case RelocationError_TO:{
             if(!name.isEmpty())
-                js[name] = "to";
+                js[name] = QString("to");
             m_to.toJson(js, "to");
         }break;
         case RelocationError_CANT_COPY_SHARED_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "cant_copy_shared_folder";
+                js[name] = QString("cant_copy_shared_folder");
         }break;
         case RelocationError_CANT_NEST_SHARED_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "cant_nest_shared_folder";
+                js[name] = QString("cant_nest_shared_folder");
         }break;
         case RelocationError_CANT_MOVE_FOLDER_INTO_ITSELF:{
             if(!name.isEmpty())
-                js[name] = "cant_move_folder_into_itself";
+                js[name] = QString("cant_move_folder_into_itself");
         }break;
         case RelocationError_TOO_MANY_FILES:{
             if(!name.isEmpty())
-                js[name] = "too_many_files";
+                js[name] = QString("too_many_files");
         }break;
         case RelocationError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

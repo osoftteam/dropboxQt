@@ -21,11 +21,11 @@ void ActiveWebSession::toJson(QJsonObject& js)const{
 
     DeviceSession::toJson(js);
     if(!m_user_agent.isEmpty())
-        js["user_agent"] = m_user_agent;
+        js["user_agent"] = QString(m_user_agent);
     if(!m_os.isEmpty())
-        js["os"] = m_os;
+        js["os"] = QString(m_os);
     if(!m_browser.isEmpty())
-        js["browser"] = m_browser;
+        js["browser"] = QString(m_browser);
 }
 
 void ActiveWebSession::fromJson(const QJsonObject& js){

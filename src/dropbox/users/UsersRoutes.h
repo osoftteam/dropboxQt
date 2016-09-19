@@ -26,33 +26,41 @@ namespace users{
             /**
             ApiRoute('get_account')
 
+
             Get information about a user's account.
-            on error:GetAccountError
+
+            on error:GetAccountError throws exception GetAccountErrorException
             */
         BasicAccount getAccount(const GetAccountArg&);
 
             /**
             ApiRoute('get_account_batch')
 
+
             Get information about multiple user accounts.  At most 300 accounts
             may be queried per request.
-            on error:GetAccountBatchError
+
+            on error:GetAccountBatchError throws exception GetAccountBatchErrorException
             */
         std::list <BasicAccount> getAccountBatch(const GetAccountBatchArg&);
 
             /**
             ApiRoute('get_current_account')
 
+
             Get information about the current user's account.
-            on error:Void
+
+            on error:Void throws exception VoidException
             */
         FullAccount getCurrentAccount(void);
 
             /**
             ApiRoute('get_space_usage')
 
+
             Get the space usage information for the current user's account.
-            on error:Void
+
+            on error:Void throws exception VoidException
             */
         SpaceUsage getSpaceUsage(void);
 
@@ -61,28 +69,10 @@ namespace users{
     };//UsersRoutes
 
     ///exception GetAccountError for get_account
-    class GetAccountErrorException: public ReplyException{
-    public:
-        const users::GetAccountError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        GetAccountErrorException(const users::GetAccountError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        users::GetAccountError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(GetAccountErrorException, users::GetAccountError);
 
     ///exception GetAccountBatchError for get_account_batch
-    class GetAccountBatchErrorException: public ReplyException{
-    public:
-        const users::GetAccountBatchError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        GetAccountBatchErrorException(const users::GetAccountBatchError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        users::GetAccountBatchError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(GetAccountBatchErrorException, users::GetAccountBatchError);
 
 
 }//users

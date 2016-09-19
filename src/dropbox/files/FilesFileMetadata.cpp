@@ -21,13 +21,13 @@ void FileMetadata::toJson(QJsonObject& js)const{
 
     Metadata::toJson(js);
     if(!m_id.isEmpty())
-        js["id"] = m_id;
+        js["id"] = QString(m_id);
     if(m_client_modified.isValid())
         js["client_modified"] = m_client_modified.toString("yyyy-MM-ddThh:mm:ssZ");
     if(m_server_modified.isValid())
         js["server_modified"] = m_server_modified.toString("yyyy-MM-ddThh:mm:ssZ");
     if(!m_rev.isEmpty())
-        js["rev"] = m_rev;
+        js["rev"] = QString(m_rev);
     js["size"] = m_size;
     m_media_info.toJson(js, "media_info");
     js["sharing_info"] = (QJsonObject)m_sharing_info;

@@ -22,29 +22,29 @@ void LookupError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case LookupError_MALFORMED_PATH:{
             if(!name.isEmpty())
-                js[name] = "malformed_path";
+                js[name] = QString("malformed_path");
             if(!m_malformed_path.isEmpty())
-                js["malformed_path"] = m_malformed_path;
+                js["malformed_path"] = QString(m_malformed_path);
         }break;
         case LookupError_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "not_found";
+                js[name] = QString("not_found");
         }break;
         case LookupError_NOT_FILE:{
             if(!name.isEmpty())
-                js[name] = "not_file";
+                js[name] = QString("not_file");
         }break;
         case LookupError_NOT_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "not_folder";
+                js[name] = QString("not_folder");
         }break;
         case LookupError_RESTRICTED_CONTENT:{
             if(!name.isEmpty())
-                js[name] = "restricted_content";
+                js[name] = QString("restricted_content");
         }break;
         case LookupError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

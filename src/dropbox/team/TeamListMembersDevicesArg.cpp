@@ -20,7 +20,7 @@ ListMembersDevicesArg::operator QJsonObject()const{
 void ListMembersDevicesArg::toJson(QJsonObject& js)const{
 
     if(!m_cursor.isEmpty())
-        js["cursor"] = m_cursor;
+        js["cursor"] = QString(m_cursor);
     js["include_web_sessions"] = m_include_web_sessions;
     js["include_desktop_clients"] = m_include_desktop_clients;
     js["include_mobile_clients"] = m_include_mobile_clients;

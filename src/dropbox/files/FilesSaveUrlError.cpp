@@ -22,24 +22,24 @@ void SaveUrlError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SaveUrlError_PATH:{
             if(!name.isEmpty())
-                js[name] = "path";
+                js[name] = QString("path");
             m_path.toJson(js, "path");
         }break;
         case SaveUrlError_DOWNLOAD_FAILED:{
             if(!name.isEmpty())
-                js[name] = "download_failed";
+                js[name] = QString("download_failed");
         }break;
         case SaveUrlError_INVALID_URL:{
             if(!name.isEmpty())
-                js[name] = "invalid_url";
+                js[name] = QString("invalid_url");
         }break;
         case SaveUrlError_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "not_found";
+                js[name] = QString("not_found");
         }break;
         case SaveUrlError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

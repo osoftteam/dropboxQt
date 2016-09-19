@@ -20,7 +20,7 @@ GetMetadataArgs::operator QJsonObject()const{
 void GetMetadataArgs::toJson(QJsonObject& js)const{
 
     if(!m_shared_folder_id.isEmpty())
-        js["shared_folder_id"] = m_shared_folder_id;
+        js["shared_folder_id"] = QString(m_shared_folder_id);
     js["actions"] = struct_list2jsonarray(m_actions);
 }
 

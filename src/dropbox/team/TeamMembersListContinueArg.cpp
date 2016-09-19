@@ -20,7 +20,7 @@ MembersListContinueArg::operator QJsonObject()const{
 void MembersListContinueArg::toJson(QJsonObject& js)const{
 
     if(!m_cursor.isEmpty())
-        js["cursor"] = m_cursor;
+        js["cursor"] = QString(m_cursor);
 }
 
 void MembersListContinueArg::fromJson(const QJsonObject& js){

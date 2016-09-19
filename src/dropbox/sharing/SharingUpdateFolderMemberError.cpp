@@ -22,30 +22,30 @@ void UpdateFolderMemberError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case UpdateFolderMemberError_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case UpdateFolderMemberError_MEMBER_ERROR:{
             if(!name.isEmpty())
-                js[name] = "member_error";
+                js[name] = QString("member_error");
             m_member_error.toJson(js, "member_error");
         }break;
         case UpdateFolderMemberError_NO_EXPLICIT_ACCESS:{
             if(!name.isEmpty())
-                js[name] = "no_explicit_access";
+                js[name] = QString("no_explicit_access");
             m_no_explicit_access.toJson(js, "no_explicit_access");
         }break;
         case UpdateFolderMemberError_INSUFFICIENT_PLAN:{
             if(!name.isEmpty())
-                js[name] = "insufficient_plan";
+                js[name] = QString("insufficient_plan");
         }break;
         case UpdateFolderMemberError_NO_PERMISSION:{
             if(!name.isEmpty())
-                js[name] = "no_permission";
+                js[name] = QString("no_permission");
         }break;
         case UpdateFolderMemberError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

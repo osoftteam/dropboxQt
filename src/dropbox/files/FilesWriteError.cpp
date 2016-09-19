@@ -22,30 +22,30 @@ void WriteError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case WriteError_MALFORMED_PATH:{
             if(!name.isEmpty())
-                js[name] = "malformed_path";
+                js[name] = QString("malformed_path");
             if(!m_malformed_path.isEmpty())
-                js["malformed_path"] = m_malformed_path;
+                js["malformed_path"] = QString(m_malformed_path);
         }break;
         case WriteError_CONFLICT:{
             if(!name.isEmpty())
-                js[name] = "conflict";
+                js[name] = QString("conflict");
             m_conflict.toJson(js, "conflict");
         }break;
         case WriteError_NO_WRITE_PERMISSION:{
             if(!name.isEmpty())
-                js[name] = "no_write_permission";
+                js[name] = QString("no_write_permission");
         }break;
         case WriteError_INSUFFICIENT_SPACE:{
             if(!name.isEmpty())
-                js[name] = "insufficient_space";
+                js[name] = QString("insufficient_space");
         }break;
         case WriteError_DISALLOWED_NAME:{
             if(!name.isEmpty())
-                js[name] = "disallowed_name";
+                js[name] = QString("disallowed_name");
         }break;
         case WriteError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

@@ -20,7 +20,7 @@ GetAccountArg::operator QJsonObject()const{
 void GetAccountArg::toJson(QJsonObject& js)const{
 
     if(!m_account_id.isEmpty())
-        js["account_id"] = m_account_id;
+        js["account_id"] = QString(m_account_id);
 }
 
 void GetAccountArg::fromJson(const QJsonObject& js){

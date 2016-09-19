@@ -22,19 +22,19 @@ void GroupCreateError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case GroupCreateError_GROUP_NAME_ALREADY_USED:{
             if(!name.isEmpty())
-                js[name] = "group_name_already_used";
+                js[name] = QString("group_name_already_used");
         }break;
         case GroupCreateError_GROUP_NAME_INVALID:{
             if(!name.isEmpty())
-                js[name] = "group_name_invalid";
+                js[name] = QString("group_name_invalid");
         }break;
         case GroupCreateError_EXTERNAL_ID_ALREADY_IN_USE:{
             if(!name.isEmpty())
-                js[name] = "external_id_already_in_use";
+                js[name] = QString("external_id_already_in_use");
         }break;
         case GroupCreateError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

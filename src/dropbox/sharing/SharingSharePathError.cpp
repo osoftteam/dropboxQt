@@ -22,52 +22,52 @@ void SharePathError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SharePathError_IS_FILE:{
             if(!name.isEmpty())
-                js[name] = "is_file";
+                js[name] = QString("is_file");
         }break;
         case SharePathError_INSIDE_SHARED_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "inside_shared_folder";
+                js[name] = QString("inside_shared_folder");
         }break;
         case SharePathError_CONTAINS_SHARED_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "contains_shared_folder";
+                js[name] = QString("contains_shared_folder");
         }break;
         case SharePathError_IS_APP_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "is_app_folder";
+                js[name] = QString("is_app_folder");
         }break;
         case SharePathError_INSIDE_APP_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "inside_app_folder";
+                js[name] = QString("inside_app_folder");
         }break;
         case SharePathError_IS_PUBLIC_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "is_public_folder";
+                js[name] = QString("is_public_folder");
         }break;
         case SharePathError_INSIDE_PUBLIC_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "inside_public_folder";
+                js[name] = QString("inside_public_folder");
         }break;
         case SharePathError_ALREADY_SHARED:{
             if(!name.isEmpty())
-                js[name] = "already_shared";
+                js[name] = QString("already_shared");
             js["already_shared"] = (QJsonObject)m_already_shared;
         }break;
         case SharePathError_INVALID_PATH:{
             if(!name.isEmpty())
-                js[name] = "invalid_path";
+                js[name] = QString("invalid_path");
         }break;
         case SharePathError_IS_OSX_PACKAGE:{
             if(!name.isEmpty())
-                js[name] = "is_osx_package";
+                js[name] = QString("is_osx_package");
         }break;
         case SharePathError_INSIDE_OSX_PACKAGE:{
             if(!name.isEmpty())
-                js[name] = "inside_osx_package";
+                js[name] = QString("inside_osx_package");
         }break;
         case SharePathError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

@@ -20,7 +20,7 @@ CreateSharedLinkWithSettingsArg::operator QJsonObject()const{
 void CreateSharedLinkWithSettingsArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
     js["settings"] = (QJsonObject)m_settings;
 }
 

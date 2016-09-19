@@ -20,9 +20,9 @@ RevokeLinkedApiAppArg::operator QJsonObject()const{
 void RevokeLinkedApiAppArg::toJson(QJsonObject& js)const{
 
     if(!m_app_id.isEmpty())
-        js["app_id"] = m_app_id;
+        js["app_id"] = QString(m_app_id);
     if(!m_team_member_id.isEmpty())
-        js["team_member_id"] = m_team_member_id;
+        js["team_member_id"] = QString(m_team_member_id);
     js["keep_app_folder"] = m_keep_app_folder;
 }
 

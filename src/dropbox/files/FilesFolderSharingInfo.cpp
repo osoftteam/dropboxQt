@@ -21,9 +21,9 @@ void FolderSharingInfo::toJson(QJsonObject& js)const{
 
     SharingInfo::toJson(js);
     if(!m_parent_shared_folder_id.isEmpty())
-        js["parent_shared_folder_id"] = m_parent_shared_folder_id;
+        js["parent_shared_folder_id"] = QString(m_parent_shared_folder_id);
     if(!m_shared_folder_id.isEmpty())
-        js["shared_folder_id"] = m_shared_folder_id;
+        js["shared_folder_id"] = QString(m_shared_folder_id);
     js["traverse_only"] = m_traverse_only;
     js["no_access"] = m_no_access;
 }

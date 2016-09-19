@@ -22,15 +22,15 @@ void SharedLinkError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SharedLinkError_SHARED_LINK_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "shared_link_not_found";
+                js[name] = QString("shared_link_not_found");
         }break;
         case SharedLinkError_SHARED_LINK_ACCESS_DENIED:{
             if(!name.isEmpty())
-                js[name] = "shared_link_access_denied";
+                js[name] = QString("shared_link_access_denied");
         }break;
         case SharedLinkError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

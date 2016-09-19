@@ -22,21 +22,21 @@ void RestoreError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case RestoreError_PATH_LOOKUP:{
             if(!name.isEmpty())
-                js[name] = "path_lookup";
+                js[name] = QString("path_lookup");
             m_path_lookup.toJson(js, "path_lookup");
         }break;
         case RestoreError_PATH_WRITE:{
             if(!name.isEmpty())
-                js[name] = "path_write";
+                js[name] = QString("path_write");
             m_path_write.toJson(js, "path_write");
         }break;
         case RestoreError_INVALID_REVISION:{
             if(!name.isEmpty())
-                js[name] = "invalid_revision";
+                js[name] = QString("invalid_revision");
         }break;
         case RestoreError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

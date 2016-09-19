@@ -20,7 +20,7 @@ ListFolderLongpollArg::operator QJsonObject()const{
 void ListFolderLongpollArg::toJson(QJsonObject& js)const{
 
     if(!m_cursor.isEmpty())
-        js["cursor"] = m_cursor;
+        js["cursor"] = QString(m_cursor);
     js["timeout"] = m_timeout;
 }
 

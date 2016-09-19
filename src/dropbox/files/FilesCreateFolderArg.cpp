@@ -20,7 +20,7 @@ CreateFolderArg::operator QJsonObject()const{
 void CreateFolderArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
 }
 
 void CreateFolderArg::fromJson(const QJsonObject& js){

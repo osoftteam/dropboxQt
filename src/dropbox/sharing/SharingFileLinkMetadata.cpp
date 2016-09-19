@@ -25,7 +25,7 @@ void FileLinkMetadata::toJson(QJsonObject& js)const{
     if(m_server_modified.isValid())
         js["server_modified"] = m_server_modified.toString("yyyy-MM-ddThh:mm:ssZ");
     if(!m_rev.isEmpty())
-        js["rev"] = m_rev;
+        js["rev"] = QString(m_rev);
     js["size"] = m_size;
 }
 

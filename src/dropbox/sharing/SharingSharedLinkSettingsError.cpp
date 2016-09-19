@@ -22,11 +22,11 @@ void SharedLinkSettingsError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SharedLinkSettingsError_INVALID_SETTINGS:{
             if(!name.isEmpty())
-                js[name] = "invalid_settings";
+                js[name] = QString("invalid_settings");
         }break;
         case SharedLinkSettingsError_NOT_AUTHORIZED:{
             if(!name.isEmpty())
-                js[name] = "not_authorized";
+                js[name] = QString("not_authorized");
         }break;
     }//switch
 }

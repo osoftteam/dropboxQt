@@ -21,7 +21,7 @@ void GetTemporaryLinkResult::toJson(QJsonObject& js)const{
 
     js["metadata"] = (QJsonObject)m_metadata;
     if(!m_link.isEmpty())
-        js["link"] = m_link;
+        js["link"] = QString(m_link);
 }
 
 void GetTemporaryLinkResult::fromJson(const QJsonObject& js){

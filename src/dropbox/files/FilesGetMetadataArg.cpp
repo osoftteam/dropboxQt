@@ -20,7 +20,7 @@ GetMetadataArg::operator QJsonObject()const{
 void GetMetadataArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
     js["include_media_info"] = m_include_media_info;
     js["include_deleted"] = m_include_deleted;
     js["include_has_explicit_shared_members"] = m_include_has_explicit_shared_members;

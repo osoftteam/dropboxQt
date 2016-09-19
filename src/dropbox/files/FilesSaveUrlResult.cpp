@@ -22,13 +22,13 @@ void SaveUrlResult::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case LaunchResultBase_ASYNC_JOB_ID:{
             if(!name.isEmpty())
-                js[name] = "async_job_id";
+                js[name] = QString("async_job_id");
             if(!m_async_job_id.isEmpty())
-                js["async_job_id"] = m_async_job_id;
+                js["async_job_id"] = QString(m_async_job_id);
         }break;
         case SaveUrlResult_COMPLETE:{
             if(!name.isEmpty())
-                js[name] = "complete";
+                js[name] = QString("complete");
             js["complete"] = (QJsonObject)m_complete;
         }break;
     }//switch

@@ -108,60 +108,73 @@ namespace sharing{
             /**
             ApiRoute('add_file_member')
 
+
             Adds specified members to a file.
-            on error:AddFileMemberError
+
+            on error:AddFileMemberError throws exception AddFileMemberErrorException
             */
         std::list <FileMemberActionResult> addFileMember(const AddFileMemberArgs&);
 
             /**
             ApiRoute('add_folder_member')
 
+
             Allows an owner or editor (if the ACL update policy allows) of a
             shared folder to add another member. For the new member to get
             access to all the functionality for this folder, you will need to
             call :meth:`mount_folder` on their behalf. Apps must have full
             Dropbox access to use this endpoint.
-            on error:AddFolderMemberError
+
+            on error:AddFolderMemberError throws exception AddFolderMemberErrorException
             */
         void addFolderMember(const AddFolderMemberArg&);
 
             /**
             ApiRoute('change_file_member_access')
 
+
             Changes a member's access on a shared file.
-            on error:FileMemberActionError
+
+            on error:FileMemberActionError throws exception FileMemberActionErrorException
             */
         FileMemberActionResult changeFileMemberAccess(const ChangeFileMemberAccessArgs&);
 
             /**
             ApiRoute('check_job_status')
 
+
             Returns the status of an asynchronous job. Apps must have full
             Dropbox access to use this endpoint.
-            on error:PollError
+
+            on error:PollError throws exception PollErrorException
             */
         JobStatus checkJobStatus(const async::PollArg&);
 
             /**
             ApiRoute('check_remove_member_job_status')
 
+
             Returns the status of an asynchronous job for sharing a folder. Apps
             must have full Dropbox access to use this endpoint.
-            on error:PollError
+
+            on error:PollError throws exception PollErrorException
             */
         RemoveMemberJobStatus checkRemoveMemberJobStatus(const async::PollArg&);
 
             /**
             ApiRoute('check_share_job_status')
 
+
             Returns the status of an asynchronous job for sharing a folder. Apps
             must have full Dropbox access to use this endpoint.
-            on error:PollError
+
+            on error:PollError throws exception PollErrorException
             */
         ShareFolderJobStatus checkShareJobStatus(const async::PollArg&);
 
             /**
             ApiRoute('create_shared_link')
+
 
             Create a shared link. If a shared link already exists for the given
             path, that link is returned. Note that in the returned
@@ -172,64 +185,78 @@ namespace sharing{
             In the future, this will no longer be the case, so your app
             shouldn't rely on this behavior. Instead, if your app needs to
             revoke a shared link, use :meth:`revoke_shared_link`.
-            on error:CreateSharedLinkError
+
+            on error:CreateSharedLinkError throws exception CreateSharedLinkErrorException
             */
         PathLinkMetadata createSharedLink(const CreateSharedLinkArg&);
 
             /**
             ApiRoute('create_shared_link_with_settings')
 
+
             Create a shared link with custom settings. If no settings are given
             then the default visibility is ``RequestedVisibility.public`` (The
             resolved visibility, though, may depend on other aspects such as
             team and shared folder settings).
-            on error:CreateSharedLinkWithSettingsError
+
+            on error:CreateSharedLinkWithSettingsError throws exception CreateSharedLinkWithSettingsErrorException
             */
         SharedLinkMetadata createSharedLinkWithSettings(const CreateSharedLinkWithSettingsArg&);
 
             /**
             ApiRoute('get_file_metadata')
 
+
             Returns shared file metadata.
-            on error:GetFileMetadataError
+
+            on error:GetFileMetadataError throws exception GetFileMetadataErrorException
             */
         SharedFileMetadata getFileMetadata(const GetFileMetadataArg&);
 
             /**
             ApiRoute('get_file_metadata/batch')
 
+
             Returns shared file metadata.
-            on error:SharingUserError
+
+            on error:SharingUserError throws exception SharingUserErrorException
             */
         std::list <GetFileMetadataBatchResult> getFileMetadataBatch(const GetFileMetadataBatchArg&);
 
             /**
             ApiRoute('get_folder_metadata')
 
+
             Returns shared folder metadata by its folder ID. Apps must have full
             Dropbox access to use this endpoint.
-            on error:SharedFolderAccessError
+
+            on error:SharedFolderAccessError throws exception SharedFolderAccessErrorException
             */
         SharedFolderMetadata getFolderMetadata(const GetMetadataArgs&);
 
             /**
             ApiRoute('get_shared_link_file')
 
+
             Download the shared link's file from a user's Dropbox.
-            on error:GetSharedLinkFileError
+
+            on error:GetSharedLinkFileError throws exception GetSharedLinkFileErrorException
             */
         SharedLinkMetadata getSharedLinkFile(const GetSharedLinkMetadataArg&, QIODevice* writeTo);
 
             /**
             ApiRoute('get_shared_link_metadata')
 
+
             Get the shared link's metadata.
-            on error:SharedLinkError
+
+            on error:SharedLinkError throws exception SharedLinkErrorException
             */
         SharedLinkMetadata getSharedLinkMetadata(const GetSharedLinkMetadataArg&);
 
             /**
             ApiRoute('get_shared_links')
+
 
             Returns a list of :class:`LinkMetadata` objects for this user,
             including collection links. If no path is given or the path is
@@ -238,92 +265,110 @@ namespace sharing{
             list of all shared links that allow access to the given path.
             Collection links are never returned in this case. Note that the url
             field in the response is never the shortened URL.
-            on error:GetSharedLinksError
+
+            on error:GetSharedLinksError throws exception GetSharedLinksErrorException
             */
         GetSharedLinksResult getSharedLinks(const GetSharedLinksArg&);
 
             /**
             ApiRoute('list_file_members')
 
+
             Use to obtain the members who have been invited to a file, both
             inherited and uninherited members.
-            on error:ListFileMembersError
+
+            on error:ListFileMembersError throws exception ListFileMembersErrorException
             */
         SharedFileMembers listFileMembers(const ListFileMembersArg&);
 
             /**
             ApiRoute('list_file_members/batch')
 
+
             Get members of multiple files at once. The arguments to this route
             are more limited, and the limit on query result size per file is
             more strict. To customize the results more, use the individual file
             endpoint. Inherited users are not included in the result, and
             permissions are not returned for this endpoint.
-            on error:SharingUserError
+
+            on error:SharingUserError throws exception SharingUserErrorException
             */
         std::list <ListFileMembersBatchResult> listFileMembersBatch(const ListFileMembersBatchArg&);
 
             /**
             ApiRoute('list_file_members/continue')
 
+
             Once a cursor has been retrieved from :meth:`list_file_members` or
             :meth:`list_file_members_batch`, use this to paginate through all
             shared file members.
-            on error:ListFileMembersContinueError
+
+            on error:ListFileMembersContinueError throws exception ListFileMembersContinueErrorException
             */
         SharedFileMembers listFileMembersContinue(const ListFileMembersContinueArg&);
 
             /**
             ApiRoute('list_folder_members')
 
+
             Returns shared folder membership by its folder ID. Apps must have
             full Dropbox access to use this endpoint.
-            on error:SharedFolderAccessError
+
+            on error:SharedFolderAccessError throws exception SharedFolderAccessErrorException
             */
         SharedFolderMembers listFolderMembers(const ListFolderMembersArgs&);
 
             /**
             ApiRoute('list_folder_members/continue')
 
+
             Once a cursor has been retrieved from :meth:`list_folder_members`,
             use this to paginate through all shared folder members. Apps must
             have full Dropbox access to use this endpoint.
-            on error:ListFolderMembersContinueError
+
+            on error:ListFolderMembersContinueError throws exception ListFolderMembersContinueErrorException
             */
         SharedFolderMembers listFolderMembersContinue(const ListFolderMembersContinueArg&);
 
             /**
             ApiRoute('list_folders')
 
+
             Return the list of all shared folders the current user has access
             to. Apps must have full Dropbox access to use this endpoint.
-            on error:Void
+
+            on error:Void throws exception VoidException
             */
         ListFoldersResult listFolders(const ListFoldersArgs&);
 
             /**
             ApiRoute('list_folders/continue')
 
+
             Once a cursor has been retrieved from :meth:`list_folders`, use this
             to paginate through all shared folders. The cursor must come from a
             previous call to :meth:`list_folders` or
             :meth:`list_folders_continue`. Apps must have full Dropbox access to
             use this endpoint.
-            on error:ListFoldersContinueError
+
+            on error:ListFoldersContinueError throws exception ListFoldersContinueErrorException
             */
         ListFoldersResult listFoldersContinue(const ListFoldersContinueArg&);
 
             /**
             ApiRoute('list_mountable_folders')
 
+
             Return the list of all shared folders the current user can mount or
             unmount. Apps must have full Dropbox access to use this endpoint.
-            on error:Void
+
+            on error:Void throws exception VoidException
             */
         ListFoldersResult listMountableFolders(const ListFoldersArgs&);
 
             /**
             ApiRoute('list_mountable_folders/continue')
+
 
             Once a cursor has been retrieved from
             :meth:`list_mountable_folders`, use this to paginate through all
@@ -331,30 +376,36 @@ namespace sharing{
             to :meth:`list_mountable_folders` or
             :meth:`list_mountable_folders_continue`. Apps must have full Dropbox
             access to use this endpoint.
-            on error:ListFoldersContinueError
+
+            on error:ListFoldersContinueError throws exception ListFoldersContinueErrorException
             */
         ListFoldersResult listMountableFoldersContinue(const ListFoldersContinueArg&);
 
             /**
             ApiRoute('list_received_files')
 
+
             Returns a list of all files shared with current user.  Does not
             include files the user has received via shared folders, and does
             not include unclaimed invitations.
-            on error:SharingUserError
+
+            on error:SharingUserError throws exception SharingUserErrorException
             */
         ListFilesResult listReceivedFiles(const ListFilesArg&);
 
             /**
             ApiRoute('list_received_files/continue')
 
+
             Get more results with a cursor from :meth:`list_received_files`.
-            on error:ListFilesContinueError
+
+            on error:ListFilesContinueError throws exception ListFilesContinueErrorException
             */
         ListFilesResult listReceivedFilesContinue(const ListFilesContinueArg&);
 
             /**
             ApiRoute('list_shared_links')
+
 
             List shared links of this user. If no path is given or the path is
             empty, returns a list of all shared links for the current user. If a
@@ -362,12 +413,14 @@ namespace sharing{
             allow access to the given path - direct links to the given path and
             links to parent folders of the given path. Links to parent folders
             can be suppressed by setting direct_only to true.
-            on error:ListSharedLinksError
+
+            on error:ListSharedLinksError throws exception ListSharedLinksErrorException
             */
         ListSharedLinksResult listSharedLinks(const ListSharedLinksArg&);
 
             /**
             ApiRoute('modify_shared_link_settings')
+
 
             Modify the shared link's settings. If the requested visibility
             conflict with the shared links policy of the team or the shared
@@ -376,34 +429,40 @@ namespace sharing{
             :class:`SharedLinkMetadata` will reflect the actual visibility of
             the shared link and the ``LinkPermissions.requested_visibility``
             will reflect the requested visibility.
-            on error:ModifySharedLinkSettingsError
+
+            on error:ModifySharedLinkSettingsError throws exception ModifySharedLinkSettingsErrorException
             */
         SharedLinkMetadata modifySharedLinkSettings(const ModifySharedLinkSettingsArgs&);
 
             /**
             ApiRoute('mount_folder')
 
+
             The current user mounts the designated folder. Mount a shared folder
             for a user after they have been added as a member. Once mounted, the
             shared folder will appear in their Dropbox. Apps must have full
             Dropbox access to use this endpoint.
-            on error:MountFolderError
+
+            on error:MountFolderError throws exception MountFolderErrorException
             */
         SharedFolderMetadata mountFolder(const MountFolderArg&);
 
             /**
             ApiRoute('relinquish_file_membership')
 
+
             The current user relinquishes their membership in the designated
             file. Note that the current user may still have inherited access to
             this file through the parent folder. Apps must have full Dropbox
             access to use this endpoint.
-            on error:RelinquishFileMembershipError
+
+            on error:RelinquishFileMembershipError throws exception RelinquishFileMembershipErrorException
             */
         void relinquishFileMembership(const RelinquishFileMembershipArg&);
 
             /**
             ApiRoute('relinquish_folder_membership')
+
 
             The current user relinquishes their membership in the designated
             shared folder and will no longer have access to the folder.  A
@@ -411,39 +470,47 @@ namespace sharing{
             will run synchronously if leave_a_copy is false, and asynchronously
             if leave_a_copy is true. Apps must have full Dropbox access to use
             this endpoint.
-            on error:RelinquishFolderMembershipError
+
+            on error:RelinquishFolderMembershipError throws exception RelinquishFolderMembershipErrorException
             */
         async::LaunchEmptyResult relinquishFolderMembership(const RelinquishFolderMembershipArg&);
 
             /**
             ApiRoute('remove_file_member')
 
+
             Identical to remove_file_member_2 but with less information
             returned.
-            on error:RemoveFileMemberError
+
+            on error:RemoveFileMemberError throws exception RemoveFileMemberErrorException
             */
         FileMemberActionIndividualResult removeFileMember(const RemoveFileMemberArg&);
 
             /**
             ApiRoute('remove_file_member_2')
 
+
             Removes a specified member from the file.
-            on error:RemoveFileMemberError
+
+            on error:RemoveFileMemberError throws exception RemoveFileMemberErrorException
             */
         FileMemberRemoveActionResult removeFileMember2(const RemoveFileMemberArg&);
 
             /**
             ApiRoute('remove_folder_member')
 
+
             Allows an owner or editor (if the ACL update policy allows) of a
             shared folder to remove another member. Apps must have full Dropbox
             access to use this endpoint.
-            on error:RemoveFolderMemberError
+
+            on error:RemoveFolderMemberError throws exception RemoveFolderMemberErrorException
             */
         async::LaunchResultBase removeFolderMember(const RemoveFolderMemberArg&);
 
             /**
             ApiRoute('revoke_shared_link')
+
 
             Revoke a shared link. Note that even after revoking a shared link to
             a file, the file may be accessible if there are shared links leading
@@ -451,12 +518,14 @@ namespace sharing{
             enable access to a specific file, you can use the
             :meth:`list_shared_links` with the file as the
             ``ListSharedLinksArg.path`` argument.
-            on error:RevokeSharedLinkError
+
+            on error:RevokeSharedLinkError throws exception RevokeSharedLinkErrorException
             */
         void revokeSharedLink(const RevokeSharedLinkArg&);
 
             /**
             ApiRoute('share_folder')
+
 
             Share a folder with collaborators. Most sharing will be completed
             synchronously. Large folders will be completed asynchronously. To
@@ -466,68 +535,81 @@ namespace sharing{
             :meth:`check_share_job_status` until the action completes to get the
             metadata for the folder. Apps must have full Dropbox access to use
             this endpoint.
-            on error:ShareFolderError
+
+            on error:ShareFolderError throws exception ShareFolderErrorException
             */
         ShareFolderLaunch shareFolder(const ShareFolderArg&);
 
             /**
             ApiRoute('transfer_folder')
 
+
             Transfer ownership of a shared folder to a member of the shared
             folder. User must have ``AccessLevel.owner`` access to the shared
             folder to perform a transfer. Apps must have full Dropbox access to
             use this endpoint.
-            on error:TransferFolderError
+
+            on error:TransferFolderError throws exception TransferFolderErrorException
             */
         void transferFolder(const TransferFolderArg&);
 
             /**
             ApiRoute('unmount_folder')
 
+
             The current user unmounts the designated folder. They can re-mount
             the folder at a later time using :meth:`mount_folder`. Apps must
             have full Dropbox access to use this endpoint.
-            on error:UnmountFolderError
+
+            on error:UnmountFolderError throws exception UnmountFolderErrorException
             */
         void unmountFolder(const UnmountFolderArg&);
 
             /**
             ApiRoute('unshare_file')
 
+
             Remove all members from this file. Does not remove inherited
             members.
-            on error:UnshareFileError
+
+            on error:UnshareFileError throws exception UnshareFileErrorException
             */
         void unshareFile(const UnshareFileArg&);
 
             /**
             ApiRoute('unshare_folder')
 
+
             Allows a shared folder owner to unshare the folder. You'll need to
             call :meth:`check_job_status` to determine if the action has
             completed successfully. Apps must have full Dropbox access to use
             this endpoint.
-            on error:UnshareFolderError
+
+            on error:UnshareFolderError throws exception UnshareFolderErrorException
             */
         async::LaunchEmptyResult unshareFolder(const UnshareFolderArg&);
 
             /**
             ApiRoute('update_folder_member')
 
+
             Allows an owner or editor of a shared folder to update another
             member's permissions. Apps must have full Dropbox access to use this
             endpoint.
-            on error:UpdateFolderMemberError
+
+            on error:UpdateFolderMemberError throws exception UpdateFolderMemberErrorException
             */
         MemberAccessLevelResult updateFolderMember(const UpdateFolderMemberArg&);
 
             /**
             ApiRoute('update_folder_policy')
 
+
             Update the sharing policies for a shared folder. User must have
             ``AccessLevel.owner`` access to the shared folder to update its
             policies. Apps must have full Dropbox access to use this endpoint.
-            on error:UpdateFolderPolicyError
+
+            on error:UpdateFolderPolicyError throws exception UpdateFolderPolicyErrorException
             */
         SharedFolderMetadata updateFolderPolicy(const UpdateFolderPolicyArg&);
 
@@ -536,388 +618,100 @@ namespace sharing{
     };//SharingRoutes
 
     ///exception AddFileMemberError for add_file_member
-    class AddFileMemberErrorException: public ReplyException{
-    public:
-        const sharing::AddFileMemberError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        AddFileMemberErrorException(const sharing::AddFileMemberError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::AddFileMemberError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(AddFileMemberErrorException, sharing::AddFileMemberError);
 
     ///exception AddFolderMemberError for add_folder_member
-    class AddFolderMemberErrorException: public ReplyException{
-    public:
-        const sharing::AddFolderMemberError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        AddFolderMemberErrorException(const sharing::AddFolderMemberError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::AddFolderMemberError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(AddFolderMemberErrorException, sharing::AddFolderMemberError);
 
     ///exception FileMemberActionError for change_file_member_access
-    class FileMemberActionErrorException: public ReplyException{
-    public:
-        const sharing::FileMemberActionError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        FileMemberActionErrorException(const sharing::FileMemberActionError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::FileMemberActionError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(FileMemberActionErrorException, sharing::FileMemberActionError);
 
     ///exception PollError for check_job_status
-    class PollErrorException: public ReplyException{
-    public:
-        const async::PollError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        PollErrorException(const async::PollError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        async::PollError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(PollErrorException, async::PollError);
 
     ///exception CreateSharedLinkError for create_shared_link
-    class CreateSharedLinkErrorException: public ReplyException{
-    public:
-        const sharing::CreateSharedLinkError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        CreateSharedLinkErrorException(const sharing::CreateSharedLinkError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::CreateSharedLinkError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(CreateSharedLinkErrorException, sharing::CreateSharedLinkError);
 
     ///exception CreateSharedLinkWithSettingsError for create_shared_link_with_settings
-    class CreateSharedLinkWithSettingsErrorException: public ReplyException{
-    public:
-        const sharing::CreateSharedLinkWithSettingsError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        CreateSharedLinkWithSettingsErrorException(const sharing::CreateSharedLinkWithSettingsError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::CreateSharedLinkWithSettingsError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(CreateSharedLinkWithSettingsErrorException, sharing::CreateSharedLinkWithSettingsError);
 
     ///exception GetFileMetadataError for get_file_metadata
-    class GetFileMetadataErrorException: public ReplyException{
-    public:
-        const sharing::GetFileMetadataError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        GetFileMetadataErrorException(const sharing::GetFileMetadataError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::GetFileMetadataError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(GetFileMetadataErrorException, sharing::GetFileMetadataError);
 
     ///exception SharingUserError for get_file_metadata/batch
-    class SharingUserErrorException: public ReplyException{
-    public:
-        const sharing::SharingUserError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        SharingUserErrorException(const sharing::SharingUserError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::SharingUserError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(SharingUserErrorException, sharing::SharingUserError);
 
     ///exception SharedFolderAccessError for get_folder_metadata
-    class SharedFolderAccessErrorException: public ReplyException{
-    public:
-        const sharing::SharedFolderAccessError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        SharedFolderAccessErrorException(const sharing::SharedFolderAccessError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::SharedFolderAccessError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(SharedFolderAccessErrorException, sharing::SharedFolderAccessError);
 
     ///exception GetSharedLinkFileError for get_shared_link_file
-    class GetSharedLinkFileErrorException: public ReplyException{
-    public:
-        const sharing::GetSharedLinkFileError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        GetSharedLinkFileErrorException(const sharing::GetSharedLinkFileError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::GetSharedLinkFileError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(GetSharedLinkFileErrorException, sharing::GetSharedLinkFileError);
 
     ///exception SharedLinkError for get_shared_link_metadata
-    class SharedLinkErrorException: public ReplyException{
-    public:
-        const sharing::SharedLinkError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        SharedLinkErrorException(const sharing::SharedLinkError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::SharedLinkError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(SharedLinkErrorException, sharing::SharedLinkError);
 
     ///exception GetSharedLinksError for get_shared_links
-    class GetSharedLinksErrorException: public ReplyException{
-    public:
-        const sharing::GetSharedLinksError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        GetSharedLinksErrorException(const sharing::GetSharedLinksError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::GetSharedLinksError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(GetSharedLinksErrorException, sharing::GetSharedLinksError);
 
     ///exception ListFileMembersError for list_file_members
-    class ListFileMembersErrorException: public ReplyException{
-    public:
-        const sharing::ListFileMembersError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        ListFileMembersErrorException(const sharing::ListFileMembersError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::ListFileMembersError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(ListFileMembersErrorException, sharing::ListFileMembersError);
 
     ///exception ListFileMembersContinueError for list_file_members/continue
-    class ListFileMembersContinueErrorException: public ReplyException{
-    public:
-        const sharing::ListFileMembersContinueError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        ListFileMembersContinueErrorException(const sharing::ListFileMembersContinueError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::ListFileMembersContinueError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(ListFileMembersContinueErrorException, sharing::ListFileMembersContinueError);
 
     ///exception ListFolderMembersContinueError for list_folder_members/continue
-    class ListFolderMembersContinueErrorException: public ReplyException{
-    public:
-        const sharing::ListFolderMembersContinueError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        ListFolderMembersContinueErrorException(const sharing::ListFolderMembersContinueError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::ListFolderMembersContinueError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(ListFolderMembersContinueErrorException, sharing::ListFolderMembersContinueError);
 
     ///exception ListFoldersContinueError for list_folders/continue
-    class ListFoldersContinueErrorException: public ReplyException{
-    public:
-        const sharing::ListFoldersContinueError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        ListFoldersContinueErrorException(const sharing::ListFoldersContinueError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::ListFoldersContinueError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(ListFoldersContinueErrorException, sharing::ListFoldersContinueError);
 
     ///exception ListFilesContinueError for list_received_files/continue
-    class ListFilesContinueErrorException: public ReplyException{
-    public:
-        const sharing::ListFilesContinueError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        ListFilesContinueErrorException(const sharing::ListFilesContinueError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::ListFilesContinueError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(ListFilesContinueErrorException, sharing::ListFilesContinueError);
 
     ///exception ListSharedLinksError for list_shared_links
-    class ListSharedLinksErrorException: public ReplyException{
-    public:
-        const sharing::ListSharedLinksError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        ListSharedLinksErrorException(const sharing::ListSharedLinksError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::ListSharedLinksError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(ListSharedLinksErrorException, sharing::ListSharedLinksError);
 
     ///exception ModifySharedLinkSettingsError for modify_shared_link_settings
-    class ModifySharedLinkSettingsErrorException: public ReplyException{
-    public:
-        const sharing::ModifySharedLinkSettingsError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        ModifySharedLinkSettingsErrorException(const sharing::ModifySharedLinkSettingsError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::ModifySharedLinkSettingsError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(ModifySharedLinkSettingsErrorException, sharing::ModifySharedLinkSettingsError);
 
     ///exception MountFolderError for mount_folder
-    class MountFolderErrorException: public ReplyException{
-    public:
-        const sharing::MountFolderError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        MountFolderErrorException(const sharing::MountFolderError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::MountFolderError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(MountFolderErrorException, sharing::MountFolderError);
 
     ///exception RelinquishFileMembershipError for relinquish_file_membership
-    class RelinquishFileMembershipErrorException: public ReplyException{
-    public:
-        const sharing::RelinquishFileMembershipError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        RelinquishFileMembershipErrorException(const sharing::RelinquishFileMembershipError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::RelinquishFileMembershipError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(RelinquishFileMembershipErrorException, sharing::RelinquishFileMembershipError);
 
     ///exception RelinquishFolderMembershipError for relinquish_folder_membership
-    class RelinquishFolderMembershipErrorException: public ReplyException{
-    public:
-        const sharing::RelinquishFolderMembershipError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        RelinquishFolderMembershipErrorException(const sharing::RelinquishFolderMembershipError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::RelinquishFolderMembershipError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(RelinquishFolderMembershipErrorException, sharing::RelinquishFolderMembershipError);
 
     ///exception RemoveFileMemberError for remove_file_member
-    class RemoveFileMemberErrorException: public ReplyException{
-    public:
-        const sharing::RemoveFileMemberError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        RemoveFileMemberErrorException(const sharing::RemoveFileMemberError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::RemoveFileMemberError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(RemoveFileMemberErrorException, sharing::RemoveFileMemberError);
 
     ///exception RemoveFolderMemberError for remove_folder_member
-    class RemoveFolderMemberErrorException: public ReplyException{
-    public:
-        const sharing::RemoveFolderMemberError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        RemoveFolderMemberErrorException(const sharing::RemoveFolderMemberError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::RemoveFolderMemberError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(RemoveFolderMemberErrorException, sharing::RemoveFolderMemberError);
 
     ///exception RevokeSharedLinkError for revoke_shared_link
-    class RevokeSharedLinkErrorException: public ReplyException{
-    public:
-        const sharing::RevokeSharedLinkError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        RevokeSharedLinkErrorException(const sharing::RevokeSharedLinkError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::RevokeSharedLinkError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(RevokeSharedLinkErrorException, sharing::RevokeSharedLinkError);
 
     ///exception ShareFolderError for share_folder
-    class ShareFolderErrorException: public ReplyException{
-    public:
-        const sharing::ShareFolderError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        ShareFolderErrorException(const sharing::ShareFolderError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::ShareFolderError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(ShareFolderErrorException, sharing::ShareFolderError);
 
     ///exception TransferFolderError for transfer_folder
-    class TransferFolderErrorException: public ReplyException{
-    public:
-        const sharing::TransferFolderError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        TransferFolderErrorException(const sharing::TransferFolderError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::TransferFolderError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(TransferFolderErrorException, sharing::TransferFolderError);
 
     ///exception UnmountFolderError for unmount_folder
-    class UnmountFolderErrorException: public ReplyException{
-    public:
-        const sharing::UnmountFolderError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        UnmountFolderErrorException(const sharing::UnmountFolderError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::UnmountFolderError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(UnmountFolderErrorException, sharing::UnmountFolderError);
 
     ///exception UnshareFileError for unshare_file
-    class UnshareFileErrorException: public ReplyException{
-    public:
-        const sharing::UnshareFileError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        UnshareFileErrorException(const sharing::UnshareFileError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::UnshareFileError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(UnshareFileErrorException, sharing::UnshareFileError);
 
     ///exception UnshareFolderError for unshare_folder
-    class UnshareFolderErrorException: public ReplyException{
-    public:
-        const sharing::UnshareFolderError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        UnshareFolderErrorException(const sharing::UnshareFolderError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::UnshareFolderError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(UnshareFolderErrorException, sharing::UnshareFolderError);
 
     ///exception UpdateFolderMemberError for update_folder_member
-    class UpdateFolderMemberErrorException: public ReplyException{
-    public:
-        const sharing::UpdateFolderMemberError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        UpdateFolderMemberErrorException(const sharing::UpdateFolderMemberError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::UpdateFolderMemberError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(UpdateFolderMemberErrorException, sharing::UpdateFolderMemberError);
 
     ///exception UpdateFolderPolicyError for update_folder_policy
-    class UpdateFolderPolicyErrorException: public ReplyException{
-    public:
-        const sharing::UpdateFolderPolicyError& err()const {return m_err;}
-        static void raise(const QByteArray& data, int status_code, const std::string& message);
-
-    protected:
-        UpdateFolderPolicyErrorException(const sharing::UpdateFolderPolicyError& err, const std::string& summary, int status_code, const std::string& message);
-    protected:
-        sharing::UpdateFolderPolicyError m_err;
-    };
+    DECLARE_DBOX_ERR_EXCEPTION(UpdateFolderPolicyErrorException, sharing::UpdateFolderPolicyError);
 
 
 }//sharing

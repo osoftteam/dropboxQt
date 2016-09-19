@@ -22,51 +22,51 @@ void FolderAction::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case FolderAction_CHANGE_OPTIONS:{
             if(!name.isEmpty())
-                js[name] = "change_options";
+                js[name] = QString("change_options");
         }break;
         case FolderAction_EDIT_CONTENTS:{
             if(!name.isEmpty())
-                js[name] = "edit_contents";
+                js[name] = QString("edit_contents");
         }break;
         case FolderAction_INVITE_EDITOR:{
             if(!name.isEmpty())
-                js[name] = "invite_editor";
+                js[name] = QString("invite_editor");
         }break;
         case FolderAction_INVITE_VIEWER:{
             if(!name.isEmpty())
-                js[name] = "invite_viewer";
+                js[name] = QString("invite_viewer");
         }break;
         case FolderAction_INVITE_VIEWER_NO_COMMENT:{
             if(!name.isEmpty())
-                js[name] = "invite_viewer_no_comment";
+                js[name] = QString("invite_viewer_no_comment");
         }break;
         case FolderAction_RELINQUISH_MEMBERSHIP:{
             if(!name.isEmpty())
-                js[name] = "relinquish_membership";
+                js[name] = QString("relinquish_membership");
         }break;
         case FolderAction_UNMOUNT:{
             if(!name.isEmpty())
-                js[name] = "unmount";
+                js[name] = QString("unmount");
         }break;
         case FolderAction_UNSHARE:{
             if(!name.isEmpty())
-                js[name] = "unshare";
+                js[name] = QString("unshare");
         }break;
         case FolderAction_LEAVE_A_COPY:{
             if(!name.isEmpty())
-                js[name] = "leave_a_copy";
+                js[name] = QString("leave_a_copy");
         }break;
         case FolderAction_SHARE_LINK:{
             if(!name.isEmpty())
-                js[name] = "share_link";
+                js[name] = QString("share_link");
         }break;
         case FolderAction_CREATE_LINK:{
             if(!name.isEmpty())
-                js[name] = "create_link";
+                js[name] = QString("create_link");
         }break;
         case FolderAction_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

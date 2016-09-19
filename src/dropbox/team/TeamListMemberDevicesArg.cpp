@@ -20,7 +20,7 @@ ListMemberDevicesArg::operator QJsonObject()const{
 void ListMemberDevicesArg::toJson(QJsonObject& js)const{
 
     if(!m_team_member_id.isEmpty())
-        js["team_member_id"] = m_team_member_id;
+        js["team_member_id"] = QString(m_team_member_id);
     js["include_web_sessions"] = m_include_web_sessions;
     js["include_desktop_clients"] = m_include_desktop_clients;
     js["include_mobile_clients"] = m_include_mobile_clients;

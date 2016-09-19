@@ -20,7 +20,7 @@ UpdatePropertyTemplateResult::operator QJsonObject()const{
 void UpdatePropertyTemplateResult::toJson(QJsonObject& js)const{
 
     if(!m_template_id.isEmpty())
-        js["template_id"] = m_template_id;
+        js["template_id"] = QString(m_template_id);
 }
 
 void UpdatePropertyTemplateResult::fromJson(const QJsonObject& js){

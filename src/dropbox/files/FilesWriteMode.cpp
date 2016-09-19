@@ -22,17 +22,17 @@ void WriteMode::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case WriteMode_ADD:{
             if(!name.isEmpty())
-                js[name] = "add";
+                js[name] = QString("add");
         }break;
         case WriteMode_OVERWRITE:{
             if(!name.isEmpty())
-                js[name] = "overwrite";
+                js[name] = QString("overwrite");
         }break;
         case WriteMode_UPDATE:{
             if(!name.isEmpty())
-                js[name] = "update";
+                js[name] = QString("update");
             if(!m_update.isEmpty())
-                js["update"] = m_update;
+                js["update"] = QString(m_update);
         }break;
     }//switch
 }

@@ -22,11 +22,11 @@ void PropertyType::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case PropertyType_STRING:{
             if(!name.isEmpty())
-                js[name] = "string";
+                js[name] = QString("string");
         }break;
         case PropertyType_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

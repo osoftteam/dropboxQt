@@ -22,15 +22,15 @@ void GroupMembersSelectorError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case GroupSelectorError_GROUP_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "group_not_found";
+                js[name] = QString("group_not_found");
         }break;
         case GroupSelectorError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
         case GroupMembersSelectorError_MEMBER_NOT_IN_GROUP:{
             if(!name.isEmpty())
-                js[name] = "member_not_in_group";
+                js[name] = QString("member_not_in_group");
         }break;
     }//switch
 }

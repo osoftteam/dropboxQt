@@ -22,17 +22,17 @@ void FileMemberRemoveActionResult::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case FileMemberRemoveActionResult_SUCCESS:{
             if(!name.isEmpty())
-                js[name] = "success";
+                js[name] = QString("success");
             js["success"] = (QJsonObject)m_success;
         }break;
         case FileMemberRemoveActionResult_MEMBER_ERROR:{
             if(!name.isEmpty())
-                js[name] = "member_error";
+                js[name] = QString("member_error");
             m_member_error.toJson(js, "member_error");
         }break;
         case FileMemberRemoveActionResult_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

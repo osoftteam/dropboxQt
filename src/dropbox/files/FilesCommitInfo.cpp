@@ -20,7 +20,7 @@ CommitInfo::operator QJsonObject()const{
 void CommitInfo::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
     m_mode.toJson(js, "mode");
     js["autorename"] = m_autorename;
     if(m_client_modified.isValid())

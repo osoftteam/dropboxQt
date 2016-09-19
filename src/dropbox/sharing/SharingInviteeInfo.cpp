@@ -22,13 +22,13 @@ void InviteeInfo::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case InviteeInfo_EMAIL:{
             if(!name.isEmpty())
-                js[name] = "email";
+                js[name] = QString("email");
             if(!m_email.isEmpty())
-                js["email"] = m_email;
+                js["email"] = QString(m_email);
         }break;
         case InviteeInfo_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

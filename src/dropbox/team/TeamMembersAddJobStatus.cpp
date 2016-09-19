@@ -22,18 +22,18 @@ void MembersAddJobStatus::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case PollResultBase_IN_PROGRESS:{
             if(!name.isEmpty())
-                js[name] = "in_progress";
+                js[name] = QString("in_progress");
         }break;
         case MembersAddJobStatus_COMPLETE:{
             if(!name.isEmpty())
-                js[name] = "complete";
+                js[name] = QString("complete");
             js["complete"] = struct_list2jsonarray(m_complete);
         }break;
         case MembersAddJobStatus_FAILED:{
             if(!name.isEmpty())
-                js[name] = "failed";
+                js[name] = QString("failed");
             if(!m_failed.isEmpty())
-                js["failed"] = m_failed;
+                js["failed"] = QString(m_failed);
         }break;
     }//switch
 }

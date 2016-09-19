@@ -22,15 +22,15 @@ void SharedFolderJoinPolicy::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SharedFolderJoinPolicy_FROM_TEAM_ONLY:{
             if(!name.isEmpty())
-                js[name] = "from_team_only";
+                js[name] = QString("from_team_only");
         }break;
         case SharedFolderJoinPolicy_FROM_ANYONE:{
             if(!name.isEmpty())
-                js[name] = "from_anyone";
+                js[name] = QString("from_anyone");
         }break;
         case SharedFolderJoinPolicy_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

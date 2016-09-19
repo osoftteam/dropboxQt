@@ -21,7 +21,7 @@ void GroupsMembersListResult::toJson(QJsonObject& js)const{
 
     js["members"] = struct_list2jsonarray(m_members);
     if(!m_cursor.isEmpty())
-        js["cursor"] = m_cursor;
+        js["cursor"] = QString(m_cursor);
     js["has_more"] = m_has_more;
 }
 

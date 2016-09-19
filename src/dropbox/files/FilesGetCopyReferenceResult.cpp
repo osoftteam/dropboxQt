@@ -21,7 +21,7 @@ void GetCopyReferenceResult::toJson(QJsonObject& js)const{
 
     js["metadata"] = (QJsonObject)m_metadata;
     if(!m_copy_reference.isEmpty())
-        js["copy_reference"] = m_copy_reference;
+        js["copy_reference"] = QString(m_copy_reference);
     if(m_expires.isValid())
         js["expires"] = m_expires.toString("yyyy-MM-ddThh:mm:ssZ");
 }

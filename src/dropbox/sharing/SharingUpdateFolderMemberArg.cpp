@@ -20,7 +20,7 @@ UpdateFolderMemberArg::operator QJsonObject()const{
 void UpdateFolderMemberArg::toJson(QJsonObject& js)const{
 
     if(!m_shared_folder_id.isEmpty())
-        js["shared_folder_id"] = m_shared_folder_id;
+        js["shared_folder_id"] = QString(m_shared_folder_id);
     m_member.toJson(js, "member");
     m_access_level.toJson(js, "access_level");
 }

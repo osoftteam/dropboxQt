@@ -20,9 +20,9 @@ Team::operator QJsonObject()const{
 void Team::toJson(QJsonObject& js)const{
 
     if(!m_id.isEmpty())
-        js["id"] = m_id;
+        js["id"] = QString(m_id);
     if(!m_name.isEmpty())
-        js["name"] = m_name;
+        js["name"] = QString(m_name);
 }
 
 void Team::fromJson(const QJsonObject& js){

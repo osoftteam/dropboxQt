@@ -22,15 +22,15 @@ void AclUpdatePolicy::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case AclUpdatePolicy_OWNER:{
             if(!name.isEmpty())
-                js[name] = "owner";
+                js[name] = QString("owner");
         }break;
         case AclUpdatePolicy_EDITORS:{
             if(!name.isEmpty())
-                js[name] = "editors";
+                js[name] = QString("editors");
         }break;
         case AclUpdatePolicy_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

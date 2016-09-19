@@ -37,39 +37,7 @@ SpaceUsage UsersRoutes::getSpaceUsage(void){
     return r;
 }
 
-GetAccountErrorException::GetAccountErrorException(const users::GetAccountError& err, const std::string& summary, int status_code, const std::string& message):ReplyException(message, status_code, summary), m_err(err){
-    build(m_err.toString().toStdString());
-}
-void GetAccountErrorException::raise(const QByteArray& data, int status_code, const std::string& message)
-{
-    users::GetAccountError err;
-    std::string summary;
-    if(!data.isEmpty()){
-        QJsonDocument doc = QJsonDocument::fromJson(data);
-        QJsonObject js_in = doc.object();
-        err.fromJson(js_in["error"].toObject());
-        summary = js_in["error_summary"].toString().toStdString();
-    }
-    throw GetAccountErrorException(err, summary, status_code, message);
-}
-
-GetAccountBatchErrorException::GetAccountBatchErrorException(const users::GetAccountBatchError& err, const std::string& summary, int status_code, const std::string& message):ReplyException(message, status_code, summary), m_err(err){
-    build(m_err.toString().toStdString());
-}
-void GetAccountBatchErrorException::raise(const QByteArray& data, int status_code, const std::string& message)
-{
-    users::GetAccountBatchError err;
-    std::string summary;
-    if(!data.isEmpty()){
-        QJsonDocument doc = QJsonDocument::fromJson(data);
-        QJsonObject js_in = doc.object();
-        err.fromJson(js_in["error"].toObject());
-        summary = js_in["error_summary"].toString().toStdString();
-    }
-    throw GetAccountBatchErrorException(err, summary, status_code, message);
-}
-
-
-
+IMPLEMENT_DBOX_ERR_EXCEPTION(GetAccountErrorException, users::GetAccountError);
+IMPLEMENT_DBOX_ERR_EXCEPTION(GetAccountBatchErrorException, users::GetAccountBatchError);
 }//users
 }//dropboxQt

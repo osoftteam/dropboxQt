@@ -20,7 +20,7 @@ ChangeFileMemberAccessArgs::operator QJsonObject()const{
 void ChangeFileMemberAccessArgs::toJson(QJsonObject& js)const{
 
     if(!m_file.isEmpty())
-        js["file"] = m_file;
+        js["file"] = QString(m_file);
     m_member.toJson(js, "member");
     m_access_level.toJson(js, "access_level");
 }

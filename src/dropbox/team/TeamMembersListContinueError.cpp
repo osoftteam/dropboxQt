@@ -22,11 +22,11 @@ void MembersListContinueError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case MembersListContinueError_INVALID_CURSOR:{
             if(!name.isEmpty())
-                js[name] = "invalid_cursor";
+                js[name] = QString("invalid_cursor");
         }break;
         case MembersListContinueError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

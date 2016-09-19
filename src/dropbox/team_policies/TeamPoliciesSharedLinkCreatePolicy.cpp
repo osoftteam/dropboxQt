@@ -22,19 +22,19 @@ void SharedLinkCreatePolicy::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SharedLinkCreatePolicy_DEFAULT_PUBLIC:{
             if(!name.isEmpty())
-                js[name] = "default_public";
+                js[name] = QString("default_public");
         }break;
         case SharedLinkCreatePolicy_DEFAULT_TEAM_ONLY:{
             if(!name.isEmpty())
-                js[name] = "default_team_only";
+                js[name] = QString("default_team_only");
         }break;
         case SharedLinkCreatePolicy_TEAM_ONLY:{
             if(!name.isEmpty())
-                js[name] = "team_only";
+                js[name] = QString("team_only");
         }break;
         case SharedLinkCreatePolicy_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

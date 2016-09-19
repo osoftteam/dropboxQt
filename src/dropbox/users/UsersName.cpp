@@ -20,15 +20,15 @@ Name::operator QJsonObject()const{
 void Name::toJson(QJsonObject& js)const{
 
     if(!m_given_name.isEmpty())
-        js["given_name"] = m_given_name;
+        js["given_name"] = QString(m_given_name);
     if(!m_surname.isEmpty())
-        js["surname"] = m_surname;
+        js["surname"] = QString(m_surname);
     if(!m_familiar_name.isEmpty())
-        js["familiar_name"] = m_familiar_name;
+        js["familiar_name"] = QString(m_familiar_name);
     if(!m_display_name.isEmpty())
-        js["display_name"] = m_display_name;
+        js["display_name"] = QString(m_display_name);
     if(!m_abbreviated_name.isEmpty())
-        js["abbreviated_name"] = m_abbreviated_name;
+        js["abbreviated_name"] = QString(m_abbreviated_name);
 }
 
 void Name::fromJson(const QJsonObject& js){

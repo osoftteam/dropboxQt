@@ -20,10 +20,10 @@ UserInfo::operator QJsonObject()const{
 void UserInfo::toJson(QJsonObject& js)const{
 
     if(!m_account_id.isEmpty())
-        js["account_id"] = m_account_id;
+        js["account_id"] = QString(m_account_id);
     js["same_team"] = m_same_team;
     if(!m_team_member_id.isEmpty())
-        js["team_member_id"] = m_team_member_id;
+        js["team_member_id"] = QString(m_team_member_id);
 }
 
 void UserInfo::fromJson(const QJsonObject& js){

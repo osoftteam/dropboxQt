@@ -22,11 +22,11 @@ void TeamMembershipType::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case TeamMembershipType_FULL:{
             if(!name.isEmpty())
-                js[name] = "full";
+                js[name] = QString("full");
         }break;
         case TeamMembershipType_LIMITED:{
             if(!name.isEmpty())
-                js[name] = "limited";
+                js[name] = QString("limited");
         }break;
     }//switch
 }

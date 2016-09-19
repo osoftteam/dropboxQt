@@ -22,19 +22,19 @@ void AuthError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case AuthError_INVALID_ACCESS_TOKEN:{
             if(!name.isEmpty())
-                js[name] = "invalid_access_token";
+                js[name] = QString("invalid_access_token");
         }break;
         case AuthError_INVALID_SELECT_USER:{
             if(!name.isEmpty())
-                js[name] = "invalid_select_user";
+                js[name] = QString("invalid_select_user");
         }break;
         case AuthError_INVALID_SELECT_ADMIN:{
             if(!name.isEmpty())
-                js[name] = "invalid_select_admin";
+                js[name] = QString("invalid_select_admin");
         }break;
         case AuthError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

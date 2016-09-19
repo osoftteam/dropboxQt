@@ -20,7 +20,7 @@ RemovePropertiesArg::operator QJsonObject()const{
 void RemovePropertiesArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
     js["property_template_ids"] = ingrl_list2jsonarray(m_property_template_ids);
 }
 

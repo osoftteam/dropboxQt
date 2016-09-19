@@ -22,34 +22,34 @@ void UpdatePropertiesError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case PropertyTemplateError_TEMPLATE_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "template_not_found";
+                js[name] = QString("template_not_found");
             if(!m_template_not_found.isEmpty())
-                js["template_not_found"] = m_template_not_found;
+                js["template_not_found"] = QString(m_template_not_found);
         }break;
         case PropertyTemplateError_RESTRICTED_CONTENT:{
             if(!name.isEmpty())
-                js[name] = "restricted_content";
+                js[name] = QString("restricted_content");
         }break;
         case PropertyTemplateError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
         case PropertiesError_PATH:{
             if(!name.isEmpty())
-                js[name] = "path";
+                js[name] = QString("path");
             m_path.toJson(js, "path");
         }break;
         case InvalidPropertyGroupError_PROPERTY_FIELD_TOO_LARGE:{
             if(!name.isEmpty())
-                js[name] = "property_field_too_large";
+                js[name] = QString("property_field_too_large");
         }break;
         case InvalidPropertyGroupError_DOES_NOT_FIT_TEMPLATE:{
             if(!name.isEmpty())
-                js[name] = "does_not_fit_template";
+                js[name] = QString("does_not_fit_template");
         }break;
         case UpdatePropertiesError_PROPERTY_GROUP_LOOKUP:{
             if(!name.isEmpty())
-                js[name] = "property_group_lookup";
+                js[name] = QString("property_group_lookup");
             m_property_group_lookup.toJson(js, "property_group_lookup");
         }break;
     }//switch

@@ -22,16 +22,16 @@ void ListFolderMembersContinueError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case ListFolderMembersContinueError_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case ListFolderMembersContinueError_INVALID_CURSOR:{
             if(!name.isEmpty())
-                js[name] = "invalid_cursor";
+                js[name] = QString("invalid_cursor");
         }break;
         case ListFolderMembersContinueError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

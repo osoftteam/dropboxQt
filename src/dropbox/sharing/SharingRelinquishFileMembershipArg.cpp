@@ -20,7 +20,7 @@ RelinquishFileMembershipArg::operator QJsonObject()const{
 void RelinquishFileMembershipArg::toJson(QJsonObject& js)const{
 
     if(!m_file.isEmpty())
-        js["file"] = m_file;
+        js["file"] = QString(m_file);
 }
 
 void RelinquishFileMembershipArg::fromJson(const QJsonObject& js){

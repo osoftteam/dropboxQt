@@ -22,11 +22,11 @@ void ListFolderLongpollError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case ListFolderLongpollError_RESET:{
             if(!name.isEmpty())
-                js[name] = "reset";
+                js[name] = QString("reset");
         }break;
         case ListFolderLongpollError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

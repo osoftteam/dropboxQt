@@ -22,39 +22,39 @@ void MembersSetProfileError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case UserSelectorError_USER_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "user_not_found";
+                js[name] = QString("user_not_found");
         }break;
         case MemberSelectorError_USER_NOT_IN_TEAM:{
             if(!name.isEmpty())
-                js[name] = "user_not_in_team";
+                js[name] = QString("user_not_in_team");
         }break;
         case MembersSetProfileError_EXTERNAL_ID_AND_NEW_EXTERNAL_ID_UNSAFE:{
             if(!name.isEmpty())
-                js[name] = "external_id_and_new_external_id_unsafe";
+                js[name] = QString("external_id_and_new_external_id_unsafe");
         }break;
         case MembersSetProfileError_NO_NEW_DATA_SPECIFIED:{
             if(!name.isEmpty())
-                js[name] = "no_new_data_specified";
+                js[name] = QString("no_new_data_specified");
         }break;
         case MembersSetProfileError_EMAIL_RESERVED_FOR_OTHER_USER:{
             if(!name.isEmpty())
-                js[name] = "email_reserved_for_other_user";
+                js[name] = QString("email_reserved_for_other_user");
         }break;
         case MembersSetProfileError_EXTERNAL_ID_USED_BY_OTHER_USER:{
             if(!name.isEmpty())
-                js[name] = "external_id_used_by_other_user";
+                js[name] = QString("external_id_used_by_other_user");
         }break;
         case MembersSetProfileError_SET_PROFILE_DISALLOWED:{
             if(!name.isEmpty())
-                js[name] = "set_profile_disallowed";
+                js[name] = QString("set_profile_disallowed");
         }break;
         case MembersSetProfileError_PARAM_CANNOT_BE_EMPTY:{
             if(!name.isEmpty())
-                js[name] = "param_cannot_be_empty";
+                js[name] = QString("param_cannot_be_empty");
         }break;
         case MembersSetProfileError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

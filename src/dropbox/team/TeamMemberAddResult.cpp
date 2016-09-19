@@ -22,56 +22,56 @@ void MemberAddResult::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case MemberAddResult_SUCCESS:{
             if(!name.isEmpty())
-                js[name] = "success";
+                js[name] = QString("success");
             js["success"] = (QJsonObject)m_success;
         }break;
         case MemberAddResult_TEAM_LICENSE_LIMIT:{
             if(!name.isEmpty())
-                js[name] = "team_license_limit";
+                js[name] = QString("team_license_limit");
             if(!m_team_license_limit.isEmpty())
-                js["team_license_limit"] = m_team_license_limit;
+                js["team_license_limit"] = QString(m_team_license_limit);
         }break;
         case MemberAddResult_FREE_TEAM_MEMBER_LIMIT_REACHED:{
             if(!name.isEmpty())
-                js[name] = "free_team_member_limit_reached";
+                js[name] = QString("free_team_member_limit_reached");
             if(!m_free_team_member_limit_reached.isEmpty())
-                js["free_team_member_limit_reached"] = m_free_team_member_limit_reached;
+                js["free_team_member_limit_reached"] = QString(m_free_team_member_limit_reached);
         }break;
         case MemberAddResult_USER_ALREADY_ON_TEAM:{
             if(!name.isEmpty())
-                js[name] = "user_already_on_team";
+                js[name] = QString("user_already_on_team");
             if(!m_user_already_on_team.isEmpty())
-                js["user_already_on_team"] = m_user_already_on_team;
+                js["user_already_on_team"] = QString(m_user_already_on_team);
         }break;
         case MemberAddResult_USER_ON_ANOTHER_TEAM:{
             if(!name.isEmpty())
-                js[name] = "user_on_another_team";
+                js[name] = QString("user_on_another_team");
             if(!m_user_on_another_team.isEmpty())
-                js["user_on_another_team"] = m_user_on_another_team;
+                js["user_on_another_team"] = QString(m_user_on_another_team);
         }break;
         case MemberAddResult_USER_ALREADY_PAIRED:{
             if(!name.isEmpty())
-                js[name] = "user_already_paired";
+                js[name] = QString("user_already_paired");
             if(!m_user_already_paired.isEmpty())
-                js["user_already_paired"] = m_user_already_paired;
+                js["user_already_paired"] = QString(m_user_already_paired);
         }break;
         case MemberAddResult_USER_MIGRATION_FAILED:{
             if(!name.isEmpty())
-                js[name] = "user_migration_failed";
+                js[name] = QString("user_migration_failed");
             if(!m_user_migration_failed.isEmpty())
-                js["user_migration_failed"] = m_user_migration_failed;
+                js["user_migration_failed"] = QString(m_user_migration_failed);
         }break;
         case MemberAddResult_DUPLICATE_EXTERNAL_MEMBER_ID:{
             if(!name.isEmpty())
-                js[name] = "duplicate_external_member_id";
+                js[name] = QString("duplicate_external_member_id");
             if(!m_duplicate_external_member_id.isEmpty())
-                js["duplicate_external_member_id"] = m_duplicate_external_member_id;
+                js["duplicate_external_member_id"] = QString(m_duplicate_external_member_id);
         }break;
         case MemberAddResult_USER_CREATION_FAILED:{
             if(!name.isEmpty())
-                js[name] = "user_creation_failed";
+                js[name] = QString("user_creation_failed");
             if(!m_user_creation_failed.isEmpty())
-                js["user_creation_failed"] = m_user_creation_failed;
+                js["user_creation_failed"] = QString(m_user_creation_failed);
         }break;
     }//switch
 }

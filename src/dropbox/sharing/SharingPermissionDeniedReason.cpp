@@ -22,35 +22,35 @@ void PermissionDeniedReason::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case PermissionDeniedReason_USER_NOT_SAME_TEAM_AS_OWNER:{
             if(!name.isEmpty())
-                js[name] = "user_not_same_team_as_owner";
+                js[name] = QString("user_not_same_team_as_owner");
         }break;
         case PermissionDeniedReason_USER_NOT_ALLOWED_BY_OWNER:{
             if(!name.isEmpty())
-                js[name] = "user_not_allowed_by_owner";
+                js[name] = QString("user_not_allowed_by_owner");
         }break;
         case PermissionDeniedReason_TARGET_IS_INDIRECT_MEMBER:{
             if(!name.isEmpty())
-                js[name] = "target_is_indirect_member";
+                js[name] = QString("target_is_indirect_member");
         }break;
         case PermissionDeniedReason_TARGET_IS_OWNER:{
             if(!name.isEmpty())
-                js[name] = "target_is_owner";
+                js[name] = QString("target_is_owner");
         }break;
         case PermissionDeniedReason_TARGET_IS_SELF:{
             if(!name.isEmpty())
-                js[name] = "target_is_self";
+                js[name] = QString("target_is_self");
         }break;
         case PermissionDeniedReason_TARGET_NOT_ACTIVE:{
             if(!name.isEmpty())
-                js[name] = "target_not_active";
+                js[name] = QString("target_not_active");
         }break;
         case PermissionDeniedReason_FOLDER_IS_LIMITED_TEAM_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "folder_is_limited_team_folder";
+                js[name] = QString("folder_is_limited_team_folder");
         }break;
         case PermissionDeniedReason_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

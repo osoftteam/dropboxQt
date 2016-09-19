@@ -20,7 +20,7 @@ BaseDfbReport::operator QJsonObject()const{
 void BaseDfbReport::toJson(QJsonObject& js)const{
 
     if(!m_start_date.isEmpty())
-        js["start_date"] = m_start_date;
+        js["start_date"] = QString(m_start_date);
 }
 
 void BaseDfbReport::fromJson(const QJsonObject& js){

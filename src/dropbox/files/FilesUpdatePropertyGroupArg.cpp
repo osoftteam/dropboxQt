@@ -20,7 +20,7 @@ UpdatePropertyGroupArg::operator QJsonObject()const{
 void UpdatePropertyGroupArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
     js["update_property_groups"] = struct_list2jsonarray(m_update_property_groups);
 }
 

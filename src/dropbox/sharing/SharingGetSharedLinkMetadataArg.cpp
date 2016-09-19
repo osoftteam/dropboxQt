@@ -20,11 +20,11 @@ GetSharedLinkMetadataArg::operator QJsonObject()const{
 void GetSharedLinkMetadataArg::toJson(QJsonObject& js)const{
 
     if(!m_url.isEmpty())
-        js["url"] = m_url;
+        js["url"] = QString(m_url);
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
     if(!m_link_password.isEmpty())
-        js["link_password"] = m_link_password;
+        js["link_password"] = QString(m_link_password);
 }
 
 void GetSharedLinkMetadataArg::fromJson(const QJsonObject& js){

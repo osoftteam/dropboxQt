@@ -21,7 +21,7 @@ void UploadWriteFailed::toJson(QJsonObject& js)const{
 
     m_reason.toJson(js, "reason");
     if(!m_upload_session_id.isEmpty())
-        js["upload_session_id"] = m_upload_session_id;
+        js["upload_session_id"] = QString(m_upload_session_id);
 }
 
 void UploadWriteFailed::fromJson(const QJsonObject& js){

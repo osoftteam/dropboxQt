@@ -22,27 +22,27 @@ void SharedLinkAccessFailureReason::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SharedLinkAccessFailureReason_LOGIN_REQUIRED:{
             if(!name.isEmpty())
-                js[name] = "login_required";
+                js[name] = QString("login_required");
         }break;
         case SharedLinkAccessFailureReason_EMAIL_VERIFY_REQUIRED:{
             if(!name.isEmpty())
-                js[name] = "email_verify_required";
+                js[name] = QString("email_verify_required");
         }break;
         case SharedLinkAccessFailureReason_PASSWORD_REQUIRED:{
             if(!name.isEmpty())
-                js[name] = "password_required";
+                js[name] = QString("password_required");
         }break;
         case SharedLinkAccessFailureReason_TEAM_ONLY:{
             if(!name.isEmpty())
-                js[name] = "team_only";
+                js[name] = QString("team_only");
         }break;
         case SharedLinkAccessFailureReason_OWNER_ONLY:{
             if(!name.isEmpty())
-                js[name] = "owner_only";
+                js[name] = QString("owner_only");
         }break;
         case SharedLinkAccessFailureReason_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

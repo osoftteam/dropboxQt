@@ -20,7 +20,7 @@ LinkMetadata::operator QJsonObject()const{
 void LinkMetadata::toJson(QJsonObject& js)const{
 
     if(!m_url.isEmpty())
-        js["url"] = m_url;
+        js["url"] = QString(m_url);
     m_visibility.toJson(js, "visibility");
     if(m_expires.isValid())
         js["expires"] = m_expires.toString("yyyy-MM-ddThh:mm:ssZ");

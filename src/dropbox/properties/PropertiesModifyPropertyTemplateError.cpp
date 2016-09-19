@@ -22,33 +22,33 @@ void ModifyPropertyTemplateError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case PropertyTemplateError_TEMPLATE_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "template_not_found";
+                js[name] = QString("template_not_found");
             if(!m_template_not_found.isEmpty())
-                js["template_not_found"] = m_template_not_found;
+                js["template_not_found"] = QString(m_template_not_found);
         }break;
         case PropertyTemplateError_RESTRICTED_CONTENT:{
             if(!name.isEmpty())
-                js[name] = "restricted_content";
+                js[name] = QString("restricted_content");
         }break;
         case PropertyTemplateError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
         case ModifyPropertyTemplateError_CONFLICTING_PROPERTY_NAMES:{
             if(!name.isEmpty())
-                js[name] = "conflicting_property_names";
+                js[name] = QString("conflicting_property_names");
         }break;
         case ModifyPropertyTemplateError_TOO_MANY_PROPERTIES:{
             if(!name.isEmpty())
-                js[name] = "too_many_properties";
+                js[name] = QString("too_many_properties");
         }break;
         case ModifyPropertyTemplateError_TOO_MANY_TEMPLATES:{
             if(!name.isEmpty())
-                js[name] = "too_many_templates";
+                js[name] = QString("too_many_templates");
         }break;
         case ModifyPropertyTemplateError_TEMPLATE_ATTRIBUTE_TOO_LARGE:{
             if(!name.isEmpty())
-                js[name] = "template_attribute_too_large";
+                js[name] = QString("template_attribute_too_large");
         }break;
     }//switch
 }

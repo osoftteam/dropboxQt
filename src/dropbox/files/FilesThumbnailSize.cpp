@@ -22,23 +22,23 @@ void ThumbnailSize::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case ThumbnailSize_W32H32:{
             if(!name.isEmpty())
-                js[name] = "w32h32";
+                js[name] = QString("w32h32");
         }break;
         case ThumbnailSize_W64H64:{
             if(!name.isEmpty())
-                js[name] = "w64h64";
+                js[name] = QString("w64h64");
         }break;
         case ThumbnailSize_W128H128:{
             if(!name.isEmpty())
-                js[name] = "w128h128";
+                js[name] = QString("w128h128");
         }break;
         case ThumbnailSize_W640H480:{
             if(!name.isEmpty())
-                js[name] = "w640h480";
+                js[name] = QString("w640h480");
         }break;
         case ThumbnailSize_W1024H768:{
             if(!name.isEmpty())
-                js[name] = "w1024h768";
+                js[name] = QString("w1024h768");
         }break;
     }//switch
 }

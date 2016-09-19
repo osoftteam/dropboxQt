@@ -22,17 +22,17 @@ void SpaceAllocation::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SpaceAllocation_INDIVIDUAL:{
             if(!name.isEmpty())
-                js[name] = "individual";
+                js[name] = QString("individual");
             js["individual"] = (QJsonObject)m_individual;
         }break;
         case SpaceAllocation_TEAM:{
             if(!name.isEmpty())
-                js[name] = "team";
+                js[name] = QString("team");
             js["team"] = (QJsonObject)m_team;
         }break;
         case SpaceAllocation_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

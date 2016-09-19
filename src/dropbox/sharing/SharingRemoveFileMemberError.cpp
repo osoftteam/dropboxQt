@@ -22,22 +22,22 @@ void RemoveFileMemberError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case RemoveFileMemberError_USER_ERROR:{
             if(!name.isEmpty())
-                js[name] = "user_error";
+                js[name] = QString("user_error");
             m_user_error.toJson(js, "user_error");
         }break;
         case RemoveFileMemberError_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case RemoveFileMemberError_NO_EXPLICIT_ACCESS:{
             if(!name.isEmpty())
-                js[name] = "no_explicit_access";
+                js[name] = QString("no_explicit_access");
             js["no_explicit_access"] = (QJsonObject)m_no_explicit_access;
         }break;
         case RemoveFileMemberError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

@@ -22,11 +22,11 @@ void GroupAccessType::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case GroupAccessType_MEMBER:{
             if(!name.isEmpty())
-                js[name] = "member";
+                js[name] = QString("member");
         }break;
         case GroupAccessType_OWNER:{
             if(!name.isEmpty())
-                js[name] = "owner";
+                js[name] = QString("owner");
         }break;
     }//switch
 }

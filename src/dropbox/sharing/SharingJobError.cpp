@@ -22,22 +22,22 @@ void JobError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case JobError_UNSHARE_FOLDER_ERROR:{
             if(!name.isEmpty())
-                js[name] = "unshare_folder_error";
+                js[name] = QString("unshare_folder_error");
             m_unshare_folder_error.toJson(js, "unshare_folder_error");
         }break;
         case JobError_REMOVE_FOLDER_MEMBER_ERROR:{
             if(!name.isEmpty())
-                js[name] = "remove_folder_member_error";
+                js[name] = QString("remove_folder_member_error");
             m_remove_folder_member_error.toJson(js, "remove_folder_member_error");
         }break;
         case JobError_RELINQUISH_FOLDER_MEMBERSHIP_ERROR:{
             if(!name.isEmpty())
-                js[name] = "relinquish_folder_membership_error";
+                js[name] = QString("relinquish_folder_membership_error");
             m_relinquish_folder_membership_error.toJson(js, "relinquish_folder_membership_error");
         }break;
         case JobError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

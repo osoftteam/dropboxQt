@@ -21,9 +21,9 @@ void FolderMetadata::toJson(QJsonObject& js)const{
 
     Metadata::toJson(js);
     if(!m_id.isEmpty())
-        js["id"] = m_id;
+        js["id"] = QString(m_id);
     if(!m_shared_folder_id.isEmpty())
-        js["shared_folder_id"] = m_shared_folder_id;
+        js["shared_folder_id"] = QString(m_shared_folder_id);
     js["sharing_info"] = (QJsonObject)m_sharing_info;
     js["property_groups"] = struct_list2jsonarray(m_property_groups);
 }

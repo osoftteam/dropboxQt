@@ -20,9 +20,9 @@ RestoreArg::operator QJsonObject()const{
 void RestoreArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
     if(!m_rev.isEmpty())
-        js["rev"] = m_rev;
+        js["rev"] = QString(m_rev);
 }
 
 void RestoreArg::fromJson(const QJsonObject& js){

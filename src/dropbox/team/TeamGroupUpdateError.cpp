@@ -22,15 +22,15 @@ void GroupUpdateError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case GroupSelectorError_GROUP_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "group_not_found";
+                js[name] = QString("group_not_found");
         }break;
         case GroupSelectorError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
         case GroupUpdateError_EXTERNAL_ID_ALREADY_IN_USE:{
             if(!name.isEmpty())
-                js[name] = "external_id_already_in_use";
+                js[name] = QString("external_id_already_in_use");
         }break;
     }//switch
 }

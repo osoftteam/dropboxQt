@@ -22,7 +22,7 @@ void LookUpPropertiesError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case LookUpPropertiesError_PROPERTY_GROUP_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "property_group_not_found";
+                js[name] = QString("property_group_not_found");
         }break;
     }//switch
 }

@@ -19,8 +19,10 @@ namespace auth{
             /**
             ApiRoute('token/revoke')
 
+
             Disables the access token used to authenticate the call.
-            on error:Void
+
+            on error:Void throws exception VoidException
             */
         void tokenRevoke(void);
 

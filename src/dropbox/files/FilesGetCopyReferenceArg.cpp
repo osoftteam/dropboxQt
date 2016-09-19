@@ -20,7 +20,7 @@ GetCopyReferenceArg::operator QJsonObject()const{
 void GetCopyReferenceArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
-        js["path"] = m_path;
+        js["path"] = QString(m_path);
 }
 
 void GetCopyReferenceArg::fromJson(const QJsonObject& js){

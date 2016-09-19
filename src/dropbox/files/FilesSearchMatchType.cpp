@@ -22,15 +22,15 @@ void SearchMatchType::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SearchMatchType_FILENAME:{
             if(!name.isEmpty())
-                js[name] = "filename";
+                js[name] = QString("filename");
         }break;
         case SearchMatchType_CONTENT:{
             if(!name.isEmpty())
-                js[name] = "content";
+                js[name] = QString("content");
         }break;
         case SearchMatchType_BOTH:{
             if(!name.isEmpty())
-                js[name] = "both";
+                js[name] = QString("both");
         }break;
     }//switch
 }

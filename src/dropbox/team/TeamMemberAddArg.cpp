@@ -20,13 +20,13 @@ MemberAddArg::operator QJsonObject()const{
 void MemberAddArg::toJson(QJsonObject& js)const{
 
     if(!m_member_email.isEmpty())
-        js["member_email"] = m_member_email;
+        js["member_email"] = QString(m_member_email);
     if(!m_member_given_name.isEmpty())
-        js["member_given_name"] = m_member_given_name;
+        js["member_given_name"] = QString(m_member_given_name);
     if(!m_member_surname.isEmpty())
-        js["member_surname"] = m_member_surname;
+        js["member_surname"] = QString(m_member_surname);
     if(!m_member_external_id.isEmpty())
-        js["member_external_id"] = m_member_external_id;
+        js["member_external_id"] = QString(m_member_external_id);
     js["send_welcome_email"] = m_send_welcome_email;
     m_role.toJson(js, "role");
 }

@@ -22,33 +22,33 @@ void MountFolderError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case MountFolderError_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case MountFolderError_INSIDE_SHARED_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "inside_shared_folder";
+                js[name] = QString("inside_shared_folder");
         }break;
         case MountFolderError_INSUFFICIENT_QUOTA:{
             if(!name.isEmpty())
-                js[name] = "insufficient_quota";
+                js[name] = QString("insufficient_quota");
             js["insufficient_quota"] = (QJsonObject)m_insufficient_quota;
         }break;
         case MountFolderError_ALREADY_MOUNTED:{
             if(!name.isEmpty())
-                js[name] = "already_mounted";
+                js[name] = QString("already_mounted");
         }break;
         case MountFolderError_NO_PERMISSION:{
             if(!name.isEmpty())
-                js[name] = "no_permission";
+                js[name] = QString("no_permission");
         }break;
         case MountFolderError_NOT_MOUNTABLE:{
             if(!name.isEmpty())
-                js[name] = "not_mountable";
+                js[name] = QString("not_mountable");
         }break;
         case MountFolderError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

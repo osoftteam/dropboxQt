@@ -22,23 +22,23 @@ void MembersUnsuspendError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case UserSelectorError_USER_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "user_not_found";
+                js[name] = QString("user_not_found");
         }break;
         case MembersDeactivateError_USER_NOT_IN_TEAM:{
             if(!name.isEmpty())
-                js[name] = "user_not_in_team";
+                js[name] = QString("user_not_in_team");
         }break;
         case MembersDeactivateError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
         case MembersUnsuspendError_UNSUSPEND_NON_SUSPENDED_MEMBER:{
             if(!name.isEmpty())
-                js[name] = "unsuspend_non_suspended_member";
+                js[name] = QString("unsuspend_non_suspended_member");
         }break;
         case MembersUnsuspendError_TEAM_LICENSE_LIMIT:{
             if(!name.isEmpty())
-                js[name] = "team_license_limit";
+                js[name] = QString("team_license_limit");
         }break;
     }//switch
 }

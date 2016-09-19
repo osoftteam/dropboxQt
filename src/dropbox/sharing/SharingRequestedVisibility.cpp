@@ -22,15 +22,15 @@ void RequestedVisibility::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case RequestedVisibility_PUBLIC:{
             if(!name.isEmpty())
-                js[name] = "public";
+                js[name] = QString("public");
         }break;
         case RequestedVisibility_TEAM_ONLY:{
             if(!name.isEmpty())
-                js[name] = "team_only";
+                js[name] = QString("team_only");
         }break;
         case RequestedVisibility_PASSWORD:{
             if(!name.isEmpty())
-                js[name] = "password";
+                js[name] = QString("password");
         }break;
     }//switch
 }

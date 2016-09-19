@@ -21,7 +21,7 @@ void MemberAccessLevelResult::toJson(QJsonObject& js)const{
 
     m_access_level.toJson(js, "access_level");
     if(!m_warning.isEmpty())
-        js["warning"] = m_warning;
+        js["warning"] = QString(m_warning);
     js["access_details"] = struct_list2jsonarray(m_access_details);
 }
 

@@ -62,41 +62,40 @@ namespace dropboxQt{
             std::string errorInfo;
             int status_code = 0;
             RES res;
-#ifndef DROPBOX_QT_AUTOTEST			
             RES_SERIALIZER serializer;
             QNetworkReply *reply = m_con_mgr.post(req, bytes2post);
             SETUP_DEFAULT_SLOTS(reply)
-                QObject::connect(reply, &QNetworkReply::finished, [&]()
-                                 {
-                                     status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-                                     switch(status_code)
-                                         {
-                                         case 200:
-                                             {
-                                                 if(serializer.hasLoad()){													 
-                                                     QByteArray data = reply->readAll();
-                                                     if(!data.isEmpty())
-                                                         {
-															serializer.load(data, res);
-                                                            ok = true;
-                                                         }														 
-                                                 }
-											 }break;
+            QObject::connect(reply, &QNetworkReply::finished, [&]()
+                                {
+                                    status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+                                    switch(status_code)
+                                        {
+                                        case 200:
+                                            {
+                                                if(serializer.hasLoad()){
+                                                    QByteArray data = reply->readAll();
+                                                    if(!data.isEmpty())
+                                                        {
+														serializer.load(data, res);
+                                                        ok = true;
+                                                        }
+                                                }
+											}break;
 												 
-                                             case 409:
-                                                 {
-                                                     exception_data = reply->readAll();
-													 PREPARE_ERR_INFO(exception_data, bytes2post);
-                                                     raise_details_exception = true;
-                                                 }break;
-                                         default:
-                                             {
-                                                 QByteArray data = reply->readAll();
-                                                 PREPARE_ERR_INFO(data, bytes2post);
-                                             }break;
-                                         }
-                                     exitEventLoop(reply);
-                                 });//response lambda
+                                            case 409:
+                                                {
+                                                    exception_data = reply->readAll();
+													PREPARE_ERR_INFO(exception_data, bytes2post);
+                                                    raise_details_exception = true;
+                                                }break;
+                                        default:
+                                            {
+                                                QByteArray data = reply->readAll();
+                                                PREPARE_ERR_INFO(data, bytes2post);
+                                            }break;
+                                        }
+                                    exitEventLoop(reply);
+                                });//response lambda
             execEventLoop(reply);
             if(raise_details_exception)
                 {
@@ -106,13 +105,6 @@ namespace dropboxQt{
                 {
                     throw ReplyException(errorInfo, status_code, ""); 
                 }
-#else
-            DropboxAutotest::INSTANCE() << "";
-            DropboxAutotest::INSTANCE() << req;
-            DropboxAutotest::INSTANCE() << bytes2post;
-            DropboxAutotest::INSTANCE() << "--------------------------";
-#endif //DROPBOX_QT_AUTOTEST
-
             return res;
         }
 
@@ -124,25 +116,25 @@ namespace dropboxQt{
             addAuthHeader(req);
             QJsonDocument doc(js_out);
             req.setRawHeader("Dropbox-API-Arg", doc.toJson(QJsonDocument::Compact));
-            //req.setHeader(QNetworkRequest::ContentTypeHeader, "");
 
             bool ok = false;
-            std::string errorInfo, errInData;
+            std::string errorInfo = "", errInData = "";
             int status_code = 0;
             RES res;
             RES_SERIALIZER serializer;
             QByteArray bytes2post;
             QNetworkReply *reply = m_con_mgr.post(req, bytes2post);
             SETUP_DEFAULT_SLOTS(reply)
-                QObject::connect(reply, &QNetworkReply::readyRead, [&]()
-                                 {
-                                     qint64 sz = reply->bytesAvailable();
-                                     if(sz > 0){
-                                         QByteArray data = reply->read(sz);
-                                         writeTo->write(data);
-                                         errInData = data.constData();
-                                     }
-                                 });
+            QObject::connect(reply, &QNetworkReply::readyRead, [&]()
+                                {
+                                    qint64 sz = reply->bytesAvailable();
+                                    if(sz > 0){
+                                        QByteArray data = reply->read(sz);
+                                        writeTo->write(data);
+										if(errInData.empty())
+											errInData = data.constData();
+                                    }
+                                });
 
             QObject::connect(reply, &QNetworkReply::finished, [&]()
                              {
@@ -215,8 +207,6 @@ namespace dropboxQt{
                                                  QByteArray data = reply->readAll();
                                                  if(!data.isEmpty())
                                                      {
-                                                         //QJsonDocument doc = QJsonDocument::fromJson(data);
-                                                         //QJsonObject js_in = doc.object();
                                                          serializer.load(data, res);
                                                          ok = true;
                                                      }

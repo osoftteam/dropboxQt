@@ -22,11 +22,11 @@ void ThumbnailFormat::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case ThumbnailFormat_JPEG:{
             if(!name.isEmpty())
-                js[name] = "jpeg";
+                js[name] = QString("jpeg");
         }break;
         case ThumbnailFormat_PNG:{
             if(!name.isEmpty())
-                js[name] = "png";
+                js[name] = QString("png");
         }break;
     }//switch
 }

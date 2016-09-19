@@ -18,6 +18,5 @@ void AuthRoutes::tokenRevoke(){
     m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, NotAnException>("2/auth/token/revoke", js);
 }
 
-
 }//auth
 }//dropboxQt

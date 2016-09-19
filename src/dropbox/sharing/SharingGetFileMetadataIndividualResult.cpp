@@ -22,17 +22,17 @@ void GetFileMetadataIndividualResult::toJson(QJsonObject& js, QString name)const
     switch(m_tag){
         case GetFileMetadataIndividualResult_METADATA:{
             if(!name.isEmpty())
-                js[name] = "metadata";
+                js[name] = QString("metadata");
             js["metadata"] = (QJsonObject)m_metadata;
         }break;
         case GetFileMetadataIndividualResult_ACCESS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "access_error";
+                js[name] = QString("access_error");
             m_access_error.toJson(js, "access_error");
         }break;
         case GetFileMetadataIndividualResult_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

@@ -22,37 +22,37 @@ void AddMemberSelectorError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case AddMemberSelectorError_AUTOMATIC_GROUP:{
             if(!name.isEmpty())
-                js[name] = "automatic_group";
+                js[name] = QString("automatic_group");
         }break;
         case AddMemberSelectorError_INVALID_DROPBOX_ID:{
             if(!name.isEmpty())
-                js[name] = "invalid_dropbox_id";
+                js[name] = QString("invalid_dropbox_id");
             if(!m_invalid_dropbox_id.isEmpty())
-                js["invalid_dropbox_id"] = m_invalid_dropbox_id;
+                js["invalid_dropbox_id"] = QString(m_invalid_dropbox_id);
         }break;
         case AddMemberSelectorError_INVALID_EMAIL:{
             if(!name.isEmpty())
-                js[name] = "invalid_email";
+                js[name] = QString("invalid_email");
             if(!m_invalid_email.isEmpty())
-                js["invalid_email"] = m_invalid_email;
+                js["invalid_email"] = QString(m_invalid_email);
         }break;
         case AddMemberSelectorError_UNVERIFIED_DROPBOX_ID:{
             if(!name.isEmpty())
-                js[name] = "unverified_dropbox_id";
+                js[name] = QString("unverified_dropbox_id");
             if(!m_unverified_dropbox_id.isEmpty())
-                js["unverified_dropbox_id"] = m_unverified_dropbox_id;
+                js["unverified_dropbox_id"] = QString(m_unverified_dropbox_id);
         }break;
         case AddMemberSelectorError_GROUP_DELETED:{
             if(!name.isEmpty())
-                js[name] = "group_deleted";
+                js[name] = QString("group_deleted");
         }break;
         case AddMemberSelectorError_GROUP_NOT_ON_TEAM:{
             if(!name.isEmpty())
-                js[name] = "group_not_on_team";
+                js[name] = QString("group_not_on_team");
         }break;
         case AddMemberSelectorError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

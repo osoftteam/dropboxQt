@@ -20,11 +20,11 @@ UpdatePropertyTemplateArg::operator QJsonObject()const{
 void UpdatePropertyTemplateArg::toJson(QJsonObject& js)const{
 
     if(!m_template_id.isEmpty())
-        js["template_id"] = m_template_id;
+        js["template_id"] = QString(m_template_id);
     if(!m_name.isEmpty())
-        js["name"] = m_name;
+        js["name"] = QString(m_name);
     if(!m_description.isEmpty())
-        js["description"] = m_description;
+        js["description"] = QString(m_description);
     js["add_fields"] = struct_list2jsonarray(m_add_fields);
 }
 

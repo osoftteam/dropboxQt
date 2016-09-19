@@ -22,15 +22,15 @@ void RateLimitReason::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case RateLimitReason_TOO_MANY_REQUESTS:{
             if(!name.isEmpty())
-                js[name] = "too_many_requests";
+                js[name] = QString("too_many_requests");
         }break;
         case RateLimitReason_TOO_MANY_WRITE_OPERATIONS:{
             if(!name.isEmpty())
-                js[name] = "too_many_write_operations";
+                js[name] = QString("too_many_write_operations");
         }break;
         case RateLimitReason_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

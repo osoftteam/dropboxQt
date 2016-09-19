@@ -22,27 +22,27 @@ void SharingFileAccessError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SharingFileAccessError_NO_PERMISSION:{
             if(!name.isEmpty())
-                js[name] = "no_permission";
+                js[name] = QString("no_permission");
         }break;
         case SharingFileAccessError_INVALID_FILE:{
             if(!name.isEmpty())
-                js[name] = "invalid_file";
+                js[name] = QString("invalid_file");
         }break;
         case SharingFileAccessError_IS_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "is_folder";
+                js[name] = QString("is_folder");
         }break;
         case SharingFileAccessError_INSIDE_PUBLIC_FOLDER:{
             if(!name.isEmpty())
-                js[name] = "inside_public_folder";
+                js[name] = QString("inside_public_folder");
         }break;
         case SharingFileAccessError_INSIDE_OSX_PACKAGE:{
             if(!name.isEmpty())
-                js[name] = "inside_osx_package";
+                js[name] = QString("inside_osx_package");
         }break;
         case SharingFileAccessError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

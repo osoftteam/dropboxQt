@@ -22,23 +22,23 @@ void SharedFolderAccessError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case SharedFolderAccessError_INVALID_ID:{
             if(!name.isEmpty())
-                js[name] = "invalid_id";
+                js[name] = QString("invalid_id");
         }break;
         case SharedFolderAccessError_NOT_A_MEMBER:{
             if(!name.isEmpty())
-                js[name] = "not_a_member";
+                js[name] = QString("not_a_member");
         }break;
         case SharedFolderAccessError_EMAIL_UNVERIFIED:{
             if(!name.isEmpty())
-                js[name] = "email_unverified";
+                js[name] = QString("email_unverified");
         }break;
         case SharedFolderAccessError_UNMOUNTED:{
             if(!name.isEmpty())
-                js[name] = "unmounted";
+                js[name] = QString("unmounted");
         }break;
         case SharedFolderAccessError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

@@ -22,25 +22,25 @@ void CreateSharedLinkWithSettingsError::toJson(QJsonObject& js, QString name)con
     switch(m_tag){
         case CreateSharedLinkWithSettingsError_PATH:{
             if(!name.isEmpty())
-                js[name] = "path";
+                js[name] = QString("path");
             m_path.toJson(js, "path");
         }break;
         case CreateSharedLinkWithSettingsError_EMAIL_NOT_VERIFIED:{
             if(!name.isEmpty())
-                js[name] = "email_not_verified";
+                js[name] = QString("email_not_verified");
         }break;
         case CreateSharedLinkWithSettingsError_SHARED_LINK_ALREADY_EXISTS:{
             if(!name.isEmpty())
-                js[name] = "shared_link_already_exists";
+                js[name] = QString("shared_link_already_exists");
         }break;
         case CreateSharedLinkWithSettingsError_SETTINGS_ERROR:{
             if(!name.isEmpty())
-                js[name] = "settings_error";
+                js[name] = QString("settings_error");
             m_settings_error.toJson(js, "settings_error");
         }break;
         case CreateSharedLinkWithSettingsError_ACCESS_DENIED:{
             if(!name.isEmpty())
-                js[name] = "access_denied";
+                js[name] = QString("access_denied");
         }break;
     }//switch
 }

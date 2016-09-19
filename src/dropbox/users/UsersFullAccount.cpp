@@ -21,14 +21,14 @@ void FullAccount::toJson(QJsonObject& js)const{
 
     Account::toJson(js);
     if(!m_country.isEmpty())
-        js["country"] = m_country;
+        js["country"] = QString(m_country);
     if(!m_locale.isEmpty())
-        js["locale"] = m_locale;
+        js["locale"] = QString(m_locale);
     if(!m_referral_link.isEmpty())
-        js["referral_link"] = m_referral_link;
+        js["referral_link"] = QString(m_referral_link);
     js["team"] = (QJsonObject)m_team;
     if(!m_team_member_id.isEmpty())
-        js["team_member_id"] = m_team_member_id;
+        js["team_member_id"] = QString(m_team_member_id);
     js["is_paired"] = m_is_paired;
     m_account_type.toJson(js, "account_type");
 }

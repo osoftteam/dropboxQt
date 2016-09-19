@@ -20,9 +20,9 @@ RelocationArg::operator QJsonObject()const{
 void RelocationArg::toJson(QJsonObject& js)const{
 
     if(!m_from_path.isEmpty())
-        js["from_path"] = m_from_path;
+        js["from_path"] = QString(m_from_path);
     if(!m_to_path.isEmpty())
-        js["to_path"] = m_to_path;
+        js["to_path"] = QString(m_to_path);
 }
 
 void RelocationArg::fromJson(const QJsonObject& js){

@@ -20,13 +20,13 @@ ApiApp::operator QJsonObject()const{
 void ApiApp::toJson(QJsonObject& js)const{
 
     if(!m_app_id.isEmpty())
-        js["app_id"] = m_app_id;
+        js["app_id"] = QString(m_app_id);
     if(!m_app_name.isEmpty())
-        js["app_name"] = m_app_name;
+        js["app_name"] = QString(m_app_name);
     if(!m_publisher.isEmpty())
-        js["publisher"] = m_publisher;
+        js["publisher"] = QString(m_publisher);
     if(!m_publisher_url.isEmpty())
-        js["publisher_url"] = m_publisher_url;
+        js["publisher_url"] = QString(m_publisher_url);
     if(m_linked.isValid())
         js["linked"] = m_linked.toString("yyyy-MM-ddThh:mm:ssZ");
     js["is_app_folder"] = m_is_app_folder;

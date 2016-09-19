@@ -20,7 +20,7 @@ ListFileMembersContinueArg::operator QJsonObject()const{
 void ListFileMembersContinueArg::toJson(QJsonObject& js)const{
 
     if(!m_cursor.isEmpty())
-        js["cursor"] = m_cursor;
+        js["cursor"] = QString(m_cursor);
 }
 
 void ListFileMembersContinueArg::fromJson(const QJsonObject& js){

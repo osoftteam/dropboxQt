@@ -22,37 +22,37 @@ void GroupMembersAddError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case GroupSelectorError_GROUP_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "group_not_found";
+                js[name] = QString("group_not_found");
         }break;
         case GroupSelectorError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
         case GroupMembersAddError_DUPLICATE_USER:{
             if(!name.isEmpty())
-                js[name] = "duplicate_user";
+                js[name] = QString("duplicate_user");
         }break;
         case GroupMembersAddError_GROUP_NOT_IN_TEAM:{
             if(!name.isEmpty())
-                js[name] = "group_not_in_team";
+                js[name] = QString("group_not_in_team");
         }break;
         case GroupMembersAddError_MEMBERS_NOT_IN_TEAM:{
             if(!name.isEmpty())
-                js[name] = "members_not_in_team";
+                js[name] = QString("members_not_in_team");
             js["members_not_in_team"] = ingrl_list2jsonarray(m_members_not_in_team);
         }break;
         case GroupMembersAddError_USERS_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "users_not_found";
+                js[name] = QString("users_not_found");
             js["users_not_found"] = ingrl_list2jsonarray(m_users_not_found);
         }break;
         case GroupMembersAddError_USER_MUST_BE_ACTIVE_TO_BE_OWNER:{
             if(!name.isEmpty())
-                js[name] = "user_must_be_active_to_be_owner";
+                js[name] = QString("user_must_be_active_to_be_owner");
         }break;
         case GroupMembersAddError_USER_CANNOT_BE_MANAGER_OF_COMPANY_MANAGED_GROUP:{
             if(!name.isEmpty())
-                js[name] = "user_cannot_be_manager_of_company_managed_group";
+                js[name] = QString("user_cannot_be_manager_of_company_managed_group");
             js["user_cannot_be_manager_of_company_managed_group"] = ingrl_list2jsonarray(m_user_cannot_be_manager_of_company_managed_group);
         }break;
     }//switch

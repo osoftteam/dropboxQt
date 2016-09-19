@@ -21,13 +21,13 @@ void MembersSetProfileArg::toJson(QJsonObject& js)const{
 
     m_user.toJson(js, "user");
     if(!m_new_email.isEmpty())
-        js["new_email"] = m_new_email;
+        js["new_email"] = QString(m_new_email);
     if(!m_new_external_id.isEmpty())
-        js["new_external_id"] = m_new_external_id;
+        js["new_external_id"] = QString(m_new_external_id);
     if(!m_new_given_name.isEmpty())
-        js["new_given_name"] = m_new_given_name;
+        js["new_given_name"] = QString(m_new_given_name);
     if(!m_new_surname.isEmpty())
-        js["new_surname"] = m_new_surname;
+        js["new_surname"] = QString(m_new_surname);
 }
 
 void MembersSetProfileArg::fromJson(const QJsonObject& js){

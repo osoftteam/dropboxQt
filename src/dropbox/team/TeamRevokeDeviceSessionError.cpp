@@ -22,15 +22,15 @@ void RevokeDeviceSessionError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case RevokeDeviceSessionError_DEVICE_SESSION_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "device_session_not_found";
+                js[name] = QString("device_session_not_found");
         }break;
         case RevokeDeviceSessionError_MEMBER_NOT_FOUND:{
             if(!name.isEmpty())
-                js[name] = "member_not_found";
+                js[name] = QString("member_not_found");
         }break;
         case RevokeDeviceSessionError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

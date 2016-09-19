@@ -22,15 +22,15 @@ void PollError::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case PollError_INVALID_ASYNC_JOB_ID:{
             if(!name.isEmpty())
-                js[name] = "invalid_async_job_id";
+                js[name] = QString("invalid_async_job_id");
         }break;
         case PollError_INTERNAL_ERROR:{
             if(!name.isEmpty())
-                js[name] = "internal_error";
+                js[name] = QString("internal_error");
         }break;
         case PollError_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }

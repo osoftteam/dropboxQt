@@ -20,7 +20,7 @@ UpdateFolderPolicyArg::operator QJsonObject()const{
 void UpdateFolderPolicyArg::toJson(QJsonObject& js)const{
 
     if(!m_shared_folder_id.isEmpty())
-        js["shared_folder_id"] = m_shared_folder_id;
+        js["shared_folder_id"] = QString(m_shared_folder_id);
     m_member_policy.toJson(js, "member_policy");
     m_acl_update_policy.toJson(js, "acl_update_policy");
     m_shared_link_policy.toJson(js, "shared_link_policy");

@@ -22,23 +22,23 @@ void AccessLevel::toJson(QJsonObject& js, QString name)const{
     switch(m_tag){
         case AccessLevel_OWNER:{
             if(!name.isEmpty())
-                js[name] = "owner";
+                js[name] = QString("owner");
         }break;
         case AccessLevel_EDITOR:{
             if(!name.isEmpty())
-                js[name] = "editor";
+                js[name] = QString("editor");
         }break;
         case AccessLevel_VIEWER:{
             if(!name.isEmpty())
-                js[name] = "viewer";
+                js[name] = QString("viewer");
         }break;
         case AccessLevel_VIEWER_NO_COMMENT:{
             if(!name.isEmpty())
-                js[name] = "viewer_no_comment";
+                js[name] = QString("viewer_no_comment");
         }break;
         case AccessLevel_OTHER:{
             if(!name.isEmpty())
-                js[name] = "other";
+                js[name] = QString("other");
         }break;
     }//switch
 }
