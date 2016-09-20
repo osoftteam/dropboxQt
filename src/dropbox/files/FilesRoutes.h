@@ -501,7 +501,6 @@ namespace files{
             means you should not start next job before current job finishes.
             Also we only allow up to 1000 entries in a single request
 
-            on error:Void throws exception VoidException
             */
         async::LaunchEmptyResult uploadSessionFinishBatch(const UploadSessionFinishBatchArg&);
 
@@ -528,7 +527,6 @@ namespace files{
             Dropbox. A single request should not upload more than 150 MB of file
             contents.
 
-            on error:Void throws exception VoidException
             */
         UploadSessionStartResult uploadSessionStart(const UploadSessionStartArg&, QIODevice* readFrom);
 

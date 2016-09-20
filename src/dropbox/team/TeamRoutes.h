@@ -146,7 +146,6 @@ namespace team{
 
             Lists groups on a team. Permission : Team Information
 
-            on error:Void throws exception VoidException
             */
         GroupsListResult alphaGroupsList(const GroupsListArg&);
 
@@ -228,7 +227,6 @@ namespace team{
 
             Retrieves information about a team.
 
-            on error:Void throws exception VoidException
             */
         TeamGetInfoResult getInfo(void);
 
@@ -286,7 +284,6 @@ namespace team{
 
             Lists groups on a team. Permission : Team Information
 
-            on error:Void throws exception VoidException
             */
         GroupsListResult groupsList(const GroupsListArg&);
 
@@ -443,7 +440,6 @@ namespace team{
             in the team invitation and for 'Perform as team member' actions
             taken on the user before they become 'active'.
 
-            on error:Void throws exception VoidException
             */
         MembersAddLaunch membersAdd(const MembersAddArg&);
 

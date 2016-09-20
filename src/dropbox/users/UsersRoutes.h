@@ -50,7 +50,6 @@ namespace users{
 
             Get information about the current user's account.
 
-            on error:Void throws exception VoidException
             */
         FullAccount getCurrentAccount(void);
 
@@ -60,7 +59,6 @@ namespace users{
 
             Get the space usage information for the current user's account.
 
-            on error:Void throws exception VoidException
             */
         SpaceUsage getSpaceUsage(void);
 

@@ -22,7 +22,6 @@ namespace auth{
 
             Disables the access token used to authenticate the call.
 
-            on error:Void throws exception VoidException
             */
         void tokenRevoke(void);
 

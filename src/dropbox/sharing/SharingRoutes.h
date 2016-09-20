@@ -337,7 +337,6 @@ namespace sharing{
             Return the list of all shared folders the current user has access
             to. Apps must have full Dropbox access to use this endpoint.
 
-            on error:Void throws exception VoidException
             */
         ListFoldersResult listFolders(const ListFoldersArgs&);
 
@@ -362,7 +361,6 @@ namespace sharing{
             Return the list of all shared folders the current user can mount or
             unmount. Apps must have full Dropbox access to use this endpoint.
 
-            on error:Void throws exception VoidException
             */
         ListFoldersResult listMountableFolders(const ListFoldersArgs&);
 
