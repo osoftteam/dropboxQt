@@ -11,7 +11,13 @@
 #include "dropbox/users/UsersRoutes.h"
 #include "dropbox/endpoint/Endpoint.h"
 
+
 namespace dropboxQt{
+DropboxClient::DropboxClient()
+{
+    m_endpoint.reset(new Endpoint(this));
+};
+
 DropboxClient::DropboxClient(const QString& access_token)
 :m_token(access_token)
 {

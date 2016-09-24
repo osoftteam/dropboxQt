@@ -19,17 +19,46 @@ namespace dropboxQt{
     class DropboxClient: public QObject{
     Q_OBJECT
     public:
+        DropboxClient();
         DropboxClient(const QString& access_token);
         ~DropboxClient();
 
+        /// "auth" namespace API endpoint
         auth::AuthRoutes* getAuth();
+
+        /// "files" namespace API endpoint
         files::FilesRoutes* getFiles();
+
+        /// "sharing" namespace API endpoint
         sharing::SharingRoutes* getSharing();
+
+        /// "team" namespace API endpoint
         team::TeamRoutes* getTeam();
+
+        /// "users" namespace API endpoint
         users::UsersRoutes* getUsers();
 
-        QString getToken()const{return m_token;}
 
+        /// download file from Dropbox
+        bool downloadFile(QString dropboxFilePath, QString localDestinationPath);
+
+        /// upload file to Dropbox
+        bool uploadFile(QString localFilePath, QString dropboxDestinationPath);
+
+        /// create a new folder
+        bool createFolder(QString dropboxPath);
+
+        /// move a file or folder
+        bool moveFile(QString moveFrom, QString moveTo);
+
+        /// delete a file or folder
+        bool deleteFile(QString dropboxPath);
+
+        /// return list of the files in a folder
+        std::list<QString> lsFolder(QString dropboxPath);
+
+        QString getToken()const{return m_token;}
+        void setToken(QString s){m_token = s;}
 
         #ifdef DROPBOX_QT_AUTOTEST
         Endpoint* getEndpoint();
