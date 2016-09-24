@@ -21,7 +21,7 @@ namespace files{
     public:
         ///The path to the file you want a temporary link to.
         QString path()const{return m_path;};
-        const GetTemporaryLinkArg& setPath(const QString& arg){m_path=arg; return *this;};
+        GetTemporaryLinkArg& setPath(const QString& arg){m_path=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

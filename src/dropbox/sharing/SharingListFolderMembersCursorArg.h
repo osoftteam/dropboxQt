@@ -31,11 +31,11 @@ namespace sharing{
     public:
         ///This is a list indicating whether each returned member will include a boolean value :field:`MemberPermission.allow` that describes whether the current user can perform the MemberAction on the member.
         const std::list <MemberAction>& actions()const{return m_actions;};
-        const ListFolderMembersCursorArg& setActions(const std::list <MemberAction>&& arg){m_actions=arg; return *this;};
+        ListFolderMembersCursorArg& setActions(const std::list <MemberAction>&& arg){m_actions=arg; return *this;};
 
         ///The maximum number of results that include members, groups and invitees to return per request.
         int limit()const{return m_limit;};
-        const ListFolderMembersCursorArg& setLimit(const int& arg){m_limit=arg; return *this;};
+        ListFolderMembersCursorArg& setLimit(const int& arg){m_limit=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

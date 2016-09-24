@@ -21,7 +21,7 @@ namespace sharing{
     public:
         ///The ID of the shared folder to mount.
         QString sharedFolderId()const{return m_shared_folder_id;};
-        const MountFolderArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
+        MountFolderArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

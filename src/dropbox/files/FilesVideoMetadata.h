@@ -24,7 +24,7 @@ namespace files{
     public:
         ///The duration of the video in milliseconds.
         int duration()const{return m_duration;};
-        const VideoMetadata& setDuration(const int& arg){m_duration=arg; return *this;};
+        VideoMetadata& setDuration(const int& arg){m_duration=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

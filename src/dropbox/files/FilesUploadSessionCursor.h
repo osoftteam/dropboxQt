@@ -25,11 +25,11 @@ namespace files{
     public:
         ///The upload session ID (returned by :route:`upload_session/start`).
         QString sessionId()const{return m_session_id;};
-        const UploadSessionCursor& setSessionid(const QString& arg){m_session_id=arg; return *this;};
+        UploadSessionCursor& setSessionid(const QString& arg){m_session_id=arg; return *this;};
 
         ///The amount of data that has been uploaded so far. We use this to make sure upload data isn't lost or duplicated in the event of a network error.
         int offset()const{return m_offset;};
-        const UploadSessionCursor& setOffset(const int& arg){m_offset=arg; return *this;};
+        UploadSessionCursor& setOffset(const int& arg){m_offset=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

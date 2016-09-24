@@ -22,7 +22,7 @@ namespace users{
     public:
         ///List of user account identifiers.  Should not contain any duplicate account IDs.
         const std::list <QString>& accountIds()const{return m_account_ids;};
-        const GetAccountBatchArg& setAccountids(const std::list <QString>&& arg){m_account_ids=arg; return *this;};
+        GetAccountBatchArg& setAccountids(const std::list <QString>&& arg){m_account_ids=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

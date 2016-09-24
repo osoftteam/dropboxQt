@@ -29,11 +29,11 @@ namespace team{
     public:
         ///Identity of user whose role will be set.
         UserSelectorArg user()const{return m_user;};
-        const MembersSetPermissionsArg& setUser(const UserSelectorArg& arg){m_user=arg; return *this;};
+        MembersSetPermissionsArg& setUser(const UserSelectorArg& arg){m_user=arg; return *this;};
 
         ///The new role of the member.
         AdminTier newRole()const{return m_new_role;};
-        const MembersSetPermissionsArg& setNewrole(const AdminTier& arg){m_new_role=arg; return *this;};
+        MembersSetPermissionsArg& setNewrole(const AdminTier& arg){m_new_role=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -27,11 +27,11 @@ namespace team{
     public:
         ///Profile of group member.
         MemberProfile profile()const{return m_profile;};
-        const GroupMemberInfo& setProfile(const MemberProfile& arg){m_profile=arg; return *this;};
+        GroupMemberInfo& setProfile(const MemberProfile& arg){m_profile=arg; return *this;};
 
         ///The role that the user has in the group.
         GroupAccessType accessType()const{return m_access_type;};
-        const GroupMemberInfo& setAccesstype(const GroupAccessType& arg){m_access_type=arg; return *this;};
+        GroupMemberInfo& setAccesstype(const GroupAccessType& arg){m_access_type=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

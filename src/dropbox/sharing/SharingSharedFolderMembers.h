@@ -31,19 +31,19 @@ namespace sharing{
     public:
         ///The list of user members of the shared folder.
         const std::list <UserMembershipInfo>& users()const{return m_users;};
-        const SharedFolderMembers& setUsers(const std::list <UserMembershipInfo>&& arg){m_users=arg; return *this;};
+        SharedFolderMembers& setUsers(const std::list <UserMembershipInfo>&& arg){m_users=arg; return *this;};
 
         ///The list of group members of the shared folder.
         const std::list <GroupMembershipInfo>& groups()const{return m_groups;};
-        const SharedFolderMembers& setGroups(const std::list <GroupMembershipInfo>&& arg){m_groups=arg; return *this;};
+        SharedFolderMembers& setGroups(const std::list <GroupMembershipInfo>&& arg){m_groups=arg; return *this;};
 
         ///The list of invitees to the shared folder.
         const std::list <InviteeMembershipInfo>& invitees()const{return m_invitees;};
-        const SharedFolderMembers& setInvitees(const std::list <InviteeMembershipInfo>&& arg){m_invitees=arg; return *this;};
+        SharedFolderMembers& setInvitees(const std::list <InviteeMembershipInfo>&& arg){m_invitees=arg; return *this;};
 
         ///Present if there are additional shared folder members that have not been returned yet. Pass the cursor into :route:`list_folder_members/continue` to list additional members.
         QString cursor()const{return m_cursor;};
-        const SharedFolderMembers& setCursor(const QString& arg){m_cursor=arg; return *this;};
+        SharedFolderMembers& setCursor(const QString& arg){m_cursor=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

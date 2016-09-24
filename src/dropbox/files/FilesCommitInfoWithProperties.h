@@ -23,7 +23,7 @@ namespace files{
     public:
         ///List of custom properties to add to file.
         const std::list <properties::PropertyGroup>& propertyGroups()const{return m_property_groups;};
-        const CommitInfoWithProperties& setPropertygroups(const std::list <properties::PropertyGroup>&& arg){m_property_groups=arg; return *this;};
+        CommitInfoWithProperties& setPropertygroups(const std::list <properties::PropertyGroup>&& arg){m_property_groups=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

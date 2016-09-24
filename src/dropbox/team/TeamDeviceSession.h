@@ -27,23 +27,23 @@ namespace team{
     public:
         ///The session id
         QString sessionId()const{return m_session_id;};
-        const DeviceSession& setSessionid(const QString& arg){m_session_id=arg; return *this;};
+        DeviceSession& setSessionid(const QString& arg){m_session_id=arg; return *this;};
 
         ///The IP address of the last activity from this session
         QString ipAddress()const{return m_ip_address;};
-        const DeviceSession& setIpaddress(const QString& arg){m_ip_address=arg; return *this;};
+        DeviceSession& setIpaddress(const QString& arg){m_ip_address=arg; return *this;};
 
         ///The country from which the last activity from this session was made
         QString country()const{return m_country;};
-        const DeviceSession& setCountry(const QString& arg){m_country=arg; return *this;};
+        DeviceSession& setCountry(const QString& arg){m_country=arg; return *this;};
 
         ///The time this session was created
         QDateTime created()const{return m_created;};
-        const DeviceSession& setCreated(const QDateTime& arg){m_created=arg; return *this;};
+        DeviceSession& setCreated(const QDateTime& arg){m_created=arg; return *this;};
 
         ///The time of the last activity from this session
         QDateTime updated()const{return m_updated;};
-        const DeviceSession& setUpdated(const QDateTime& arg){m_updated=arg; return *this;};
+        DeviceSession& setUpdated(const QDateTime& arg){m_updated=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

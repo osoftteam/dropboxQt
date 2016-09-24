@@ -21,7 +21,7 @@ namespace users{
     public:
         ///A user's account identifier.
         QString accountId()const{return m_account_id;};
-        const GetAccountArg& setAccountid(const QString& arg){m_account_id=arg; return *this;};
+        GetAccountArg& setAccountid(const QString& arg){m_account_id=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

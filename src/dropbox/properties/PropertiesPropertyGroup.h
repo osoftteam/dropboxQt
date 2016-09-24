@@ -27,11 +27,11 @@ namespace properties{
     public:
         ///A unique identifier for a property template type.
         QString templateId()const{return m_template_id;};
-        const PropertyGroup& setTemplateid(const QString& arg){m_template_id=arg; return *this;};
+        PropertyGroup& setTemplateid(const QString& arg){m_template_id=arg; return *this;};
 
         ///This is a list of custom properties associated with a file. There can be up to 32 properties for a template.
         const std::list <PropertyField>& fields()const{return m_fields;};
-        const PropertyGroup& setFields(const std::list <PropertyField>&& arg){m_fields=arg; return *this;};
+        PropertyGroup& setFields(const std::list <PropertyField>&& arg){m_fields=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

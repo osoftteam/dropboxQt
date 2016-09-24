@@ -26,11 +26,11 @@ namespace sharing{
     public:
         ///The ID for the shared folder.
         QString sharedFolderId()const{return m_shared_folder_id;};
-        const GetMetadataArgs& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
+        GetMetadataArgs& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
 
         ///This is a list indicating whether the returned folder data will include a boolean value  :field:`FolderPermission.allow` that describes whether the current user can perform the  FolderAction on the folder.
         const std::list <FolderAction>& actions()const{return m_actions;};
-        const GetMetadataArgs& setActions(const std::list <FolderAction>&& arg){m_actions=arg; return *this;};
+        GetMetadataArgs& setActions(const std::list <FolderAction>&& arg){m_actions=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

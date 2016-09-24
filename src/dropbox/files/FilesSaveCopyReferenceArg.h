@@ -23,11 +23,11 @@ namespace files{
     public:
         ///A copy reference returned by :route:`copy_reference/get`.
         QString copyReference()const{return m_copy_reference;};
-        const SaveCopyReferenceArg& setCopyreference(const QString& arg){m_copy_reference=arg; return *this;};
+        SaveCopyReferenceArg& setCopyreference(const QString& arg){m_copy_reference=arg; return *this;};
 
         ///Path in the user's Dropbox that is the destination.
         QString path()const{return m_path;};
-        const SaveCopyReferenceArg& setPath(const QString& arg){m_path=arg; return *this;};
+        SaveCopyReferenceArg& setPath(const QString& arg){m_path=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

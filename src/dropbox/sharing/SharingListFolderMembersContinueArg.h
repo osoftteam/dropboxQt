@@ -23,7 +23,7 @@ namespace sharing{
     public:
         ///The cursor returned by your last call to :route:`list_folder_members` or :route:`list_folder_members/continue`.
         QString cursor()const{return m_cursor;};
-        const ListFolderMembersContinueArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
+        ListFolderMembersContinueArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

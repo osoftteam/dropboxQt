@@ -25,7 +25,7 @@ namespace users{
     public:
         ///Team policies governing sharing.
         team_policies::TeamSharingPolicies sharingPolicies()const{return m_sharing_policies;};
-        const FullTeam& setSharingpolicies(const team_policies::TeamSharingPolicies& arg){m_sharing_policies=arg; return *this;};
+        FullTeam& setSharingpolicies(const team_policies::TeamSharingPolicies& arg){m_sharing_policies=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

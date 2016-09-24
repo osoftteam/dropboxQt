@@ -24,11 +24,11 @@ namespace files{
     public:
         ///Height of the photo/video.
         int height()const{return m_height;};
-        const Dimensions& setHeight(const int& arg){m_height=arg; return *this;};
+        Dimensions& setHeight(const int& arg){m_height=arg; return *this;};
 
         ///Width of the photo/video.
         int width()const{return m_width;};
-        const Dimensions& setWidth(const int& arg){m_width=arg; return *this;};
+        Dimensions& setWidth(const int& arg){m_width=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

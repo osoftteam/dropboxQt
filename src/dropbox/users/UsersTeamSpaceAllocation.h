@@ -24,11 +24,11 @@ namespace users{
     public:
         ///The total space currently used by the user's team (bytes).
         int used()const{return m_used;};
-        const TeamSpaceAllocation& setUsed(const int& arg){m_used=arg; return *this;};
+        TeamSpaceAllocation& setUsed(const int& arg){m_used=arg; return *this;};
 
         ///The total space allocated to the user's team (bytes).
         int allocated()const{return m_allocated;};
-        const TeamSpaceAllocation& setAllocated(const int& arg){m_allocated=arg; return *this;};
+        TeamSpaceAllocation& setAllocated(const int& arg){m_allocated=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

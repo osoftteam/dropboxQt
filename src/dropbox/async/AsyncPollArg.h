@@ -24,7 +24,7 @@ namespace async{
     public:
         ///Id of the asynchronous job. This is the value of a response returned from the method that launched the job.
         QString asyncJobId()const{return m_async_job_id;};
-        const PollArg& setAsyncjobid(const QString& arg){m_async_job_id=arg; return *this;};
+        PollArg& setAsyncjobid(const QString& arg){m_async_job_id=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

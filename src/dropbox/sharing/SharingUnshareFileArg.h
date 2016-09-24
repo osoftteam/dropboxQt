@@ -23,7 +23,7 @@ namespace sharing{
     public:
         ///The file to unshare.
         QString file()const{return m_file;};
-        const UnshareFileArg& setFile(const QString& arg){m_file=arg; return *this;};
+        UnshareFileArg& setFile(const QString& arg){m_file=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

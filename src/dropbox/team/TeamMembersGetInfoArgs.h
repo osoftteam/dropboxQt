@@ -22,7 +22,7 @@ namespace team{
     public:
         ///List of team members.
         const std::list <UserSelectorArg>& members()const{return m_members;};
-        const MembersGetInfoArgs& setMembers(const std::list <UserSelectorArg>&& arg){m_members=arg; return *this;};
+        MembersGetInfoArgs& setMembers(const std::list <UserSelectorArg>&& arg){m_members=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

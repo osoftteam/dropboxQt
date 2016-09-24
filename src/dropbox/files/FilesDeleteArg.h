@@ -21,7 +21,7 @@ namespace files{
     public:
         ///Path in the user's Dropbox to delete.
         QString path()const{return m_path;};
-        const DeleteArg& setPath(const QString& arg){m_path=arg; return *this;};
+        DeleteArg& setPath(const QString& arg){m_path=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

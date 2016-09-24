@@ -31,11 +31,11 @@ namespace auth{
     public:
         ///The reason why the app is being rate limited.
         RateLimitReason reason()const{return m_reason;};
-        const RateLimitError& setReason(const RateLimitReason& arg){m_reason=arg; return *this;};
+        RateLimitError& setReason(const RateLimitReason& arg){m_reason=arg; return *this;};
 
         ///The number of seconds that the app should wait before making another request.
         int retryAfter()const{return m_retry_after;};
-        const RateLimitError& setRetryafter(const int& arg){m_retry_after=arg; return *this;};
+        RateLimitError& setRetryafter(const int& arg){m_retry_after=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

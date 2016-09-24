@@ -34,11 +34,11 @@ namespace sharing{
     public:
         ///The member to add to the shared folder.
         MemberSelector member()const{return m_member;};
-        const AddMember& setMember(const MemberSelector& arg){m_member=arg; return *this;};
+        AddMember& setMember(const MemberSelector& arg){m_member=arg; return *this;};
 
         ///The access level to grant :field:`member` to the shared folder.  :field:`AccessLevel.owner` is disallowed.
         AccessLevel accessLevel()const{return m_access_level;};
-        const AddMember& setAccesslevel(const AccessLevel& arg){m_access_level=arg; return *this;};
+        AddMember& setAccesslevel(const AccessLevel& arg){m_access_level=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

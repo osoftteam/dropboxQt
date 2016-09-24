@@ -24,11 +24,11 @@ namespace properties{
     public:
         ///This is the name or key of a custom property in a property template. File property names can be up to 256 bytes.
         QString name()const{return m_name;};
-        const PropertyField& setName(const QString& arg){m_name=arg; return *this;};
+        PropertyField& setName(const QString& arg){m_name=arg; return *this;};
 
         ///Value of a custom property attached to a file. Values can be up to 1024 bytes.
         QString value()const{return m_value;};
-        const PropertyField& setValue(const QString& arg){m_value=arg; return *this;};
+        PropertyField& setValue(const QString& arg){m_value=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

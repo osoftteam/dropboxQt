@@ -27,11 +27,11 @@ namespace team{
     public:
         ///List of group members.
         const std::list <GroupMemberInfo>& members()const{return m_members;};
-        const GroupFullInfo& setMembers(const std::list <GroupMemberInfo>&& arg){m_members=arg; return *this;};
+        GroupFullInfo& setMembers(const std::list <GroupMemberInfo>&& arg){m_members=arg; return *this;};
 
         ///The group creation time as a UTC timestamp in milliseconds since the Unix epoch.
         int created()const{return m_created;};
-        const GroupFullInfo& setCreated(const int& arg){m_created=arg; return *this;};
+        GroupFullInfo& setCreated(const int& arg){m_created=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

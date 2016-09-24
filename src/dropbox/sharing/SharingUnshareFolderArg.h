@@ -29,11 +29,11 @@ namespace sharing{
     public:
         ///The ID for the shared folder.
         QString sharedFolderId()const{return m_shared_folder_id;};
-        const UnshareFolderArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
+        UnshareFolderArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
 
         ///If true, members of this shared folder will get a copy of this folder after it's unshared. Otherwise, it will be removed from their Dropbox. The current user, who is an owner, will always retain their copy.
         bool leaveACopy()const{return m_leave_a_copy;};
-        const UnshareFolderArg& setLeaveacopy(const bool& arg){m_leave_a_copy=arg; return *this;};
+        UnshareFolderArg& setLeaveacopy(const bool& arg){m_leave_a_copy=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

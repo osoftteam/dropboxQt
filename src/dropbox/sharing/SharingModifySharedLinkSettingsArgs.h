@@ -29,15 +29,15 @@ namespace sharing{
     public:
         ///URL of the shared link to change its settings
         QString url()const{return m_url;};
-        const ModifySharedLinkSettingsArgs& setUrl(const QString& arg){m_url=arg; return *this;};
+        ModifySharedLinkSettingsArgs& setUrl(const QString& arg){m_url=arg; return *this;};
 
         ///Set of settings for the shared link.
         SharedLinkSettings settings()const{return m_settings;};
-        const ModifySharedLinkSettingsArgs& setSettings(const SharedLinkSettings& arg){m_settings=arg; return *this;};
+        ModifySharedLinkSettingsArgs& setSettings(const SharedLinkSettings& arg){m_settings=arg; return *this;};
 
         ///If set to true, removes the expiration of the shared link.
         bool removeExpiration()const{return m_remove_expiration;};
-        const ModifySharedLinkSettingsArgs& setRemoveexpiration(const bool& arg){m_remove_expiration=arg; return *this;};
+        ModifySharedLinkSettingsArgs& setRemoveexpiration(const bool& arg){m_remove_expiration=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

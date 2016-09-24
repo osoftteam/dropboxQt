@@ -22,7 +22,7 @@ namespace files{
     public:
         ///The path to the file or folder you want to get a copy reference to.
         QString path()const{return m_path;};
-        const GetCopyReferenceArg& setPath(const QString& arg){m_path=arg; return *this;};
+        GetCopyReferenceArg& setPath(const QString& arg){m_path=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

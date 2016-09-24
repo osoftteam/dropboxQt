@@ -21,7 +21,7 @@ namespace sharing{
     public:
         ///See :route:`get_shared_links` description.
         QString path()const{return m_path;};
-        const GetSharedLinksArg& setPath(const QString& arg){m_path=arg; return *this;};
+        GetSharedLinksArg& setPath(const QString& arg){m_path=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

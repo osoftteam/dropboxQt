@@ -35,19 +35,19 @@ namespace sharing{
     public:
         ///The modification time set by the desktop client when the file was added to Dropbox. Since this time is not verified (the Dropbox server stores whatever the desktop client sends up), this should only be used for display purposes (such as sorting) and not, for example, to determine if a file has changed or not.
         QDateTime clientModified()const{return m_client_modified;};
-        const FileLinkMetadata& setClientmodified(const QDateTime& arg){m_client_modified=arg; return *this;};
+        FileLinkMetadata& setClientmodified(const QDateTime& arg){m_client_modified=arg; return *this;};
 
         ///The last time the file was modified on Dropbox.
         QDateTime serverModified()const{return m_server_modified;};
-        const FileLinkMetadata& setServermodified(const QDateTime& arg){m_server_modified=arg; return *this;};
+        FileLinkMetadata& setServermodified(const QDateTime& arg){m_server_modified=arg; return *this;};
 
         ///A unique identifier for the current revision of a file. This field is the same rev as elsewhere in the API and can be used to detect changes and avoid conflicts.
         QString rev()const{return m_rev;};
-        const FileLinkMetadata& setRev(const QString& arg){m_rev=arg; return *this;};
+        FileLinkMetadata& setRev(const QString& arg){m_rev=arg; return *this;};
 
         ///The file size in bytes.
         int size()const{return m_size;};
-        const FileLinkMetadata& setSize(const int& arg){m_size=arg; return *this;};
+        FileLinkMetadata& setSize(const int& arg){m_size=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

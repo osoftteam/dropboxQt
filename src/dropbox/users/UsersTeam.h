@@ -24,11 +24,11 @@ namespace users{
     public:
         ///The team's unique ID.
         QString id()const{return m_id;};
-        const Team& setId(const QString& arg){m_id=arg; return *this;};
+        Team& setId(const QString& arg){m_id=arg; return *this;};
 
         ///The name of the team.
         QString name()const{return m_name;};
-        const Team& setName(const QString& arg){m_name=arg; return *this;};
+        Team& setName(const QString& arg){m_name=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

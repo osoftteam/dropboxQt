@@ -32,15 +32,15 @@ namespace sharing{
     public:
         ///The path to share.
         QString path()const{return m_path;};
-        const CreateSharedLinkArg& setPath(const QString& arg){m_path=arg; return *this;};
+        CreateSharedLinkArg& setPath(const QString& arg){m_path=arg; return *this;};
 
         ///Whether to return a shortened URL.
         bool shortUrl()const{return m_short_url;};
-        const CreateSharedLinkArg& setShorturl(const bool& arg){m_short_url=arg; return *this;};
+        CreateSharedLinkArg& setShorturl(const bool& arg){m_short_url=arg; return *this;};
 
         ///If it's okay to share a path that does not yet exist, set this to either :field:`PendingUploadMode.file` or :field:`PendingUploadMode.folder` to indicate whether to assume it's a file or folder.
         PendingUploadMode pendingUpload()const{return m_pending_upload;};
-        const CreateSharedLinkArg& setPendingupload(const PendingUploadMode& arg){m_pending_upload=arg; return *this;};
+        CreateSharedLinkArg& setPendingupload(const PendingUploadMode& arg){m_pending_upload=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -24,11 +24,11 @@ namespace files{
     public:
         ///Latitude of the GPS coordinates.
         float latitude()const{return m_latitude;};
-        const GpsCoordinates& setLatitude(const float& arg){m_latitude=arg; return *this;};
+        GpsCoordinates& setLatitude(const float& arg){m_latitude=arg; return *this;};
 
         ///Longitude of the GPS coordinates.
         float longitude()const{return m_longitude;};
-        const GpsCoordinates& setLongitude(const float& arg){m_longitude=arg; return *this;};
+        GpsCoordinates& setLongitude(const float& arg){m_longitude=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -22,7 +22,7 @@ namespace files{
     public:
         ///The cursor returned by your last call to :route:`list_folder` or :route:`list_folder/continue`.
         QString cursor()const{return m_cursor;};
-        const ListFolderContinueArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
+        ListFolderContinueArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

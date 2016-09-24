@@ -24,7 +24,7 @@ namespace sharing{
     public:
         ///Path in user's Dropbox.
         QString path()const{return m_path;};
-        const PathLinkMetadata& setPath(const QString& arg){m_path=arg; return *this;};
+        PathLinkMetadata& setPath(const QString& arg){m_path=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

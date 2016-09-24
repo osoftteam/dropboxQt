@@ -22,7 +22,7 @@ namespace team{
     public:
         ///True if the removed team member is recoverable
         bool isRecoverable()const{return m_is_recoverable;};
-        const RemovedStatus& setIsrecoverable(const bool& arg){m_is_recoverable=arg; return *this;};
+        RemovedStatus& setIsrecoverable(const bool& arg){m_is_recoverable=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -39,19 +39,19 @@ namespace team{
     public:
         ///At the first call to the :route:`devices/list_members_devices` the cursor shouldn't be passed. Then, if the result of the call includes a cursor, the following requests should include the received cursors in order to receive the next sub list of team devices
         QString cursor()const{return m_cursor;};
-        const ListMembersDevicesArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
+        ListMembersDevicesArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
 
         ///Whether to list web sessions of the team members
         bool includeWebSessions()const{return m_include_web_sessions;};
-        const ListMembersDevicesArg& setIncludewebsessions(const bool& arg){m_include_web_sessions=arg; return *this;};
+        ListMembersDevicesArg& setIncludewebsessions(const bool& arg){m_include_web_sessions=arg; return *this;};
 
         ///Whether to list desktop clients of the team members
         bool includeDesktopClients()const{return m_include_desktop_clients;};
-        const ListMembersDevicesArg& setIncludedesktopclients(const bool& arg){m_include_desktop_clients=arg; return *this;};
+        ListMembersDevicesArg& setIncludedesktopclients(const bool& arg){m_include_desktop_clients=arg; return *this;};
 
         ///Whether to list mobile clients of the team members
         bool includeMobileClients()const{return m_include_mobile_clients;};
-        const ListMembersDevicesArg& setIncludemobileclients(const bool& arg){m_include_mobile_clients=arg; return *this;};
+        ListMembersDevicesArg& setIncludemobileclients(const bool& arg){m_include_mobile_clients=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -22,7 +22,7 @@ namespace team{
     public:
         ///Indicates from what point to get the next set of groups.
         QString cursor()const{return m_cursor;};
-        const GroupsMembersListContinueArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
+        GroupsMembersListContinueArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

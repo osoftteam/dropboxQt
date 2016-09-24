@@ -30,11 +30,11 @@ namespace sharing{
     public:
         ///The maximum number of results to return per request.
         int limit()const{return m_limit;};
-        const ListFoldersArgs& setLimit(const int& arg){m_limit=arg; return *this;};
+        ListFoldersArgs& setLimit(const int& arg){m_limit=arg; return *this;};
 
         ///This is a list indicating whether each returned folder data entry will include a boolean field :field:`FolderPermission.allow` that describes whether the current user can perform the `FolderAction` on the folder.
         const std::list <FolderAction>& actions()const{return m_actions;};
-        const ListFoldersArgs& setActions(const std::list <FolderAction>&& arg){m_actions=arg; return *this;};
+        ListFoldersArgs& setActions(const std::list <FolderAction>&& arg){m_actions=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

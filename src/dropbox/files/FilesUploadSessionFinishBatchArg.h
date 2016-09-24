@@ -22,7 +22,7 @@ namespace files{
     public:
         ///Commit information for each file in the batch.
         const std::list <UploadSessionFinishArg>& entries()const{return m_entries;};
-        const UploadSessionFinishBatchArg& setEntries(const std::list <UploadSessionFinishArg>&& arg){m_entries=arg; return *this;};
+        UploadSessionFinishBatchArg& setEntries(const std::list <UploadSessionFinishArg>&& arg){m_entries=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

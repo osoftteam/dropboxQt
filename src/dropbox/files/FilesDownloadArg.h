@@ -22,11 +22,11 @@ namespace files{
     public:
         ///The path of the file to download.
         QString path()const{return m_path;};
-        const DownloadArg& setPath(const QString& arg){m_path=arg; return *this;};
+        DownloadArg& setPath(const QString& arg){m_path=arg; return *this;};
 
         ///Deprecated. Please specify revision in :field:`path` instead
         QString rev()const{return m_rev;};
-        const DownloadArg& setRev(const QString& arg){m_rev=arg; return *this;};
+        DownloadArg& setRev(const QString& arg){m_rev=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

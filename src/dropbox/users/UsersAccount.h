@@ -34,27 +34,27 @@ namespace users{
     public:
         ///The user's unique Dropbox ID.
         QString accountId()const{return m_account_id;};
-        const Account& setAccountid(const QString& arg){m_account_id=arg; return *this;};
+        Account& setAccountid(const QString& arg){m_account_id=arg; return *this;};
 
         ///Details of a user's name.
         Name name()const{return m_name;};
-        const Account& setName(const Name& arg){m_name=arg; return *this;};
+        Account& setName(const Name& arg){m_name=arg; return *this;};
 
         ///The user's e-mail address. Do not rely on this without checking the :field:`email_verified` field. Even then, it's possible that the user has since lost access to their e-mail.
         QString email()const{return m_email;};
-        const Account& setEmail(const QString& arg){m_email=arg; return *this;};
+        Account& setEmail(const QString& arg){m_email=arg; return *this;};
 
         ///Whether the user has verified their e-mail address.
         bool emailVerified()const{return m_email_verified;};
-        const Account& setEmailverified(const bool& arg){m_email_verified=arg; return *this;};
+        Account& setEmailverified(const bool& arg){m_email_verified=arg; return *this;};
 
         ///URL for the photo representing the user, if one is set.
         QString profilePhotoUrl()const{return m_profile_photo_url;};
-        const Account& setProfilephotourl(const QString& arg){m_profile_photo_url=arg; return *this;};
+        Account& setProfilephotourl(const QString& arg){m_profile_photo_url=arg; return *this;};
 
         ///Whether the user has been disabled.
         bool disabled()const{return m_disabled;};
-        const Account& setDisabled(const bool& arg){m_disabled=arg; return *this;};
+        Account& setDisabled(const bool& arg){m_disabled=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -28,11 +28,11 @@ namespace team{
     public:
         ///Specify a group.
         GroupSelector group()const{return m_group;};
-        const GroupMembersSelector& setGroup(const GroupSelector& arg){m_group=arg; return *this;};
+        GroupMembersSelector& setGroup(const GroupSelector& arg){m_group=arg; return *this;};
 
         ///A list of users that are members of :field:`group`.
         UsersSelectorArg users()const{return m_users;};
-        const GroupMembersSelector& setUsers(const UsersSelectorArg& arg){m_users=arg; return *this;};
+        GroupMembersSelector& setUsers(const UsersSelectorArg& arg){m_users=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

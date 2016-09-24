@@ -22,11 +22,11 @@ namespace files{
     public:
         ///The path in Dropbox where the URL will be saved to.
         QString path()const{return m_path;};
-        const SaveUrlArg& setPath(const QString& arg){m_path=arg; return *this;};
+        SaveUrlArg& setPath(const QString& arg){m_path=arg; return *this;};
 
         ///The URL to be saved.
         QString url()const{return m_url;};
-        const SaveUrlArg& setUrl(const QString& arg){m_url=arg; return *this;};
+        SaveUrlArg& setUrl(const QString& arg){m_url=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

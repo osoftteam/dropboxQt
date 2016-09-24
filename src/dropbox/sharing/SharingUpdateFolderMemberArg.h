@@ -29,15 +29,15 @@ namespace sharing{
     public:
         ///The ID for the shared folder.
         QString sharedFolderId()const{return m_shared_folder_id;};
-        const UpdateFolderMemberArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
+        UpdateFolderMemberArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
 
         ///The member of the shared folder to update.  Only the :field:`MemberSelector.dropbox_id` may be set at this time.
         MemberSelector member()const{return m_member;};
-        const UpdateFolderMemberArg& setMember(const MemberSelector& arg){m_member=arg; return *this;};
+        UpdateFolderMemberArg& setMember(const MemberSelector& arg){m_member=arg; return *this;};
 
         ///The new access level for :field:`member`. :field:`AccessLevel.owner` is disallowed.
         AccessLevel accessLevel()const{return m_access_level;};
-        const UpdateFolderMemberArg& setAccesslevel(const AccessLevel& arg){m_access_level=arg; return *this;};
+        UpdateFolderMemberArg& setAccesslevel(const AccessLevel& arg){m_access_level=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

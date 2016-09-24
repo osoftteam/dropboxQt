@@ -22,11 +22,11 @@ namespace files{
     public:
         ///The path of the file to preview.
         QString path()const{return m_path;};
-        const PreviewArg& setPath(const QString& arg){m_path=arg; return *this;};
+        PreviewArg& setPath(const QString& arg){m_path=arg; return *this;};
 
         ///Deprecated. Please specify revision in :field:`path` instead
         QString rev()const{return m_rev;};
-        const PreviewArg& setRev(const QString& arg){m_rev=arg; return *this;};
+        PreviewArg& setRev(const QString& arg){m_rev=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

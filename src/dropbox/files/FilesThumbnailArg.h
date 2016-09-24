@@ -35,15 +35,15 @@ namespace files{
     public:
         ///The path to the image file you want to thumbnail.
         QString path()const{return m_path;};
-        const ThumbnailArg& setPath(const QString& arg){m_path=arg; return *this;};
+        ThumbnailArg& setPath(const QString& arg){m_path=arg; return *this;};
 
         ///The format for the thumbnail image, jpeg (default) or png. For  images that are photos, jpeg should be preferred, while png is  better for screenshots and digital arts.
         ThumbnailFormat format()const{return m_format;};
-        const ThumbnailArg& setFormat(const ThumbnailFormat& arg){m_format=arg; return *this;};
+        ThumbnailArg& setFormat(const ThumbnailFormat& arg){m_format=arg; return *this;};
 
         ///The size for the thumbnail image.
         ThumbnailSize size()const{return m_size;};
-        const ThumbnailArg& setSize(const ThumbnailSize& arg){m_size=arg; return *this;};
+        ThumbnailArg& setSize(const ThumbnailSize& arg){m_size=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

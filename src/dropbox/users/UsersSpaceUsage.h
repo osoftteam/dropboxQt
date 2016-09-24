@@ -26,11 +26,11 @@ namespace users{
     public:
         ///The user's total space usage (bytes).
         int used()const{return m_used;};
-        const SpaceUsage& setUsed(const int& arg){m_used=arg; return *this;};
+        SpaceUsage& setUsed(const int& arg){m_used=arg; return *this;};
 
         ///The user's space allocation.
         SpaceAllocation allocation()const{return m_allocation;};
-        const SpaceUsage& setAllocation(const SpaceAllocation& arg){m_allocation=arg; return *this;};
+        SpaceUsage& setAllocation(const SpaceAllocation& arg){m_allocation=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

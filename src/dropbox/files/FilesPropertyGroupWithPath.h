@@ -24,11 +24,11 @@ namespace files{
     public:
         ///A unique identifier for the file.
         QString path()const{return m_path;};
-        const PropertyGroupWithPath& setPath(const QString& arg){m_path=arg; return *this;};
+        PropertyGroupWithPath& setPath(const QString& arg){m_path=arg; return *this;};
 
         ///Filled custom property templates associated with a file.
         const std::list <properties::PropertyGroup>& propertyGroups()const{return m_property_groups;};
-        const PropertyGroupWithPath& setPropertygroups(const std::list <properties::PropertyGroup>&& arg){m_property_groups=arg; return *this;};
+        PropertyGroupWithPath& setPropertygroups(const std::list <properties::PropertyGroup>&& arg){m_property_groups=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

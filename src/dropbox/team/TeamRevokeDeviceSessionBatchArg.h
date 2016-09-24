@@ -19,7 +19,7 @@ namespace team{
     public:
         ///None
         const std::list <RevokeDeviceSessionArg>& revokeDevices()const{return m_revoke_devices;};
-        const RevokeDeviceSessionBatchArg& setRevokedevices(const std::list <RevokeDeviceSessionArg>&& arg){m_revoke_devices=arg; return *this;};
+        RevokeDeviceSessionBatchArg& setRevokedevices(const std::list <RevokeDeviceSessionArg>&& arg){m_revoke_devices=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

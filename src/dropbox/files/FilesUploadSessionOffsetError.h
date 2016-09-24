@@ -22,7 +22,7 @@ namespace files{
     public:
         ///The offset up to which data has been collected.
         int correctOffset()const{return m_correct_offset;};
-        const UploadSessionOffsetError& setCorrectoffset(const int& arg){m_correct_offset=arg; return *this;};
+        UploadSessionOffsetError& setCorrectoffset(const int& arg){m_correct_offset=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

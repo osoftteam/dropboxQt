@@ -29,15 +29,15 @@ namespace sharing{
     public:
         ///The requested access for this shared link.
         RequestedVisibility requestedVisibility()const{return m_requested_visibility;};
-        const SharedLinkSettings& setRequestedvisibility(const RequestedVisibility& arg){m_requested_visibility=arg; return *this;};
+        SharedLinkSettings& setRequestedvisibility(const RequestedVisibility& arg){m_requested_visibility=arg; return *this;};
 
         ///If :field:`requested_visibility` is :field:`RequestedVisibility.password` this is needed to specify the password to access the link.
         QString linkPassword()const{return m_link_password;};
-        const SharedLinkSettings& setLinkpassword(const QString& arg){m_link_password=arg; return *this;};
+        SharedLinkSettings& setLinkpassword(const QString& arg){m_link_password=arg; return *this;};
 
         ///Expiration time of the shared link. By default the link won't expire.
         QDateTime expires()const{return m_expires;};
-        const SharedLinkSettings& setExpires(const QDateTime& arg){m_expires=arg; return *this;};
+        SharedLinkSettings& setExpires(const QDateTime& arg){m_expires=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

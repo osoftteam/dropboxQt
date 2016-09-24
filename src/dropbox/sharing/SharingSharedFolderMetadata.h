@@ -36,27 +36,27 @@ namespace sharing{
     public:
         ///The lower-cased full path of this shared folder. Absent for unmounted folders.
         QString pathLower()const{return m_path_lower;};
-        const SharedFolderMetadata& setPathlower(const QString& arg){m_path_lower=arg; return *this;};
+        SharedFolderMetadata& setPathlower(const QString& arg){m_path_lower=arg; return *this;};
 
         ///The name of the this shared folder.
         QString name()const{return m_name;};
-        const SharedFolderMetadata& setName(const QString& arg){m_name=arg; return *this;};
+        SharedFolderMetadata& setName(const QString& arg){m_name=arg; return *this;};
 
         ///The ID of the shared folder.
         QString sharedFolderId()const{return m_shared_folder_id;};
-        const SharedFolderMetadata& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
+        SharedFolderMetadata& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
 
         ///Actions the current user may perform on the folder and its contents. The set of permissions corresponds to the FolderActions in the request.
         const std::list <FolderPermission>& permissions()const{return m_permissions;};
-        const SharedFolderMetadata& setPermissions(const std::list <FolderPermission>&& arg){m_permissions=arg; return *this;};
+        SharedFolderMetadata& setPermissions(const std::list <FolderPermission>&& arg){m_permissions=arg; return *this;};
 
         ///Timestamp indicating when the current user was invited to this shared folder.
         QDateTime timeInvited()const{return m_time_invited;};
-        const SharedFolderMetadata& setTimeinvited(const QDateTime& arg){m_time_invited=arg; return *this;};
+        SharedFolderMetadata& setTimeinvited(const QDateTime& arg){m_time_invited=arg; return *this;};
 
         ///URL for displaying a web preview of the shared folder.
         QString previewUrl()const{return m_preview_url;};
-        const SharedFolderMetadata& setPreviewurl(const QString& arg){m_preview_url=arg; return *this;};
+        SharedFolderMetadata& setPreviewurl(const QString& arg){m_preview_url=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

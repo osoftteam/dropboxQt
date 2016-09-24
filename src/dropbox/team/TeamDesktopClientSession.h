@@ -31,23 +31,23 @@ namespace team{
     public:
         ///Name of the hosting desktop
         QString hostName()const{return m_host_name;};
-        const DesktopClientSession& setHostname(const QString& arg){m_host_name=arg; return *this;};
+        DesktopClientSession& setHostname(const QString& arg){m_host_name=arg; return *this;};
 
         ///The Dropbox desktop client type
         DesktopPlatform clientType()const{return m_client_type;};
-        const DesktopClientSession& setClienttype(const DesktopPlatform& arg){m_client_type=arg; return *this;};
+        DesktopClientSession& setClienttype(const DesktopPlatform& arg){m_client_type=arg; return *this;};
 
         ///The Dropbox client version
         QString clientVersion()const{return m_client_version;};
-        const DesktopClientSession& setClientversion(const QString& arg){m_client_version=arg; return *this;};
+        DesktopClientSession& setClientversion(const QString& arg){m_client_version=arg; return *this;};
 
         ///Information on the hosting platform
         QString platform()const{return m_platform;};
-        const DesktopClientSession& setPlatform(const QString& arg){m_platform=arg; return *this;};
+        DesktopClientSession& setPlatform(const QString& arg){m_platform=arg; return *this;};
 
         ///Whether it's possible to delete all of the account files upon unlinking
         bool isDeleteOnUnlinkSupported()const{return m_is_delete_on_unlink_supported;};
-        const DesktopClientSession& setIsdeleteonunlinksupported(const bool& arg){m_is_delete_on_unlink_supported=arg; return *this;};
+        DesktopClientSession& setIsdeleteonunlinksupported(const bool& arg){m_is_delete_on_unlink_supported=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

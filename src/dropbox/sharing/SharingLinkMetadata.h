@@ -29,15 +29,15 @@ namespace sharing{
     public:
         ///URL of the shared link.
         QString url()const{return m_url;};
-        const LinkMetadata& setUrl(const QString& arg){m_url=arg; return *this;};
+        LinkMetadata& setUrl(const QString& arg){m_url=arg; return *this;};
 
         ///Who can access the link.
         Visibility visibility()const{return m_visibility;};
-        const LinkMetadata& setVisibility(const Visibility& arg){m_visibility=arg; return *this;};
+        LinkMetadata& setVisibility(const Visibility& arg){m_visibility=arg; return *this;};
 
         ///Expiration time, if set. By default the link won't expire.
         QDateTime expires()const{return m_expires;};
-        const LinkMetadata& setExpires(const QDateTime& arg){m_expires=arg; return *this;};
+        LinkMetadata& setExpires(const QDateTime& arg){m_expires=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -27,15 +27,15 @@ namespace sharing{
     public:
         ///The account ID of the user.
         QString accountId()const{return m_account_id;};
-        const UserInfo& setAccountid(const QString& arg){m_account_id=arg; return *this;};
+        UserInfo& setAccountid(const QString& arg){m_account_id=arg; return *this;};
 
         ///If the user is in the same team as current user.
         bool sameTeam()const{return m_same_team;};
-        const UserInfo& setSameteam(const bool& arg){m_same_team=arg; return *this;};
+        UserInfo& setSameteam(const bool& arg){m_same_team=arg; return *this;};
 
         ///The team member ID of the shared folder member. Only present if :field:`same_team` is true.
         QString teamMemberId()const{return m_team_member_id;};
-        const UserInfo& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
+        UserInfo& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

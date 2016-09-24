@@ -25,7 +25,7 @@ namespace team{
     public:
         ///Number of results to return per call.
         int limit()const{return m_limit;};
-        const GroupsListArg& setLimit(const int& arg){m_limit=arg; return *this;};
+        GroupsListArg& setLimit(const int& arg){m_limit=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

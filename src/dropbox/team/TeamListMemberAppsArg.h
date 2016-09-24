@@ -21,7 +21,7 @@ namespace team{
     public:
         ///The team member id
         QString teamMemberId()const{return m_team_member_id;};
-        const ListMemberAppsArg& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
+        ListMemberAppsArg& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

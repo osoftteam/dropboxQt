@@ -24,11 +24,11 @@ namespace team{
     public:
         ///Optional starting date (inclusive)
         QDateTime startDate()const{return m_start_date;};
-        const DateRange& setStartdate(const QDateTime& arg){m_start_date=arg; return *this;};
+        DateRange& setStartdate(const QDateTime& arg){m_start_date=arg; return *this;};
 
         ///Optional ending date (exclusive)
         QDateTime endDate()const{return m_end_date;};
-        const DateRange& setEnddate(const QDateTime& arg){m_end_date=arg; return *this;};
+        DateRange& setEnddate(const QDateTime& arg){m_end_date=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

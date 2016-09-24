@@ -25,7 +25,7 @@ namespace sharing{
     public:
         ///The information about the membership group.
         GroupInfo group()const{return m_group;};
-        const GroupMembershipInfo& setGroup(const GroupInfo& arg){m_group=arg; return *this;};
+        GroupMembershipInfo& setGroup(const GroupInfo& arg){m_group=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -36,19 +36,19 @@ namespace sharing{
     public:
         ///The file for which you want to see members.
         QString file()const{return m_file;};
-        const ListFileMembersArg& setFile(const QString& arg){m_file=arg; return *this;};
+        ListFileMembersArg& setFile(const QString& arg){m_file=arg; return *this;};
 
         ///The actions for which to return permissions on a member
         const std::list <MemberAction>& actions()const{return m_actions;};
-        const ListFileMembersArg& setActions(const std::list <MemberAction>&& arg){m_actions=arg; return *this;};
+        ListFileMembersArg& setActions(const std::list <MemberAction>&& arg){m_actions=arg; return *this;};
 
         ///Whether to include members who only have access from a parent shared folder.
         bool includeInherited()const{return m_include_inherited;};
-        const ListFileMembersArg& setIncludeinherited(const bool& arg){m_include_inherited=arg; return *this;};
+        ListFileMembersArg& setIncludeinherited(const bool& arg){m_include_inherited=arg; return *this;};
 
         ///Number of members to return max per query. Defaults to 100 if no limit is specified.
         int limit()const{return m_limit;};
-        const ListFileMembersArg& setLimit(const int& arg){m_limit=arg; return *this;};
+        ListFileMembersArg& setLimit(const int& arg){m_limit=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

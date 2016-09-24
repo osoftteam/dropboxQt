@@ -19,7 +19,7 @@ namespace team{
     public:
         ///None
         const std::list <RevokeLinkedApiAppArg>& revokeLinkedApp()const{return m_revoke_linked_app;};
-        const RevokeLinkedApiAppBatchArg& setRevokelinkedapp(const std::list <RevokeLinkedApiAppArg>&& arg){m_revoke_linked_app=arg; return *this;};
+        RevokeLinkedApiAppBatchArg& setRevokelinkedapp(const std::list <RevokeLinkedApiAppArg>&& arg){m_revoke_linked_app=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

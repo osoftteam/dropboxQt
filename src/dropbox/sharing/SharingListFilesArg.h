@@ -30,11 +30,11 @@ namespace sharing{
     public:
         ///Number of files to return max per query. Defaults to 100 if no limit is specified.
         int limit()const{return m_limit;};
-        const ListFilesArg& setLimit(const int& arg){m_limit=arg; return *this;};
+        ListFilesArg& setLimit(const int& arg){m_limit=arg; return *this;};
 
         ///File actions to query.
         const std::list <FileAction>& actions()const{return m_actions;};
-        const ListFilesArg& setActions(const std::list <FileAction>&& arg){m_actions=arg; return *this;};
+        ListFilesArg& setActions(const std::list <FileAction>&& arg){m_actions=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

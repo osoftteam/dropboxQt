@@ -32,11 +32,11 @@ namespace team{
     public:
         ///New group access type the user will have.
         GroupAccessType accessType()const{return m_access_type;};
-        const GroupMembersSetAccessTypeArg& setAccesstype(const GroupAccessType& arg){m_access_type=arg; return *this;};
+        GroupMembersSetAccessTypeArg& setAccesstype(const GroupAccessType& arg){m_access_type=arg; return *this;};
 
         ///Whether to return the list of members in the group.  Note that the default value will cause all the group members  to be returned in the response. This may take a long time for large groups.
         bool returnMembers()const{return m_return_members;};
-        const GroupMembersSetAccessTypeArg& setReturnmembers(const bool& arg){m_return_members=arg; return *this;};
+        GroupMembersSetAccessTypeArg& setReturnmembers(const bool& arg){m_return_members=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

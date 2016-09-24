@@ -34,23 +34,23 @@ namespace team{
     public:
         ///Team size, for each day.
         const std::list <int>& teamSize()const{return m_team_size;};
-        const GetMembershipReport& setTeamsize(const std::list <int>&& arg){m_team_size=arg; return *this;};
+        GetMembershipReport& setTeamsize(const std::list <int>&& arg){m_team_size=arg; return *this;};
 
         ///The number of pending invites to the team, for each day.
         const std::list <int>& pendingInvites()const{return m_pending_invites;};
-        const GetMembershipReport& setPendinginvites(const std::list <int>&& arg){m_pending_invites=arg; return *this;};
+        GetMembershipReport& setPendinginvites(const std::list <int>&& arg){m_pending_invites=arg; return *this;};
 
         ///The number of members that joined the team, for each day.
         const std::list <int>& membersJoined()const{return m_members_joined;};
-        const GetMembershipReport& setMembersjoined(const std::list <int>&& arg){m_members_joined=arg; return *this;};
+        GetMembershipReport& setMembersjoined(const std::list <int>&& arg){m_members_joined=arg; return *this;};
 
         ///The number of suspended team members, for each day.
         const std::list <int>& suspendedMembers()const{return m_suspended_members;};
-        const GetMembershipReport& setSuspendedmembers(const std::list <int>&& arg){m_suspended_members=arg; return *this;};
+        GetMembershipReport& setSuspendedmembers(const std::list <int>&& arg){m_suspended_members=arg; return *this;};
 
         ///The total number of licenses the team has, for each day.
         const std::list <int>& licenses()const{return m_licenses;};
-        const GetMembershipReport& setLicenses(const std::list <int>&& arg){m_licenses=arg; return *this;};
+        GetMembershipReport& setLicenses(const std::list <int>&& arg){m_licenses=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -29,15 +29,15 @@ namespace sharing{
     public:
         ///The type of group.
         team_common::GroupType groupType()const{return m_group_type;};
-        const GroupInfo& setGrouptype(const team_common::GroupType& arg){m_group_type=arg; return *this;};
+        GroupInfo& setGrouptype(const team_common::GroupType& arg){m_group_type=arg; return *this;};
 
         ///If the current user is an owner of the group.
         bool isOwner()const{return m_is_owner;};
-        const GroupInfo& setIsowner(const bool& arg){m_is_owner=arg; return *this;};
+        GroupInfo& setIsowner(const bool& arg){m_is_owner=arg; return *this;};
 
         ///If the group is owned by the current user's team.
         bool sameTeam()const{return m_same_team;};
-        const GroupInfo& setSameteam(const bool& arg){m_same_team=arg; return *this;};
+        GroupInfo& setSameteam(const bool& arg){m_same_team=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

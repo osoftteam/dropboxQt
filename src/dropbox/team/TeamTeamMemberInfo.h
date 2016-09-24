@@ -27,11 +27,11 @@ namespace team{
     public:
         ///Profile of a user as a member of a team.
         TeamMemberProfile profile()const{return m_profile;};
-        const TeamMemberInfo& setProfile(const TeamMemberProfile& arg){m_profile=arg; return *this;};
+        TeamMemberInfo& setProfile(const TeamMemberProfile& arg){m_profile=arg; return *this;};
 
         ///The user's role in the team.
         AdminTier role()const{return m_role;};
-        const TeamMemberInfo& setRole(const AdminTier& arg){m_role=arg; return *this;};
+        TeamMemberInfo& setRole(const AdminTier& arg){m_role=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

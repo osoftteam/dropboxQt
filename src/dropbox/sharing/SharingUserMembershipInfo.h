@@ -25,7 +25,7 @@ namespace sharing{
     public:
         ///The account information for the membership user.
         UserInfo user()const{return m_user;};
-        const UserMembershipInfo& setUser(const UserInfo& arg){m_user=arg; return *this;};
+        UserMembershipInfo& setUser(const UserInfo& arg){m_user=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

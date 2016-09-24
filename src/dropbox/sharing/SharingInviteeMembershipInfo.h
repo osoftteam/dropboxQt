@@ -28,11 +28,11 @@ namespace sharing{
     public:
         ///Recipient of the invitation.
         InviteeInfo invitee()const{return m_invitee;};
-        const InviteeMembershipInfo& setInvitee(const InviteeInfo& arg){m_invitee=arg; return *this;};
+        InviteeMembershipInfo& setInvitee(const InviteeInfo& arg){m_invitee=arg; return *this;};
 
         ///The user this invitation is tied to, if available.
         UserInfo user()const{return m_user;};
-        const InviteeMembershipInfo& setUser(const UserInfo& arg){m_user=arg; return *this;};
+        InviteeMembershipInfo& setUser(const UserInfo& arg){m_user=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

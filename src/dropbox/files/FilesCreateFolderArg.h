@@ -21,7 +21,7 @@ namespace files{
     public:
         ///Path in the user's Dropbox to create.
         QString path()const{return m_path;};
-        const CreateFolderArg& setPath(const QString& arg){m_path=arg; return *this;};
+        CreateFolderArg& setPath(const QString& arg){m_path=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

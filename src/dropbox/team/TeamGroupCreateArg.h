@@ -27,15 +27,15 @@ namespace team{
     public:
         ///Group name.
         QString groupName()const{return m_group_name;};
-        const GroupCreateArg& setGroupname(const QString& arg){m_group_name=arg; return *this;};
+        GroupCreateArg& setGroupname(const QString& arg){m_group_name=arg; return *this;};
 
         ///The creator of a team can associate an arbitrary external ID to the group.
         QString groupExternalId()const{return m_group_external_id;};
-        const GroupCreateArg& setGroupexternalid(const QString& arg){m_group_external_id=arg; return *this;};
+        GroupCreateArg& setGroupexternalid(const QString& arg){m_group_external_id=arg; return *this;};
 
         ///Whether the team can be managed by selected users, or only by team admins
         team_common::GroupManagementType groupManagementType()const{return m_group_management_type;};
-        const GroupCreateArg& setGroupmanagementtype(const team_common::GroupManagementType& arg){m_group_management_type=arg; return *this;};
+        GroupCreateArg& setGroupmanagementtype(const team_common::GroupManagementType& arg){m_group_management_type=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

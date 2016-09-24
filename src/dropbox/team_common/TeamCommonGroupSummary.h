@@ -28,23 +28,23 @@ namespace team_common{
     public:
         ///None
         QString groupName()const{return m_group_name;};
-        const GroupSummary& setGroupname(const QString& arg){m_group_name=arg; return *this;};
+        GroupSummary& setGroupname(const QString& arg){m_group_name=arg; return *this;};
 
         ///None
         QString groupId()const{return m_group_id;};
-        const GroupSummary& setGroupid(const QString& arg){m_group_id=arg; return *this;};
+        GroupSummary& setGroupid(const QString& arg){m_group_id=arg; return *this;};
 
         ///External ID of group. This is an arbitrary ID that an admin can attach to a group.
         QString groupExternalId()const{return m_group_external_id;};
-        const GroupSummary& setGroupexternalid(const QString& arg){m_group_external_id=arg; return *this;};
+        GroupSummary& setGroupexternalid(const QString& arg){m_group_external_id=arg; return *this;};
 
         ///The number of members in the group.
         int memberCount()const{return m_member_count;};
-        const GroupSummary& setMembercount(const int& arg){m_member_count=arg; return *this;};
+        GroupSummary& setMembercount(const int& arg){m_member_count=arg; return *this;};
 
         ///Who is allowed to manage the group.
         GroupManagementType groupManagementType()const{return m_group_management_type;};
-        const GroupSummary& setGroupmanagementtype(const GroupManagementType& arg){m_group_management_type=arg; return *this;};
+        GroupSummary& setGroupmanagementtype(const GroupManagementType& arg){m_group_management_type=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

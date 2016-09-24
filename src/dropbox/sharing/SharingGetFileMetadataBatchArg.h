@@ -25,11 +25,11 @@ namespace sharing{
     public:
         ///The files to query.
         const std::list <QString>& files()const{return m_files;};
-        const GetFileMetadataBatchArg& setFiles(const std::list <QString>&& arg){m_files=arg; return *this;};
+        GetFileMetadataBatchArg& setFiles(const std::list <QString>&& arg){m_files=arg; return *this;};
 
         ///File actions to query.
         const std::list <FileAction>& actions()const{return m_actions;};
-        const GetFileMetadataBatchArg& setActions(const std::list <FileAction>&& arg){m_actions=arg; return *this;};
+        GetFileMetadataBatchArg& setActions(const std::list <FileAction>&& arg){m_actions=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -36,19 +36,19 @@ namespace files{
     public:
         ///The last component of the path (including extension). This never contains a slash.
         QString name()const{return m_name;};
-        const Metadata& setName(const QString& arg){m_name=arg; return *this;};
+        Metadata& setName(const QString& arg){m_name=arg; return *this;};
 
         ///The lowercased full path in the user's Dropbox. This always starts with a slash. This field will be null if the file or folder is not mounted.
         QString pathLower()const{return m_path_lower;};
-        const Metadata& setPathlower(const QString& arg){m_path_lower=arg; return *this;};
+        Metadata& setPathlower(const QString& arg){m_path_lower=arg; return *this;};
 
         ///The cased path to be used for display purposes only. In rare instances the casing will not correctly match the user's filesystem, but this behavior will match the path provided in the Core API v1. Changes to the casing of paths won't be returned by :route:`list_folder/continue`. This field will be null if the file or folder is not mounted.
         QString pathDisplay()const{return m_path_display;};
-        const Metadata& setPathdisplay(const QString& arg){m_path_display=arg; return *this;};
+        Metadata& setPathdisplay(const QString& arg){m_path_display=arg; return *this;};
 
         ///Deprecated. Please use :field:`FileSharingInfo.parent_shared_folder_id` or :field:`FolderSharingInfo.parent_shared_folder_id` instead.
         QString parentSharedFolderId()const{return m_parent_shared_folder_id;};
-        const Metadata& setParentsharedfolderid(const QString& arg){m_parent_shared_folder_id=arg; return *this;};
+        Metadata& setParentsharedfolderid(const QString& arg){m_parent_shared_folder_id=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

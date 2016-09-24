@@ -35,19 +35,19 @@ namespace team{
     public:
         ///The team's member id
         QString teamMemberId()const{return m_team_member_id;};
-        const ListMemberDevicesArg& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
+        ListMemberDevicesArg& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
 
         ///Whether to list web sessions of the team's member
         bool includeWebSessions()const{return m_include_web_sessions;};
-        const ListMemberDevicesArg& setIncludewebsessions(const bool& arg){m_include_web_sessions=arg; return *this;};
+        ListMemberDevicesArg& setIncludewebsessions(const bool& arg){m_include_web_sessions=arg; return *this;};
 
         ///Whether to list linked desktop devices of the team's member
         bool includeDesktopClients()const{return m_include_desktop_clients;};
-        const ListMemberDevicesArg& setIncludedesktopclients(const bool& arg){m_include_desktop_clients=arg; return *this;};
+        ListMemberDevicesArg& setIncludedesktopclients(const bool& arg){m_include_desktop_clients=arg; return *this;};
 
         ///Whether to list linked mobile devices of the team's member
         bool includeMobileClients()const{return m_include_mobile_clients;};
-        const ListMemberDevicesArg& setIncludemobileclients(const bool& arg){m_include_mobile_clients=arg; return *this;};
+        ListMemberDevicesArg& setIncludemobileclients(const bool& arg){m_include_mobile_clients=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

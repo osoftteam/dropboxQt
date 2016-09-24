@@ -22,7 +22,7 @@ namespace properties{
     public:
         ///List of identifiers for templates added by route properties/template/add.
         const std::list <QString>& templateIds()const{return m_template_ids;};
-        const ListPropertyTemplateIds& setTemplateids(const std::list <QString>&& arg){m_template_ids=arg; return *this;};
+        ListPropertyTemplateIds& setTemplateids(const std::list <QString>&& arg){m_template_ids=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

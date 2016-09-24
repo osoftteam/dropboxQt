@@ -32,11 +32,11 @@ namespace team{
     public:
         ///Identity of user to remove/suspend.
         UserSelectorArg user()const{return m_user;};
-        const MembersDeactivateArg& setUser(const UserSelectorArg& arg){m_user=arg; return *this;};
+        MembersDeactivateArg& setUser(const UserSelectorArg& arg){m_user=arg; return *this;};
 
         ///If provided, controls if the user's data will be deleted on their linked devices.
         bool wipeData()const{return m_wipe_data;};
-        const MembersDeactivateArg& setWipedata(const bool& arg){m_wipe_data=arg; return *this;};
+        MembersDeactivateArg& setWipedata(const bool& arg){m_wipe_data=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -28,15 +28,15 @@ namespace sharing{
     public:
         ///Display name for the folder.
         QString folderName()const{return m_folder_name;};
-        const ParentFolderAccessInfo& setFoldername(const QString& arg){m_folder_name=arg; return *this;};
+        ParentFolderAccessInfo& setFoldername(const QString& arg){m_folder_name=arg; return *this;};
 
         ///The identifier of the parent shared folder.
         QString sharedFolderId()const{return m_shared_folder_id;};
-        const ParentFolderAccessInfo& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
+        ParentFolderAccessInfo& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
 
         ///The user's permissions for the parent shared folder.
         const std::list <MemberPermission>& permissions()const{return m_permissions;};
-        const ParentFolderAccessInfo& setPermissions(const std::list <MemberPermission>&& arg){m_permissions=arg; return *this;};
+        ParentFolderAccessInfo& setPermissions(const std::list <MemberPermission>&& arg){m_permissions=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -30,19 +30,19 @@ namespace team{
     public:
         ///An identifier for property template added by :route:`properties/template/add`.
         QString templateId()const{return m_template_id;};
-        const UpdatePropertyTemplateArg& setTemplateid(const QString& arg){m_template_id=arg; return *this;};
+        UpdatePropertyTemplateArg& setTemplateid(const QString& arg){m_template_id=arg; return *this;};
 
         ///A display name for the property template. Property template names can be up to 256 bytes.
         QString name()const{return m_name;};
-        const UpdatePropertyTemplateArg& setName(const QString& arg){m_name=arg; return *this;};
+        UpdatePropertyTemplateArg& setName(const QString& arg){m_name=arg; return *this;};
 
         ///Description for new property template. Property template descriptions can be up to 1024 bytes.
         QString description()const{return m_description;};
-        const UpdatePropertyTemplateArg& setDescription(const QString& arg){m_description=arg; return *this;};
+        UpdatePropertyTemplateArg& setDescription(const QString& arg){m_description=arg; return *this;};
 
         ///This is a list of custom properties to add to the property template. There can be up to 64 properties in a single property template.
         const std::list <properties::PropertyFieldTemplate>& addFields()const{return m_add_fields;};
-        const UpdatePropertyTemplateArg& setAddfields(const std::list <properties::PropertyFieldTemplate>&& arg){m_add_fields=arg; return *this;};
+        UpdatePropertyTemplateArg& setAddfields(const std::list <properties::PropertyFieldTemplate>&& arg){m_add_fields=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

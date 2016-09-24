@@ -27,11 +27,11 @@ namespace sharing{
     public:
         ///The ID for the shared folder.
         QString sharedFolderId()const{return m_shared_folder_id;};
-        const RelinquishFolderMembershipArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
+        RelinquishFolderMembershipArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
 
         ///Keep a copy of the folder's contents upon relinquishing membership.
         bool leaveACopy()const{return m_leave_a_copy;};
-        const RelinquishFolderMembershipArg& setLeaveacopy(const bool& arg){m_leave_a_copy=arg; return *this;};
+        RelinquishFolderMembershipArg& setLeaveacopy(const bool& arg){m_leave_a_copy=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

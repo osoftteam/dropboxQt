@@ -21,7 +21,7 @@ namespace sharing{
     public:
         ///The path or id for the file.
         QString file()const{return m_file;};
-        const RelinquishFileMembershipArg& setFile(const QString& arg){m_file=arg; return *this;};
+        RelinquishFileMembershipArg& setFile(const QString& arg){m_file=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

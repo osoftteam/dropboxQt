@@ -32,23 +32,23 @@ namespace team{
     public:
         ///Identity of user whose profile will be set.
         UserSelectorArg user()const{return m_user;};
-        const MembersSetProfileArg& setUser(const UserSelectorArg& arg){m_user=arg; return *this;};
+        MembersSetProfileArg& setUser(const UserSelectorArg& arg){m_user=arg; return *this;};
 
         ///New email for member.
         QString newEmail()const{return m_new_email;};
-        const MembersSetProfileArg& setNewemail(const QString& arg){m_new_email=arg; return *this;};
+        MembersSetProfileArg& setNewemail(const QString& arg){m_new_email=arg; return *this;};
 
         ///New external ID for member.
         QString newExternalId()const{return m_new_external_id;};
-        const MembersSetProfileArg& setNewexternalid(const QString& arg){m_new_external_id=arg; return *this;};
+        MembersSetProfileArg& setNewexternalid(const QString& arg){m_new_external_id=arg; return *this;};
 
         ///New given name for member.
         QString newGivenName()const{return m_new_given_name;};
-        const MembersSetProfileArg& setNewgivenname(const QString& arg){m_new_given_name=arg; return *this;};
+        MembersSetProfileArg& setNewgivenname(const QString& arg){m_new_given_name=arg; return *this;};
 
         ///New surname for member.
         QString newSurname()const{return m_new_surname;};
-        const MembersSetProfileArg& setNewsurname(const QString& arg){m_new_surname=arg; return *this;};
+        MembersSetProfileArg& setNewsurname(const QString& arg){m_new_surname=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

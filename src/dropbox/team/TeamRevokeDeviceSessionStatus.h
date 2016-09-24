@@ -24,11 +24,11 @@ namespace team{
     public:
         ///Result of the revoking request
         bool success()const{return m_success;};
-        const RevokeDeviceSessionStatus& setSuccess(const bool& arg){m_success=arg; return *this;};
+        RevokeDeviceSessionStatus& setSuccess(const bool& arg){m_success=arg; return *this;};
 
         ///The error cause in case of a failure
         RevokeDeviceSessionError errorType()const{return m_error_type;};
-        const RevokeDeviceSessionStatus& setErrortype(const RevokeDeviceSessionError& arg){m_error_type=arg; return *this;};
+        RevokeDeviceSessionStatus& setErrortype(const RevokeDeviceSessionError& arg){m_error_type=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

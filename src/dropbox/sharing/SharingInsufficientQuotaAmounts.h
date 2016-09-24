@@ -26,15 +26,15 @@ namespace sharing{
     public:
         ///The amount of space needed to add the item (the size of the item).
         int spaceNeeded()const{return m_space_needed;};
-        const InsufficientQuotaAmounts& setSpaceneeded(const int& arg){m_space_needed=arg; return *this;};
+        InsufficientQuotaAmounts& setSpaceneeded(const int& arg){m_space_needed=arg; return *this;};
 
         ///The amount of extra space needed to add the item.
         int spaceShortage()const{return m_space_shortage;};
-        const InsufficientQuotaAmounts& setSpaceshortage(const int& arg){m_space_shortage=arg; return *this;};
+        InsufficientQuotaAmounts& setSpaceshortage(const int& arg){m_space_shortage=arg; return *this;};
 
         ///The amount of space left in the user's Dropbox, less than space_needed.
         int spaceLeft()const{return m_space_left;};
-        const InsufficientQuotaAmounts& setSpaceleft(const int& arg){m_space_left=arg; return *this;};
+        InsufficientQuotaAmounts& setSpaceleft(const int& arg){m_space_left=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

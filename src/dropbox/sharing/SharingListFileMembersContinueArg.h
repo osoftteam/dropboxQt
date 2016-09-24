@@ -25,7 +25,7 @@ namespace sharing{
     public:
         ///The cursor returned by your last call to :route:`list_file_members`, :route:`list_file_members/continue`, or :route:`list_file_members/batch`.
         QString cursor()const{return m_cursor;};
-        const ListFileMembersContinueArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
+        ListFileMembersContinueArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

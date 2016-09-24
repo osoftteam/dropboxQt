@@ -28,15 +28,15 @@ namespace sharing{
     public:
         ///Information about the member's team
         users::Team teamInfo()const{return m_team_info;};
-        const TeamMemberInfo& setTeaminfo(const users::Team& arg){m_team_info=arg; return *this;};
+        TeamMemberInfo& setTeaminfo(const users::Team& arg){m_team_info=arg; return *this;};
 
         ///The display name of the user.
         QString displayName()const{return m_display_name;};
-        const TeamMemberInfo& setDisplayname(const QString& arg){m_display_name=arg; return *this;};
+        TeamMemberInfo& setDisplayname(const QString& arg){m_display_name=arg; return *this;};
 
         ///ID of user as a member of a team. This field will only be present if the member is in the same team as current user.
         QString memberId()const{return m_member_id;};
-        const TeamMemberInfo& setMemberid(const QString& arg){m_member_id=arg; return *this;};
+        TeamMemberInfo& setMemberid(const QString& arg){m_member_id=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

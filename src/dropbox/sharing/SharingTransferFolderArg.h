@@ -23,11 +23,11 @@ namespace sharing{
     public:
         ///The ID for the shared folder.
         QString sharedFolderId()const{return m_shared_folder_id;};
-        const TransferFolderArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
+        TransferFolderArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
 
         ///A account or team member ID to transfer ownership to.
         QString toDropboxId()const{return m_to_dropbox_id;};
-        const TransferFolderArg& setTodropboxid(const QString& arg){m_to_dropbox_id=arg; return *this;};
+        TransferFolderArg& setTodropboxid(const QString& arg){m_to_dropbox_id=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

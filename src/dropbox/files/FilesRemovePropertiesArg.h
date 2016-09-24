@@ -23,11 +23,11 @@ namespace files{
     public:
         ///A unique identifier for the file.
         QString path()const{return m_path;};
-        const RemovePropertiesArg& setPath(const QString& arg){m_path=arg; return *this;};
+        RemovePropertiesArg& setPath(const QString& arg){m_path=arg; return *this;};
 
         ///A list of identifiers for a property template created by route properties/template/add.
         const std::list <QString>& propertyTemplateIds()const{return m_property_template_ids;};
-        const RemovePropertiesArg& setPropertytemplateids(const std::list <QString>&& arg){m_property_template_ids=arg; return *this;};
+        RemovePropertiesArg& setPropertytemplateids(const std::list <QString>&& arg){m_property_template_ids=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

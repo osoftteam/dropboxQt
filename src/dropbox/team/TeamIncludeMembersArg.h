@@ -28,7 +28,7 @@ namespace team{
     public:
         ///Whether to return the list of members in the group.  Note that the default value will cause all the group members  to be returned in the response. This may take a long time for large groups.
         bool returnMembers()const{return m_return_members;};
-        const IncludeMembersArg& setReturnmembers(const bool& arg){m_return_members=arg; return *this;};
+        IncludeMembersArg& setReturnmembers(const bool& arg){m_return_members=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

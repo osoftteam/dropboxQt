@@ -29,19 +29,19 @@ namespace team{
     public:
         ///The member unique Id
         QString teamMemberId()const{return m_team_member_id;};
-        const MemberDevices& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
+        MemberDevices& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
 
         ///List of web sessions made by this team member
         const std::list <ActiveWebSession>& webSessions()const{return m_web_sessions;};
-        const MemberDevices& setWebsessions(const std::list <ActiveWebSession>&& arg){m_web_sessions=arg; return *this;};
+        MemberDevices& setWebsessions(const std::list <ActiveWebSession>&& arg){m_web_sessions=arg; return *this;};
 
         ///List of desktop clients by this team member
         const std::list <DesktopClientSession>& desktopClients()const{return m_desktop_clients;};
-        const MemberDevices& setDesktopclients(const std::list <DesktopClientSession>&& arg){m_desktop_clients=arg; return *this;};
+        MemberDevices& setDesktopclients(const std::list <DesktopClientSession>&& arg){m_desktop_clients=arg; return *this;};
 
         ///List of mobile clients by this team member
         const std::list <MobileClientSession>& mobileClients()const{return m_mobile_clients;};
-        const MemberDevices& setMobileclients(const std::list <MobileClientSession>&& arg){m_mobile_clients=arg; return *this;};
+        MemberDevices& setMobileclients(const std::list <MobileClientSession>&& arg){m_mobile_clients=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

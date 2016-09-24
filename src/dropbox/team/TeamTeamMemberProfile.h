@@ -24,7 +24,7 @@ namespace team{
     public:
         ///List of group IDs of groups that the user belongs to.
         const std::list <QString>& groups()const{return m_groups;};
-        const TeamMemberProfile& setGroups(const std::list <QString>&& arg){m_groups=arg; return *this;};
+        TeamMemberProfile& setGroups(const std::list <QString>&& arg){m_groups=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

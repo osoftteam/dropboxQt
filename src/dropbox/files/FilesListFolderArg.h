@@ -41,23 +41,23 @@ namespace files{
     public:
         ///The path to the folder you want to see the contents of.
         QString path()const{return m_path;};
-        const ListFolderArg& setPath(const QString& arg){m_path=arg; return *this;};
+        ListFolderArg& setPath(const QString& arg){m_path=arg; return *this;};
 
         ///If true, the list folder operation will be applied recursively to all subfolders and the response will contain contents of all subfolders.
         bool recursive()const{return m_recursive;};
-        const ListFolderArg& setRecursive(const bool& arg){m_recursive=arg; return *this;};
+        ListFolderArg& setRecursive(const bool& arg){m_recursive=arg; return *this;};
 
         ///If true, :field:`FileMetadata.media_info` is set for photo and video.
         bool includeMediaInfo()const{return m_include_media_info;};
-        const ListFolderArg& setIncludemediainfo(const bool& arg){m_include_media_info=arg; return *this;};
+        ListFolderArg& setIncludemediainfo(const bool& arg){m_include_media_info=arg; return *this;};
 
         ///If true, the results will include entries for files and folders that used to exist but were deleted.
         bool includeDeleted()const{return m_include_deleted;};
-        const ListFolderArg& setIncludedeleted(const bool& arg){m_include_deleted=arg; return *this;};
+        ListFolderArg& setIncludedeleted(const bool& arg){m_include_deleted=arg; return *this;};
 
         ///If true, the results will include a flag for each file indicating whether or not  that file has any explicit members.
         bool includeHasExplicitSharedMembers()const{return m_include_has_explicit_shared_members;};
-        const ListFolderArg& setIncludehasexplicitsharedmembers(const bool& arg){m_include_has_explicit_shared_members=arg; return *this;};
+        ListFolderArg& setIncludehasexplicitsharedmembers(const bool& arg){m_include_has_explicit_shared_members=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

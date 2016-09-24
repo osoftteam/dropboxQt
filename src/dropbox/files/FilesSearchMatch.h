@@ -25,11 +25,11 @@ namespace files{
     public:
         ///The type of the match.
         SearchMatchType matchType()const{return m_match_type;};
-        const SearchMatch& setMatchtype(const SearchMatchType& arg){m_match_type=arg; return *this;};
+        SearchMatch& setMatchtype(const SearchMatchType& arg){m_match_type=arg; return *this;};
 
         ///The metadata for the matched file or folder.
         Metadata metadata()const{return m_metadata;};
-        const SearchMatch& setMetadata(const Metadata& arg){m_metadata=arg; return *this;};
+        SearchMatch& setMetadata(const Metadata& arg){m_metadata=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

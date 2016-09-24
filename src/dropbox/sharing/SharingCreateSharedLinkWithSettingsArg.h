@@ -24,11 +24,11 @@ namespace sharing{
     public:
         ///The path to be shared by the shared link
         QString path()const{return m_path;};
-        const CreateSharedLinkWithSettingsArg& setPath(const QString& arg){m_path=arg; return *this;};
+        CreateSharedLinkWithSettingsArg& setPath(const QString& arg){m_path=arg; return *this;};
 
         ///The requested settings for the newly created shared link
         SharedLinkSettings settings()const{return m_settings;};
-        const CreateSharedLinkWithSettingsArg& setSettings(const SharedLinkSettings& arg){m_settings=arg; return *this;};
+        CreateSharedLinkWithSettingsArg& setSettings(const SharedLinkSettings& arg){m_settings=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

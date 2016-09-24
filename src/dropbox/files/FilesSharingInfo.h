@@ -24,7 +24,7 @@ namespace files{
     public:
         ///True if the file or folder is inside a read-only shared folder.
         bool readOnly()const{return m_read_only;};
-        const SharingInfo& setReadonly(const bool& arg){m_read_only=arg; return *this;};
+        SharingInfo& setReadonly(const bool& arg){m_read_only=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

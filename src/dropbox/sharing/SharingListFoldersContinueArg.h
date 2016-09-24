@@ -22,7 +22,7 @@ namespace sharing{
     public:
         ///The cursor returned by the previous API call specified in the endpoint description.
         QString cursor()const{return m_cursor;};
-        const ListFoldersContinueArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
+        ListFoldersContinueArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

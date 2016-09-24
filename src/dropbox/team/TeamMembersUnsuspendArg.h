@@ -26,7 +26,7 @@ namespace team{
     public:
         ///Identity of user to unsuspend.
         UserSelectorArg user()const{return m_user;};
-        const MembersUnsuspendArg& setUser(const UserSelectorArg& arg){m_user=arg; return *this;};
+        MembersUnsuspendArg& setUser(const UserSelectorArg& arg){m_user=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

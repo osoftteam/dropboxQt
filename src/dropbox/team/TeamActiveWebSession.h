@@ -26,15 +26,15 @@ namespace team{
     public:
         ///Information on the hosting device
         QString userAgent()const{return m_user_agent;};
-        const ActiveWebSession& setUseragent(const QString& arg){m_user_agent=arg; return *this;};
+        ActiveWebSession& setUseragent(const QString& arg){m_user_agent=arg; return *this;};
 
         ///Information on the hosting operating system
         QString os()const{return m_os;};
-        const ActiveWebSession& setOs(const QString& arg){m_os=arg; return *this;};
+        ActiveWebSession& setOs(const QString& arg){m_os=arg; return *this;};
 
         ///Information on the browser used for this web session
         QString browser()const{return m_browser;};
-        const ActiveWebSession& setBrowser(const QString& arg){m_browser=arg; return *this;};
+        ActiveWebSession& setBrowser(const QString& arg){m_browser=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

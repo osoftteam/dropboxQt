@@ -28,11 +28,11 @@ namespace team{
     public:
         ///The group whose members are to be listed.
         GroupSelector group()const{return m_group;};
-        const GroupsMembersListArg& setGroup(const GroupSelector& arg){m_group=arg; return *this;};
+        GroupsMembersListArg& setGroup(const GroupSelector& arg){m_group=arg; return *this;};
 
         ///Number of results to return per call.
         int limit()const{return m_limit;};
-        const GroupsMembersListArg& setLimit(const int& arg){m_limit=arg; return *this;};
+        GroupsMembersListArg& setLimit(const int& arg){m_limit=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

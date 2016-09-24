@@ -25,11 +25,11 @@ namespace files{
     public:
         ///The reason why the file couldn't be saved.
         WriteError reason()const{return m_reason;};
-        const UploadWriteFailed& setReason(const WriteError& arg){m_reason=arg; return *this;};
+        UploadWriteFailed& setReason(const WriteError& arg){m_reason=arg; return *this;};
 
         ///The upload session ID; this may be used to retry the commit.
         QString uploadSessionId()const{return m_upload_session_id;};
-        const UploadWriteFailed& setUploadsessionid(const QString& arg){m_upload_session_id=arg; return *this;};
+        UploadWriteFailed& setUploadsessionid(const QString& arg){m_upload_session_id=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

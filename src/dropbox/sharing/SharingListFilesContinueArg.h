@@ -23,7 +23,7 @@ namespace sharing{
     public:
         ///Cursor in :field:`ListFilesResult.cursor`
         QString cursor()const{return m_cursor;};
-        const ListFilesContinueArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
+        ListFilesContinueArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

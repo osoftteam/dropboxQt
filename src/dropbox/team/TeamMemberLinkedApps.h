@@ -26,11 +26,11 @@ namespace team{
     public:
         ///The member unique Id
         QString teamMemberId()const{return m_team_member_id;};
-        const MemberLinkedApps& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
+        MemberLinkedApps& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
 
         ///List of third party applications linked by this team member
         const std::list <ApiApp>& linkedApiApps()const{return m_linked_api_apps;};
-        const MemberLinkedApps& setLinkedapiapps(const std::list <ApiApp>&& arg){m_linked_api_apps=arg; return *this;};
+        MemberLinkedApps& setLinkedapiapps(const std::list <ApiApp>&& arg){m_linked_api_apps=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -24,15 +24,15 @@ namespace sharing{
     public:
         ///See :route:`list_shared_links` description.
         QString path()const{return m_path;};
-        const ListSharedLinksArg& setPath(const QString& arg){m_path=arg; return *this;};
+        ListSharedLinksArg& setPath(const QString& arg){m_path=arg; return *this;};
 
         ///The cursor returned by your last call to :route:`list_shared_links`.
         QString cursor()const{return m_cursor;};
-        const ListSharedLinksArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
+        ListSharedLinksArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
 
         ///See :route:`list_shared_links` description.
         bool directOnly()const{return m_direct_only;};
-        const ListSharedLinksArg& setDirectonly(const bool& arg){m_direct_only=arg; return *this;};
+        ListSharedLinksArg& setDirectonly(const bool& arg){m_direct_only=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -22,11 +22,11 @@ namespace files{
     public:
         ///The path to the file you want to restore.
         QString path()const{return m_path;};
-        const RestoreArg& setPath(const QString& arg){m_path=arg; return *this;};
+        RestoreArg& setPath(const QString& arg){m_path=arg; return *this;};
 
         ///The revision to restore for the file.
         QString rev()const{return m_rev;};
-        const RestoreArg& setRev(const QString& arg){m_rev=arg; return *this;};
+        RestoreArg& setRev(const QString& arg){m_rev=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

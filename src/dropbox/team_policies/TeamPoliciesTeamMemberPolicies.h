@@ -33,11 +33,11 @@ namespace team_policies{
     public:
         ///Policies governing sharing.
         TeamSharingPolicies sharing()const{return m_sharing;};
-        const TeamMemberPolicies& setSharing(const TeamSharingPolicies& arg){m_sharing=arg; return *this;};
+        TeamMemberPolicies& setSharing(const TeamSharingPolicies& arg){m_sharing=arg; return *this;};
 
         ///This describes the Enterprise Mobility Management (EMM) state for this team. This information can be used to understand if an organization is integrating with a third-party EMM vendor to further manage and apply restrictions upon the team's Dropbox usage on mobile devices. This is a new feature and in the future we'll be adding more new fields and additional documentation.
         EmmState emmState()const{return m_emm_state;};
-        const TeamMemberPolicies& setEmmstate(const EmmState& arg){m_emm_state=arg; return *this;};
+        TeamMemberPolicies& setEmmstate(const EmmState& arg){m_emm_state=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

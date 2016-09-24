@@ -27,11 +27,11 @@ namespace files{
     public:
         ///ID of shared folder that holds this file.
         QString parentSharedFolderId()const{return m_parent_shared_folder_id;};
-        const FileSharingInfo& setParentsharedfolderid(const QString& arg){m_parent_shared_folder_id=arg; return *this;};
+        FileSharingInfo& setParentsharedfolderid(const QString& arg){m_parent_shared_folder_id=arg; return *this;};
 
         ///The last user who modified the file. This field will be null if the user's account has been deleted.
         QString modifiedBy()const{return m_modified_by;};
-        const FileSharingInfo& setModifiedby(const QString& arg){m_modified_by=arg; return *this;};
+        FileSharingInfo& setModifiedby(const QString& arg){m_modified_by=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

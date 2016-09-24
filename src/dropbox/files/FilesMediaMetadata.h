@@ -27,15 +27,15 @@ namespace files{
     public:
         ///Dimension of the photo/video.
         Dimensions dimensions()const{return m_dimensions;};
-        const MediaMetadata& setDimensions(const Dimensions& arg){m_dimensions=arg; return *this;};
+        MediaMetadata& setDimensions(const Dimensions& arg){m_dimensions=arg; return *this;};
 
         ///The GPS coordinate of the photo/video.
         GpsCoordinates location()const{return m_location;};
-        const MediaMetadata& setLocation(const GpsCoordinates& arg){m_location=arg; return *this;};
+        MediaMetadata& setLocation(const GpsCoordinates& arg){m_location=arg; return *this;};
 
         ///The timestamp when the photo/video is taken.
         QDateTime timeTaken()const{return m_time_taken;};
-        const MediaMetadata& setTimetaken(const QDateTime& arg){m_time_taken=arg; return *this;};
+        MediaMetadata& setTimetaken(const QDateTime& arg){m_time_taken=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

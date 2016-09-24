@@ -22,7 +22,7 @@ namespace users{
     public:
         ///The total space allocated to the user's account (bytes).
         int allocated()const{return m_allocated;};
-        const IndividualSpaceAllocation& setAllocated(const int& arg){m_allocated=arg; return *this;};
+        IndividualSpaceAllocation& setAllocated(const int& arg){m_allocated=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -29,11 +29,11 @@ namespace sharing{
     public:
         ///Files for which to return members.
         const std::list <QString>& files()const{return m_files;};
-        const ListFileMembersBatchArg& setFiles(const std::list <QString>&& arg){m_files=arg; return *this;};
+        ListFileMembersBatchArg& setFiles(const std::list <QString>&& arg){m_files=arg; return *this;};
 
         ///Number of members to return max per query. Defaults to 10 if no limit is specified.
         int limit()const{return m_limit;};
-        const ListFileMembersBatchArg& setLimit(const int& arg){m_limit=arg; return *this;};
+        ListFileMembersBatchArg& setLimit(const int& arg){m_limit=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

@@ -29,27 +29,27 @@ namespace team{
     public:
         ///The application unique id
         QString appId()const{return m_app_id;};
-        const ApiApp& setAppid(const QString& arg){m_app_id=arg; return *this;};
+        ApiApp& setAppid(const QString& arg){m_app_id=arg; return *this;};
 
         ///The application name
         QString appName()const{return m_app_name;};
-        const ApiApp& setAppname(const QString& arg){m_app_name=arg; return *this;};
+        ApiApp& setAppname(const QString& arg){m_app_name=arg; return *this;};
 
         ///The application publisher name
         QString publisher()const{return m_publisher;};
-        const ApiApp& setPublisher(const QString& arg){m_publisher=arg; return *this;};
+        ApiApp& setPublisher(const QString& arg){m_publisher=arg; return *this;};
 
         ///The publisher's URL
         QString publisherUrl()const{return m_publisher_url;};
-        const ApiApp& setPublisherurl(const QString& arg){m_publisher_url=arg; return *this;};
+        ApiApp& setPublisherurl(const QString& arg){m_publisher_url=arg; return *this;};
 
         ///The time this application was linked
         QDateTime linked()const{return m_linked;};
-        const ApiApp& setLinked(const QDateTime& arg){m_linked=arg; return *this;};
+        ApiApp& setLinked(const QDateTime& arg){m_linked=arg; return *this;};
 
         ///Whether the linked application uses a dedicated folder
         bool isAppFolder()const{return m_is_app_folder;};
-        const ApiApp& setIsappfolder(const bool& arg){m_is_app_folder=arg; return *this;};
+        ApiApp& setIsappfolder(const bool& arg){m_is_app_folder=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

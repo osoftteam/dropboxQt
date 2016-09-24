@@ -39,15 +39,15 @@ namespace team{
     public:
         ///If provided, files from the deleted member account will be transferred to this user.
         UserSelectorArg transferDestId()const{return m_transfer_dest_id;};
-        const MembersRemoveArg& setTransferdestid(const UserSelectorArg& arg){m_transfer_dest_id=arg; return *this;};
+        MembersRemoveArg& setTransferdestid(const UserSelectorArg& arg){m_transfer_dest_id=arg; return *this;};
 
         ///If provided, errors during the transfer process will be sent via email to this user. If the transfer_dest_id argument was provided, then this argument must be provided as well.
         UserSelectorArg transferAdminId()const{return m_transfer_admin_id;};
-        const MembersRemoveArg& setTransferadminid(const UserSelectorArg& arg){m_transfer_admin_id=arg; return *this;};
+        MembersRemoveArg& setTransferadminid(const UserSelectorArg& arg){m_transfer_admin_id=arg; return *this;};
 
         ///Downgrade the member to a Basic account. The user will retain the email address associated with their Dropbox  account and data in their account that is not restricted to team members.
         bool keepAccount()const{return m_keep_account;};
-        const MembersRemoveArg& setKeepaccount(const bool& arg){m_keep_account=arg; return *this;};
+        MembersRemoveArg& setKeepaccount(const bool& arg){m_keep_account=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

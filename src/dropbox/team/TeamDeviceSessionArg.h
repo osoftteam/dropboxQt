@@ -22,11 +22,11 @@ namespace team{
     public:
         ///The session id
         QString sessionId()const{return m_session_id;};
-        const DeviceSessionArg& setSessionid(const QString& arg){m_session_id=arg; return *this;};
+        DeviceSessionArg& setSessionid(const QString& arg){m_session_id=arg; return *this;};
 
         ///The unique id of the member owning the device
         QString teamMemberId()const{return m_team_member_id;};
-        const DeviceSessionArg& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
+        DeviceSessionArg& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

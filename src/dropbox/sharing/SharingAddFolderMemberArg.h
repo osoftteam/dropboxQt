@@ -32,19 +32,19 @@ namespace sharing{
     public:
         ///The ID for the shared folder.
         QString sharedFolderId()const{return m_shared_folder_id;};
-        const AddFolderMemberArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
+        AddFolderMemberArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
 
         ///The intended list of members to add.  Added members will receive invites to join the shared folder.
         const std::list <AddMember>& members()const{return m_members;};
-        const AddFolderMemberArg& setMembers(const std::list <AddMember>&& arg){m_members=arg; return *this;};
+        AddFolderMemberArg& setMembers(const std::list <AddMember>&& arg){m_members=arg; return *this;};
 
         ///Whether added members should be notified via email and device notifications of their invite.
         bool quiet()const{return m_quiet;};
-        const AddFolderMemberArg& setQuiet(const bool& arg){m_quiet=arg; return *this;};
+        AddFolderMemberArg& setQuiet(const bool& arg){m_quiet=arg; return *this;};
 
         ///Optional message to display to added members in their invitation.
         QString customMessage()const{return m_custom_message;};
-        const AddFolderMemberArg& setCustommessage(const QString& arg){m_custom_message=arg; return *this;};
+        AddFolderMemberArg& setCustommessage(const QString& arg){m_custom_message=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

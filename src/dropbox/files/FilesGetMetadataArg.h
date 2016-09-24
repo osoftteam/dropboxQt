@@ -37,19 +37,19 @@ namespace files{
     public:
         ///The path of a file or folder on Dropbox.
         QString path()const{return m_path;};
-        const GetMetadataArg& setPath(const QString& arg){m_path=arg; return *this;};
+        GetMetadataArg& setPath(const QString& arg){m_path=arg; return *this;};
 
         ///If true, :field:`FileMetadata.media_info` is set for photo and video.
         bool includeMediaInfo()const{return m_include_media_info;};
-        const GetMetadataArg& setIncludemediainfo(const bool& arg){m_include_media_info=arg; return *this;};
+        GetMetadataArg& setIncludemediainfo(const bool& arg){m_include_media_info=arg; return *this;};
 
         ///If true, :type:`DeletedMetadata` will be returned for deleted file or folder, otherwise :field:`LookupError.not_found` will be returned.
         bool includeDeleted()const{return m_include_deleted;};
-        const GetMetadataArg& setIncludedeleted(const bool& arg){m_include_deleted=arg; return *this;};
+        GetMetadataArg& setIncludedeleted(const bool& arg){m_include_deleted=arg; return *this;};
 
         ///If true, the results will include a flag for each file indicating whether or not  that file has any explicit members.
         bool includeHasExplicitSharedMembers()const{return m_include_has_explicit_shared_members;};
-        const GetMetadataArg& setIncludehasexplicitsharedmembers(const bool& arg){m_include_has_explicit_shared_members=arg; return *this;};
+        GetMetadataArg& setIncludehasexplicitsharedmembers(const bool& arg){m_include_has_explicit_shared_members=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

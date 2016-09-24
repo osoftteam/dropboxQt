@@ -25,11 +25,11 @@ namespace files{
     public:
         ///Contains the upload session ID and the offset.
         UploadSessionCursor cursor()const{return m_cursor;};
-        const UploadSessionFinishArg& setCursor(const UploadSessionCursor& arg){m_cursor=arg; return *this;};
+        UploadSessionFinishArg& setCursor(const UploadSessionCursor& arg){m_cursor=arg; return *this;};
 
         ///Contains the path and other optional modifiers for the commit.
         CommitInfo commit()const{return m_commit;};
-        const UploadSessionFinishArg& setCommit(const CommitInfo& arg){m_commit=arg; return *this;};
+        UploadSessionFinishArg& setCommit(const CommitInfo& arg){m_commit=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

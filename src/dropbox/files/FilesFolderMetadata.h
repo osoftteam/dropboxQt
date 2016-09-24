@@ -30,19 +30,19 @@ namespace files{
     public:
         ///A unique identifier for the folder.
         QString id()const{return m_id;};
-        const FolderMetadata& setId(const QString& arg){m_id=arg; return *this;};
+        FolderMetadata& setId(const QString& arg){m_id=arg; return *this;};
 
         ///Deprecated. Please use :field:`sharing_info` instead.
         QString sharedFolderId()const{return m_shared_folder_id;};
-        const FolderMetadata& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
+        FolderMetadata& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
 
         ///Set if the folder is contained in a shared folder or is a shared folder mount point.
         FolderSharingInfo sharingInfo()const{return m_sharing_info;};
-        const FolderMetadata& setSharinginfo(const FolderSharingInfo& arg){m_sharing_info=arg; return *this;};
+        FolderMetadata& setSharinginfo(const FolderSharingInfo& arg){m_sharing_info=arg; return *this;};
 
         ///Additional information if the file has custom properties with the property template specified.
         const std::list <properties::PropertyGroup>& propertyGroups()const{return m_property_groups;};
-        const FolderMetadata& setPropertygroups(const std::list <properties::PropertyGroup>&& arg){m_property_groups=arg; return *this;};
+        FolderMetadata& setPropertygroups(const std::list <properties::PropertyGroup>&& arg){m_property_groups=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

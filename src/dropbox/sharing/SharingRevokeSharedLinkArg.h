@@ -21,7 +21,7 @@ namespace sharing{
     public:
         ///URL of the shared link.
         QString url()const{return m_url;};
-        const RevokeSharedLinkArg& setUrl(const QString& arg){m_url=arg; return *this;};
+        RevokeSharedLinkArg& setUrl(const QString& arg){m_url=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

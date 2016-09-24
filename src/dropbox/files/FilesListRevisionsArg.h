@@ -26,11 +26,11 @@ namespace files{
     public:
         ///The path to the file you want to see the revisions of.
         QString path()const{return m_path;};
-        const ListRevisionsArg& setPath(const QString& arg){m_path=arg; return *this;};
+        ListRevisionsArg& setPath(const QString& arg){m_path=arg; return *this;};
 
         ///The maximum number of revision entries returned.
         int limit()const{return m_limit;};
-        const ListRevisionsArg& setLimit(const int& arg){m_limit=arg; return *this;};
+        ListRevisionsArg& setLimit(const int& arg){m_limit=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

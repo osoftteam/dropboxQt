@@ -36,27 +36,27 @@ namespace team{
     public:
         ///None
         QString memberEmail()const{return m_member_email;};
-        const MemberAddArg& setMemberemail(const QString& arg){m_member_email=arg; return *this;};
+        MemberAddArg& setMemberemail(const QString& arg){m_member_email=arg; return *this;};
 
         ///Member's first name.
         QString memberGivenName()const{return m_member_given_name;};
-        const MemberAddArg& setMembergivenname(const QString& arg){m_member_given_name=arg; return *this;};
+        MemberAddArg& setMembergivenname(const QString& arg){m_member_given_name=arg; return *this;};
 
         ///Member's last name.
         QString memberSurname()const{return m_member_surname;};
-        const MemberAddArg& setMembersurname(const QString& arg){m_member_surname=arg; return *this;};
+        MemberAddArg& setMembersurname(const QString& arg){m_member_surname=arg; return *this;};
 
         ///External ID for member.
         QString memberExternalId()const{return m_member_external_id;};
-        const MemberAddArg& setMemberexternalid(const QString& arg){m_member_external_id=arg; return *this;};
+        MemberAddArg& setMemberexternalid(const QString& arg){m_member_external_id=arg; return *this;};
 
         ///Whether to send a welcome email to the member. If send_welcome_email is false, no email invitation will be sent to the user. This may be useful for apps using single sign-on (SSO) flows for onboarding that want to handle announcements themselves.
         bool sendWelcomeEmail()const{return m_send_welcome_email;};
-        const MemberAddArg& setSendwelcomeemail(const bool& arg){m_send_welcome_email=arg; return *this;};
+        MemberAddArg& setSendwelcomeemail(const bool& arg){m_send_welcome_email=arg; return *this;};
 
         ///None
         AdminTier role()const{return m_role;};
-        const MemberAddArg& setRole(const AdminTier& arg){m_role=arg; return *this;};
+        MemberAddArg& setRole(const AdminTier& arg){m_role=arg; return *this;};
 
     public:
         operator QJsonObject ()const;

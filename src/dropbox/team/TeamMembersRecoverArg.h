@@ -26,7 +26,7 @@ namespace team{
     public:
         ///Identity of user to recover.
         UserSelectorArg user()const{return m_user;};
-        const MembersRecoverArg& setUser(const UserSelectorArg& arg){m_user=arg; return *this;};
+        MembersRecoverArg& setUser(const UserSelectorArg& arg){m_user=arg; return *this;};
 
     public:
         operator QJsonObject ()const;
