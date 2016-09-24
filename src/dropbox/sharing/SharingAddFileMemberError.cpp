@@ -50,18 +50,23 @@ void AddFileMemberError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("user_error") == 0){
         m_tag = AddFileMemberError_USER_ERROR;
+        m_user_error.fromJson(js["user_error"].toObject());
     }
-    if(s.compare("access_error") == 0){
+    else if(s.compare("access_error") == 0){
         m_tag = AddFileMemberError_ACCESS_ERROR;
+        m_access_error.fromJson(js["access_error"].toObject());
     }
-    if(s.compare("rate_limit") == 0){
+    else if(s.compare("rate_limit") == 0){
         m_tag = AddFileMemberError_RATE_LIMIT;
+
     }
-    if(s.compare("invalid_comment") == 0){
+    else if(s.compare("invalid_comment") == 0){
         m_tag = AddFileMemberError_INVALID_COMMENT;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = AddFileMemberError_OTHER;
+
     }
 }
 

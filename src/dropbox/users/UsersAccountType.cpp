@@ -40,12 +40,15 @@ void AccountType::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("basic") == 0){
         m_tag = AccountType_BASIC;
+
     }
-    if(s.compare("pro") == 0){
+    else if(s.compare("pro") == 0){
         m_tag = AccountType_PRO;
+
     }
-    if(s.compare("business") == 0){
+    else if(s.compare("business") == 0){
         m_tag = AccountType_BUSINESS;
+
     }
 }
 

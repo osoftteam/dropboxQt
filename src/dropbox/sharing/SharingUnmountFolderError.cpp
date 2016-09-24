@@ -45,15 +45,19 @@ void UnmountFolderError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("access_error") == 0){
         m_tag = UnmountFolderError_ACCESS_ERROR;
+        m_access_error.fromJson(js["access_error"].toObject());
     }
-    if(s.compare("no_permission") == 0){
+    else if(s.compare("no_permission") == 0){
         m_tag = UnmountFolderError_NO_PERMISSION;
+
     }
-    if(s.compare("not_unmountable") == 0){
+    else if(s.compare("not_unmountable") == 0){
         m_tag = UnmountFolderError_NOT_UNMOUNTABLE;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = UnmountFolderError_OTHER;
+
     }
 }
 

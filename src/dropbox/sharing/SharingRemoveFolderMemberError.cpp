@@ -58,24 +58,31 @@ void RemoveFolderMemberError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("access_error") == 0){
         m_tag = RemoveFolderMemberError_ACCESS_ERROR;
+        m_access_error.fromJson(js["access_error"].toObject());
     }
-    if(s.compare("member_error") == 0){
+    else if(s.compare("member_error") == 0){
         m_tag = RemoveFolderMemberError_MEMBER_ERROR;
+        m_member_error.fromJson(js["member_error"].toObject());
     }
-    if(s.compare("folder_owner") == 0){
+    else if(s.compare("folder_owner") == 0){
         m_tag = RemoveFolderMemberError_FOLDER_OWNER;
+
     }
-    if(s.compare("group_access") == 0){
+    else if(s.compare("group_access") == 0){
         m_tag = RemoveFolderMemberError_GROUP_ACCESS;
+
     }
-    if(s.compare("team_folder") == 0){
+    else if(s.compare("team_folder") == 0){
         m_tag = RemoveFolderMemberError_TEAM_FOLDER;
+
     }
-    if(s.compare("no_permission") == 0){
+    else if(s.compare("no_permission") == 0){
         m_tag = RemoveFolderMemberError_NO_PERMISSION;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = RemoveFolderMemberError_OTHER;
+
     }
 }
 

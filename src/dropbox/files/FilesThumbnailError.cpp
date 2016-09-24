@@ -45,15 +45,19 @@ void ThumbnailError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("path") == 0){
         m_tag = ThumbnailError_PATH;
+        m_path.fromJson(js["path"].toObject());
     }
-    if(s.compare("unsupported_extension") == 0){
+    else if(s.compare("unsupported_extension") == 0){
         m_tag = ThumbnailError_UNSUPPORTED_EXTENSION;
+
     }
-    if(s.compare("unsupported_image") == 0){
+    else if(s.compare("unsupported_image") == 0){
         m_tag = ThumbnailError_UNSUPPORTED_IMAGE;
+
     }
-    if(s.compare("conversion_error") == 0){
+    else if(s.compare("conversion_error") == 0){
         m_tag = ThumbnailError_CONVERSION_ERROR;
+
     }
 }
 

@@ -40,12 +40,15 @@ void RateLimitReason::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("too_many_requests") == 0){
         m_tag = RateLimitReason_TOO_MANY_REQUESTS;
+
     }
-    if(s.compare("too_many_write_operations") == 0){
+    else if(s.compare("too_many_write_operations") == 0){
         m_tag = RateLimitReason_TOO_MANY_WRITE_OPERATIONS;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = RateLimitReason_OTHER;
+
     }
 }
 

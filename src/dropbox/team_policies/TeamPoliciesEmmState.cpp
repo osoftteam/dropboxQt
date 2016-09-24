@@ -44,15 +44,19 @@ void EmmState::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("disabled") == 0){
         m_tag = EmmState_DISABLED;
+
     }
-    if(s.compare("optional") == 0){
+    else if(s.compare("optional") == 0){
         m_tag = EmmState_OPTIONAL;
+
     }
-    if(s.compare("required") == 0){
+    else if(s.compare("required") == 0){
         m_tag = EmmState_REQUIRED;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = EmmState_OTHER;
+
     }
 }
 

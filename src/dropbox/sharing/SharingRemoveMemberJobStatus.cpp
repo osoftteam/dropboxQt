@@ -42,12 +42,15 @@ void RemoveMemberJobStatus::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("in_progress") == 0){
         m_tag = PollResultBase_IN_PROGRESS;
+
     }
     if(s.compare("complete") == 0){
         m_tag = RemoveMemberJobStatus_COMPLETE;
+        m_complete.fromJson(js);
     }
-    if(s.compare("failed") == 0){
+    else if(s.compare("failed") == 0){
         m_tag = RemoveMemberJobStatus_FAILED;
+        m_failed.fromJson(js["failed"].toObject());
     }
 }
 

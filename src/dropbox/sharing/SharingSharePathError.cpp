@@ -77,39 +77,51 @@ void SharePathError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("is_file") == 0){
         m_tag = SharePathError_IS_FILE;
+
     }
-    if(s.compare("inside_shared_folder") == 0){
+    else if(s.compare("inside_shared_folder") == 0){
         m_tag = SharePathError_INSIDE_SHARED_FOLDER;
+
     }
-    if(s.compare("contains_shared_folder") == 0){
+    else if(s.compare("contains_shared_folder") == 0){
         m_tag = SharePathError_CONTAINS_SHARED_FOLDER;
+
     }
-    if(s.compare("is_app_folder") == 0){
+    else if(s.compare("is_app_folder") == 0){
         m_tag = SharePathError_IS_APP_FOLDER;
+
     }
-    if(s.compare("inside_app_folder") == 0){
+    else if(s.compare("inside_app_folder") == 0){
         m_tag = SharePathError_INSIDE_APP_FOLDER;
+
     }
-    if(s.compare("is_public_folder") == 0){
+    else if(s.compare("is_public_folder") == 0){
         m_tag = SharePathError_IS_PUBLIC_FOLDER;
+
     }
-    if(s.compare("inside_public_folder") == 0){
+    else if(s.compare("inside_public_folder") == 0){
         m_tag = SharePathError_INSIDE_PUBLIC_FOLDER;
+
     }
-    if(s.compare("already_shared") == 0){
+    else if(s.compare("already_shared") == 0){
         m_tag = SharePathError_ALREADY_SHARED;
+        m_already_shared.fromJson(js);
     }
-    if(s.compare("invalid_path") == 0){
+    else if(s.compare("invalid_path") == 0){
         m_tag = SharePathError_INVALID_PATH;
+
     }
-    if(s.compare("is_osx_package") == 0){
+    else if(s.compare("is_osx_package") == 0){
         m_tag = SharePathError_IS_OSX_PACKAGE;
+
     }
-    if(s.compare("inside_osx_package") == 0){
+    else if(s.compare("inside_osx_package") == 0){
         m_tag = SharePathError_INSIDE_OSX_PACKAGE;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = SharePathError_OTHER;
+
     }
 }
 

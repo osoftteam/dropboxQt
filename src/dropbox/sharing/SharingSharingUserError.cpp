@@ -36,9 +36,11 @@ void SharingUserError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("email_unverified") == 0){
         m_tag = SharingUserError_EMAIL_UNVERIFIED;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = SharingUserError_OTHER;
+
     }
 }
 

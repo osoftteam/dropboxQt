@@ -36,9 +36,11 @@ void ListMembersAppsError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("reset") == 0){
         m_tag = ListMembersAppsError_RESET;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = ListMembersAppsError_OTHER;
+
     }
 }
 

@@ -44,15 +44,19 @@ void AuthError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("invalid_access_token") == 0){
         m_tag = AuthError_INVALID_ACCESS_TOKEN;
+
     }
-    if(s.compare("invalid_select_user") == 0){
+    else if(s.compare("invalid_select_user") == 0){
         m_tag = AuthError_INVALID_SELECT_USER;
+
     }
-    if(s.compare("invalid_select_admin") == 0){
+    else if(s.compare("invalid_select_admin") == 0){
         m_tag = AuthError_INVALID_SELECT_ADMIN;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = AuthError_OTHER;
+
     }
 }
 

@@ -57,24 +57,31 @@ void RelinquishFolderMembershipError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("access_error") == 0){
         m_tag = RelinquishFolderMembershipError_ACCESS_ERROR;
+        m_access_error.fromJson(js["access_error"].toObject());
     }
-    if(s.compare("folder_owner") == 0){
+    else if(s.compare("folder_owner") == 0){
         m_tag = RelinquishFolderMembershipError_FOLDER_OWNER;
+
     }
-    if(s.compare("mounted") == 0){
+    else if(s.compare("mounted") == 0){
         m_tag = RelinquishFolderMembershipError_MOUNTED;
+
     }
-    if(s.compare("group_access") == 0){
+    else if(s.compare("group_access") == 0){
         m_tag = RelinquishFolderMembershipError_GROUP_ACCESS;
+
     }
-    if(s.compare("team_folder") == 0){
+    else if(s.compare("team_folder") == 0){
         m_tag = RelinquishFolderMembershipError_TEAM_FOLDER;
+
     }
-    if(s.compare("no_permission") == 0){
+    else if(s.compare("no_permission") == 0){
         m_tag = RelinquishFolderMembershipError_NO_PERMISSION;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = RelinquishFolderMembershipError_OTHER;
+
     }
 }
 

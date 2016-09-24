@@ -43,12 +43,15 @@ void UsersSelectorArg::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("team_member_ids") == 0){
         m_tag = UsersSelectorArg_TEAM_MEMBER_IDS;
+        jsonarray2ingrl_list(js["team_member_ids"].toArray(), m_team_member_ids);
     }
-    if(s.compare("external_ids") == 0){
+    else if(s.compare("external_ids") == 0){
         m_tag = UsersSelectorArg_EXTERNAL_IDS;
+        jsonarray2ingrl_list(js["external_ids"].toArray(), m_external_ids);
     }
-    if(s.compare("emails") == 0){
+    else if(s.compare("emails") == 0){
         m_tag = UsersSelectorArg_EMAILS;
+        jsonarray2ingrl_list(js["emails"].toArray(), m_emails);
     }
 }
 

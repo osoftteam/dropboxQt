@@ -46,15 +46,19 @@ void RestoreError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("path_lookup") == 0){
         m_tag = RestoreError_PATH_LOOKUP;
+        m_path_lookup.fromJson(js["path_lookup"].toObject());
     }
-    if(s.compare("path_write") == 0){
+    else if(s.compare("path_write") == 0){
         m_tag = RestoreError_PATH_WRITE;
+        m_path_write.fromJson(js["path_write"].toObject());
     }
-    if(s.compare("invalid_revision") == 0){
+    else if(s.compare("invalid_revision") == 0){
         m_tag = RestoreError_INVALID_REVISION;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = RestoreError_OTHER;
+
     }
 }
 

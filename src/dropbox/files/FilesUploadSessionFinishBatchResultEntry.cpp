@@ -38,9 +38,11 @@ void UploadSessionFinishBatchResultEntry::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("success") == 0){
         m_tag = UploadSessionFinishBatchResultEntry_SUCCESS;
+        m_success.fromJson(js);
     }
-    if(s.compare("failure") == 0){
+    else if(s.compare("failure") == 0){
         m_tag = UploadSessionFinishBatchResultEntry_FAILURE;
+        m_failure.fromJson(js["failure"].toObject());
     }
 }
 

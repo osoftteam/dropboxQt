@@ -61,27 +61,35 @@ void TransferFolderError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("access_error") == 0){
         m_tag = TransferFolderError_ACCESS_ERROR;
+        m_access_error.fromJson(js["access_error"].toObject());
     }
-    if(s.compare("invalid_dropbox_id") == 0){
+    else if(s.compare("invalid_dropbox_id") == 0){
         m_tag = TransferFolderError_INVALID_DROPBOX_ID;
+
     }
-    if(s.compare("new_owner_not_a_member") == 0){
+    else if(s.compare("new_owner_not_a_member") == 0){
         m_tag = TransferFolderError_NEW_OWNER_NOT_A_MEMBER;
+
     }
-    if(s.compare("new_owner_unmounted") == 0){
+    else if(s.compare("new_owner_unmounted") == 0){
         m_tag = TransferFolderError_NEW_OWNER_UNMOUNTED;
+
     }
-    if(s.compare("new_owner_email_unverified") == 0){
+    else if(s.compare("new_owner_email_unverified") == 0){
         m_tag = TransferFolderError_NEW_OWNER_EMAIL_UNVERIFIED;
+
     }
-    if(s.compare("team_folder") == 0){
+    else if(s.compare("team_folder") == 0){
         m_tag = TransferFolderError_TEAM_FOLDER;
+
     }
-    if(s.compare("no_permission") == 0){
+    else if(s.compare("no_permission") == 0){
         m_tag = TransferFolderError_NO_PERMISSION;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = TransferFolderError_OTHER;
+
     }
 }
 

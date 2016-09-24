@@ -45,15 +45,19 @@ void PreviewError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("path") == 0){
         m_tag = PreviewError_PATH;
+        m_path.fromJson(js["path"].toObject());
     }
-    if(s.compare("in_progress") == 0){
+    else if(s.compare("in_progress") == 0){
         m_tag = PreviewError_IN_PROGRESS;
+
     }
-    if(s.compare("unsupported_extension") == 0){
+    else if(s.compare("unsupported_extension") == 0){
         m_tag = PreviewError_UNSUPPORTED_EXTENSION;
+
     }
-    if(s.compare("unsupported_content") == 0){
+    else if(s.compare("unsupported_content") == 0){
         m_tag = PreviewError_UNSUPPORTED_CONTENT;
+
     }
 }
 

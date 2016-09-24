@@ -40,12 +40,15 @@ void MemberPolicy::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("team") == 0){
         m_tag = MemberPolicy_TEAM;
+
     }
-    if(s.compare("anyone") == 0){
+    else if(s.compare("anyone") == 0){
         m_tag = MemberPolicy_ANYONE;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = MemberPolicy_OTHER;
+
     }
 }
 

@@ -81,30 +81,39 @@ void MemberAddResult::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("success") == 0){
         m_tag = MemberAddResult_SUCCESS;
+        m_success.fromJson(js);
     }
-    if(s.compare("team_license_limit") == 0){
+    else if(s.compare("team_license_limit") == 0){
         m_tag = MemberAddResult_TEAM_LICENSE_LIMIT;
+        m_team_license_limit = js["team_license_limit"].toString();
     }
-    if(s.compare("free_team_member_limit_reached") == 0){
+    else if(s.compare("free_team_member_limit_reached") == 0){
         m_tag = MemberAddResult_FREE_TEAM_MEMBER_LIMIT_REACHED;
+        m_free_team_member_limit_reached = js["free_team_member_limit_reached"].toString();
     }
-    if(s.compare("user_already_on_team") == 0){
+    else if(s.compare("user_already_on_team") == 0){
         m_tag = MemberAddResult_USER_ALREADY_ON_TEAM;
+        m_user_already_on_team = js["user_already_on_team"].toString();
     }
-    if(s.compare("user_on_another_team") == 0){
+    else if(s.compare("user_on_another_team") == 0){
         m_tag = MemberAddResult_USER_ON_ANOTHER_TEAM;
+        m_user_on_another_team = js["user_on_another_team"].toString();
     }
-    if(s.compare("user_already_paired") == 0){
+    else if(s.compare("user_already_paired") == 0){
         m_tag = MemberAddResult_USER_ALREADY_PAIRED;
+        m_user_already_paired = js["user_already_paired"].toString();
     }
-    if(s.compare("user_migration_failed") == 0){
+    else if(s.compare("user_migration_failed") == 0){
         m_tag = MemberAddResult_USER_MIGRATION_FAILED;
+        m_user_migration_failed = js["user_migration_failed"].toString();
     }
-    if(s.compare("duplicate_external_member_id") == 0){
+    else if(s.compare("duplicate_external_member_id") == 0){
         m_tag = MemberAddResult_DUPLICATE_EXTERNAL_MEMBER_ID;
+        m_duplicate_external_member_id = js["duplicate_external_member_id"].toString();
     }
-    if(s.compare("user_creation_failed") == 0){
+    else if(s.compare("user_creation_failed") == 0){
         m_tag = MemberAddResult_USER_CREATION_FAILED;
+        m_user_creation_failed = js["user_creation_failed"].toString();
     }
 }
 

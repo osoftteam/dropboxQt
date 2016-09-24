@@ -36,9 +36,11 @@ void GetAccountError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("no_account") == 0){
         m_tag = GetAccountError_NO_ACCOUNT;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = GetAccountError_OTHER;
+
     }
 }
 

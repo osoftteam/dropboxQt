@@ -37,9 +37,11 @@ void MediaInfo::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("pending") == 0){
         m_tag = MediaInfo_PENDING;
+
     }
-    if(s.compare("metadata") == 0){
+    else if(s.compare("metadata") == 0){
         m_tag = MediaInfo_METADATA;
+        m_metadata.fromJson(js);
     }
 }
 

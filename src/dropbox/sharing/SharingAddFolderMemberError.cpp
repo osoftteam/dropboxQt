@@ -80,39 +80,51 @@ void AddFolderMemberError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("access_error") == 0){
         m_tag = AddFolderMemberError_ACCESS_ERROR;
+        m_access_error.fromJson(js["access_error"].toObject());
     }
-    if(s.compare("email_unverified") == 0){
+    else if(s.compare("email_unverified") == 0){
         m_tag = AddFolderMemberError_EMAIL_UNVERIFIED;
+
     }
-    if(s.compare("bad_member") == 0){
+    else if(s.compare("bad_member") == 0){
         m_tag = AddFolderMemberError_BAD_MEMBER;
+        m_bad_member.fromJson(js["bad_member"].toObject());
     }
-    if(s.compare("cant_share_outside_team") == 0){
+    else if(s.compare("cant_share_outside_team") == 0){
         m_tag = AddFolderMemberError_CANT_SHARE_OUTSIDE_TEAM;
+
     }
-    if(s.compare("too_many_members") == 0){
+    else if(s.compare("too_many_members") == 0){
         m_tag = AddFolderMemberError_TOO_MANY_MEMBERS;
+        m_too_many_members = js["too_many_members"].toVariant().toInt();
     }
-    if(s.compare("too_many_pending_invites") == 0){
+    else if(s.compare("too_many_pending_invites") == 0){
         m_tag = AddFolderMemberError_TOO_MANY_PENDING_INVITES;
+        m_too_many_pending_invites = js["too_many_pending_invites"].toVariant().toInt();
     }
-    if(s.compare("rate_limit") == 0){
+    else if(s.compare("rate_limit") == 0){
         m_tag = AddFolderMemberError_RATE_LIMIT;
+
     }
-    if(s.compare("too_many_invitees") == 0){
+    else if(s.compare("too_many_invitees") == 0){
         m_tag = AddFolderMemberError_TOO_MANY_INVITEES;
+
     }
-    if(s.compare("insufficient_plan") == 0){
+    else if(s.compare("insufficient_plan") == 0){
         m_tag = AddFolderMemberError_INSUFFICIENT_PLAN;
+
     }
-    if(s.compare("team_folder") == 0){
+    else if(s.compare("team_folder") == 0){
         m_tag = AddFolderMemberError_TEAM_FOLDER;
+
     }
-    if(s.compare("no_permission") == 0){
+    else if(s.compare("no_permission") == 0){
         m_tag = AddFolderMemberError_NO_PERMISSION;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = AddFolderMemberError_OTHER;
+
     }
 }
 

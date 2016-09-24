@@ -41,12 +41,15 @@ void ListFolderContinueError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("path") == 0){
         m_tag = ListFolderContinueError_PATH;
+        m_path.fromJson(js["path"].toObject());
     }
-    if(s.compare("reset") == 0){
+    else if(s.compare("reset") == 0){
         m_tag = ListFolderContinueError_RESET;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = ListFolderContinueError_OTHER;
+
     }
 }
 

@@ -88,48 +88,63 @@ void MembersRemoveError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("user_not_found") == 0){
         m_tag = UserSelectorError_USER_NOT_FOUND;
+
     }
     if(s.compare("user_not_in_team") == 0){
         m_tag = MembersDeactivateError_USER_NOT_IN_TEAM;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = MembersDeactivateError_OTHER;
+
     }
     if(s.compare("remove_last_admin") == 0){
         m_tag = MembersRemoveError_REMOVE_LAST_ADMIN;
+
     }
-    if(s.compare("removed_and_transfer_dest_should_differ") == 0){
+    else if(s.compare("removed_and_transfer_dest_should_differ") == 0){
         m_tag = MembersRemoveError_REMOVED_AND_TRANSFER_DEST_SHOULD_DIFFER;
+
     }
-    if(s.compare("removed_and_transfer_admin_should_differ") == 0){
+    else if(s.compare("removed_and_transfer_admin_should_differ") == 0){
         m_tag = MembersRemoveError_REMOVED_AND_TRANSFER_ADMIN_SHOULD_DIFFER;
+
     }
-    if(s.compare("transfer_dest_user_not_found") == 0){
+    else if(s.compare("transfer_dest_user_not_found") == 0){
         m_tag = MembersRemoveError_TRANSFER_DEST_USER_NOT_FOUND;
+
     }
-    if(s.compare("transfer_dest_user_not_in_team") == 0){
+    else if(s.compare("transfer_dest_user_not_in_team") == 0){
         m_tag = MembersRemoveError_TRANSFER_DEST_USER_NOT_IN_TEAM;
+
     }
-    if(s.compare("transfer_admin_user_not_found") == 0){
+    else if(s.compare("transfer_admin_user_not_found") == 0){
         m_tag = MembersRemoveError_TRANSFER_ADMIN_USER_NOT_FOUND;
+
     }
-    if(s.compare("transfer_admin_user_not_in_team") == 0){
+    else if(s.compare("transfer_admin_user_not_in_team") == 0){
         m_tag = MembersRemoveError_TRANSFER_ADMIN_USER_NOT_IN_TEAM;
+
     }
-    if(s.compare("unspecified_transfer_admin_id") == 0){
+    else if(s.compare("unspecified_transfer_admin_id") == 0){
         m_tag = MembersRemoveError_UNSPECIFIED_TRANSFER_ADMIN_ID;
+
     }
-    if(s.compare("transfer_admin_is_not_admin") == 0){
+    else if(s.compare("transfer_admin_is_not_admin") == 0){
         m_tag = MembersRemoveError_TRANSFER_ADMIN_IS_NOT_ADMIN;
+
     }
-    if(s.compare("cannot_keep_account_and_transfer") == 0){
+    else if(s.compare("cannot_keep_account_and_transfer") == 0){
         m_tag = MembersRemoveError_CANNOT_KEEP_ACCOUNT_AND_TRANSFER;
+
     }
-    if(s.compare("cannot_keep_account_and_delete_data") == 0){
+    else if(s.compare("cannot_keep_account_and_delete_data") == 0){
         m_tag = MembersRemoveError_CANNOT_KEEP_ACCOUNT_AND_DELETE_DATA;
+
     }
-    if(s.compare("email_address_too_long_to_be_disabled") == 0){
+    else if(s.compare("email_address_too_long_to_be_disabled") == 0){
         m_tag = MembersRemoveError_EMAIL_ADDRESS_TOO_LONG_TO_BE_DISABLED;
+
     }
 }
 

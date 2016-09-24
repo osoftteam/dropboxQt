@@ -50,15 +50,19 @@ void FileErrorResult::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("file_not_found_error") == 0){
         m_tag = FileErrorResult_FILE_NOT_FOUND_ERROR;
+        m_file_not_found_error = js["file_not_found_error"].toString();
     }
-    if(s.compare("invalid_file_action_error") == 0){
+    else if(s.compare("invalid_file_action_error") == 0){
         m_tag = FileErrorResult_INVALID_FILE_ACTION_ERROR;
+        m_invalid_file_action_error = js["invalid_file_action_error"].toString();
     }
-    if(s.compare("permission_denied_error") == 0){
+    else if(s.compare("permission_denied_error") == 0){
         m_tag = FileErrorResult_PERMISSION_DENIED_ERROR;
+        m_permission_denied_error = js["permission_denied_error"].toString();
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = FileErrorResult_OTHER;
+
     }
 }
 

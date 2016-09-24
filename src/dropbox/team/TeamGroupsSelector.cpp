@@ -38,9 +38,11 @@ void GroupsSelector::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("group_ids") == 0){
         m_tag = GroupsSelector_GROUP_IDS;
+        jsonarray2ingrl_list(js["group_ids"].toArray(), m_group_ids);
     }
-    if(s.compare("group_external_ids") == 0){
+    else if(s.compare("group_external_ids") == 0){
         m_tag = GroupsSelector_GROUP_EXTERNAL_IDS;
+        jsonarray2ingrl_list(js["group_external_ids"].toArray(), m_group_external_ids);
     }
 }
 

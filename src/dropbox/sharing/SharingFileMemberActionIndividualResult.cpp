@@ -38,9 +38,11 @@ void FileMemberActionIndividualResult::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("success") == 0){
         m_tag = FileMemberActionIndividualResult_SUCCESS;
+        m_success.fromJson(js["success"].toObject());
     }
-    if(s.compare("member_error") == 0){
+    else if(s.compare("member_error") == 0){
         m_tag = FileMemberActionIndividualResult_MEMBER_ERROR;
+        m_member_error.fromJson(js["member_error"].toObject());
     }
 }
 

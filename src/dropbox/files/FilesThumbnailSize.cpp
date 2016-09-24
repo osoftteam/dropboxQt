@@ -48,18 +48,23 @@ void ThumbnailSize::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("w32h32") == 0){
         m_tag = ThumbnailSize_W32H32;
+
     }
-    if(s.compare("w64h64") == 0){
+    else if(s.compare("w64h64") == 0){
         m_tag = ThumbnailSize_W64H64;
+
     }
-    if(s.compare("w128h128") == 0){
+    else if(s.compare("w128h128") == 0){
         m_tag = ThumbnailSize_W128H128;
+
     }
-    if(s.compare("w640h480") == 0){
+    else if(s.compare("w640h480") == 0){
         m_tag = ThumbnailSize_W640H480;
+
     }
-    if(s.compare("w1024h768") == 0){
+    else if(s.compare("w1024h768") == 0){
         m_tag = ThumbnailSize_W1024H768;
+
     }
 }
 

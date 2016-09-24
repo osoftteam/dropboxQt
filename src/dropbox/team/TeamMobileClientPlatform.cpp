@@ -52,21 +52,27 @@ void MobileClientPlatform::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("iphone") == 0){
         m_tag = MobileClientPlatform_IPHONE;
+
     }
-    if(s.compare("ipad") == 0){
+    else if(s.compare("ipad") == 0){
         m_tag = MobileClientPlatform_IPAD;
+
     }
-    if(s.compare("android") == 0){
+    else if(s.compare("android") == 0){
         m_tag = MobileClientPlatform_ANDROID;
+
     }
-    if(s.compare("windows_phone") == 0){
+    else if(s.compare("windows_phone") == 0){
         m_tag = MobileClientPlatform_WINDOWS_PHONE;
+
     }
-    if(s.compare("blackberry") == 0){
+    else if(s.compare("blackberry") == 0){
         m_tag = MobileClientPlatform_BLACKBERRY;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = MobileClientPlatform_OTHER;
+
     }
 }
 

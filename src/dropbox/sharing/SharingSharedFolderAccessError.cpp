@@ -48,18 +48,23 @@ void SharedFolderAccessError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("invalid_id") == 0){
         m_tag = SharedFolderAccessError_INVALID_ID;
+
     }
-    if(s.compare("not_a_member") == 0){
+    else if(s.compare("not_a_member") == 0){
         m_tag = SharedFolderAccessError_NOT_A_MEMBER;
+
     }
-    if(s.compare("email_unverified") == 0){
+    else if(s.compare("email_unverified") == 0){
         m_tag = SharedFolderAccessError_EMAIL_UNVERIFIED;
+
     }
-    if(s.compare("unmounted") == 0){
+    else if(s.compare("unmounted") == 0){
         m_tag = SharedFolderAccessError_UNMOUNTED;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = SharedFolderAccessError_OTHER;
+
     }
 }
 

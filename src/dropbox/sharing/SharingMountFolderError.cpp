@@ -58,24 +58,31 @@ void MountFolderError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("access_error") == 0){
         m_tag = MountFolderError_ACCESS_ERROR;
+        m_access_error.fromJson(js["access_error"].toObject());
     }
-    if(s.compare("inside_shared_folder") == 0){
+    else if(s.compare("inside_shared_folder") == 0){
         m_tag = MountFolderError_INSIDE_SHARED_FOLDER;
+
     }
-    if(s.compare("insufficient_quota") == 0){
+    else if(s.compare("insufficient_quota") == 0){
         m_tag = MountFolderError_INSUFFICIENT_QUOTA;
+        m_insufficient_quota.fromJson(js);
     }
-    if(s.compare("already_mounted") == 0){
+    else if(s.compare("already_mounted") == 0){
         m_tag = MountFolderError_ALREADY_MOUNTED;
+
     }
-    if(s.compare("no_permission") == 0){
+    else if(s.compare("no_permission") == 0){
         m_tag = MountFolderError_NO_PERMISSION;
+
     }
-    if(s.compare("not_mountable") == 0){
+    else if(s.compare("not_mountable") == 0){
         m_tag = MountFolderError_NOT_MOUNTABLE;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = MountFolderError_OTHER;
+
     }
 }
 

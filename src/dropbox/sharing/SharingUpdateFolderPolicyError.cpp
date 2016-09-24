@@ -53,21 +53,27 @@ void UpdateFolderPolicyError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("access_error") == 0){
         m_tag = UpdateFolderPolicyError_ACCESS_ERROR;
+        m_access_error.fromJson(js["access_error"].toObject());
     }
-    if(s.compare("not_on_team") == 0){
+    else if(s.compare("not_on_team") == 0){
         m_tag = UpdateFolderPolicyError_NOT_ON_TEAM;
+
     }
-    if(s.compare("team_policy_disallows_member_policy") == 0){
+    else if(s.compare("team_policy_disallows_member_policy") == 0){
         m_tag = UpdateFolderPolicyError_TEAM_POLICY_DISALLOWS_MEMBER_POLICY;
+
     }
-    if(s.compare("disallowed_shared_link_policy") == 0){
+    else if(s.compare("disallowed_shared_link_policy") == 0){
         m_tag = UpdateFolderPolicyError_DISALLOWED_SHARED_LINK_POLICY;
+
     }
-    if(s.compare("no_permission") == 0){
+    else if(s.compare("no_permission") == 0){
         m_tag = UpdateFolderPolicyError_NO_PERMISSION;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = UpdateFolderPolicyError_OTHER;
+
     }
 }
 

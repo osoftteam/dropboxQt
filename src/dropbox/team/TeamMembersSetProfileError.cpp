@@ -64,30 +64,39 @@ void MembersSetProfileError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("user_not_found") == 0){
         m_tag = UserSelectorError_USER_NOT_FOUND;
+
     }
     if(s.compare("user_not_in_team") == 0){
         m_tag = MemberSelectorError_USER_NOT_IN_TEAM;
+
     }
     if(s.compare("external_id_and_new_external_id_unsafe") == 0){
         m_tag = MembersSetProfileError_EXTERNAL_ID_AND_NEW_EXTERNAL_ID_UNSAFE;
+
     }
-    if(s.compare("no_new_data_specified") == 0){
+    else if(s.compare("no_new_data_specified") == 0){
         m_tag = MembersSetProfileError_NO_NEW_DATA_SPECIFIED;
+
     }
-    if(s.compare("email_reserved_for_other_user") == 0){
+    else if(s.compare("email_reserved_for_other_user") == 0){
         m_tag = MembersSetProfileError_EMAIL_RESERVED_FOR_OTHER_USER;
+
     }
-    if(s.compare("external_id_used_by_other_user") == 0){
+    else if(s.compare("external_id_used_by_other_user") == 0){
         m_tag = MembersSetProfileError_EXTERNAL_ID_USED_BY_OTHER_USER;
+
     }
-    if(s.compare("set_profile_disallowed") == 0){
+    else if(s.compare("set_profile_disallowed") == 0){
         m_tag = MembersSetProfileError_SET_PROFILE_DISALLOWED;
+
     }
-    if(s.compare("param_cannot_be_empty") == 0){
+    else if(s.compare("param_cannot_be_empty") == 0){
         m_tag = MembersSetProfileError_PARAM_CANNOT_BE_EMPTY;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = MembersSetProfileError_OTHER;
+
     }
 }
 

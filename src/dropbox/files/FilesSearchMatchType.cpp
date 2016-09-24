@@ -40,12 +40,15 @@ void SearchMatchType::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("filename") == 0){
         m_tag = SearchMatchType_FILENAME;
+
     }
-    if(s.compare("content") == 0){
+    else if(s.compare("content") == 0){
         m_tag = SearchMatchType_CONTENT;
+
     }
-    if(s.compare("both") == 0){
+    else if(s.compare("both") == 0){
         m_tag = SearchMatchType_BOTH;
+
     }
 }
 

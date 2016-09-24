@@ -39,9 +39,11 @@ void MembersAddLaunch::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("async_job_id") == 0){
         m_tag = LaunchResultBase_ASYNC_JOB_ID;
+        m_async_job_id = js["async_job_id"].toString();
     }
     if(s.compare("complete") == 0){
         m_tag = MembersAddLaunch_COMPLETE;
+        jsonarray2struct_list(js["complete"].toArray(), m_complete);
     }
 }
 

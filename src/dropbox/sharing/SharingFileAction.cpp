@@ -60,27 +60,35 @@ void FileAction::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("edit_contents") == 0){
         m_tag = FileAction_EDIT_CONTENTS;
+
     }
-    if(s.compare("invite_viewer") == 0){
+    else if(s.compare("invite_viewer") == 0){
         m_tag = FileAction_INVITE_VIEWER;
+
     }
-    if(s.compare("invite_viewer_no_comment") == 0){
+    else if(s.compare("invite_viewer_no_comment") == 0){
         m_tag = FileAction_INVITE_VIEWER_NO_COMMENT;
+
     }
-    if(s.compare("unshare") == 0){
+    else if(s.compare("unshare") == 0){
         m_tag = FileAction_UNSHARE;
+
     }
-    if(s.compare("relinquish_membership") == 0){
+    else if(s.compare("relinquish_membership") == 0){
         m_tag = FileAction_RELINQUISH_MEMBERSHIP;
+
     }
-    if(s.compare("share_link") == 0){
+    else if(s.compare("share_link") == 0){
         m_tag = FileAction_SHARE_LINK;
+
     }
-    if(s.compare("create_link") == 0){
+    else if(s.compare("create_link") == 0){
         m_tag = FileAction_CREATE_LINK;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = FileAction_OTHER;
+
     }
 }
 

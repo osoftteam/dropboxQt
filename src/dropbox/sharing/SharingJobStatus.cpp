@@ -41,12 +41,15 @@ void JobStatus::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("in_progress") == 0){
         m_tag = PollResultBase_IN_PROGRESS;
+
     }
     if(s.compare("complete") == 0){
         m_tag = JobStatus_COMPLETE;
+
     }
-    if(s.compare("failed") == 0){
+    else if(s.compare("failed") == 0){
         m_tag = JobStatus_FAILED;
+        m_failed.fromJson(js["failed"].toObject());
     }
 }
 

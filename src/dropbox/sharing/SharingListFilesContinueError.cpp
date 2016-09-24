@@ -41,12 +41,15 @@ void ListFilesContinueError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("user_error") == 0){
         m_tag = ListFilesContinueError_USER_ERROR;
+        m_user_error.fromJson(js["user_error"].toObject());
     }
-    if(s.compare("invalid_cursor") == 0){
+    else if(s.compare("invalid_cursor") == 0){
         m_tag = ListFilesContinueError_INVALID_CURSOR;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = ListFilesContinueError_OTHER;
+
     }
 }
 

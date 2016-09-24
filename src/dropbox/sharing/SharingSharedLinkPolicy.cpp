@@ -40,12 +40,15 @@ void SharedLinkPolicy::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("anyone") == 0){
         m_tag = SharedLinkPolicy_ANYONE;
+
     }
-    if(s.compare("members") == 0){
+    else if(s.compare("members") == 0){
         m_tag = SharedLinkPolicy_MEMBERS;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = SharedLinkPolicy_OTHER;
+
     }
 }
 

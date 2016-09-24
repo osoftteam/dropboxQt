@@ -48,18 +48,23 @@ void MembersUnsuspendError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("user_not_found") == 0){
         m_tag = UserSelectorError_USER_NOT_FOUND;
+
     }
     if(s.compare("user_not_in_team") == 0){
         m_tag = MembersDeactivateError_USER_NOT_IN_TEAM;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = MembersDeactivateError_OTHER;
+
     }
     if(s.compare("unsuspend_non_suspended_member") == 0){
         m_tag = MembersUnsuspendError_UNSUSPEND_NON_SUSPENDED_MEMBER;
+
     }
-    if(s.compare("team_license_limit") == 0){
+    else if(s.compare("team_license_limit") == 0){
         m_tag = MembersUnsuspendError_TEAM_LICENSE_LIMIT;
+
     }
 }
 

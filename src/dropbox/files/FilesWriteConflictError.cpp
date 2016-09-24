@@ -44,15 +44,19 @@ void WriteConflictError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("file") == 0){
         m_tag = WriteConflictError_FILE;
+
     }
-    if(s.compare("folder") == 0){
+    else if(s.compare("folder") == 0){
         m_tag = WriteConflictError_FOLDER;
+
     }
-    if(s.compare("file_ancestor") == 0){
+    else if(s.compare("file_ancestor") == 0){
         m_tag = WriteConflictError_FILE_ANCESTOR;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = WriteConflictError_OTHER;
+
     }
 }
 

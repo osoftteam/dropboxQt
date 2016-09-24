@@ -50,18 +50,23 @@ void CreateSharedLinkWithSettingsError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("path") == 0){
         m_tag = CreateSharedLinkWithSettingsError_PATH;
+        m_path.fromJson(js["path"].toObject());
     }
-    if(s.compare("email_not_verified") == 0){
+    else if(s.compare("email_not_verified") == 0){
         m_tag = CreateSharedLinkWithSettingsError_EMAIL_NOT_VERIFIED;
+
     }
-    if(s.compare("shared_link_already_exists") == 0){
+    else if(s.compare("shared_link_already_exists") == 0){
         m_tag = CreateSharedLinkWithSettingsError_SHARED_LINK_ALREADY_EXISTS;
+
     }
-    if(s.compare("settings_error") == 0){
+    else if(s.compare("settings_error") == 0){
         m_tag = CreateSharedLinkWithSettingsError_SETTINGS_ERROR;
+        m_settings_error.fromJson(js["settings_error"].toObject());
     }
-    if(s.compare("access_denied") == 0){
+    else if(s.compare("access_denied") == 0){
         m_tag = CreateSharedLinkWithSettingsError_ACCESS_DENIED;
+
     }
 }
 

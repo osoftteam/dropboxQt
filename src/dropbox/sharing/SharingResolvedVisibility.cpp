@@ -52,21 +52,27 @@ void ResolvedVisibility::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("public") == 0){
         m_tag = RequestedVisibility_PUBLIC;
+
     }
-    if(s.compare("team_only") == 0){
+    else if(s.compare("team_only") == 0){
         m_tag = RequestedVisibility_TEAM_ONLY;
+
     }
-    if(s.compare("password") == 0){
+    else if(s.compare("password") == 0){
         m_tag = RequestedVisibility_PASSWORD;
+
     }
     if(s.compare("team_and_password") == 0){
         m_tag = ResolvedVisibility_TEAM_AND_PASSWORD;
+
     }
-    if(s.compare("shared_folder_only") == 0){
+    else if(s.compare("shared_folder_only") == 0){
         m_tag = ResolvedVisibility_SHARED_FOLDER_ONLY;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = ResolvedVisibility_OTHER;
+
     }
 }
 

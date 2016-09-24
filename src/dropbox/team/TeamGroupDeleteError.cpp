@@ -40,12 +40,15 @@ void GroupDeleteError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("group_not_found") == 0){
         m_tag = GroupSelectorError_GROUP_NOT_FOUND;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = GroupSelectorError_OTHER;
+
     }
     if(s.compare("group_already_deleted") == 0){
         m_tag = GroupDeleteError_GROUP_ALREADY_DELETED;
+
     }
 }
 

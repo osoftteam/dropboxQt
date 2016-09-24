@@ -53,21 +53,27 @@ void SaveCopyReferenceError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("path") == 0){
         m_tag = SaveCopyReferenceError_PATH;
+        m_path.fromJson(js["path"].toObject());
     }
-    if(s.compare("invalid_copy_reference") == 0){
+    else if(s.compare("invalid_copy_reference") == 0){
         m_tag = SaveCopyReferenceError_INVALID_COPY_REFERENCE;
+
     }
-    if(s.compare("no_permission") == 0){
+    else if(s.compare("no_permission") == 0){
         m_tag = SaveCopyReferenceError_NO_PERMISSION;
+
     }
-    if(s.compare("not_found") == 0){
+    else if(s.compare("not_found") == 0){
         m_tag = SaveCopyReferenceError_NOT_FOUND;
+
     }
-    if(s.compare("too_many_files") == 0){
+    else if(s.compare("too_many_files") == 0){
         m_tag = SaveCopyReferenceError_TOO_MANY_FILES;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = SaveCopyReferenceError_OTHER;
+
     }
 }
 

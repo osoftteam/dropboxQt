@@ -48,18 +48,23 @@ void AccessLevel::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("owner") == 0){
         m_tag = AccessLevel_OWNER;
+
     }
-    if(s.compare("editor") == 0){
+    else if(s.compare("editor") == 0){
         m_tag = AccessLevel_EDITOR;
+
     }
-    if(s.compare("viewer") == 0){
+    else if(s.compare("viewer") == 0){
         m_tag = AccessLevel_VIEWER;
+
     }
-    if(s.compare("viewer_no_comment") == 0){
+    else if(s.compare("viewer_no_comment") == 0){
         m_tag = AccessLevel_VIEWER_NO_COMMENT;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = AccessLevel_OTHER;
+
     }
 }
 

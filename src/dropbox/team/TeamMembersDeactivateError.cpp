@@ -40,12 +40,15 @@ void MembersDeactivateError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("user_not_found") == 0){
         m_tag = UserSelectorError_USER_NOT_FOUND;
+
     }
     if(s.compare("user_not_in_team") == 0){
         m_tag = MembersDeactivateError_USER_NOT_IN_TEAM;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = MembersDeactivateError_OTHER;
+
     }
 }
 

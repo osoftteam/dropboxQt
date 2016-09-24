@@ -32,6 +32,7 @@ void LookUpPropertiesError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("property_group_not_found") == 0){
         m_tag = LookUpPropertiesError_PROPERTY_GROUP_NOT_FOUND;
+
     }
 }
 

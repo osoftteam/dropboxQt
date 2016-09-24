@@ -45,15 +45,19 @@ void SharedFolderMemberError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("invalid_dropbox_id") == 0){
         m_tag = SharedFolderMemberError_INVALID_DROPBOX_ID;
+
     }
-    if(s.compare("not_a_member") == 0){
+    else if(s.compare("not_a_member") == 0){
         m_tag = SharedFolderMemberError_NOT_A_MEMBER;
+
     }
-    if(s.compare("no_explicit_access") == 0){
+    else if(s.compare("no_explicit_access") == 0){
         m_tag = SharedFolderMemberError_NO_EXPLICIT_ACCESS;
+        m_no_explicit_access.fromJson(js);
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = SharedFolderMemberError_OTHER;
+
     }
 }
 

@@ -32,6 +32,7 @@ void UserSelectorError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("user_not_found") == 0){
         m_tag = UserSelectorError_USER_NOT_FOUND;
+
     }
 }
 

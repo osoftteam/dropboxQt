@@ -36,9 +36,11 @@ void GroupAccessType::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("member") == 0){
         m_tag = GroupAccessType_MEMBER;
+
     }
-    if(s.compare("owner") == 0){
+    else if(s.compare("owner") == 0){
         m_tag = GroupAccessType_OWNER;
+
     }
 }
 

@@ -40,12 +40,15 @@ void RevokeLinkedAppError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("app_not_found") == 0){
         m_tag = RevokeLinkedAppError_APP_NOT_FOUND;
+
     }
-    if(s.compare("member_not_found") == 0){
+    else if(s.compare("member_not_found") == 0){
         m_tag = RevokeLinkedAppError_MEMBER_NOT_FOUND;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = RevokeLinkedAppError_OTHER;
+
     }
 }
 

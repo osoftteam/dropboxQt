@@ -44,15 +44,19 @@ void GroupCreateError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("group_name_already_used") == 0){
         m_tag = GroupCreateError_GROUP_NAME_ALREADY_USED;
+
     }
-    if(s.compare("group_name_invalid") == 0){
+    else if(s.compare("group_name_invalid") == 0){
         m_tag = GroupCreateError_GROUP_NAME_INVALID;
+
     }
-    if(s.compare("external_id_already_in_use") == 0){
+    else if(s.compare("external_id_already_in_use") == 0){
         m_tag = GroupCreateError_EXTERNAL_ID_ALREADY_IN_USE;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = GroupCreateError_OTHER;
+
     }
 }
 

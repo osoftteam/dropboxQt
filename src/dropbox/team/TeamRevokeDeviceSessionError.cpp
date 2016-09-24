@@ -40,12 +40,15 @@ void RevokeDeviceSessionError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("device_session_not_found") == 0){
         m_tag = RevokeDeviceSessionError_DEVICE_SESSION_NOT_FOUND;
+
     }
-    if(s.compare("member_not_found") == 0){
+    else if(s.compare("member_not_found") == 0){
         m_tag = RevokeDeviceSessionError_MEMBER_NOT_FOUND;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = RevokeDeviceSessionError_OTHER;
+
     }
 }
 

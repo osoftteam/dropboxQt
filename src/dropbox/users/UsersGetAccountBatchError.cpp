@@ -38,9 +38,11 @@ void GetAccountBatchError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("no_account") == 0){
         m_tag = GetAccountBatchError_NO_ACCOUNT;
+        m_no_account = js["no_account"].toString();
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = GetAccountBatchError_OTHER;
+
     }
 }
 

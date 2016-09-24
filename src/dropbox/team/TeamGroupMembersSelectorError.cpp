@@ -40,12 +40,15 @@ void GroupMembersSelectorError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("group_not_found") == 0){
         m_tag = GroupSelectorError_GROUP_NOT_FOUND;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = GroupSelectorError_OTHER;
+
     }
     if(s.compare("member_not_in_group") == 0){
         m_tag = GroupMembersSelectorError_MEMBER_NOT_IN_GROUP;
+
     }
 }
 

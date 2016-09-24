@@ -54,21 +54,27 @@ void LookupError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("malformed_path") == 0){
         m_tag = LookupError_MALFORMED_PATH;
+        m_malformed_path = js["malformed_path"].toString();
     }
-    if(s.compare("not_found") == 0){
+    else if(s.compare("not_found") == 0){
         m_tag = LookupError_NOT_FOUND;
+
     }
-    if(s.compare("not_file") == 0){
+    else if(s.compare("not_file") == 0){
         m_tag = LookupError_NOT_FILE;
+
     }
-    if(s.compare("not_folder") == 0){
+    else if(s.compare("not_folder") == 0){
         m_tag = LookupError_NOT_FOLDER;
+
     }
-    if(s.compare("restricted_content") == 0){
+    else if(s.compare("restricted_content") == 0){
         m_tag = LookupError_RESTRICTED_CONTENT;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = LookupError_OTHER;
+
     }
 }
 

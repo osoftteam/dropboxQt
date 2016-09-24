@@ -33,6 +33,7 @@ void GetMetadataError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("path") == 0){
         m_tag = GetMetadataError_PATH;
+        m_path.fromJson(js["path"].toObject());
     }
 }
 

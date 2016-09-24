@@ -53,21 +53,27 @@ void ShareFolderError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("email_unverified") == 0){
         m_tag = ShareFolderErrorBase_EMAIL_UNVERIFIED;
+
     }
-    if(s.compare("bad_path") == 0){
+    else if(s.compare("bad_path") == 0){
         m_tag = ShareFolderErrorBase_BAD_PATH;
+        m_bad_path.fromJson(js["bad_path"].toObject());
     }
-    if(s.compare("team_policy_disallows_member_policy") == 0){
+    else if(s.compare("team_policy_disallows_member_policy") == 0){
         m_tag = ShareFolderErrorBase_TEAM_POLICY_DISALLOWS_MEMBER_POLICY;
+
     }
-    if(s.compare("disallowed_shared_link_policy") == 0){
+    else if(s.compare("disallowed_shared_link_policy") == 0){
         m_tag = ShareFolderErrorBase_DISALLOWED_SHARED_LINK_POLICY;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = ShareFolderErrorBase_OTHER;
+
     }
     if(s.compare("no_permission") == 0){
         m_tag = ShareFolderError_NO_PERMISSION;
+
     }
 }
 

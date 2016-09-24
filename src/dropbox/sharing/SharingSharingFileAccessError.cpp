@@ -52,21 +52,27 @@ void SharingFileAccessError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("no_permission") == 0){
         m_tag = SharingFileAccessError_NO_PERMISSION;
+
     }
-    if(s.compare("invalid_file") == 0){
+    else if(s.compare("invalid_file") == 0){
         m_tag = SharingFileAccessError_INVALID_FILE;
+
     }
-    if(s.compare("is_folder") == 0){
+    else if(s.compare("is_folder") == 0){
         m_tag = SharingFileAccessError_IS_FOLDER;
+
     }
-    if(s.compare("inside_public_folder") == 0){
+    else if(s.compare("inside_public_folder") == 0){
         m_tag = SharingFileAccessError_INSIDE_PUBLIC_FOLDER;
+
     }
-    if(s.compare("inside_osx_package") == 0){
+    else if(s.compare("inside_osx_package") == 0){
         m_tag = SharingFileAccessError_INSIDE_OSX_PACKAGE;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = SharingFileAccessError_OTHER;
+
     }
 }
 

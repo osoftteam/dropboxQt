@@ -39,9 +39,11 @@ void MembersGetInfoItem::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("id_not_found") == 0){
         m_tag = MembersGetInfoItem_ID_NOT_FOUND;
+        m_id_not_found = js["id_not_found"].toString();
     }
-    if(s.compare("member_info") == 0){
+    else if(s.compare("member_info") == 0){
         m_tag = MembersGetInfoItem_MEMBER_INFO;
+        m_member_info.fromJson(js);
     }
 }
 

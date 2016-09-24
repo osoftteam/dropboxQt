@@ -42,12 +42,15 @@ void UploadErrorWithProperties::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("path") == 0){
         m_tag = UploadError_PATH;
+        m_path.fromJson(js);
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = UploadError_OTHER;
+
     }
     if(s.compare("properties_error") == 0){
         m_tag = UploadErrorWithProperties_PROPERTIES_ERROR;
+        m_properties_error.fromJson(js["properties_error"].toObject());
     }
 }
 

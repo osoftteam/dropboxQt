@@ -42,12 +42,15 @@ void GetFileMetadataError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("user_error") == 0){
         m_tag = GetFileMetadataError_USER_ERROR;
+        m_user_error.fromJson(js["user_error"].toObject());
     }
-    if(s.compare("access_error") == 0){
+    else if(s.compare("access_error") == 0){
         m_tag = GetFileMetadataError_ACCESS_ERROR;
+        m_access_error.fromJson(js["access_error"].toObject());
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = GetFileMetadataError_OTHER;
+
     }
 }
 

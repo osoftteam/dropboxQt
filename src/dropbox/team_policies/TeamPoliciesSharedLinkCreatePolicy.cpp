@@ -44,15 +44,19 @@ void SharedLinkCreatePolicy::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("default_public") == 0){
         m_tag = SharedLinkCreatePolicy_DEFAULT_PUBLIC;
+
     }
-    if(s.compare("default_team_only") == 0){
+    else if(s.compare("default_team_only") == 0){
         m_tag = SharedLinkCreatePolicy_DEFAULT_TEAM_ONLY;
+
     }
-    if(s.compare("team_only") == 0){
+    else if(s.compare("team_only") == 0){
         m_tag = SharedLinkCreatePolicy_TEAM_ONLY;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = SharedLinkCreatePolicy_OTHER;
+
     }
 }
 

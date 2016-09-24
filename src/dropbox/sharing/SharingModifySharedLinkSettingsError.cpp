@@ -49,18 +49,23 @@ void ModifySharedLinkSettingsError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("shared_link_not_found") == 0){
         m_tag = SharedLinkError_SHARED_LINK_NOT_FOUND;
+
     }
-    if(s.compare("shared_link_access_denied") == 0){
+    else if(s.compare("shared_link_access_denied") == 0){
         m_tag = SharedLinkError_SHARED_LINK_ACCESS_DENIED;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = SharedLinkError_OTHER;
+
     }
     if(s.compare("settings_error") == 0){
         m_tag = ModifySharedLinkSettingsError_SETTINGS_ERROR;
+        m_settings_error.fromJson(js["settings_error"].toObject());
     }
-    if(s.compare("email_not_verified") == 0){
+    else if(s.compare("email_not_verified") == 0){
         m_tag = ModifySharedLinkSettingsError_EMAIL_NOT_VERIFIED;
+
     }
 }
 

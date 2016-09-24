@@ -32,6 +32,7 @@ void RevokeDeviceSessionBatchError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("other") == 0){
         m_tag = RevokeDeviceSessionBatchError_OTHER;
+
     }
 }
 

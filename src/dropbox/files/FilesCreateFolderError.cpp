@@ -33,6 +33,7 @@ void CreateFolderError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("path") == 0){
         m_tag = CreateFolderError_PATH;
+        m_path.fromJson(js["path"].toObject());
     }
 }
 

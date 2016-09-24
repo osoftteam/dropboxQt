@@ -44,15 +44,19 @@ void DesktopPlatform::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("windows") == 0){
         m_tag = DesktopPlatform_WINDOWS;
+
     }
-    if(s.compare("mac") == 0){
+    else if(s.compare("mac") == 0){
         m_tag = DesktopPlatform_MAC;
+
     }
-    if(s.compare("linux") == 0){
+    else if(s.compare("linux") == 0){
         m_tag = DesktopPlatform_LINUX;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = DesktopPlatform_OTHER;
+
     }
 }
 

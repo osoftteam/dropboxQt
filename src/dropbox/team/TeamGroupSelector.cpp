@@ -40,9 +40,11 @@ void GroupSelector::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("group_id") == 0){
         m_tag = GroupSelector_GROUP_ID;
+        m_group_id = js["group_id"].toString();
     }
-    if(s.compare("group_external_id") == 0){
+    else if(s.compare("group_external_id") == 0){
         m_tag = GroupSelector_GROUP_EXTERNAL_ID;
+        m_group_external_id = js["group_external_id"].toString();
     }
 }
 

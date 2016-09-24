@@ -36,9 +36,11 @@ void PropertyType::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("string") == 0){
         m_tag = PropertyType_STRING;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = PropertyType_OTHER;
+
     }
 }
 

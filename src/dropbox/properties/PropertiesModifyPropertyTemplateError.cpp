@@ -58,24 +58,31 @@ void ModifyPropertyTemplateError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("template_not_found") == 0){
         m_tag = PropertyTemplateError_TEMPLATE_NOT_FOUND;
+        m_template_not_found = js["template_not_found"].toString();
     }
-    if(s.compare("restricted_content") == 0){
+    else if(s.compare("restricted_content") == 0){
         m_tag = PropertyTemplateError_RESTRICTED_CONTENT;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = PropertyTemplateError_OTHER;
+
     }
     if(s.compare("conflicting_property_names") == 0){
         m_tag = ModifyPropertyTemplateError_CONFLICTING_PROPERTY_NAMES;
+
     }
-    if(s.compare("too_many_properties") == 0){
+    else if(s.compare("too_many_properties") == 0){
         m_tag = ModifyPropertyTemplateError_TOO_MANY_PROPERTIES;
+
     }
-    if(s.compare("too_many_templates") == 0){
+    else if(s.compare("too_many_templates") == 0){
         m_tag = ModifyPropertyTemplateError_TOO_MANY_TEMPLATES;
+
     }
-    if(s.compare("template_attribute_too_large") == 0){
+    else if(s.compare("template_attribute_too_large") == 0){
         m_tag = ModifyPropertyTemplateError_TEMPLATE_ATTRIBUTE_TOO_LARGE;
+
     }
 }
 

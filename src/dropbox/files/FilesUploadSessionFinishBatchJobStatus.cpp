@@ -37,9 +37,11 @@ void UploadSessionFinishBatchJobStatus::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("in_progress") == 0){
         m_tag = PollResultBase_IN_PROGRESS;
+
     }
     if(s.compare("complete") == 0){
         m_tag = UploadSessionFinishBatchJobStatus_COMPLETE;
+        m_complete.fromJson(js);
     }
 }
 

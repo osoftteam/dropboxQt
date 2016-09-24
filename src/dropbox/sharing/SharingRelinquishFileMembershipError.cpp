@@ -45,15 +45,19 @@ void RelinquishFileMembershipError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("access_error") == 0){
         m_tag = RelinquishFileMembershipError_ACCESS_ERROR;
+        m_access_error.fromJson(js["access_error"].toObject());
     }
-    if(s.compare("group_access") == 0){
+    else if(s.compare("group_access") == 0){
         m_tag = RelinquishFileMembershipError_GROUP_ACCESS;
+
     }
-    if(s.compare("no_permission") == 0){
+    else if(s.compare("no_permission") == 0){
         m_tag = RelinquishFileMembershipError_NO_PERMISSION;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = RelinquishFileMembershipError_OTHER;
+
     }
 }
 

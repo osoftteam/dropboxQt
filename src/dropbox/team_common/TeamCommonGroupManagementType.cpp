@@ -40,12 +40,15 @@ void GroupManagementType::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("company_managed") == 0){
         m_tag = GroupManagementType_COMPANY_MANAGED;
+
     }
-    if(s.compare("user_managed") == 0){
+    else if(s.compare("user_managed") == 0){
         m_tag = GroupManagementType_USER_MANAGED;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = GroupManagementType_OTHER;
+
     }
 }
 

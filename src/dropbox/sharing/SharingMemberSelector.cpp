@@ -44,12 +44,15 @@ void MemberSelector::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("dropbox_id") == 0){
         m_tag = MemberSelector_DROPBOX_ID;
+        m_dropbox_id = js["dropbox_id"].toString();
     }
-    if(s.compare("email") == 0){
+    else if(s.compare("email") == 0){
         m_tag = MemberSelector_EMAIL;
+        m_email = js["email"].toString();
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = MemberSelector_OTHER;
+
     }
 }
 

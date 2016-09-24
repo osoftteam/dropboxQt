@@ -36,9 +36,11 @@ void PendingUploadMode::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("file") == 0){
         m_tag = PendingUploadMode_FILE;
+
     }
-    if(s.compare("folder") == 0){
+    else if(s.compare("folder") == 0){
         m_tag = PendingUploadMode_FOLDER;
+
     }
 }
 

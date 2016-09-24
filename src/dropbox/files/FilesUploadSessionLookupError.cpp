@@ -49,18 +49,23 @@ void UploadSessionLookupError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("not_found") == 0){
         m_tag = UploadSessionLookupError_NOT_FOUND;
+
     }
-    if(s.compare("incorrect_offset") == 0){
+    else if(s.compare("incorrect_offset") == 0){
         m_tag = UploadSessionLookupError_INCORRECT_OFFSET;
+        m_incorrect_offset.fromJson(js);
     }
-    if(s.compare("closed") == 0){
+    else if(s.compare("closed") == 0){
         m_tag = UploadSessionLookupError_CLOSED;
+
     }
-    if(s.compare("not_closed") == 0){
+    else if(s.compare("not_closed") == 0){
         m_tag = UploadSessionLookupError_NOT_CLOSED;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = UploadSessionLookupError_OTHER;
+
     }
 }
 

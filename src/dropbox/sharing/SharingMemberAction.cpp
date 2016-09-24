@@ -56,24 +56,31 @@ void MemberAction::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("leave_a_copy") == 0){
         m_tag = MemberAction_LEAVE_A_COPY;
+
     }
-    if(s.compare("make_editor") == 0){
+    else if(s.compare("make_editor") == 0){
         m_tag = MemberAction_MAKE_EDITOR;
+
     }
-    if(s.compare("make_owner") == 0){
+    else if(s.compare("make_owner") == 0){
         m_tag = MemberAction_MAKE_OWNER;
+
     }
-    if(s.compare("make_viewer") == 0){
+    else if(s.compare("make_viewer") == 0){
         m_tag = MemberAction_MAKE_VIEWER;
+
     }
-    if(s.compare("make_viewer_no_comment") == 0){
+    else if(s.compare("make_viewer_no_comment") == 0){
         m_tag = MemberAction_MAKE_VIEWER_NO_COMMENT;
+
     }
-    if(s.compare("remove") == 0){
+    else if(s.compare("remove") == 0){
         m_tag = MemberAction_REMOVE;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = MemberAction_OTHER;
+
     }
 }
 

@@ -38,9 +38,11 @@ void InviteeInfo::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("email") == 0){
         m_tag = InviteeInfo_EMAIL;
+        m_email = js["email"].toString();
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = InviteeInfo_OTHER;
+
     }
 }
 

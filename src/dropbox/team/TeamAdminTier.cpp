@@ -44,15 +44,19 @@ void AdminTier::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("team_admin") == 0){
         m_tag = AdminTier_TEAM_ADMIN;
+
     }
-    if(s.compare("user_management_admin") == 0){
+    else if(s.compare("user_management_admin") == 0){
         m_tag = AdminTier_USER_MANAGEMENT_ADMIN;
+
     }
-    if(s.compare("support_admin") == 0){
+    else if(s.compare("support_admin") == 0){
         m_tag = AdminTier_SUPPORT_ADMIN;
+
     }
-    if(s.compare("member_only") == 0){
+    else if(s.compare("member_only") == 0){
         m_tag = AdminTier_MEMBER_ONLY;
+
     }
 }
 

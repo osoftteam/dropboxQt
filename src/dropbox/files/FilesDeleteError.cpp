@@ -42,12 +42,15 @@ void DeleteError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("path_lookup") == 0){
         m_tag = DeleteError_PATH_LOOKUP;
+        m_path_lookup.fromJson(js["path_lookup"].toObject());
     }
-    if(s.compare("path_write") == 0){
+    else if(s.compare("path_write") == 0){
         m_tag = DeleteError_PATH_WRITE;
+        m_path_write.fromJson(js["path_write"].toObject());
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = DeleteError_OTHER;
+
     }
 }
 

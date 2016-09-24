@@ -52,21 +52,27 @@ void MembersSetPermissionsError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("user_not_found") == 0){
         m_tag = UserSelectorError_USER_NOT_FOUND;
+
     }
     if(s.compare("last_admin") == 0){
         m_tag = MembersSetPermissionsError_LAST_ADMIN;
+
     }
-    if(s.compare("user_not_in_team") == 0){
+    else if(s.compare("user_not_in_team") == 0){
         m_tag = MembersSetPermissionsError_USER_NOT_IN_TEAM;
+
     }
-    if(s.compare("cannot_set_permissions") == 0){
+    else if(s.compare("cannot_set_permissions") == 0){
         m_tag = MembersSetPermissionsError_CANNOT_SET_PERMISSIONS;
+
     }
-    if(s.compare("team_license_limit") == 0){
+    else if(s.compare("team_license_limit") == 0){
         m_tag = MembersSetPermissionsError_TEAM_LICENSE_LIMIT;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = MembersSetPermissionsError_OTHER;
+
     }
 }
 

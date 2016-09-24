@@ -55,21 +55,27 @@ void InvalidPropertyGroupError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("template_not_found") == 0){
         m_tag = PropertyTemplateError_TEMPLATE_NOT_FOUND;
+        m_template_not_found = js["template_not_found"].toString();
     }
-    if(s.compare("restricted_content") == 0){
+    else if(s.compare("restricted_content") == 0){
         m_tag = PropertyTemplateError_RESTRICTED_CONTENT;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = PropertyTemplateError_OTHER;
+
     }
     if(s.compare("path") == 0){
         m_tag = PropertiesError_PATH;
+        m_path.fromJson(js["path"].toObject());
     }
     if(s.compare("property_field_too_large") == 0){
         m_tag = InvalidPropertyGroupError_PROPERTY_FIELD_TOO_LARGE;
+
     }
-    if(s.compare("does_not_fit_template") == 0){
+    else if(s.compare("does_not_fit_template") == 0){
         m_tag = InvalidPropertyGroupError_DOES_NOT_FIT_TEMPLATE;
+
     }
 }
 

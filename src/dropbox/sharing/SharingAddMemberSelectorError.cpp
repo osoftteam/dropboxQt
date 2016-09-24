@@ -62,24 +62,31 @@ void AddMemberSelectorError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("automatic_group") == 0){
         m_tag = AddMemberSelectorError_AUTOMATIC_GROUP;
+
     }
-    if(s.compare("invalid_dropbox_id") == 0){
+    else if(s.compare("invalid_dropbox_id") == 0){
         m_tag = AddMemberSelectorError_INVALID_DROPBOX_ID;
+        m_invalid_dropbox_id = js["invalid_dropbox_id"].toString();
     }
-    if(s.compare("invalid_email") == 0){
+    else if(s.compare("invalid_email") == 0){
         m_tag = AddMemberSelectorError_INVALID_EMAIL;
+        m_invalid_email = js["invalid_email"].toString();
     }
-    if(s.compare("unverified_dropbox_id") == 0){
+    else if(s.compare("unverified_dropbox_id") == 0){
         m_tag = AddMemberSelectorError_UNVERIFIED_DROPBOX_ID;
+        m_unverified_dropbox_id = js["unverified_dropbox_id"].toString();
     }
-    if(s.compare("group_deleted") == 0){
+    else if(s.compare("group_deleted") == 0){
         m_tag = AddMemberSelectorError_GROUP_DELETED;
+
     }
-    if(s.compare("group_not_on_team") == 0){
+    else if(s.compare("group_not_on_team") == 0){
         m_tag = AddMemberSelectorError_GROUP_NOT_ON_TEAM;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = AddMemberSelectorError_OTHER;
+
     }
 }
 

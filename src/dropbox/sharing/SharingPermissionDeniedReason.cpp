@@ -60,27 +60,35 @@ void PermissionDeniedReason::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("user_not_same_team_as_owner") == 0){
         m_tag = PermissionDeniedReason_USER_NOT_SAME_TEAM_AS_OWNER;
+
     }
-    if(s.compare("user_not_allowed_by_owner") == 0){
+    else if(s.compare("user_not_allowed_by_owner") == 0){
         m_tag = PermissionDeniedReason_USER_NOT_ALLOWED_BY_OWNER;
+
     }
-    if(s.compare("target_is_indirect_member") == 0){
+    else if(s.compare("target_is_indirect_member") == 0){
         m_tag = PermissionDeniedReason_TARGET_IS_INDIRECT_MEMBER;
+
     }
-    if(s.compare("target_is_owner") == 0){
+    else if(s.compare("target_is_owner") == 0){
         m_tag = PermissionDeniedReason_TARGET_IS_OWNER;
+
     }
-    if(s.compare("target_is_self") == 0){
+    else if(s.compare("target_is_self") == 0){
         m_tag = PermissionDeniedReason_TARGET_IS_SELF;
+
     }
-    if(s.compare("target_not_active") == 0){
+    else if(s.compare("target_not_active") == 0){
         m_tag = PermissionDeniedReason_TARGET_NOT_ACTIVE;
+
     }
-    if(s.compare("folder_is_limited_team_folder") == 0){
+    else if(s.compare("folder_is_limited_team_folder") == 0){
         m_tag = PermissionDeniedReason_FOLDER_IS_LIMITED_TEAM_FOLDER;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = PermissionDeniedReason_OTHER;
+
     }
 }
 

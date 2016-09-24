@@ -63,27 +63,35 @@ void RelocationError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("from_lookup") == 0){
         m_tag = RelocationError_FROM_LOOKUP;
+        m_from_lookup.fromJson(js["from_lookup"].toObject());
     }
-    if(s.compare("from_write") == 0){
+    else if(s.compare("from_write") == 0){
         m_tag = RelocationError_FROM_WRITE;
+        m_from_write.fromJson(js["from_write"].toObject());
     }
-    if(s.compare("to") == 0){
+    else if(s.compare("to") == 0){
         m_tag = RelocationError_TO;
+        m_to.fromJson(js["to"].toObject());
     }
-    if(s.compare("cant_copy_shared_folder") == 0){
+    else if(s.compare("cant_copy_shared_folder") == 0){
         m_tag = RelocationError_CANT_COPY_SHARED_FOLDER;
+
     }
-    if(s.compare("cant_nest_shared_folder") == 0){
+    else if(s.compare("cant_nest_shared_folder") == 0){
         m_tag = RelocationError_CANT_NEST_SHARED_FOLDER;
+
     }
-    if(s.compare("cant_move_folder_into_itself") == 0){
+    else if(s.compare("cant_move_folder_into_itself") == 0){
         m_tag = RelocationError_CANT_MOVE_FOLDER_INTO_ITSELF;
+
     }
-    if(s.compare("too_many_files") == 0){
+    else if(s.compare("too_many_files") == 0){
         m_tag = RelocationError_TOO_MANY_FILES;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = RelocationError_OTHER;
+
     }
 }
 

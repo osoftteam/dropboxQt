@@ -76,39 +76,51 @@ void FolderAction::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("change_options") == 0){
         m_tag = FolderAction_CHANGE_OPTIONS;
+
     }
-    if(s.compare("edit_contents") == 0){
+    else if(s.compare("edit_contents") == 0){
         m_tag = FolderAction_EDIT_CONTENTS;
+
     }
-    if(s.compare("invite_editor") == 0){
+    else if(s.compare("invite_editor") == 0){
         m_tag = FolderAction_INVITE_EDITOR;
+
     }
-    if(s.compare("invite_viewer") == 0){
+    else if(s.compare("invite_viewer") == 0){
         m_tag = FolderAction_INVITE_VIEWER;
+
     }
-    if(s.compare("invite_viewer_no_comment") == 0){
+    else if(s.compare("invite_viewer_no_comment") == 0){
         m_tag = FolderAction_INVITE_VIEWER_NO_COMMENT;
+
     }
-    if(s.compare("relinquish_membership") == 0){
+    else if(s.compare("relinquish_membership") == 0){
         m_tag = FolderAction_RELINQUISH_MEMBERSHIP;
+
     }
-    if(s.compare("unmount") == 0){
+    else if(s.compare("unmount") == 0){
         m_tag = FolderAction_UNMOUNT;
+
     }
-    if(s.compare("unshare") == 0){
+    else if(s.compare("unshare") == 0){
         m_tag = FolderAction_UNSHARE;
+
     }
-    if(s.compare("leave_a_copy") == 0){
+    else if(s.compare("leave_a_copy") == 0){
         m_tag = FolderAction_LEAVE_A_COPY;
+
     }
-    if(s.compare("share_link") == 0){
+    else if(s.compare("share_link") == 0){
         m_tag = FolderAction_SHARE_LINK;
+
     }
-    if(s.compare("create_link") == 0){
+    else if(s.compare("create_link") == 0){
         m_tag = FolderAction_CREATE_LINK;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = FolderAction_OTHER;
+
     }
 }
 

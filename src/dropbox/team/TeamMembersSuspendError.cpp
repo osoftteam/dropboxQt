@@ -52,21 +52,27 @@ void MembersSuspendError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("user_not_found") == 0){
         m_tag = UserSelectorError_USER_NOT_FOUND;
+
     }
     if(s.compare("user_not_in_team") == 0){
         m_tag = MembersDeactivateError_USER_NOT_IN_TEAM;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = MembersDeactivateError_OTHER;
+
     }
     if(s.compare("suspend_inactive_user") == 0){
         m_tag = MembersSuspendError_SUSPEND_INACTIVE_USER;
+
     }
-    if(s.compare("suspend_last_admin") == 0){
+    else if(s.compare("suspend_last_admin") == 0){
         m_tag = MembersSuspendError_SUSPEND_LAST_ADMIN;
+
     }
-    if(s.compare("team_license_limit") == 0){
+    else if(s.compare("team_license_limit") == 0){
         m_tag = MembersSuspendError_TEAM_LICENSE_LIMIT;
+
     }
 }
 

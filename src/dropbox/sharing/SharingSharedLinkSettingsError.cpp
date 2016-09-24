@@ -36,9 +36,11 @@ void SharedLinkSettingsError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("invalid_settings") == 0){
         m_tag = SharedLinkSettingsError_INVALID_SETTINGS;
+
     }
-    if(s.compare("not_authorized") == 0){
+    else if(s.compare("not_authorized") == 0){
         m_tag = SharedLinkSettingsError_NOT_AUTHORIZED;
+
     }
 }
 

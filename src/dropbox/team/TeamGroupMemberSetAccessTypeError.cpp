@@ -44,15 +44,19 @@ void GroupMemberSetAccessTypeError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("group_not_found") == 0){
         m_tag = GroupSelectorError_GROUP_NOT_FOUND;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = GroupSelectorError_OTHER;
+
     }
     if(s.compare("member_not_in_group") == 0){
         m_tag = GroupMemberSelectorError_MEMBER_NOT_IN_GROUP;
+
     }
     if(s.compare("user_cannot_be_manager_of_company_managed_group") == 0){
         m_tag = GroupMemberSetAccessTypeError_USER_CANNOT_BE_MANAGER_OF_COMPANY_MANAGED_GROUP;
+
     }
 }
 

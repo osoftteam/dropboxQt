@@ -36,9 +36,11 @@ void TeamMembershipType::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("full") == 0){
         m_tag = TeamMembershipType_FULL;
+
     }
-    if(s.compare("limited") == 0){
+    else if(s.compare("limited") == 0){
         m_tag = TeamMembershipType_LIMITED;
+
     }
 }
 

@@ -40,12 +40,15 @@ void SharedFolderJoinPolicy::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("from_team_only") == 0){
         m_tag = SharedFolderJoinPolicy_FROM_TEAM_ONLY;
+
     }
-    if(s.compare("from_anyone") == 0){
+    else if(s.compare("from_anyone") == 0){
         m_tag = SharedFolderJoinPolicy_FROM_ANYONE;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = SharedFolderJoinPolicy_OTHER;
+
     }
 }
 

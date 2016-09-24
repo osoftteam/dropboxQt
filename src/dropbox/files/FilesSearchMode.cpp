@@ -40,12 +40,15 @@ void SearchMode::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("filename") == 0){
         m_tag = SearchMode_FILENAME;
+
     }
-    if(s.compare("filename_and_content") == 0){
+    else if(s.compare("filename_and_content") == 0){
         m_tag = SearchMode_FILENAME_AND_CONTENT;
+
     }
-    if(s.compare("deleted_filename") == 0){
+    else if(s.compare("deleted_filename") == 0){
         m_tag = SearchMode_DELETED_FILENAME;
+
     }
 }
 

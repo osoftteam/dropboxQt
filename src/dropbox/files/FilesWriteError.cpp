@@ -55,21 +55,27 @@ void WriteError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("malformed_path") == 0){
         m_tag = WriteError_MALFORMED_PATH;
+        m_malformed_path = js["malformed_path"].toString();
     }
-    if(s.compare("conflict") == 0){
+    else if(s.compare("conflict") == 0){
         m_tag = WriteError_CONFLICT;
+        m_conflict.fromJson(js["conflict"].toObject());
     }
-    if(s.compare("no_write_permission") == 0){
+    else if(s.compare("no_write_permission") == 0){
         m_tag = WriteError_NO_WRITE_PERMISSION;
+
     }
-    if(s.compare("insufficient_space") == 0){
+    else if(s.compare("insufficient_space") == 0){
         m_tag = WriteError_INSUFFICIENT_SPACE;
+
     }
-    if(s.compare("disallowed_name") == 0){
+    else if(s.compare("disallowed_name") == 0){
         m_tag = WriteError_DISALLOWED_NAME;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = WriteError_OTHER;
+
     }
 }
 

@@ -40,12 +40,15 @@ void PollError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("invalid_async_job_id") == 0){
         m_tag = PollError_INVALID_ASYNC_JOB_ID;
+
     }
-    if(s.compare("internal_error") == 0){
+    else if(s.compare("internal_error") == 0){
         m_tag = PollError_INTERNAL_ERROR;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = PollError_OTHER;
+
     }
 }
 

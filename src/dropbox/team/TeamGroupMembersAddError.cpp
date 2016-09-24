@@ -63,27 +63,35 @@ void GroupMembersAddError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("group_not_found") == 0){
         m_tag = GroupSelectorError_GROUP_NOT_FOUND;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = GroupSelectorError_OTHER;
+
     }
     if(s.compare("duplicate_user") == 0){
         m_tag = GroupMembersAddError_DUPLICATE_USER;
+
     }
-    if(s.compare("group_not_in_team") == 0){
+    else if(s.compare("group_not_in_team") == 0){
         m_tag = GroupMembersAddError_GROUP_NOT_IN_TEAM;
+
     }
-    if(s.compare("members_not_in_team") == 0){
+    else if(s.compare("members_not_in_team") == 0){
         m_tag = GroupMembersAddError_MEMBERS_NOT_IN_TEAM;
+        jsonarray2ingrl_list(js["members_not_in_team"].toArray(), m_members_not_in_team);
     }
-    if(s.compare("users_not_found") == 0){
+    else if(s.compare("users_not_found") == 0){
         m_tag = GroupMembersAddError_USERS_NOT_FOUND;
+        jsonarray2ingrl_list(js["users_not_found"].toArray(), m_users_not_found);
     }
-    if(s.compare("user_must_be_active_to_be_owner") == 0){
+    else if(s.compare("user_must_be_active_to_be_owner") == 0){
         m_tag = GroupMembersAddError_USER_MUST_BE_ACTIVE_TO_BE_OWNER;
+
     }
-    if(s.compare("user_cannot_be_manager_of_company_managed_group") == 0){
+    else if(s.compare("user_cannot_be_manager_of_company_managed_group") == 0){
         m_tag = GroupMembersAddError_USER_CANNOT_BE_MANAGER_OF_COMPANY_MANAGED_GROUP;
+        jsonarray2ingrl_list(js["user_cannot_be_manager_of_company_managed_group"].toArray(), m_user_cannot_be_manager_of_company_managed_group);
     }
 }
 

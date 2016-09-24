@@ -40,12 +40,15 @@ void GroupUpdateError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("group_not_found") == 0){
         m_tag = GroupSelectorError_GROUP_NOT_FOUND;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = GroupSelectorError_OTHER;
+
     }
     if(s.compare("external_id_already_in_use") == 0){
         m_tag = GroupUpdateError_EXTERNAL_ID_ALREADY_IN_USE;
+
     }
 }
 

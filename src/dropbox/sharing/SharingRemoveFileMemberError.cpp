@@ -47,15 +47,19 @@ void RemoveFileMemberError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("user_error") == 0){
         m_tag = RemoveFileMemberError_USER_ERROR;
+        m_user_error.fromJson(js["user_error"].toObject());
     }
-    if(s.compare("access_error") == 0){
+    else if(s.compare("access_error") == 0){
         m_tag = RemoveFileMemberError_ACCESS_ERROR;
+        m_access_error.fromJson(js["access_error"].toObject());
     }
-    if(s.compare("no_explicit_access") == 0){
+    else if(s.compare("no_explicit_access") == 0){
         m_tag = RemoveFileMemberError_NO_EXPLICIT_ACCESS;
+        m_no_explicit_access.fromJson(js);
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = RemoveFileMemberError_OTHER;
+
     }
 }
 

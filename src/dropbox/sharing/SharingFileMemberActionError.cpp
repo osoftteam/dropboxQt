@@ -45,15 +45,19 @@ void FileMemberActionError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("invalid_member") == 0){
         m_tag = FileMemberActionError_INVALID_MEMBER;
+
     }
-    if(s.compare("no_permission") == 0){
+    else if(s.compare("no_permission") == 0){
         m_tag = FileMemberActionError_NO_PERMISSION;
+
     }
-    if(s.compare("access_error") == 0){
+    else if(s.compare("access_error") == 0){
         m_tag = FileMemberActionError_ACCESS_ERROR;
+        m_access_error.fromJson(js["access_error"].toObject());
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = FileMemberActionError_OTHER;
+
     }
 }
 

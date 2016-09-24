@@ -41,12 +41,15 @@ void ListFolderMembersContinueError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("access_error") == 0){
         m_tag = ListFolderMembersContinueError_ACCESS_ERROR;
+        m_access_error.fromJson(js["access_error"].toObject());
     }
-    if(s.compare("invalid_cursor") == 0){
+    else if(s.compare("invalid_cursor") == 0){
         m_tag = ListFolderMembersContinueError_INVALID_CURSOR;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = ListFolderMembersContinueError_OTHER;
+
     }
 }
 

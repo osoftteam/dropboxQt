@@ -36,9 +36,11 @@ void GroupsGetInfoError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("group_not_on_team") == 0){
         m_tag = GroupsGetInfoError_GROUP_NOT_ON_TEAM;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = GroupsGetInfoError_OTHER;
+
     }
 }
 

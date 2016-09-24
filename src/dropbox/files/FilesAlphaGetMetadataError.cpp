@@ -38,9 +38,11 @@ void AlphaGetMetadataError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("path") == 0){
         m_tag = GetMetadataError_PATH;
+        m_path.fromJson(js["path"].toObject());
     }
     if(s.compare("properties_error") == 0){
         m_tag = AlphaGetMetadataError_PROPERTIES_ERROR;
+        m_properties_error.fromJson(js["properties_error"].toObject());
     }
 }
 

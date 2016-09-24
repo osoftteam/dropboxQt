@@ -42,12 +42,15 @@ void FileMemberRemoveActionResult::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("success") == 0){
         m_tag = FileMemberRemoveActionResult_SUCCESS;
+        m_success.fromJson(js);
     }
-    if(s.compare("member_error") == 0){
+    else if(s.compare("member_error") == 0){
         m_tag = FileMemberRemoveActionResult_MEMBER_ERROR;
+        m_member_error.fromJson(js["member_error"].toObject());
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = FileMemberRemoveActionResult_OTHER;
+
     }
 }
 

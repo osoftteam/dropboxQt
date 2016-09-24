@@ -36,9 +36,11 @@ void ThumbnailFormat::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("jpeg") == 0){
         m_tag = ThumbnailFormat_JPEG;
+
     }
-    if(s.compare("png") == 0){
+    else if(s.compare("png") == 0){
         m_tag = ThumbnailFormat_PNG;
+
     }
 }
 

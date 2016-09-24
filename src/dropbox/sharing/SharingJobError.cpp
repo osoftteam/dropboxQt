@@ -47,15 +47,19 @@ void JobError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("unshare_folder_error") == 0){
         m_tag = JobError_UNSHARE_FOLDER_ERROR;
+        m_unshare_folder_error.fromJson(js["unshare_folder_error"].toObject());
     }
-    if(s.compare("remove_folder_member_error") == 0){
+    else if(s.compare("remove_folder_member_error") == 0){
         m_tag = JobError_REMOVE_FOLDER_MEMBER_ERROR;
+        m_remove_folder_member_error.fromJson(js["remove_folder_member_error"].toObject());
     }
-    if(s.compare("relinquish_folder_membership_error") == 0){
+    else if(s.compare("relinquish_folder_membership_error") == 0){
         m_tag = JobError_RELINQUISH_FOLDER_MEMBERSHIP_ERROR;
+        m_relinquish_folder_membership_error.fromJson(js["relinquish_folder_membership_error"].toObject());
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = JobError_OTHER;
+
     }
 }
 

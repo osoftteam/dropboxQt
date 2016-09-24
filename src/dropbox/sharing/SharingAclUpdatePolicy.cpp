@@ -40,12 +40,15 @@ void AclUpdatePolicy::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("owner") == 0){
         m_tag = AclUpdatePolicy_OWNER;
+
     }
-    if(s.compare("editors") == 0){
+    else if(s.compare("editors") == 0){
         m_tag = AclUpdatePolicy_EDITORS;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = AclUpdatePolicy_OTHER;
+
     }
 }
 

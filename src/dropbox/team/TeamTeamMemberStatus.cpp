@@ -45,15 +45,19 @@ void TeamMemberStatus::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("active") == 0){
         m_tag = TeamMemberStatus_ACTIVE;
+
     }
-    if(s.compare("invited") == 0){
+    else if(s.compare("invited") == 0){
         m_tag = TeamMemberStatus_INVITED;
+
     }
-    if(s.compare("suspended") == 0){
+    else if(s.compare("suspended") == 0){
         m_tag = TeamMemberStatus_SUSPENDED;
+
     }
-    if(s.compare("removed") == 0){
+    else if(s.compare("removed") == 0){
         m_tag = TeamMemberStatus_REMOVED;
+        m_removed.fromJson(js);
     }
 }
 

@@ -46,15 +46,19 @@ void UploadSessionFinishError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("lookup_failed") == 0){
         m_tag = UploadSessionFinishError_LOOKUP_FAILED;
+        m_lookup_failed.fromJson(js["lookup_failed"].toObject());
     }
-    if(s.compare("path") == 0){
+    else if(s.compare("path") == 0){
         m_tag = UploadSessionFinishError_PATH;
+        m_path.fromJson(js["path"].toObject());
     }
-    if(s.compare("too_many_shared_folder_targets") == 0){
+    else if(s.compare("too_many_shared_folder_targets") == 0){
         m_tag = UploadSessionFinishError_TOO_MANY_SHARED_FOLDER_TARGETS;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = UploadSessionFinishError_OTHER;
+
     }
 }
 

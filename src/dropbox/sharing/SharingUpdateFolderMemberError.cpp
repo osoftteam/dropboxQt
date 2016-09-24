@@ -55,21 +55,27 @@ void UpdateFolderMemberError::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("access_error") == 0){
         m_tag = UpdateFolderMemberError_ACCESS_ERROR;
+        m_access_error.fromJson(js["access_error"].toObject());
     }
-    if(s.compare("member_error") == 0){
+    else if(s.compare("member_error") == 0){
         m_tag = UpdateFolderMemberError_MEMBER_ERROR;
+        m_member_error.fromJson(js["member_error"].toObject());
     }
-    if(s.compare("no_explicit_access") == 0){
+    else if(s.compare("no_explicit_access") == 0){
         m_tag = UpdateFolderMemberError_NO_EXPLICIT_ACCESS;
+        m_no_explicit_access.fromJson(js["no_explicit_access"].toObject());
     }
-    if(s.compare("insufficient_plan") == 0){
+    else if(s.compare("insufficient_plan") == 0){
         m_tag = UpdateFolderMemberError_INSUFFICIENT_PLAN;
+
     }
-    if(s.compare("no_permission") == 0){
+    else if(s.compare("no_permission") == 0){
         m_tag = UpdateFolderMemberError_NO_PERMISSION;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = UpdateFolderMemberError_OTHER;
+
     }
 }
 

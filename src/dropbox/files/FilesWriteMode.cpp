@@ -42,12 +42,15 @@ void WriteMode::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("add") == 0){
         m_tag = WriteMode_ADD;
+
     }
-    if(s.compare("overwrite") == 0){
+    else if(s.compare("overwrite") == 0){
         m_tag = WriteMode_OVERWRITE;
+
     }
-    if(s.compare("update") == 0){
+    else if(s.compare("update") == 0){
         m_tag = WriteMode_UPDATE;
+        m_update = js["update"].toString();
     }
 }
 

@@ -52,21 +52,27 @@ void SharedLinkAccessFailureReason::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("login_required") == 0){
         m_tag = SharedLinkAccessFailureReason_LOGIN_REQUIRED;
+
     }
-    if(s.compare("email_verify_required") == 0){
+    else if(s.compare("email_verify_required") == 0){
         m_tag = SharedLinkAccessFailureReason_EMAIL_VERIFY_REQUIRED;
+
     }
-    if(s.compare("password_required") == 0){
+    else if(s.compare("password_required") == 0){
         m_tag = SharedLinkAccessFailureReason_PASSWORD_REQUIRED;
+
     }
-    if(s.compare("team_only") == 0){
+    else if(s.compare("team_only") == 0){
         m_tag = SharedLinkAccessFailureReason_TEAM_ONLY;
+
     }
-    if(s.compare("owner_only") == 0){
+    else if(s.compare("owner_only") == 0){
         m_tag = SharedLinkAccessFailureReason_OWNER_ONLY;
+
     }
-    if(s.compare("other") == 0){
+    else if(s.compare("other") == 0){
         m_tag = SharedLinkAccessFailureReason_OTHER;
+
     }
 }
 
