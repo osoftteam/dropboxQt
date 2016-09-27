@@ -20,7 +20,7 @@
 
 
 #define PREPARE_ERR_INFO(D, B) QString tmp = QString("ERROR. Unexpected status %1 %2 ").arg(status_code).arg(path); \
-    tmp += D;                                                        \
+    tmp += D;                                                           \
     tmp += "\n";                                                        \
     tmp += "request was: POST " + req.url().toString() + "\n";          \
     QList<QByteArray> lst = req.rawHeaderList();                        \
@@ -65,35 +65,35 @@ namespace dropboxQt{
             RESULT_FACTORY factory;
             QNetworkReply *reply = postData(req, bytes2post);
             SETUP_DEFAULT_SLOTS(reply)
-            QObject::connect(reply, &QNetworkReply::finished, [&]()
-                                {
-                                    status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-                                    switch(status_code)
-                                        {
-                                        case 200:
-                                            {
-                                                QByteArray data = reply->readAll();
-                                                if(!data.isEmpty())
-                                                    {
-                                                        res = std::move(factory.create(data));                                                        
-                                                        ok = true;
-                                                    }
-											}break;
+                QObject::connect(reply, &QNetworkReply::finished, [&]()
+                                 {
+                                     status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+                                     switch(status_code)
+                                         {
+                                         case 200:
+                                             {
+                                                 QByteArray data = reply->readAll();
+                                                 if(!data.isEmpty())
+                                                     {
+                                                         res = std::move(factory.create(data));
+                                                         ok = true;
+                                                     }
+                                             }break;
 												 
-                                            case 409:
-                                                {
-                                                    exception_data = reply->readAll();
-													PREPARE_ERR_INFO(exception_data, bytes2post);
-                                                    raise_details_exception = true;
-                                                }break;
-                                        default:
-                                            {
-                                                QByteArray data = reply->readAll();
-                                                PREPARE_ERR_INFO(data, bytes2post);
-                                            }break;
-                                        }
-                                    exitEventLoop(reply);
-                                });//response lambda
+                                         case 409:
+                                             {
+                                                 exception_data = reply->readAll();
+                                                 PREPARE_ERR_INFO(exception_data, bytes2post);
+                                                 raise_details_exception = true;
+                                             }break;
+                                         default:
+                                             {
+                                                 QByteArray data = reply->readAll();
+                                                 PREPARE_ERR_INFO(data, bytes2post);
+                                             }break;
+                                         }
+                                     exitEventLoop(reply);
+                                 });//response lambda
             execEventLoop(reply);
             if(raise_details_exception)
                 {
@@ -123,16 +123,16 @@ namespace dropboxQt{
             QByteArray bytes2post;
             QNetworkReply *reply = postData(req, bytes2post);
             SETUP_DEFAULT_SLOTS(reply)
-            QObject::connect(reply, &QNetworkReply::readyRead, [&]()
-                                {
-                                    qint64 sz = reply->bytesAvailable();
-                                    if(sz > 0){
-                                        QByteArray data = reply->read(sz);
-                                        writeTo->write(data);
-										if(errInData.empty())
-											errInData = data.constData();
-                                    }
-                                });
+                QObject::connect(reply, &QNetworkReply::readyRead, [&]()
+                                 {
+                                     qint64 sz = reply->bytesAvailable();
+                                     if(sz > 0){
+                                         QByteArray data = reply->read(sz);
+                                         writeTo->write(data);
+                                         if(errInData.empty())
+                                             errInData = data.constData();
+                                     }
+                                 });
 
             QObject::connect(reply, &QNetworkReply::finished, [&]()
                              {
@@ -151,8 +151,8 @@ namespace dropboxQt{
                                                  QByteArray data =  reply->rawHeader(*i);
                                                  if(!data.isEmpty())
                                                      {
-                                                        res = std::move(factory.create(data));
-                                                        break;
+                                                         res = std::move(factory.create(data));
+                                                         break;
                                                      }
                                              }
                                              ok = true;
@@ -201,13 +201,13 @@ namespace dropboxQt{
                                  switch(status_code)
                                      {
                                      case 200:{
-                                                QByteArray data = reply->readAll();
-                                                if(!data.isEmpty())
-                                                    {
-                                                    res = std::move(factory.create(data));
-                                                        ok = true;
-                                                    }
-                                                 exitEventLoop(reply);
+                                         QByteArray data = reply->readAll();
+                                         if(!data.isEmpty())
+                                             {
+                                                 res = std::move(factory.create(data));
+                                                 ok = true;
+                                             }
+                                         exitEventLoop(reply);
                                      }break;
                                      default:
                                          {
@@ -268,12 +268,12 @@ namespace dropboxQt{
 			QJsonDocument doc = QJsonDocument::fromJson(data);
 			QJsonArray arr = doc.array();
 			foreach (const QJsonValue & val, arr)
-			{
-				QJsonObject js = val.toObject();
-                D o;
-                o.fromJson(js);
-				res.push_back(o);
-            }
+                {
+                    QJsonObject js = val.toObject();
+                    D o;
+                    o.fromJson(js);
+                    res.push_back(o);
+                }
             return std::move(res);
         }        
     };
