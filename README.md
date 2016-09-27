@@ -27,10 +27,26 @@ dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API
             std::cout << "Exception: " << e.what() << std::endl;
         }
 ```
-####Or
+####Or create a folder, the easy way
 ```
 DropboxClient client(token_string);
 client.createFolder(path);
+```
+####Check Folder exists
+```
+DropboxClient client(token_string);
+if(client.folderExists(path))
+{
+    std::cout << "folder: " << path << " exists." << std::endl;
+};
+```
+####Delete file
+```
+DropboxClient client(token_string);
+if(client.deleteFile(path))
+{
+    std::cout << "file: " << path << " deleted." << std::endl;
+};
 ```
 ####Download text file and print content on the screen
 ```
