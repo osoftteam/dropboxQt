@@ -25,7 +25,12 @@ dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API
     catch(DropboxException& e)
         {
             std::cout << "Exception: " << e.what() << std::endl;
-        }        
+        }
+```
+####Or
+```
+DropboxClient client(token_string);
+client.createFolder(path);
 ```
 ####Download text file and print content on the screen
 ```
