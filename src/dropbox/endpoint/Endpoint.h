@@ -37,7 +37,7 @@ namespace dropboxQt{
     public:
         Endpoint(DropboxClient* c);
 
-        template <class RES, class RES_SERIALIZER, class EXCEPTION>
+        template <class RES, class RESULT_FACTORY, class EXCEPTION>
         RES rpcStyle(QString path, const QJsonObject& js_out)
         {
             QUrl url(QString("https://%1/%2").arg(getHost().getApi()).arg(path));
@@ -62,8 +62,8 @@ namespace dropboxQt{
             std::string errorInfo;
             int status_code = 0;
             RES res;
-            RES_SERIALIZER serializer;
-            QNetworkReply *reply = m_con_mgr.post(req, bytes2post);
+            RESULT_FACTORY factory;
+            QNetworkReply *reply = postData(req, bytes2post);
             SETUP_DEFAULT_SLOTS(reply)
             QObject::connect(reply, &QNetworkReply::finished, [&]()
                                 {
@@ -72,14 +72,12 @@ namespace dropboxQt{
                                         {
                                         case 200:
                                             {
-                                                if(serializer.hasLoad()){
-                                                    QByteArray data = reply->readAll();
-                                                    if(!data.isEmpty())
-                                                        {
-														serializer.load(data, res);
+                                                QByteArray data = reply->readAll();
+                                                if(!data.isEmpty())
+                                                    {
+                                                        res = std::move(factory.create(data));                                                        
                                                         ok = true;
-                                                        }
-                                                }
+                                                    }
 											}break;
 												 
                                             case 409:
@@ -108,7 +106,7 @@ namespace dropboxQt{
             return res;
         }
 
-        template <class RES, class RES_SERIALIZER, class EXCEPTION>
+        template <class RES, class RESULT_FACTORY, class EXCEPTION>
         RES downloadStyle(QString path, const QJsonObject& js_out, QIODevice* writeTo)
         {
             QUrl url(QString("https://%1/%2").arg(getHost().getContent()).arg(path));
@@ -121,9 +119,9 @@ namespace dropboxQt{
             std::string errorInfo = "", errInData = "";
             int status_code = 0;
             RES res;
-            RES_SERIALIZER serializer;
+            RESULT_FACTORY factory;
             QByteArray bytes2post;
-            QNetworkReply *reply = m_con_mgr.post(req, bytes2post);
+            QNetworkReply *reply = postData(req, bytes2post);
             SETUP_DEFAULT_SLOTS(reply)
             QObject::connect(reply, &QNetworkReply::readyRead, [&]()
                                 {
@@ -153,7 +151,8 @@ namespace dropboxQt{
                                                  QByteArray data =  reply->rawHeader(*i);
                                                  if(!data.isEmpty())
                                                      {
-                                                         serializer.load(data, res);
+                                                        res = std::move(factory.create(data));
+                                                        break;
                                                      }
                                              }
                                              ok = true;
@@ -179,7 +178,7 @@ namespace dropboxQt{
             return res;
         }
 
-        template <class RES, class RES_SERIALIZER, class EXCEPTION>
+        template <class RES, class RESULT_FACTORY, class EXCEPTION>
         RES uploadStyle(QString path, const QJsonObject& js_out, QIODevice* readFrom)
         {
             QUrl url(QString("https://%1/%2").arg(getHost().getContent()).arg(path));
@@ -193,8 +192,8 @@ namespace dropboxQt{
             std::string errorInfo;
             int status_code = 0;
             RES res;
-            RES_SERIALIZER serializer;
-            QNetworkReply *reply = m_con_mgr.post(req, readFrom->readAll());
+            RESULT_FACTORY factory;
+            QNetworkReply *reply = postData(req, readFrom->readAll());
             SETUP_DEFAULT_SLOTS(reply);
             QObject::connect(reply, &QNetworkReply::finished, [&]()
                              {
@@ -202,16 +201,13 @@ namespace dropboxQt{
                                  switch(status_code)
                                      {
                                      case 200:{
-                                         if(serializer.hasLoad())
-                                             {
-                                                 QByteArray data = reply->readAll();
-                                                 if(!data.isEmpty())
-                                                     {
-                                                         serializer.load(data, res);
-                                                         ok = true;
-                                                     }
-                                             }
-                                         exitEventLoop(reply);
+                                                QByteArray data = reply->readAll();
+                                                if(!data.isEmpty())
+                                                    {
+                                                    res = std::move(factory.create(data));
+                                                        ok = true;
+                                                    }
+                                                 exitEventLoop(reply);
                                      }break;
                                      default:
                                          {
@@ -231,25 +227,29 @@ namespace dropboxQt{
         }
 
         const DropboxHost& getHost()const{return DropboxHost::DEFAULT();}
+        QString            lastRequestInfo()const{return m_last_request_info;}
         void cancel();
 
     protected:
         void execEventLoop(QNetworkReply *reply);
         void exitEventLoop(QNetworkReply *reply);
         void addAuthHeader(QNetworkRequest& request);
+        QNetworkReply*	postData(const QNetworkRequest &request, const QByteArray &data);
     protected:
         QNetworkAccessManager m_con_mgr;
         QEventLoop            m_loop;
         DropboxClient*        m_client;
         QNetworkReply*        m_reply_in_progress;
+        QString               m_last_request_info;
     };//Endpoint
 
-    class VoidResult{};
-    class VoidFromJsonLoader
+    class VoidResult
     {
     public:
-        static void load(const QByteArray&, VoidResult& ){};
-        static bool hasLoad(){return false;}
+        static std::unique_ptr<VoidResult> create(const QByteArray& )
+        {
+            return std::unique_ptr<VoidResult>();
+        };
     };
 
 	class NotAnException
@@ -258,39 +258,24 @@ namespace dropboxQt{
 		static void raise(const QByteArray&, int, const std::string& ){};
 	};
 
-    template <class T>
-    class StructFromJsonLoader
-    {
-    public:
-        static void load(const QByteArray& d, T& o)
-        {
-            if(!d.isEmpty())
-                {
-                    QJsonDocument doc = QJsonDocument::fromJson(d);
-                    QJsonObject js_in = doc.object();
-					o.fromJson(js_in);
-			}
-        };
-        static bool hasLoad(){return true;}
-    };
-
     template <class T, class D>
     class ListFromJsonLoader
     {
     public:
-        static void load(const QByteArray& d, T& c)
+        static T create(const QByteArray& data)
         {
-			QJsonDocument doc = QJsonDocument::fromJson(d);
+            T res;
+			QJsonDocument doc = QJsonDocument::fromJson(data);
 			QJsonArray arr = doc.array();
 			foreach (const QJsonValue & val, arr)
 			{
 				QJsonObject js = val.toObject();
-				D o;
-				o.fromJson(js);
-				c.push_back(o);
-			}
-        };
-        static bool hasLoad(){return true;}
+                D o;
+                o.fromJson(js);
+				res.push_back(o);
+            }
+            return std::move(res);
+        }        
     };
     
 }//qtdropbox2
