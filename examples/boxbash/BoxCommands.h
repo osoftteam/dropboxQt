@@ -25,6 +25,11 @@ public:
 	void ls		(QString);
 
 	/**
+       info - get metadata on a file or folder
+	*/
+	void info	(QString path);
+    
+	/**
        mkdir - create a new directory
 	*/
 	void mkdir	(QString name);
@@ -58,6 +63,11 @@ public:
 
 	QString	wd()const{return m_curr_dir;}
 
+    /**
+       printLastApiCall - print on the screen last API call if succeded
+     */
+    void printLastApiCall();
+    
 protected:
     dropboxQt::DropboxClient&	m_c;
 	QString						m_curr_dir;

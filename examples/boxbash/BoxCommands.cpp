@@ -15,18 +15,51 @@ BoxCommands::BoxCommands(DropboxClient& c):m_c(c)
 	m_curr_dir = "/";
 };
 
+void BoxCommands::printLastApiCall()
+{
+    std::cout << "-----------------------------------------" << std::endl;
+    std::cout << "API call" << std::endl;
+    std::cout << m_c.lastApiCall().toStdString() << std::endl;
+};
+
 void BoxCommands::account(QString)
 {
     try
         {
-            users::FullAccount accountInfo = m_c.getUsers()->getCurrentAccount();
-            std::cout << accountInfo.toString().toStdString() << std::endl;
+            std::unique_ptr<users::FullAccount> accountInfo  = m_c.getUsers()->getCurrentAccount();
+            std::cout << accountInfo->toString().toStdString() << std::endl;
+            printLastApiCall();
         }
     catch(DropboxException& e)
         {
             std::cout << "Exception: " << e.what() << std::endl;
         }
 };
+
+void BoxCommands::info(QString fileName)
+{
+    try
+        {
+            std::unique_ptr<files::Metadata> md  = m_c.getFiles()->getMetadata(m_curr_dir + fileName);
+            files::FileMetadata* asFile = dynamic_cast<files::FileMetadata*>(md.get());
+            if(asFile != NULL){
+                std::cout << "FILE id=" << asFile->id().toStdString() << " size=" << asFile->size() << std::endl;
+            }
+            else{
+                files::FolderMetadata* asFolder = dynamic_cast<files::FolderMetadata*>(md.get());
+                if(asFolder != NULL){
+                    std::cout << "FOLDER id=" << asFolder->id().toStdString() << std::endl;
+                }
+            }
+            std::cout << md->toString().toStdString() << std::endl;
+            printLastApiCall();
+        }
+    catch(DropboxException& e)
+        {
+            std::cout << "Exception: " << e.what() << std::endl;
+        }
+};
+
 
 void BoxCommands::pwd(QString)
 {
@@ -43,26 +76,29 @@ void BoxCommands::ls(QString)
                     path = "";
                 }
             files::ListFolderArg arg(path);
-            files::ListFolderResult r = m_c.getFiles()->listFolder(arg);
+            std::unique_ptr<files::ListFolderResult> r = m_c.getFiles()->listFolder(arg);
 		
-            std::function<void(const files::ListFolderResult& r)> print_folder_entries = [&](const files::ListFolderResult& r)
+            std::function<void(const std::unique_ptr<files::ListFolderResult>& r)> print_folder_entries = [&](const std::unique_ptr<files::ListFolderResult>& r)
                 {
-                    const FOLDER_ENTRIES& entries = r.entries();
-                    for(FOLDER_ENTRIES::const_iterator i = entries.cbegin(); i != entries.cend(); i++)
+                    const std::list<std::unique_ptr<files::Metadata>>& entries = r->entries();
+                    for(std::list<std::unique_ptr<files::Metadata>>::const_iterator i = entries.cbegin(); i != entries.cend(); i++)
                         {
-                            const files::Metadata& m = *i;
-                            std::cout << m.name().toStdString() << std::endl;
+                            const std::unique_ptr<files::Metadata>& m = *i;
+                            std::cout << m->name().toStdString() << std::endl;
+                            // std::cout << m->toString().toStdString() << std::endl;
                         }		
+                    
                 };
 
             print_folder_entries(r);
 		
-            while(r.hasMore())
+            while(r->hasMore())
                 {
-                    files::ListFolderContinueArg continue_arg(r.cursor());
+                    files::ListFolderContinueArg continue_arg(r->cursor());
                     r = m_c.getFiles()->listFolderContinue(continue_arg);
                     print_folder_entries(r);
                 }
+            printLastApiCall();
         }
     catch(DropboxException& e)
         {
@@ -80,8 +116,9 @@ void BoxCommands::mkdir(QString path)
     try
         {
             files::CreateFolderArg arg(m_curr_dir + path);
-            files::FolderMetadata res = m_c.getFiles()->createFolder(arg);
-            std::cout << "created: " << path.toStdString() << " id=" << res.id().toStdString() << std::endl;
+            std::unique_ptr<files::FolderMetadata> res = m_c.getFiles()->createFolder(arg);
+            std::cout << "created: " << path.toStdString() << " id=" << res->id().toStdString() << std::endl;
+            printLastApiCall();
         }
     catch(DropboxException& e)
         {
@@ -103,8 +140,9 @@ void BoxCommands::cat(QString fileName)
     try
         {
             files::DownloadArg d(m_curr_dir + fileName);
-            files::FileMetadata md = m_c.getFiles()->download(d, &buffer);
+            std::unique_ptr<files::FileMetadata> md = m_c.getFiles()->download(d, &buffer);
             std::cout << byteArray.constData();
+            printLastApiCall();
         }
     catch(DropboxException& e)
         {
@@ -152,7 +190,8 @@ void BoxCommands::cd(QString dirName)
 
             m_curr_dir = newPath;
             if(m_curr_dir.length() == 0 || m_curr_dir[m_curr_dir.length() - 1] != '/')
-                m_curr_dir += "/";            
+                m_curr_dir += "/";
+            printLastApiCall();
             ls("");
         }
     catch(DropboxException& e)
@@ -180,9 +219,10 @@ void BoxCommands::put(QString fileName)
     try
         {
 			files::CommitInfo arg(m_curr_dir + doxFileName);
-            files::Metadata res = m_c.getFiles()->upload(arg, &file_in);
+            std::unique_ptr<files::Metadata> res = m_c.getFiles()->upload(arg, &file_in);
             std::cout << "file uploaded" << std::endl;
-            std::cout << res.toString().toStdString() << std::endl;
+            std::cout << res->toString().toStdString() << std::endl;
+            printLastApiCall();
         }
     catch(DropboxException& e)
         {
@@ -207,9 +247,10 @@ void BoxCommands::get(QString fileName)
 	try
         {
             files::DownloadArg arg(m_curr_dir + fileName);
-            files::Metadata res = m_c.getFiles()->download(arg, &out);
+            std::unique_ptr<files::Metadata> res = m_c.getFiles()->download(arg, &out);
             std::cout << "file downloaded" << std::endl;
-            std::cout << res.toString().toStdString() << std::endl;
+            std::cout << res->toString().toStdString() << std::endl;
+            printLastApiCall();
         }
 	catch (DropboxException& e)
         {
@@ -235,9 +276,10 @@ void BoxCommands::rm(QString fileName)
     try
         {
             files::DeleteArg d(m_curr_dir + fileName);
-            files::Metadata md = m_c.getFiles()->deleteOperation(d);
+            std::unique_ptr<files::Metadata> md = m_c.getFiles()->deleteOperation(d);
             std::cout << "deleted";
-            std::cout << md.toString().toStdString();
+            std::cout << md->toString().toStdString();
+            printLastApiCall();
         }
     catch(DropboxException& e)
         {

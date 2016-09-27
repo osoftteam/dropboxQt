@@ -136,6 +136,7 @@ int main(int argc, char *argv[])
     t.addAction("account","Account info", [&](QString arg) {cmd.account(arg);} );
     t.addAction("pwd",	"Print Working Directory", [&](QString arg) {cmd.pwd(arg);} );
     t.addAction("ls",		"List Directory", [&](QString arg) {cmd.ls(arg);} );
+    t.addAction("info",		"Get Info on a File or Directory", [&](QString arg) {cmd.info(arg);} );
     t.addAction("mkdir",	"Create Directory", [&](QString arg) {cmd.mkdir(arg);} );
     t.addAction("cat",	"Print file content", [&](QString arg) {cmd.cat(arg);} );
     t.addAction("cd",	    "Change working directory", [&](QString arg) {cmd.cd(arg);} );

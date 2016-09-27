@@ -41,8 +41,8 @@ int main(int argc, char *argv[])
     dropboxQt::DropboxClient c(authInfo.getAccessToken());
     try
         {
-            users::FullAccount accountInfo = c.getUsers()->getCurrentAccount();
-            std::cout << accountInfo.toString().toStdString() << std::endl;
+            std::unique_ptr<users::FullAccount> accountInfo = c.getUsers()->getCurrentAccount();
+            std::cout << accountInfo->toString().toStdString() << std::endl;
         }
     catch(DropboxException& e)
         {

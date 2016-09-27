@@ -62,9 +62,9 @@ int main(int argc, char *argv[])
     try
         {
             files::DownloadArg arg(argSourceFile);
-            files::Metadata res = c.getFiles()->download(arg, &out);
+            std::unique_ptr<files::Metadata> res = c.getFiles()->download(arg, &out);
             std::cout << "file downloaded" << std::endl;
-            std::cout << res.toString().toStdString() << std::endl;
+            std::cout << res->toString().toStdString() << std::endl;
         }
     catch(DropboxException& e)
         {

@@ -61,9 +61,9 @@ int main(int argc, char *argv[])
     try
         {
             files::CommitInfo arg(argDestFile);
-            files::Metadata res = c.getFiles()->upload(arg, &file_in);
+            std::unique_ptr<files::Metadata> res = c.getFiles()->upload(arg, &file_in);
             std::cout << "file uploaded" << std::endl;
-            std::cout << res.toString().toStdString() << std::endl;
+            std::cout << res->toString().toStdString() << std::endl;
         }
     catch(DropboxException& e)
         {
