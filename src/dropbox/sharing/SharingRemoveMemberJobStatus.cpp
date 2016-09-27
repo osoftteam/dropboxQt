@@ -63,6 +63,15 @@ QString RemoveMemberJobStatus::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<RemoveMemberJobStatus>  RemoveMemberJobStatus::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<RemoveMemberJobStatus> rv = std::unique_ptr<RemoveMemberJobStatus>(new RemoveMemberJobStatus);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 RemoveMemberJobStatus RemoveMemberJobStatus::EXAMPLE(){
     RemoveMemberJobStatus rv;

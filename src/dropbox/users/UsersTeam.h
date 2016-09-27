@@ -24,17 +24,25 @@ namespace users{
     public:
         ///The team's unique ID.
         QString id()const{return m_id;};
-        Team& setId(const QString& arg){m_id=arg; return *this;};
+        Team& setId(const QString& arg){m_id=arg;return *this;};
 
         ///The name of the team.
         QString name()const{return m_name;};
-        Team& setName(const QString& arg){m_name=arg; return *this;};
+        Team& setName(const QString& arg){m_name=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<Team>  create(const QByteArray& data);
+            static std::unique_ptr<Team>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static Team EXAMPLE();

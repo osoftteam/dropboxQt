@@ -26,21 +26,29 @@ namespace sharing{
     public:
         ///The amount of space needed to add the item (the size of the item).
         int spaceNeeded()const{return m_space_needed;};
-        InsufficientQuotaAmounts& setSpaceneeded(const int& arg){m_space_needed=arg; return *this;};
+        InsufficientQuotaAmounts& setSpaceneeded(const int& arg){m_space_needed=arg;return *this;};
 
         ///The amount of extra space needed to add the item.
         int spaceShortage()const{return m_space_shortage;};
-        InsufficientQuotaAmounts& setSpaceshortage(const int& arg){m_space_shortage=arg; return *this;};
+        InsufficientQuotaAmounts& setSpaceshortage(const int& arg){m_space_shortage=arg;return *this;};
 
         ///The amount of space left in the user's Dropbox, less than space_needed.
         int spaceLeft()const{return m_space_left;};
-        InsufficientQuotaAmounts& setSpaceleft(const int& arg){m_space_left=arg; return *this;};
+        InsufficientQuotaAmounts& setSpaceleft(const int& arg){m_space_left=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<InsufficientQuotaAmounts>  create(const QByteArray& data);
+            static std::unique_ptr<InsufficientQuotaAmounts>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static InsufficientQuotaAmounts EXAMPLE();

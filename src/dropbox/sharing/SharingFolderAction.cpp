@@ -133,6 +133,15 @@ QString FolderAction::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<FolderAction>  FolderAction::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<FolderAction> rv = std::unique_ptr<FolderAction>(new FolderAction);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 FolderAction FolderAction::EXAMPLE(){
     FolderAction rv;

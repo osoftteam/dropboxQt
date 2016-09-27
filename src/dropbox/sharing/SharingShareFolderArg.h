@@ -48,29 +48,37 @@ namespace sharing{
     public:
         ///The path to the folder to share. If it does not exist, then a new one is created.
         QString path()const{return m_path;};
-        ShareFolderArg& setPath(const QString& arg){m_path=arg; return *this;};
+        ShareFolderArg& setPath(const QString& arg){m_path=arg;return *this;};
 
         ///Who can be a member of this shared folder. Only applicable if the current user is on a team.
         MemberPolicy memberPolicy()const{return m_member_policy;};
-        ShareFolderArg& setMemberpolicy(const MemberPolicy& arg){m_member_policy=arg; return *this;};
+        ShareFolderArg& setMemberpolicy(const MemberPolicy& arg){m_member_policy=arg;return *this;};
 
         ///Who can add and remove members of this shared folder.
         AclUpdatePolicy aclUpdatePolicy()const{return m_acl_update_policy;};
-        ShareFolderArg& setAclupdatepolicy(const AclUpdatePolicy& arg){m_acl_update_policy=arg; return *this;};
+        ShareFolderArg& setAclupdatepolicy(const AclUpdatePolicy& arg){m_acl_update_policy=arg;return *this;};
 
         ///The policy to apply to shared links created for content inside this shared folder.  The current user must be on a team to set this policy to :field:`SharedLinkPolicy.members`.
         SharedLinkPolicy sharedLinkPolicy()const{return m_shared_link_policy;};
-        ShareFolderArg& setSharedlinkpolicy(const SharedLinkPolicy& arg){m_shared_link_policy=arg; return *this;};
+        ShareFolderArg& setSharedlinkpolicy(const SharedLinkPolicy& arg){m_shared_link_policy=arg;return *this;};
 
         ///Whether to force the share to happen asynchronously.
         bool forceAsync()const{return m_force_async;};
-        ShareFolderArg& setForceasync(const bool& arg){m_force_async=arg; return *this;};
+        ShareFolderArg& setForceasync(const bool& arg){m_force_async=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ShareFolderArg>  create(const QByteArray& data);
+            static std::unique_ptr<ShareFolderArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ShareFolderArg EXAMPLE();

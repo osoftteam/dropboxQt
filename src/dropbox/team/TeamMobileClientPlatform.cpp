@@ -85,6 +85,15 @@ QString MobileClientPlatform::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<MobileClientPlatform>  MobileClientPlatform::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<MobileClientPlatform> rv = std::unique_ptr<MobileClientPlatform>(new MobileClientPlatform);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MobileClientPlatform MobileClientPlatform::EXAMPLE(){
     MobileClientPlatform rv;

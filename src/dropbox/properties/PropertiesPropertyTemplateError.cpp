@@ -63,6 +63,15 @@ QString PropertyTemplateError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<PropertyTemplateError>  PropertyTemplateError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<PropertyTemplateError> rv = std::unique_ptr<PropertyTemplateError>(new PropertyTemplateError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 PropertyTemplateError PropertyTemplateError::EXAMPLE(){
     PropertyTemplateError rv;

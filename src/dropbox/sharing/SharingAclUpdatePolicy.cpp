@@ -61,6 +61,15 @@ QString AclUpdatePolicy::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<AclUpdatePolicy>  AclUpdatePolicy::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<AclUpdatePolicy> rv = std::unique_ptr<AclUpdatePolicy>(new AclUpdatePolicy);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 AclUpdatePolicy AclUpdatePolicy::EXAMPLE(){
     AclUpdatePolicy rv;

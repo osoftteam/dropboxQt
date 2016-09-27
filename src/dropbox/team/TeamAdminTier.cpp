@@ -69,6 +69,15 @@ QString AdminTier::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<AdminTier>  AdminTier::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<AdminTier> rv = std::unique_ptr<AdminTier>(new AdminTier);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 AdminTier AdminTier::EXAMPLE(){
     AdminTier rv;

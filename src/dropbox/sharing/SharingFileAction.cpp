@@ -101,6 +101,15 @@ QString FileAction::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<FileAction>  FileAction::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<FileAction> rv = std::unique_ptr<FileAction>(new FileAction);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 FileAction FileAction::EXAMPLE(){
     FileAction rv;

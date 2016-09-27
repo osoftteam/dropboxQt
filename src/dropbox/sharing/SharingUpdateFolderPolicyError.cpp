@@ -86,6 +86,15 @@ QString UpdateFolderPolicyError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<UpdateFolderPolicyError>  UpdateFolderPolicyError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<UpdateFolderPolicyError> rv = std::unique_ptr<UpdateFolderPolicyError>(new UpdateFolderPolicyError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 UpdateFolderPolicyError UpdateFolderPolicyError::EXAMPLE(){
     UpdateFolderPolicyError rv;

@@ -53,6 +53,15 @@ QString GroupAccessType::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GroupAccessType>  GroupAccessType::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GroupAccessType> rv = std::unique_ptr<GroupAccessType>(new GroupAccessType);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GroupAccessType GroupAccessType::EXAMPLE(){
     GroupAccessType rv;

@@ -137,7 +137,7 @@ namespace sharing{
 
             on error:FileMemberActionError throws exception FileMemberActionErrorException
             */
-        FileMemberActionResult changeFileMemberAccess(const ChangeFileMemberAccessArgs&);
+        std::unique_ptr<FileMemberActionResult> changeFileMemberAccess(const ChangeFileMemberAccessArgs&);
 
             /**
             ApiRoute('check_job_status')
@@ -148,7 +148,7 @@ namespace sharing{
 
             on error:PollError throws exception PollErrorException
             */
-        JobStatus checkJobStatus(const async::PollArg&);
+        std::unique_ptr<JobStatus> checkJobStatus(const async::PollArg&);
 
             /**
             ApiRoute('check_remove_member_job_status')
@@ -159,7 +159,7 @@ namespace sharing{
 
             on error:PollError throws exception PollErrorException
             */
-        RemoveMemberJobStatus checkRemoveMemberJobStatus(const async::PollArg&);
+        std::unique_ptr<RemoveMemberJobStatus> checkRemoveMemberJobStatus(const async::PollArg&);
 
             /**
             ApiRoute('check_share_job_status')
@@ -170,7 +170,7 @@ namespace sharing{
 
             on error:PollError throws exception PollErrorException
             */
-        ShareFolderJobStatus checkShareJobStatus(const async::PollArg&);
+        std::unique_ptr<ShareFolderJobStatus> checkShareJobStatus(const async::PollArg&);
 
             /**
             ApiRoute('create_shared_link')
@@ -188,7 +188,7 @@ namespace sharing{
 
             on error:CreateSharedLinkError throws exception CreateSharedLinkErrorException
             */
-        PathLinkMetadata createSharedLink(const CreateSharedLinkArg&);
+        std::unique_ptr<PathLinkMetadata> createSharedLink(const CreateSharedLinkArg&);
 
             /**
             ApiRoute('create_shared_link_with_settings')
@@ -201,7 +201,7 @@ namespace sharing{
 
             on error:CreateSharedLinkWithSettingsError throws exception CreateSharedLinkWithSettingsErrorException
             */
-        SharedLinkMetadata createSharedLinkWithSettings(const CreateSharedLinkWithSettingsArg&);
+        std::unique_ptr<SharedLinkMetadata> createSharedLinkWithSettings(const CreateSharedLinkWithSettingsArg&);
 
             /**
             ApiRoute('get_file_metadata')
@@ -211,7 +211,7 @@ namespace sharing{
 
             on error:GetFileMetadataError throws exception GetFileMetadataErrorException
             */
-        SharedFileMetadata getFileMetadata(const GetFileMetadataArg&);
+        std::unique_ptr<SharedFileMetadata> getFileMetadata(const GetFileMetadataArg&);
 
             /**
             ApiRoute('get_file_metadata/batch')
@@ -232,7 +232,7 @@ namespace sharing{
 
             on error:SharedFolderAccessError throws exception SharedFolderAccessErrorException
             */
-        SharedFolderMetadata getFolderMetadata(const GetMetadataArgs&);
+        std::unique_ptr<SharedFolderMetadata> getFolderMetadata(const GetMetadataArgs&);
 
             /**
             ApiRoute('get_shared_link_file')
@@ -242,7 +242,7 @@ namespace sharing{
 
             on error:GetSharedLinkFileError throws exception GetSharedLinkFileErrorException
             */
-        SharedLinkMetadata getSharedLinkFile(const GetSharedLinkMetadataArg&, QIODevice* writeTo);
+        std::unique_ptr<SharedLinkMetadata> getSharedLinkFile(const GetSharedLinkMetadataArg&, QIODevice* io);
 
             /**
             ApiRoute('get_shared_link_metadata')
@@ -252,7 +252,7 @@ namespace sharing{
 
             on error:SharedLinkError throws exception SharedLinkErrorException
             */
-        SharedLinkMetadata getSharedLinkMetadata(const GetSharedLinkMetadataArg&);
+        std::unique_ptr<SharedLinkMetadata> getSharedLinkMetadata(const GetSharedLinkMetadataArg&);
 
             /**
             ApiRoute('get_shared_links')
@@ -268,7 +268,7 @@ namespace sharing{
 
             on error:GetSharedLinksError throws exception GetSharedLinksErrorException
             */
-        GetSharedLinksResult getSharedLinks(const GetSharedLinksArg&);
+        std::unique_ptr<GetSharedLinksResult> getSharedLinks(const GetSharedLinksArg&);
 
             /**
             ApiRoute('list_file_members')
@@ -279,7 +279,7 @@ namespace sharing{
 
             on error:ListFileMembersError throws exception ListFileMembersErrorException
             */
-        SharedFileMembers listFileMembers(const ListFileMembersArg&);
+        std::unique_ptr<SharedFileMembers> listFileMembers(const ListFileMembersArg&);
 
             /**
             ApiRoute('list_file_members/batch')
@@ -305,7 +305,7 @@ namespace sharing{
 
             on error:ListFileMembersContinueError throws exception ListFileMembersContinueErrorException
             */
-        SharedFileMembers listFileMembersContinue(const ListFileMembersContinueArg&);
+        std::unique_ptr<SharedFileMembers> listFileMembersContinue(const ListFileMembersContinueArg&);
 
             /**
             ApiRoute('list_folder_members')
@@ -316,7 +316,7 @@ namespace sharing{
 
             on error:SharedFolderAccessError throws exception SharedFolderAccessErrorException
             */
-        SharedFolderMembers listFolderMembers(const ListFolderMembersArgs&);
+        std::unique_ptr<SharedFolderMembers> listFolderMembers(const ListFolderMembersArgs&);
 
             /**
             ApiRoute('list_folder_members/continue')
@@ -328,7 +328,7 @@ namespace sharing{
 
             on error:ListFolderMembersContinueError throws exception ListFolderMembersContinueErrorException
             */
-        SharedFolderMembers listFolderMembersContinue(const ListFolderMembersContinueArg&);
+        std::unique_ptr<SharedFolderMembers> listFolderMembersContinue(const ListFolderMembersContinueArg&);
 
             /**
             ApiRoute('list_folders')
@@ -338,7 +338,7 @@ namespace sharing{
             to. Apps must have full Dropbox access to use this endpoint.
 
             */
-        ListFoldersResult listFolders(const ListFoldersArgs&);
+        std::unique_ptr<ListFoldersResult> listFolders(const ListFoldersArgs&);
 
             /**
             ApiRoute('list_folders/continue')
@@ -352,7 +352,7 @@ namespace sharing{
 
             on error:ListFoldersContinueError throws exception ListFoldersContinueErrorException
             */
-        ListFoldersResult listFoldersContinue(const ListFoldersContinueArg&);
+        std::unique_ptr<ListFoldersResult> listFoldersContinue(const ListFoldersContinueArg&);
 
             /**
             ApiRoute('list_mountable_folders')
@@ -362,7 +362,7 @@ namespace sharing{
             unmount. Apps must have full Dropbox access to use this endpoint.
 
             */
-        ListFoldersResult listMountableFolders(const ListFoldersArgs&);
+        std::unique_ptr<ListFoldersResult> listMountableFolders(const ListFoldersArgs&);
 
             /**
             ApiRoute('list_mountable_folders/continue')
@@ -377,7 +377,7 @@ namespace sharing{
 
             on error:ListFoldersContinueError throws exception ListFoldersContinueErrorException
             */
-        ListFoldersResult listMountableFoldersContinue(const ListFoldersContinueArg&);
+        std::unique_ptr<ListFoldersResult> listMountableFoldersContinue(const ListFoldersContinueArg&);
 
             /**
             ApiRoute('list_received_files')
@@ -389,7 +389,7 @@ namespace sharing{
 
             on error:SharingUserError throws exception SharingUserErrorException
             */
-        ListFilesResult listReceivedFiles(const ListFilesArg&);
+        std::unique_ptr<ListFilesResult> listReceivedFiles(const ListFilesArg&);
 
             /**
             ApiRoute('list_received_files/continue')
@@ -399,7 +399,7 @@ namespace sharing{
 
             on error:ListFilesContinueError throws exception ListFilesContinueErrorException
             */
-        ListFilesResult listReceivedFilesContinue(const ListFilesContinueArg&);
+        std::unique_ptr<ListFilesResult> listReceivedFilesContinue(const ListFilesContinueArg&);
 
             /**
             ApiRoute('list_shared_links')
@@ -414,7 +414,7 @@ namespace sharing{
 
             on error:ListSharedLinksError throws exception ListSharedLinksErrorException
             */
-        ListSharedLinksResult listSharedLinks(const ListSharedLinksArg&);
+        std::unique_ptr<ListSharedLinksResult> listSharedLinks(const ListSharedLinksArg&);
 
             /**
             ApiRoute('modify_shared_link_settings')
@@ -430,7 +430,7 @@ namespace sharing{
 
             on error:ModifySharedLinkSettingsError throws exception ModifySharedLinkSettingsErrorException
             */
-        SharedLinkMetadata modifySharedLinkSettings(const ModifySharedLinkSettingsArgs&);
+        std::unique_ptr<SharedLinkMetadata> modifySharedLinkSettings(const ModifySharedLinkSettingsArgs&);
 
             /**
             ApiRoute('mount_folder')
@@ -443,7 +443,7 @@ namespace sharing{
 
             on error:MountFolderError throws exception MountFolderErrorException
             */
-        SharedFolderMetadata mountFolder(const MountFolderArg&);
+        std::unique_ptr<SharedFolderMetadata> mountFolder(const MountFolderArg&);
 
             /**
             ApiRoute('relinquish_file_membership')
@@ -471,7 +471,7 @@ namespace sharing{
 
             on error:RelinquishFolderMembershipError throws exception RelinquishFolderMembershipErrorException
             */
-        async::LaunchEmptyResult relinquishFolderMembership(const RelinquishFolderMembershipArg&);
+        std::unique_ptr<async::LaunchEmptyResult> relinquishFolderMembership(const RelinquishFolderMembershipArg&);
 
             /**
             ApiRoute('remove_file_member')
@@ -482,7 +482,7 @@ namespace sharing{
 
             on error:RemoveFileMemberError throws exception RemoveFileMemberErrorException
             */
-        FileMemberActionIndividualResult removeFileMember(const RemoveFileMemberArg&);
+        std::unique_ptr<FileMemberActionIndividualResult> removeFileMember(const RemoveFileMemberArg&);
 
             /**
             ApiRoute('remove_file_member_2')
@@ -492,7 +492,7 @@ namespace sharing{
 
             on error:RemoveFileMemberError throws exception RemoveFileMemberErrorException
             */
-        FileMemberRemoveActionResult removeFileMember2(const RemoveFileMemberArg&);
+        std::unique_ptr<FileMemberRemoveActionResult> removeFileMember2(const RemoveFileMemberArg&);
 
             /**
             ApiRoute('remove_folder_member')
@@ -504,7 +504,7 @@ namespace sharing{
 
             on error:RemoveFolderMemberError throws exception RemoveFolderMemberErrorException
             */
-        async::LaunchResultBase removeFolderMember(const RemoveFolderMemberArg&);
+        std::unique_ptr<async::LaunchResultBase> removeFolderMember(const RemoveFolderMemberArg&);
 
             /**
             ApiRoute('revoke_shared_link')
@@ -536,7 +536,7 @@ namespace sharing{
 
             on error:ShareFolderError throws exception ShareFolderErrorException
             */
-        ShareFolderLaunch shareFolder(const ShareFolderArg&);
+        std::unique_ptr<ShareFolderLaunch> shareFolder(const ShareFolderArg&);
 
             /**
             ApiRoute('transfer_folder')
@@ -585,7 +585,7 @@ namespace sharing{
 
             on error:UnshareFolderError throws exception UnshareFolderErrorException
             */
-        async::LaunchEmptyResult unshareFolder(const UnshareFolderArg&);
+        std::unique_ptr<async::LaunchEmptyResult> unshareFolder(const UnshareFolderArg&);
 
             /**
             ApiRoute('update_folder_member')
@@ -597,7 +597,7 @@ namespace sharing{
 
             on error:UpdateFolderMemberError throws exception UpdateFolderMemberErrorException
             */
-        MemberAccessLevelResult updateFolderMember(const UpdateFolderMemberArg&);
+        std::unique_ptr<MemberAccessLevelResult> updateFolderMember(const UpdateFolderMemberArg&);
 
             /**
             ApiRoute('update_folder_policy')
@@ -609,7 +609,7 @@ namespace sharing{
 
             on error:UpdateFolderPolicyError throws exception UpdateFolderPolicyErrorException
             */
-        SharedFolderMetadata updateFolderPolicy(const UpdateFolderPolicyArg&);
+        std::unique_ptr<SharedFolderMetadata> updateFolderPolicy(const UpdateFolderPolicyArg&);
 
     protected:
         Endpoint* m_end_point;

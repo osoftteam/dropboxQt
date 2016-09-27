@@ -24,21 +24,29 @@ namespace sharing{
     public:
         ///See :route:`list_shared_links` description.
         QString path()const{return m_path;};
-        ListSharedLinksArg& setPath(const QString& arg){m_path=arg; return *this;};
+        ListSharedLinksArg& setPath(const QString& arg){m_path=arg;return *this;};
 
         ///The cursor returned by your last call to :route:`list_shared_links`.
         QString cursor()const{return m_cursor;};
-        ListSharedLinksArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
+        ListSharedLinksArg& setCursor(const QString& arg){m_cursor=arg;return *this;};
 
         ///See :route:`list_shared_links` description.
         bool directOnly()const{return m_direct_only;};
-        ListSharedLinksArg& setDirectonly(const bool& arg){m_direct_only=arg; return *this;};
+        ListSharedLinksArg& setDirectonly(const bool& arg){m_direct_only=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ListSharedLinksArg>  create(const QByteArray& data);
+            static std::unique_ptr<ListSharedLinksArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ListSharedLinksArg EXAMPLE();

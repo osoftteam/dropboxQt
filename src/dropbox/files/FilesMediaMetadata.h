@@ -27,21 +27,29 @@ namespace files{
     public:
         ///Dimension of the photo/video.
         Dimensions dimensions()const{return m_dimensions;};
-        MediaMetadata& setDimensions(const Dimensions& arg){m_dimensions=arg; return *this;};
+        MediaMetadata& setDimensions(const Dimensions& arg){m_dimensions=arg;return *this;};
 
         ///The GPS coordinate of the photo/video.
         GpsCoordinates location()const{return m_location;};
-        MediaMetadata& setLocation(const GpsCoordinates& arg){m_location=arg; return *this;};
+        MediaMetadata& setLocation(const GpsCoordinates& arg){m_location=arg;return *this;};
 
         ///The timestamp when the photo/video is taken.
         QDateTime timeTaken()const{return m_time_taken;};
-        MediaMetadata& setTimetaken(const QDateTime& arg){m_time_taken=arg; return *this;};
+        MediaMetadata& setTimetaken(const QDateTime& arg){m_time_taken=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<MediaMetadata>  create(const QByteArray& data);
+            static std::unique_ptr<MediaMetadata>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static MediaMetadata EXAMPLE();

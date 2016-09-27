@@ -36,6 +36,23 @@ QString GroupsListArg::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<GroupsListArg>  GroupsListArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<GroupsListArg>  GroupsListArg::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<GroupsListArg> rv;
+    rv = std::unique_ptr<GroupsListArg>(new GroupsListArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GroupsListArg GroupsListArg::EXAMPLE(){
     GroupsListArg rv;

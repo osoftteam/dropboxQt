@@ -24,17 +24,25 @@ namespace team{
     public:
         ///Optional starting date (inclusive)
         QDateTime startDate()const{return m_start_date;};
-        DateRange& setStartdate(const QDateTime& arg){m_start_date=arg; return *this;};
+        DateRange& setStartdate(const QDateTime& arg){m_start_date=arg;return *this;};
 
         ///Optional ending date (exclusive)
         QDateTime endDate()const{return m_end_date;};
-        DateRange& setEnddate(const QDateTime& arg){m_end_date=arg; return *this;};
+        DateRange& setEnddate(const QDateTime& arg){m_end_date=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<DateRange>  create(const QByteArray& data);
+            static std::unique_ptr<DateRange>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static DateRange EXAMPLE();

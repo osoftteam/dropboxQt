@@ -38,6 +38,23 @@ QString ListFolderMembersCursorArg::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<ListFolderMembersCursorArg>  ListFolderMembersCursorArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<ListFolderMembersCursorArg>  ListFolderMembersCursorArg::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<ListFolderMembersCursorArg> rv;
+    rv = std::unique_ptr<ListFolderMembersCursorArg>(new ListFolderMembersCursorArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ListFolderMembersCursorArg ListFolderMembersCursorArg::EXAMPLE(){
     ListFolderMembersCursorArg rv;

@@ -35,21 +35,29 @@ namespace team{
     public:
         ///Report of the number of devices active in the last day.
         DevicesActive active1Day()const{return m_active_1_day;};
-        GetDevicesReport& setActive1Day(const DevicesActive& arg){m_active_1_day=arg; return *this;};
+        GetDevicesReport& setActive1Day(const DevicesActive& arg){m_active_1_day=arg;return *this;};
 
         ///Report of the number of devices active in the last 7 days.
         DevicesActive active7Day()const{return m_active_7_day;};
-        GetDevicesReport& setActive7Day(const DevicesActive& arg){m_active_7_day=arg; return *this;};
+        GetDevicesReport& setActive7Day(const DevicesActive& arg){m_active_7_day=arg;return *this;};
 
         ///Report of the number of devices active in the last 28 days.
         DevicesActive active28Day()const{return m_active_28_day;};
-        GetDevicesReport& setActive28Day(const DevicesActive& arg){m_active_28_day=arg; return *this;};
+        GetDevicesReport& setActive28Day(const DevicesActive& arg){m_active_28_day=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<GetDevicesReport>  create(const QByteArray& data);
+            static std::unique_ptr<GetDevicesReport>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static GetDevicesReport EXAMPLE();

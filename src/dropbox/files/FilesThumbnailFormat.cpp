@@ -53,6 +53,15 @@ QString ThumbnailFormat::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ThumbnailFormat>  ThumbnailFormat::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ThumbnailFormat> rv = std::unique_ptr<ThumbnailFormat>(new ThumbnailFormat);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ThumbnailFormat ThumbnailFormat::EXAMPLE(){
     ThumbnailFormat rv;

@@ -29,17 +29,25 @@ namespace sharing{
     public:
         ///File from which to remove members.
         QString file()const{return m_file;};
-        RemoveFileMemberArg& setFile(const QString& arg){m_file=arg; return *this;};
+        RemoveFileMemberArg& setFile(const QString& arg){m_file=arg;return *this;};
 
         ///Member to remove from this file. Note that even if an email is specified, it may result in the removal of a user (not an invitee) if the user's main account corresponds to that email address.
         MemberSelector member()const{return m_member;};
-        RemoveFileMemberArg& setMember(const MemberSelector& arg){m_member=arg; return *this;};
+        RemoveFileMemberArg& setMember(const MemberSelector& arg){m_member=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<RemoveFileMemberArg>  create(const QByteArray& data);
+            static std::unique_ptr<RemoveFileMemberArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static RemoveFileMemberArg EXAMPLE();

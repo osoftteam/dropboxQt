@@ -22,13 +22,21 @@ namespace users{
     public:
         ///List of user account identifiers.  Should not contain any duplicate account IDs.
         const std::list <QString>& accountIds()const{return m_account_ids;};
-        GetAccountBatchArg& setAccountids(const std::list <QString>&& arg){m_account_ids=arg; return *this;};
+        GetAccountBatchArg& setAccountids(const std::list <QString>&& arg){m_account_ids=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<GetAccountBatchArg>  create(const QByteArray& data);
+            static std::unique_ptr<GetAccountBatchArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static GetAccountBatchArg EXAMPLE();

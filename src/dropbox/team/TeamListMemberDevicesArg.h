@@ -35,25 +35,33 @@ namespace team{
     public:
         ///The team's member id
         QString teamMemberId()const{return m_team_member_id;};
-        ListMemberDevicesArg& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
+        ListMemberDevicesArg& setTeammemberid(const QString& arg){m_team_member_id=arg;return *this;};
 
         ///Whether to list web sessions of the team's member
         bool includeWebSessions()const{return m_include_web_sessions;};
-        ListMemberDevicesArg& setIncludewebsessions(const bool& arg){m_include_web_sessions=arg; return *this;};
+        ListMemberDevicesArg& setIncludewebsessions(const bool& arg){m_include_web_sessions=arg;return *this;};
 
         ///Whether to list linked desktop devices of the team's member
         bool includeDesktopClients()const{return m_include_desktop_clients;};
-        ListMemberDevicesArg& setIncludedesktopclients(const bool& arg){m_include_desktop_clients=arg; return *this;};
+        ListMemberDevicesArg& setIncludedesktopclients(const bool& arg){m_include_desktop_clients=arg;return *this;};
 
         ///Whether to list linked mobile devices of the team's member
         bool includeMobileClients()const{return m_include_mobile_clients;};
-        ListMemberDevicesArg& setIncludemobileclients(const bool& arg){m_include_mobile_clients=arg; return *this;};
+        ListMemberDevicesArg& setIncludemobileclients(const bool& arg){m_include_mobile_clients=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ListMemberDevicesArg>  create(const QByteArray& data);
+            static std::unique_ptr<ListMemberDevicesArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ListMemberDevicesArg EXAMPLE();

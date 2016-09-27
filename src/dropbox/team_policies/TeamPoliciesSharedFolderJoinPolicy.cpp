@@ -61,6 +61,15 @@ QString SharedFolderJoinPolicy::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<SharedFolderJoinPolicy>  SharedFolderJoinPolicy::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<SharedFolderJoinPolicy> rv = std::unique_ptr<SharedFolderJoinPolicy>(new SharedFolderJoinPolicy);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 SharedFolderJoinPolicy SharedFolderJoinPolicy::EXAMPLE(){
     SharedFolderJoinPolicy rv;

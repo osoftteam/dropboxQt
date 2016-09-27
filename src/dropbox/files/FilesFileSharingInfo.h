@@ -27,17 +27,25 @@ namespace files{
     public:
         ///ID of shared folder that holds this file.
         QString parentSharedFolderId()const{return m_parent_shared_folder_id;};
-        FileSharingInfo& setParentsharedfolderid(const QString& arg){m_parent_shared_folder_id=arg; return *this;};
+        FileSharingInfo& setParentsharedfolderid(const QString& arg){m_parent_shared_folder_id=arg;return *this;};
 
         ///The last user who modified the file. This field will be null if the user's account has been deleted.
         QString modifiedBy()const{return m_modified_by;};
-        FileSharingInfo& setModifiedby(const QString& arg){m_modified_by=arg; return *this;};
+        FileSharingInfo& setModifiedby(const QString& arg){m_modified_by=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<FileSharingInfo>  create(const QByteArray& data);
+            static std::unique_ptr<FileSharingInfo>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static FileSharingInfo EXAMPLE();

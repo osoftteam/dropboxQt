@@ -45,6 +45,15 @@ QString RevokeLinkedAppBatchError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<RevokeLinkedAppBatchError>  RevokeLinkedAppBatchError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<RevokeLinkedAppBatchError> rv = std::unique_ptr<RevokeLinkedAppBatchError>(new RevokeLinkedAppBatchError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 RevokeLinkedAppBatchError RevokeLinkedAppBatchError::EXAMPLE(){
     RevokeLinkedAppBatchError rv;

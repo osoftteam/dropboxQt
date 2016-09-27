@@ -63,6 +63,15 @@ QString WriteMode::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<WriteMode>  WriteMode::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<WriteMode> rv = std::unique_ptr<WriteMode>(new WriteMode);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 WriteMode WriteMode::EXAMPLE(){
     WriteMode rv;

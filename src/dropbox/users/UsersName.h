@@ -32,29 +32,37 @@ namespace users{
     public:
         ///Also known as a first name.
         QString givenName()const{return m_given_name;};
-        Name& setGivenname(const QString& arg){m_given_name=arg; return *this;};
+        Name& setGivenname(const QString& arg){m_given_name=arg;return *this;};
 
         ///Also known as a last name or family name.
         QString surname()const{return m_surname;};
-        Name& setSurname(const QString& arg){m_surname=arg; return *this;};
+        Name& setSurname(const QString& arg){m_surname=arg;return *this;};
 
         ///Locale-dependent name. In the US, a person's familiar name is their :field:`given_name`, but elsewhere, it could be any combination of a person's :field:`given_name` and :field:`surname`.
         QString familiarName()const{return m_familiar_name;};
-        Name& setFamiliarname(const QString& arg){m_familiar_name=arg; return *this;};
+        Name& setFamiliarname(const QString& arg){m_familiar_name=arg;return *this;};
 
         ///A name that can be used directly to represent the name of a user's Dropbox account.
         QString displayName()const{return m_display_name;};
-        Name& setDisplayname(const QString& arg){m_display_name=arg; return *this;};
+        Name& setDisplayname(const QString& arg){m_display_name=arg;return *this;};
 
         ///An abbreviated form of the person's name. Their initials in most locales.
         QString abbreviatedName()const{return m_abbreviated_name;};
-        Name& setAbbreviatedname(const QString& arg){m_abbreviated_name=arg; return *this;};
+        Name& setAbbreviatedname(const QString& arg){m_abbreviated_name=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<Name>  create(const QByteArray& data);
+            static std::unique_ptr<Name>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static Name EXAMPLE();

@@ -69,6 +69,15 @@ QString MembersRecoverError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<MembersRecoverError>  MembersRecoverError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<MembersRecoverError> rv = std::unique_ptr<MembersRecoverError>(new MembersRecoverError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MembersRecoverError MembersRecoverError::EXAMPLE(){
     MembersRecoverError rv;

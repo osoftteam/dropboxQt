@@ -37,6 +37,23 @@ QString RelinquishFileMembershipArg::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<RelinquishFileMembershipArg>  RelinquishFileMembershipArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<RelinquishFileMembershipArg>  RelinquishFileMembershipArg::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<RelinquishFileMembershipArg> rv;
+    rv = std::unique_ptr<RelinquishFileMembershipArg>(new RelinquishFileMembershipArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 RelinquishFileMembershipArg RelinquishFileMembershipArg::EXAMPLE(){
     RelinquishFileMembershipArg rv;

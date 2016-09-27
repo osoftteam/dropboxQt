@@ -13,28 +13,24 @@ namespace users{
 UsersRoutes::UsersRoutes(Endpoint* p):m_end_point(p){
 }
 
-BasicAccount UsersRoutes::getAccount(const GetAccountArg& arg){
+std::unique_ptr<BasicAccount> UsersRoutes::getAccount(const GetAccountArg& arg){
     QJsonObject js(arg);
-    BasicAccount r = m_end_point->rpcStyle<BasicAccount, StructFromJsonLoader<BasicAccount>, GetAccountErrorException>("2/users/get_account", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<BasicAccount>, BasicAccount::factory, GetAccountErrorException>("2/users/get_account", js);
 }
 
 std::list <BasicAccount> UsersRoutes::getAccountBatch(const GetAccountBatchArg& arg){
     QJsonObject js(arg);
-    std::list <BasicAccount> r = m_end_point->rpcStyle<std::list <BasicAccount>, ListFromJsonLoader<std::list <BasicAccount>, BasicAccount>, GetAccountBatchErrorException>("2/users/get_account_batch", js);
-    return r;
+    return m_end_point->rpcStyle<std::list <BasicAccount>, ListFromJsonLoader<std::list <BasicAccount>, BasicAccount>, GetAccountBatchErrorException>("2/users/get_account_batch", js);
 }
 
-FullAccount UsersRoutes::getCurrentAccount(void){
+std::unique_ptr<FullAccount> UsersRoutes::getCurrentAccount(void){
     static const QJsonObject js;
-    FullAccount r = m_end_point->rpcStyle<FullAccount, StructFromJsonLoader<FullAccount>, NotAnException >("2/users/get_current_account", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<FullAccount>, FullAccount::factory, NotAnException >("2/users/get_current_account", js);
 }
 
-SpaceUsage UsersRoutes::getSpaceUsage(void){
+std::unique_ptr<SpaceUsage> UsersRoutes::getSpaceUsage(void){
     static const QJsonObject js;
-    SpaceUsage r = m_end_point->rpcStyle<SpaceUsage, StructFromJsonLoader<SpaceUsage>, NotAnException >("2/users/get_space_usage", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SpaceUsage>, SpaceUsage::factory, NotAnException >("2/users/get_space_usage", js);
 }
 
 IMPLEMENT_DBOX_ERR_EXCEPTION(GetAccountErrorException, users::GetAccountError);

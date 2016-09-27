@@ -13,213 +13,184 @@ namespace files{
 FilesRoutes::FilesRoutes(Endpoint* p):m_end_point(p){
 }
 
-Metadata FilesRoutes::alphaGetMetadata(const AlphaGetMetadataArg& arg){
+std::unique_ptr<Metadata> FilesRoutes::alphaGetMetadata(const AlphaGetMetadataArg& arg){
     QJsonObject js(arg);
-    Metadata r = m_end_point->rpcStyle<Metadata, StructFromJsonLoader<Metadata>, AlphaGetMetadataErrorException>("2/files/alpha/get_metadata", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<Metadata>, Metadata::factory, AlphaGetMetadataErrorException>("2/files/alpha/get_metadata", js);
 }
 
-FileMetadata FilesRoutes::alphaUpload(const CommitInfoWithProperties& arg, QIODevice* out){
+std::unique_ptr<FileMetadata> FilesRoutes::alphaUpload(const CommitInfoWithProperties& arg, QIODevice* out){
     QJsonObject js(arg);
-    FileMetadata r = m_end_point->uploadStyle<FileMetadata, StructFromJsonLoader<FileMetadata>, UploadErrorWithPropertiesException>("2/files/alpha/upload", js, out);
-    return r;
+    return m_end_point->uploadStyle< std::unique_ptr<FileMetadata>, FileMetadata::factory, UploadErrorWithPropertiesException>("2/files/alpha/upload", js, out);
 }
 
-Metadata FilesRoutes::copy(const RelocationArg& arg){
+std::unique_ptr<Metadata> FilesRoutes::copy(const RelocationArg& arg){
     QJsonObject js(arg);
-    Metadata r = m_end_point->rpcStyle<Metadata, StructFromJsonLoader<Metadata>, RelocationErrorException>("2/files/copy", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<Metadata>, Metadata::factory, RelocationErrorException>("2/files/copy", js);
 }
 
-GetCopyReferenceResult FilesRoutes::copyReferenceGet(const GetCopyReferenceArg& arg){
+std::unique_ptr<GetCopyReferenceResult> FilesRoutes::copyReferenceGet(const GetCopyReferenceArg& arg){
     QJsonObject js(arg);
-    GetCopyReferenceResult r = m_end_point->rpcStyle<GetCopyReferenceResult, StructFromJsonLoader<GetCopyReferenceResult>, GetCopyReferenceErrorException>("2/files/copy_reference/get", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GetCopyReferenceResult>, GetCopyReferenceResult::factory, GetCopyReferenceErrorException>("2/files/copy_reference/get", js);
 }
 
-SaveCopyReferenceResult FilesRoutes::copyReferenceSave(const SaveCopyReferenceArg& arg){
+std::unique_ptr<SaveCopyReferenceResult> FilesRoutes::copyReferenceSave(const SaveCopyReferenceArg& arg){
     QJsonObject js(arg);
-    SaveCopyReferenceResult r = m_end_point->rpcStyle<SaveCopyReferenceResult, StructFromJsonLoader<SaveCopyReferenceResult>, SaveCopyReferenceErrorException>("2/files/copy_reference/save", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SaveCopyReferenceResult>, SaveCopyReferenceResult::factory, SaveCopyReferenceErrorException>("2/files/copy_reference/save", js);
 }
 
-FolderMetadata FilesRoutes::createFolder(const CreateFolderArg& arg){
+std::unique_ptr<FolderMetadata> FilesRoutes::createFolder(const CreateFolderArg& arg){
     QJsonObject js(arg);
-    FolderMetadata r = m_end_point->rpcStyle<FolderMetadata, StructFromJsonLoader<FolderMetadata>, CreateFolderErrorException>("2/files/create_folder", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<FolderMetadata>, FolderMetadata::factory, CreateFolderErrorException>("2/files/create_folder", js);
 }
 
-Metadata FilesRoutes::deleteOperation(const DeleteArg& arg){
+std::unique_ptr<Metadata> FilesRoutes::deleteOperation(const DeleteArg& arg){
     QJsonObject js(arg);
-    Metadata r = m_end_point->rpcStyle<Metadata, StructFromJsonLoader<Metadata>, DeleteErrorException>("2/files/delete", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<Metadata>, Metadata::factory, DeleteErrorException>("2/files/delete", js);
 }
 
-FileMetadata FilesRoutes::download(const DownloadArg& arg, QIODevice* out){
+std::unique_ptr<FileMetadata> FilesRoutes::download(const DownloadArg& arg, QIODevice* out){
     QJsonObject js(arg);
-    FileMetadata r = m_end_point->downloadStyle<FileMetadata, StructFromJsonLoader<FileMetadata>, DownloadErrorException>("2/files/download", js, out);
-    return r;
+    return m_end_point->downloadStyle< std::unique_ptr<FileMetadata>, FileMetadata::factory, DownloadErrorException>("2/files/download", js, out);
 }
 
-Metadata FilesRoutes::getMetadata(const GetMetadataArg& arg){
+std::unique_ptr<Metadata> FilesRoutes::getMetadata(const GetMetadataArg& arg){
     QJsonObject js(arg);
-    Metadata r = m_end_point->rpcStyle<Metadata, StructFromJsonLoader<Metadata>, GetMetadataErrorException>("2/files/get_metadata", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<Metadata>, Metadata::factory, GetMetadataErrorException>("2/files/get_metadata", js);
 }
 
-FileMetadata FilesRoutes::getPreview(const PreviewArg& arg, QIODevice* out){
+std::unique_ptr<FileMetadata> FilesRoutes::getPreview(const PreviewArg& arg, QIODevice* out){
     QJsonObject js(arg);
-    FileMetadata r = m_end_point->downloadStyle<FileMetadata, StructFromJsonLoader<FileMetadata>, PreviewErrorException>("2/files/get_preview", js, out);
-    return r;
+    return m_end_point->downloadStyle< std::unique_ptr<FileMetadata>, FileMetadata::factory, PreviewErrorException>("2/files/get_preview", js, out);
 }
 
-GetTemporaryLinkResult FilesRoutes::getTemporaryLink(const GetTemporaryLinkArg& arg){
+std::unique_ptr<GetTemporaryLinkResult> FilesRoutes::getTemporaryLink(const GetTemporaryLinkArg& arg){
     QJsonObject js(arg);
-    GetTemporaryLinkResult r = m_end_point->rpcStyle<GetTemporaryLinkResult, StructFromJsonLoader<GetTemporaryLinkResult>, GetTemporaryLinkErrorException>("2/files/get_temporary_link", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GetTemporaryLinkResult>, GetTemporaryLinkResult::factory, GetTemporaryLinkErrorException>("2/files/get_temporary_link", js);
 }
 
-FileMetadata FilesRoutes::getThumbnail(const ThumbnailArg& arg, QIODevice* out){
+std::unique_ptr<FileMetadata> FilesRoutes::getThumbnail(const ThumbnailArg& arg, QIODevice* out){
     QJsonObject js(arg);
-    FileMetadata r = m_end_point->downloadStyle<FileMetadata, StructFromJsonLoader<FileMetadata>, ThumbnailErrorException>("2/files/get_thumbnail", js, out);
-    return r;
+    return m_end_point->downloadStyle< std::unique_ptr<FileMetadata>, FileMetadata::factory, ThumbnailErrorException>("2/files/get_thumbnail", js, out);
 }
 
-ListFolderResult FilesRoutes::listFolder(const ListFolderArg& arg){
+std::unique_ptr<ListFolderResult> FilesRoutes::listFolder(const ListFolderArg& arg){
     QJsonObject js(arg);
-    ListFolderResult r = m_end_point->rpcStyle<ListFolderResult, StructFromJsonLoader<ListFolderResult>, ListFolderErrorException>("2/files/list_folder", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListFolderResult>, ListFolderResult::factory, ListFolderErrorException>("2/files/list_folder", js);
 }
 
-ListFolderResult FilesRoutes::listFolderContinue(const ListFolderContinueArg& arg){
+std::unique_ptr<ListFolderResult> FilesRoutes::listFolderContinue(const ListFolderContinueArg& arg){
     QJsonObject js(arg);
-    ListFolderResult r = m_end_point->rpcStyle<ListFolderResult, StructFromJsonLoader<ListFolderResult>, ListFolderContinueErrorException>("2/files/list_folder/continue", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListFolderResult>, ListFolderResult::factory, ListFolderContinueErrorException>("2/files/list_folder/continue", js);
 }
 
-ListFolderGetLatestCursorResult FilesRoutes::listFolderGetLatestCursor(const ListFolderArg& arg){
+std::unique_ptr<ListFolderGetLatestCursorResult> FilesRoutes::listFolderGetLatestCursor(const ListFolderArg& arg){
     QJsonObject js(arg);
-    ListFolderGetLatestCursorResult r = m_end_point->rpcStyle<ListFolderGetLatestCursorResult, StructFromJsonLoader<ListFolderGetLatestCursorResult>, ListFolderErrorException>("2/files/list_folder/get_latest_cursor", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListFolderGetLatestCursorResult>, ListFolderGetLatestCursorResult::factory, ListFolderErrorException>("2/files/list_folder/get_latest_cursor", js);
 }
 
-ListFolderLongpollResult FilesRoutes::listFolderLongpoll(const ListFolderLongpollArg& arg){
+std::unique_ptr<ListFolderLongpollResult> FilesRoutes::listFolderLongpoll(const ListFolderLongpollArg& arg){
     QJsonObject js(arg);
-    ListFolderLongpollResult r = m_end_point->rpcStyle<ListFolderLongpollResult, StructFromJsonLoader<ListFolderLongpollResult>, ListFolderLongpollErrorException>("2/files/list_folder/longpoll", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListFolderLongpollResult>, ListFolderLongpollResult::factory, ListFolderLongpollErrorException>("2/files/list_folder/longpoll", js);
 }
 
-ListRevisionsResult FilesRoutes::listRevisions(const ListRevisionsArg& arg){
+std::unique_ptr<ListRevisionsResult> FilesRoutes::listRevisions(const ListRevisionsArg& arg){
     QJsonObject js(arg);
-    ListRevisionsResult r = m_end_point->rpcStyle<ListRevisionsResult, StructFromJsonLoader<ListRevisionsResult>, ListRevisionsErrorException>("2/files/list_revisions", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListRevisionsResult>, ListRevisionsResult::factory, ListRevisionsErrorException>("2/files/list_revisions", js);
 }
 
-Metadata FilesRoutes::move(const RelocationArg& arg){
+std::unique_ptr<Metadata> FilesRoutes::move(const RelocationArg& arg){
     QJsonObject js(arg);
-    Metadata r = m_end_point->rpcStyle<Metadata, StructFromJsonLoader<Metadata>, RelocationErrorException>("2/files/move", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<Metadata>, Metadata::factory, RelocationErrorException>("2/files/move", js);
 }
 
 void FilesRoutes::permanentlyDelete(const DeleteArg& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, DeleteErrorException>("2/files/permanently_delete", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, DeleteErrorException>("2/files/permanently_delete", js);
 }
 
 void FilesRoutes::propertiesAdd(const PropertyGroupWithPath& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, AddPropertiesErrorException>("2/files/properties/add", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, AddPropertiesErrorException>("2/files/properties/add", js);
 }
 
 void FilesRoutes::propertiesOverwrite(const PropertyGroupWithPath& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, InvalidPropertyGroupErrorException>("2/files/properties/overwrite", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, InvalidPropertyGroupErrorException>("2/files/properties/overwrite", js);
 }
 
 void FilesRoutes::propertiesRemove(const RemovePropertiesArg& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, RemovePropertiesErrorException>("2/files/properties/remove", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, RemovePropertiesErrorException>("2/files/properties/remove", js);
 }
 
-properties::GetPropertyTemplateResult FilesRoutes::propertiesTemplateGet(const properties::GetPropertyTemplateArg& arg){
+std::unique_ptr<properties::GetPropertyTemplateResult> FilesRoutes::propertiesTemplateGet(const properties::GetPropertyTemplateArg& arg){
     QJsonObject js(arg);
-    properties::GetPropertyTemplateResult r = m_end_point->rpcStyle<properties::GetPropertyTemplateResult, StructFromJsonLoader<properties::GetPropertyTemplateResult>, PropertyTemplateErrorException>("2/files/properties/template/get", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<properties::GetPropertyTemplateResult>, properties::GetPropertyTemplateResult::factory, PropertyTemplateErrorException>("2/files/properties/template/get", js);
 }
 
-properties::ListPropertyTemplateIds FilesRoutes::propertiesTemplateList(void){
+std::unique_ptr<properties::ListPropertyTemplateIds> FilesRoutes::propertiesTemplateList(void){
     static const QJsonObject js;
-    properties::ListPropertyTemplateIds r = m_end_point->rpcStyle<properties::ListPropertyTemplateIds, StructFromJsonLoader<properties::ListPropertyTemplateIds>, PropertyTemplateErrorException >("2/files/properties/template/list", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<properties::ListPropertyTemplateIds>, properties::ListPropertyTemplateIds::factory, PropertyTemplateErrorException >("2/files/properties/template/list", js);
 }
 
 void FilesRoutes::propertiesUpdate(const UpdatePropertyGroupArg& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, UpdatePropertiesErrorException>("2/files/properties/update", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, UpdatePropertiesErrorException>("2/files/properties/update", js);
 }
 
-FileMetadata FilesRoutes::restore(const RestoreArg& arg){
+std::unique_ptr<FileMetadata> FilesRoutes::restore(const RestoreArg& arg){
     QJsonObject js(arg);
-    FileMetadata r = m_end_point->rpcStyle<FileMetadata, StructFromJsonLoader<FileMetadata>, RestoreErrorException>("2/files/restore", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<FileMetadata>, FileMetadata::factory, RestoreErrorException>("2/files/restore", js);
 }
 
-SaveUrlResult FilesRoutes::saveUrl(const SaveUrlArg& arg){
+std::unique_ptr<SaveUrlResult> FilesRoutes::saveUrl(const SaveUrlArg& arg){
     QJsonObject js(arg);
-    SaveUrlResult r = m_end_point->rpcStyle<SaveUrlResult, StructFromJsonLoader<SaveUrlResult>, SaveUrlErrorException>("2/files/save_url", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SaveUrlResult>, SaveUrlResult::factory, SaveUrlErrorException>("2/files/save_url", js);
 }
 
-SaveUrlJobStatus FilesRoutes::saveUrlCheckJobStatus(const async::PollArg& arg){
+std::unique_ptr<SaveUrlJobStatus> FilesRoutes::saveUrlCheckJobStatus(const async::PollArg& arg){
     QJsonObject js(arg);
-    SaveUrlJobStatus r = m_end_point->rpcStyle<SaveUrlJobStatus, StructFromJsonLoader<SaveUrlJobStatus>, PollErrorException>("2/files/save_url/check_job_status", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SaveUrlJobStatus>, SaveUrlJobStatus::factory, PollErrorException>("2/files/save_url/check_job_status", js);
 }
 
-SearchResult FilesRoutes::search(const SearchArg& arg){
+std::unique_ptr<SearchResult> FilesRoutes::search(const SearchArg& arg){
     QJsonObject js(arg);
-    SearchResult r = m_end_point->rpcStyle<SearchResult, StructFromJsonLoader<SearchResult>, SearchErrorException>("2/files/search", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SearchResult>, SearchResult::factory, SearchErrorException>("2/files/search", js);
 }
 
-FileMetadata FilesRoutes::upload(const CommitInfo& arg, QIODevice* out){
+std::unique_ptr<FileMetadata> FilesRoutes::upload(const CommitInfo& arg, QIODevice* out){
     QJsonObject js(arg);
-    FileMetadata r = m_end_point->uploadStyle<FileMetadata, StructFromJsonLoader<FileMetadata>, UploadErrorException>("2/files/upload", js, out);
-    return r;
+    return m_end_point->uploadStyle< std::unique_ptr<FileMetadata>, FileMetadata::factory, UploadErrorException>("2/files/upload", js, out);
 }
 
 void FilesRoutes::uploadSessionAppend(const UploadSessionCursor& arg, QIODevice* out){
     QJsonObject js(arg);
-    m_end_point->uploadStyle<VoidResult, VoidFromJsonLoader, UploadSessionLookupErrorException>("2/files/upload_session/append", js, out);
+    m_end_point->uploadStyle< std::unique_ptr<VoidResult>, VoidResult, UploadSessionLookupErrorException>("2/files/upload_session/append", js, out);
 }
 
 void FilesRoutes::uploadSessionAppendV2(const UploadSessionAppendArg& arg, QIODevice* out){
     QJsonObject js(arg);
-    m_end_point->uploadStyle<VoidResult, VoidFromJsonLoader, UploadSessionLookupErrorException>("2/files/upload_session/append_v2", js, out);
+    m_end_point->uploadStyle< std::unique_ptr<VoidResult>, VoidResult, UploadSessionLookupErrorException>("2/files/upload_session/append_v2", js, out);
 }
 
-FileMetadata FilesRoutes::uploadSessionFinish(const UploadSessionFinishArg& arg, QIODevice* out){
+std::unique_ptr<FileMetadata> FilesRoutes::uploadSessionFinish(const UploadSessionFinishArg& arg, QIODevice* out){
     QJsonObject js(arg);
-    FileMetadata r = m_end_point->uploadStyle<FileMetadata, StructFromJsonLoader<FileMetadata>, UploadSessionFinishErrorException>("2/files/upload_session/finish", js, out);
-    return r;
+    return m_end_point->uploadStyle< std::unique_ptr<FileMetadata>, FileMetadata::factory, UploadSessionFinishErrorException>("2/files/upload_session/finish", js, out);
 }
 
-async::LaunchEmptyResult FilesRoutes::uploadSessionFinishBatch(const UploadSessionFinishBatchArg& arg){
+std::unique_ptr<async::LaunchEmptyResult> FilesRoutes::uploadSessionFinishBatch(const UploadSessionFinishBatchArg& arg){
     QJsonObject js(arg);
-    async::LaunchEmptyResult r = m_end_point->rpcStyle<async::LaunchEmptyResult, StructFromJsonLoader<async::LaunchEmptyResult>, NotAnException>("2/files/upload_session/finish_batch", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<async::LaunchEmptyResult>, async::LaunchEmptyResult::factory, NotAnException>("2/files/upload_session/finish_batch", js);
 }
 
-UploadSessionFinishBatchJobStatus FilesRoutes::uploadSessionFinishBatchCheck(const async::PollArg& arg){
+std::unique_ptr<UploadSessionFinishBatchJobStatus> FilesRoutes::uploadSessionFinishBatchCheck(const async::PollArg& arg){
     QJsonObject js(arg);
-    UploadSessionFinishBatchJobStatus r = m_end_point->rpcStyle<UploadSessionFinishBatchJobStatus, StructFromJsonLoader<UploadSessionFinishBatchJobStatus>, PollErrorException>("2/files/upload_session/finish_batch/check", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<UploadSessionFinishBatchJobStatus>, UploadSessionFinishBatchJobStatus::factory, PollErrorException>("2/files/upload_session/finish_batch/check", js);
 }
 
-UploadSessionStartResult FilesRoutes::uploadSessionStart(const UploadSessionStartArg& arg, QIODevice* out){
+std::unique_ptr<UploadSessionStartResult> FilesRoutes::uploadSessionStart(const UploadSessionStartArg& arg, QIODevice* out){
     QJsonObject js(arg);
-    UploadSessionStartResult r = m_end_point->uploadStyle<UploadSessionStartResult, StructFromJsonLoader<UploadSessionStartResult>, NotAnException>("2/files/upload_session/start", js, out);
-    return r;
+    return m_end_point->uploadStyle< std::unique_ptr<UploadSessionStartResult>, UploadSessionStartResult::factory, NotAnException>("2/files/upload_session/start", js, out);
 }
 
 IMPLEMENT_DBOX_ERR_EXCEPTION(AlphaGetMetadataErrorException, files::AlphaGetMetadataError);

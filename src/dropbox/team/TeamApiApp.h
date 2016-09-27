@@ -29,33 +29,41 @@ namespace team{
     public:
         ///The application unique id
         QString appId()const{return m_app_id;};
-        ApiApp& setAppid(const QString& arg){m_app_id=arg; return *this;};
+        ApiApp& setAppid(const QString& arg){m_app_id=arg;return *this;};
 
         ///The application name
         QString appName()const{return m_app_name;};
-        ApiApp& setAppname(const QString& arg){m_app_name=arg; return *this;};
+        ApiApp& setAppname(const QString& arg){m_app_name=arg;return *this;};
 
         ///The application publisher name
         QString publisher()const{return m_publisher;};
-        ApiApp& setPublisher(const QString& arg){m_publisher=arg; return *this;};
+        ApiApp& setPublisher(const QString& arg){m_publisher=arg;return *this;};
 
         ///The publisher's URL
         QString publisherUrl()const{return m_publisher_url;};
-        ApiApp& setPublisherurl(const QString& arg){m_publisher_url=arg; return *this;};
+        ApiApp& setPublisherurl(const QString& arg){m_publisher_url=arg;return *this;};
 
         ///The time this application was linked
         QDateTime linked()const{return m_linked;};
-        ApiApp& setLinked(const QDateTime& arg){m_linked=arg; return *this;};
+        ApiApp& setLinked(const QDateTime& arg){m_linked=arg;return *this;};
 
         ///Whether the linked application uses a dedicated folder
         bool isAppFolder()const{return m_is_app_folder;};
-        ApiApp& setIsappfolder(const bool& arg){m_is_app_folder=arg; return *this;};
+        ApiApp& setIsappfolder(const bool& arg){m_is_app_folder=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ApiApp>  create(const QByteArray& data);
+            static std::unique_ptr<ApiApp>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ApiApp EXAMPLE();

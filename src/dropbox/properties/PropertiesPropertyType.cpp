@@ -53,6 +53,15 @@ QString PropertyType::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<PropertyType>  PropertyType::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<PropertyType> rv = std::unique_ptr<PropertyType>(new PropertyType);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 PropertyType PropertyType::EXAMPLE(){
     PropertyType rv;

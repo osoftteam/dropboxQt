@@ -61,6 +61,15 @@ QString MemberPolicy::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<MemberPolicy>  MemberPolicy::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<MemberPolicy> rv = std::unique_ptr<MemberPolicy>(new MemberPolicy);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MemberPolicy MemberPolicy::EXAMPLE(){
     MemberPolicy rv;

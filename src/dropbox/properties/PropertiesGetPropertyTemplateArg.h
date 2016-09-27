@@ -22,13 +22,21 @@ namespace properties{
     public:
         ///An identifier for property template added by route properties/template/add.
         QString templateId()const{return m_template_id;};
-        GetPropertyTemplateArg& setTemplateid(const QString& arg){m_template_id=arg; return *this;};
+        GetPropertyTemplateArg& setTemplateid(const QString& arg){m_template_id=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<GetPropertyTemplateArg>  create(const QByteArray& data);
+            static std::unique_ptr<GetPropertyTemplateArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static GetPropertyTemplateArg EXAMPLE();

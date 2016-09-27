@@ -25,13 +25,21 @@ namespace team{
     public:
         ///Number of results to return per call.
         int limit()const{return m_limit;};
-        GroupsListArg& setLimit(const int& arg){m_limit=arg; return *this;};
+        GroupsListArg& setLimit(const int& arg){m_limit=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<GroupsListArg>  create(const QByteArray& data);
+            static std::unique_ptr<GroupsListArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static GroupsListArg EXAMPLE();

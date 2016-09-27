@@ -46,6 +46,15 @@ QString GetMetadataError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GetMetadataError>  GetMetadataError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GetMetadataError> rv = std::unique_ptr<GetMetadataError>(new GetMetadataError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GetMetadataError GetMetadataError::EXAMPLE(){
     GetMetadataError rv;

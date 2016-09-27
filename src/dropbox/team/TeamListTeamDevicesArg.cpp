@@ -43,6 +43,23 @@ QString ListTeamDevicesArg::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<ListTeamDevicesArg>  ListTeamDevicesArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<ListTeamDevicesArg>  ListTeamDevicesArg::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<ListTeamDevicesArg> rv;
+    rv = std::unique_ptr<ListTeamDevicesArg>(new ListTeamDevicesArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ListTeamDevicesArg ListTeamDevicesArg::EXAMPLE(){
     ListTeamDevicesArg rv;

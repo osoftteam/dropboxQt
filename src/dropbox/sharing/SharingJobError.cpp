@@ -72,6 +72,15 @@ QString JobError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<JobError>  JobError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<JobError> rv = std::unique_ptr<JobError>(new JobError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 JobError JobError::EXAMPLE(){
     JobError rv;

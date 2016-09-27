@@ -81,6 +81,15 @@ QString RemovePropertiesError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<RemovePropertiesError>  RemovePropertiesError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<RemovePropertiesError> rv = std::unique_ptr<RemovePropertiesError>(new RemovePropertiesError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 RemovePropertiesError RemovePropertiesError::EXAMPLE(){
     RemovePropertiesError rv;

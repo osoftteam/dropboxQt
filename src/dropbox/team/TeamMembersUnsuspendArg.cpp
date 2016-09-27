@@ -36,6 +36,23 @@ QString MembersUnsuspendArg::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<MembersUnsuspendArg>  MembersUnsuspendArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<MembersUnsuspendArg>  MembersUnsuspendArg::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<MembersUnsuspendArg> rv;
+    rv = std::unique_ptr<MembersUnsuspendArg>(new MembersUnsuspendArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MembersUnsuspendArg MembersUnsuspendArg::EXAMPLE(){
     MembersUnsuspendArg rv;

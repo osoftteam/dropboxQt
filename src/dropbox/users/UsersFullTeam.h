@@ -25,13 +25,21 @@ namespace users{
     public:
         ///Team policies governing sharing.
         team_policies::TeamSharingPolicies sharingPolicies()const{return m_sharing_policies;};
-        FullTeam& setSharingpolicies(const team_policies::TeamSharingPolicies& arg){m_sharing_policies=arg; return *this;};
+        FullTeam& setSharingpolicies(const team_policies::TeamSharingPolicies& arg){m_sharing_policies=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<FullTeam>  create(const QByteArray& data);
+            static std::unique_ptr<FullTeam>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static FullTeam EXAMPLE();

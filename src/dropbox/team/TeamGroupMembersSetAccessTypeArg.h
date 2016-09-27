@@ -32,17 +32,25 @@ namespace team{
     public:
         ///New group access type the user will have.
         GroupAccessType accessType()const{return m_access_type;};
-        GroupMembersSetAccessTypeArg& setAccesstype(const GroupAccessType& arg){m_access_type=arg; return *this;};
+        GroupMembersSetAccessTypeArg& setAccesstype(const GroupAccessType& arg){m_access_type=arg;return *this;};
 
         ///Whether to return the list of members in the group.  Note that the default value will cause all the group members  to be returned in the response. This may take a long time for large groups.
         bool returnMembers()const{return m_return_members;};
-        GroupMembersSetAccessTypeArg& setReturnmembers(const bool& arg){m_return_members=arg; return *this;};
+        GroupMembersSetAccessTypeArg& setReturnmembers(const bool& arg){m_return_members=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<GroupMembersSetAccessTypeArg>  create(const QByteArray& data);
+            static std::unique_ptr<GroupMembersSetAccessTypeArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static GroupMembersSetAccessTypeArg EXAMPLE();

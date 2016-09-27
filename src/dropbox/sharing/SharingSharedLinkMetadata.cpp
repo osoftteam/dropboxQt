@@ -4,6 +4,8 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingSharedLinkMetadata.h"
+#include "dropbox/sharing/SharingFileLinkMetadata.h"
+#include "dropbox/sharing/SharingFolderLinkMetadata.h"
 
 namespace dropboxQt{
 
@@ -53,6 +55,32 @@ QString SharedLinkMetadata::toString(bool multiline)const
     QJsonDocument doc(js);
     QString s(doc.toJson(multiline ? QJsonDocument::Indented : QJsonDocument::Compact));
     return s;
+}
+
+
+std::unique_ptr<SharedLinkMetadata>  SharedLinkMetadata::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<SharedLinkMetadata>  SharedLinkMetadata::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<SharedLinkMetadata> rv;
+    // subtype ('file',) : FileLinkMetadata
+    // subtype ('folder',) : FolderLinkMetadata
+    QString tag = js[".tag"].toString();
+    if(tag.isEmpty()){
+        rv = std::unique_ptr<SharedLinkMetadata>(new SharedLinkMetadata);
+    }else if(tag.compare("file") == 0){
+        rv = std::unique_ptr<SharedLinkMetadata>(new FileLinkMetadata);
+    }else if(tag.compare("folder") == 0){
+        rv = std::unique_ptr<SharedLinkMetadata>(new FolderLinkMetadata);
+    }
+    rv->fromJson(js);
+    return rv;
 }
 
 #ifdef DROPBOX_QT_AUTOTEST

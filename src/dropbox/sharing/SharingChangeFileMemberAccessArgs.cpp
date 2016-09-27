@@ -41,6 +41,23 @@ QString ChangeFileMemberAccessArgs::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<ChangeFileMemberAccessArgs>  ChangeFileMemberAccessArgs::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<ChangeFileMemberAccessArgs>  ChangeFileMemberAccessArgs::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<ChangeFileMemberAccessArgs> rv;
+    rv = std::unique_ptr<ChangeFileMemberAccessArgs>(new ChangeFileMemberAccessArgs);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ChangeFileMemberAccessArgs ChangeFileMemberAccessArgs::EXAMPLE(){
     ChangeFileMemberAccessArgs rv;

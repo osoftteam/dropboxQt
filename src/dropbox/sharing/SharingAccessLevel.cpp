@@ -77,6 +77,15 @@ QString AccessLevel::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<AccessLevel>  AccessLevel::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<AccessLevel> rv = std::unique_ptr<AccessLevel>(new AccessLevel);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 AccessLevel AccessLevel::EXAMPLE(){
     AccessLevel rv;

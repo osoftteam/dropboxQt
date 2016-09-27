@@ -21,13 +21,21 @@ namespace sharing{
     public:
         ///The path or id for the file.
         QString file()const{return m_file;};
-        RelinquishFileMembershipArg& setFile(const QString& arg){m_file=arg; return *this;};
+        RelinquishFileMembershipArg& setFile(const QString& arg){m_file=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<RelinquishFileMembershipArg>  create(const QByteArray& data);
+            static std::unique_ptr<RelinquishFileMembershipArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static RelinquishFileMembershipArg EXAMPLE();

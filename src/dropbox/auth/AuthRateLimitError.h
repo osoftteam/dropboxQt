@@ -31,17 +31,25 @@ namespace auth{
     public:
         ///The reason why the app is being rate limited.
         RateLimitReason reason()const{return m_reason;};
-        RateLimitError& setReason(const RateLimitReason& arg){m_reason=arg; return *this;};
+        RateLimitError& setReason(const RateLimitReason& arg){m_reason=arg;return *this;};
 
         ///The number of seconds that the app should wait before making another request.
         int retryAfter()const{return m_retry_after;};
-        RateLimitError& setRetryafter(const int& arg){m_retry_after=arg; return *this;};
+        RateLimitError& setRetryafter(const int& arg){m_retry_after=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<RateLimitError>  create(const QByteArray& data);
+            static std::unique_ptr<RateLimitError>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static RateLimitError EXAMPLE();

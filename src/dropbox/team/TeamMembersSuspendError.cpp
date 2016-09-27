@@ -85,6 +85,15 @@ QString MembersSuspendError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<MembersSuspendError>  MembersSuspendError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<MembersSuspendError> rv = std::unique_ptr<MembersSuspendError>(new MembersSuspendError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MembersSuspendError MembersSuspendError::EXAMPLE(){
     MembersSuspendError rv;

@@ -30,29 +30,37 @@ namespace team{
     public:
         ///The device name
         QString deviceName()const{return m_device_name;};
-        MobileClientSession& setDevicename(const QString& arg){m_device_name=arg; return *this;};
+        MobileClientSession& setDevicename(const QString& arg){m_device_name=arg;return *this;};
 
         ///The mobile application type
         MobileClientPlatform clientType()const{return m_client_type;};
-        MobileClientSession& setClienttype(const MobileClientPlatform& arg){m_client_type=arg; return *this;};
+        MobileClientSession& setClienttype(const MobileClientPlatform& arg){m_client_type=arg;return *this;};
 
         ///The dropbox client version
         QString clientVersion()const{return m_client_version;};
-        MobileClientSession& setClientversion(const QString& arg){m_client_version=arg; return *this;};
+        MobileClientSession& setClientversion(const QString& arg){m_client_version=arg;return *this;};
 
         ///The hosting OS version
         QString osVersion()const{return m_os_version;};
-        MobileClientSession& setOsversion(const QString& arg){m_os_version=arg; return *this;};
+        MobileClientSession& setOsversion(const QString& arg){m_os_version=arg;return *this;};
 
         ///last carrier used by the device
         QString lastCarrier()const{return m_last_carrier;};
-        MobileClientSession& setLastcarrier(const QString& arg){m_last_carrier=arg; return *this;};
+        MobileClientSession& setLastcarrier(const QString& arg){m_last_carrier=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<MobileClientSession>  create(const QByteArray& data);
+            static std::unique_ptr<MobileClientSession>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static MobileClientSession EXAMPLE();

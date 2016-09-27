@@ -62,6 +62,15 @@ QString JobStatus::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<JobStatus>  JobStatus::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<JobStatus> rv = std::unique_ptr<JobStatus>(new JobStatus);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 JobStatus JobStatus::EXAMPLE(){
     JobStatus rv;

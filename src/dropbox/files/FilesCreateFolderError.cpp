@@ -46,6 +46,15 @@ QString CreateFolderError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<CreateFolderError>  CreateFolderError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<CreateFolderError> rv = std::unique_ptr<CreateFolderError>(new CreateFolderError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 CreateFolderError CreateFolderError::EXAMPLE(){
     CreateFolderError rv;

@@ -71,6 +71,15 @@ QString UploadSessionFinishError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<UploadSessionFinishError>  UploadSessionFinishError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<UploadSessionFinishError> rv = std::unique_ptr<UploadSessionFinishError>(new UploadSessionFinishError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 UploadSessionFinishError UploadSessionFinishError::EXAMPLE(){
     UploadSessionFinishError rv;

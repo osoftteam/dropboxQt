@@ -127,7 +127,7 @@ namespace team{
 
             on error:GroupCreateError throws exception GroupCreateErrorException
             */
-        GroupFullInfo alphaGroupsCreate(const GroupCreateArg&);
+        std::unique_ptr<GroupFullInfo> alphaGroupsCreate(const GroupCreateArg&);
 
             /**
             ApiRoute('alpha/groups/get_info')
@@ -147,7 +147,7 @@ namespace team{
             Lists groups on a team. Permission : Team Information
 
             */
-        GroupsListResult alphaGroupsList(const GroupsListArg&);
+        std::unique_ptr<GroupsListResult> alphaGroupsList(const GroupsListArg&);
 
             /**
             ApiRoute('alpha/groups/list/continue')
@@ -158,7 +158,7 @@ namespace team{
 
             on error:GroupsListContinueError throws exception GroupsListContinueErrorException
             */
-        GroupsListResult alphaGroupsListContinue(const GroupsListContinueArg&);
+        std::unique_ptr<GroupsListResult> alphaGroupsListContinue(const GroupsListContinueArg&);
 
             /**
             ApiRoute('alpha/groups/update')
@@ -169,7 +169,7 @@ namespace team{
 
             on error:GroupUpdateError throws exception GroupUpdateErrorException
             */
-        GroupFullInfo alphaGroupsUpdate(const GroupUpdateArgs&);
+        std::unique_ptr<GroupFullInfo> alphaGroupsUpdate(const GroupUpdateArgs&);
 
             /**
             ApiRoute('devices/list_member_devices')
@@ -179,7 +179,7 @@ namespace team{
 
             on error:ListMemberDevicesError throws exception ListMemberDevicesErrorException
             */
-        ListMemberDevicesResult devicesListMemberDevices(const ListMemberDevicesArg&);
+        std::unique_ptr<ListMemberDevicesResult> devicesListMemberDevices(const ListMemberDevicesArg&);
 
             /**
             ApiRoute('devices/list_members_devices')
@@ -189,7 +189,7 @@ namespace team{
 
             on error:ListMembersDevicesError throws exception ListMembersDevicesErrorException
             */
-        ListMembersDevicesResult devicesListMembersDevices(const ListMembersDevicesArg&);
+        std::unique_ptr<ListMembersDevicesResult> devicesListMembersDevices(const ListMembersDevicesArg&);
 
             /**
             ApiRoute('devices/list_team_devices')
@@ -199,7 +199,7 @@ namespace team{
 
             on error:ListTeamDevicesError throws exception ListTeamDevicesErrorException
             */
-        ListTeamDevicesResult devicesListTeamDevices(const ListTeamDevicesArg&);
+        std::unique_ptr<ListTeamDevicesResult> devicesListTeamDevices(const ListTeamDevicesArg&);
 
             /**
             ApiRoute('devices/revoke_device_session')
@@ -219,7 +219,7 @@ namespace team{
 
             on error:RevokeDeviceSessionBatchError throws exception RevokeDeviceSessionBatchErrorException
             */
-        RevokeDeviceSessionBatchResult devicesRevokeDeviceSessionBatch(const RevokeDeviceSessionBatchArg&);
+        std::unique_ptr<RevokeDeviceSessionBatchResult> devicesRevokeDeviceSessionBatch(const RevokeDeviceSessionBatchArg&);
 
             /**
             ApiRoute('get_info')
@@ -228,7 +228,7 @@ namespace team{
             Retrieves information about a team.
 
             */
-        TeamGetInfoResult getInfo(void);
+        std::unique_ptr<TeamGetInfoResult> getInfo(void);
 
             /**
             ApiRoute('groups/create')
@@ -239,7 +239,7 @@ namespace team{
 
             on error:GroupCreateError throws exception GroupCreateErrorException
             */
-        GroupFullInfo groupsCreate(const GroupCreateArg&);
+        std::unique_ptr<GroupFullInfo> groupsCreate(const GroupCreateArg&);
 
             /**
             ApiRoute('groups/delete')
@@ -252,7 +252,7 @@ namespace team{
 
             on error:GroupDeleteError throws exception GroupDeleteErrorException
             */
-        async::LaunchEmptyResult groupsDelete(const GroupSelector&);
+        std::unique_ptr<async::LaunchEmptyResult> groupsDelete(const GroupSelector&);
 
             /**
             ApiRoute('groups/get_info')
@@ -276,7 +276,7 @@ namespace team{
 
             on error:GroupsPollError throws exception GroupsPollErrorException
             */
-        async::PollEmptyResult groupsJobStatusGet(const async::PollArg&);
+        std::unique_ptr<async::PollEmptyResult> groupsJobStatusGet(const async::PollArg&);
 
             /**
             ApiRoute('groups/list')
@@ -285,7 +285,7 @@ namespace team{
             Lists groups on a team. Permission : Team Information
 
             */
-        GroupsListResult groupsList(const GroupsListArg&);
+        std::unique_ptr<GroupsListResult> groupsList(const GroupsListArg&);
 
             /**
             ApiRoute('groups/list/continue')
@@ -296,7 +296,7 @@ namespace team{
 
             on error:GroupsListContinueError throws exception GroupsListContinueErrorException
             */
-        GroupsListResult groupsListContinue(const GroupsListContinueArg&);
+        std::unique_ptr<GroupsListResult> groupsListContinue(const GroupsListContinueArg&);
 
             /**
             ApiRoute('groups/members/add')
@@ -309,7 +309,7 @@ namespace team{
 
             on error:GroupMembersAddError throws exception GroupMembersAddErrorException
             */
-        GroupMembersChangeResult groupsMembersAdd(const GroupMembersAddArg&);
+        std::unique_ptr<GroupMembersChangeResult> groupsMembersAdd(const GroupMembersAddArg&);
 
             /**
             ApiRoute('groups/members/list')
@@ -319,7 +319,7 @@ namespace team{
 
             on error:GroupSelectorError throws exception GroupSelectorErrorException
             */
-        GroupsMembersListResult groupsMembersList(const GroupsMembersListArg&);
+        std::unique_ptr<GroupsMembersListResult> groupsMembersList(const GroupsMembersListArg&);
 
             /**
             ApiRoute('groups/members/list/continue')
@@ -331,7 +331,7 @@ namespace team{
 
             on error:GroupsMembersListContinueError throws exception GroupsMembersListContinueErrorException
             */
-        GroupsMembersListResult groupsMembersListContinue(const GroupsMembersListContinueArg&);
+        std::unique_ptr<GroupsMembersListResult> groupsMembersListContinue(const GroupsMembersListContinueArg&);
 
             /**
             ApiRoute('groups/members/remove')
@@ -346,7 +346,7 @@ namespace team{
 
             on error:GroupMembersRemoveError throws exception GroupMembersRemoveErrorException
             */
-        GroupMembersChangeResult groupsMembersRemove(const GroupMembersRemoveArg&);
+        std::unique_ptr<GroupMembersChangeResult> groupsMembersRemove(const GroupMembersRemoveArg&);
 
             /**
             ApiRoute('groups/members/set_access_type')
@@ -368,7 +368,7 @@ namespace team{
 
             on error:GroupUpdateError throws exception GroupUpdateErrorException
             */
-        GroupFullInfo groupsUpdate(const GroupUpdateArgs&);
+        std::unique_ptr<GroupFullInfo> groupsUpdate(const GroupUpdateArgs&);
 
             /**
             ApiRoute('linked_apps/list_member_linked_apps')
@@ -379,7 +379,7 @@ namespace team{
 
             on error:ListMemberAppsError throws exception ListMemberAppsErrorException
             */
-        ListMemberAppsResult linkedAppsListMemberLinkedApps(const ListMemberAppsArg&);
+        std::unique_ptr<ListMemberAppsResult> linkedAppsListMemberLinkedApps(const ListMemberAppsArg&);
 
             /**
             ApiRoute('linked_apps/list_members_linked_apps')
@@ -390,7 +390,7 @@ namespace team{
 
             on error:ListMembersAppsError throws exception ListMembersAppsErrorException
             */
-        ListMembersAppsResult linkedAppsListMembersLinkedApps(const ListMembersAppsArg&);
+        std::unique_ptr<ListMembersAppsResult> linkedAppsListMembersLinkedApps(const ListMembersAppsArg&);
 
             /**
             ApiRoute('linked_apps/list_team_linked_apps')
@@ -401,7 +401,7 @@ namespace team{
 
             on error:ListTeamAppsError throws exception ListTeamAppsErrorException
             */
-        ListTeamAppsResult linkedAppsListTeamLinkedApps(const ListTeamAppsArg&);
+        std::unique_ptr<ListTeamAppsResult> linkedAppsListTeamLinkedApps(const ListTeamAppsArg&);
 
             /**
             ApiRoute('linked_apps/revoke_linked_app')
@@ -421,7 +421,7 @@ namespace team{
 
             on error:RevokeLinkedAppBatchError throws exception RevokeLinkedAppBatchErrorException
             */
-        RevokeLinkedAppBatchResult linkedAppsRevokeLinkedAppBatch(const RevokeLinkedApiAppBatchArg&);
+        std::unique_ptr<RevokeLinkedAppBatchResult> linkedAppsRevokeLinkedAppBatch(const RevokeLinkedApiAppBatchArg&);
 
             /**
             ApiRoute('members/add')
@@ -441,7 +441,7 @@ namespace team{
             taken on the user before they become 'active'.
 
             */
-        MembersAddLaunch membersAdd(const MembersAddArg&);
+        std::unique_ptr<MembersAddLaunch> membersAdd(const MembersAddArg&);
 
             /**
             ApiRoute('members/add/job_status/get')
@@ -453,7 +453,7 @@ namespace team{
 
             on error:PollError throws exception PollErrorException
             */
-        MembersAddJobStatus membersAddJobStatusGet(const async::PollArg&);
+        std::unique_ptr<MembersAddJobStatus> membersAddJobStatusGet(const async::PollArg&);
 
             /**
             ApiRoute('members/get_info')
@@ -476,7 +476,7 @@ namespace team{
 
             on error:MembersListError throws exception MembersListErrorException
             */
-        MembersListResult membersList(const MembersListArg&);
+        std::unique_ptr<MembersListResult> membersList(const MembersListArg&);
 
             /**
             ApiRoute('members/list/continue')
@@ -487,7 +487,7 @@ namespace team{
 
             on error:MembersListContinueError throws exception MembersListContinueErrorException
             */
-        MembersListResult membersListContinue(const MembersListContinueArg&);
+        std::unique_ptr<MembersListResult> membersListContinue(const MembersListContinueArg&);
 
             /**
             ApiRoute('members/recover')
@@ -518,7 +518,7 @@ namespace team{
 
             on error:MembersRemoveError throws exception MembersRemoveErrorException
             */
-        async::LaunchEmptyResult membersRemove(const MembersRemoveArg&);
+        std::unique_ptr<async::LaunchEmptyResult> membersRemove(const MembersRemoveArg&);
 
             /**
             ApiRoute('members/remove/job_status/get')
@@ -530,7 +530,7 @@ namespace team{
 
             on error:PollError throws exception PollErrorException
             */
-        async::PollEmptyResult membersRemoveJobStatusGet(const async::PollArg&);
+        std::unique_ptr<async::PollEmptyResult> membersRemoveJobStatusGet(const async::PollArg&);
 
             /**
             ApiRoute('members/send_welcome_email')
@@ -554,7 +554,7 @@ namespace team{
 
             on error:MembersSetPermissionsError throws exception MembersSetPermissionsErrorException
             */
-        MembersSetPermissionsResult membersSetAdminPermissions(const MembersSetPermissionsArg&);
+        std::unique_ptr<MembersSetPermissionsResult> membersSetAdminPermissions(const MembersSetPermissionsArg&);
 
             /**
             ApiRoute('members/set_profile')
@@ -564,7 +564,7 @@ namespace team{
 
             on error:MembersSetProfileError throws exception MembersSetProfileErrorException
             */
-        TeamMemberInfo membersSetProfile(const MembersSetProfileArg&);
+        std::unique_ptr<TeamMemberInfo> membersSetProfile(const MembersSetProfileArg&);
 
             /**
             ApiRoute('members/suspend')
@@ -599,7 +599,7 @@ namespace team{
 
             on error:ModifyPropertyTemplateError throws exception ModifyPropertyTemplateErrorException
             */
-        AddPropertyTemplateResult propertiesTemplateAdd(const AddPropertyTemplateArg&);
+        std::unique_ptr<AddPropertyTemplateResult> propertiesTemplateAdd(const AddPropertyTemplateArg&);
 
             /**
             ApiRoute('properties/template/get')
@@ -609,7 +609,7 @@ namespace team{
 
             on error:PropertyTemplateError throws exception PropertyTemplateErrorException
             */
-        properties::GetPropertyTemplateResult propertiesTemplateGet(const properties::GetPropertyTemplateArg&);
+        std::unique_ptr<properties::GetPropertyTemplateResult> propertiesTemplateGet(const properties::GetPropertyTemplateArg&);
 
             /**
             ApiRoute('properties/template/list')
@@ -620,7 +620,7 @@ namespace team{
 
             on error:PropertyTemplateError throws exception PropertyTemplateErrorException
             */
-        properties::ListPropertyTemplateIds propertiesTemplateList(void);
+        std::unique_ptr<properties::ListPropertyTemplateIds> propertiesTemplateList(void);
 
             /**
             ApiRoute('properties/template/update')
@@ -631,7 +631,7 @@ namespace team{
 
             on error:ModifyPropertyTemplateError throws exception ModifyPropertyTemplateErrorException
             */
-        UpdatePropertyTemplateResult propertiesTemplateUpdate(const UpdatePropertyTemplateArg&);
+        std::unique_ptr<UpdatePropertyTemplateResult> propertiesTemplateUpdate(const UpdatePropertyTemplateArg&);
 
             /**
             ApiRoute('reports/get_activity')
@@ -641,7 +641,7 @@ namespace team{
 
             on error:DateRangeError throws exception DateRangeErrorException
             */
-        GetActivityReport reportsGetActivity(const DateRange&);
+        std::unique_ptr<GetActivityReport> reportsGetActivity(const DateRange&);
 
             /**
             ApiRoute('reports/get_devices')
@@ -651,7 +651,7 @@ namespace team{
 
             on error:DateRangeError throws exception DateRangeErrorException
             */
-        GetDevicesReport reportsGetDevices(const DateRange&);
+        std::unique_ptr<GetDevicesReport> reportsGetDevices(const DateRange&);
 
             /**
             ApiRoute('reports/get_membership')
@@ -661,7 +661,7 @@ namespace team{
 
             on error:DateRangeError throws exception DateRangeErrorException
             */
-        GetMembershipReport reportsGetMembership(const DateRange&);
+        std::unique_ptr<GetMembershipReport> reportsGetMembership(const DateRange&);
 
             /**
             ApiRoute('reports/get_storage')
@@ -671,7 +671,7 @@ namespace team{
 
             on error:DateRangeError throws exception DateRangeErrorException
             */
-        GetStorageReport reportsGetStorage(const DateRange&);
+        std::unique_ptr<GetStorageReport> reportsGetStorage(const DateRange&);
 
     protected:
         Endpoint* m_end_point;

@@ -36,33 +36,41 @@ namespace team{
     public:
         ///None
         QString memberEmail()const{return m_member_email;};
-        MemberAddArg& setMemberemail(const QString& arg){m_member_email=arg; return *this;};
+        MemberAddArg& setMemberemail(const QString& arg){m_member_email=arg;return *this;};
 
         ///Member's first name.
         QString memberGivenName()const{return m_member_given_name;};
-        MemberAddArg& setMembergivenname(const QString& arg){m_member_given_name=arg; return *this;};
+        MemberAddArg& setMembergivenname(const QString& arg){m_member_given_name=arg;return *this;};
 
         ///Member's last name.
         QString memberSurname()const{return m_member_surname;};
-        MemberAddArg& setMembersurname(const QString& arg){m_member_surname=arg; return *this;};
+        MemberAddArg& setMembersurname(const QString& arg){m_member_surname=arg;return *this;};
 
         ///External ID for member.
         QString memberExternalId()const{return m_member_external_id;};
-        MemberAddArg& setMemberexternalid(const QString& arg){m_member_external_id=arg; return *this;};
+        MemberAddArg& setMemberexternalid(const QString& arg){m_member_external_id=arg;return *this;};
 
         ///Whether to send a welcome email to the member. If send_welcome_email is false, no email invitation will be sent to the user. This may be useful for apps using single sign-on (SSO) flows for onboarding that want to handle announcements themselves.
         bool sendWelcomeEmail()const{return m_send_welcome_email;};
-        MemberAddArg& setSendwelcomeemail(const bool& arg){m_send_welcome_email=arg; return *this;};
+        MemberAddArg& setSendwelcomeemail(const bool& arg){m_send_welcome_email=arg;return *this;};
 
         ///None
         AdminTier role()const{return m_role;};
-        MemberAddArg& setRole(const AdminTier& arg){m_role=arg; return *this;};
+        MemberAddArg& setRole(const AdminTier& arg){m_role=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<MemberAddArg>  create(const QByteArray& data);
+            static std::unique_ptr<MemberAddArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static MemberAddArg EXAMPLE();

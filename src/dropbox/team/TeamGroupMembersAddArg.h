@@ -26,17 +26,25 @@ namespace team{
     public:
         ///Group to which users will be added.
         GroupSelector group()const{return m_group;};
-        GroupMembersAddArg& setGroup(const GroupSelector& arg){m_group=arg; return *this;};
+        GroupMembersAddArg& setGroup(const GroupSelector& arg){m_group=arg;return *this;};
 
         ///List of users to be added to the group.
         const std::list <MemberAccess>& members()const{return m_members;};
-        GroupMembersAddArg& setMembers(const std::list <MemberAccess>&& arg){m_members=arg; return *this;};
+        GroupMembersAddArg& setMembers(const std::list <MemberAccess>&& arg){m_members=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<GroupMembersAddArg>  create(const QByteArray& data);
+            static std::unique_ptr<GroupMembersAddArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static GroupMembersAddArg EXAMPLE();

@@ -25,17 +25,25 @@ namespace files{
     public:
         ///The type of the match.
         SearchMatchType matchType()const{return m_match_type;};
-        SearchMatch& setMatchtype(const SearchMatchType& arg){m_match_type=arg; return *this;};
+        SearchMatch& setMatchtype(const SearchMatchType& arg){m_match_type=arg;return *this;};
 
         ///The metadata for the matched file or folder.
         Metadata metadata()const{return m_metadata;};
-        SearchMatch& setMetadata(const Metadata& arg){m_metadata=arg; return *this;};
+        SearchMatch& setMetadata(const Metadata& arg){m_metadata=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<SearchMatch>  create(const QByteArray& data);
+            static std::unique_ptr<SearchMatch>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static SearchMatch EXAMPLE();

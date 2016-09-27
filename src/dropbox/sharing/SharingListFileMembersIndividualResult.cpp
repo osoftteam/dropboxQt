@@ -63,6 +63,15 @@ QString ListFileMembersIndividualResult::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ListFileMembersIndividualResult>  ListFileMembersIndividualResult::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ListFileMembersIndividualResult> rv = std::unique_ptr<ListFileMembersIndividualResult>(new ListFileMembersIndividualResult);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ListFileMembersIndividualResult ListFileMembersIndividualResult::EXAMPLE(){
     ListFileMembersIndividualResult rv;

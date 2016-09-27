@@ -40,41 +40,49 @@ namespace team{
     public:
         ///ID of user as a member of a team.
         QString teamMemberId()const{return m_team_member_id;};
-        MemberProfile& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
+        MemberProfile& setTeammemberid(const QString& arg){m_team_member_id=arg;return *this;};
 
         ///External ID that a team can attach to the user. An application using the API may find it easier to use their own IDs instead of Dropbox IDs like account_id or team_member_id.
         QString externalId()const{return m_external_id;};
-        MemberProfile& setExternalid(const QString& arg){m_external_id=arg; return *this;};
+        MemberProfile& setExternalid(const QString& arg){m_external_id=arg;return *this;};
 
         ///A user's account identifier.
         QString accountId()const{return m_account_id;};
-        MemberProfile& setAccountid(const QString& arg){m_account_id=arg; return *this;};
+        MemberProfile& setAccountid(const QString& arg){m_account_id=arg;return *this;};
 
         ///Email address of user.
         QString email()const{return m_email;};
-        MemberProfile& setEmail(const QString& arg){m_email=arg; return *this;};
+        MemberProfile& setEmail(const QString& arg){m_email=arg;return *this;};
 
         ///Is true if the user's email is verified to be owned by the user.
         bool emailVerified()const{return m_email_verified;};
-        MemberProfile& setEmailverified(const bool& arg){m_email_verified=arg; return *this;};
+        MemberProfile& setEmailverified(const bool& arg){m_email_verified=arg;return *this;};
 
         ///The user's status as a member of a specific team.
         TeamMemberStatus status()const{return m_status;};
-        MemberProfile& setStatus(const TeamMemberStatus& arg){m_status=arg; return *this;};
+        MemberProfile& setStatus(const TeamMemberStatus& arg){m_status=arg;return *this;};
 
         ///Representations for a person's name.
         users::Name name()const{return m_name;};
-        MemberProfile& setName(const users::Name& arg){m_name=arg; return *this;};
+        MemberProfile& setName(const users::Name& arg){m_name=arg;return *this;};
 
         ///The user's membership type: full (normal team member) vs limited (does not use a license; no access to the team's shared quota).
         TeamMembershipType membershipType()const{return m_membership_type;};
-        MemberProfile& setMembershiptype(const TeamMembershipType& arg){m_membership_type=arg; return *this;};
+        MemberProfile& setMembershiptype(const TeamMembershipType& arg){m_membership_type=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<MemberProfile>  create(const QByteArray& data);
+            static std::unique_ptr<MemberProfile>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static MemberProfile EXAMPLE();

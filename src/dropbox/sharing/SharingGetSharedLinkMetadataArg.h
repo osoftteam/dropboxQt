@@ -26,21 +26,29 @@ namespace sharing{
     public:
         ///URL of the shared link.
         QString url()const{return m_url;};
-        GetSharedLinkMetadataArg& setUrl(const QString& arg){m_url=arg; return *this;};
+        GetSharedLinkMetadataArg& setUrl(const QString& arg){m_url=arg;return *this;};
 
         ///If the shared link is to a folder, this parameter can be used to retrieve the metadata for a specific file or sub-folder in this folder. A relative path should be used.
         QString path()const{return m_path;};
-        GetSharedLinkMetadataArg& setPath(const QString& arg){m_path=arg; return *this;};
+        GetSharedLinkMetadataArg& setPath(const QString& arg){m_path=arg;return *this;};
 
         ///If the shared link has a password, this parameter can be used.
         QString linkPassword()const{return m_link_password;};
-        GetSharedLinkMetadataArg& setLinkpassword(const QString& arg){m_link_password=arg; return *this;};
+        GetSharedLinkMetadataArg& setLinkpassword(const QString& arg){m_link_password=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<GetSharedLinkMetadataArg>  create(const QByteArray& data);
+            static std::unique_ptr<GetSharedLinkMetadataArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static GetSharedLinkMetadataArg EXAMPLE();

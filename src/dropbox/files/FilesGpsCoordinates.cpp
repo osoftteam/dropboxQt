@@ -38,6 +38,23 @@ QString GpsCoordinates::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<GpsCoordinates>  GpsCoordinates::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<GpsCoordinates>  GpsCoordinates::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<GpsCoordinates> rv;
+    rv = std::unique_ptr<GpsCoordinates>(new GpsCoordinates);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GpsCoordinates GpsCoordinates::EXAMPLE(){
     GpsCoordinates rv;

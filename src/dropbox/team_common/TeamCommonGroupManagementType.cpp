@@ -61,6 +61,15 @@ QString GroupManagementType::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GroupManagementType>  GroupManagementType::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GroupManagementType> rv = std::unique_ptr<GroupManagementType>(new GroupManagementType);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GroupManagementType GroupManagementType::EXAMPLE(){
     GroupManagementType rv;

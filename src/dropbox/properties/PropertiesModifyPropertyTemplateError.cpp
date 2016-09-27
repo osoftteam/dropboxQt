@@ -95,6 +95,15 @@ QString ModifyPropertyTemplateError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ModifyPropertyTemplateError>  ModifyPropertyTemplateError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ModifyPropertyTemplateError> rv = std::unique_ptr<ModifyPropertyTemplateError>(new ModifyPropertyTemplateError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ModifyPropertyTemplateError ModifyPropertyTemplateError::EXAMPLE(){
     ModifyPropertyTemplateError rv;

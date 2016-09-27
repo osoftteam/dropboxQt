@@ -56,6 +56,15 @@ QString MembersAddLaunch::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<MembersAddLaunch>  MembersAddLaunch::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<MembersAddLaunch> rv = std::unique_ptr<MembersAddLaunch>(new MembersAddLaunch);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MembersAddLaunch MembersAddLaunch::EXAMPLE(){
     MembersAddLaunch rv;

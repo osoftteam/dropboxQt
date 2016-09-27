@@ -55,6 +55,15 @@ QString GetAccountBatchError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GetAccountBatchError>  GetAccountBatchError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GetAccountBatchError> rv = std::unique_ptr<GetAccountBatchError>(new GetAccountBatchError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GetAccountBatchError GetAccountBatchError::EXAMPLE(){
     GetAccountBatchError rv;

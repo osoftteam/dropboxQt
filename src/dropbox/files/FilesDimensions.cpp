@@ -38,6 +38,23 @@ QString Dimensions::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<Dimensions>  Dimensions::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<Dimensions>  Dimensions::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<Dimensions> rv;
+    rv = std::unique_ptr<Dimensions>(new Dimensions);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 Dimensions Dimensions::EXAMPLE(){
     Dimensions rv;

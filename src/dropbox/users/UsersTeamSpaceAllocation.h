@@ -24,17 +24,25 @@ namespace users{
     public:
         ///The total space currently used by the user's team (bytes).
         int used()const{return m_used;};
-        TeamSpaceAllocation& setUsed(const int& arg){m_used=arg; return *this;};
+        TeamSpaceAllocation& setUsed(const int& arg){m_used=arg;return *this;};
 
         ///The total space allocated to the user's team (bytes).
         int allocated()const{return m_allocated;};
-        TeamSpaceAllocation& setAllocated(const int& arg){m_allocated=arg; return *this;};
+        TeamSpaceAllocation& setAllocated(const int& arg){m_allocated=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<TeamSpaceAllocation>  create(const QByteArray& data);
+            static std::unique_ptr<TeamSpaceAllocation>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static TeamSpaceAllocation EXAMPLE();

@@ -157,6 +157,15 @@ QString MembersRemoveError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<MembersRemoveError>  MembersRemoveError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<MembersRemoveError> rv = std::unique_ptr<MembersRemoveError>(new MembersRemoveError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MembersRemoveError MembersRemoveError::EXAMPLE(){
     MembersRemoveError rv;

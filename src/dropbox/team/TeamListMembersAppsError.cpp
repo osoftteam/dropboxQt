@@ -53,6 +53,15 @@ QString ListMembersAppsError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ListMembersAppsError>  ListMembersAppsError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ListMembersAppsError> rv = std::unique_ptr<ListMembersAppsError>(new ListMembersAppsError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ListMembersAppsError ListMembersAppsError::EXAMPLE(){
     ListMembersAppsError rv;

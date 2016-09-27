@@ -37,6 +37,23 @@ QString ListFoldersContinueArg::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<ListFoldersContinueArg>  ListFoldersContinueArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<ListFoldersContinueArg>  ListFoldersContinueArg::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<ListFoldersContinueArg> rv;
+    rv = std::unique_ptr<ListFoldersContinueArg>(new ListFoldersContinueArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ListFoldersContinueArg ListFoldersContinueArg::EXAMPLE(){
     ListFoldersContinueArg rv;

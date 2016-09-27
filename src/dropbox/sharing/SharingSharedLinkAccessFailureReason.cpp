@@ -85,6 +85,15 @@ QString SharedLinkAccessFailureReason::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<SharedLinkAccessFailureReason>  SharedLinkAccessFailureReason::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<SharedLinkAccessFailureReason> rv = std::unique_ptr<SharedLinkAccessFailureReason>(new SharedLinkAccessFailureReason);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 SharedLinkAccessFailureReason SharedLinkAccessFailureReason::EXAMPLE(){
     SharedLinkAccessFailureReason rv;

@@ -19,13 +19,21 @@ namespace team{
     public:
         ///None
         const std::list <RevokeDeviceSessionArg>& revokeDevices()const{return m_revoke_devices;};
-        RevokeDeviceSessionBatchArg& setRevokedevices(const std::list <RevokeDeviceSessionArg>&& arg){m_revoke_devices=arg; return *this;};
+        RevokeDeviceSessionBatchArg& setRevokedevices(const std::list <RevokeDeviceSessionArg>&& arg){m_revoke_devices=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<RevokeDeviceSessionBatchArg>  create(const QByteArray& data);
+            static std::unique_ptr<RevokeDeviceSessionBatchArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static RevokeDeviceSessionBatchArg EXAMPLE();

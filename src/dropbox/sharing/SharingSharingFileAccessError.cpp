@@ -85,6 +85,15 @@ QString SharingFileAccessError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<SharingFileAccessError>  SharingFileAccessError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<SharingFileAccessError> rv = std::unique_ptr<SharingFileAccessError>(new SharingFileAccessError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 SharingFileAccessError SharingFileAccessError::EXAMPLE(){
     SharingFileAccessError rv;

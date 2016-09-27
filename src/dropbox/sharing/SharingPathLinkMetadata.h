@@ -24,13 +24,21 @@ namespace sharing{
     public:
         ///Path in user's Dropbox.
         QString path()const{return m_path;};
-        PathLinkMetadata& setPath(const QString& arg){m_path=arg; return *this;};
+        PathLinkMetadata& setPath(const QString& arg){m_path=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<PathLinkMetadata>  create(const QByteArray& data);
+            static std::unique_ptr<PathLinkMetadata>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static PathLinkMetadata EXAMPLE();

@@ -86,6 +86,15 @@ QString ShareFolderError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ShareFolderError>  ShareFolderError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ShareFolderError> rv = std::unique_ptr<ShareFolderError>(new ShareFolderError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ShareFolderError ShareFolderError::EXAMPLE(){
     ShareFolderError rv;

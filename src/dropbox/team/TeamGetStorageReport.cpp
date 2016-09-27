@@ -46,6 +46,23 @@ QString GetStorageReport::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<GetStorageReport>  GetStorageReport::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<GetStorageReport>  GetStorageReport::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<GetStorageReport> rv;
+    rv = std::unique_ptr<GetStorageReport>(new GetStorageReport);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GetStorageReport GetStorageReport::EXAMPLE(){
     GetStorageReport rv;

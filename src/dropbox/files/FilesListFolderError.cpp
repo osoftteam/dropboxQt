@@ -54,6 +54,15 @@ QString ListFolderError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ListFolderError>  ListFolderError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ListFolderError> rv = std::unique_ptr<ListFolderError>(new ListFolderError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ListFolderError ListFolderError::EXAMPLE(){
     ListFolderError rv;

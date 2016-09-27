@@ -28,29 +28,37 @@ namespace team_common{
     public:
         ///None
         QString groupName()const{return m_group_name;};
-        GroupSummary& setGroupname(const QString& arg){m_group_name=arg; return *this;};
+        GroupSummary& setGroupname(const QString& arg){m_group_name=arg;return *this;};
 
         ///None
         QString groupId()const{return m_group_id;};
-        GroupSummary& setGroupid(const QString& arg){m_group_id=arg; return *this;};
+        GroupSummary& setGroupid(const QString& arg){m_group_id=arg;return *this;};
 
         ///External ID of group. This is an arbitrary ID that an admin can attach to a group.
         QString groupExternalId()const{return m_group_external_id;};
-        GroupSummary& setGroupexternalid(const QString& arg){m_group_external_id=arg; return *this;};
+        GroupSummary& setGroupexternalid(const QString& arg){m_group_external_id=arg;return *this;};
 
         ///The number of members in the group.
         int memberCount()const{return m_member_count;};
-        GroupSummary& setMembercount(const int& arg){m_member_count=arg; return *this;};
+        GroupSummary& setMembercount(const int& arg){m_member_count=arg;return *this;};
 
         ///Who is allowed to manage the group.
         GroupManagementType groupManagementType()const{return m_group_management_type;};
-        GroupSummary& setGroupmanagementtype(const GroupManagementType& arg){m_group_management_type=arg; return *this;};
+        GroupSummary& setGroupmanagementtype(const GroupManagementType& arg){m_group_management_type=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<GroupSummary>  create(const QByteArray& data);
+            static std::unique_ptr<GroupSummary>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static GroupSummary EXAMPLE();

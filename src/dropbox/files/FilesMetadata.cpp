@@ -4,6 +4,9 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesMetadata.h"
+#include "dropbox/files/FilesFileMetadata.h"
+#include "dropbox/files/FilesFolderMetadata.h"
+#include "dropbox/files/FilesDeletedMetadata.h"
 
 namespace dropboxQt{
 
@@ -44,6 +47,35 @@ QString Metadata::toString(bool multiline)const
     QJsonDocument doc(js);
     QString s(doc.toJson(multiline ? QJsonDocument::Indented : QJsonDocument::Compact));
     return s;
+}
+
+
+std::unique_ptr<Metadata>  Metadata::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<Metadata>  Metadata::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<Metadata> rv;
+    // subtype ('file',) : FileMetadata
+    // subtype ('folder',) : FolderMetadata
+    // subtype ('deleted',) : DeletedMetadata
+    QString tag = js[".tag"].toString();
+    if(tag.isEmpty()){
+        rv = std::unique_ptr<Metadata>(new Metadata);
+    }else if(tag.compare("file") == 0){
+        rv = std::unique_ptr<Metadata>(new FileMetadata);
+    }else if(tag.compare("folder") == 0){
+        rv = std::unique_ptr<Metadata>(new FolderMetadata);
+    }else if(tag.compare("deleted") == 0){
+        rv = std::unique_ptr<Metadata>(new DeletedMetadata);
+    }
+    rv->fromJson(js);
+    return rv;
 }
 
 #ifdef DROPBOX_QT_AUTOTEST

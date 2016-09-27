@@ -23,13 +23,21 @@ namespace sharing{
     public:
         ///Cursor in :field:`ListFilesResult.cursor`
         QString cursor()const{return m_cursor;};
-        ListFilesContinueArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
+        ListFilesContinueArg& setCursor(const QString& arg){m_cursor=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ListFilesContinueArg>  create(const QByteArray& data);
+            static std::unique_ptr<ListFilesContinueArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ListFilesContinueArg EXAMPLE();

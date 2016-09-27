@@ -40,6 +40,23 @@ QString Team::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<Team>  Team::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<Team>  Team::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<Team> rv;
+    rv = std::unique_ptr<Team>(new Team);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 Team Team::EXAMPLE(){
     Team rv;

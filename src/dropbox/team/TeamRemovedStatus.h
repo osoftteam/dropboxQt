@@ -22,13 +22,21 @@ namespace team{
     public:
         ///True if the removed team member is recoverable
         bool isRecoverable()const{return m_is_recoverable;};
-        RemovedStatus& setIsrecoverable(const bool& arg){m_is_recoverable=arg; return *this;};
+        RemovedStatus& setIsrecoverable(const bool& arg){m_is_recoverable=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<RemovedStatus>  create(const QByteArray& data);
+            static std::unique_ptr<RemovedStatus>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static RemovedStatus EXAMPLE();

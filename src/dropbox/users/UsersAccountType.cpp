@@ -61,6 +61,15 @@ QString AccountType::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<AccountType>  AccountType::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<AccountType> rv = std::unique_ptr<AccountType>(new AccountType);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 AccountType AccountType::EXAMPLE(){
     AccountType rv;

@@ -47,6 +47,15 @@ QString LaunchResultBase::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<LaunchResultBase>  LaunchResultBase::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<LaunchResultBase> rv = std::unique_ptr<LaunchResultBase>(new LaunchResultBase);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 LaunchResultBase LaunchResultBase::EXAMPLE(){
     LaunchResultBase rv;

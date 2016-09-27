@@ -29,17 +29,25 @@ namespace sharing{
     public:
         ///Files for which to return members.
         const std::list <QString>& files()const{return m_files;};
-        ListFileMembersBatchArg& setFiles(const std::list <QString>&& arg){m_files=arg; return *this;};
+        ListFileMembersBatchArg& setFiles(const std::list <QString>&& arg){m_files=arg;return *this;};
 
         ///Number of members to return max per query. Defaults to 10 if no limit is specified.
         int limit()const{return m_limit;};
-        ListFileMembersBatchArg& setLimit(const int& arg){m_limit=arg; return *this;};
+        ListFileMembersBatchArg& setLimit(const int& arg){m_limit=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ListFileMembersBatchArg>  create(const QByteArray& data);
+            static std::unique_ptr<ListFileMembersBatchArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ListFileMembersBatchArg EXAMPLE();

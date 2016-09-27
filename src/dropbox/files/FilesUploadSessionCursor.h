@@ -25,17 +25,25 @@ namespace files{
     public:
         ///The upload session ID (returned by :route:`upload_session/start`).
         QString sessionId()const{return m_session_id;};
-        UploadSessionCursor& setSessionid(const QString& arg){m_session_id=arg; return *this;};
+        UploadSessionCursor& setSessionid(const QString& arg){m_session_id=arg;return *this;};
 
         ///The amount of data that has been uploaded so far. We use this to make sure upload data isn't lost or duplicated in the event of a network error.
         int offset()const{return m_offset;};
-        UploadSessionCursor& setOffset(const int& arg){m_offset=arg; return *this;};
+        UploadSessionCursor& setOffset(const int& arg){m_offset=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<UploadSessionCursor>  create(const QByteArray& data);
+            static std::unique_ptr<UploadSessionCursor>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static UploadSessionCursor EXAMPLE();

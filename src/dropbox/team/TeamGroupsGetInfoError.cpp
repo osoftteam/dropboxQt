@@ -53,6 +53,15 @@ QString GroupsGetInfoError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GroupsGetInfoError>  GroupsGetInfoError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GroupsGetInfoError> rv = std::unique_ptr<GroupsGetInfoError>(new GroupsGetInfoError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GroupsGetInfoError GroupsGetInfoError::EXAMPLE(){
     GroupsGetInfoError rv;

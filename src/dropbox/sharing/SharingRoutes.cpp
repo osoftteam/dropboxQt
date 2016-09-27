@@ -15,242 +15,207 @@ SharingRoutes::SharingRoutes(Endpoint* p):m_end_point(p){
 
 std::list <FileMemberActionResult> SharingRoutes::addFileMember(const AddFileMemberArgs& arg){
     QJsonObject js(arg);
-    std::list <FileMemberActionResult> r = m_end_point->rpcStyle<std::list <FileMemberActionResult>, ListFromJsonLoader<std::list <FileMemberActionResult>, FileMemberActionResult>, AddFileMemberErrorException>("2/sharing/add_file_member", js);
-    return r;
+    return m_end_point->rpcStyle<std::list <FileMemberActionResult>, ListFromJsonLoader<std::list <FileMemberActionResult>, FileMemberActionResult>, AddFileMemberErrorException>("2/sharing/add_file_member", js);
 }
 
 void SharingRoutes::addFolderMember(const AddFolderMemberArg& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, AddFolderMemberErrorException>("2/sharing/add_folder_member", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, AddFolderMemberErrorException>("2/sharing/add_folder_member", js);
 }
 
-FileMemberActionResult SharingRoutes::changeFileMemberAccess(const ChangeFileMemberAccessArgs& arg){
+std::unique_ptr<FileMemberActionResult> SharingRoutes::changeFileMemberAccess(const ChangeFileMemberAccessArgs& arg){
     QJsonObject js(arg);
-    FileMemberActionResult r = m_end_point->rpcStyle<FileMemberActionResult, StructFromJsonLoader<FileMemberActionResult>, FileMemberActionErrorException>("2/sharing/change_file_member_access", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<FileMemberActionResult>, FileMemberActionResult::factory, FileMemberActionErrorException>("2/sharing/change_file_member_access", js);
 }
 
-JobStatus SharingRoutes::checkJobStatus(const async::PollArg& arg){
+std::unique_ptr<JobStatus> SharingRoutes::checkJobStatus(const async::PollArg& arg){
     QJsonObject js(arg);
-    JobStatus r = m_end_point->rpcStyle<JobStatus, StructFromJsonLoader<JobStatus>, PollErrorException>("2/sharing/check_job_status", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<JobStatus>, JobStatus::factory, PollErrorException>("2/sharing/check_job_status", js);
 }
 
-RemoveMemberJobStatus SharingRoutes::checkRemoveMemberJobStatus(const async::PollArg& arg){
+std::unique_ptr<RemoveMemberJobStatus> SharingRoutes::checkRemoveMemberJobStatus(const async::PollArg& arg){
     QJsonObject js(arg);
-    RemoveMemberJobStatus r = m_end_point->rpcStyle<RemoveMemberJobStatus, StructFromJsonLoader<RemoveMemberJobStatus>, PollErrorException>("2/sharing/check_remove_member_job_status", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<RemoveMemberJobStatus>, RemoveMemberJobStatus::factory, PollErrorException>("2/sharing/check_remove_member_job_status", js);
 }
 
-ShareFolderJobStatus SharingRoutes::checkShareJobStatus(const async::PollArg& arg){
+std::unique_ptr<ShareFolderJobStatus> SharingRoutes::checkShareJobStatus(const async::PollArg& arg){
     QJsonObject js(arg);
-    ShareFolderJobStatus r = m_end_point->rpcStyle<ShareFolderJobStatus, StructFromJsonLoader<ShareFolderJobStatus>, PollErrorException>("2/sharing/check_share_job_status", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ShareFolderJobStatus>, ShareFolderJobStatus::factory, PollErrorException>("2/sharing/check_share_job_status", js);
 }
 
-PathLinkMetadata SharingRoutes::createSharedLink(const CreateSharedLinkArg& arg){
+std::unique_ptr<PathLinkMetadata> SharingRoutes::createSharedLink(const CreateSharedLinkArg& arg){
     QJsonObject js(arg);
-    PathLinkMetadata r = m_end_point->rpcStyle<PathLinkMetadata, StructFromJsonLoader<PathLinkMetadata>, CreateSharedLinkErrorException>("2/sharing/create_shared_link", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<PathLinkMetadata>, PathLinkMetadata::factory, CreateSharedLinkErrorException>("2/sharing/create_shared_link", js);
 }
 
-SharedLinkMetadata SharingRoutes::createSharedLinkWithSettings(const CreateSharedLinkWithSettingsArg& arg){
+std::unique_ptr<SharedLinkMetadata> SharingRoutes::createSharedLinkWithSettings(const CreateSharedLinkWithSettingsArg& arg){
     QJsonObject js(arg);
-    SharedLinkMetadata r = m_end_point->rpcStyle<SharedLinkMetadata, StructFromJsonLoader<SharedLinkMetadata>, CreateSharedLinkWithSettingsErrorException>("2/sharing/create_shared_link_with_settings", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SharedLinkMetadata>, SharedLinkMetadata::factory, CreateSharedLinkWithSettingsErrorException>("2/sharing/create_shared_link_with_settings", js);
 }
 
-SharedFileMetadata SharingRoutes::getFileMetadata(const GetFileMetadataArg& arg){
+std::unique_ptr<SharedFileMetadata> SharingRoutes::getFileMetadata(const GetFileMetadataArg& arg){
     QJsonObject js(arg);
-    SharedFileMetadata r = m_end_point->rpcStyle<SharedFileMetadata, StructFromJsonLoader<SharedFileMetadata>, GetFileMetadataErrorException>("2/sharing/get_file_metadata", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SharedFileMetadata>, SharedFileMetadata::factory, GetFileMetadataErrorException>("2/sharing/get_file_metadata", js);
 }
 
 std::list <GetFileMetadataBatchResult> SharingRoutes::getFileMetadataBatch(const GetFileMetadataBatchArg& arg){
     QJsonObject js(arg);
-    std::list <GetFileMetadataBatchResult> r = m_end_point->rpcStyle<std::list <GetFileMetadataBatchResult>, ListFromJsonLoader<std::list <GetFileMetadataBatchResult>, GetFileMetadataBatchResult>, SharingUserErrorException>("2/sharing/get_file_metadata/batch", js);
-    return r;
+    return m_end_point->rpcStyle<std::list <GetFileMetadataBatchResult>, ListFromJsonLoader<std::list <GetFileMetadataBatchResult>, GetFileMetadataBatchResult>, SharingUserErrorException>("2/sharing/get_file_metadata/batch", js);
 }
 
-SharedFolderMetadata SharingRoutes::getFolderMetadata(const GetMetadataArgs& arg){
+std::unique_ptr<SharedFolderMetadata> SharingRoutes::getFolderMetadata(const GetMetadataArgs& arg){
     QJsonObject js(arg);
-    SharedFolderMetadata r = m_end_point->rpcStyle<SharedFolderMetadata, StructFromJsonLoader<SharedFolderMetadata>, SharedFolderAccessErrorException>("2/sharing/get_folder_metadata", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SharedFolderMetadata>, SharedFolderMetadata::factory, SharedFolderAccessErrorException>("2/sharing/get_folder_metadata", js);
 }
 
-SharedLinkMetadata SharingRoutes::getSharedLinkFile(const GetSharedLinkMetadataArg& arg, QIODevice* out){
+std::unique_ptr<SharedLinkMetadata> SharingRoutes::getSharedLinkFile(const GetSharedLinkMetadataArg& arg, QIODevice* out){
     QJsonObject js(arg);
-    SharedLinkMetadata r = m_end_point->downloadStyle<SharedLinkMetadata, StructFromJsonLoader<SharedLinkMetadata>, GetSharedLinkFileErrorException>("2/sharing/get_shared_link_file", js, out);
-    return r;
+    return m_end_point->downloadStyle< std::unique_ptr<SharedLinkMetadata>, SharedLinkMetadata::factory, GetSharedLinkFileErrorException>("2/sharing/get_shared_link_file", js, out);
 }
 
-SharedLinkMetadata SharingRoutes::getSharedLinkMetadata(const GetSharedLinkMetadataArg& arg){
+std::unique_ptr<SharedLinkMetadata> SharingRoutes::getSharedLinkMetadata(const GetSharedLinkMetadataArg& arg){
     QJsonObject js(arg);
-    SharedLinkMetadata r = m_end_point->rpcStyle<SharedLinkMetadata, StructFromJsonLoader<SharedLinkMetadata>, SharedLinkErrorException>("2/sharing/get_shared_link_metadata", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SharedLinkMetadata>, SharedLinkMetadata::factory, SharedLinkErrorException>("2/sharing/get_shared_link_metadata", js);
 }
 
-GetSharedLinksResult SharingRoutes::getSharedLinks(const GetSharedLinksArg& arg){
+std::unique_ptr<GetSharedLinksResult> SharingRoutes::getSharedLinks(const GetSharedLinksArg& arg){
     QJsonObject js(arg);
-    GetSharedLinksResult r = m_end_point->rpcStyle<GetSharedLinksResult, StructFromJsonLoader<GetSharedLinksResult>, GetSharedLinksErrorException>("2/sharing/get_shared_links", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GetSharedLinksResult>, GetSharedLinksResult::factory, GetSharedLinksErrorException>("2/sharing/get_shared_links", js);
 }
 
-SharedFileMembers SharingRoutes::listFileMembers(const ListFileMembersArg& arg){
+std::unique_ptr<SharedFileMembers> SharingRoutes::listFileMembers(const ListFileMembersArg& arg){
     QJsonObject js(arg);
-    SharedFileMembers r = m_end_point->rpcStyle<SharedFileMembers, StructFromJsonLoader<SharedFileMembers>, ListFileMembersErrorException>("2/sharing/list_file_members", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SharedFileMembers>, SharedFileMembers::factory, ListFileMembersErrorException>("2/sharing/list_file_members", js);
 }
 
 std::list <ListFileMembersBatchResult> SharingRoutes::listFileMembersBatch(const ListFileMembersBatchArg& arg){
     QJsonObject js(arg);
-    std::list <ListFileMembersBatchResult> r = m_end_point->rpcStyle<std::list <ListFileMembersBatchResult>, ListFromJsonLoader<std::list <ListFileMembersBatchResult>, ListFileMembersBatchResult>, SharingUserErrorException>("2/sharing/list_file_members/batch", js);
-    return r;
+    return m_end_point->rpcStyle<std::list <ListFileMembersBatchResult>, ListFromJsonLoader<std::list <ListFileMembersBatchResult>, ListFileMembersBatchResult>, SharingUserErrorException>("2/sharing/list_file_members/batch", js);
 }
 
-SharedFileMembers SharingRoutes::listFileMembersContinue(const ListFileMembersContinueArg& arg){
+std::unique_ptr<SharedFileMembers> SharingRoutes::listFileMembersContinue(const ListFileMembersContinueArg& arg){
     QJsonObject js(arg);
-    SharedFileMembers r = m_end_point->rpcStyle<SharedFileMembers, StructFromJsonLoader<SharedFileMembers>, ListFileMembersContinueErrorException>("2/sharing/list_file_members/continue", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SharedFileMembers>, SharedFileMembers::factory, ListFileMembersContinueErrorException>("2/sharing/list_file_members/continue", js);
 }
 
-SharedFolderMembers SharingRoutes::listFolderMembers(const ListFolderMembersArgs& arg){
+std::unique_ptr<SharedFolderMembers> SharingRoutes::listFolderMembers(const ListFolderMembersArgs& arg){
     QJsonObject js(arg);
-    SharedFolderMembers r = m_end_point->rpcStyle<SharedFolderMembers, StructFromJsonLoader<SharedFolderMembers>, SharedFolderAccessErrorException>("2/sharing/list_folder_members", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SharedFolderMembers>, SharedFolderMembers::factory, SharedFolderAccessErrorException>("2/sharing/list_folder_members", js);
 }
 
-SharedFolderMembers SharingRoutes::listFolderMembersContinue(const ListFolderMembersContinueArg& arg){
+std::unique_ptr<SharedFolderMembers> SharingRoutes::listFolderMembersContinue(const ListFolderMembersContinueArg& arg){
     QJsonObject js(arg);
-    SharedFolderMembers r = m_end_point->rpcStyle<SharedFolderMembers, StructFromJsonLoader<SharedFolderMembers>, ListFolderMembersContinueErrorException>("2/sharing/list_folder_members/continue", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SharedFolderMembers>, SharedFolderMembers::factory, ListFolderMembersContinueErrorException>("2/sharing/list_folder_members/continue", js);
 }
 
-ListFoldersResult SharingRoutes::listFolders(const ListFoldersArgs& arg){
+std::unique_ptr<ListFoldersResult> SharingRoutes::listFolders(const ListFoldersArgs& arg){
     QJsonObject js(arg);
-    ListFoldersResult r = m_end_point->rpcStyle<ListFoldersResult, StructFromJsonLoader<ListFoldersResult>, NotAnException>("2/sharing/list_folders", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListFoldersResult>, ListFoldersResult::factory, NotAnException>("2/sharing/list_folders", js);
 }
 
-ListFoldersResult SharingRoutes::listFoldersContinue(const ListFoldersContinueArg& arg){
+std::unique_ptr<ListFoldersResult> SharingRoutes::listFoldersContinue(const ListFoldersContinueArg& arg){
     QJsonObject js(arg);
-    ListFoldersResult r = m_end_point->rpcStyle<ListFoldersResult, StructFromJsonLoader<ListFoldersResult>, ListFoldersContinueErrorException>("2/sharing/list_folders/continue", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListFoldersResult>, ListFoldersResult::factory, ListFoldersContinueErrorException>("2/sharing/list_folders/continue", js);
 }
 
-ListFoldersResult SharingRoutes::listMountableFolders(const ListFoldersArgs& arg){
+std::unique_ptr<ListFoldersResult> SharingRoutes::listMountableFolders(const ListFoldersArgs& arg){
     QJsonObject js(arg);
-    ListFoldersResult r = m_end_point->rpcStyle<ListFoldersResult, StructFromJsonLoader<ListFoldersResult>, NotAnException>("2/sharing/list_mountable_folders", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListFoldersResult>, ListFoldersResult::factory, NotAnException>("2/sharing/list_mountable_folders", js);
 }
 
-ListFoldersResult SharingRoutes::listMountableFoldersContinue(const ListFoldersContinueArg& arg){
+std::unique_ptr<ListFoldersResult> SharingRoutes::listMountableFoldersContinue(const ListFoldersContinueArg& arg){
     QJsonObject js(arg);
-    ListFoldersResult r = m_end_point->rpcStyle<ListFoldersResult, StructFromJsonLoader<ListFoldersResult>, ListFoldersContinueErrorException>("2/sharing/list_mountable_folders/continue", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListFoldersResult>, ListFoldersResult::factory, ListFoldersContinueErrorException>("2/sharing/list_mountable_folders/continue", js);
 }
 
-ListFilesResult SharingRoutes::listReceivedFiles(const ListFilesArg& arg){
+std::unique_ptr<ListFilesResult> SharingRoutes::listReceivedFiles(const ListFilesArg& arg){
     QJsonObject js(arg);
-    ListFilesResult r = m_end_point->rpcStyle<ListFilesResult, StructFromJsonLoader<ListFilesResult>, SharingUserErrorException>("2/sharing/list_received_files", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListFilesResult>, ListFilesResult::factory, SharingUserErrorException>("2/sharing/list_received_files", js);
 }
 
-ListFilesResult SharingRoutes::listReceivedFilesContinue(const ListFilesContinueArg& arg){
+std::unique_ptr<ListFilesResult> SharingRoutes::listReceivedFilesContinue(const ListFilesContinueArg& arg){
     QJsonObject js(arg);
-    ListFilesResult r = m_end_point->rpcStyle<ListFilesResult, StructFromJsonLoader<ListFilesResult>, ListFilesContinueErrorException>("2/sharing/list_received_files/continue", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListFilesResult>, ListFilesResult::factory, ListFilesContinueErrorException>("2/sharing/list_received_files/continue", js);
 }
 
-ListSharedLinksResult SharingRoutes::listSharedLinks(const ListSharedLinksArg& arg){
+std::unique_ptr<ListSharedLinksResult> SharingRoutes::listSharedLinks(const ListSharedLinksArg& arg){
     QJsonObject js(arg);
-    ListSharedLinksResult r = m_end_point->rpcStyle<ListSharedLinksResult, StructFromJsonLoader<ListSharedLinksResult>, ListSharedLinksErrorException>("2/sharing/list_shared_links", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListSharedLinksResult>, ListSharedLinksResult::factory, ListSharedLinksErrorException>("2/sharing/list_shared_links", js);
 }
 
-SharedLinkMetadata SharingRoutes::modifySharedLinkSettings(const ModifySharedLinkSettingsArgs& arg){
+std::unique_ptr<SharedLinkMetadata> SharingRoutes::modifySharedLinkSettings(const ModifySharedLinkSettingsArgs& arg){
     QJsonObject js(arg);
-    SharedLinkMetadata r = m_end_point->rpcStyle<SharedLinkMetadata, StructFromJsonLoader<SharedLinkMetadata>, ModifySharedLinkSettingsErrorException>("2/sharing/modify_shared_link_settings", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SharedLinkMetadata>, SharedLinkMetadata::factory, ModifySharedLinkSettingsErrorException>("2/sharing/modify_shared_link_settings", js);
 }
 
-SharedFolderMetadata SharingRoutes::mountFolder(const MountFolderArg& arg){
+std::unique_ptr<SharedFolderMetadata> SharingRoutes::mountFolder(const MountFolderArg& arg){
     QJsonObject js(arg);
-    SharedFolderMetadata r = m_end_point->rpcStyle<SharedFolderMetadata, StructFromJsonLoader<SharedFolderMetadata>, MountFolderErrorException>("2/sharing/mount_folder", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SharedFolderMetadata>, SharedFolderMetadata::factory, MountFolderErrorException>("2/sharing/mount_folder", js);
 }
 
 void SharingRoutes::relinquishFileMembership(const RelinquishFileMembershipArg& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, RelinquishFileMembershipErrorException>("2/sharing/relinquish_file_membership", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, RelinquishFileMembershipErrorException>("2/sharing/relinquish_file_membership", js);
 }
 
-async::LaunchEmptyResult SharingRoutes::relinquishFolderMembership(const RelinquishFolderMembershipArg& arg){
+std::unique_ptr<async::LaunchEmptyResult> SharingRoutes::relinquishFolderMembership(const RelinquishFolderMembershipArg& arg){
     QJsonObject js(arg);
-    async::LaunchEmptyResult r = m_end_point->rpcStyle<async::LaunchEmptyResult, StructFromJsonLoader<async::LaunchEmptyResult>, RelinquishFolderMembershipErrorException>("2/sharing/relinquish_folder_membership", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<async::LaunchEmptyResult>, async::LaunchEmptyResult::factory, RelinquishFolderMembershipErrorException>("2/sharing/relinquish_folder_membership", js);
 }
 
-FileMemberActionIndividualResult SharingRoutes::removeFileMember(const RemoveFileMemberArg& arg){
+std::unique_ptr<FileMemberActionIndividualResult> SharingRoutes::removeFileMember(const RemoveFileMemberArg& arg){
     QJsonObject js(arg);
-    FileMemberActionIndividualResult r = m_end_point->rpcStyle<FileMemberActionIndividualResult, StructFromJsonLoader<FileMemberActionIndividualResult>, RemoveFileMemberErrorException>("2/sharing/remove_file_member", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<FileMemberActionIndividualResult>, FileMemberActionIndividualResult::factory, RemoveFileMemberErrorException>("2/sharing/remove_file_member", js);
 }
 
-FileMemberRemoveActionResult SharingRoutes::removeFileMember2(const RemoveFileMemberArg& arg){
+std::unique_ptr<FileMemberRemoveActionResult> SharingRoutes::removeFileMember2(const RemoveFileMemberArg& arg){
     QJsonObject js(arg);
-    FileMemberRemoveActionResult r = m_end_point->rpcStyle<FileMemberRemoveActionResult, StructFromJsonLoader<FileMemberRemoveActionResult>, RemoveFileMemberErrorException>("2/sharing/remove_file_member_2", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<FileMemberRemoveActionResult>, FileMemberRemoveActionResult::factory, RemoveFileMemberErrorException>("2/sharing/remove_file_member_2", js);
 }
 
-async::LaunchResultBase SharingRoutes::removeFolderMember(const RemoveFolderMemberArg& arg){
+std::unique_ptr<async::LaunchResultBase> SharingRoutes::removeFolderMember(const RemoveFolderMemberArg& arg){
     QJsonObject js(arg);
-    async::LaunchResultBase r = m_end_point->rpcStyle<async::LaunchResultBase, StructFromJsonLoader<async::LaunchResultBase>, RemoveFolderMemberErrorException>("2/sharing/remove_folder_member", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<async::LaunchResultBase>, async::LaunchResultBase::factory, RemoveFolderMemberErrorException>("2/sharing/remove_folder_member", js);
 }
 
 void SharingRoutes::revokeSharedLink(const RevokeSharedLinkArg& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, RevokeSharedLinkErrorException>("2/sharing/revoke_shared_link", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, RevokeSharedLinkErrorException>("2/sharing/revoke_shared_link", js);
 }
 
-ShareFolderLaunch SharingRoutes::shareFolder(const ShareFolderArg& arg){
+std::unique_ptr<ShareFolderLaunch> SharingRoutes::shareFolder(const ShareFolderArg& arg){
     QJsonObject js(arg);
-    ShareFolderLaunch r = m_end_point->rpcStyle<ShareFolderLaunch, StructFromJsonLoader<ShareFolderLaunch>, ShareFolderErrorException>("2/sharing/share_folder", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ShareFolderLaunch>, ShareFolderLaunch::factory, ShareFolderErrorException>("2/sharing/share_folder", js);
 }
 
 void SharingRoutes::transferFolder(const TransferFolderArg& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, TransferFolderErrorException>("2/sharing/transfer_folder", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, TransferFolderErrorException>("2/sharing/transfer_folder", js);
 }
 
 void SharingRoutes::unmountFolder(const UnmountFolderArg& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, UnmountFolderErrorException>("2/sharing/unmount_folder", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, UnmountFolderErrorException>("2/sharing/unmount_folder", js);
 }
 
 void SharingRoutes::unshareFile(const UnshareFileArg& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, UnshareFileErrorException>("2/sharing/unshare_file", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, UnshareFileErrorException>("2/sharing/unshare_file", js);
 }
 
-async::LaunchEmptyResult SharingRoutes::unshareFolder(const UnshareFolderArg& arg){
+std::unique_ptr<async::LaunchEmptyResult> SharingRoutes::unshareFolder(const UnshareFolderArg& arg){
     QJsonObject js(arg);
-    async::LaunchEmptyResult r = m_end_point->rpcStyle<async::LaunchEmptyResult, StructFromJsonLoader<async::LaunchEmptyResult>, UnshareFolderErrorException>("2/sharing/unshare_folder", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<async::LaunchEmptyResult>, async::LaunchEmptyResult::factory, UnshareFolderErrorException>("2/sharing/unshare_folder", js);
 }
 
-MemberAccessLevelResult SharingRoutes::updateFolderMember(const UpdateFolderMemberArg& arg){
+std::unique_ptr<MemberAccessLevelResult> SharingRoutes::updateFolderMember(const UpdateFolderMemberArg& arg){
     QJsonObject js(arg);
-    MemberAccessLevelResult r = m_end_point->rpcStyle<MemberAccessLevelResult, StructFromJsonLoader<MemberAccessLevelResult>, UpdateFolderMemberErrorException>("2/sharing/update_folder_member", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<MemberAccessLevelResult>, MemberAccessLevelResult::factory, UpdateFolderMemberErrorException>("2/sharing/update_folder_member", js);
 }
 
-SharedFolderMetadata SharingRoutes::updateFolderPolicy(const UpdateFolderPolicyArg& arg){
+std::unique_ptr<SharedFolderMetadata> SharingRoutes::updateFolderPolicy(const UpdateFolderPolicyArg& arg){
     QJsonObject js(arg);
-    SharedFolderMetadata r = m_end_point->rpcStyle<SharedFolderMetadata, StructFromJsonLoader<SharedFolderMetadata>, UpdateFolderPolicyErrorException>("2/sharing/update_folder_policy", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<SharedFolderMetadata>, SharedFolderMetadata::factory, UpdateFolderPolicyErrorException>("2/sharing/update_folder_policy", js);
 }
 
 IMPLEMENT_DBOX_ERR_EXCEPTION(AddFileMemberErrorException, sharing::AddFileMemberError);

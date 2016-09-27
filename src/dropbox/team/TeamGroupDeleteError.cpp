@@ -61,6 +61,15 @@ QString GroupDeleteError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GroupDeleteError>  GroupDeleteError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GroupDeleteError> rv = std::unique_ptr<GroupDeleteError>(new GroupDeleteError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GroupDeleteError GroupDeleteError::EXAMPLE(){
     GroupDeleteError rv;

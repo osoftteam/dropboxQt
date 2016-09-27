@@ -36,6 +36,23 @@ QString IncludeMembersArg::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<IncludeMembersArg>  IncludeMembersArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<IncludeMembersArg>  IncludeMembersArg::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<IncludeMembersArg> rv;
+    rv = std::unique_ptr<IncludeMembersArg>(new IncludeMembersArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 IncludeMembersArg IncludeMembersArg::EXAMPLE(){
     IncludeMembersArg rv;

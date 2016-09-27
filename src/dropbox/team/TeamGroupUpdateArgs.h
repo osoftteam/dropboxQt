@@ -34,25 +34,33 @@ namespace team{
     public:
         ///Specify a group.
         GroupSelector group()const{return m_group;};
-        GroupUpdateArgs& setGroup(const GroupSelector& arg){m_group=arg; return *this;};
+        GroupUpdateArgs& setGroup(const GroupSelector& arg){m_group=arg;return *this;};
 
         ///Optional argument. Set group name to this if provided.
         QString newGroupName()const{return m_new_group_name;};
-        GroupUpdateArgs& setNewgroupname(const QString& arg){m_new_group_name=arg; return *this;};
+        GroupUpdateArgs& setNewgroupname(const QString& arg){m_new_group_name=arg;return *this;};
 
         ///Optional argument. New group external ID. If the argument is None, the group's external_id won't be updated. If the argument is empty string, the group's external id will be cleared.
         QString newGroupExternalId()const{return m_new_group_external_id;};
-        GroupUpdateArgs& setNewgroupexternalid(const QString& arg){m_new_group_external_id=arg; return *this;};
+        GroupUpdateArgs& setNewgroupexternalid(const QString& arg){m_new_group_external_id=arg;return *this;};
 
         ///Set new group management type, if provided.
         team_common::GroupManagementType newGroupManagementType()const{return m_new_group_management_type;};
-        GroupUpdateArgs& setNewgroupmanagementtype(const team_common::GroupManagementType& arg){m_new_group_management_type=arg; return *this;};
+        GroupUpdateArgs& setNewgroupmanagementtype(const team_common::GroupManagementType& arg){m_new_group_management_type=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<GroupUpdateArgs>  create(const QByteArray& data);
+            static std::unique_ptr<GroupUpdateArgs>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static GroupUpdateArgs EXAMPLE();

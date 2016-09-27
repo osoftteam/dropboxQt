@@ -53,6 +53,15 @@ QString ListTeamAppsError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ListTeamAppsError>  ListTeamAppsError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ListTeamAppsError> rv = std::unique_ptr<ListTeamAppsError>(new ListTeamAppsError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ListTeamAppsError ListTeamAppsError::EXAMPLE(){
     ListTeamAppsError rv;

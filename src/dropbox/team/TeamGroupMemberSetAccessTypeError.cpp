@@ -69,6 +69,15 @@ QString GroupMemberSetAccessTypeError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GroupMemberSetAccessTypeError>  GroupMemberSetAccessTypeError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GroupMemberSetAccessTypeError> rv = std::unique_ptr<GroupMemberSetAccessTypeError>(new GroupMemberSetAccessTypeError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GroupMemberSetAccessTypeError GroupMemberSetAccessTypeError::EXAMPLE(){
     GroupMemberSetAccessTypeError rv;

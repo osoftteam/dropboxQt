@@ -126,6 +126,15 @@ QString MemberAddResult::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<MemberAddResult>  MemberAddResult::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<MemberAddResult> rv = std::unique_ptr<MemberAddResult>(new MemberAddResult);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MemberAddResult MemberAddResult::EXAMPLE(){
     MemberAddResult rv;

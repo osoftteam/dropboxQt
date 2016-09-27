@@ -32,29 +32,37 @@ namespace team{
     public:
         ///Identity of user whose profile will be set.
         UserSelectorArg user()const{return m_user;};
-        MembersSetProfileArg& setUser(const UserSelectorArg& arg){m_user=arg; return *this;};
+        MembersSetProfileArg& setUser(const UserSelectorArg& arg){m_user=arg;return *this;};
 
         ///New email for member.
         QString newEmail()const{return m_new_email;};
-        MembersSetProfileArg& setNewemail(const QString& arg){m_new_email=arg; return *this;};
+        MembersSetProfileArg& setNewemail(const QString& arg){m_new_email=arg;return *this;};
 
         ///New external ID for member.
         QString newExternalId()const{return m_new_external_id;};
-        MembersSetProfileArg& setNewexternalid(const QString& arg){m_new_external_id=arg; return *this;};
+        MembersSetProfileArg& setNewexternalid(const QString& arg){m_new_external_id=arg;return *this;};
 
         ///New given name for member.
         QString newGivenName()const{return m_new_given_name;};
-        MembersSetProfileArg& setNewgivenname(const QString& arg){m_new_given_name=arg; return *this;};
+        MembersSetProfileArg& setNewgivenname(const QString& arg){m_new_given_name=arg;return *this;};
 
         ///New surname for member.
         QString newSurname()const{return m_new_surname;};
-        MembersSetProfileArg& setNewsurname(const QString& arg){m_new_surname=arg; return *this;};
+        MembersSetProfileArg& setNewsurname(const QString& arg){m_new_surname=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<MembersSetProfileArg>  create(const QByteArray& data);
+            static std::unique_ptr<MembersSetProfileArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static MembersSetProfileArg EXAMPLE();

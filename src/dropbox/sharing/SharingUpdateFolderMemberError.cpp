@@ -88,6 +88,15 @@ QString UpdateFolderMemberError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<UpdateFolderMemberError>  UpdateFolderMemberError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<UpdateFolderMemberError> rv = std::unique_ptr<UpdateFolderMemberError>(new UpdateFolderMemberError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 UpdateFolderMemberError UpdateFolderMemberError::EXAMPLE(){
     UpdateFolderMemberError rv;

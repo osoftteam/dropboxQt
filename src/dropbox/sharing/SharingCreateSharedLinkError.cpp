@@ -54,6 +54,15 @@ QString CreateSharedLinkError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<CreateSharedLinkError>  CreateSharedLinkError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<CreateSharedLinkError> rv = std::unique_ptr<CreateSharedLinkError>(new CreateSharedLinkError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 CreateSharedLinkError CreateSharedLinkError::EXAMPLE(){
     CreateSharedLinkError rv;

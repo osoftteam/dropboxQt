@@ -63,6 +63,15 @@ QString DeleteError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<DeleteError>  DeleteError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<DeleteError> rv = std::unique_ptr<DeleteError>(new DeleteError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 DeleteError DeleteError::EXAMPLE(){
     DeleteError rv;

@@ -22,17 +22,25 @@ namespace files{
     public:
         ///Path in the user's Dropbox to be copied or moved.
         QString fromPath()const{return m_from_path;};
-        RelocationArg& setFrompath(const QString& arg){m_from_path=arg; return *this;};
+        RelocationArg& setFrompath(const QString& arg){m_from_path=arg;return *this;};
 
         ///Path in the user's Dropbox that is the destination.
         QString toPath()const{return m_to_path;};
-        RelocationArg& setTopath(const QString& arg){m_to_path=arg; return *this;};
+        RelocationArg& setTopath(const QString& arg){m_to_path=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<RelocationArg>  create(const QByteArray& data);
+            static std::unique_ptr<RelocationArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static RelocationArg EXAMPLE();

@@ -26,17 +26,25 @@ namespace team{
     public:
         ///Group from which users will be removed.
         GroupSelector group()const{return m_group;};
-        GroupMembersRemoveArg& setGroup(const GroupSelector& arg){m_group=arg; return *this;};
+        GroupMembersRemoveArg& setGroup(const GroupSelector& arg){m_group=arg;return *this;};
 
         ///List of users to be removed from the group.
         const std::list <UserSelectorArg>& users()const{return m_users;};
-        GroupMembersRemoveArg& setUsers(const std::list <UserSelectorArg>&& arg){m_users=arg; return *this;};
+        GroupMembersRemoveArg& setUsers(const std::list <UserSelectorArg>&& arg){m_users=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<GroupMembersRemoveArg>  create(const QByteArray& data);
+            static std::unique_ptr<GroupMembersRemoveArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static GroupMembersRemoveArg EXAMPLE();

@@ -77,6 +77,15 @@ QString ThumbnailSize::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ThumbnailSize>  ThumbnailSize::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ThumbnailSize> rv = std::unique_ptr<ThumbnailSize>(new ThumbnailSize);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ThumbnailSize ThumbnailSize::EXAMPLE(){
     ThumbnailSize rv;

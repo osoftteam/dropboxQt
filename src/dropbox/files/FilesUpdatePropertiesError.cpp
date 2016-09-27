@@ -97,6 +97,15 @@ QString UpdatePropertiesError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<UpdatePropertiesError>  UpdatePropertiesError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<UpdatePropertiesError> rv = std::unique_ptr<UpdatePropertiesError>(new UpdatePropertiesError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 UpdatePropertiesError UpdatePropertiesError::EXAMPLE(){
     UpdatePropertiesError rv;

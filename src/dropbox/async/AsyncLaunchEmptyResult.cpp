@@ -55,6 +55,15 @@ QString LaunchEmptyResult::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<LaunchEmptyResult>  LaunchEmptyResult::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<LaunchEmptyResult> rv = std::unique_ptr<LaunchEmptyResult>(new LaunchEmptyResult);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 LaunchEmptyResult LaunchEmptyResult::EXAMPLE(){
     LaunchEmptyResult rv;

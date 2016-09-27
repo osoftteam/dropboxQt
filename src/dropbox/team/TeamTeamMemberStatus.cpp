@@ -70,6 +70,15 @@ QString TeamMemberStatus::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<TeamMemberStatus>  TeamMemberStatus::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<TeamMemberStatus> rv = std::unique_ptr<TeamMemberStatus>(new TeamMemberStatus);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 TeamMemberStatus TeamMemberStatus::EXAMPLE(){
     TeamMemberStatus rv;

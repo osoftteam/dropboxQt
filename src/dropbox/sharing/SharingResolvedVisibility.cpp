@@ -85,6 +85,15 @@ QString ResolvedVisibility::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ResolvedVisibility>  ResolvedVisibility::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ResolvedVisibility> rv = std::unique_ptr<ResolvedVisibility>(new ResolvedVisibility);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ResolvedVisibility ResolvedVisibility::EXAMPLE(){
     ResolvedVisibility rv;

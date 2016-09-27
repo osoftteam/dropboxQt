@@ -43,37 +43,45 @@ namespace users{
     public:
         ///The user's two-letter country code, if available. Country codes are based on :link:`ISO 3166-1 http://en.wikipedia.org/wiki/ISO_3166-1`.
         QString country()const{return m_country;};
-        FullAccount& setCountry(const QString& arg){m_country=arg; return *this;};
+        FullAccount& setCountry(const QString& arg){m_country=arg;return *this;};
 
         ///The language that the user specified. Locale tags will be :link:`IETF language tags http://en.wikipedia.org/wiki/IETF_language_tag`.
         QString locale()const{return m_locale;};
-        FullAccount& setLocale(const QString& arg){m_locale=arg; return *this;};
+        FullAccount& setLocale(const QString& arg){m_locale=arg;return *this;};
 
         ///The user's :link:`referral link https://www.dropbox.com/referrals`.
         QString referralLink()const{return m_referral_link;};
-        FullAccount& setReferrallink(const QString& arg){m_referral_link=arg; return *this;};
+        FullAccount& setReferrallink(const QString& arg){m_referral_link=arg;return *this;};
 
         ///If this account is a member of a team, information about that team.
         FullTeam team()const{return m_team;};
-        FullAccount& setTeam(const FullTeam& arg){m_team=arg; return *this;};
+        FullAccount& setTeam(const FullTeam& arg){m_team=arg;return *this;};
 
         ///This account's unique team member id. This field will only be present if :field:`team` is present.
         QString teamMemberId()const{return m_team_member_id;};
-        FullAccount& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
+        FullAccount& setTeammemberid(const QString& arg){m_team_member_id=arg;return *this;};
 
         ///Whether the user has a personal and work account. If the current account is personal, then :field:`team` will always be :val:`null`, but :field:`is_paired` will indicate if a work account is linked.
         bool isPaired()const{return m_is_paired;};
-        FullAccount& setIspaired(const bool& arg){m_is_paired=arg; return *this;};
+        FullAccount& setIspaired(const bool& arg){m_is_paired=arg;return *this;};
 
         ///What type of account this user has.
         AccountType accountType()const{return m_account_type;};
-        FullAccount& setAccounttype(const AccountType& arg){m_account_type=arg; return *this;};
+        FullAccount& setAccounttype(const AccountType& arg){m_account_type=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<FullAccount>  create(const QByteArray& data);
+            static std::unique_ptr<FullAccount>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static FullAccount EXAMPLE();

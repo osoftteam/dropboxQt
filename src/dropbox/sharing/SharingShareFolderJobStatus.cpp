@@ -63,6 +63,15 @@ QString ShareFolderJobStatus::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ShareFolderJobStatus>  ShareFolderJobStatus::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ShareFolderJobStatus> rv = std::unique_ptr<ShareFolderJobStatus>(new ShareFolderJobStatus);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ShareFolderJobStatus ShareFolderJobStatus::EXAMPLE(){
     ShareFolderJobStatus rv;

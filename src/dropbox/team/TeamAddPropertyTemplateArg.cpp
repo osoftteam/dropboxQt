@@ -36,6 +36,23 @@ QString AddPropertyTemplateArg::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<AddPropertyTemplateArg>  AddPropertyTemplateArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<AddPropertyTemplateArg>  AddPropertyTemplateArg::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<AddPropertyTemplateArg> rv;
+    rv = std::unique_ptr<AddPropertyTemplateArg>(new AddPropertyTemplateArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 AddPropertyTemplateArg AddPropertyTemplateArg::EXAMPLE(){
     AddPropertyTemplateArg rv;

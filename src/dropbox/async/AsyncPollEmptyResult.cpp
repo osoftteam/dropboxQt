@@ -53,6 +53,15 @@ QString PollEmptyResult::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<PollEmptyResult>  PollEmptyResult::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<PollEmptyResult> rv = std::unique_ptr<PollEmptyResult>(new PollEmptyResult);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 PollEmptyResult PollEmptyResult::EXAMPLE(){
     PollEmptyResult rv;

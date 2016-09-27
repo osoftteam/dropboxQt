@@ -34,21 +34,29 @@ namespace team_policies{
     public:
         ///Who can join folders shared by team members.
         SharedFolderMemberPolicy sharedFolderMemberPolicy()const{return m_shared_folder_member_policy;};
-        TeamSharingPolicies& setSharedfoldermemberpolicy(const SharedFolderMemberPolicy& arg){m_shared_folder_member_policy=arg; return *this;};
+        TeamSharingPolicies& setSharedfoldermemberpolicy(const SharedFolderMemberPolicy& arg){m_shared_folder_member_policy=arg;return *this;};
 
         ///Which shared folders team members can join.
         SharedFolderJoinPolicy sharedFolderJoinPolicy()const{return m_shared_folder_join_policy;};
-        TeamSharingPolicies& setSharedfolderjoinpolicy(const SharedFolderJoinPolicy& arg){m_shared_folder_join_policy=arg; return *this;};
+        TeamSharingPolicies& setSharedfolderjoinpolicy(const SharedFolderJoinPolicy& arg){m_shared_folder_join_policy=arg;return *this;};
 
         ///What is the visibility of newly created shared links.
         SharedLinkCreatePolicy sharedLinkCreatePolicy()const{return m_shared_link_create_policy;};
-        TeamSharingPolicies& setSharedlinkcreatepolicy(const SharedLinkCreatePolicy& arg){m_shared_link_create_policy=arg; return *this;};
+        TeamSharingPolicies& setSharedlinkcreatepolicy(const SharedLinkCreatePolicy& arg){m_shared_link_create_policy=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<TeamSharingPolicies>  create(const QByteArray& data);
+            static std::unique_ptr<TeamSharingPolicies>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static TeamSharingPolicies EXAMPLE();

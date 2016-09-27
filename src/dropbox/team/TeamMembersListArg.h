@@ -28,17 +28,25 @@ namespace team{
     public:
         ///Number of results to return per call.
         int limit()const{return m_limit;};
-        MembersListArg& setLimit(const int& arg){m_limit=arg; return *this;};
+        MembersListArg& setLimit(const int& arg){m_limit=arg;return *this;};
 
         ///Whether to return removed members.
         bool includeRemoved()const{return m_include_removed;};
-        MembersListArg& setIncluderemoved(const bool& arg){m_include_removed=arg; return *this;};
+        MembersListArg& setIncluderemoved(const bool& arg){m_include_removed=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<MembersListArg>  create(const QByteArray& data);
+            static std::unique_ptr<MembersListArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static MembersListArg EXAMPLE();

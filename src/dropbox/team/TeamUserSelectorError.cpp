@@ -45,6 +45,15 @@ QString UserSelectorError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<UserSelectorError>  UserSelectorError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<UserSelectorError> rv = std::unique_ptr<UserSelectorError>(new UserSelectorError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 UserSelectorError UserSelectorError::EXAMPLE(){
     UserSelectorError rv;

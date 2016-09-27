@@ -54,6 +54,15 @@ QString GetCopyReferenceError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GetCopyReferenceError>  GetCopyReferenceError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GetCopyReferenceError> rv = std::unique_ptr<GetCopyReferenceError>(new GetCopyReferenceError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GetCopyReferenceError GetCopyReferenceError::EXAMPLE(){
     GetCopyReferenceError rv;

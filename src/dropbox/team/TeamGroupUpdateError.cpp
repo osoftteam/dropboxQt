@@ -61,6 +61,15 @@ QString GroupUpdateError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GroupUpdateError>  GroupUpdateError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GroupUpdateError> rv = std::unique_ptr<GroupUpdateError>(new GroupUpdateError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GroupUpdateError GroupUpdateError::EXAMPLE(){
     GroupUpdateError rv;

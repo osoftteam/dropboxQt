@@ -69,6 +69,15 @@ QString RevokeSharedLinkError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<RevokeSharedLinkError>  RevokeSharedLinkError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<RevokeSharedLinkError> rv = std::unique_ptr<RevokeSharedLinkError>(new RevokeSharedLinkError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 RevokeSharedLinkError RevokeSharedLinkError::EXAMPLE(){
     RevokeSharedLinkError rv;

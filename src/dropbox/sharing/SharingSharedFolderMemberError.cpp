@@ -70,6 +70,15 @@ QString SharedFolderMemberError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<SharedFolderMemberError>  SharedFolderMemberError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<SharedFolderMemberError> rv = std::unique_ptr<SharedFolderMemberError>(new SharedFolderMemberError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 SharedFolderMemberError SharedFolderMemberError::EXAMPLE(){
     SharedFolderMemberError rv;

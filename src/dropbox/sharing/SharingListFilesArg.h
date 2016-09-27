@@ -30,17 +30,25 @@ namespace sharing{
     public:
         ///Number of files to return max per query. Defaults to 100 if no limit is specified.
         int limit()const{return m_limit;};
-        ListFilesArg& setLimit(const int& arg){m_limit=arg; return *this;};
+        ListFilesArg& setLimit(const int& arg){m_limit=arg;return *this;};
 
         ///File actions to query.
         const std::list <FileAction>& actions()const{return m_actions;};
-        ListFilesArg& setActions(const std::list <FileAction>&& arg){m_actions=arg; return *this;};
+        ListFilesArg& setActions(const std::list <FileAction>&& arg){m_actions=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ListFilesArg>  create(const QByteArray& data);
+            static std::unique_ptr<ListFilesArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ListFilesArg EXAMPLE();

@@ -63,6 +63,15 @@ QString UploadErrorWithProperties::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<UploadErrorWithProperties>  UploadErrorWithProperties::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<UploadErrorWithProperties> rv = std::unique_ptr<UploadErrorWithProperties>(new UploadErrorWithProperties);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 UploadErrorWithProperties UploadErrorWithProperties::EXAMPLE(){
     UploadErrorWithProperties rv;

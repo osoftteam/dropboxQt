@@ -26,17 +26,25 @@ namespace team{
     public:
         ///The member unique Id
         QString teamMemberId()const{return m_team_member_id;};
-        MemberLinkedApps& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
+        MemberLinkedApps& setTeammemberid(const QString& arg){m_team_member_id=arg;return *this;};
 
         ///List of third party applications linked by this team member
         const std::list <ApiApp>& linkedApiApps()const{return m_linked_api_apps;};
-        MemberLinkedApps& setLinkedapiapps(const std::list <ApiApp>&& arg){m_linked_api_apps=arg; return *this;};
+        MemberLinkedApps& setLinkedapiapps(const std::list <ApiApp>&& arg){m_linked_api_apps=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<MemberLinkedApps>  create(const QByteArray& data);
+            static std::unique_ptr<MemberLinkedApps>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static MemberLinkedApps EXAMPLE();

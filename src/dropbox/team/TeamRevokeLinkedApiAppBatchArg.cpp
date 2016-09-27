@@ -36,6 +36,23 @@ QString RevokeLinkedApiAppBatchArg::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<RevokeLinkedApiAppBatchArg>  RevokeLinkedApiAppBatchArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<RevokeLinkedApiAppBatchArg>  RevokeLinkedApiAppBatchArg::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<RevokeLinkedApiAppBatchArg> rv;
+    rv = std::unique_ptr<RevokeLinkedApiAppBatchArg>(new RevokeLinkedApiAppBatchArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 RevokeLinkedApiAppBatchArg RevokeLinkedApiAppBatchArg::EXAMPLE(){
     RevokeLinkedApiAppBatchArg rv;

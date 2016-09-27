@@ -22,11 +22,10 @@ namespace files{
     public:
         ListFolderResult(){};
 
-        ListFolderResult(const std::list <Metadata>&& arg){ m_entries = arg; };
 
     public:
         ///The files and (direct) subfolders in the folder.
-        const std::list <Metadata>& entries()const{return m_entries;};
+        const std::list <std::unique_ptr<Metadata> >& entries()const{return m_entries;};
 
         ///Pass the cursor into :route:`list_folder/continue` to see what's changed in the folder since your previous query.
         QString cursor()const{return m_cursor;};
@@ -36,9 +35,17 @@ namespace files{
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ListFolderResult>  create(const QByteArray& data);
+            static std::unique_ptr<ListFolderResult>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ListFolderResult EXAMPLE();
@@ -47,7 +54,7 @@ namespace files{
 
     protected:
         ///The files and (direct) subfolders in the folder.
-        std::list <Metadata> m_entries;
+        std::list <std::unique_ptr<Metadata> > m_entries;
 
         ///Pass the cursor into :route:`list_folder/continue` to see what's changed in the folder since your previous query.
         QString m_cursor;

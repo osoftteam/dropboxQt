@@ -21,13 +21,21 @@ namespace team{
     public:
         ///The team member id
         QString teamMemberId()const{return m_team_member_id;};
-        ListMemberAppsArg& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
+        ListMemberAppsArg& setTeammemberid(const QString& arg){m_team_member_id=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ListMemberAppsArg>  create(const QByteArray& data);
+            static std::unique_ptr<ListMemberAppsArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ListMemberAppsArg EXAMPLE();

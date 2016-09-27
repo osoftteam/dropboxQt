@@ -53,6 +53,15 @@ QString MembersListContinueError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<MembersListContinueError>  MembersListContinueError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<MembersListContinueError> rv = std::unique_ptr<MembersListContinueError>(new MembersListContinueError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MembersListContinueError MembersListContinueError::EXAMPLE(){
     MembersListContinueError rv;

@@ -28,13 +28,21 @@ namespace team{
     public:
         ///Whether to return the list of members in the group.  Note that the default value will cause all the group members  to be returned in the response. This may take a long time for large groups.
         bool returnMembers()const{return m_return_members;};
-        IncludeMembersArg& setReturnmembers(const bool& arg){m_return_members=arg; return *this;};
+        IncludeMembersArg& setReturnmembers(const bool& arg){m_return_members=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<IncludeMembersArg>  create(const QByteArray& data);
+            static std::unique_ptr<IncludeMembersArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static IncludeMembersArg EXAMPLE();

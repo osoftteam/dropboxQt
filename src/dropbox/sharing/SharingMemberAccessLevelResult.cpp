@@ -41,6 +41,23 @@ QString MemberAccessLevelResult::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<MemberAccessLevelResult>  MemberAccessLevelResult::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<MemberAccessLevelResult>  MemberAccessLevelResult::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<MemberAccessLevelResult> rv;
+    rv = std::unique_ptr<MemberAccessLevelResult>(new MemberAccessLevelResult);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MemberAccessLevelResult MemberAccessLevelResult::EXAMPLE(){
     MemberAccessLevelResult rv;

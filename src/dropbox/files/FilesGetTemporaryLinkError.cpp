@@ -54,6 +54,15 @@ QString GetTemporaryLinkError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GetTemporaryLinkError>  GetTemporaryLinkError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GetTemporaryLinkError> rv = std::unique_ptr<GetTemporaryLinkError>(new GetTemporaryLinkError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GetTemporaryLinkError GetTemporaryLinkError::EXAMPLE(){
     GetTemporaryLinkError rv;

@@ -33,21 +33,29 @@ namespace properties{
     public:
         ///This is the name or key of a custom property in a property template. File property names can be up to 256 bytes.
         QString name()const{return m_name;};
-        PropertyFieldTemplate& setName(const QString& arg){m_name=arg; return *this;};
+        PropertyFieldTemplate& setName(const QString& arg){m_name=arg;return *this;};
 
         ///This is the description for a custom property in a property template. File property description can be up to 1024 bytes.
         QString description()const{return m_description;};
-        PropertyFieldTemplate& setDescription(const QString& arg){m_description=arg; return *this;};
+        PropertyFieldTemplate& setDescription(const QString& arg){m_description=arg;return *this;};
 
         ///This is the data type of the value of this property. This type will be enforced upon property creation and modifications.
         PropertyType type()const{return m_type;};
-        PropertyFieldTemplate& setType(const PropertyType& arg){m_type=arg; return *this;};
+        PropertyFieldTemplate& setType(const PropertyType& arg){m_type=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<PropertyFieldTemplate>  create(const QByteArray& data);
+            static std::unique_ptr<PropertyFieldTemplate>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static PropertyFieldTemplate EXAMPLE();

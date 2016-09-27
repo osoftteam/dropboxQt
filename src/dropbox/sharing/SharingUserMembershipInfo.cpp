@@ -38,6 +38,23 @@ QString UserMembershipInfo::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<UserMembershipInfo>  UserMembershipInfo::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<UserMembershipInfo>  UserMembershipInfo::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<UserMembershipInfo> rv;
+    rv = std::unique_ptr<UserMembershipInfo>(new UserMembershipInfo);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 UserMembershipInfo UserMembershipInfo::EXAMPLE(){
     UserMembershipInfo rv;

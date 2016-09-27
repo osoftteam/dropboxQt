@@ -64,6 +64,15 @@ QString MembersAddJobStatus::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<MembersAddJobStatus>  MembersAddJobStatus::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<MembersAddJobStatus> rv = std::unique_ptr<MembersAddJobStatus>(new MembersAddJobStatus);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MembersAddJobStatus MembersAddJobStatus::EXAMPLE(){
     MembersAddJobStatus rv;

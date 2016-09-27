@@ -26,21 +26,29 @@ namespace team{
     public:
         ///Information on the hosting device
         QString userAgent()const{return m_user_agent;};
-        ActiveWebSession& setUseragent(const QString& arg){m_user_agent=arg; return *this;};
+        ActiveWebSession& setUseragent(const QString& arg){m_user_agent=arg;return *this;};
 
         ///Information on the hosting operating system
         QString os()const{return m_os;};
-        ActiveWebSession& setOs(const QString& arg){m_os=arg; return *this;};
+        ActiveWebSession& setOs(const QString& arg){m_os=arg;return *this;};
 
         ///Information on the browser used for this web session
         QString browser()const{return m_browser;};
-        ActiveWebSession& setBrowser(const QString& arg){m_browser=arg; return *this;};
+        ActiveWebSession& setBrowser(const QString& arg){m_browser=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ActiveWebSession>  create(const QByteArray& data);
+            static std::unique_ptr<ActiveWebSession>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ActiveWebSession EXAMPLE();

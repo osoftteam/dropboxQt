@@ -53,6 +53,15 @@ QString SharingUserError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<SharingUserError>  SharingUserError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<SharingUserError> rv = std::unique_ptr<SharingUserError>(new SharingUserError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 SharingUserError SharingUserError::EXAMPLE(){
     SharingUserError rv;

@@ -40,6 +40,23 @@ QString PreviewArg::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<PreviewArg>  PreviewArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<PreviewArg>  PreviewArg::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<PreviewArg> rv;
+    rv = std::unique_ptr<PreviewArg>(new PreviewArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 PreviewArg PreviewArg::EXAMPLE(){
     PreviewArg rv;

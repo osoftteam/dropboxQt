@@ -70,6 +70,15 @@ QString FileMemberActionError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<FileMemberActionError>  FileMemberActionError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<FileMemberActionError> rv = std::unique_ptr<FileMemberActionError>(new FileMemberActionError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 FileMemberActionError FileMemberActionError::EXAMPLE(){
     FileMemberActionError rv;

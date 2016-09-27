@@ -45,6 +45,15 @@ QString MembersListError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<MembersListError>  MembersListError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<MembersListError> rv = std::unique_ptr<MembersListError>(new MembersListError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MembersListError MembersListError::EXAMPLE(){
     MembersListError rv;

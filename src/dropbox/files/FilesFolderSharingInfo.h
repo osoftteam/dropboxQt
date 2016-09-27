@@ -40,25 +40,33 @@ namespace files{
     public:
         ///Set if the folder is contained by a shared folder.
         QString parentSharedFolderId()const{return m_parent_shared_folder_id;};
-        FolderSharingInfo& setParentsharedfolderid(const QString& arg){m_parent_shared_folder_id=arg; return *this;};
+        FolderSharingInfo& setParentsharedfolderid(const QString& arg){m_parent_shared_folder_id=arg;return *this;};
 
         ///If this folder is a shared folder mount point, the ID of the shared folder mounted at this location.
         QString sharedFolderId()const{return m_shared_folder_id;};
-        FolderSharingInfo& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
+        FolderSharingInfo& setSharedfolderid(const QString& arg){m_shared_folder_id=arg;return *this;};
 
         ///Specifies that the folder can only be traversed and the user can only see a limited subset of the contents of this folder because they don't have read access to this folder. They do, however, have access to some sub folder.
         bool traverseOnly()const{return m_traverse_only;};
-        FolderSharingInfo& setTraverseonly(const bool& arg){m_traverse_only=arg; return *this;};
+        FolderSharingInfo& setTraverseonly(const bool& arg){m_traverse_only=arg;return *this;};
 
         ///Specifies that the folder cannot be accessed by the user
         bool noAccess()const{return m_no_access;};
-        FolderSharingInfo& setNoaccess(const bool& arg){m_no_access=arg; return *this;};
+        FolderSharingInfo& setNoaccess(const bool& arg){m_no_access=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<FolderSharingInfo>  create(const QByteArray& data);
+            static std::unique_ptr<FolderSharingInfo>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static FolderSharingInfo EXAMPLE();

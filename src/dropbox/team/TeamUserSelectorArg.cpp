@@ -67,6 +67,15 @@ QString UserSelectorArg::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<UserSelectorArg>  UserSelectorArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<UserSelectorArg> rv = std::unique_ptr<UserSelectorArg>(new UserSelectorArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 UserSelectorArg UserSelectorArg::EXAMPLE(){
     UserSelectorArg rv;

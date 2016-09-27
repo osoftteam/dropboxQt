@@ -69,6 +69,15 @@ QString DesktopPlatform::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<DesktopPlatform>  DesktopPlatform::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<DesktopPlatform> rv = std::unique_ptr<DesktopPlatform>(new DesktopPlatform);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 DesktopPlatform DesktopPlatform::EXAMPLE(){
     DesktopPlatform rv;

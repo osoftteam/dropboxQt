@@ -21,13 +21,21 @@ namespace sharing{
     public:
         ///The ID for the shared folder.
         QString sharedFolderId()const{return m_shared_folder_id;};
-        UnmountFolderArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
+        UnmountFolderArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<UnmountFolderArg>  create(const QByteArray& data);
+            static std::unique_ptr<UnmountFolderArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static UnmountFolderArg EXAMPLE();

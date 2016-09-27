@@ -102,7 +102,7 @@ namespace files{
 
             on error:AlphaGetMetadataError throws exception AlphaGetMetadataErrorException
             */
-        Metadata alphaGetMetadata(const AlphaGetMetadataArg&);
+        std::unique_ptr<Metadata> alphaGetMetadata(const AlphaGetMetadataArg&);
 
             /**
             ApiRoute('alpha/upload')
@@ -116,7 +116,7 @@ namespace files{
 
             on error:UploadErrorWithProperties throws exception UploadErrorWithPropertiesException
             */
-        FileMetadata alphaUpload(const CommitInfoWithProperties&, QIODevice* readFrom);
+        std::unique_ptr<FileMetadata> alphaUpload(const CommitInfoWithProperties&, QIODevice* io);
 
             /**
             ApiRoute('copy')
@@ -127,7 +127,7 @@ namespace files{
 
             on error:RelocationError throws exception RelocationErrorException
             */
-        Metadata copy(const RelocationArg&);
+        std::unique_ptr<Metadata> copy(const RelocationArg&);
 
             /**
             ApiRoute('copy_reference/get')
@@ -139,7 +139,7 @@ namespace files{
 
             on error:GetCopyReferenceError throws exception GetCopyReferenceErrorException
             */
-        GetCopyReferenceResult copyReferenceGet(const GetCopyReferenceArg&);
+        std::unique_ptr<GetCopyReferenceResult> copyReferenceGet(const GetCopyReferenceArg&);
 
             /**
             ApiRoute('copy_reference/save')
@@ -150,7 +150,7 @@ namespace files{
 
             on error:SaveCopyReferenceError throws exception SaveCopyReferenceErrorException
             */
-        SaveCopyReferenceResult copyReferenceSave(const SaveCopyReferenceArg&);
+        std::unique_ptr<SaveCopyReferenceResult> copyReferenceSave(const SaveCopyReferenceArg&);
 
             /**
             ApiRoute('create_folder')
@@ -160,7 +160,7 @@ namespace files{
 
             on error:CreateFolderError throws exception CreateFolderErrorException
             */
-        FolderMetadata createFolder(const CreateFolderArg&);
+        std::unique_ptr<FolderMetadata> createFolder(const CreateFolderArg&);
 
             /**
             ApiRoute('delete')
@@ -175,7 +175,7 @@ namespace files{
 
             on error:DeleteError throws exception DeleteErrorException
             */
-        Metadata deleteOperation(const DeleteArg&);
+        std::unique_ptr<Metadata> deleteOperation(const DeleteArg&);
 
             /**
             ApiRoute('download')
@@ -185,7 +185,7 @@ namespace files{
 
             on error:DownloadError throws exception DownloadErrorException
             */
-        FileMetadata download(const DownloadArg&, QIODevice* writeTo);
+        std::unique_ptr<FileMetadata> download(const DownloadArg&, QIODevice* io);
 
             /**
             ApiRoute('get_metadata')
@@ -196,7 +196,7 @@ namespace files{
 
             on error:GetMetadataError throws exception GetMetadataErrorException
             */
-        Metadata getMetadata(const GetMetadataArg&);
+        std::unique_ptr<Metadata> getMetadata(const GetMetadataArg&);
 
             /**
             ApiRoute('get_preview')
@@ -208,7 +208,7 @@ namespace files{
 
             on error:PreviewError throws exception PreviewErrorException
             */
-        FileMetadata getPreview(const PreviewArg&, QIODevice* writeTo);
+        std::unique_ptr<FileMetadata> getPreview(const PreviewArg&, QIODevice* io);
 
             /**
             ApiRoute('get_temporary_link')
@@ -221,7 +221,7 @@ namespace files{
 
             on error:GetTemporaryLinkError throws exception GetTemporaryLinkErrorException
             */
-        GetTemporaryLinkResult getTemporaryLink(const GetTemporaryLinkArg&);
+        std::unique_ptr<GetTemporaryLinkResult> getTemporaryLink(const GetTemporaryLinkArg&);
 
             /**
             ApiRoute('get_thumbnail')
@@ -234,7 +234,7 @@ namespace files{
 
             on error:ThumbnailError throws exception ThumbnailErrorException
             */
-        FileMetadata getThumbnail(const ThumbnailArg&, QIODevice* writeTo);
+        std::unique_ptr<FileMetadata> getThumbnail(const ThumbnailArg&, QIODevice* io);
 
             /**
             ApiRoute('list_folder')
@@ -244,7 +244,7 @@ namespace files{
 
             on error:ListFolderError throws exception ListFolderErrorException
             */
-        ListFolderResult listFolder(const ListFolderArg&);
+        std::unique_ptr<ListFolderResult> listFolder(const ListFolderArg&);
 
             /**
             ApiRoute('list_folder/continue')
@@ -255,7 +255,7 @@ namespace files{
 
             on error:ListFolderContinueError throws exception ListFolderContinueErrorException
             */
-        ListFolderResult listFolderContinue(const ListFolderContinueArg&);
+        std::unique_ptr<ListFolderResult> listFolderContinue(const ListFolderContinueArg&);
 
             /**
             ApiRoute('list_folder/get_latest_cursor')
@@ -269,7 +269,7 @@ namespace files{
 
             on error:ListFolderError throws exception ListFolderErrorException
             */
-        ListFolderGetLatestCursorResult listFolderGetLatestCursor(const ListFolderArg&);
+        std::unique_ptr<ListFolderGetLatestCursorResult> listFolderGetLatestCursor(const ListFolderArg&);
 
             /**
             ApiRoute('list_folder/longpoll')
@@ -286,7 +286,7 @@ namespace files{
 
             on error:ListFolderLongpollError throws exception ListFolderLongpollErrorException
             */
-        ListFolderLongpollResult listFolderLongpoll(const ListFolderLongpollArg&);
+        std::unique_ptr<ListFolderLongpollResult> listFolderLongpoll(const ListFolderLongpollArg&);
 
             /**
             ApiRoute('list_revisions')
@@ -296,7 +296,7 @@ namespace files{
 
             on error:ListRevisionsError throws exception ListRevisionsErrorException
             */
-        ListRevisionsResult listRevisions(const ListRevisionsArg&);
+        std::unique_ptr<ListRevisionsResult> listRevisions(const ListRevisionsArg&);
 
             /**
             ApiRoute('move')
@@ -307,7 +307,7 @@ namespace files{
 
             on error:RelocationError throws exception RelocationErrorException
             */
-        Metadata move(const RelocationArg&);
+        std::unique_ptr<Metadata> move(const RelocationArg&);
 
             /**
             ApiRoute('permanently_delete')
@@ -365,7 +365,7 @@ namespace files{
 
             on error:PropertyTemplateError throws exception PropertyTemplateErrorException
             */
-        properties::GetPropertyTemplateResult propertiesTemplateGet(const properties::GetPropertyTemplateArg&);
+        std::unique_ptr<properties::GetPropertyTemplateResult> propertiesTemplateGet(const properties::GetPropertyTemplateArg&);
 
             /**
             ApiRoute('properties/template/list')
@@ -376,7 +376,7 @@ namespace files{
 
             on error:PropertyTemplateError throws exception PropertyTemplateErrorException
             */
-        properties::ListPropertyTemplateIds propertiesTemplateList(void);
+        std::unique_ptr<properties::ListPropertyTemplateIds> propertiesTemplateList(void);
 
             /**
             ApiRoute('properties/update')
@@ -398,7 +398,7 @@ namespace files{
 
             on error:RestoreError throws exception RestoreErrorException
             */
-        FileMetadata restore(const RestoreArg&);
+        std::unique_ptr<FileMetadata> restore(const RestoreArg&);
 
             /**
             ApiRoute('save_url')
@@ -410,7 +410,7 @@ namespace files{
 
             on error:SaveUrlError throws exception SaveUrlErrorException
             */
-        SaveUrlResult saveUrl(const SaveUrlArg&);
+        std::unique_ptr<SaveUrlResult> saveUrl(const SaveUrlArg&);
 
             /**
             ApiRoute('save_url/check_job_status')
@@ -420,7 +420,7 @@ namespace files{
 
             on error:PollError throws exception PollErrorException
             */
-        SaveUrlJobStatus saveUrlCheckJobStatus(const async::PollArg&);
+        std::unique_ptr<SaveUrlJobStatus> saveUrlCheckJobStatus(const async::PollArg&);
 
             /**
             ApiRoute('search')
@@ -432,7 +432,7 @@ namespace files{
 
             on error:SearchError throws exception SearchErrorException
             */
-        SearchResult search(const SearchArg&);
+        std::unique_ptr<SearchResult> search(const SearchArg&);
 
             /**
             ApiRoute('upload')
@@ -444,7 +444,7 @@ namespace files{
 
             on error:UploadError throws exception UploadErrorException
             */
-        FileMetadata upload(const CommitInfo&, QIODevice* readFrom);
+        std::unique_ptr<FileMetadata> upload(const CommitInfo&, QIODevice* io);
 
             /**
             ApiRoute('upload_session/append')
@@ -479,7 +479,7 @@ namespace files{
 
             on error:UploadSessionFinishError throws exception UploadSessionFinishErrorException
             */
-        FileMetadata uploadSessionFinish(const UploadSessionFinishArg&, QIODevice* readFrom);
+        std::unique_ptr<FileMetadata> uploadSessionFinish(const UploadSessionFinishArg&, QIODevice* io);
 
             /**
             ApiRoute('upload_session/finish_batch')
@@ -502,7 +502,7 @@ namespace files{
             Also we only allow up to 1000 entries in a single request
 
             */
-        async::LaunchEmptyResult uploadSessionFinishBatch(const UploadSessionFinishBatchArg&);
+        std::unique_ptr<async::LaunchEmptyResult> uploadSessionFinishBatch(const UploadSessionFinishBatchArg&);
 
             /**
             ApiRoute('upload_session/finish_batch/check')
@@ -514,7 +514,7 @@ namespace files{
 
             on error:PollError throws exception PollErrorException
             */
-        UploadSessionFinishBatchJobStatus uploadSessionFinishBatchCheck(const async::PollArg&);
+        std::unique_ptr<UploadSessionFinishBatchJobStatus> uploadSessionFinishBatchCheck(const async::PollArg&);
 
             /**
             ApiRoute('upload_session/start')
@@ -528,7 +528,7 @@ namespace files{
             contents.
 
             */
-        UploadSessionStartResult uploadSessionStart(const UploadSessionStartArg&, QIODevice* readFrom);
+        std::unique_ptr<UploadSessionStartResult> uploadSessionStart(const UploadSessionStartArg&, QIODevice* io);
 
     protected:
         Endpoint* m_end_point;

@@ -22,17 +22,25 @@ namespace files{
     public:
         ///The path of the file to download.
         QString path()const{return m_path;};
-        DownloadArg& setPath(const QString& arg){m_path=arg; return *this;};
+        DownloadArg& setPath(const QString& arg){m_path=arg;return *this;};
 
         ///Deprecated. Please specify revision in :field:`path` instead
         QString rev()const{return m_rev;};
-        DownloadArg& setRev(const QString& arg){m_rev=arg; return *this;};
+        DownloadArg& setRev(const QString& arg){m_rev=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<DownloadArg>  create(const QByteArray& data);
+            static std::unique_ptr<DownloadArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static DownloadArg EXAMPLE();

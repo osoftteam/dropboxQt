@@ -63,6 +63,15 @@ QString FileMemberRemoveActionResult::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<FileMemberRemoveActionResult>  FileMemberRemoveActionResult::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<FileMemberRemoveActionResult> rv = std::unique_ptr<FileMemberRemoveActionResult>(new FileMemberRemoveActionResult);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 FileMemberRemoveActionResult FileMemberRemoveActionResult::EXAMPLE(){
     FileMemberRemoveActionResult rv;

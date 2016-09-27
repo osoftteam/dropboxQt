@@ -41,6 +41,23 @@ QString UpdateFolderMemberArg::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<UpdateFolderMemberArg>  UpdateFolderMemberArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<UpdateFolderMemberArg>  UpdateFolderMemberArg::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<UpdateFolderMemberArg> rv;
+    rv = std::unique_ptr<UpdateFolderMemberArg>(new UpdateFolderMemberArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 UpdateFolderMemberArg UpdateFolderMemberArg::EXAMPLE(){
     UpdateFolderMemberArg rv;

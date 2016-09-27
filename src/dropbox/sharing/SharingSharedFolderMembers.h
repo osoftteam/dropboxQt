@@ -31,25 +31,33 @@ namespace sharing{
     public:
         ///The list of user members of the shared folder.
         const std::list <UserMembershipInfo>& users()const{return m_users;};
-        SharedFolderMembers& setUsers(const std::list <UserMembershipInfo>&& arg){m_users=arg; return *this;};
+        SharedFolderMembers& setUsers(const std::list <UserMembershipInfo>&& arg){m_users=arg;return *this;};
 
         ///The list of group members of the shared folder.
         const std::list <GroupMembershipInfo>& groups()const{return m_groups;};
-        SharedFolderMembers& setGroups(const std::list <GroupMembershipInfo>&& arg){m_groups=arg; return *this;};
+        SharedFolderMembers& setGroups(const std::list <GroupMembershipInfo>&& arg){m_groups=arg;return *this;};
 
         ///The list of invitees to the shared folder.
         const std::list <InviteeMembershipInfo>& invitees()const{return m_invitees;};
-        SharedFolderMembers& setInvitees(const std::list <InviteeMembershipInfo>&& arg){m_invitees=arg; return *this;};
+        SharedFolderMembers& setInvitees(const std::list <InviteeMembershipInfo>&& arg){m_invitees=arg;return *this;};
 
         ///Present if there are additional shared folder members that have not been returned yet. Pass the cursor into :route:`list_folder_members/continue` to list additional members.
         QString cursor()const{return m_cursor;};
-        SharedFolderMembers& setCursor(const QString& arg){m_cursor=arg; return *this;};
+        SharedFolderMembers& setCursor(const QString& arg){m_cursor=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<SharedFolderMembers>  create(const QByteArray& data);
+            static std::unique_ptr<SharedFolderMembers>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static SharedFolderMembers EXAMPLE();

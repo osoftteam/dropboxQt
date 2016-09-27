@@ -52,9 +52,17 @@ namespace files{
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js, QString name)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js, QString name)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<WriteMode>  create(const QByteArray& data);
+            static std::unique_ptr<WriteMode>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static WriteMode EXAMPLE();

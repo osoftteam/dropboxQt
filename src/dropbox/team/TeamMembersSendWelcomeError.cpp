@@ -61,6 +61,15 @@ QString MembersSendWelcomeError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<MembersSendWelcomeError>  MembersSendWelcomeError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<MembersSendWelcomeError> rv = std::unique_ptr<MembersSendWelcomeError>(new MembersSendWelcomeError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MembersSendWelcomeError MembersSendWelcomeError::EXAMPLE(){
     MembersSendWelcomeError rv;

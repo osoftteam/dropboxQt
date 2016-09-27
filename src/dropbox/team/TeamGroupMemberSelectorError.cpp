@@ -61,6 +61,15 @@ QString GroupMemberSelectorError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GroupMemberSelectorError>  GroupMemberSelectorError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GroupMemberSelectorError> rv = std::unique_ptr<GroupMemberSelectorError>(new GroupMemberSelectorError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GroupMemberSelectorError GroupMemberSelectorError::EXAMPLE(){
     GroupMemberSelectorError rv;

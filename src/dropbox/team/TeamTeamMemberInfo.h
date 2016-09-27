@@ -27,17 +27,25 @@ namespace team{
     public:
         ///Profile of a user as a member of a team.
         TeamMemberProfile profile()const{return m_profile;};
-        TeamMemberInfo& setProfile(const TeamMemberProfile& arg){m_profile=arg; return *this;};
+        TeamMemberInfo& setProfile(const TeamMemberProfile& arg){m_profile=arg;return *this;};
 
         ///The user's role in the team.
         AdminTier role()const{return m_role;};
-        TeamMemberInfo& setRole(const AdminTier& arg){m_role=arg; return *this;};
+        TeamMemberInfo& setRole(const AdminTier& arg){m_role=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<TeamMemberInfo>  create(const QByteArray& data);
+            static std::unique_ptr<TeamMemberInfo>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static TeamMemberInfo EXAMPLE();

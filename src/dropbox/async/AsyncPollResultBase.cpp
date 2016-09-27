@@ -45,6 +45,15 @@ QString PollResultBase::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<PollResultBase>  PollResultBase::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<PollResultBase> rv = std::unique_ptr<PollResultBase>(new PollResultBase);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 PollResultBase PollResultBase::EXAMPLE(){
     PollResultBase rv;

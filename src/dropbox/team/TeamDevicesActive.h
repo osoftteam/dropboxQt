@@ -37,37 +37,45 @@ namespace team{
     public:
         ///Array of number of linked windows (desktop) clients with activity.
         const std::list <int>& windows()const{return m_windows;};
-        DevicesActive& setWindows(const std::list <int>&& arg){m_windows=arg; return *this;};
+        DevicesActive& setWindows(const std::list <int>&& arg){m_windows=arg;return *this;};
 
         ///Array of number of linked mac (desktop) clients with activity.
         const std::list <int>& macos()const{return m_macos;};
-        DevicesActive& setMacos(const std::list <int>&& arg){m_macos=arg; return *this;};
+        DevicesActive& setMacos(const std::list <int>&& arg){m_macos=arg;return *this;};
 
         ///Array of number of linked linus (desktop) clients with activity.
         const std::list <int>& linux()const{return m_linux;};
-        DevicesActive& setLinux(const std::list <int>&& arg){m_linux=arg; return *this;};
+        DevicesActive& setLinux(const std::list <int>&& arg){m_linux=arg;return *this;};
 
         ///Array of number of linked ios devices with activity.
         const std::list <int>& ios()const{return m_ios;};
-        DevicesActive& setIos(const std::list <int>&& arg){m_ios=arg; return *this;};
+        DevicesActive& setIos(const std::list <int>&& arg){m_ios=arg;return *this;};
 
         ///Array of number of linked android devices with activity.
         const std::list <int>& android()const{return m_android;};
-        DevicesActive& setAndroid(const std::list <int>&& arg){m_android=arg; return *this;};
+        DevicesActive& setAndroid(const std::list <int>&& arg){m_android=arg;return *this;};
 
         ///Array of number of other linked devices (blackberry, windows phone, etc)  with activity.
         const std::list <int>& other()const{return m_other;};
-        DevicesActive& setOther(const std::list <int>&& arg){m_other=arg; return *this;};
+        DevicesActive& setOther(const std::list <int>&& arg){m_other=arg;return *this;};
 
         ///Array of total number of linked clients with activity.
         const std::list <int>& total()const{return m_total;};
-        DevicesActive& setTotal(const std::list <int>&& arg){m_total=arg; return *this;};
+        DevicesActive& setTotal(const std::list <int>&& arg){m_total=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<DevicesActive>  create(const QByteArray& data);
+            static std::unique_ptr<DevicesActive>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static DevicesActive EXAMPLE();

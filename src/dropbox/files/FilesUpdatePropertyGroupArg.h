@@ -24,17 +24,25 @@ namespace files{
     public:
         ///A unique identifier for the file.
         QString path()const{return m_path;};
-        UpdatePropertyGroupArg& setPath(const QString& arg){m_path=arg; return *this;};
+        UpdatePropertyGroupArg& setPath(const QString& arg){m_path=arg;return *this;};
 
         ///Filled custom property templates associated with a file.
         const std::list <PropertyGroupUpdate>& updatePropertyGroups()const{return m_update_property_groups;};
-        UpdatePropertyGroupArg& setUpdatepropertygroups(const std::list <PropertyGroupUpdate>&& arg){m_update_property_groups=arg; return *this;};
+        UpdatePropertyGroupArg& setUpdatepropertygroups(const std::list <PropertyGroupUpdate>&& arg){m_update_property_groups=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<UpdatePropertyGroupArg>  create(const QByteArray& data);
+            static std::unique_ptr<UpdatePropertyGroupArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static UpdatePropertyGroupArg EXAMPLE();

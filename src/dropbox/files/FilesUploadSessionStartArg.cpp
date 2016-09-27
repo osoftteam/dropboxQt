@@ -36,6 +36,23 @@ QString UploadSessionStartArg::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<UploadSessionStartArg>  UploadSessionStartArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<UploadSessionStartArg>  UploadSessionStartArg::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<UploadSessionStartArg> rv;
+    rv = std::unique_ptr<UploadSessionStartArg>(new UploadSessionStartArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 UploadSessionStartArg UploadSessionStartArg::EXAMPLE(){
     UploadSessionStartArg rv;

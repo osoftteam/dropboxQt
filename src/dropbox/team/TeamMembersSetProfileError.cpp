@@ -109,6 +109,15 @@ QString MembersSetProfileError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<MembersSetProfileError>  MembersSetProfileError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<MembersSetProfileError> rv = std::unique_ptr<MembersSetProfileError>(new MembersSetProfileError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MembersSetProfileError MembersSetProfileError::EXAMPLE(){
     MembersSetProfileError rv;

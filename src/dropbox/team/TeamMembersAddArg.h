@@ -28,17 +28,25 @@ namespace team{
     public:
         ///Details of new members to be added to the team.
         const std::list <MemberAddArg>& newMembers()const{return m_new_members;};
-        MembersAddArg& setNewmembers(const std::list <MemberAddArg>&& arg){m_new_members=arg; return *this;};
+        MembersAddArg& setNewmembers(const std::list <MemberAddArg>&& arg){m_new_members=arg;return *this;};
 
         ///Whether to force the add to happen asynchronously.
         bool forceAsync()const{return m_force_async;};
-        MembersAddArg& setForceasync(const bool& arg){m_force_async=arg; return *this;};
+        MembersAddArg& setForceasync(const bool& arg){m_force_async=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<MembersAddArg>  create(const QByteArray& data);
+            static std::unique_ptr<MembersAddArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static MembersAddArg EXAMPLE();

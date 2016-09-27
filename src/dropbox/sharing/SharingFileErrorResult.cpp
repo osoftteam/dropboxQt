@@ -75,6 +75,15 @@ QString FileErrorResult::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<FileErrorResult>  FileErrorResult::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<FileErrorResult> rv = std::unique_ptr<FileErrorResult>(new FileErrorResult);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 FileErrorResult FileErrorResult::EXAMPLE(){
     FileErrorResult rv;

@@ -62,6 +62,15 @@ QString ListFolderContinueError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ListFolderContinueError>  ListFolderContinueError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ListFolderContinueError> rv = std::unique_ptr<ListFolderContinueError>(new ListFolderContinueError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ListFolderContinueError ListFolderContinueError::EXAMPLE(){
     ListFolderContinueError rv;

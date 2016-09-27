@@ -53,6 +53,15 @@ QString ListMemberDevicesError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ListMemberDevicesError>  ListMemberDevicesError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ListMemberDevicesError> rv = std::unique_ptr<ListMemberDevicesError>(new ListMemberDevicesError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ListMemberDevicesError ListMemberDevicesError::EXAMPLE(){
     ListMemberDevicesError rv;

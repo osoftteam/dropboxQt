@@ -70,6 +70,15 @@ QString RelinquishFileMembershipError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<RelinquishFileMembershipError>  RelinquishFileMembershipError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<RelinquishFileMembershipError> rv = std::unique_ptr<RelinquishFileMembershipError>(new RelinquishFileMembershipError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 RelinquishFileMembershipError RelinquishFileMembershipError::EXAMPLE(){
     RelinquishFileMembershipError rv;

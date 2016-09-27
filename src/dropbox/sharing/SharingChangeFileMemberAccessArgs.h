@@ -29,21 +29,29 @@ namespace sharing{
     public:
         ///File for which we are changing a member's access.
         QString file()const{return m_file;};
-        ChangeFileMemberAccessArgs& setFile(const QString& arg){m_file=arg; return *this;};
+        ChangeFileMemberAccessArgs& setFile(const QString& arg){m_file=arg;return *this;};
 
         ///The member whose access we are changing.
         MemberSelector member()const{return m_member;};
-        ChangeFileMemberAccessArgs& setMember(const MemberSelector& arg){m_member=arg; return *this;};
+        ChangeFileMemberAccessArgs& setMember(const MemberSelector& arg){m_member=arg;return *this;};
 
         ///The new access level for the member.
         AccessLevel accessLevel()const{return m_access_level;};
-        ChangeFileMemberAccessArgs& setAccesslevel(const AccessLevel& arg){m_access_level=arg; return *this;};
+        ChangeFileMemberAccessArgs& setAccesslevel(const AccessLevel& arg){m_access_level=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ChangeFileMemberAccessArgs>  create(const QByteArray& data);
+            static std::unique_ptr<ChangeFileMemberAccessArgs>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ChangeFileMemberAccessArgs EXAMPLE();

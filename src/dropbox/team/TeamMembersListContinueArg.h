@@ -22,13 +22,21 @@ namespace team{
     public:
         ///Indicates from what point to get the next set of members.
         QString cursor()const{return m_cursor;};
-        MembersListContinueArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
+        MembersListContinueArg& setCursor(const QString& arg){m_cursor=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<MembersListContinueArg>  create(const QByteArray& data);
+            static std::unique_ptr<MembersListContinueArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static MembersListContinueArg EXAMPLE();

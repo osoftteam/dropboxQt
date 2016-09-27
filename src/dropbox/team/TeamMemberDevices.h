@@ -29,25 +29,33 @@ namespace team{
     public:
         ///The member unique Id
         QString teamMemberId()const{return m_team_member_id;};
-        MemberDevices& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
+        MemberDevices& setTeammemberid(const QString& arg){m_team_member_id=arg;return *this;};
 
         ///List of web sessions made by this team member
         const std::list <ActiveWebSession>& webSessions()const{return m_web_sessions;};
-        MemberDevices& setWebsessions(const std::list <ActiveWebSession>&& arg){m_web_sessions=arg; return *this;};
+        MemberDevices& setWebsessions(const std::list <ActiveWebSession>&& arg){m_web_sessions=arg;return *this;};
 
         ///List of desktop clients by this team member
         const std::list <DesktopClientSession>& desktopClients()const{return m_desktop_clients;};
-        MemberDevices& setDesktopclients(const std::list <DesktopClientSession>&& arg){m_desktop_clients=arg; return *this;};
+        MemberDevices& setDesktopclients(const std::list <DesktopClientSession>&& arg){m_desktop_clients=arg;return *this;};
 
         ///List of mobile clients by this team member
         const std::list <MobileClientSession>& mobileClients()const{return m_mobile_clients;};
-        MemberDevices& setMobileclients(const std::list <MobileClientSession>&& arg){m_mobile_clients=arg; return *this;};
+        MemberDevices& setMobileclients(const std::list <MobileClientSession>&& arg){m_mobile_clients=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<MemberDevices>  create(const QByteArray& data);
+            static std::unique_ptr<MemberDevices>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static MemberDevices EXAMPLE();

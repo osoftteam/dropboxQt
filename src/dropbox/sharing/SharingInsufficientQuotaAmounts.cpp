@@ -40,6 +40,23 @@ QString InsufficientQuotaAmounts::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<InsufficientQuotaAmounts>  InsufficientQuotaAmounts::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<InsufficientQuotaAmounts>  InsufficientQuotaAmounts::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<InsufficientQuotaAmounts> rv;
+    rv = std::unique_ptr<InsufficientQuotaAmounts>(new InsufficientQuotaAmounts);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 InsufficientQuotaAmounts InsufficientQuotaAmounts::EXAMPLE(){
     InsufficientQuotaAmounts rv;

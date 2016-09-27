@@ -37,6 +37,23 @@ QString CreateFolderArg::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<CreateFolderArg>  CreateFolderArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<CreateFolderArg>  CreateFolderArg::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<CreateFolderArg> rv;
+    rv = std::unique_ptr<CreateFolderArg>(new CreateFolderArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 CreateFolderArg CreateFolderArg::EXAMPLE(){
     CreateFolderArg rv;

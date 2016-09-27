@@ -45,6 +45,23 @@ QString ShareFolderArg::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<ShareFolderArg>  ShareFolderArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<ShareFolderArg>  ShareFolderArg::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<ShareFolderArg> rv;
+    rv = std::unique_ptr<ShareFolderArg>(new ShareFolderArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ShareFolderArg ShareFolderArg::EXAMPLE(){
     ShareFolderArg rv;

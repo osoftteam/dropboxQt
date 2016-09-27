@@ -61,6 +61,15 @@ QString SearchMode::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<SearchMode>  SearchMode::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<SearchMode> rv = std::unique_ptr<SearchMode>(new SearchMode);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 SearchMode SearchMode::EXAMPLE(){
     SearchMode rv;

@@ -95,6 +95,15 @@ QString MountFolderError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<MountFolderError>  MountFolderError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<MountFolderError> rv = std::unique_ptr<MountFolderError>(new MountFolderError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MountFolderError MountFolderError::EXAMPLE(){
     MountFolderError rv;

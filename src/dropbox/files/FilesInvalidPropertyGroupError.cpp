@@ -88,6 +88,15 @@ QString InvalidPropertyGroupError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<InvalidPropertyGroupError>  InvalidPropertyGroupError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<InvalidPropertyGroupError> rv = std::unique_ptr<InvalidPropertyGroupError>(new InvalidPropertyGroupError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 InvalidPropertyGroupError InvalidPropertyGroupError::EXAMPLE(){
     InvalidPropertyGroupError rv;

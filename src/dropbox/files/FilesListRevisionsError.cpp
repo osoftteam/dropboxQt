@@ -54,6 +54,15 @@ QString ListRevisionsError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ListRevisionsError>  ListRevisionsError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ListRevisionsError> rv = std::unique_ptr<ListRevisionsError>(new ListRevisionsError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ListRevisionsError ListRevisionsError::EXAMPLE(){
     ListRevisionsError rv;

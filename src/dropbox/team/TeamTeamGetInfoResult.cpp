@@ -46,6 +46,23 @@ QString TeamGetInfoResult::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<TeamGetInfoResult>  TeamGetInfoResult::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<TeamGetInfoResult>  TeamGetInfoResult::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<TeamGetInfoResult> rv;
+    rv = std::unique_ptr<TeamGetInfoResult>(new TeamGetInfoResult);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 TeamGetInfoResult TeamGetInfoResult::EXAMPLE(){
     TeamGetInfoResult rv;

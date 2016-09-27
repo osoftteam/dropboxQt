@@ -42,6 +42,23 @@ QString FolderPolicy::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<FolderPolicy>  FolderPolicy::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<FolderPolicy>  FolderPolicy::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<FolderPolicy> rv;
+    rv = std::unique_ptr<FolderPolicy>(new FolderPolicy);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 FolderPolicy FolderPolicy::EXAMPLE(){
     FolderPolicy rv;

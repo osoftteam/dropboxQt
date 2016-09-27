@@ -53,6 +53,15 @@ QString GroupsMembersListContinueError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GroupsMembersListContinueError>  GroupsMembersListContinueError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GroupsMembersListContinueError> rv = std::unique_ptr<GroupsMembersListContinueError>(new GroupsMembersListContinueError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GroupsMembersListContinueError GroupsMembersListContinueError::EXAMPLE(){
     GroupsMembersListContinueError rv;

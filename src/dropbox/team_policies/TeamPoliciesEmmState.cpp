@@ -69,6 +69,15 @@ QString EmmState::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<EmmState>  EmmState::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<EmmState> rv = std::unique_ptr<EmmState>(new EmmState);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 EmmState EmmState::EXAMPLE(){
     EmmState rv;

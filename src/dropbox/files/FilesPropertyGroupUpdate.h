@@ -27,21 +27,29 @@ namespace files{
     public:
         ///A unique identifier for a property template.
         QString templateId()const{return m_template_id;};
-        PropertyGroupUpdate& setTemplateid(const QString& arg){m_template_id=arg; return *this;};
+        PropertyGroupUpdate& setTemplateid(const QString& arg){m_template_id=arg;return *this;};
 
         ///List of property fields to update if the field already exists. If the field doesn't exist, add the field to the property group.
         const std::list <properties::PropertyField>& addOrUpdateFields()const{return m_add_or_update_fields;};
-        PropertyGroupUpdate& setAddorupdatefields(const std::list <properties::PropertyField>&& arg){m_add_or_update_fields=arg; return *this;};
+        PropertyGroupUpdate& setAddorupdatefields(const std::list <properties::PropertyField>&& arg){m_add_or_update_fields=arg;return *this;};
 
         ///List of property field names to remove from property group if the field exists.
         const std::list <QString>& removeFields()const{return m_remove_fields;};
-        PropertyGroupUpdate& setRemovefields(const std::list <QString>&& arg){m_remove_fields=arg; return *this;};
+        PropertyGroupUpdate& setRemovefields(const std::list <QString>&& arg){m_remove_fields=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<PropertyGroupUpdate>  create(const QByteArray& data);
+            static std::unique_ptr<PropertyGroupUpdate>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static PropertyGroupUpdate EXAMPLE();

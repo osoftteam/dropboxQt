@@ -29,21 +29,29 @@ namespace sharing{
     public:
         ///URL of the shared link.
         QString url()const{return m_url;};
-        LinkMetadata& setUrl(const QString& arg){m_url=arg; return *this;};
+        LinkMetadata& setUrl(const QString& arg){m_url=arg;return *this;};
 
         ///Who can access the link.
         Visibility visibility()const{return m_visibility;};
-        LinkMetadata& setVisibility(const Visibility& arg){m_visibility=arg; return *this;};
+        LinkMetadata& setVisibility(const Visibility& arg){m_visibility=arg;return *this;};
 
         ///Expiration time, if set. By default the link won't expire.
         QDateTime expires()const{return m_expires;};
-        LinkMetadata& setExpires(const QDateTime& arg){m_expires=arg; return *this;};
+        LinkMetadata& setExpires(const QDateTime& arg){m_expires=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<LinkMetadata>  create(const QByteArray& data);
+            static std::unique_ptr<LinkMetadata>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static LinkMetadata EXAMPLE();

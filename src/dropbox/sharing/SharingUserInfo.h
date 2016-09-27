@@ -27,21 +27,29 @@ namespace sharing{
     public:
         ///The account ID of the user.
         QString accountId()const{return m_account_id;};
-        UserInfo& setAccountid(const QString& arg){m_account_id=arg; return *this;};
+        UserInfo& setAccountid(const QString& arg){m_account_id=arg;return *this;};
 
         ///If the user is in the same team as current user.
         bool sameTeam()const{return m_same_team;};
-        UserInfo& setSameteam(const bool& arg){m_same_team=arg; return *this;};
+        UserInfo& setSameteam(const bool& arg){m_same_team=arg;return *this;};
 
         ///The team member ID of the shared folder member. Only present if :field:`same_team` is true.
         QString teamMemberId()const{return m_team_member_id;};
-        UserInfo& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
+        UserInfo& setTeammemberid(const QString& arg){m_team_member_id=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<UserInfo>  create(const QByteArray& data);
+            static std::unique_ptr<UserInfo>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static UserInfo EXAMPLE();

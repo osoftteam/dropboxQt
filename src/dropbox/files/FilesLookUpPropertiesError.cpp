@@ -45,6 +45,15 @@ QString LookUpPropertiesError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<LookUpPropertiesError>  LookUpPropertiesError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<LookUpPropertiesError> rv = std::unique_ptr<LookUpPropertiesError>(new LookUpPropertiesError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 LookUpPropertiesError LookUpPropertiesError::EXAMPLE(){
     LookUpPropertiesError rv;

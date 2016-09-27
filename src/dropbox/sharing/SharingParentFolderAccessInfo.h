@@ -28,21 +28,29 @@ namespace sharing{
     public:
         ///Display name for the folder.
         QString folderName()const{return m_folder_name;};
-        ParentFolderAccessInfo& setFoldername(const QString& arg){m_folder_name=arg; return *this;};
+        ParentFolderAccessInfo& setFoldername(const QString& arg){m_folder_name=arg;return *this;};
 
         ///The identifier of the parent shared folder.
         QString sharedFolderId()const{return m_shared_folder_id;};
-        ParentFolderAccessInfo& setSharedfolderid(const QString& arg){m_shared_folder_id=arg; return *this;};
+        ParentFolderAccessInfo& setSharedfolderid(const QString& arg){m_shared_folder_id=arg;return *this;};
 
         ///The user's permissions for the parent shared folder.
         const std::list <MemberPermission>& permissions()const{return m_permissions;};
-        ParentFolderAccessInfo& setPermissions(const std::list <MemberPermission>&& arg){m_permissions=arg; return *this;};
+        ParentFolderAccessInfo& setPermissions(const std::list <MemberPermission>&& arg){m_permissions=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ParentFolderAccessInfo>  create(const QByteArray& data);
+            static std::unique_ptr<ParentFolderAccessInfo>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ParentFolderAccessInfo EXAMPLE();

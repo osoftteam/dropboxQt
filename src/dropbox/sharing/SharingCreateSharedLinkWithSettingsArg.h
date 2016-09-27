@@ -24,17 +24,25 @@ namespace sharing{
     public:
         ///The path to be shared by the shared link
         QString path()const{return m_path;};
-        CreateSharedLinkWithSettingsArg& setPath(const QString& arg){m_path=arg; return *this;};
+        CreateSharedLinkWithSettingsArg& setPath(const QString& arg){m_path=arg;return *this;};
 
         ///The requested settings for the newly created shared link
         SharedLinkSettings settings()const{return m_settings;};
-        CreateSharedLinkWithSettingsArg& setSettings(const SharedLinkSettings& arg){m_settings=arg; return *this;};
+        CreateSharedLinkWithSettingsArg& setSettings(const SharedLinkSettings& arg){m_settings=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<CreateSharedLinkWithSettingsArg>  create(const QByteArray& data);
+            static std::unique_ptr<CreateSharedLinkWithSettingsArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static CreateSharedLinkWithSettingsArg EXAMPLE();

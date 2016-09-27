@@ -42,41 +42,49 @@ namespace sharing{
     public:
         ///URL of the shared link.
         QString url()const{return m_url;};
-        SharedLinkMetadata& setUrl(const QString& arg){m_url=arg; return *this;};
+        SharedLinkMetadata& setUrl(const QString& arg){m_url=arg;return *this;};
 
         ///A unique identifier for the linked file.
         QString id()const{return m_id;};
-        SharedLinkMetadata& setId(const QString& arg){m_id=arg; return *this;};
+        SharedLinkMetadata& setId(const QString& arg){m_id=arg;return *this;};
 
         ///The linked file name (including extension). This never contains a slash.
         QString name()const{return m_name;};
-        SharedLinkMetadata& setName(const QString& arg){m_name=arg; return *this;};
+        SharedLinkMetadata& setName(const QString& arg){m_name=arg;return *this;};
 
         ///Expiration time, if set. By default the link won't expire.
         QDateTime expires()const{return m_expires;};
-        SharedLinkMetadata& setExpires(const QDateTime& arg){m_expires=arg; return *this;};
+        SharedLinkMetadata& setExpires(const QDateTime& arg){m_expires=arg;return *this;};
 
         ///The lowercased full path in the user's Dropbox. This always starts with a slash. This field will only be present only if the linked file is in the authenticated user's  dropbox.
         QString pathLower()const{return m_path_lower;};
-        SharedLinkMetadata& setPathlower(const QString& arg){m_path_lower=arg; return *this;};
+        SharedLinkMetadata& setPathlower(const QString& arg){m_path_lower=arg;return *this;};
 
         ///The link's access permissions.
         LinkPermissions linkPermissions()const{return m_link_permissions;};
-        SharedLinkMetadata& setLinkpermissions(const LinkPermissions& arg){m_link_permissions=arg; return *this;};
+        SharedLinkMetadata& setLinkpermissions(const LinkPermissions& arg){m_link_permissions=arg;return *this;};
 
         ///The team membership information of the link's owner.  This field will only be present  if the link's owner is a team member.
         TeamMemberInfo teamMemberInfo()const{return m_team_member_info;};
-        SharedLinkMetadata& setTeammemberinfo(const TeamMemberInfo& arg){m_team_member_info=arg; return *this;};
+        SharedLinkMetadata& setTeammemberinfo(const TeamMemberInfo& arg){m_team_member_info=arg;return *this;};
 
         ///The team information of the content's owner. This field will only be present if the content's owner is a team member and the content's owner team is different from the link's owner team.
         users::Team contentOwnerTeamInfo()const{return m_content_owner_team_info;};
-        SharedLinkMetadata& setContentownerteaminfo(const users::Team& arg){m_content_owner_team_info=arg; return *this;};
+        SharedLinkMetadata& setContentownerteaminfo(const users::Team& arg){m_content_owner_team_info=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<SharedLinkMetadata>  create(const QByteArray& data);
+            static std::unique_ptr<SharedLinkMetadata>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static SharedLinkMetadata EXAMPLE();

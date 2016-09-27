@@ -28,21 +28,29 @@ namespace team{
     public:
         ///The application's unique id
         QString appId()const{return m_app_id;};
-        RevokeLinkedApiAppArg& setAppid(const QString& arg){m_app_id=arg; return *this;};
+        RevokeLinkedApiAppArg& setAppid(const QString& arg){m_app_id=arg;return *this;};
 
         ///The unique id of the member owning the device
         QString teamMemberId()const{return m_team_member_id;};
-        RevokeLinkedApiAppArg& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
+        RevokeLinkedApiAppArg& setTeammemberid(const QString& arg){m_team_member_id=arg;return *this;};
 
         ///Whether to keep the application dedicated folder (in case the application uses  one)
         bool keepAppFolder()const{return m_keep_app_folder;};
-        RevokeLinkedApiAppArg& setKeepappfolder(const bool& arg){m_keep_app_folder=arg; return *this;};
+        RevokeLinkedApiAppArg& setKeepappfolder(const bool& arg){m_keep_app_folder=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<RevokeLinkedApiAppArg>  create(const QByteArray& data);
+            static std::unique_ptr<RevokeLinkedApiAppArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static RevokeLinkedApiAppArg EXAMPLE();

@@ -63,6 +63,15 @@ QString ListFileMembersError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ListFileMembersError>  ListFileMembersError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ListFileMembersError> rv = std::unique_ptr<ListFileMembersError>(new ListFileMembersError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ListFileMembersError ListFileMembersError::EXAMPLE(){
     ListFileMembersError rv;

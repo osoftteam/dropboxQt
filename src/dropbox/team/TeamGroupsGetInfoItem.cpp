@@ -56,6 +56,15 @@ QString GroupsGetInfoItem::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GroupsGetInfoItem>  GroupsGetInfoItem::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GroupsGetInfoItem> rv = std::unique_ptr<GroupsGetInfoItem>(new GroupsGetInfoItem);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GroupsGetInfoItem GroupsGetInfoItem::EXAMPLE(){
     GroupsGetInfoItem rv;

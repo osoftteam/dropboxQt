@@ -71,6 +71,15 @@ QString RestoreError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<RestoreError>  RestoreError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<RestoreError> rv = std::unique_ptr<RestoreError>(new RestoreError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 RestoreError RestoreError::EXAMPLE(){
     RestoreError rv;

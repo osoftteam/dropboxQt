@@ -39,6 +39,23 @@ QString UploadWriteFailed::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<UploadWriteFailed>  UploadWriteFailed::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<UploadWriteFailed>  UploadWriteFailed::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<UploadWriteFailed> rv;
+    rv = std::unique_ptr<UploadWriteFailed>(new UploadWriteFailed);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 UploadWriteFailed UploadWriteFailed::EXAMPLE(){
     UploadWriteFailed rv;

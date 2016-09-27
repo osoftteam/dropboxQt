@@ -40,6 +40,23 @@ QString MemberPermission::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<MemberPermission>  MemberPermission::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<MemberPermission>  MemberPermission::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<MemberPermission> rv;
+    rv = std::unique_ptr<MemberPermission>(new MemberPermission);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MemberPermission MemberPermission::EXAMPLE(){
     MemberPermission rv;

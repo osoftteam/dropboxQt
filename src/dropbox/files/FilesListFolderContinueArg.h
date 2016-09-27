@@ -22,13 +22,21 @@ namespace files{
     public:
         ///The cursor returned by your last call to :route:`list_folder` or :route:`list_folder/continue`.
         QString cursor()const{return m_cursor;};
-        ListFolderContinueArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
+        ListFolderContinueArg& setCursor(const QString& arg){m_cursor=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ListFolderContinueArg>  create(const QByteArray& data);
+            static std::unique_ptr<ListFolderContinueArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ListFolderContinueArg EXAMPLE();

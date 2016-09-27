@@ -56,6 +56,15 @@ QString SaveUrlResult::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<SaveUrlResult>  SaveUrlResult::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<SaveUrlResult> rv = std::unique_ptr<SaveUrlResult>(new SaveUrlResult);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 SaveUrlResult SaveUrlResult::EXAMPLE(){
     SaveUrlResult rv;

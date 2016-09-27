@@ -45,29 +45,37 @@ namespace files{
     public:
         ///Path in the user's Dropbox to save the file.
         QString path()const{return m_path;};
-        CommitInfo& setPath(const QString& arg){m_path=arg; return *this;};
+        CommitInfo& setPath(const QString& arg){m_path=arg;return *this;};
 
         ///Selects what to do if the file already exists.
         WriteMode mode()const{return m_mode;};
-        CommitInfo& setMode(const WriteMode& arg){m_mode=arg; return *this;};
+        CommitInfo& setMode(const WriteMode& arg){m_mode=arg;return *this;};
 
         ///If there's a conflict, as determined by :field:`mode`, have the Dropbox server try to autorename the file to avoid conflict.
         bool autorename()const{return m_autorename;};
-        CommitInfo& setAutorename(const bool& arg){m_autorename=arg; return *this;};
+        CommitInfo& setAutorename(const bool& arg){m_autorename=arg;return *this;};
 
         ///The value to store as the :field:`client_modified` timestamp. Dropbox automatically records the time at which the file was written to the Dropbox servers. It can also record an additional timestamp, provided by Dropbox desktop clients, mobile clients, and API apps of when the file was actually created or modified.
         QDateTime clientModified()const{return m_client_modified;};
-        CommitInfo& setClientmodified(const QDateTime& arg){m_client_modified=arg; return *this;};
+        CommitInfo& setClientmodified(const QDateTime& arg){m_client_modified=arg;return *this;};
 
         ///Normally, users are made aware of any file modifications in their Dropbox account via notifications in the client software. If :val:`true`, this tells the clients that this modification shouldn't result in a user notification.
         bool mute()const{return m_mute;};
-        CommitInfo& setMute(const bool& arg){m_mute=arg; return *this;};
+        CommitInfo& setMute(const bool& arg){m_mute=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<CommitInfo>  create(const QByteArray& data);
+            static std::unique_ptr<CommitInfo>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static CommitInfo EXAMPLE();

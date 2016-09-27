@@ -53,6 +53,15 @@ QString MemberSelectorError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<MemberSelectorError>  MemberSelectorError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<MemberSelectorError> rv = std::unique_ptr<MemberSelectorError>(new MemberSelectorError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MemberSelectorError MemberSelectorError::EXAMPLE(){
     MemberSelectorError rv;

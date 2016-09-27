@@ -38,6 +38,23 @@ QString TeamMemberProfile::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<TeamMemberProfile>  TeamMemberProfile::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<TeamMemberProfile>  TeamMemberProfile::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<TeamMemberProfile> rv;
+    rv = std::unique_ptr<TeamMemberProfile>(new TeamMemberProfile);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 TeamMemberProfile TeamMemberProfile::EXAMPLE(){
     TeamMemberProfile rv;

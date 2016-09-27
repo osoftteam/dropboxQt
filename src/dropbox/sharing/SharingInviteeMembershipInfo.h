@@ -28,17 +28,25 @@ namespace sharing{
     public:
         ///Recipient of the invitation.
         InviteeInfo invitee()const{return m_invitee;};
-        InviteeMembershipInfo& setInvitee(const InviteeInfo& arg){m_invitee=arg; return *this;};
+        InviteeMembershipInfo& setInvitee(const InviteeInfo& arg){m_invitee=arg;return *this;};
 
         ///The user this invitation is tied to, if available.
         UserInfo user()const{return m_user;};
-        InviteeMembershipInfo& setUser(const UserInfo& arg){m_user=arg; return *this;};
+        InviteeMembershipInfo& setUser(const UserInfo& arg){m_user=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<InviteeMembershipInfo>  create(const QByteArray& data);
+            static std::unique_ptr<InviteeMembershipInfo>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static InviteeMembershipInfo EXAMPLE();

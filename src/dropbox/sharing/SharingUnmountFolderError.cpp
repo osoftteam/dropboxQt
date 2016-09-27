@@ -70,6 +70,15 @@ QString UnmountFolderError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<UnmountFolderError>  UnmountFolderError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<UnmountFolderError> rv = std::unique_ptr<UnmountFolderError>(new UnmountFolderError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 UnmountFolderError UnmountFolderError::EXAMPLE(){
     UnmountFolderError rv;

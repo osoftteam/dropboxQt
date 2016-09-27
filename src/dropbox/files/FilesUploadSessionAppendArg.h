@@ -29,17 +29,25 @@ namespace files{
     public:
         ///Contains the upload session ID and the offset.
         UploadSessionCursor cursor()const{return m_cursor;};
-        UploadSessionAppendArg& setCursor(const UploadSessionCursor& arg){m_cursor=arg; return *this;};
+        UploadSessionAppendArg& setCursor(const UploadSessionCursor& arg){m_cursor=arg;return *this;};
 
         ///If true, the current session will be closed, at which point you won't be able to call :route:`upload_session/append_v2` anymore with the current session.
         bool close()const{return m_close;};
-        UploadSessionAppendArg& setClose(const bool& arg){m_close=arg; return *this;};
+        UploadSessionAppendArg& setClose(const bool& arg){m_close=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<UploadSessionAppendArg>  create(const QByteArray& data);
+            static std::unique_ptr<UploadSessionAppendArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static UploadSessionAppendArg EXAMPLE();

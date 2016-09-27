@@ -28,21 +28,29 @@ namespace sharing{
     public:
         ///Information about the member's team
         users::Team teamInfo()const{return m_team_info;};
-        TeamMemberInfo& setTeaminfo(const users::Team& arg){m_team_info=arg; return *this;};
+        TeamMemberInfo& setTeaminfo(const users::Team& arg){m_team_info=arg;return *this;};
 
         ///The display name of the user.
         QString displayName()const{return m_display_name;};
-        TeamMemberInfo& setDisplayname(const QString& arg){m_display_name=arg; return *this;};
+        TeamMemberInfo& setDisplayname(const QString& arg){m_display_name=arg;return *this;};
 
         ///ID of user as a member of a team. This field will only be present if the member is in the same team as current user.
         QString memberId()const{return m_member_id;};
-        TeamMemberInfo& setMemberid(const QString& arg){m_member_id=arg; return *this;};
+        TeamMemberInfo& setMemberid(const QString& arg){m_member_id=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<TeamMemberInfo>  create(const QByteArray& data);
+            static std::unique_ptr<TeamMemberInfo>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static TeamMemberInfo EXAMPLE();

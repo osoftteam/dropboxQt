@@ -26,13 +26,21 @@ namespace team{
     public:
         ///Identity of user to recover.
         UserSelectorArg user()const{return m_user;};
-        MembersRecoverArg& setUser(const UserSelectorArg& arg){m_user=arg; return *this;};
+        MembersRecoverArg& setUser(const UserSelectorArg& arg){m_user=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<MembersRecoverArg>  create(const QByteArray& data);
+            static std::unique_ptr<MembersRecoverArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static MembersRecoverArg EXAMPLE();

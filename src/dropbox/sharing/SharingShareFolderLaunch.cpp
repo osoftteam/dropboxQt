@@ -56,6 +56,15 @@ QString ShareFolderLaunch::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ShareFolderLaunch>  ShareFolderLaunch::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ShareFolderLaunch> rv = std::unique_ptr<ShareFolderLaunch>(new ShareFolderLaunch);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ShareFolderLaunch ShareFolderLaunch::EXAMPLE(){
     ShareFolderLaunch rv;

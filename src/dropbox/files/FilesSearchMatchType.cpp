@@ -61,6 +61,15 @@ QString SearchMatchType::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<SearchMatchType>  SearchMatchType::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<SearchMatchType> rv = std::unique_ptr<SearchMatchType>(new SearchMatchType);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 SearchMatchType SearchMatchType::EXAMPLE(){
     SearchMatchType rv;

@@ -78,6 +78,15 @@ QString ModifySharedLinkSettingsError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ModifySharedLinkSettingsError>  ModifySharedLinkSettingsError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ModifySharedLinkSettingsError> rv = std::unique_ptr<ModifySharedLinkSettingsError>(new ModifySharedLinkSettingsError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ModifySharedLinkSettingsError ModifySharedLinkSettingsError::EXAMPLE(){
     ModifySharedLinkSettingsError rv;

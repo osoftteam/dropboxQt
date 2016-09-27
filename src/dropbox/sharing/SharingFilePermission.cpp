@@ -40,6 +40,23 @@ QString FilePermission::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<FilePermission>  FilePermission::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<FilePermission>  FilePermission::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<FilePermission> rv;
+    rv = std::unique_ptr<FilePermission>(new FilePermission);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 FilePermission FilePermission::EXAMPLE(){
     FilePermission rv;

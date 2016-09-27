@@ -61,6 +61,15 @@ QString SharedLinkPolicy::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<SharedLinkPolicy>  SharedLinkPolicy::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<SharedLinkPolicy> rv = std::unique_ptr<SharedLinkPolicy>(new SharedLinkPolicy);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 SharedLinkPolicy SharedLinkPolicy::EXAMPLE(){
     SharedLinkPolicy rv;

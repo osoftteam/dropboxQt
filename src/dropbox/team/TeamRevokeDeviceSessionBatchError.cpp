@@ -45,6 +45,15 @@ QString RevokeDeviceSessionBatchError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<RevokeDeviceSessionBatchError>  RevokeDeviceSessionBatchError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<RevokeDeviceSessionBatchError> rv = std::unique_ptr<RevokeDeviceSessionBatchError>(new RevokeDeviceSessionBatchError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 RevokeDeviceSessionBatchError RevokeDeviceSessionBatchError::EXAMPLE(){
     RevokeDeviceSessionBatchError rv;

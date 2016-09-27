@@ -4,6 +4,8 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingLinkMetadata.h"
+#include "dropbox/sharing/SharingPathLinkMetadata.h"
+#include "dropbox/sharing/SharingCollectionLinkMetadata.h"
 
 namespace dropboxQt{
 
@@ -40,6 +42,32 @@ QString LinkMetadata::toString(bool multiline)const
     QJsonDocument doc(js);
     QString s(doc.toJson(multiline ? QJsonDocument::Indented : QJsonDocument::Compact));
     return s;
+}
+
+
+std::unique_ptr<LinkMetadata>  LinkMetadata::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<LinkMetadata>  LinkMetadata::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<LinkMetadata> rv;
+    // subtype ('path',) : PathLinkMetadata
+    // subtype ('collection',) : CollectionLinkMetadata
+    QString tag = js[".tag"].toString();
+    if(tag.isEmpty()){
+        rv = std::unique_ptr<LinkMetadata>(new LinkMetadata);
+    }else if(tag.compare("path") == 0){
+        rv = std::unique_ptr<LinkMetadata>(new PathLinkMetadata);
+    }else if(tag.compare("collection") == 0){
+        rv = std::unique_ptr<LinkMetadata>(new CollectionLinkMetadata);
+    }
+    rv->fromJson(js);
+    return rv;
 }
 
 #ifdef DROPBOX_QT_AUTOTEST

@@ -72,6 +72,15 @@ QString PropertiesError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<PropertiesError>  PropertiesError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<PropertiesError> rv = std::unique_ptr<PropertiesError>(new PropertiesError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 PropertiesError PropertiesError::EXAMPLE(){
     PropertiesError rv;

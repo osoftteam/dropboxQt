@@ -25,17 +25,25 @@ namespace sharing{
     public:
         ///The files to query.
         const std::list <QString>& files()const{return m_files;};
-        GetFileMetadataBatchArg& setFiles(const std::list <QString>&& arg){m_files=arg; return *this;};
+        GetFileMetadataBatchArg& setFiles(const std::list <QString>&& arg){m_files=arg;return *this;};
 
         ///File actions to query.
         const std::list <FileAction>& actions()const{return m_actions;};
-        GetFileMetadataBatchArg& setActions(const std::list <FileAction>&& arg){m_actions=arg; return *this;};
+        GetFileMetadataBatchArg& setActions(const std::list <FileAction>&& arg){m_actions=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<GetFileMetadataBatchArg>  create(const QByteArray& data);
+            static std::unique_ptr<GetFileMetadataBatchArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static GetFileMetadataBatchArg EXAMPLE();

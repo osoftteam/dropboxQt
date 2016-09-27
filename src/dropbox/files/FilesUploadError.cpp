@@ -54,6 +54,15 @@ QString UploadError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<UploadError>  UploadError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<UploadError> rv = std::unique_ptr<UploadError>(new UploadError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 UploadError UploadError::EXAMPLE(){
     UploadError rv;

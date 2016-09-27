@@ -51,45 +51,53 @@ namespace files{
     public:
         ///A unique identifier for the file.
         QString id()const{return m_id;};
-        FileMetadata& setId(const QString& arg){m_id=arg; return *this;};
+        FileMetadata& setId(const QString& arg){m_id=arg;return *this;};
 
         ///For files, this is the modification time set by the desktop client when the file was added to Dropbox. Since this time is not verified (the Dropbox server stores whatever the desktop client sends up), this should only be used for display purposes (such as sorting) and not, for example, to determine if a file has changed or not.
         QDateTime clientModified()const{return m_client_modified;};
-        FileMetadata& setClientmodified(const QDateTime& arg){m_client_modified=arg; return *this;};
+        FileMetadata& setClientmodified(const QDateTime& arg){m_client_modified=arg;return *this;};
 
         ///The last time the file was modified on Dropbox.
         QDateTime serverModified()const{return m_server_modified;};
-        FileMetadata& setServermodified(const QDateTime& arg){m_server_modified=arg; return *this;};
+        FileMetadata& setServermodified(const QDateTime& arg){m_server_modified=arg;return *this;};
 
         ///A unique identifier for the current revision of a file. This field is the same rev as elsewhere in the API and can be used to detect changes and avoid conflicts.
         QString rev()const{return m_rev;};
-        FileMetadata& setRev(const QString& arg){m_rev=arg; return *this;};
+        FileMetadata& setRev(const QString& arg){m_rev=arg;return *this;};
 
         ///The file size in bytes.
         int size()const{return m_size;};
-        FileMetadata& setSize(const int& arg){m_size=arg; return *this;};
+        FileMetadata& setSize(const int& arg){m_size=arg;return *this;};
 
         ///Additional information if the file is a photo or video.
         MediaInfo mediaInfo()const{return m_media_info;};
-        FileMetadata& setMediainfo(const MediaInfo& arg){m_media_info=arg; return *this;};
+        FileMetadata& setMediainfo(const MediaInfo& arg){m_media_info=arg;return *this;};
 
         ///Set if this file is contained in a shared folder.
         FileSharingInfo sharingInfo()const{return m_sharing_info;};
-        FileMetadata& setSharinginfo(const FileSharingInfo& arg){m_sharing_info=arg; return *this;};
+        FileMetadata& setSharinginfo(const FileSharingInfo& arg){m_sharing_info=arg;return *this;};
 
         ///Additional information if the file has custom properties with the property template specified.
         const std::list <properties::PropertyGroup>& propertyGroups()const{return m_property_groups;};
-        FileMetadata& setPropertygroups(const std::list <properties::PropertyGroup>&& arg){m_property_groups=arg; return *this;};
+        FileMetadata& setPropertygroups(const std::list <properties::PropertyGroup>&& arg){m_property_groups=arg;return *this;};
 
         ///This flag will only be present if include_has_explicit_shared_members  is true in :route:`list_folder` or :route:`get_metadata`. If this  flag is present, it will be true if this file has any explicit shared  members. This is different from sharing_info in that this could be true  in the case where a file has explicit members but is not contained within  a shared folder.
         bool hasExplicitSharedMembers()const{return m_has_explicit_shared_members;};
-        FileMetadata& setHasexplicitsharedmembers(const bool& arg){m_has_explicit_shared_members=arg; return *this;};
+        FileMetadata& setHasexplicitsharedmembers(const bool& arg){m_has_explicit_shared_members=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<FileMetadata>  create(const QByteArray& data);
+            static std::unique_ptr<FileMetadata>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static FileMetadata EXAMPLE();

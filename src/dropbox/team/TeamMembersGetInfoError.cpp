@@ -45,6 +45,15 @@ QString MembersGetInfoError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<MembersGetInfoError>  MembersGetInfoError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<MembersGetInfoError> rv = std::unique_ptr<MembersGetInfoError>(new MembersGetInfoError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MembersGetInfoError MembersGetInfoError::EXAMPLE(){
     MembersGetInfoError rv;

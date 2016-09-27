@@ -13,292 +13,249 @@ namespace team{
 TeamRoutes::TeamRoutes(Endpoint* p):m_end_point(p){
 }
 
-GroupFullInfo TeamRoutes::alphaGroupsCreate(const GroupCreateArg& arg){
+std::unique_ptr<GroupFullInfo> TeamRoutes::alphaGroupsCreate(const GroupCreateArg& arg){
     QJsonObject js(arg);
-    GroupFullInfo r = m_end_point->rpcStyle<GroupFullInfo, StructFromJsonLoader<GroupFullInfo>, GroupCreateErrorException>("2/team/alpha/groups/create", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GroupFullInfo>, GroupFullInfo::factory, GroupCreateErrorException>("2/team/alpha/groups/create", js);
 }
 
 std::list <GroupsGetInfoItem> TeamRoutes::alphaGroupsGetInfo(const GroupsSelector& arg){
     QJsonObject js(arg);
-    std::list <GroupsGetInfoItem> r = m_end_point->rpcStyle<std::list <GroupsGetInfoItem>, ListFromJsonLoader<std::list <GroupsGetInfoItem>, GroupsGetInfoItem>, GroupsGetInfoErrorException>("2/team/alpha/groups/get_info", js);
-    return r;
+    return m_end_point->rpcStyle<std::list <GroupsGetInfoItem>, ListFromJsonLoader<std::list <GroupsGetInfoItem>, GroupsGetInfoItem>, GroupsGetInfoErrorException>("2/team/alpha/groups/get_info", js);
 }
 
-GroupsListResult TeamRoutes::alphaGroupsList(const GroupsListArg& arg){
+std::unique_ptr<GroupsListResult> TeamRoutes::alphaGroupsList(const GroupsListArg& arg){
     QJsonObject js(arg);
-    GroupsListResult r = m_end_point->rpcStyle<GroupsListResult, StructFromJsonLoader<GroupsListResult>, NotAnException>("2/team/alpha/groups/list", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GroupsListResult>, GroupsListResult::factory, NotAnException>("2/team/alpha/groups/list", js);
 }
 
-GroupsListResult TeamRoutes::alphaGroupsListContinue(const GroupsListContinueArg& arg){
+std::unique_ptr<GroupsListResult> TeamRoutes::alphaGroupsListContinue(const GroupsListContinueArg& arg){
     QJsonObject js(arg);
-    GroupsListResult r = m_end_point->rpcStyle<GroupsListResult, StructFromJsonLoader<GroupsListResult>, GroupsListContinueErrorException>("2/team/alpha/groups/list/continue", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GroupsListResult>, GroupsListResult::factory, GroupsListContinueErrorException>("2/team/alpha/groups/list/continue", js);
 }
 
-GroupFullInfo TeamRoutes::alphaGroupsUpdate(const GroupUpdateArgs& arg){
+std::unique_ptr<GroupFullInfo> TeamRoutes::alphaGroupsUpdate(const GroupUpdateArgs& arg){
     QJsonObject js(arg);
-    GroupFullInfo r = m_end_point->rpcStyle<GroupFullInfo, StructFromJsonLoader<GroupFullInfo>, GroupUpdateErrorException>("2/team/alpha/groups/update", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GroupFullInfo>, GroupFullInfo::factory, GroupUpdateErrorException>("2/team/alpha/groups/update", js);
 }
 
-ListMemberDevicesResult TeamRoutes::devicesListMemberDevices(const ListMemberDevicesArg& arg){
+std::unique_ptr<ListMemberDevicesResult> TeamRoutes::devicesListMemberDevices(const ListMemberDevicesArg& arg){
     QJsonObject js(arg);
-    ListMemberDevicesResult r = m_end_point->rpcStyle<ListMemberDevicesResult, StructFromJsonLoader<ListMemberDevicesResult>, ListMemberDevicesErrorException>("2/team/devices/list_member_devices", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListMemberDevicesResult>, ListMemberDevicesResult::factory, ListMemberDevicesErrorException>("2/team/devices/list_member_devices", js);
 }
 
-ListMembersDevicesResult TeamRoutes::devicesListMembersDevices(const ListMembersDevicesArg& arg){
+std::unique_ptr<ListMembersDevicesResult> TeamRoutes::devicesListMembersDevices(const ListMembersDevicesArg& arg){
     QJsonObject js(arg);
-    ListMembersDevicesResult r = m_end_point->rpcStyle<ListMembersDevicesResult, StructFromJsonLoader<ListMembersDevicesResult>, ListMembersDevicesErrorException>("2/team/devices/list_members_devices", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListMembersDevicesResult>, ListMembersDevicesResult::factory, ListMembersDevicesErrorException>("2/team/devices/list_members_devices", js);
 }
 
-ListTeamDevicesResult TeamRoutes::devicesListTeamDevices(const ListTeamDevicesArg& arg){
+std::unique_ptr<ListTeamDevicesResult> TeamRoutes::devicesListTeamDevices(const ListTeamDevicesArg& arg){
     QJsonObject js(arg);
-    ListTeamDevicesResult r = m_end_point->rpcStyle<ListTeamDevicesResult, StructFromJsonLoader<ListTeamDevicesResult>, ListTeamDevicesErrorException>("2/team/devices/list_team_devices", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListTeamDevicesResult>, ListTeamDevicesResult::factory, ListTeamDevicesErrorException>("2/team/devices/list_team_devices", js);
 }
 
 void TeamRoutes::devicesRevokeDeviceSession(const RevokeDeviceSessionArg& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, RevokeDeviceSessionErrorException>("2/team/devices/revoke_device_session", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, RevokeDeviceSessionErrorException>("2/team/devices/revoke_device_session", js);
 }
 
-RevokeDeviceSessionBatchResult TeamRoutes::devicesRevokeDeviceSessionBatch(const RevokeDeviceSessionBatchArg& arg){
+std::unique_ptr<RevokeDeviceSessionBatchResult> TeamRoutes::devicesRevokeDeviceSessionBatch(const RevokeDeviceSessionBatchArg& arg){
     QJsonObject js(arg);
-    RevokeDeviceSessionBatchResult r = m_end_point->rpcStyle<RevokeDeviceSessionBatchResult, StructFromJsonLoader<RevokeDeviceSessionBatchResult>, RevokeDeviceSessionBatchErrorException>("2/team/devices/revoke_device_session_batch", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<RevokeDeviceSessionBatchResult>, RevokeDeviceSessionBatchResult::factory, RevokeDeviceSessionBatchErrorException>("2/team/devices/revoke_device_session_batch", js);
 }
 
-TeamGetInfoResult TeamRoutes::getInfo(void){
+std::unique_ptr<TeamGetInfoResult> TeamRoutes::getInfo(void){
     static const QJsonObject js;
-    TeamGetInfoResult r = m_end_point->rpcStyle<TeamGetInfoResult, StructFromJsonLoader<TeamGetInfoResult>, NotAnException >("2/team/get_info", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<TeamGetInfoResult>, TeamGetInfoResult::factory, NotAnException >("2/team/get_info", js);
 }
 
-GroupFullInfo TeamRoutes::groupsCreate(const GroupCreateArg& arg){
+std::unique_ptr<GroupFullInfo> TeamRoutes::groupsCreate(const GroupCreateArg& arg){
     QJsonObject js(arg);
-    GroupFullInfo r = m_end_point->rpcStyle<GroupFullInfo, StructFromJsonLoader<GroupFullInfo>, GroupCreateErrorException>("2/team/groups/create", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GroupFullInfo>, GroupFullInfo::factory, GroupCreateErrorException>("2/team/groups/create", js);
 }
 
-async::LaunchEmptyResult TeamRoutes::groupsDelete(const GroupSelector& arg){
+std::unique_ptr<async::LaunchEmptyResult> TeamRoutes::groupsDelete(const GroupSelector& arg){
     QJsonObject js(arg);
-    async::LaunchEmptyResult r = m_end_point->rpcStyle<async::LaunchEmptyResult, StructFromJsonLoader<async::LaunchEmptyResult>, GroupDeleteErrorException>("2/team/groups/delete", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<async::LaunchEmptyResult>, async::LaunchEmptyResult::factory, GroupDeleteErrorException>("2/team/groups/delete", js);
 }
 
 std::list <GroupsGetInfoItem> TeamRoutes::groupsGetInfo(const GroupsSelector& arg){
     QJsonObject js(arg);
-    std::list <GroupsGetInfoItem> r = m_end_point->rpcStyle<std::list <GroupsGetInfoItem>, ListFromJsonLoader<std::list <GroupsGetInfoItem>, GroupsGetInfoItem>, GroupsGetInfoErrorException>("2/team/groups/get_info", js);
-    return r;
+    return m_end_point->rpcStyle<std::list <GroupsGetInfoItem>, ListFromJsonLoader<std::list <GroupsGetInfoItem>, GroupsGetInfoItem>, GroupsGetInfoErrorException>("2/team/groups/get_info", js);
 }
 
-async::PollEmptyResult TeamRoutes::groupsJobStatusGet(const async::PollArg& arg){
+std::unique_ptr<async::PollEmptyResult> TeamRoutes::groupsJobStatusGet(const async::PollArg& arg){
     QJsonObject js(arg);
-    async::PollEmptyResult r = m_end_point->rpcStyle<async::PollEmptyResult, StructFromJsonLoader<async::PollEmptyResult>, GroupsPollErrorException>("2/team/groups/job_status/get", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<async::PollEmptyResult>, async::PollEmptyResult::factory, GroupsPollErrorException>("2/team/groups/job_status/get", js);
 }
 
-GroupsListResult TeamRoutes::groupsList(const GroupsListArg& arg){
+std::unique_ptr<GroupsListResult> TeamRoutes::groupsList(const GroupsListArg& arg){
     QJsonObject js(arg);
-    GroupsListResult r = m_end_point->rpcStyle<GroupsListResult, StructFromJsonLoader<GroupsListResult>, NotAnException>("2/team/groups/list", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GroupsListResult>, GroupsListResult::factory, NotAnException>("2/team/groups/list", js);
 }
 
-GroupsListResult TeamRoutes::groupsListContinue(const GroupsListContinueArg& arg){
+std::unique_ptr<GroupsListResult> TeamRoutes::groupsListContinue(const GroupsListContinueArg& arg){
     QJsonObject js(arg);
-    GroupsListResult r = m_end_point->rpcStyle<GroupsListResult, StructFromJsonLoader<GroupsListResult>, GroupsListContinueErrorException>("2/team/groups/list/continue", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GroupsListResult>, GroupsListResult::factory, GroupsListContinueErrorException>("2/team/groups/list/continue", js);
 }
 
-GroupMembersChangeResult TeamRoutes::groupsMembersAdd(const GroupMembersAddArg& arg){
+std::unique_ptr<GroupMembersChangeResult> TeamRoutes::groupsMembersAdd(const GroupMembersAddArg& arg){
     QJsonObject js(arg);
-    GroupMembersChangeResult r = m_end_point->rpcStyle<GroupMembersChangeResult, StructFromJsonLoader<GroupMembersChangeResult>, GroupMembersAddErrorException>("2/team/groups/members/add", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GroupMembersChangeResult>, GroupMembersChangeResult::factory, GroupMembersAddErrorException>("2/team/groups/members/add", js);
 }
 
-GroupsMembersListResult TeamRoutes::groupsMembersList(const GroupsMembersListArg& arg){
+std::unique_ptr<GroupsMembersListResult> TeamRoutes::groupsMembersList(const GroupsMembersListArg& arg){
     QJsonObject js(arg);
-    GroupsMembersListResult r = m_end_point->rpcStyle<GroupsMembersListResult, StructFromJsonLoader<GroupsMembersListResult>, GroupSelectorErrorException>("2/team/groups/members/list", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GroupsMembersListResult>, GroupsMembersListResult::factory, GroupSelectorErrorException>("2/team/groups/members/list", js);
 }
 
-GroupsMembersListResult TeamRoutes::groupsMembersListContinue(const GroupsMembersListContinueArg& arg){
+std::unique_ptr<GroupsMembersListResult> TeamRoutes::groupsMembersListContinue(const GroupsMembersListContinueArg& arg){
     QJsonObject js(arg);
-    GroupsMembersListResult r = m_end_point->rpcStyle<GroupsMembersListResult, StructFromJsonLoader<GroupsMembersListResult>, GroupsMembersListContinueErrorException>("2/team/groups/members/list/continue", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GroupsMembersListResult>, GroupsMembersListResult::factory, GroupsMembersListContinueErrorException>("2/team/groups/members/list/continue", js);
 }
 
-GroupMembersChangeResult TeamRoutes::groupsMembersRemove(const GroupMembersRemoveArg& arg){
+std::unique_ptr<GroupMembersChangeResult> TeamRoutes::groupsMembersRemove(const GroupMembersRemoveArg& arg){
     QJsonObject js(arg);
-    GroupMembersChangeResult r = m_end_point->rpcStyle<GroupMembersChangeResult, StructFromJsonLoader<GroupMembersChangeResult>, GroupMembersRemoveErrorException>("2/team/groups/members/remove", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GroupMembersChangeResult>, GroupMembersChangeResult::factory, GroupMembersRemoveErrorException>("2/team/groups/members/remove", js);
 }
 
 std::list <GroupsGetInfoItem> TeamRoutes::groupsMembersSetAccessType(const GroupMembersSetAccessTypeArg& arg){
     QJsonObject js(arg);
-    std::list <GroupsGetInfoItem> r = m_end_point->rpcStyle<std::list <GroupsGetInfoItem>, ListFromJsonLoader<std::list <GroupsGetInfoItem>, GroupsGetInfoItem>, GroupMemberSetAccessTypeErrorException>("2/team/groups/members/set_access_type", js);
-    return r;
+    return m_end_point->rpcStyle<std::list <GroupsGetInfoItem>, ListFromJsonLoader<std::list <GroupsGetInfoItem>, GroupsGetInfoItem>, GroupMemberSetAccessTypeErrorException>("2/team/groups/members/set_access_type", js);
 }
 
-GroupFullInfo TeamRoutes::groupsUpdate(const GroupUpdateArgs& arg){
+std::unique_ptr<GroupFullInfo> TeamRoutes::groupsUpdate(const GroupUpdateArgs& arg){
     QJsonObject js(arg);
-    GroupFullInfo r = m_end_point->rpcStyle<GroupFullInfo, StructFromJsonLoader<GroupFullInfo>, GroupUpdateErrorException>("2/team/groups/update", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GroupFullInfo>, GroupFullInfo::factory, GroupUpdateErrorException>("2/team/groups/update", js);
 }
 
-ListMemberAppsResult TeamRoutes::linkedAppsListMemberLinkedApps(const ListMemberAppsArg& arg){
+std::unique_ptr<ListMemberAppsResult> TeamRoutes::linkedAppsListMemberLinkedApps(const ListMemberAppsArg& arg){
     QJsonObject js(arg);
-    ListMemberAppsResult r = m_end_point->rpcStyle<ListMemberAppsResult, StructFromJsonLoader<ListMemberAppsResult>, ListMemberAppsErrorException>("2/team/linked_apps/list_member_linked_apps", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListMemberAppsResult>, ListMemberAppsResult::factory, ListMemberAppsErrorException>("2/team/linked_apps/list_member_linked_apps", js);
 }
 
-ListMembersAppsResult TeamRoutes::linkedAppsListMembersLinkedApps(const ListMembersAppsArg& arg){
+std::unique_ptr<ListMembersAppsResult> TeamRoutes::linkedAppsListMembersLinkedApps(const ListMembersAppsArg& arg){
     QJsonObject js(arg);
-    ListMembersAppsResult r = m_end_point->rpcStyle<ListMembersAppsResult, StructFromJsonLoader<ListMembersAppsResult>, ListMembersAppsErrorException>("2/team/linked_apps/list_members_linked_apps", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListMembersAppsResult>, ListMembersAppsResult::factory, ListMembersAppsErrorException>("2/team/linked_apps/list_members_linked_apps", js);
 }
 
-ListTeamAppsResult TeamRoutes::linkedAppsListTeamLinkedApps(const ListTeamAppsArg& arg){
+std::unique_ptr<ListTeamAppsResult> TeamRoutes::linkedAppsListTeamLinkedApps(const ListTeamAppsArg& arg){
     QJsonObject js(arg);
-    ListTeamAppsResult r = m_end_point->rpcStyle<ListTeamAppsResult, StructFromJsonLoader<ListTeamAppsResult>, ListTeamAppsErrorException>("2/team/linked_apps/list_team_linked_apps", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<ListTeamAppsResult>, ListTeamAppsResult::factory, ListTeamAppsErrorException>("2/team/linked_apps/list_team_linked_apps", js);
 }
 
 void TeamRoutes::linkedAppsRevokeLinkedApp(const RevokeLinkedApiAppArg& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, RevokeLinkedAppErrorException>("2/team/linked_apps/revoke_linked_app", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, RevokeLinkedAppErrorException>("2/team/linked_apps/revoke_linked_app", js);
 }
 
-RevokeLinkedAppBatchResult TeamRoutes::linkedAppsRevokeLinkedAppBatch(const RevokeLinkedApiAppBatchArg& arg){
+std::unique_ptr<RevokeLinkedAppBatchResult> TeamRoutes::linkedAppsRevokeLinkedAppBatch(const RevokeLinkedApiAppBatchArg& arg){
     QJsonObject js(arg);
-    RevokeLinkedAppBatchResult r = m_end_point->rpcStyle<RevokeLinkedAppBatchResult, StructFromJsonLoader<RevokeLinkedAppBatchResult>, RevokeLinkedAppBatchErrorException>("2/team/linked_apps/revoke_linked_app_batch", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<RevokeLinkedAppBatchResult>, RevokeLinkedAppBatchResult::factory, RevokeLinkedAppBatchErrorException>("2/team/linked_apps/revoke_linked_app_batch", js);
 }
 
-MembersAddLaunch TeamRoutes::membersAdd(const MembersAddArg& arg){
+std::unique_ptr<MembersAddLaunch> TeamRoutes::membersAdd(const MembersAddArg& arg){
     QJsonObject js(arg);
-    MembersAddLaunch r = m_end_point->rpcStyle<MembersAddLaunch, StructFromJsonLoader<MembersAddLaunch>, NotAnException>("2/team/members/add", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<MembersAddLaunch>, MembersAddLaunch::factory, NotAnException>("2/team/members/add", js);
 }
 
-MembersAddJobStatus TeamRoutes::membersAddJobStatusGet(const async::PollArg& arg){
+std::unique_ptr<MembersAddJobStatus> TeamRoutes::membersAddJobStatusGet(const async::PollArg& arg){
     QJsonObject js(arg);
-    MembersAddJobStatus r = m_end_point->rpcStyle<MembersAddJobStatus, StructFromJsonLoader<MembersAddJobStatus>, PollErrorException>("2/team/members/add/job_status/get", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<MembersAddJobStatus>, MembersAddJobStatus::factory, PollErrorException>("2/team/members/add/job_status/get", js);
 }
 
 std::list <MembersGetInfoItem> TeamRoutes::membersGetInfo(const MembersGetInfoArgs& arg){
     QJsonObject js(arg);
-    std::list <MembersGetInfoItem> r = m_end_point->rpcStyle<std::list <MembersGetInfoItem>, ListFromJsonLoader<std::list <MembersGetInfoItem>, MembersGetInfoItem>, MembersGetInfoErrorException>("2/team/members/get_info", js);
-    return r;
+    return m_end_point->rpcStyle<std::list <MembersGetInfoItem>, ListFromJsonLoader<std::list <MembersGetInfoItem>, MembersGetInfoItem>, MembersGetInfoErrorException>("2/team/members/get_info", js);
 }
 
-MembersListResult TeamRoutes::membersList(const MembersListArg& arg){
+std::unique_ptr<MembersListResult> TeamRoutes::membersList(const MembersListArg& arg){
     QJsonObject js(arg);
-    MembersListResult r = m_end_point->rpcStyle<MembersListResult, StructFromJsonLoader<MembersListResult>, MembersListErrorException>("2/team/members/list", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<MembersListResult>, MembersListResult::factory, MembersListErrorException>("2/team/members/list", js);
 }
 
-MembersListResult TeamRoutes::membersListContinue(const MembersListContinueArg& arg){
+std::unique_ptr<MembersListResult> TeamRoutes::membersListContinue(const MembersListContinueArg& arg){
     QJsonObject js(arg);
-    MembersListResult r = m_end_point->rpcStyle<MembersListResult, StructFromJsonLoader<MembersListResult>, MembersListContinueErrorException>("2/team/members/list/continue", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<MembersListResult>, MembersListResult::factory, MembersListContinueErrorException>("2/team/members/list/continue", js);
 }
 
 void TeamRoutes::membersRecover(const MembersRecoverArg& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, MembersRecoverErrorException>("2/team/members/recover", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, MembersRecoverErrorException>("2/team/members/recover", js);
 }
 
-async::LaunchEmptyResult TeamRoutes::membersRemove(const MembersRemoveArg& arg){
+std::unique_ptr<async::LaunchEmptyResult> TeamRoutes::membersRemove(const MembersRemoveArg& arg){
     QJsonObject js(arg);
-    async::LaunchEmptyResult r = m_end_point->rpcStyle<async::LaunchEmptyResult, StructFromJsonLoader<async::LaunchEmptyResult>, MembersRemoveErrorException>("2/team/members/remove", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<async::LaunchEmptyResult>, async::LaunchEmptyResult::factory, MembersRemoveErrorException>("2/team/members/remove", js);
 }
 
-async::PollEmptyResult TeamRoutes::membersRemoveJobStatusGet(const async::PollArg& arg){
+std::unique_ptr<async::PollEmptyResult> TeamRoutes::membersRemoveJobStatusGet(const async::PollArg& arg){
     QJsonObject js(arg);
-    async::PollEmptyResult r = m_end_point->rpcStyle<async::PollEmptyResult, StructFromJsonLoader<async::PollEmptyResult>, PollErrorException>("2/team/members/remove/job_status/get", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<async::PollEmptyResult>, async::PollEmptyResult::factory, PollErrorException>("2/team/members/remove/job_status/get", js);
 }
 
 void TeamRoutes::membersSendWelcomeEmail(const UserSelectorArg& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, MembersSendWelcomeErrorException>("2/team/members/send_welcome_email", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, MembersSendWelcomeErrorException>("2/team/members/send_welcome_email", js);
 }
 
-MembersSetPermissionsResult TeamRoutes::membersSetAdminPermissions(const MembersSetPermissionsArg& arg){
+std::unique_ptr<MembersSetPermissionsResult> TeamRoutes::membersSetAdminPermissions(const MembersSetPermissionsArg& arg){
     QJsonObject js(arg);
-    MembersSetPermissionsResult r = m_end_point->rpcStyle<MembersSetPermissionsResult, StructFromJsonLoader<MembersSetPermissionsResult>, MembersSetPermissionsErrorException>("2/team/members/set_admin_permissions", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<MembersSetPermissionsResult>, MembersSetPermissionsResult::factory, MembersSetPermissionsErrorException>("2/team/members/set_admin_permissions", js);
 }
 
-TeamMemberInfo TeamRoutes::membersSetProfile(const MembersSetProfileArg& arg){
+std::unique_ptr<TeamMemberInfo> TeamRoutes::membersSetProfile(const MembersSetProfileArg& arg){
     QJsonObject js(arg);
-    TeamMemberInfo r = m_end_point->rpcStyle<TeamMemberInfo, StructFromJsonLoader<TeamMemberInfo>, MembersSetProfileErrorException>("2/team/members/set_profile", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<TeamMemberInfo>, TeamMemberInfo::factory, MembersSetProfileErrorException>("2/team/members/set_profile", js);
 }
 
 void TeamRoutes::membersSuspend(const MembersDeactivateArg& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, MembersSuspendErrorException>("2/team/members/suspend", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, MembersSuspendErrorException>("2/team/members/suspend", js);
 }
 
 void TeamRoutes::membersUnsuspend(const MembersUnsuspendArg& arg){
     QJsonObject js(arg);
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, MembersUnsuspendErrorException>("2/team/members/unsuspend", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, MembersUnsuspendErrorException>("2/team/members/unsuspend", js);
 }
 
-AddPropertyTemplateResult TeamRoutes::propertiesTemplateAdd(const AddPropertyTemplateArg& arg){
+std::unique_ptr<AddPropertyTemplateResult> TeamRoutes::propertiesTemplateAdd(const AddPropertyTemplateArg& arg){
     QJsonObject js(arg);
-    AddPropertyTemplateResult r = m_end_point->rpcStyle<AddPropertyTemplateResult, StructFromJsonLoader<AddPropertyTemplateResult>, ModifyPropertyTemplateErrorException>("2/team/properties/template/add", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<AddPropertyTemplateResult>, AddPropertyTemplateResult::factory, ModifyPropertyTemplateErrorException>("2/team/properties/template/add", js);
 }
 
-properties::GetPropertyTemplateResult TeamRoutes::propertiesTemplateGet(const properties::GetPropertyTemplateArg& arg){
+std::unique_ptr<properties::GetPropertyTemplateResult> TeamRoutes::propertiesTemplateGet(const properties::GetPropertyTemplateArg& arg){
     QJsonObject js(arg);
-    properties::GetPropertyTemplateResult r = m_end_point->rpcStyle<properties::GetPropertyTemplateResult, StructFromJsonLoader<properties::GetPropertyTemplateResult>, PropertyTemplateErrorException>("2/team/properties/template/get", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<properties::GetPropertyTemplateResult>, properties::GetPropertyTemplateResult::factory, PropertyTemplateErrorException>("2/team/properties/template/get", js);
 }
 
-properties::ListPropertyTemplateIds TeamRoutes::propertiesTemplateList(void){
+std::unique_ptr<properties::ListPropertyTemplateIds> TeamRoutes::propertiesTemplateList(void){
     static const QJsonObject js;
-    properties::ListPropertyTemplateIds r = m_end_point->rpcStyle<properties::ListPropertyTemplateIds, StructFromJsonLoader<properties::ListPropertyTemplateIds>, PropertyTemplateErrorException >("2/team/properties/template/list", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<properties::ListPropertyTemplateIds>, properties::ListPropertyTemplateIds::factory, PropertyTemplateErrorException >("2/team/properties/template/list", js);
 }
 
-UpdatePropertyTemplateResult TeamRoutes::propertiesTemplateUpdate(const UpdatePropertyTemplateArg& arg){
+std::unique_ptr<UpdatePropertyTemplateResult> TeamRoutes::propertiesTemplateUpdate(const UpdatePropertyTemplateArg& arg){
     QJsonObject js(arg);
-    UpdatePropertyTemplateResult r = m_end_point->rpcStyle<UpdatePropertyTemplateResult, StructFromJsonLoader<UpdatePropertyTemplateResult>, ModifyPropertyTemplateErrorException>("2/team/properties/template/update", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<UpdatePropertyTemplateResult>, UpdatePropertyTemplateResult::factory, ModifyPropertyTemplateErrorException>("2/team/properties/template/update", js);
 }
 
-GetActivityReport TeamRoutes::reportsGetActivity(const DateRange& arg){
+std::unique_ptr<GetActivityReport> TeamRoutes::reportsGetActivity(const DateRange& arg){
     QJsonObject js(arg);
-    GetActivityReport r = m_end_point->rpcStyle<GetActivityReport, StructFromJsonLoader<GetActivityReport>, DateRangeErrorException>("2/team/reports/get_activity", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GetActivityReport>, GetActivityReport::factory, DateRangeErrorException>("2/team/reports/get_activity", js);
 }
 
-GetDevicesReport TeamRoutes::reportsGetDevices(const DateRange& arg){
+std::unique_ptr<GetDevicesReport> TeamRoutes::reportsGetDevices(const DateRange& arg){
     QJsonObject js(arg);
-    GetDevicesReport r = m_end_point->rpcStyle<GetDevicesReport, StructFromJsonLoader<GetDevicesReport>, DateRangeErrorException>("2/team/reports/get_devices", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GetDevicesReport>, GetDevicesReport::factory, DateRangeErrorException>("2/team/reports/get_devices", js);
 }
 
-GetMembershipReport TeamRoutes::reportsGetMembership(const DateRange& arg){
+std::unique_ptr<GetMembershipReport> TeamRoutes::reportsGetMembership(const DateRange& arg){
     QJsonObject js(arg);
-    GetMembershipReport r = m_end_point->rpcStyle<GetMembershipReport, StructFromJsonLoader<GetMembershipReport>, DateRangeErrorException>("2/team/reports/get_membership", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GetMembershipReport>, GetMembershipReport::factory, DateRangeErrorException>("2/team/reports/get_membership", js);
 }
 
-GetStorageReport TeamRoutes::reportsGetStorage(const DateRange& arg){
+std::unique_ptr<GetStorageReport> TeamRoutes::reportsGetStorage(const DateRange& arg){
     QJsonObject js(arg);
-    GetStorageReport r = m_end_point->rpcStyle<GetStorageReport, StructFromJsonLoader<GetStorageReport>, DateRangeErrorException>("2/team/reports/get_storage", js);
-    return r;
+    return m_end_point->rpcStyle< std::unique_ptr<GetStorageReport>, GetStorageReport::factory, DateRangeErrorException>("2/team/reports/get_storage", js);
 }
 
 IMPLEMENT_DBOX_ERR_EXCEPTION(GroupCreateErrorException, team::GroupCreateError);

@@ -32,21 +32,29 @@ namespace sharing{
     public:
         ///The path to share.
         QString path()const{return m_path;};
-        CreateSharedLinkArg& setPath(const QString& arg){m_path=arg; return *this;};
+        CreateSharedLinkArg& setPath(const QString& arg){m_path=arg;return *this;};
 
         ///Whether to return a shortened URL.
         bool shortUrl()const{return m_short_url;};
-        CreateSharedLinkArg& setShorturl(const bool& arg){m_short_url=arg; return *this;};
+        CreateSharedLinkArg& setShorturl(const bool& arg){m_short_url=arg;return *this;};
 
         ///If it's okay to share a path that does not yet exist, set this to either :field:`PendingUploadMode.file` or :field:`PendingUploadMode.folder` to indicate whether to assume it's a file or folder.
         PendingUploadMode pendingUpload()const{return m_pending_upload;};
-        CreateSharedLinkArg& setPendingupload(const PendingUploadMode& arg){m_pending_upload=arg; return *this;};
+        CreateSharedLinkArg& setPendingupload(const PendingUploadMode& arg){m_pending_upload=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<CreateSharedLinkArg>  create(const QByteArray& data);
+            static std::unique_ptr<CreateSharedLinkArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static CreateSharedLinkArg EXAMPLE();

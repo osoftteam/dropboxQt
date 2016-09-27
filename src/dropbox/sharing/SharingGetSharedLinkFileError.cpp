@@ -69,6 +69,15 @@ QString GetSharedLinkFileError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GetSharedLinkFileError>  GetSharedLinkFileError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GetSharedLinkFileError> rv = std::unique_ptr<GetSharedLinkFileError>(new GetSharedLinkFileError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GetSharedLinkFileError GetSharedLinkFileError::EXAMPLE(){
     GetSharedLinkFileError rv;

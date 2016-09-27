@@ -26,17 +26,25 @@ namespace files{
     public:
         ///The path to the file you want to see the revisions of.
         QString path()const{return m_path;};
-        ListRevisionsArg& setPath(const QString& arg){m_path=arg; return *this;};
+        ListRevisionsArg& setPath(const QString& arg){m_path=arg;return *this;};
 
         ///The maximum number of revision entries returned.
         int limit()const{return m_limit;};
-        ListRevisionsArg& setLimit(const int& arg){m_limit=arg; return *this;};
+        ListRevisionsArg& setLimit(const int& arg){m_limit=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ListRevisionsArg>  create(const QByteArray& data);
+            static std::unique_ptr<ListRevisionsArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ListRevisionsArg EXAMPLE();

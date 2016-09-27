@@ -39,25 +39,33 @@ namespace team{
     public:
         ///At the first call to the :route:`devices/list_team_devices` the cursor shouldn't be passed. Then, if the result of the call includes a cursor, the following requests should include the received cursors in order to receive the next sub list of team devices
         QString cursor()const{return m_cursor;};
-        ListTeamDevicesArg& setCursor(const QString& arg){m_cursor=arg; return *this;};
+        ListTeamDevicesArg& setCursor(const QString& arg){m_cursor=arg;return *this;};
 
         ///Whether to list web sessions of the team members
         bool includeWebSessions()const{return m_include_web_sessions;};
-        ListTeamDevicesArg& setIncludewebsessions(const bool& arg){m_include_web_sessions=arg; return *this;};
+        ListTeamDevicesArg& setIncludewebsessions(const bool& arg){m_include_web_sessions=arg;return *this;};
 
         ///Whether to list desktop clients of the team members
         bool includeDesktopClients()const{return m_include_desktop_clients;};
-        ListTeamDevicesArg& setIncludedesktopclients(const bool& arg){m_include_desktop_clients=arg; return *this;};
+        ListTeamDevicesArg& setIncludedesktopclients(const bool& arg){m_include_desktop_clients=arg;return *this;};
 
         ///Whether to list mobile clients of the team members
         bool includeMobileClients()const{return m_include_mobile_clients;};
-        ListTeamDevicesArg& setIncludemobileclients(const bool& arg){m_include_mobile_clients=arg; return *this;};
+        ListTeamDevicesArg& setIncludemobileclients(const bool& arg){m_include_mobile_clients=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ListTeamDevicesArg>  create(const QByteArray& data);
+            static std::unique_ptr<ListTeamDevicesArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ListTeamDevicesArg EXAMPLE();

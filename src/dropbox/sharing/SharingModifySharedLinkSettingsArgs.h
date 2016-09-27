@@ -29,21 +29,29 @@ namespace sharing{
     public:
         ///URL of the shared link to change its settings
         QString url()const{return m_url;};
-        ModifySharedLinkSettingsArgs& setUrl(const QString& arg){m_url=arg; return *this;};
+        ModifySharedLinkSettingsArgs& setUrl(const QString& arg){m_url=arg;return *this;};
 
         ///Set of settings for the shared link.
         SharedLinkSettings settings()const{return m_settings;};
-        ModifySharedLinkSettingsArgs& setSettings(const SharedLinkSettings& arg){m_settings=arg; return *this;};
+        ModifySharedLinkSettingsArgs& setSettings(const SharedLinkSettings& arg){m_settings=arg;return *this;};
 
         ///If set to true, removes the expiration of the shared link.
         bool removeExpiration()const{return m_remove_expiration;};
-        ModifySharedLinkSettingsArgs& setRemoveexpiration(const bool& arg){m_remove_expiration=arg; return *this;};
+        ModifySharedLinkSettingsArgs& setRemoveexpiration(const bool& arg){m_remove_expiration=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ModifySharedLinkSettingsArgs>  create(const QByteArray& data);
+            static std::unique_ptr<ModifySharedLinkSettingsArgs>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ModifySharedLinkSettingsArgs EXAMPLE();

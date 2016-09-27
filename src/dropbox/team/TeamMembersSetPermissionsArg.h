@@ -29,17 +29,25 @@ namespace team{
     public:
         ///Identity of user whose role will be set.
         UserSelectorArg user()const{return m_user;};
-        MembersSetPermissionsArg& setUser(const UserSelectorArg& arg){m_user=arg; return *this;};
+        MembersSetPermissionsArg& setUser(const UserSelectorArg& arg){m_user=arg;return *this;};
 
         ///The new role of the member.
         AdminTier newRole()const{return m_new_role;};
-        MembersSetPermissionsArg& setNewrole(const AdminTier& arg){m_new_role=arg; return *this;};
+        MembersSetPermissionsArg& setNewrole(const AdminTier& arg){m_new_role=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<MembersSetPermissionsArg>  create(const QByteArray& data);
+            static std::unique_ptr<MembersSetPermissionsArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static MembersSetPermissionsArg EXAMPLE();

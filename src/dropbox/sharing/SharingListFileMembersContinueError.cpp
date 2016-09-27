@@ -71,6 +71,15 @@ QString ListFileMembersContinueError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<ListFileMembersContinueError>  ListFileMembersContinueError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<ListFileMembersContinueError> rv = std::unique_ptr<ListFileMembersContinueError>(new ListFileMembersContinueError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ListFileMembersContinueError ListFileMembersContinueError::EXAMPLE(){
     ListFileMembersContinueError rv;

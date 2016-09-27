@@ -55,6 +55,15 @@ QString GroupsSelector::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GroupsSelector>  GroupsSelector::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GroupsSelector> rv = std::unique_ptr<GroupsSelector>(new GroupsSelector);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GroupsSelector GroupsSelector::EXAMPLE(){
     GroupsSelector rv;

@@ -36,6 +36,23 @@ QString GetAccountBatchArg::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<GetAccountBatchArg>  GetAccountBatchArg::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<GetAccountBatchArg>  GetAccountBatchArg::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<GetAccountBatchArg> rv;
+    rv = std::unique_ptr<GetAccountBatchArg>(new GetAccountBatchArg);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GetAccountBatchArg GetAccountBatchArg::EXAMPLE(){
     GetAccountBatchArg rv;

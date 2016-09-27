@@ -36,6 +36,23 @@ QString SharingInfo::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<SharingInfo>  SharingInfo::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<SharingInfo>  SharingInfo::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<SharingInfo> rv;
+    rv = std::unique_ptr<SharingInfo>(new SharingInfo);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 SharingInfo SharingInfo::EXAMPLE(){
     SharingInfo rv;

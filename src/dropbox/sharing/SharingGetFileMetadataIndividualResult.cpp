@@ -63,6 +63,15 @@ QString GetFileMetadataIndividualResult::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GetFileMetadataIndividualResult>  GetFileMetadataIndividualResult::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GetFileMetadataIndividualResult> rv = std::unique_ptr<GetFileMetadataIndividualResult>(new GetFileMetadataIndividualResult);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GetFileMetadataIndividualResult GetFileMetadataIndividualResult::EXAMPLE(){
     GetFileMetadataIndividualResult rv;

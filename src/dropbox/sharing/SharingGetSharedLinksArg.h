@@ -21,13 +21,21 @@ namespace sharing{
     public:
         ///See :route:`get_shared_links` description.
         QString path()const{return m_path;};
-        GetSharedLinksArg& setPath(const QString& arg){m_path=arg; return *this;};
+        GetSharedLinksArg& setPath(const QString& arg){m_path=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<GetSharedLinksArg>  create(const QByteArray& data);
+            static std::unique_ptr<GetSharedLinksArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static GetSharedLinksArg EXAMPLE();

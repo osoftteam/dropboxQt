@@ -54,6 +54,23 @@ QString MemberProfile::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<MemberProfile>  MemberProfile::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<MemberProfile>  MemberProfile::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<MemberProfile> rv;
+    rv = std::unique_ptr<MemberProfile>(new MemberProfile);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 MemberProfile MemberProfile::EXAMPLE(){
     MemberProfile rv;

@@ -25,17 +25,25 @@ namespace files{
     public:
         ///The reason why the file couldn't be saved.
         WriteError reason()const{return m_reason;};
-        UploadWriteFailed& setReason(const WriteError& arg){m_reason=arg; return *this;};
+        UploadWriteFailed& setReason(const WriteError& arg){m_reason=arg;return *this;};
 
         ///The upload session ID; this may be used to retry the commit.
         QString uploadSessionId()const{return m_upload_session_id;};
-        UploadWriteFailed& setUploadsessionid(const QString& arg){m_upload_session_id=arg; return *this;};
+        UploadWriteFailed& setUploadsessionid(const QString& arg){m_upload_session_id=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<UploadWriteFailed>  create(const QByteArray& data);
+            static std::unique_ptr<UploadWriteFailed>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static UploadWriteFailed EXAMPLE();

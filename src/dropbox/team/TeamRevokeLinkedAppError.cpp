@@ -61,6 +61,15 @@ QString RevokeLinkedAppError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<RevokeLinkedAppError>  RevokeLinkedAppError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<RevokeLinkedAppError> rv = std::unique_ptr<RevokeLinkedAppError>(new RevokeLinkedAppError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 RevokeLinkedAppError RevokeLinkedAppError::EXAMPLE(){
     RevokeLinkedAppError rv;

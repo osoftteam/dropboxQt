@@ -61,6 +61,15 @@ QString GroupType::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<GroupType>  GroupType::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<GroupType> rv = std::unique_ptr<GroupType>(new GroupType);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GroupType GroupType::EXAMPLE(){
     GroupType rv;

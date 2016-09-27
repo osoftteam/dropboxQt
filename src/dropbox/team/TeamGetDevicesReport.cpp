@@ -42,6 +42,23 @@ QString GetDevicesReport::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<GetDevicesReport>  GetDevicesReport::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<GetDevicesReport>  GetDevicesReport::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<GetDevicesReport> rv;
+    rv = std::unique_ptr<GetDevicesReport>(new GetDevicesReport);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 GetDevicesReport GetDevicesReport::EXAMPLE(){
     GetDevicesReport rv;

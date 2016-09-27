@@ -77,6 +77,15 @@ QString SharedFolderAccessError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<SharedFolderAccessError>  SharedFolderAccessError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<SharedFolderAccessError> rv = std::unique_ptr<SharedFolderAccessError>(new SharedFolderAccessError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 SharedFolderAccessError SharedFolderAccessError::EXAMPLE(){
     SharedFolderAccessError rv;

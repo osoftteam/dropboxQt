@@ -36,29 +36,37 @@ namespace sharing{
     public:
         ///The current user's access level for this shared folder.
         AccessLevel accessType()const{return m_access_type;};
-        SharedFolderMetadataBase& setAccesstype(const AccessLevel& arg){m_access_type=arg; return *this;};
+        SharedFolderMetadataBase& setAccesstype(const AccessLevel& arg){m_access_type=arg;return *this;};
 
         ///Whether this folder is a :link:`team folder https://www.dropbox.com/en/help/986`.
         bool isTeamFolder()const{return m_is_team_folder;};
-        SharedFolderMetadataBase& setIsteamfolder(const bool& arg){m_is_team_folder=arg; return *this;};
+        SharedFolderMetadataBase& setIsteamfolder(const bool& arg){m_is_team_folder=arg;return *this;};
 
         ///Policies governing this shared folder.
         FolderPolicy policy()const{return m_policy;};
-        SharedFolderMetadataBase& setPolicy(const FolderPolicy& arg){m_policy=arg; return *this;};
+        SharedFolderMetadataBase& setPolicy(const FolderPolicy& arg){m_policy=arg;return *this;};
 
         ///The team that owns the folder. This field is not present if the folder is not owned by a team.
         users::Team ownerTeam()const{return m_owner_team;};
-        SharedFolderMetadataBase& setOwnerteam(const users::Team& arg){m_owner_team=arg; return *this;};
+        SharedFolderMetadataBase& setOwnerteam(const users::Team& arg){m_owner_team=arg;return *this;};
 
         ///The ID of the parent shared folder. This field is present only if the folder is contained within another shared folder.
         QString parentSharedFolderId()const{return m_parent_shared_folder_id;};
-        SharedFolderMetadataBase& setParentsharedfolderid(const QString& arg){m_parent_shared_folder_id=arg; return *this;};
+        SharedFolderMetadataBase& setParentsharedfolderid(const QString& arg){m_parent_shared_folder_id=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<SharedFolderMetadataBase>  create(const QByteArray& data);
+            static std::unique_ptr<SharedFolderMetadataBase>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static SharedFolderMetadataBase EXAMPLE();

@@ -24,13 +24,21 @@ namespace async{
     public:
         ///Id of the asynchronous job. This is the value of a response returned from the method that launched the job.
         QString asyncJobId()const{return m_async_job_id;};
-        PollArg& setAsyncjobid(const QString& arg){m_async_job_id=arg; return *this;};
+        PollArg& setAsyncjobid(const QString& arg){m_async_job_id=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<PollArg>  create(const QByteArray& data);
+            static std::unique_ptr<PollArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static PollArg EXAMPLE();

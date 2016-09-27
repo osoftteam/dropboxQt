@@ -22,13 +22,21 @@ namespace files{
     public:
         ///The path to the file or folder you want to get a copy reference to.
         QString path()const{return m_path;};
-        GetCopyReferenceArg& setPath(const QString& arg){m_path=arg; return *this;};
+        GetCopyReferenceArg& setPath(const QString& arg){m_path=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<GetCopyReferenceArg>  create(const QByteArray& data);
+            static std::unique_ptr<GetCopyReferenceArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static GetCopyReferenceArg EXAMPLE();

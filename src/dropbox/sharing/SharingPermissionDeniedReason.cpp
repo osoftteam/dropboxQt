@@ -101,6 +101,15 @@ QString PermissionDeniedReason::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<PermissionDeniedReason>  PermissionDeniedReason::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<PermissionDeniedReason> rv = std::unique_ptr<PermissionDeniedReason>(new PermissionDeniedReason);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 PermissionDeniedReason PermissionDeniedReason::EXAMPLE(){
     PermissionDeniedReason rv;

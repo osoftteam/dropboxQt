@@ -36,6 +36,23 @@ QString ListMemberAppsResult::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<ListMemberAppsResult>  ListMemberAppsResult::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<ListMemberAppsResult>  ListMemberAppsResult::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<ListMemberAppsResult> rv;
+    rv = std::unique_ptr<ListMemberAppsResult>(new ListMemberAppsResult);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 ListMemberAppsResult ListMemberAppsResult::EXAMPLE(){
     ListMemberAppsResult rv;

@@ -15,7 +15,7 @@ AuthRoutes::AuthRoutes(Endpoint* p):m_end_point(p){
 
 void AuthRoutes::tokenRevoke(){
     static const QJsonObject js;
-    m_end_point->rpcStyle<VoidResult, VoidFromJsonLoader, NotAnException>("2/auth/token/revoke", js);
+    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, NotAnException>("2/auth/token/revoke", js);
 }
 
 }//auth

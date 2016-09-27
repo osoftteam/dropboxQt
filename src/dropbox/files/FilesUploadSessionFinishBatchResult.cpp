@@ -36,6 +36,23 @@ QString UploadSessionFinishBatchResult::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<UploadSessionFinishBatchResult>  UploadSessionFinishBatchResult::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<UploadSessionFinishBatchResult>  UploadSessionFinishBatchResult::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<UploadSessionFinishBatchResult> rv;
+    rv = std::unique_ptr<UploadSessionFinishBatchResult>(new UploadSessionFinishBatchResult);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 UploadSessionFinishBatchResult UploadSessionFinishBatchResult::EXAMPLE(){
     UploadSessionFinishBatchResult rv;

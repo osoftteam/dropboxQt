@@ -27,21 +27,29 @@ namespace team{
     public:
         ///Group name.
         QString groupName()const{return m_group_name;};
-        GroupCreateArg& setGroupname(const QString& arg){m_group_name=arg; return *this;};
+        GroupCreateArg& setGroupname(const QString& arg){m_group_name=arg;return *this;};
 
         ///The creator of a team can associate an arbitrary external ID to the group.
         QString groupExternalId()const{return m_group_external_id;};
-        GroupCreateArg& setGroupexternalid(const QString& arg){m_group_external_id=arg; return *this;};
+        GroupCreateArg& setGroupexternalid(const QString& arg){m_group_external_id=arg;return *this;};
 
         ///Whether the team can be managed by selected users, or only by team admins
         team_common::GroupManagementType groupManagementType()const{return m_group_management_type;};
-        GroupCreateArg& setGroupmanagementtype(const team_common::GroupManagementType& arg){m_group_management_type=arg; return *this;};
+        GroupCreateArg& setGroupmanagementtype(const team_common::GroupManagementType& arg){m_group_management_type=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<GroupCreateArg>  create(const QByteArray& data);
+            static std::unique_ptr<GroupCreateArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static GroupCreateArg EXAMPLE();

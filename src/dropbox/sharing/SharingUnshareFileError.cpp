@@ -63,6 +63,15 @@ QString UnshareFileError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<UnshareFileError>  UnshareFileError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<UnshareFileError> rv = std::unique_ptr<UnshareFileError>(new UnshareFileError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 UnshareFileError UnshareFileError::EXAMPLE(){
     UnshareFileError rv;

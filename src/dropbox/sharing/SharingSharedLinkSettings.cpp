@@ -42,6 +42,23 @@ QString SharedLinkSettings::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<SharedLinkSettings>  SharedLinkSettings::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<SharedLinkSettings>  SharedLinkSettings::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<SharedLinkSettings> rv;
+    rv = std::unique_ptr<SharedLinkSettings>(new SharedLinkSettings);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 SharedLinkSettings SharedLinkSettings::EXAMPLE(){
     SharedLinkSettings rv;

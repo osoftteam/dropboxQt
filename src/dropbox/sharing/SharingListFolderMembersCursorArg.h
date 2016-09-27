@@ -31,17 +31,25 @@ namespace sharing{
     public:
         ///This is a list indicating whether each returned member will include a boolean value :field:`MemberPermission.allow` that describes whether the current user can perform the MemberAction on the member.
         const std::list <MemberAction>& actions()const{return m_actions;};
-        ListFolderMembersCursorArg& setActions(const std::list <MemberAction>&& arg){m_actions=arg; return *this;};
+        ListFolderMembersCursorArg& setActions(const std::list <MemberAction>&& arg){m_actions=arg;return *this;};
 
         ///The maximum number of results that include members, groups and invitees to return per request.
         int limit()const{return m_limit;};
-        ListFolderMembersCursorArg& setLimit(const int& arg){m_limit=arg; return *this;};
+        ListFolderMembersCursorArg& setLimit(const int& arg){m_limit=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<ListFolderMembersCursorArg>  create(const QByteArray& data);
+            static std::unique_ptr<ListFolderMembersCursorArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static ListFolderMembersCursorArg EXAMPLE();

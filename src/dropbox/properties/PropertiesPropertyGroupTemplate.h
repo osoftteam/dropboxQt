@@ -31,21 +31,29 @@ namespace properties{
     public:
         ///A display name for the property template. Property template names can be up to 256 bytes.
         QString name()const{return m_name;};
-        PropertyGroupTemplate& setName(const QString& arg){m_name=arg; return *this;};
+        PropertyGroupTemplate& setName(const QString& arg){m_name=arg;return *this;};
 
         ///Description for new property template. Property template descriptions can be up to 1024 bytes.
         QString description()const{return m_description;};
-        PropertyGroupTemplate& setDescription(const QString& arg){m_description=arg; return *this;};
+        PropertyGroupTemplate& setDescription(const QString& arg){m_description=arg;return *this;};
 
         ///This is a list of custom properties associated with a property template. There can be up to 64 properties in a single property template.
         const std::list <PropertyFieldTemplate>& fields()const{return m_fields;};
-        PropertyGroupTemplate& setFields(const std::list <PropertyFieldTemplate>&& arg){m_fields=arg; return *this;};
+        PropertyGroupTemplate& setFields(const std::list <PropertyFieldTemplate>&& arg){m_fields=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<PropertyGroupTemplate>  create(const QByteArray& data);
+            static std::unique_ptr<PropertyGroupTemplate>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static PropertyGroupTemplate EXAMPLE();

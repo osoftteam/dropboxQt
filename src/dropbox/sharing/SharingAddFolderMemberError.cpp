@@ -137,6 +137,15 @@ QString AddFolderMemberError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<AddFolderMemberError>  AddFolderMemberError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<AddFolderMemberError> rv = std::unique_ptr<AddFolderMemberError>(new AddFolderMemberError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 AddFolderMemberError AddFolderMemberError::EXAMPLE(){
     AddFolderMemberError rv;

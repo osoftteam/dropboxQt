@@ -45,6 +45,15 @@ QString DateRangeError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<DateRangeError>  DateRangeError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<DateRangeError> rv = std::unique_ptr<DateRangeError>(new DateRangeError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 DateRangeError DateRangeError::EXAMPLE(){
     DateRangeError rv;

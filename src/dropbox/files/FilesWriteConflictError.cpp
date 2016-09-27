@@ -69,6 +69,15 @@ QString WriteConflictError::toString(bool multiline)const
     return s;
 }
 
+std::unique_ptr<WriteConflictError>  WriteConflictError::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    std::unique_ptr<WriteConflictError> rv = std::unique_ptr<WriteConflictError>(new WriteConflictError);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 WriteConflictError WriteConflictError::EXAMPLE(){
     WriteConflictError rv;

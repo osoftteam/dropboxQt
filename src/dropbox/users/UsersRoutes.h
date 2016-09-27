@@ -31,7 +31,7 @@ namespace users{
 
             on error:GetAccountError throws exception GetAccountErrorException
             */
-        BasicAccount getAccount(const GetAccountArg&);
+        std::unique_ptr<BasicAccount> getAccount(const GetAccountArg&);
 
             /**
             ApiRoute('get_account_batch')
@@ -51,7 +51,7 @@ namespace users{
             Get information about the current user's account.
 
             */
-        FullAccount getCurrentAccount(void);
+        std::unique_ptr<FullAccount> getCurrentAccount(void);
 
             /**
             ApiRoute('get_space_usage')
@@ -60,7 +60,7 @@ namespace users{
             Get the space usage information for the current user's account.
 
             */
-        SpaceUsage getSpaceUsage(void);
+        std::unique_ptr<SpaceUsage> getSpaceUsage(void);
 
     protected:
         Endpoint* m_end_point;

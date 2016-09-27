@@ -22,13 +22,21 @@ namespace files{
     public:
         ///Commit information for each file in the batch.
         const std::list <UploadSessionFinishArg>& entries()const{return m_entries;};
-        UploadSessionFinishBatchArg& setEntries(const std::list <UploadSessionFinishArg>&& arg){m_entries=arg; return *this;};
+        UploadSessionFinishBatchArg& setEntries(const std::list <UploadSessionFinishArg>&& arg){m_entries=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<UploadSessionFinishBatchArg>  create(const QByteArray& data);
+            static std::unique_ptr<UploadSessionFinishBatchArg>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static UploadSessionFinishBatchArg EXAMPLE();

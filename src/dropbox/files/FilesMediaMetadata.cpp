@@ -4,6 +4,8 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesMediaMetadata.h"
+#include "dropbox/files/FilesPhotoMetadata.h"
+#include "dropbox/files/FilesVideoMetadata.h"
 
 namespace dropboxQt{
 
@@ -39,6 +41,32 @@ QString MediaMetadata::toString(bool multiline)const
     QJsonDocument doc(js);
     QString s(doc.toJson(multiline ? QJsonDocument::Indented : QJsonDocument::Compact));
     return s;
+}
+
+
+std::unique_ptr<MediaMetadata>  MediaMetadata::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<MediaMetadata>  MediaMetadata::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<MediaMetadata> rv;
+    // subtype ('photo',) : PhotoMetadata
+    // subtype ('video',) : VideoMetadata
+    QString tag = js[".tag"].toString();
+    if(tag.isEmpty()){
+        rv = std::unique_ptr<MediaMetadata>(new MediaMetadata);
+    }else if(tag.compare("photo") == 0){
+        rv = std::unique_ptr<MediaMetadata>(new PhotoMetadata);
+    }else if(tag.compare("video") == 0){
+        rv = std::unique_ptr<MediaMetadata>(new VideoMetadata);
+    }
+    rv->fromJson(js);
+    return rv;
 }
 
 #ifdef DROPBOX_QT_AUTOTEST

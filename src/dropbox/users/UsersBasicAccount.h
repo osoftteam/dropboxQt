@@ -29,17 +29,25 @@ namespace users{
     public:
         ///Whether this user is a teammate of the current user. If this account is the current user's account, then this will be :val:`true`.
         bool isTeammate()const{return m_is_teammate;};
-        BasicAccount& setIsteammate(const bool& arg){m_is_teammate=arg; return *this;};
+        BasicAccount& setIsteammate(const bool& arg){m_is_teammate=arg;return *this;};
 
         ///The user's unique team member id. This field will only be present if the user is part of a team and :field:`is_teammate` is :val:`true`.
         QString teamMemberId()const{return m_team_member_id;};
-        BasicAccount& setTeammemberid(const QString& arg){m_team_member_id=arg; return *this;};
+        BasicAccount& setTeammemberid(const QString& arg){m_team_member_id=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
-        void toJson(QJsonObject& js)const;
-        void fromJson(const QJsonObject& js);
-        QString toString(bool multiline = true)const;
+        virtual void fromJson(const QJsonObject& js);
+        virtual void toJson(QJsonObject& js)const;
+        virtual QString toString(bool multiline = true)const;
+
+
+        class factory{
+        public:
+            static std::unique_ptr<BasicAccount>  create(const QByteArray& data);
+            static std::unique_ptr<BasicAccount>  create(const QJsonObject& js);
+        };
+
 
         #ifdef DROPBOX_QT_AUTOTEST
         static BasicAccount EXAMPLE();

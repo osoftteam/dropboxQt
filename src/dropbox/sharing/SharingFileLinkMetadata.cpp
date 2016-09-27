@@ -47,6 +47,23 @@ QString FileLinkMetadata::toString(bool multiline)const
     return s;
 }
 
+
+std::unique_ptr<FileLinkMetadata>  FileLinkMetadata::factory::create(const QByteArray& data)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject js = doc.object();
+    return create(js);
+}
+
+
+std::unique_ptr<FileLinkMetadata>  FileLinkMetadata::factory::create(const QJsonObject& js)
+{
+    std::unique_ptr<FileLinkMetadata> rv;
+    rv = std::unique_ptr<FileLinkMetadata>(new FileLinkMetadata);
+    rv->fromJson(js);
+    return rv;
+}
+
 #ifdef DROPBOX_QT_AUTOTEST
 FileLinkMetadata FileLinkMetadata::EXAMPLE(){
     FileLinkMetadata rv;
