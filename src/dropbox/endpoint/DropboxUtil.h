@@ -18,7 +18,7 @@ namespace dropboxQt{
 		class Metadata;
 	};
 
-	typedef std::list <files::Metadata> FOLDER_ENTRIES;
+	typedef std::list <std::unique_ptr<files::Metadata>> FOLDER_ENTRIES;
 
     bool loadJsonFromFile(QString path, QJsonObject& js);
     bool storeJsonToFile(QString path, const QJsonObject js);
@@ -28,15 +28,27 @@ namespace dropboxQt{
     {
         QJsonArray rv;
         for(typename std::list<T>::const_iterator i = lst.cbegin(); i != lst.end(); i++){
-            const T& o = *i;
-            //            QJsonObject js;
-            //            o.toJson(js);
+            T o = *i;
             QJsonObject js(o);
             rv.append(js);
         }
         return rv;
     };    
+
+    template<class T> 
+    QJsonArray struct_list2jsonarray_uptr(const std::list<std::unique_ptr<T>>& lst)
+    {
+        QJsonArray rv;
+        for(typename std::list<std::unique_ptr<T>>::const_iterator i = lst.cbegin(); i != lst.end(); i++){
+            const std::unique_ptr<T>& o = *i;
+            QJsonObject js;
+            o->toJson(js);
+            rv.append(js);
+        }
+        return rv;
+    };    
     
+
     template<class T> 
     QJsonArray list_of_struct_list2jsonarray(const std::list <std::list<T>> & lst)
     {
@@ -54,13 +66,12 @@ namespace dropboxQt{
     {
         QJsonArray rv;
         for(typename std::list<T>::const_iterator i = lst.cbegin(); i != lst.end(); i++){
-            const T& o = *i;
+            const T o = *i;
             rv.append(o);
         }
         return rv;
     };
-
-
+    
     template<class T> 
     void jsonarray2struct_list(QJsonArray ar, std::list<T>& lst)
     {
@@ -74,12 +85,25 @@ namespace dropboxQt{
     };
 
     template<class T> 
+    void jsonarray2struct_list_uptr(QJsonArray ar, std::list<std::unique_ptr<T>>& lst)
+    {
+        int Max = ar.size();
+        for (int i = 0; i < Max; ++i){
+            QJsonObject js = ar[i].toObject();
+            std::unique_ptr<T> o = T::factory::create(js);
+            o->fromJson(js);
+            lst.emplace_back(std::move(o));
+        }
+    };
+
+    
+    template<class T> 
     void jsonarray2list(QJsonArray arr, std::list<T>& lst, std::true_type)
     {
 # if QT_VERSION > QT_VERSION_CHECK(5, 6, 0)
         int Max = arr.size();
         for (int i = 0; i < Max; ++i){
-            T v = arr[i].toInt();
+            v = arr[i].toInt();
             lst.push_back(v);
         }
 #else
@@ -95,8 +119,6 @@ namespace dropboxQt{
     template<class T> 
     void jsonarray2list(const QJsonArray& arr, std::list<T>& lst, std::false_type)
     {
-        //non integral types - QString
-
         int Max = arr.size();
         for (int i = 0; i < Max; ++i){
             T v = arr[i].toString();
@@ -104,16 +126,15 @@ namespace dropboxQt{
         }
     }
 
-
     template<class T> 
-    void jsonarray2ingrl_list(const QJsonArray& arr, std::list<T>& lst)
+    void jsonarray2ingrl_list(const QJsonArray& arr, std::list<T >& lst)
     {
         jsonarray2list(arr, lst, std::is_integral<T>());
     };
 
 
     template<class T> 
-    void jsonarray2list_of_struct_list(QJsonArray arr, std::list <std::list<T> >& lst)
+    void jsonarray2list_of_struct_list(QJsonArray arr, std::list <std::list<T>>& lst)
     {
         int Max = arr.size();
         for (int i = 0; i < Max; ++i){
