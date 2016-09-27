@@ -6,8 +6,8 @@ dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API
 ```
     try
         {
-            users::FullAccount accountInfo = m_c.getUsers()->getCurrentAccount();
-            std::cout << accountInfo.toString().toStdString() << std::endl;
+            std::unique_ptr<users::FullAccount> accountInfo = m_c.getUsers()->getCurrentAccount();
+            std::cout << accountInfo->toString().toStdString() << std::endl;
         }
     catch(DropboxException& e)
         {
@@ -19,13 +19,13 @@ dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API
     try
         {
             files::CreateFolderArg arg(m_curr_dir + path);
-            files::FolderMetadata res = m_c.getFiles()->createFolder(arg);
-            std::cout << "created: " << path.toStdString() << " id=" << res.id().toStdString() << std::endl;
+            std::unique_ptr<files::FolderMetadata> res = m_c.getFiles()->createFolder(arg);
+            std::cout << "created: " << path.toStdString() << " id=" << res->id().toStdString() << std::endl;
         }
     catch(DropboxException& e)
         {
             std::cout << "Exception: " << e.what() << std::endl;
-        }
+        }        
 ```
 ####Download text file and print content on the screen
 ```
@@ -36,7 +36,8 @@ dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API
     try
         {
             files::DownloadArg d(m_curr_dir + fileName);
-            files::FileMetadata md = m_c.getFiles()->download(d, &buffer);
+            std::unique_ptr<files::FileMetadata> md = m_c.getFiles()->download(d, &buffer);
+            std::cout << << md->id().toStdString() << std::endl;
             std::cout << byteArray.constData();
         }
     catch(DropboxException& e)
