@@ -3,11 +3,8 @@
 #include <QFile>
 #include "dropbox/DropboxClient.h"
 #include "dropbox/files/FilesRoutes.h"
-#include "dropbox/files/FilesDownloadArg.h"
-#include "dropbox/files/FilesMetadata.h"
 #include "dropbox/endpoint/DropboxAppInfo.h"
 #include "dropbox/endpoint/DropboxAuthInfo.h"
-#include "dropbox/endpoint/DropboxException.h"
 #include "ApiListener.h"
 
 using namespace dropboxQt;

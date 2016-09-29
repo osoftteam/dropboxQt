@@ -8,7 +8,6 @@
 #include "dropbox/DropboxClient.h"
 #include "dropbox/endpoint/DropboxAppInfo.h"
 #include "dropbox/endpoint/DropboxAuthInfo.h"
-#include "dropbox/endpoint/DropboxException.h"
 #include "ApiListener.h"
 #include "BoxCommands.h"
 
@@ -138,7 +137,7 @@ int main(int argc, char *argv[])
     t.addAction("ls",		"List Directory", [&](QString arg) {cmd.ls(arg);} );
     t.addAction("info",		"Get Info on a File or Directory", [&](QString arg) {cmd.info(arg);} );
     t.addAction("mkdir",	"Create Directory", [&](QString arg) {cmd.mkdir(arg);} );
-    t.addAction("cat",	"Print file content", [&](QString arg) {cmd.cat(arg);} );
+    t.addAction("cat",	"Print file content on screen", [&](QString arg) {cmd.cat(arg);} );
     t.addAction("cd",	    "Change working directory", [&](QString arg) {cmd.cd(arg);} );
     t.addAction("put",	"Upload file", [&](QString arg) {cmd.put(arg);} );
     t.addAction("get",	"Download file", [&](QString arg) {cmd.get(arg);} );

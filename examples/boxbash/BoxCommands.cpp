@@ -4,7 +4,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include "BoxCommands.h"
-#include "dropbox/endpoint/DropboxException.h"
+#include "dropbox/DropboxClient.h"
 #include "dropbox/files/FilesRoutes.h"
 #include "dropbox/users/UsersRoutes.h"
 

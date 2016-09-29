@@ -2,7 +2,7 @@
 #include <QtCore/QCoreApplication>
 #include "dropbox/endpoint/DropboxAppInfo.h"
 #include "dropbox/endpoint/DropboxWebAuth.h"
-#include "dropbox/endpoint/DropboxException.h"
+#include "dropbox/DropboxClient.h"
 
 using namespace dropboxQt;
 

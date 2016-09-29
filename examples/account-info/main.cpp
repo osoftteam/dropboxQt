@@ -1,11 +1,9 @@
 #include <iostream>
 #include <QtCore/QCoreApplication>
 #include "dropbox/DropboxClient.h"
-#include "dropbox/users/UsersFullAccount.h"
 #include "dropbox/users/UsersRoutes.h"
 #include "dropbox/endpoint/DropboxAppInfo.h"
 #include "dropbox/endpoint/DropboxAuthInfo.h"
-#include "dropbox/endpoint/DropboxException.h"
 
 using namespace dropboxQt;
 
