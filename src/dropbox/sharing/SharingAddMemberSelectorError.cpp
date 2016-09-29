@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingAddMemberSelectorError.h"
@@ -107,17 +109,6 @@ std::unique_ptr<AddMemberSelectorError>  AddMemberSelectorError::factory::create
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-AddMemberSelectorError AddMemberSelectorError::EXAMPLE(){
-    AddMemberSelectorError rv;
-    rv.invalid_dropbox_id = "test2value";
-    rv.invalid_email = "test3value";
-    rv.unverified_dropbox_id = "test4value";
-    rv.m_tag = AddMemberSelectorError_AUTOMATIC_GROUP;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

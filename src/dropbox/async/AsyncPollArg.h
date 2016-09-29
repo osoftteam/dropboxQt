@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "async"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace async{
@@ -22,7 +24,10 @@ namespace async{
         PollArg(const QString& arg){ m_async_job_id = arg; };
 
     public:
-        ///Id of the asynchronous job. This is the value of a response returned from the method that launched the job.
+            /**
+                Id of the asynchronous job. This is the value of a response
+                returned from the method that launched the job.
+            */
         QString asyncJobId()const{return m_async_job_id;};
         PollArg& setAsyncjobid(const QString& arg){m_async_job_id=arg;return *this;};
 
@@ -40,13 +45,13 @@ namespace async{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static PollArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Id of the asynchronous job. This is the value of a response returned from the method that launched the job.
+            /**
+                Id of the asynchronous job. This is the value of a response
+                returned from the method that launched the job.
+            */
         QString m_async_job_id;
 
     };//PollArg

@@ -1,6 +1,8 @@
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/endpoint/DropboxAuthInfo.h"
+#include "dropbox/endpoint/ApiException.h"
+#include "dropbox/endpoint/ApiClient.h"
 
 namespace dropboxQt{
 
@@ -11,7 +13,7 @@ namespace dropboxQt{
     namespace users     { class UsersRoutes; };
     class Endpoint;
 
-    class DropboxClient: public QObject{
+    class DropboxClient: public ApiClient{
     Q_OBJECT
     public:
         DropboxClient();
@@ -65,19 +67,8 @@ namespace dropboxQt{
         /// return list of the files in a folder
         std::list<QString> listFolder(QString dropboxPath);
 
-        QString getToken()const{return m_token;}
-        void setToken(QString s){m_token = s;}
-
         QString lastApiCall();
 
-
-        #ifdef DROPBOX_QT_AUTOTEST
-        Endpoint* getEndpoint();
-        #endif //DROPBOX_QT_AUTOTEST
-
-
-    signals:
-        void progress(qint64 bytesProcessed, qint64 total);
     protected:
         std::unique_ptr<auth::AuthRoutes>           m_AuthRoutes;
         std::unique_ptr<files::FilesRoutes>         m_FilesRoutes;
@@ -85,7 +76,13 @@ namespace dropboxQt{
         std::unique_ptr<team::TeamRoutes>           m_TeamRoutes;
         std::unique_ptr<users::UsersRoutes>         m_UsersRoutes;
         std::unique_ptr<Endpoint>                   m_endpoint;
-
-        QString m_token;
     };//DropboxClient
+
+
+	namespace files
+	{
+		class Metadata;
+	};
+
+	typedef std::list <std::unique_ptr<files::Metadata>> FOLDER_ENTRIES;
 }//dropboxQt

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupsMembersListResult.h"
@@ -57,14 +59,6 @@ std::unique_ptr<GroupsMembersListResult>  GroupsMembersListResult::factory::crea
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupsMembersListResult GroupsMembersListResult::EXAMPLE(){
-    GroupsMembersListResult rv;
-    rv.cursor = "test2value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

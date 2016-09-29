@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingListFoldersResult.h"
@@ -55,14 +57,6 @@ std::unique_ptr<ListFoldersResult>  ListFoldersResult::factory::create(const QJs
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ListFoldersResult ListFoldersResult::EXAMPLE(){
-    ListFoldersResult rv;
-    rv.cursor = "test2value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

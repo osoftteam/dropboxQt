@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team{
@@ -20,7 +22,9 @@ namespace team{
         MembersListContinueArg(const QString& arg){ m_cursor = arg; };
 
     public:
-        ///Indicates from what point to get the next set of members.
+            /**
+                Indicates from what point to get the next set of members.
+            */
         QString cursor()const{return m_cursor;};
         MembersListContinueArg& setCursor(const QString& arg){m_cursor=arg;return *this;};
 
@@ -38,13 +42,12 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MembersListContinueArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Indicates from what point to get the next set of members.
+            /**
+                Indicates from what point to get the next set of members.
+            */
         QString m_cursor;
 
     };//MembersListContinueArg

@@ -1,14 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamIncludeMembersArg.h"
 #include "dropbox/team/TeamGroupSelector.h"
-#include "dropbox/team/TeamGroupSelector.h"
-#include "dropbox/team_common/TeamCommonGroupManagementType.h"
 #include "dropbox/team_common/TeamCommonGroupManagementType.h"
 
 namespace dropboxQt{
@@ -32,19 +32,29 @@ namespace team{
         GroupUpdateArgs(const GroupSelector& arg){ m_group = arg; };
 
     public:
-        ///Specify a group.
+            /**
+                Specify a group.
+            */
         GroupSelector group()const{return m_group;};
         GroupUpdateArgs& setGroup(const GroupSelector& arg){m_group=arg;return *this;};
 
-        ///Optional argument. Set group name to this if provided.
+            /**
+                Optional argument. Set group name to this if provided.
+            */
         QString newGroupName()const{return m_new_group_name;};
         GroupUpdateArgs& setNewgroupname(const QString& arg){m_new_group_name=arg;return *this;};
 
-        ///Optional argument. New group external ID. If the argument is None, the group's external_id won't be updated. If the argument is empty string, the group's external id will be cleared.
+            /**
+                Optional argument. New group external ID. If the argument is
+                None, the group's external_id won't be updated. If the argument
+                is empty string, the group's external id will be cleared.
+            */
         QString newGroupExternalId()const{return m_new_group_external_id;};
         GroupUpdateArgs& setNewgroupexternalid(const QString& arg){m_new_group_external_id=arg;return *this;};
 
-        ///Set new group management type, if provided.
+            /**
+                Set new group management type, if provided.
+            */
         team_common::GroupManagementType newGroupManagementType()const{return m_new_group_management_type;};
         GroupUpdateArgs& setNewgroupmanagementtype(const team_common::GroupManagementType& arg){m_new_group_management_type=arg;return *this;};
 
@@ -62,22 +72,29 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GroupUpdateArgs EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Specify a group.
+            /**
+                Specify a group.
+            */
         GroupSelector m_group;
 
-        ///Optional argument. Set group name to this if provided.
+            /**
+                Optional argument. Set group name to this if provided.
+            */
         QString m_new_group_name;
 
-        ///Optional argument. New group external ID. If the argument is None, the group's external_id won't be updated. If the argument is empty string, the group's external id will be cleared.
+            /**
+                Optional argument. New group external ID. If the argument is
+                None, the group's external_id won't be updated. If the argument
+                is empty string, the group's external id will be cleared.
+            */
         QString m_new_group_external_id;
 
-        ///Set new group management type, if provided.
+            /**
+                Set new group management type, if provided.
+            */
         team_common::GroupManagementType m_new_group_management_type;
 
     };//GroupUpdateArgs

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesListFolderArg.h"
@@ -60,14 +62,6 @@ std::unique_ptr<ListFolderArg>  ListFolderArg::factory::create(const QJsonObject
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ListFolderArg ListFolderArg::EXAMPLE(){
-    ListFolderArg rv;
-    rv.path = "test1value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

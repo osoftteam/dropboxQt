@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesUpdatePropertiesError.h"
@@ -105,15 +107,6 @@ std::unique_ptr<UpdatePropertiesError>  UpdatePropertiesError::factory::create(c
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-UpdatePropertiesError UpdatePropertiesError::EXAMPLE(){
-    UpdatePropertiesError rv;
-    rv.property_group_lookup = files::LookUpPropertiesError::EXAMPLE();
-    rv.m_tag = UpdatePropertiesError_PROPERTY_GROUP_LOOKUP;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingFolderAction.h"
 
 namespace dropboxQt{
@@ -24,13 +26,20 @@ namespace sharing{
         GetMetadataArgs(const QString& arg){ m_shared_folder_id = arg; };
 
     public:
-        ///The ID for the shared folder.
+            /**
+                The ID for the shared folder.
+            */
         QString sharedFolderId()const{return m_shared_folder_id;};
         GetMetadataArgs& setSharedfolderid(const QString& arg){m_shared_folder_id=arg;return *this;};
 
-        ///This is a list indicating whether the returned folder data will include a boolean value  :field:`FolderPermission.allow` that describes whether the current user can perform the  FolderAction on the folder.
+            /**
+                This is a list indicating whether the returned folder data will
+                include a boolean value  ``FolderPermission.allow`` that
+                describes whether the current user can perform the  FolderAction
+                on the folder.
+            */
         const std::list <FolderAction>& actions()const{return m_actions;};
-        GetMetadataArgs& setActions(const std::list <FolderAction>&& arg){m_actions=arg;return *this;};
+        GetMetadataArgs& setActions(const std::list <FolderAction>& arg){m_actions=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -46,16 +55,20 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetMetadataArgs EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The ID for the shared folder.
+            /**
+                The ID for the shared folder.
+            */
         QString m_shared_folder_id;
 
-        ///This is a list indicating whether the returned folder data will include a boolean value  :field:`FolderPermission.allow` that describes whether the current user can perform the  FolderAction on the folder.
+            /**
+                This is a list indicating whether the returned folder data will
+                include a boolean value  ``FolderPermission.allow`` that
+                describes whether the current user can perform the  FolderAction
+                on the folder.
+            */
         std::list <FolderAction> m_actions;
 
     };//GetMetadataArgs

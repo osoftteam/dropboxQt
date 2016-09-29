@@ -1,12 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/sharing/SharingSharedFolderAccessError.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingSharedFolderAccessError.h"
 
 namespace dropboxQt{
@@ -45,7 +46,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///None
-        SharedFolderAccessError getAccessError()const{DBOX_CHECK_STATE((UpdateFolderPolicyError_ACCESS_ERROR == m_tag), "expected tag: UpdateFolderPolicyError_ACCESS_ERROR", m_tag);return m_access_error;};
+        SharedFolderAccessError getAccessError()const{API_CHECK_STATE((UpdateFolderPolicyError_ACCESS_ERROR == m_tag), "expected tag: UpdateFolderPolicyError_ACCESS_ERROR", m_tag);return m_access_error;};
 
     public:
         operator QJsonObject ()const;
@@ -61,9 +62,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UpdateFolderPolicyError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

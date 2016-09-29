@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/async/AsyncLaunchResultBase.h"
 #include "dropbox/team/TeamMemberAddResult.h"
 
@@ -26,10 +28,10 @@ namespace team{
 
         Tag tag()const{return m_tag;}
         ///This response indicates that the processing is asynchronous. The string is an id that can be used to obtain the status of the asynchronous job.
-        QString getAsyncJobId()const{DBOX_CHECK_STATE((LaunchResultBase_ASYNC_JOB_ID == m_tag), "expected tag: LaunchResultBase_ASYNC_JOB_ID", m_tag);return m_async_job_id;};
+        QString getAsyncJobId()const{API_CHECK_STATE((LaunchResultBase_ASYNC_JOB_ID == m_tag), "expected tag: LaunchResultBase_ASYNC_JOB_ID", m_tag);return m_async_job_id;};
 
         ///None
-        const std::list <MemberAddResult>& getComplete()const{DBOX_CHECK_STATE((MembersAddLaunch_COMPLETE == m_tag), "expected tag: MembersAddLaunch_COMPLETE", m_tag);return m_complete;};
+        const std::list <MemberAddResult>& getComplete()const{API_CHECK_STATE((MembersAddLaunch_COMPLETE == m_tag), "expected tag: MembersAddLaunch_COMPLETE", m_tag);return m_complete;};
 
     public:
         operator QJsonObject ()const;
@@ -45,9 +47,6 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MembersAddLaunch EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

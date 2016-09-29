@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesUploadSessionFinishError.h"
@@ -79,16 +81,6 @@ std::unique_ptr<UploadSessionFinishError>  UploadSessionFinishError::factory::cr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-UploadSessionFinishError UploadSessionFinishError::EXAMPLE(){
-    UploadSessionFinishError rv;
-    rv.lookup_failed = files::UploadSessionLookupError::EXAMPLE();
-    rv.path = files::WriteError::EXAMPLE();
-    rv.m_tag = UploadSessionFinishError_LOOKUP_FAILED;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/team/TeamUserSelectorArg.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamUserSelectorArg.h"
 
 namespace dropboxQt{
@@ -30,11 +31,16 @@ namespace team{
         { m_user = arg; };
 
     public:
-        ///Identity of user to remove/suspend.
+            /**
+                Identity of user to remove/suspend.
+            */
         UserSelectorArg user()const{return m_user;};
         MembersDeactivateArg& setUser(const UserSelectorArg& arg){m_user=arg;return *this;};
 
-        ///If provided, controls if the user's data will be deleted on their linked devices.
+            /**
+                If provided, controls if the user's data will be deleted on
+                their linked devices.
+            */
         bool wipeData()const{return m_wipe_data;};
         MembersDeactivateArg& setWipedata(const bool& arg){m_wipe_data=arg;return *this;};
 
@@ -52,16 +58,18 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MembersDeactivateArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Identity of user to remove/suspend.
+            /**
+                Identity of user to remove/suspend.
+            */
         UserSelectorArg m_user;
 
-        ///If provided, controls if the user's data will be deleted on their linked devices.
+            /**
+                If provided, controls if the user's data will be deleted on
+                their linked devices.
+            */
         bool m_wipe_data;
 
     };//MembersDeactivateArg

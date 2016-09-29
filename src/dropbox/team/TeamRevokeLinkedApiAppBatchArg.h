@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamRevokeLinkedApiAppArg.h"
 
 namespace dropboxQt{
@@ -14,12 +16,11 @@ namespace team{
     public:
         RevokeLinkedApiAppBatchArg(){};
 
-        RevokeLinkedApiAppBatchArg(const std::list <RevokeLinkedApiAppArg>&& arg){ m_revoke_linked_app = arg; };
+        RevokeLinkedApiAppBatchArg(const std::list <RevokeLinkedApiAppArg>& arg){ m_revoke_linked_app = arg; };
 
     public:
-        ///None
         const std::list <RevokeLinkedApiAppArg>& revokeLinkedApp()const{return m_revoke_linked_app;};
-        RevokeLinkedApiAppBatchArg& setRevokelinkedapp(const std::list <RevokeLinkedApiAppArg>&& arg){m_revoke_linked_app=arg;return *this;};
+        RevokeLinkedApiAppBatchArg& setRevokelinkedapp(const std::list <RevokeLinkedApiAppArg>& arg){m_revoke_linked_app=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -35,13 +36,9 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RevokeLinkedApiAppBatchArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///None
         std::list <RevokeLinkedApiAppArg> m_revoke_linked_app;
 
     };//RevokeLinkedApiAppBatchArg

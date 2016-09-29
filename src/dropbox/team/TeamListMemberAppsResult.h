@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamApiApp.h"
 
 namespace dropboxQt{
@@ -18,10 +20,12 @@ namespace team{
     public:
         ListMemberAppsResult(){};
 
-        ListMemberAppsResult(const std::list <ApiApp>&& arg){ m_linked_api_apps = arg; };
+        ListMemberAppsResult(const std::list <ApiApp>& arg){ m_linked_api_apps = arg; };
 
     public:
-        ///List of third party applications linked by this team member
+            /**
+                List of third party applications linked by this team member
+            */
         const std::list <ApiApp>& linkedApiApps()const{return m_linked_api_apps;};
 
     public:
@@ -38,13 +42,12 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListMemberAppsResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///List of third party applications linked by this team member
+            /**
+                List of third party applications linked by this team member
+            */
         std::list <ApiApp> m_linked_api_apps;
 
     };//ListMemberAppsResult

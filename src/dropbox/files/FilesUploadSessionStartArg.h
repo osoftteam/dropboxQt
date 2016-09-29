@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -25,7 +27,11 @@ namespace files{
         { m_close = arg; };
 
     public:
-        ///If true, the current session will be closed, at which point you won't be able to call :route:`upload_session/append_v2` anymore with the current session.
+            /**
+                If true, the current session will be closed, at which point you
+                won't be able to call :meth:`upload_session_append_v2` anymore
+                with the current session.
+            */
         bool close()const{return m_close;};
         UploadSessionStartArg& setClose(const bool& arg){m_close=arg;return *this;};
 
@@ -43,13 +49,14 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UploadSessionStartArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///If true, the current session will be closed, at which point you won't be able to call :route:`upload_session/append_v2` anymore with the current session.
+            /**
+                If true, the current session will be closed, at which point you
+                won't be able to call :meth:`upload_session_append_v2` anymore
+                with the current session.
+            */
         bool m_close;
 
     };//UploadSessionStartArg

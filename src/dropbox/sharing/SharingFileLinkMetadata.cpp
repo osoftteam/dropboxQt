@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingFileLinkMetadata.h"
@@ -63,17 +65,6 @@ std::unique_ptr<FileLinkMetadata>  FileLinkMetadata::factory::create(const QJson
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-FileLinkMetadata FileLinkMetadata::EXAMPLE(){
-    FileLinkMetadata rv;
-    rv.client_modified = QDateTime::currentDateTime();
-    rv.server_modified = QDateTime::currentDateTime();
-    rv.rev = "test3value";
-    rv.size = 4;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

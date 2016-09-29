@@ -1,12 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamMemberProfile.h"
-#include "dropbox/team/TeamGroupAccessType.h"
 #include "dropbox/team/TeamGroupAccessType.h"
 
 namespace dropboxQt{
@@ -25,11 +26,15 @@ namespace team{
         GroupMemberInfo(const MemberProfile& arg){ m_profile = arg; };
 
     public:
-        ///Profile of group member.
+            /**
+                Profile of group member.
+            */
         MemberProfile profile()const{return m_profile;};
         GroupMemberInfo& setProfile(const MemberProfile& arg){m_profile=arg;return *this;};
 
-        ///The role that the user has in the group.
+            /**
+                The role that the user has in the group.
+            */
         GroupAccessType accessType()const{return m_access_type;};
         GroupMemberInfo& setAccesstype(const GroupAccessType& arg){m_access_type=arg;return *this;};
 
@@ -47,16 +52,17 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GroupMemberInfo EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Profile of group member.
+            /**
+                Profile of group member.
+            */
         MemberProfile m_profile;
 
-        ///The role that the user has in the group.
+            /**
+                The role that the user has in the group.
+            */
         GroupAccessType m_access_type;
 
     };//GroupMemberInfo

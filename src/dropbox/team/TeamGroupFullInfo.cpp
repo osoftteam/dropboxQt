@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupFullInfo.h"
@@ -56,14 +58,6 @@ std::unique_ptr<GroupFullInfo>  GroupFullInfo::factory::create(const QJsonObject
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupFullInfo GroupFullInfo::EXAMPLE(){
-    GroupFullInfo rv;
-    rv.created = 2;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

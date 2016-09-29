@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace sharing{
@@ -21,7 +23,9 @@ namespace sharing{
         UnshareFileArg(const QString& arg){ m_file = arg; };
 
     public:
-        ///The file to unshare.
+            /**
+                The file to unshare.
+            */
         QString file()const{return m_file;};
         UnshareFileArg& setFile(const QString& arg){m_file=arg;return *this;};
 
@@ -39,13 +43,12 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UnshareFileArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The file to unshare.
+            /**
+                The file to unshare.
+            */
         QString m_file;
 
     };//UnshareFileArg

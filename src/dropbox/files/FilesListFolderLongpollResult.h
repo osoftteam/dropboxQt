@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -22,10 +24,16 @@ namespace files{
         ListFolderLongpollResult(const bool& arg){ m_changes = arg; };
 
     public:
-        ///Indicates whether new changes are available. If true, call :route:`list_folder/continue` to retrieve the changes.
+            /**
+                Indicates whether new changes are available. If true, call
+                :meth:`list_folder_continue` to retrieve the changes.
+            */
         bool changes()const{return m_changes;};
 
-        ///If present, backoff for at least this many seconds before calling :route:`list_folder/longpoll` again.
+            /**
+                If present, backoff for at least this many seconds before
+                calling :meth:`list_folder_longpoll` again.
+            */
         int backoff()const{return m_backoff;};
 
     public:
@@ -42,16 +50,19 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFolderLongpollResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Indicates whether new changes are available. If true, call :route:`list_folder/continue` to retrieve the changes.
+            /**
+                Indicates whether new changes are available. If true, call
+                :meth:`list_folder_continue` to retrieve the changes.
+            */
         bool m_changes;
 
-        ///If present, backoff for at least this many seconds before calling :route:`list_folder/longpoll` again.
+            /**
+                If present, backoff for at least this many seconds before
+                calling :meth:`list_folder_longpoll` again.
+            */
         int m_backoff;
 
     };//ListFolderLongpollResult

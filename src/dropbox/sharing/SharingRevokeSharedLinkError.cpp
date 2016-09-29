@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingRevokeSharedLinkError.h"
@@ -77,14 +79,6 @@ std::unique_ptr<RevokeSharedLinkError>  RevokeSharedLinkError::factory::create(c
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RevokeSharedLinkError RevokeSharedLinkError::EXAMPLE(){
-    RevokeSharedLinkError rv;
-    rv.m_tag = RevokeSharedLinkError_SHARED_LINK_MALFORMED;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

@@ -1,13 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamBaseDfbReport.h"
-#include "dropbox/team/TeamDevicesActive.h"
-#include "dropbox/team/TeamDevicesActive.h"
 #include "dropbox/team/TeamDevicesActive.h"
 
 namespace dropboxQt{
@@ -33,15 +33,21 @@ namespace team{
         GetDevicesReport(const DevicesActive& arg){ m_active_1_day = arg; };
 
     public:
-        ///Report of the number of devices active in the last day.
+            /**
+                Report of the number of devices active in the last day.
+            */
         DevicesActive active1Day()const{return m_active_1_day;};
         GetDevicesReport& setActive1Day(const DevicesActive& arg){m_active_1_day=arg;return *this;};
 
-        ///Report of the number of devices active in the last 7 days.
+            /**
+                Report of the number of devices active in the last 7 days.
+            */
         DevicesActive active7Day()const{return m_active_7_day;};
         GetDevicesReport& setActive7Day(const DevicesActive& arg){m_active_7_day=arg;return *this;};
 
-        ///Report of the number of devices active in the last 28 days.
+            /**
+                Report of the number of devices active in the last 28 days.
+            */
         DevicesActive active28Day()const{return m_active_28_day;};
         GetDevicesReport& setActive28Day(const DevicesActive& arg){m_active_28_day=arg;return *this;};
 
@@ -59,19 +65,22 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetDevicesReport EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Report of the number of devices active in the last day.
+            /**
+                Report of the number of devices active in the last day.
+            */
         DevicesActive m_active_1_day;
 
-        ///Report of the number of devices active in the last 7 days.
+            /**
+                Report of the number of devices active in the last 7 days.
+            */
         DevicesActive m_active_7_day;
 
-        ///Report of the number of devices active in the last 28 days.
+            /**
+                Report of the number of devices active in the last 28 days.
+            */
         DevicesActive m_active_28_day;
 
     };//GetDevicesReport

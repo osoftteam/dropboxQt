@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace sharing{
@@ -49,13 +51,13 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///The value is the ID that could not be identified.
-        QString getInvalidDropboxId()const{DBOX_CHECK_STATE((AddMemberSelectorError_INVALID_DROPBOX_ID == m_tag), "expected tag: AddMemberSelectorError_INVALID_DROPBOX_ID", m_tag);return m_invalid_dropbox_id;};
+        QString getInvalidDropboxId()const{API_CHECK_STATE((AddMemberSelectorError_INVALID_DROPBOX_ID == m_tag), "expected tag: AddMemberSelectorError_INVALID_DROPBOX_ID", m_tag);return m_invalid_dropbox_id;};
 
         ///The value is the e-email address that is malformed.
-        QString getInvalidEmail()const{DBOX_CHECK_STATE((AddMemberSelectorError_INVALID_EMAIL == m_tag), "expected tag: AddMemberSelectorError_INVALID_EMAIL", m_tag);return m_invalid_email;};
+        QString getInvalidEmail()const{API_CHECK_STATE((AddMemberSelectorError_INVALID_EMAIL == m_tag), "expected tag: AddMemberSelectorError_INVALID_EMAIL", m_tag);return m_invalid_email;};
 
         ///The value is the ID of the Dropbox user with an unverified e-mail address.  Invite unverified users by e-mail address instead of by their Dropbox ID.
-        QString getUnverifiedDropboxId()const{DBOX_CHECK_STATE((AddMemberSelectorError_UNVERIFIED_DROPBOX_ID == m_tag), "expected tag: AddMemberSelectorError_UNVERIFIED_DROPBOX_ID", m_tag);return m_unverified_dropbox_id;};
+        QString getUnverifiedDropboxId()const{API_CHECK_STATE((AddMemberSelectorError_UNVERIFIED_DROPBOX_ID == m_tag), "expected tag: AddMemberSelectorError_UNVERIFIED_DROPBOX_ID", m_tag);return m_unverified_dropbox_id;};
 
     public:
         operator QJsonObject ()const;
@@ -71,9 +73,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static AddMemberSelectorError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

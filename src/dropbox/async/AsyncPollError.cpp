@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "async"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/async/AsyncPollError.h"
@@ -69,14 +71,6 @@ std::unique_ptr<PollError>  PollError::factory::create(const QByteArray& data)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-PollError PollError::EXAMPLE(){
-    PollError rv;
-    rv.m_tag = PollError_INVALID_ASYNC_JOB_ID;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//async
 }//dropboxQt

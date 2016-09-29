@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamRevokeDeviceSessionBatchError.h"
@@ -53,14 +55,6 @@ std::unique_ptr<RevokeDeviceSessionBatchError>  RevokeDeviceSessionBatchError::f
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RevokeDeviceSessionBatchError RevokeDeviceSessionBatchError::EXAMPLE(){
-    RevokeDeviceSessionBatchError rv;
-    rv.m_tag = RevokeDeviceSessionBatchError_OTHER;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

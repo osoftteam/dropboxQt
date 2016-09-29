@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/team_common/TeamCommonGroupManagementType.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team_common/TeamCommonGroupManagementType.h"
 
 namespace dropboxQt{
@@ -25,15 +26,23 @@ namespace team{
         GroupCreateArg(const QString& arg){ m_group_name = arg; };
 
     public:
-        ///Group name.
+            /**
+                Group name.
+            */
         QString groupName()const{return m_group_name;};
         GroupCreateArg& setGroupname(const QString& arg){m_group_name=arg;return *this;};
 
-        ///The creator of a team can associate an arbitrary external ID to the group.
+            /**
+                The creator of a team can associate an arbitrary external ID to
+                the group.
+            */
         QString groupExternalId()const{return m_group_external_id;};
         GroupCreateArg& setGroupexternalid(const QString& arg){m_group_external_id=arg;return *this;};
 
-        ///Whether the team can be managed by selected users, or only by team admins
+            /**
+                Whether the team can be managed by selected users, or only by
+                team admins
+            */
         team_common::GroupManagementType groupManagementType()const{return m_group_management_type;};
         GroupCreateArg& setGroupmanagementtype(const team_common::GroupManagementType& arg){m_group_management_type=arg;return *this;};
 
@@ -51,19 +60,24 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GroupCreateArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Group name.
+            /**
+                Group name.
+            */
         QString m_group_name;
 
-        ///The creator of a team can associate an arbitrary external ID to the group.
+            /**
+                The creator of a team can associate an arbitrary external ID to
+                the group.
+            */
         QString m_group_external_id;
 
-        ///Whether the team can be managed by selected users, or only by team admins
+            /**
+                Whether the team can be managed by selected users, or only by
+                team admins
+            */
         team_common::GroupManagementType m_group_management_type;
 
     };//GroupCreateArg

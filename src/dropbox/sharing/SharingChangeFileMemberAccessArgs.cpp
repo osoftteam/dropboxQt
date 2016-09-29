@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingChangeFileMemberAccessArgs.h"
@@ -57,16 +59,6 @@ std::unique_ptr<ChangeFileMemberAccessArgs>  ChangeFileMemberAccessArgs::factory
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ChangeFileMemberAccessArgs ChangeFileMemberAccessArgs::EXAMPLE(){
-    ChangeFileMemberAccessArgs rv;
-    rv.file = "test1value";
-    rv.member = sharing::MemberSelector::EXAMPLE();
-    rv.access_level = sharing::AccessLevel::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

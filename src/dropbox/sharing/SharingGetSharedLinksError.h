@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace sharing{
@@ -24,7 +26,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///None
-        QString getPath()const{DBOX_CHECK_STATE((GetSharedLinksError_PATH == m_tag), "expected tag: GetSharedLinksError_PATH", m_tag);return m_path;};
+        QString getPath()const{API_CHECK_STATE((GetSharedLinksError_PATH == m_tag), "expected tag: GetSharedLinksError_PATH", m_tag);return m_path;};
 
     public:
         operator QJsonObject ()const;
@@ -40,9 +42,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetSharedLinksError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

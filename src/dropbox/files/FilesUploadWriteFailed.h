@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/files/FilesWriteError.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesWriteError.h"
 
 namespace dropboxQt{
@@ -23,11 +24,15 @@ namespace files{
         UploadWriteFailed(const WriteError& arg){ m_reason = arg; };
 
     public:
-        ///The reason why the file couldn't be saved.
+            /**
+                The reason why the file couldn't be saved.
+            */
         WriteError reason()const{return m_reason;};
         UploadWriteFailed& setReason(const WriteError& arg){m_reason=arg;return *this;};
 
-        ///The upload session ID; this may be used to retry the commit.
+            /**
+                The upload session ID; this may be used to retry the commit.
+            */
         QString uploadSessionId()const{return m_upload_session_id;};
         UploadWriteFailed& setUploadsessionid(const QString& arg){m_upload_session_id=arg;return *this;};
 
@@ -45,16 +50,17 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UploadWriteFailed EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The reason why the file couldn't be saved.
+            /**
+                The reason why the file couldn't be saved.
+            */
         WriteError m_reason;
 
-        ///The upload session ID; this may be used to retry the commit.
+            /**
+                The upload session ID; this may be used to retry the commit.
+            */
         QString m_upload_session_id;
 
     };//UploadWriteFailed

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamListMemberDevicesArg.h"
@@ -59,14 +61,6 @@ std::unique_ptr<ListMemberDevicesArg>  ListMemberDevicesArg::factory::create(con
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ListMemberDevicesArg ListMemberDevicesArg::EXAMPLE(){
-    ListMemberDevicesArg rv;
-    rv.team_member_id = "test1value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

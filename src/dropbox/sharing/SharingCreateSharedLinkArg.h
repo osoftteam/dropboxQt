@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/sharing/SharingPendingUploadMode.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingPendingUploadMode.h"
 
 namespace dropboxQt{
@@ -30,15 +31,24 @@ namespace sharing{
         { m_path = arg; };
 
     public:
-        ///The path to share.
+            /**
+                The path to share.
+            */
         QString path()const{return m_path;};
         CreateSharedLinkArg& setPath(const QString& arg){m_path=arg;return *this;};
 
-        ///Whether to return a shortened URL.
+            /**
+                Whether to return a shortened URL.
+            */
         bool shortUrl()const{return m_short_url;};
         CreateSharedLinkArg& setShorturl(const bool& arg){m_short_url=arg;return *this;};
 
-        ///If it's okay to share a path that does not yet exist, set this to either :field:`PendingUploadMode.file` or :field:`PendingUploadMode.folder` to indicate whether to assume it's a file or folder.
+            /**
+                If it's okay to share a path that does not yet exist, set this
+                to either ``PendingUploadMode.file`` or
+                ``PendingUploadMode.folder`` to indicate whether to assume it's
+                a file or folder.
+            */
         PendingUploadMode pendingUpload()const{return m_pending_upload;};
         CreateSharedLinkArg& setPendingupload(const PendingUploadMode& arg){m_pending_upload=arg;return *this;};
 
@@ -56,19 +66,25 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static CreateSharedLinkArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The path to share.
+            /**
+                The path to share.
+            */
         QString m_path;
 
-        ///Whether to return a shortened URL.
+            /**
+                Whether to return a shortened URL.
+            */
         bool m_short_url;
 
-        ///If it's okay to share a path that does not yet exist, set this to either :field:`PendingUploadMode.file` or :field:`PendingUploadMode.folder` to indicate whether to assume it's a file or folder.
+            /**
+                If it's okay to share a path that does not yet exist, set this
+                to either ``PendingUploadMode.file`` or
+                ``PendingUploadMode.folder`` to indicate whether to assume it's
+                a file or folder.
+            */
         PendingUploadMode m_pending_upload;
 
     };//CreateSharedLinkArg

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/users/UsersSpaceUsage.h"
@@ -54,15 +56,6 @@ std::unique_ptr<SpaceUsage>  SpaceUsage::factory::create(const QJsonObject& js)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SpaceUsage SpaceUsage::EXAMPLE(){
-    SpaceUsage rv;
-    rv.used = 1;
-    rv.allocation = users::SpaceAllocation::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//users
 }//dropboxQt

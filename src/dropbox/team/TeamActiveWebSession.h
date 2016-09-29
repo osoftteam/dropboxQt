@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamDeviceSession.h"
 
 namespace dropboxQt{
@@ -24,15 +26,21 @@ namespace team{
         ActiveWebSession(const QString& arg){ m_user_agent = arg; };
 
     public:
-        ///Information on the hosting device
+            /**
+                Information on the hosting device
+            */
         QString userAgent()const{return m_user_agent;};
         ActiveWebSession& setUseragent(const QString& arg){m_user_agent=arg;return *this;};
 
-        ///Information on the hosting operating system
+            /**
+                Information on the hosting operating system
+            */
         QString os()const{return m_os;};
         ActiveWebSession& setOs(const QString& arg){m_os=arg;return *this;};
 
-        ///Information on the browser used for this web session
+            /**
+                Information on the browser used for this web session
+            */
         QString browser()const{return m_browser;};
         ActiveWebSession& setBrowser(const QString& arg){m_browser=arg;return *this;};
 
@@ -50,19 +58,22 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ActiveWebSession EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Information on the hosting device
+            /**
+                Information on the hosting device
+            */
         QString m_user_agent;
 
-        ///Information on the hosting operating system
+            /**
+                Information on the hosting operating system
+            */
         QString m_os;
 
-        ///Information on the browser used for this web session
+            /**
+                Information on the browser used for this web session
+            */
         QString m_browser;
 
     };//ActiveWebSession

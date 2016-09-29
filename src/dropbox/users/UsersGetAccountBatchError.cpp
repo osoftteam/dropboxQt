@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/users/UsersGetAccountBatchError.h"
@@ -63,15 +65,6 @@ std::unique_ptr<GetAccountBatchError>  GetAccountBatchError::factory::create(con
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GetAccountBatchError GetAccountBatchError::EXAMPLE(){
-    GetAccountBatchError rv;
-    rv.no_account = "test1value";
-    rv.m_tag = GetAccountBatchError_NO_ACCOUNT;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//users
 }//dropboxQt

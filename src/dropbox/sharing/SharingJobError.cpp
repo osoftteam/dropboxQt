@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingJobError.h"
@@ -80,17 +82,6 @@ std::unique_ptr<JobError>  JobError::factory::create(const QByteArray& data)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-JobError JobError::EXAMPLE(){
-    JobError rv;
-    rv.unshare_folder_error = sharing::UnshareFolderError::EXAMPLE();
-    rv.remove_folder_member_error = sharing::RemoveFolderMemberError::EXAMPLE();
-    rv.relinquish_folder_membership_error = sharing::RelinquishFolderMembershipError::EXAMPLE();
-    rv.m_tag = JobError_UNSHARE_FOLDER_ERROR;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

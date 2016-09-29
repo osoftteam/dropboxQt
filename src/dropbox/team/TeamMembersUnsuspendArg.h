@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/team/TeamUserSelectorArg.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamUserSelectorArg.h"
 
 namespace dropboxQt{
@@ -24,7 +25,9 @@ namespace team{
         MembersUnsuspendArg(const UserSelectorArg& arg){ m_user = arg; };
 
     public:
-        ///Identity of user to unsuspend.
+            /**
+                Identity of user to unsuspend.
+            */
         UserSelectorArg user()const{return m_user;};
         MembersUnsuspendArg& setUser(const UserSelectorArg& arg){m_user=arg;return *this;};
 
@@ -42,13 +45,12 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MembersUnsuspendArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Identity of user to unsuspend.
+            /**
+                Identity of user to unsuspend.
+            */
         UserSelectorArg m_user;
 
     };//MembersUnsuspendArg

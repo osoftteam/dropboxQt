@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamAdminTier.h"
@@ -77,14 +79,6 @@ std::unique_ptr<AdminTier>  AdminTier::factory::create(const QByteArray& data)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-AdminTier AdminTier::EXAMPLE(){
-    AdminTier rv;
-    rv.m_tag = AdminTier_TEAM_ADMIN;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

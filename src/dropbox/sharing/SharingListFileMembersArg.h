@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingMemberAction.h"
 
 namespace dropboxQt{
@@ -34,19 +36,29 @@ namespace sharing{
         { m_file = arg; };
 
     public:
-        ///The file for which you want to see members.
+            /**
+                The file for which you want to see members.
+            */
         QString file()const{return m_file;};
         ListFileMembersArg& setFile(const QString& arg){m_file=arg;return *this;};
 
-        ///The actions for which to return permissions on a member
+            /**
+                The actions for which to return permissions on a member
+            */
         const std::list <MemberAction>& actions()const{return m_actions;};
-        ListFileMembersArg& setActions(const std::list <MemberAction>&& arg){m_actions=arg;return *this;};
+        ListFileMembersArg& setActions(const std::list <MemberAction>& arg){m_actions=arg;return *this;};
 
-        ///Whether to include members who only have access from a parent shared folder.
+            /**
+                Whether to include members who only have access from a parent
+                shared folder.
+            */
         bool includeInherited()const{return m_include_inherited;};
         ListFileMembersArg& setIncludeinherited(const bool& arg){m_include_inherited=arg;return *this;};
 
-        ///Number of members to return max per query. Defaults to 100 if no limit is specified.
+            /**
+                Number of members to return max per query. Defaults to 100 if no
+                limit is specified.
+            */
         int limit()const{return m_limit;};
         ListFileMembersArg& setLimit(const int& arg){m_limit=arg;return *this;};
 
@@ -64,22 +76,29 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFileMembersArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The file for which you want to see members.
+            /**
+                The file for which you want to see members.
+            */
         QString m_file;
 
-        ///The actions for which to return permissions on a member
+            /**
+                The actions for which to return permissions on a member
+            */
         std::list <MemberAction> m_actions;
 
-        ///Whether to include members who only have access from a parent shared folder.
+            /**
+                Whether to include members who only have access from a parent
+                shared folder.
+            */
         bool m_include_inherited;
 
-        ///Number of members to return max per query. Defaults to 100 if no limit is specified.
+            /**
+                Number of members to return max per query. Defaults to 100 if no
+                limit is specified.
+            */
         int m_limit;
 
     };//ListFileMembersArg

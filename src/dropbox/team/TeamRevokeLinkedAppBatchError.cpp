@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamRevokeLinkedAppBatchError.h"
@@ -53,14 +55,6 @@ std::unique_ptr<RevokeLinkedAppBatchError>  RevokeLinkedAppBatchError::factory::
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RevokeLinkedAppBatchError RevokeLinkedAppBatchError::EXAMPLE(){
-    RevokeLinkedAppBatchError rv;
-    rv.m_tag = RevokeLinkedAppBatchError_OTHER;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

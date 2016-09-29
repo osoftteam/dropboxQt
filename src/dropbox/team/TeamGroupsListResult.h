@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team_common/TeamCommonGroupSummary.h"
 
 namespace dropboxQt{
@@ -21,16 +23,22 @@ namespace team{
     public:
         GroupsListResult(){};
 
-        GroupsListResult(const std::list <team_common::GroupSummary>&& arg){ m_groups = arg; };
+        GroupsListResult(const std::list <team_common::GroupSummary>& arg){ m_groups = arg; };
 
     public:
-        ///None
         const std::list <team_common::GroupSummary>& groups()const{return m_groups;};
 
-        ///Pass the cursor into :route:`groups/list/continue` to obtain the additional groups.
+            /**
+                Pass the cursor into :meth:`groups_list_continue` to obtain the
+                additional groups.
+            */
         QString cursor()const{return m_cursor;};
 
-        ///Is true if there are additional groups that have not been returned yet. An additional call to :route:`groups/list/continue` can retrieve them.
+            /**
+                Is true if there are additional groups that have not been
+                returned yet. An additional call to :meth:`groups_list_continue`
+                can retrieve them.
+            */
         bool hasMore()const{return m_has_more;};
 
     public:
@@ -47,19 +55,22 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GroupsListResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///None
         std::list <team_common::GroupSummary> m_groups;
 
-        ///Pass the cursor into :route:`groups/list/continue` to obtain the additional groups.
+            /**
+                Pass the cursor into :meth:`groups_list_continue` to obtain the
+                additional groups.
+            */
         QString m_cursor;
 
-        ///Is true if there are additional groups that have not been returned yet. An additional call to :route:`groups/list/continue` can retrieve them.
+            /**
+                Is true if there are additional groups that have not been
+                returned yet. An additional call to :meth:`groups_list_continue`
+                can retrieve them.
+            */
         bool m_has_more;
 
     };//GroupsListResult

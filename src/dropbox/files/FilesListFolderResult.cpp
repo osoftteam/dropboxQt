@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesListFolderResult.h"
@@ -57,14 +59,6 @@ std::unique_ptr<ListFolderResult>  ListFolderResult::factory::create(const QJson
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ListFolderResult ListFolderResult::EXAMPLE(){
-    ListFolderResult rv;
-    rv.cursor = "test2value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

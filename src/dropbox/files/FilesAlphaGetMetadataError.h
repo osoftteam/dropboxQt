@@ -1,13 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesGetMetadataError.h"
-#include "dropbox/files/FilesLookUpPropertiesError.h"
 #include "dropbox/files/FilesLookUpPropertiesError.h"
 
 namespace dropboxQt{
@@ -27,10 +28,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///None
-        LookupError getPath()const{DBOX_CHECK_STATE((GetMetadataError_PATH == m_tag), "expected tag: GetMetadataError_PATH", m_tag);return m_path;};
+        LookupError getPath()const{API_CHECK_STATE((GetMetadataError_PATH == m_tag), "expected tag: GetMetadataError_PATH", m_tag);return m_path;};
 
         ///None
-        LookUpPropertiesError getPropertiesError()const{DBOX_CHECK_STATE((AlphaGetMetadataError_PROPERTIES_ERROR == m_tag), "expected tag: AlphaGetMetadataError_PROPERTIES_ERROR", m_tag);return m_properties_error;};
+        LookUpPropertiesError getPropertiesError()const{API_CHECK_STATE((AlphaGetMetadataError_PROPERTIES_ERROR == m_tag), "expected tag: AlphaGetMetadataError_PROPERTIES_ERROR", m_tag);return m_properties_error;};
 
     public:
         operator QJsonObject ()const;
@@ -46,9 +47,6 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static AlphaGetMetadataError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

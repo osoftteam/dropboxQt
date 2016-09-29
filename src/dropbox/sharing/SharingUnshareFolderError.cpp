@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingUnshareFolderError.h"
@@ -78,15 +80,6 @@ std::unique_ptr<UnshareFolderError>  UnshareFolderError::factory::create(const Q
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-UnshareFolderError UnshareFolderError::EXAMPLE(){
-    UnshareFolderError rv;
-    rv.access_error = sharing::SharedFolderAccessError::EXAMPLE();
-    rv.m_tag = UnshareFolderError_ACCESS_ERROR;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

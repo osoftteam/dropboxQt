@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamMemberLinkedApps.h"
 
 namespace dropboxQt{
@@ -25,16 +27,24 @@ namespace team{
     public:
         ListTeamAppsResult(){};
 
-        ListTeamAppsResult(const std::list <MemberLinkedApps>&& arg){ m_apps = arg; };
+        ListTeamAppsResult(const std::list <MemberLinkedApps>& arg){ m_apps = arg; };
 
     public:
-        ///The linked applications of each member of the team
+            /**
+                The linked applications of each member of the team
+            */
         const std::list <MemberLinkedApps>& apps()const{return m_apps;};
 
-        ///If true, then there are more apps available. Pass the cursor to :route:`linked_apps/list_team_linked_apps` to retrieve the rest.
+            /**
+                If true, then there are more apps available. Pass the cursor to
+                :meth:`linked_apps_list_team_linked_apps` to retrieve the rest.
+            */
         bool hasMore()const{return m_has_more;};
 
-        ///Pass the cursor into :route:`linked_apps/list_team_linked_apps` to receive the next sub list of team's applications.
+            /**
+                Pass the cursor into :meth:`linked_apps_list_team_linked_apps`
+                to receive the next sub list of team's applications.
+            */
         QString cursor()const{return m_cursor;};
 
     public:
@@ -51,19 +61,24 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListTeamAppsResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The linked applications of each member of the team
+            /**
+                The linked applications of each member of the team
+            */
         std::list <MemberLinkedApps> m_apps;
 
-        ///If true, then there are more apps available. Pass the cursor to :route:`linked_apps/list_team_linked_apps` to retrieve the rest.
+            /**
+                If true, then there are more apps available. Pass the cursor to
+                :meth:`linked_apps_list_team_linked_apps` to retrieve the rest.
+            */
         bool m_has_more;
 
-        ///Pass the cursor into :route:`linked_apps/list_team_linked_apps` to receive the next sub list of team's applications.
+            /**
+                Pass the cursor into :meth:`linked_apps_list_team_linked_apps`
+                to receive the next sub list of team's applications.
+            */
         QString m_cursor;
 
     };//ListTeamAppsResult

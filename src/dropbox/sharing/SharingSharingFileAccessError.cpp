@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingSharingFileAccessError.h"
@@ -93,14 +95,6 @@ std::unique_ptr<SharingFileAccessError>  SharingFileAccessError::factory::create
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SharingFileAccessError SharingFileAccessError::EXAMPLE(){
-    SharingFileAccessError rv;
-    rv.m_tag = SharingFileAccessError_NO_PERMISSION;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

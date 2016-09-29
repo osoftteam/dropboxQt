@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupsGetInfoItem.h"
@@ -64,16 +66,6 @@ std::unique_ptr<GroupsGetInfoItem>  GroupsGetInfoItem::factory::create(const QBy
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupsGetInfoItem GroupsGetInfoItem::EXAMPLE(){
-    GroupsGetInfoItem rv;
-    rv.id_not_found = "test1value";
-    rv.group_info = team::GroupFullInfo::EXAMPLE();
-    rv.m_tag = GroupsGetInfoItem_ID_NOT_FOUND;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesAddPropertiesError.h"
@@ -104,14 +106,6 @@ std::unique_ptr<AddPropertiesError>  AddPropertiesError::factory::create(const Q
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-AddPropertiesError AddPropertiesError::EXAMPLE(){
-    AddPropertiesError rv;
-    rv.m_tag = AddPropertiesError_PROPERTY_GROUP_ALREADY_EXISTS;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

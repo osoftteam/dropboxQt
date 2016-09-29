@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingSharedLinkPolicy.h"
@@ -69,14 +71,6 @@ std::unique_ptr<SharedLinkPolicy>  SharedLinkPolicy::factory::create(const QByte
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SharedLinkPolicy SharedLinkPolicy::EXAMPLE(){
-    SharedLinkPolicy rv;
-    rv.m_tag = SharedLinkPolicy_ANYONE;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

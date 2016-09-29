@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesPropertyGroupUpdate.h"
@@ -57,14 +59,6 @@ std::unique_ptr<PropertyGroupUpdate>  PropertyGroupUpdate::factory::create(const
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-PropertyGroupUpdate PropertyGroupUpdate::EXAMPLE(){
-    PropertyGroupUpdate rv;
-    rv.template_id = "test1value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

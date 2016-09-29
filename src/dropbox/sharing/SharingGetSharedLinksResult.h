@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingLinkMetadata.h"
 
 namespace dropboxQt{
@@ -17,10 +19,12 @@ namespace sharing{
     public:
         GetSharedLinksResult(){};
 
-        GetSharedLinksResult(const std::list <LinkMetadata>&& arg){ m_links = arg; };
+        GetSharedLinksResult(const std::list <LinkMetadata>& arg){ m_links = arg; };
 
     public:
-        ///Shared links applicable to the path argument.
+            /**
+                Shared links applicable to the path argument.
+            */
         const std::list <LinkMetadata>& links()const{return m_links;};
 
     public:
@@ -37,13 +41,12 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetSharedLinksResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Shared links applicable to the path argument.
+            /**
+                Shared links applicable to the path argument.
+            */
         std::list <LinkMetadata> m_links;
 
     };//GetSharedLinksResult

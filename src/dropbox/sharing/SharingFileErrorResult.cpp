@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingFileErrorResult.h"
@@ -83,17 +85,6 @@ std::unique_ptr<FileErrorResult>  FileErrorResult::factory::create(const QByteAr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-FileErrorResult FileErrorResult::EXAMPLE(){
-    FileErrorResult rv;
-    rv.file_not_found_error = "test1value";
-    rv.invalid_file_action_error = "test2value";
-    rv.permission_denied_error = "test3value";
-    rv.m_tag = FileErrorResult_FILE_NOT_FOUND_ERROR;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

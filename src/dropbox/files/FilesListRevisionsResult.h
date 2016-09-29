@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesFileMetadata.h"
 
 namespace dropboxQt{
@@ -22,10 +24,15 @@ namespace files{
         ListRevisionsResult(const bool& arg){ m_is_deleted = arg; };
 
     public:
-        ///If the file is deleted.
+            /**
+                If the file is deleted.
+            */
         bool isDeleted()const{return m_is_deleted;};
 
-        ///The revisions for the file. Only non-delete revisions will show up here.
+            /**
+                The revisions for the file. Only non-delete revisions will show
+                up here.
+            */
         const std::list <FileMetadata>& entries()const{return m_entries;};
 
     public:
@@ -42,16 +49,18 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListRevisionsResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///If the file is deleted.
+            /**
+                If the file is deleted.
+            */
         bool m_is_deleted;
 
-        ///The revisions for the file. Only non-delete revisions will show up here.
+            /**
+                The revisions for the file. Only non-delete revisions will show
+                up here.
+            */
         std::list <FileMetadata> m_entries;
 
     };//ListRevisionsResult

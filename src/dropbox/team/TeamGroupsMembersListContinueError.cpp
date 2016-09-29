@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupsMembersListContinueError.h"
@@ -61,14 +63,6 @@ std::unique_ptr<GroupsMembersListContinueError>  GroupsMembersListContinueError:
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupsMembersListContinueError GroupsMembersListContinueError::EXAMPLE(){
-    GroupsMembersListContinueError rv;
-    rv.m_tag = GroupsMembersListContinueError_INVALID_CURSOR;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

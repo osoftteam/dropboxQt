@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesRemovePropertiesError.h"
@@ -89,15 +91,6 @@ std::unique_ptr<RemovePropertiesError>  RemovePropertiesError::factory::create(c
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RemovePropertiesError RemovePropertiesError::EXAMPLE(){
-    RemovePropertiesError rv;
-    rv.property_group_lookup = files::LookUpPropertiesError::EXAMPLE();
-    rv.m_tag = RemovePropertiesError_PROPERTY_GROUP_LOOKUP;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

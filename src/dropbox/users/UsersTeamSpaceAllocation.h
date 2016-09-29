@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace users{
@@ -22,11 +24,15 @@ namespace users{
         TeamSpaceAllocation(const int& arg){ m_used = arg; };
 
     public:
-        ///The total space currently used by the user's team (bytes).
+            /**
+                The total space currently used by the user's team (bytes).
+            */
         int used()const{return m_used;};
         TeamSpaceAllocation& setUsed(const int& arg){m_used=arg;return *this;};
 
-        ///The total space allocated to the user's team (bytes).
+            /**
+                The total space allocated to the user's team (bytes).
+            */
         int allocated()const{return m_allocated;};
         TeamSpaceAllocation& setAllocated(const int& arg){m_allocated=arg;return *this;};
 
@@ -44,16 +50,17 @@ namespace users{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static TeamSpaceAllocation EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The total space currently used by the user's team (bytes).
+            /**
+                The total space currently used by the user's team (bytes).
+            */
         int m_used;
 
-        ///The total space allocated to the user's team (bytes).
+            /**
+                The total space allocated to the user's team (bytes).
+            */
         int m_allocated;
 
     };//TeamSpaceAllocation

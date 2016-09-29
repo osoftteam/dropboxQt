@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingMembershipInfo.h"
@@ -59,15 +61,6 @@ std::unique_ptr<MembershipInfo>  MembershipInfo::factory::create(const QJsonObje
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-MembershipInfo MembershipInfo::EXAMPLE(){
-    MembershipInfo rv;
-    rv.access_type = sharing::AccessLevel::EXAMPLE();
-    rv.initials = "test3value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

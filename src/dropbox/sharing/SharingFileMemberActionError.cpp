@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingFileMemberActionError.h"
@@ -78,15 +80,6 @@ std::unique_ptr<FileMemberActionError>  FileMemberActionError::factory::create(c
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-FileMemberActionError FileMemberActionError::EXAMPLE(){
-    FileMemberActionError rv;
-    rv.access_error = sharing::SharingFileAccessError::EXAMPLE();
-    rv.m_tag = FileMemberActionError_INVALID_MEMBER;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

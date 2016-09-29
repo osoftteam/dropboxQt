@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingMemberAccessLevelResult.h"
 
 namespace dropboxQt{
@@ -36,7 +38,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///The target member only has inherited access to the shared folder.
-        MemberAccessLevelResult getNoExplicitAccess()const{DBOX_CHECK_STATE((SharedFolderMemberError_NO_EXPLICIT_ACCESS == m_tag), "expected tag: SharedFolderMemberError_NO_EXPLICIT_ACCESS", m_tag);return m_no_explicit_access;};
+        MemberAccessLevelResult getNoExplicitAccess()const{API_CHECK_STATE((SharedFolderMemberError_NO_EXPLICIT_ACCESS == m_tag), "expected tag: SharedFolderMemberError_NO_EXPLICIT_ACCESS", m_tag);return m_no_explicit_access;};
 
     public:
         operator QJsonObject ()const;
@@ -52,9 +54,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static SharedFolderMemberError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

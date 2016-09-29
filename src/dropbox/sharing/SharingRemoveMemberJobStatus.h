@@ -1,14 +1,15 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/async/AsyncPollResultBase.h"
 #include "dropbox/sharing/SharingMemberAccessLevelResult.h"
-#include "dropbox/sharing/SharingRemoveFolderMemberError.h"
 #include "dropbox/sharing/SharingRemoveFolderMemberError.h"
 
 namespace dropboxQt{
@@ -35,10 +36,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///Removing the folder member has finished. The value is information about whether the member has another form of access.
-        MemberAccessLevelResult getComplete()const{DBOX_CHECK_STATE((RemoveMemberJobStatus_COMPLETE == m_tag), "expected tag: RemoveMemberJobStatus_COMPLETE", m_tag);return m_complete;};
+        MemberAccessLevelResult getComplete()const{API_CHECK_STATE((RemoveMemberJobStatus_COMPLETE == m_tag), "expected tag: RemoveMemberJobStatus_COMPLETE", m_tag);return m_complete;};
 
         ///None
-        RemoveFolderMemberError getFailed()const{DBOX_CHECK_STATE((RemoveMemberJobStatus_FAILED == m_tag), "expected tag: RemoveMemberJobStatus_FAILED", m_tag);return m_failed;};
+        RemoveFolderMemberError getFailed()const{API_CHECK_STATE((RemoveMemberJobStatus_FAILED == m_tag), "expected tag: RemoveMemberJobStatus_FAILED", m_tag);return m_failed;};
 
     public:
         operator QJsonObject ()const;
@@ -54,9 +55,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RemoveMemberJobStatus EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

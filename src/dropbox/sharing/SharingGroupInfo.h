@@ -1,12 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team_common/TeamCommonGroupSummary.h"
-#include "dropbox/team_common/TeamCommonGroupType.h"
 #include "dropbox/team_common/TeamCommonGroupType.h"
 
 namespace dropboxQt{
@@ -27,15 +28,21 @@ namespace sharing{
         GroupInfo(const team_common::GroupType& arg){ m_group_type = arg; };
 
     public:
-        ///The type of group.
+            /**
+                The type of group.
+            */
         team_common::GroupType groupType()const{return m_group_type;};
         GroupInfo& setGrouptype(const team_common::GroupType& arg){m_group_type=arg;return *this;};
 
-        ///If the current user is an owner of the group.
+            /**
+                If the current user is an owner of the group.
+            */
         bool isOwner()const{return m_is_owner;};
         GroupInfo& setIsowner(const bool& arg){m_is_owner=arg;return *this;};
 
-        ///If the group is owned by the current user's team.
+            /**
+                If the group is owned by the current user's team.
+            */
         bool sameTeam()const{return m_same_team;};
         GroupInfo& setSameteam(const bool& arg){m_same_team=arg;return *this;};
 
@@ -53,19 +60,22 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GroupInfo EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The type of group.
+            /**
+                The type of group.
+            */
         team_common::GroupType m_group_type;
 
-        ///If the current user is an owner of the group.
+            /**
+                If the current user is an owner of the group.
+            */
         bool m_is_owner;
 
-        ///If the group is owned by the current user's team.
+            /**
+                If the group is owned by the current user's team.
+            */
         bool m_same_team;
 
     };//GroupInfo

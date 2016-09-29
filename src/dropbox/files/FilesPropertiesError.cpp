@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesPropertiesError.h"
@@ -80,15 +82,6 @@ std::unique_ptr<PropertiesError>  PropertiesError::factory::create(const QByteAr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-PropertiesError PropertiesError::EXAMPLE(){
-    PropertiesError rv;
-    rv.path = files::LookupError::EXAMPLE();
-    rv.m_tag = PropertiesError_PATH;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

@@ -1,12 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/sharing/SharingSharedFolderAccessError.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingSharedFolderAccessError.h"
 #include "dropbox/sharing/SharingInsufficientQuotaAmounts.h"
 
@@ -49,10 +50,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///None
-        SharedFolderAccessError getAccessError()const{DBOX_CHECK_STATE((MountFolderError_ACCESS_ERROR == m_tag), "expected tag: MountFolderError_ACCESS_ERROR", m_tag);return m_access_error;};
+        SharedFolderAccessError getAccessError()const{API_CHECK_STATE((MountFolderError_ACCESS_ERROR == m_tag), "expected tag: MountFolderError_ACCESS_ERROR", m_tag);return m_access_error;};
 
         ///The current user does not have enough space to mount the shared folder.
-        InsufficientQuotaAmounts getInsufficientQuota()const{DBOX_CHECK_STATE((MountFolderError_INSUFFICIENT_QUOTA == m_tag), "expected tag: MountFolderError_INSUFFICIENT_QUOTA", m_tag);return m_insufficient_quota;};
+        InsufficientQuotaAmounts getInsufficientQuota()const{API_CHECK_STATE((MountFolderError_INSUFFICIENT_QUOTA == m_tag), "expected tag: MountFolderError_INSUFFICIENT_QUOTA", m_tag);return m_insufficient_quota;};
 
     public:
         operator QJsonObject ()const;
@@ -68,9 +69,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MountFolderError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

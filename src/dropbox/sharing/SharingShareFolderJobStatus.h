@@ -1,14 +1,15 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/async/AsyncPollResultBase.h"
 #include "dropbox/sharing/SharingSharedFolderMetadata.h"
-#include "dropbox/sharing/SharingShareFolderError.h"
 #include "dropbox/sharing/SharingShareFolderError.h"
 
 namespace dropboxQt{
@@ -34,10 +35,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///The share job has finished. The value is the metadata for the folder.
-        SharedFolderMetadata getComplete()const{DBOX_CHECK_STATE((ShareFolderJobStatus_COMPLETE == m_tag), "expected tag: ShareFolderJobStatus_COMPLETE", m_tag);return m_complete;};
+        SharedFolderMetadata getComplete()const{API_CHECK_STATE((ShareFolderJobStatus_COMPLETE == m_tag), "expected tag: ShareFolderJobStatus_COMPLETE", m_tag);return m_complete;};
 
         ///None
-        ShareFolderError getFailed()const{DBOX_CHECK_STATE((ShareFolderJobStatus_FAILED == m_tag), "expected tag: ShareFolderJobStatus_FAILED", m_tag);return m_failed;};
+        ShareFolderError getFailed()const{API_CHECK_STATE((ShareFolderJobStatus_FAILED == m_tag), "expected tag: ShareFolderJobStatus_FAILED", m_tag);return m_failed;};
 
     public:
         operator QJsonObject ()const;
@@ -53,9 +54,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ShareFolderJobStatus EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

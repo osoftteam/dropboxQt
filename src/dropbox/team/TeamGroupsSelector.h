@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team{
@@ -31,10 +33,10 @@ namespace team{
 
         Tag tag()const{return m_tag;}
         ///List of group IDs.
-        const std::list <QString>& getGroupIds()const{DBOX_CHECK_STATE((GroupsSelector_GROUP_IDS == m_tag), "expected tag: GroupsSelector_GROUP_IDS", m_tag);return m_group_ids;};
+        const std::list <QString>& getGroupIds()const{API_CHECK_STATE((GroupsSelector_GROUP_IDS == m_tag), "expected tag: GroupsSelector_GROUP_IDS", m_tag);return m_group_ids;};
 
         ///List of external IDs of groups.
-        const std::list <QString>& getGroupExternalIds()const{DBOX_CHECK_STATE((GroupsSelector_GROUP_EXTERNAL_IDS == m_tag), "expected tag: GroupsSelector_GROUP_EXTERNAL_IDS", m_tag);return m_group_external_ids;};
+        const std::list <QString>& getGroupExternalIds()const{API_CHECK_STATE((GroupsSelector_GROUP_EXTERNAL_IDS == m_tag), "expected tag: GroupsSelector_GROUP_EXTERNAL_IDS", m_tag);return m_group_external_ids;};
 
     public:
         operator QJsonObject ()const;
@@ -50,9 +52,6 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GroupsSelector EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

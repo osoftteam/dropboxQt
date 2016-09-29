@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingMountFolderArg.h"
@@ -53,14 +55,6 @@ std::unique_ptr<MountFolderArg>  MountFolderArg::factory::create(const QJsonObje
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-MountFolderArg MountFolderArg::EXAMPLE(){
-    MountFolderArg rv;
-    rv.shared_folder_id = "test1value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

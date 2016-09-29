@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -21,13 +23,18 @@ namespace files{
         RemovePropertiesArg(const QString& arg){ m_path = arg; };
 
     public:
-        ///A unique identifier for the file.
+            /**
+                A unique identifier for the file.
+            */
         QString path()const{return m_path;};
         RemovePropertiesArg& setPath(const QString& arg){m_path=arg;return *this;};
 
-        ///A list of identifiers for a property template created by route properties/template/add.
+            /**
+                A list of identifiers for a property template created by route
+                properties/template/add.
+            */
         const std::list <QString>& propertyTemplateIds()const{return m_property_template_ids;};
-        RemovePropertiesArg& setPropertytemplateids(const std::list <QString>&& arg){m_property_template_ids=arg;return *this;};
+        RemovePropertiesArg& setPropertytemplateids(const std::list <QString>& arg){m_property_template_ids=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -43,16 +50,18 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RemovePropertiesArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///A unique identifier for the file.
+            /**
+                A unique identifier for the file.
+            */
         QString m_path;
 
-        ///A list of identifiers for a property template created by route properties/template/add.
+            /**
+                A list of identifiers for a property template created by route
+                properties/template/add.
+            */
         std::list <QString> m_property_template_ids;
 
     };//RemovePropertiesArg

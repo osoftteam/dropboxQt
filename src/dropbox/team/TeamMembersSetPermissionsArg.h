@@ -1,13 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamUserSelectorArg.h"
-#include "dropbox/team/TeamUserSelectorArg.h"
-#include "dropbox/team/TeamAdminTier.h"
 #include "dropbox/team/TeamAdminTier.h"
 
 namespace dropboxQt{
@@ -27,11 +27,15 @@ namespace team{
         MembersSetPermissionsArg(const UserSelectorArg& arg){ m_user = arg; };
 
     public:
-        ///Identity of user whose role will be set.
+            /**
+                Identity of user whose role will be set.
+            */
         UserSelectorArg user()const{return m_user;};
         MembersSetPermissionsArg& setUser(const UserSelectorArg& arg){m_user=arg;return *this;};
 
-        ///The new role of the member.
+            /**
+                The new role of the member.
+            */
         AdminTier newRole()const{return m_new_role;};
         MembersSetPermissionsArg& setNewrole(const AdminTier& arg){m_new_role=arg;return *this;};
 
@@ -49,16 +53,17 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MembersSetPermissionsArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Identity of user whose role will be set.
+            /**
+                Identity of user whose role will be set.
+            */
         UserSelectorArg m_user;
 
-        ///The new role of the member.
+            /**
+                The new role of the member.
+            */
         AdminTier m_new_role;
 
     };//MembersSetPermissionsArg

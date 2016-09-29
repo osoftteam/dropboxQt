@@ -1,16 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesLookupError.h"
-#include "dropbox/files/FilesLookupError.h"
-#include "dropbox/files/FilesWriteError.h"
-#include "dropbox/files/FilesWriteError.h"
-#include "dropbox/files/FilesWriteError.h"
 #include "dropbox/files/FilesWriteError.h"
 
 namespace dropboxQt{
@@ -51,13 +49,13 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///None
-        LookupError getFromLookup()const{DBOX_CHECK_STATE((RelocationError_FROM_LOOKUP == m_tag), "expected tag: RelocationError_FROM_LOOKUP", m_tag);return m_from_lookup;};
+        LookupError getFromLookup()const{API_CHECK_STATE((RelocationError_FROM_LOOKUP == m_tag), "expected tag: RelocationError_FROM_LOOKUP", m_tag);return m_from_lookup;};
 
         ///None
-        WriteError getFromWrite()const{DBOX_CHECK_STATE((RelocationError_FROM_WRITE == m_tag), "expected tag: RelocationError_FROM_WRITE", m_tag);return m_from_write;};
+        WriteError getFromWrite()const{API_CHECK_STATE((RelocationError_FROM_WRITE == m_tag), "expected tag: RelocationError_FROM_WRITE", m_tag);return m_from_write;};
 
         ///None
-        WriteError getTo()const{DBOX_CHECK_STATE((RelocationError_TO == m_tag), "expected tag: RelocationError_TO", m_tag);return m_to;};
+        WriteError getTo()const{API_CHECK_STATE((RelocationError_TO == m_tag), "expected tag: RelocationError_TO", m_tag);return m_to;};
 
     public:
         operator QJsonObject ()const;
@@ -73,9 +71,6 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RelocationError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

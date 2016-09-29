@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingFilePermission.h"
@@ -56,15 +58,6 @@ std::unique_ptr<FilePermission>  FilePermission::factory::create(const QJsonObje
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-FilePermission FilePermission::EXAMPLE(){
-    FilePermission rv;
-    rv.action = sharing::FileAction::EXAMPLE();
-    rv.reason = sharing::PermissionDeniedReason::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

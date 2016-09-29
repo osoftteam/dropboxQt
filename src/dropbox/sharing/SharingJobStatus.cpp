@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingJobStatus.h"
@@ -70,15 +72,6 @@ std::unique_ptr<JobStatus>  JobStatus::factory::create(const QByteArray& data)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-JobStatus JobStatus::EXAMPLE(){
-    JobStatus rv;
-    rv.failed = sharing::JobError::EXAMPLE();
-    rv.m_tag = JobStatus_COMPLETE;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

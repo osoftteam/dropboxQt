@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamIncludeMembersArg.h"
@@ -52,13 +54,6 @@ std::unique_ptr<IncludeMembersArg>  IncludeMembersArg::factory::create(const QJs
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-IncludeMembersArg IncludeMembersArg::EXAMPLE(){
-    IncludeMembersArg rv;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

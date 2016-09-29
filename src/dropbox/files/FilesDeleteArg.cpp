@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesDeleteArg.h"
@@ -53,14 +55,6 @@ std::unique_ptr<DeleteArg>  DeleteArg::factory::create(const QJsonObject& js)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-DeleteArg DeleteArg::EXAMPLE(){
-    DeleteArg rv;
-    rv.path = "test1value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

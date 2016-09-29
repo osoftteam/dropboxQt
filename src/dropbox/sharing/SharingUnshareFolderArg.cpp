@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingUnshareFolderArg.h"
@@ -55,14 +57,6 @@ std::unique_ptr<UnshareFolderArg>  UnshareFolderArg::factory::create(const QJson
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-UnshareFolderArg UnshareFolderArg::EXAMPLE(){
-    UnshareFolderArg rv;
-    rv.shared_folder_id = "test1value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

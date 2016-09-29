@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingSharedFolderMembers.h"
@@ -59,14 +61,6 @@ std::unique_ptr<SharedFolderMembers>  SharedFolderMembers::factory::create(const
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SharedFolderMembers SharedFolderMembers::EXAMPLE(){
-    SharedFolderMembers rv;
-    rv.cursor = "test4value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

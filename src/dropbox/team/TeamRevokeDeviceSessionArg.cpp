@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamRevokeDeviceSessionArg.h"
@@ -72,17 +74,6 @@ std::unique_ptr<RevokeDeviceSessionArg>  RevokeDeviceSessionArg::factory::create
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RevokeDeviceSessionArg RevokeDeviceSessionArg::EXAMPLE(){
-    RevokeDeviceSessionArg rv;
-    rv.web_session = team::DeviceSessionArg::EXAMPLE();
-    rv.desktop_client = team::RevokeDesktopClientArg::EXAMPLE();
-    rv.mobile_client = team::DeviceSessionArg::EXAMPLE();
-    rv.m_tag = RevokeDeviceSessionArg_WEB_SESSION;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

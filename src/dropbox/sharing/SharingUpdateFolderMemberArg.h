@@ -1,13 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingMemberSelector.h"
-#include "dropbox/sharing/SharingMemberSelector.h"
-#include "dropbox/sharing/SharingAccessLevel.h"
 #include "dropbox/sharing/SharingAccessLevel.h"
 
 namespace dropboxQt{
@@ -27,15 +27,23 @@ namespace sharing{
         UpdateFolderMemberArg(const QString& arg){ m_shared_folder_id = arg; };
 
     public:
-        ///The ID for the shared folder.
+            /**
+                The ID for the shared folder.
+            */
         QString sharedFolderId()const{return m_shared_folder_id;};
         UpdateFolderMemberArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg;return *this;};
 
-        ///The member of the shared folder to update.  Only the :field:`MemberSelector.dropbox_id` may be set at this time.
+            /**
+                The member of the shared folder to update.  Only the
+                ``MemberSelector.dropbox_id`` may be set at this time.
+            */
         MemberSelector member()const{return m_member;};
         UpdateFolderMemberArg& setMember(const MemberSelector& arg){m_member=arg;return *this;};
 
-        ///The new access level for :field:`member`. :field:`AccessLevel.owner` is disallowed.
+            /**
+                The new access level for ``member``. ``AccessLevel.owner`` is
+                disallowed.
+            */
         AccessLevel accessLevel()const{return m_access_level;};
         UpdateFolderMemberArg& setAccesslevel(const AccessLevel& arg){m_access_level=arg;return *this;};
 
@@ -53,19 +61,24 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UpdateFolderMemberArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The ID for the shared folder.
+            /**
+                The ID for the shared folder.
+            */
         QString m_shared_folder_id;
 
-        ///The member of the shared folder to update.  Only the :field:`MemberSelector.dropbox_id` may be set at this time.
+            /**
+                The member of the shared folder to update.  Only the
+                ``MemberSelector.dropbox_id`` may be set at this time.
+            */
         MemberSelector m_member;
 
-        ///The new access level for :field:`member`. :field:`AccessLevel.owner` is disallowed.
+            /**
+                The new access level for ``member``. ``AccessLevel.owner`` is
+                disallowed.
+            */
         AccessLevel m_access_level;
 
     };//UpdateFolderMemberArg

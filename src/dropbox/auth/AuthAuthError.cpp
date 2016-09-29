@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "auth"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/auth/AuthAuthError.h"
@@ -77,14 +79,6 @@ std::unique_ptr<AuthError>  AuthError::factory::create(const QByteArray& data)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-AuthError AuthError::EXAMPLE(){
-    AuthError rv;
-    rv.m_tag = AuthError_INVALID_ACCESS_TOKEN;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//auth
 }//dropboxQt

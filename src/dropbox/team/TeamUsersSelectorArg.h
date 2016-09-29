@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team{
@@ -34,13 +36,13 @@ namespace team{
 
         Tag tag()const{return m_tag;}
         ///List of member IDs.
-        const std::list <QString>& getTeamMemberIds()const{DBOX_CHECK_STATE((UsersSelectorArg_TEAM_MEMBER_IDS == m_tag), "expected tag: UsersSelectorArg_TEAM_MEMBER_IDS", m_tag);return m_team_member_ids;};
+        const std::list <QString>& getTeamMemberIds()const{API_CHECK_STATE((UsersSelectorArg_TEAM_MEMBER_IDS == m_tag), "expected tag: UsersSelectorArg_TEAM_MEMBER_IDS", m_tag);return m_team_member_ids;};
 
         ///List of external user IDs.
-        const std::list <QString>& getExternalIds()const{DBOX_CHECK_STATE((UsersSelectorArg_EXTERNAL_IDS == m_tag), "expected tag: UsersSelectorArg_EXTERNAL_IDS", m_tag);return m_external_ids;};
+        const std::list <QString>& getExternalIds()const{API_CHECK_STATE((UsersSelectorArg_EXTERNAL_IDS == m_tag), "expected tag: UsersSelectorArg_EXTERNAL_IDS", m_tag);return m_external_ids;};
 
         ///List of email addresses.
-        const std::list <QString>& getEmails()const{DBOX_CHECK_STATE((UsersSelectorArg_EMAILS == m_tag), "expected tag: UsersSelectorArg_EMAILS", m_tag);return m_emails;};
+        const std::list <QString>& getEmails()const{API_CHECK_STATE((UsersSelectorArg_EMAILS == m_tag), "expected tag: UsersSelectorArg_EMAILS", m_tag);return m_emails;};
 
     public:
         operator QJsonObject ()const;
@@ -56,9 +58,6 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UsersSelectorArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

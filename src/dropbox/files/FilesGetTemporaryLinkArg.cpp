@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesGetTemporaryLinkArg.h"
@@ -53,14 +55,6 @@ std::unique_ptr<GetTemporaryLinkArg>  GetTemporaryLinkArg::factory::create(const
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GetTemporaryLinkArg GetTemporaryLinkArg::EXAMPLE(){
-    GetTemporaryLinkArg rv;
-    rv.path = "test1value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

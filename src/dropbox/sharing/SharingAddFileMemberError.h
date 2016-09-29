@@ -1,14 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingSharingUserError.h"
-#include "dropbox/sharing/SharingSharingUserError.h"
-#include "dropbox/sharing/SharingSharingFileAccessError.h"
 #include "dropbox/sharing/SharingSharingFileAccessError.h"
 
 namespace dropboxQt{
@@ -42,10 +42,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///None
-        SharingUserError getUserError()const{DBOX_CHECK_STATE((AddFileMemberError_USER_ERROR == m_tag), "expected tag: AddFileMemberError_USER_ERROR", m_tag);return m_user_error;};
+        SharingUserError getUserError()const{API_CHECK_STATE((AddFileMemberError_USER_ERROR == m_tag), "expected tag: AddFileMemberError_USER_ERROR", m_tag);return m_user_error;};
 
         ///None
-        SharingFileAccessError getAccessError()const{DBOX_CHECK_STATE((AddFileMemberError_ACCESS_ERROR == m_tag), "expected tag: AddFileMemberError_ACCESS_ERROR", m_tag);return m_access_error;};
+        SharingFileAccessError getAccessError()const{API_CHECK_STATE((AddFileMemberError_ACCESS_ERROR == m_tag), "expected tag: AddFileMemberError_ACCESS_ERROR", m_tag);return m_access_error;};
 
     public:
         operator QJsonObject ()const;
@@ -61,9 +61,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static AddFileMemberError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

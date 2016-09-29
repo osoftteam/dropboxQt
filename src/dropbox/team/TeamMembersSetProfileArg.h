@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/team/TeamUserSelectorArg.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamUserSelectorArg.h"
 
 namespace dropboxQt{
@@ -30,23 +31,33 @@ namespace team{
         MembersSetProfileArg(const UserSelectorArg& arg){ m_user = arg; };
 
     public:
-        ///Identity of user whose profile will be set.
+            /**
+                Identity of user whose profile will be set.
+            */
         UserSelectorArg user()const{return m_user;};
         MembersSetProfileArg& setUser(const UserSelectorArg& arg){m_user=arg;return *this;};
 
-        ///New email for member.
+            /**
+                New email for member.
+            */
         QString newEmail()const{return m_new_email;};
         MembersSetProfileArg& setNewemail(const QString& arg){m_new_email=arg;return *this;};
 
-        ///New external ID for member.
+            /**
+                New external ID for member.
+            */
         QString newExternalId()const{return m_new_external_id;};
         MembersSetProfileArg& setNewexternalid(const QString& arg){m_new_external_id=arg;return *this;};
 
-        ///New given name for member.
+            /**
+                New given name for member.
+            */
         QString newGivenName()const{return m_new_given_name;};
         MembersSetProfileArg& setNewgivenname(const QString& arg){m_new_given_name=arg;return *this;};
 
-        ///New surname for member.
+            /**
+                New surname for member.
+            */
         QString newSurname()const{return m_new_surname;};
         MembersSetProfileArg& setNewsurname(const QString& arg){m_new_surname=arg;return *this;};
 
@@ -64,25 +75,32 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MembersSetProfileArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Identity of user whose profile will be set.
+            /**
+                Identity of user whose profile will be set.
+            */
         UserSelectorArg m_user;
 
-        ///New email for member.
+            /**
+                New email for member.
+            */
         QString m_new_email;
 
-        ///New external ID for member.
+            /**
+                New external ID for member.
+            */
         QString m_new_external_id;
 
-        ///New given name for member.
+            /**
+                New given name for member.
+            */
         QString m_new_given_name;
 
-        ///New surname for member.
+            /**
+                New surname for member.
+            */
         QString m_new_surname;
 
     };//MembersSetProfileArg

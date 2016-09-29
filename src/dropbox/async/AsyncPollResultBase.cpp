@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "async"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/async/AsyncPollResultBase.h"
@@ -53,14 +55,6 @@ std::unique_ptr<PollResultBase>  PollResultBase::factory::create(const QByteArra
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-PollResultBase PollResultBase::EXAMPLE(){
-    PollResultBase rv;
-    rv.m_tag = PollResultBase_IN_PROGRESS;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//async
 }//dropboxQt

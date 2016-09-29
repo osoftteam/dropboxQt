@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesThumbnailArg.h"
@@ -57,16 +59,6 @@ std::unique_ptr<ThumbnailArg>  ThumbnailArg::factory::create(const QJsonObject& 
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ThumbnailArg ThumbnailArg::EXAMPLE(){
-    ThumbnailArg rv;
-    rv.path = "test1value";
-    rv.format = files::ThumbnailFormat::EXAMPLE();
-    rv.size = files::ThumbnailSize::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

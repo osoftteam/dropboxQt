@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/properties/PropertiesPropertyFieldTemplate.h"
 
 namespace dropboxQt{
@@ -28,21 +30,34 @@ namespace team{
         UpdatePropertyTemplateArg(const QString& arg){ m_template_id = arg; };
 
     public:
-        ///An identifier for property template added by :route:`properties/template/add`.
+            /**
+                An identifier for property template added by
+                :meth:`properties_template_add`.
+            */
         QString templateId()const{return m_template_id;};
         UpdatePropertyTemplateArg& setTemplateid(const QString& arg){m_template_id=arg;return *this;};
 
-        ///A display name for the property template. Property template names can be up to 256 bytes.
+            /**
+                A display name for the property template. Property template
+                names can be up to 256 bytes.
+            */
         QString name()const{return m_name;};
         UpdatePropertyTemplateArg& setName(const QString& arg){m_name=arg;return *this;};
 
-        ///Description for new property template. Property template descriptions can be up to 1024 bytes.
+            /**
+                Description for new property template. Property template
+                descriptions can be up to 1024 bytes.
+            */
         QString description()const{return m_description;};
         UpdatePropertyTemplateArg& setDescription(const QString& arg){m_description=arg;return *this;};
 
-        ///This is a list of custom properties to add to the property template. There can be up to 64 properties in a single property template.
+            /**
+                This is a list of custom properties to add to the property
+                template. There can be up to 64 properties in a single property
+                template.
+            */
         const std::list <properties::PropertyFieldTemplate>& addFields()const{return m_add_fields;};
-        UpdatePropertyTemplateArg& setAddfields(const std::list <properties::PropertyFieldTemplate>&& arg){m_add_fields=arg;return *this;};
+        UpdatePropertyTemplateArg& setAddfields(const std::list <properties::PropertyFieldTemplate>& arg){m_add_fields=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -58,22 +73,32 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UpdatePropertyTemplateArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///An identifier for property template added by :route:`properties/template/add`.
+            /**
+                An identifier for property template added by
+                :meth:`properties_template_add`.
+            */
         QString m_template_id;
 
-        ///A display name for the property template. Property template names can be up to 256 bytes.
+            /**
+                A display name for the property template. Property template
+                names can be up to 256 bytes.
+            */
         QString m_name;
 
-        ///Description for new property template. Property template descriptions can be up to 1024 bytes.
+            /**
+                Description for new property template. Property template
+                descriptions can be up to 1024 bytes.
+            */
         QString m_description;
 
-        ///This is a list of custom properties to add to the property template. There can be up to 64 properties in a single property template.
+            /**
+                This is a list of custom properties to add to the property
+                template. There can be up to 64 properties in a single property
+                template.
+            */
         std::list <properties::PropertyFieldTemplate> m_add_fields;
 
     };//UpdatePropertyTemplateArg

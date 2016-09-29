@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingPermissionDeniedReason.h"
@@ -109,14 +111,6 @@ std::unique_ptr<PermissionDeniedReason>  PermissionDeniedReason::factory::create
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-PermissionDeniedReason PermissionDeniedReason::EXAMPLE(){
-    PermissionDeniedReason rv;
-    rv.m_tag = PermissionDeniedReason_USER_NOT_SAME_TEAM_AS_OWNER;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

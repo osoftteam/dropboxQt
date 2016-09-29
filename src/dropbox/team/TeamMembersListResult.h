@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamTeamMemberInfo.h"
 
 namespace dropboxQt{
@@ -22,16 +24,25 @@ namespace team{
     public:
         MembersListResult(){};
 
-        MembersListResult(const std::list <TeamMemberInfo>&& arg){ m_members = arg; };
+        MembersListResult(const std::list <TeamMemberInfo>& arg){ m_members = arg; };
 
     public:
-        ///List of team members.
+            /**
+                List of team members.
+            */
         const std::list <TeamMemberInfo>& members()const{return m_members;};
 
-        ///Pass the cursor into :route:`members/list/continue` to obtain the additional members.
+            /**
+                Pass the cursor into :meth:`members_list_continue` to obtain the
+                additional members.
+            */
         QString cursor()const{return m_cursor;};
 
-        ///Is true if there are additional team members that have not been returned yet. An additional call to :route:`members/list/continue` can retrieve them.
+            /**
+                Is true if there are additional team members that have not been
+                returned yet. An additional call to
+                :meth:`members_list_continue` can retrieve them.
+            */
         bool hasMore()const{return m_has_more;};
 
     public:
@@ -48,19 +59,25 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MembersListResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///List of team members.
+            /**
+                List of team members.
+            */
         std::list <TeamMemberInfo> m_members;
 
-        ///Pass the cursor into :route:`members/list/continue` to obtain the additional members.
+            /**
+                Pass the cursor into :meth:`members_list_continue` to obtain the
+                additional members.
+            */
         QString m_cursor;
 
-        ///Is true if there are additional team members that have not been returned yet. An additional call to :route:`members/list/continue` can retrieve them.
+            /**
+                Is true if there are additional team members that have not been
+                returned yet. An additional call to
+                :meth:`members_list_continue` can retrieve them.
+            */
         bool m_has_more;
 
     };//MembersListResult

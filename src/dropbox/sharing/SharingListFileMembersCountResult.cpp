@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingListFileMembersCountResult.h"
@@ -54,15 +56,6 @@ std::unique_ptr<ListFileMembersCountResult>  ListFileMembersCountResult::factory
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ListFileMembersCountResult ListFileMembersCountResult::EXAMPLE(){
-    ListFileMembersCountResult rv;
-    rv.members = sharing::SharedFileMembers::EXAMPLE();
-    rv.member_count = 2;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

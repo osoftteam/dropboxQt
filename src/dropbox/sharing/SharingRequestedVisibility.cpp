@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingRequestedVisibility.h"
@@ -69,14 +71,6 @@ std::unique_ptr<RequestedVisibility>  RequestedVisibility::factory::create(const
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RequestedVisibility RequestedVisibility::EXAMPLE(){
-    RequestedVisibility rv;
-    rv.m_tag = RequestedVisibility_PUBLIC;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

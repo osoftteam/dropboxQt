@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingShareFolderLaunch.h"
@@ -64,15 +66,6 @@ std::unique_ptr<ShareFolderLaunch>  ShareFolderLaunch::factory::create(const QBy
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ShareFolderLaunch ShareFolderLaunch::EXAMPLE(){
-    ShareFolderLaunch rv;
-    rv.complete = sharing::SharedFolderMetadata::EXAMPLE();
-    rv.m_tag = ShareFolderLaunch_COMPLETE;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

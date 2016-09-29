@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamMobileClientSession.h"
@@ -66,18 +68,6 @@ std::unique_ptr<MobileClientSession>  MobileClientSession::factory::create(const
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-MobileClientSession MobileClientSession::EXAMPLE(){
-    MobileClientSession rv;
-    rv.device_name = "test1value";
-    rv.client_type = team::MobileClientPlatform::EXAMPLE();
-    rv.client_version = "test3value";
-    rv.os_version = "test4value";
-    rv.last_carrier = "test5value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

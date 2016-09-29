@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamTeamMemberInfo.h"
 
 namespace dropboxQt{
@@ -66,31 +68,31 @@ namespace team{
 
         Tag tag()const{return m_tag;}
         ///Describes a user that was successfully added to the team.
-        TeamMemberInfo getSuccess()const{DBOX_CHECK_STATE((MemberAddResult_SUCCESS == m_tag), "expected tag: MemberAddResult_SUCCESS", m_tag);return m_success;};
+        TeamMemberInfo getSuccess()const{API_CHECK_STATE((MemberAddResult_SUCCESS == m_tag), "expected tag: MemberAddResult_SUCCESS", m_tag);return m_success;};
 
         ///Team is already full. The organization has no available licenses.
-        QString getTeamLicenseLimit()const{DBOX_CHECK_STATE((MemberAddResult_TEAM_LICENSE_LIMIT == m_tag), "expected tag: MemberAddResult_TEAM_LICENSE_LIMIT", m_tag);return m_team_license_limit;};
+        QString getTeamLicenseLimit()const{API_CHECK_STATE((MemberAddResult_TEAM_LICENSE_LIMIT == m_tag), "expected tag: MemberAddResult_TEAM_LICENSE_LIMIT", m_tag);return m_team_license_limit;};
 
         ///Team is already full. The free team member limit has been reached.
-        QString getFreeTeamMemberLimitReached()const{DBOX_CHECK_STATE((MemberAddResult_FREE_TEAM_MEMBER_LIMIT_REACHED == m_tag), "expected tag: MemberAddResult_FREE_TEAM_MEMBER_LIMIT_REACHED", m_tag);return m_free_team_member_limit_reached;};
+        QString getFreeTeamMemberLimitReached()const{API_CHECK_STATE((MemberAddResult_FREE_TEAM_MEMBER_LIMIT_REACHED == m_tag), "expected tag: MemberAddResult_FREE_TEAM_MEMBER_LIMIT_REACHED", m_tag);return m_free_team_member_limit_reached;};
 
         ///User is already on this team. The provided email address is associated with a user who is already a member of (including in recoverable state) or invited to the team.
-        QString getUserAlreadyOnTeam()const{DBOX_CHECK_STATE((MemberAddResult_USER_ALREADY_ON_TEAM == m_tag), "expected tag: MemberAddResult_USER_ALREADY_ON_TEAM", m_tag);return m_user_already_on_team;};
+        QString getUserAlreadyOnTeam()const{API_CHECK_STATE((MemberAddResult_USER_ALREADY_ON_TEAM == m_tag), "expected tag: MemberAddResult_USER_ALREADY_ON_TEAM", m_tag);return m_user_already_on_team;};
 
         ///User is already on another team. The provided email address is associated with a user that is already a member or invited to another team.
-        QString getUserOnAnotherTeam()const{DBOX_CHECK_STATE((MemberAddResult_USER_ON_ANOTHER_TEAM == m_tag), "expected tag: MemberAddResult_USER_ON_ANOTHER_TEAM", m_tag);return m_user_on_another_team;};
+        QString getUserOnAnotherTeam()const{API_CHECK_STATE((MemberAddResult_USER_ON_ANOTHER_TEAM == m_tag), "expected tag: MemberAddResult_USER_ON_ANOTHER_TEAM", m_tag);return m_user_on_another_team;};
 
         ///User is already paired.
-        QString getUserAlreadyPaired()const{DBOX_CHECK_STATE((MemberAddResult_USER_ALREADY_PAIRED == m_tag), "expected tag: MemberAddResult_USER_ALREADY_PAIRED", m_tag);return m_user_already_paired;};
+        QString getUserAlreadyPaired()const{API_CHECK_STATE((MemberAddResult_USER_ALREADY_PAIRED == m_tag), "expected tag: MemberAddResult_USER_ALREADY_PAIRED", m_tag);return m_user_already_paired;};
 
         ///User migration has failed.
-        QString getUserMigrationFailed()const{DBOX_CHECK_STATE((MemberAddResult_USER_MIGRATION_FAILED == m_tag), "expected tag: MemberAddResult_USER_MIGRATION_FAILED", m_tag);return m_user_migration_failed;};
+        QString getUserMigrationFailed()const{API_CHECK_STATE((MemberAddResult_USER_MIGRATION_FAILED == m_tag), "expected tag: MemberAddResult_USER_MIGRATION_FAILED", m_tag);return m_user_migration_failed;};
 
         ///A user with the given external member ID already exists on the team (including in recoverable state).
-        QString getDuplicateExternalMemberId()const{DBOX_CHECK_STATE((MemberAddResult_DUPLICATE_EXTERNAL_MEMBER_ID == m_tag), "expected tag: MemberAddResult_DUPLICATE_EXTERNAL_MEMBER_ID", m_tag);return m_duplicate_external_member_id;};
+        QString getDuplicateExternalMemberId()const{API_CHECK_STATE((MemberAddResult_DUPLICATE_EXTERNAL_MEMBER_ID == m_tag), "expected tag: MemberAddResult_DUPLICATE_EXTERNAL_MEMBER_ID", m_tag);return m_duplicate_external_member_id;};
 
         ///User creation has failed.
-        QString getUserCreationFailed()const{DBOX_CHECK_STATE((MemberAddResult_USER_CREATION_FAILED == m_tag), "expected tag: MemberAddResult_USER_CREATION_FAILED", m_tag);return m_user_creation_failed;};
+        QString getUserCreationFailed()const{API_CHECK_STATE((MemberAddResult_USER_CREATION_FAILED == m_tag), "expected tag: MemberAddResult_USER_CREATION_FAILED", m_tag);return m_user_creation_failed;};
 
     public:
         operator QJsonObject ()const;
@@ -106,9 +108,6 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MemberAddResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

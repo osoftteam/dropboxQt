@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingGetFileMetadataBatchArg.h"
@@ -54,13 +56,6 @@ std::unique_ptr<GetFileMetadataBatchArg>  GetFileMetadataBatchArg::factory::crea
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GetFileMetadataBatchArg GetFileMetadataBatchArg::EXAMPLE(){
-    GetFileMetadataBatchArg rv;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

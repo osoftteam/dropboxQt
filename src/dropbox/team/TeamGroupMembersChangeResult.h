@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamGroupFullInfo.h"
 
 namespace dropboxQt{
@@ -26,10 +28,15 @@ namespace team{
         GroupMembersChangeResult(const GroupFullInfo& arg){ m_group_info = arg; };
 
     public:
-        ///The group info after member change operation has been performed.
+            /**
+                The group info after member change operation has been performed.
+            */
         GroupFullInfo groupInfo()const{return m_group_info;};
 
-        ///An ID that can be used to obtain the status of granting/revoking group-owned resources.
+            /**
+                An ID that can be used to obtain the status of granting/revoking
+                group-owned resources.
+            */
         QString asyncJobId()const{return m_async_job_id;};
 
     public:
@@ -46,16 +53,18 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GroupMembersChangeResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The group info after member change operation has been performed.
+            /**
+                The group info after member change operation has been performed.
+            */
         GroupFullInfo m_group_info;
 
-        ///An ID that can be used to obtain the status of granting/revoking group-owned resources.
+            /**
+                An ID that can be used to obtain the status of granting/revoking
+                group-owned resources.
+            */
         QString m_async_job_id;
 
     };//GroupMembersChangeResult

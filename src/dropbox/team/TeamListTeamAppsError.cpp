@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamListTeamAppsError.h"
@@ -61,14 +63,6 @@ std::unique_ptr<ListTeamAppsError>  ListTeamAppsError::factory::create(const QBy
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ListTeamAppsError ListTeamAppsError::EXAMPLE(){
-    ListTeamAppsError rv;
-    rv.m_tag = ListTeamAppsError_RESET;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

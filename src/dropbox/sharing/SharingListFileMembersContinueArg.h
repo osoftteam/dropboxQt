@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace sharing{
@@ -23,7 +25,11 @@ namespace sharing{
         ListFileMembersContinueArg(const QString& arg){ m_cursor = arg; };
 
     public:
-        ///The cursor returned by your last call to :route:`list_file_members`, :route:`list_file_members/continue`, or :route:`list_file_members/batch`.
+            /**
+                The cursor returned by your last call to
+                :meth:`list_file_members`, :meth:`list_file_members_continue`,
+                or :meth:`list_file_members_batch`.
+            */
         QString cursor()const{return m_cursor;};
         ListFileMembersContinueArg& setCursor(const QString& arg){m_cursor=arg;return *this;};
 
@@ -41,13 +47,14 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFileMembersContinueArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The cursor returned by your last call to :route:`list_file_members`, :route:`list_file_members/continue`, or :route:`list_file_members/batch`.
+            /**
+                The cursor returned by your last call to
+                :meth:`list_file_members`, :meth:`list_file_members_continue`,
+                or :meth:`list_file_members_batch`.
+            */
         QString m_cursor;
 
     };//ListFileMembersContinueArg

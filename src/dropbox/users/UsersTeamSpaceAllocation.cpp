@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/users/UsersTeamSpaceAllocation.h"
@@ -54,15 +56,6 @@ std::unique_ptr<TeamSpaceAllocation>  TeamSpaceAllocation::factory::create(const
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-TeamSpaceAllocation TeamSpaceAllocation::EXAMPLE(){
-    TeamSpaceAllocation rv;
-    rv.used = 1;
-    rv.allocated = 2;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//users
 }//dropboxQt

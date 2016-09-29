@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesSearchMode.h"
@@ -69,14 +71,6 @@ std::unique_ptr<SearchMode>  SearchMode::factory::create(const QByteArray& data)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SearchMode SearchMode::EXAMPLE(){
-    SearchMode rv;
-    rv.m_tag = SearchMode_FILENAME;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

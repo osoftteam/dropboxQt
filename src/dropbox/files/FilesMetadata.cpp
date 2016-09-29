@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesMetadata.h"
@@ -77,17 +79,6 @@ std::unique_ptr<Metadata>  Metadata::factory::create(const QJsonObject& js)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-Metadata Metadata::EXAMPLE(){
-    Metadata rv;
-    rv.name = "test1value";
-    rv.path_lower = "test2value";
-    rv.path_display = "test3value";
-    rv.parent_shared_folder_id = "test4value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

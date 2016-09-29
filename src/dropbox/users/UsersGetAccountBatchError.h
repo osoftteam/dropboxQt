@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace users{
@@ -28,7 +30,7 @@ namespace users{
 
         Tag tag()const{return m_tag;}
         ///The value is an account ID specified in :field:`GetAccountBatchArg.account_ids` that does not exist.
-        QString getNoAccount()const{DBOX_CHECK_STATE((GetAccountBatchError_NO_ACCOUNT == m_tag), "expected tag: GetAccountBatchError_NO_ACCOUNT", m_tag);return m_no_account;};
+        QString getNoAccount()const{API_CHECK_STATE((GetAccountBatchError_NO_ACCOUNT == m_tag), "expected tag: GetAccountBatchError_NO_ACCOUNT", m_tag);return m_no_account;};
 
     public:
         operator QJsonObject ()const;
@@ -44,9 +46,6 @@ namespace users{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetAccountBatchError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

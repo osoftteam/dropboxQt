@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingMemberPermission.h"
 
 namespace dropboxQt{
@@ -26,17 +28,23 @@ namespace sharing{
         ParentFolderAccessInfo(const QString& arg){ m_folder_name = arg; };
 
     public:
-        ///Display name for the folder.
+            /**
+                Display name for the folder.
+            */
         QString folderName()const{return m_folder_name;};
         ParentFolderAccessInfo& setFoldername(const QString& arg){m_folder_name=arg;return *this;};
 
-        ///The identifier of the parent shared folder.
+            /**
+                The identifier of the parent shared folder.
+            */
         QString sharedFolderId()const{return m_shared_folder_id;};
         ParentFolderAccessInfo& setSharedfolderid(const QString& arg){m_shared_folder_id=arg;return *this;};
 
-        ///The user's permissions for the parent shared folder.
+            /**
+                The user's permissions for the parent shared folder.
+            */
         const std::list <MemberPermission>& permissions()const{return m_permissions;};
-        ParentFolderAccessInfo& setPermissions(const std::list <MemberPermission>&& arg){m_permissions=arg;return *this;};
+        ParentFolderAccessInfo& setPermissions(const std::list <MemberPermission>& arg){m_permissions=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -52,19 +60,22 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ParentFolderAccessInfo EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Display name for the folder.
+            /**
+                Display name for the folder.
+            */
         QString m_folder_name;
 
-        ///The identifier of the parent shared folder.
+            /**
+                The identifier of the parent shared folder.
+            */
         QString m_shared_folder_id;
 
-        ///The user's permissions for the parent shared folder.
+            /**
+                The user's permissions for the parent shared folder.
+            */
         std::list <MemberPermission> m_permissions;
 
     };//ParentFolderAccessInfo

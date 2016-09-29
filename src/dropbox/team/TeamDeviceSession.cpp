@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamDeviceSession.h"
@@ -65,18 +67,6 @@ std::unique_ptr<DeviceSession>  DeviceSession::factory::create(const QJsonObject
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-DeviceSession DeviceSession::EXAMPLE(){
-    DeviceSession rv;
-    rv.session_id = "test1value";
-    rv.ip_address = "test2value";
-    rv.country = "test3value";
-    rv.created = QDateTime::currentDateTime();
-    rv.updated = QDateTime::currentDateTime();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

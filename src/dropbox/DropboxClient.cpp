@@ -1,4 +1,5 @@
 #include <functional>
+#include <QFile>
 #include "DropboxClient.h"
 #include "dropbox/auth/AuthRoutes.h"
 #include "dropbox/files/FilesRoutes.h"
@@ -15,7 +16,7 @@ DropboxClient::DropboxClient()
 };
 
 DropboxClient::DropboxClient(const QString& access_token)
-:m_token(access_token)
+:ApiClient(access_token)
 {
     m_endpoint.reset(new Endpoint(this));
 };

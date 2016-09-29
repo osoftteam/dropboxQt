@@ -1,12 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/files/FilesWriteConflictError.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesWriteConflictError.h"
 
 namespace dropboxQt{
@@ -44,10 +45,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///None
-        QString getMalformedPath()const{DBOX_CHECK_STATE((WriteError_MALFORMED_PATH == m_tag), "expected tag: WriteError_MALFORMED_PATH", m_tag);return m_malformed_path;};
+        QString getMalformedPath()const{API_CHECK_STATE((WriteError_MALFORMED_PATH == m_tag), "expected tag: WriteError_MALFORMED_PATH", m_tag);return m_malformed_path;};
 
         ///Couldn't write to the target path because there was something in the way.
-        WriteConflictError getConflict()const{DBOX_CHECK_STATE((WriteError_CONFLICT == m_tag), "expected tag: WriteError_CONFLICT", m_tag);return m_conflict;};
+        WriteConflictError getConflict()const{API_CHECK_STATE((WriteError_CONFLICT == m_tag), "expected tag: WriteError_CONFLICT", m_tag);return m_conflict;};
 
     public:
         operator QJsonObject ()const;
@@ -63,9 +64,6 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static WriteError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

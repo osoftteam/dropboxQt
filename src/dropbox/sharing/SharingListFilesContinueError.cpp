@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingListFilesContinueError.h"
@@ -70,15 +72,6 @@ std::unique_ptr<ListFilesContinueError>  ListFilesContinueError::factory::create
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ListFilesContinueError ListFilesContinueError::EXAMPLE(){
-    ListFilesContinueError rv;
-    rv.user_error = sharing::SharingUserError::EXAMPLE();
-    rv.m_tag = ListFilesContinueError_USER_ERROR;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

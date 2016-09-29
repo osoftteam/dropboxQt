@@ -1,14 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesUploadSessionLookupError.h"
-#include "dropbox/files/FilesUploadSessionLookupError.h"
-#include "dropbox/files/FilesWriteError.h"
 #include "dropbox/files/FilesWriteError.h"
 
 namespace dropboxQt{
@@ -40,10 +40,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///The session arguments are incorrect; the value explains the reason.
-        UploadSessionLookupError getLookupFailed()const{DBOX_CHECK_STATE((UploadSessionFinishError_LOOKUP_FAILED == m_tag), "expected tag: UploadSessionFinishError_LOOKUP_FAILED", m_tag);return m_lookup_failed;};
+        UploadSessionLookupError getLookupFailed()const{API_CHECK_STATE((UploadSessionFinishError_LOOKUP_FAILED == m_tag), "expected tag: UploadSessionFinishError_LOOKUP_FAILED", m_tag);return m_lookup_failed;};
 
         ///Unable to save the uploaded contents to a file.
-        WriteError getPath()const{DBOX_CHECK_STATE((UploadSessionFinishError_PATH == m_tag), "expected tag: UploadSessionFinishError_PATH", m_tag);return m_path;};
+        WriteError getPath()const{API_CHECK_STATE((UploadSessionFinishError_PATH == m_tag), "expected tag: UploadSessionFinishError_PATH", m_tag);return m_path;};
 
     public:
         operator QJsonObject ()const;
@@ -59,9 +59,6 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UploadSessionFinishError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team_policies"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team_policies/TeamPoliciesSharedLinkCreatePolicy.h"
@@ -77,14 +79,6 @@ std::unique_ptr<SharedLinkCreatePolicy>  SharedLinkCreatePolicy::factory::create
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SharedLinkCreatePolicy SharedLinkCreatePolicy::EXAMPLE(){
-    SharedLinkCreatePolicy rv;
-    rv.m_tag = SharedLinkCreatePolicy_DEFAULT_PUBLIC;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team_policies
 }//dropboxQt

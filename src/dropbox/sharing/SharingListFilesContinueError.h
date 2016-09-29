@@ -1,12 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/sharing/SharingSharingUserError.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingSharingUserError.h"
 
 namespace dropboxQt{
@@ -34,7 +35,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///User account had a problem.
-        SharingUserError getUserError()const{DBOX_CHECK_STATE((ListFilesContinueError_USER_ERROR == m_tag), "expected tag: ListFilesContinueError_USER_ERROR", m_tag);return m_user_error;};
+        SharingUserError getUserError()const{API_CHECK_STATE((ListFilesContinueError_USER_ERROR == m_tag), "expected tag: ListFilesContinueError_USER_ERROR", m_tag);return m_user_error;};
 
     public:
         operator QJsonObject ()const;
@@ -50,9 +51,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFilesContinueError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

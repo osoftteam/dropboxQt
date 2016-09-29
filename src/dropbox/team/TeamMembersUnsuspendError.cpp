@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamMembersUnsuspendError.h"
@@ -85,14 +87,6 @@ std::unique_ptr<MembersUnsuspendError>  MembersUnsuspendError::factory::create(c
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-MembersUnsuspendError MembersUnsuspendError::EXAMPLE(){
-    MembersUnsuspendError rv;
-    rv.m_tag = MembersUnsuspendError_UNSUSPEND_NON_SUSPENDED_MEMBER;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

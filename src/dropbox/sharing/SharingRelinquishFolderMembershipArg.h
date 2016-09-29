@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace sharing{
@@ -25,11 +27,16 @@ namespace sharing{
         { m_shared_folder_id = arg; };
 
     public:
-        ///The ID for the shared folder.
+            /**
+                The ID for the shared folder.
+            */
         QString sharedFolderId()const{return m_shared_folder_id;};
         RelinquishFolderMembershipArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg;return *this;};
 
-        ///Keep a copy of the folder's contents upon relinquishing membership.
+            /**
+                Keep a copy of the folder's contents upon relinquishing
+                membership.
+            */
         bool leaveACopy()const{return m_leave_a_copy;};
         RelinquishFolderMembershipArg& setLeaveacopy(const bool& arg){m_leave_a_copy=arg;return *this;};
 
@@ -47,16 +54,18 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RelinquishFolderMembershipArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The ID for the shared folder.
+            /**
+                The ID for the shared folder.
+            */
         QString m_shared_folder_id;
 
-        ///Keep a copy of the folder's contents upon relinquishing membership.
+            /**
+                Keep a copy of the folder's contents upon relinquishing
+                membership.
+            */
         bool m_leave_a_copy;
 
     };//RelinquishFolderMembershipArg

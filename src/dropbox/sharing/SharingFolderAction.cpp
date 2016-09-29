@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingFolderAction.h"
@@ -141,14 +143,6 @@ std::unique_ptr<FolderAction>  FolderAction::factory::create(const QByteArray& d
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-FolderAction FolderAction::EXAMPLE(){
-    FolderAction rv;
-    rv.m_tag = FolderAction_CHANGE_OPTIONS;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

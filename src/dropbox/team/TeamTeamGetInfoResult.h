@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team_policies/TeamPoliciesTeamMemberPolicies.h"
 
 namespace dropboxQt{
@@ -25,19 +27,27 @@ namespace team{
         TeamGetInfoResult(const QString& arg){ m_name = arg; };
 
     public:
-        ///The name of the team.
+            /**
+                The name of the team.
+            */
         QString name()const{return m_name;};
 
-        ///The ID of the team.
+            /**
+                The ID of the team.
+            */
         QString teamId()const{return m_team_id;};
 
-        ///The number of licenses available to the team.
+            /**
+                The number of licenses available to the team.
+            */
         int numLicensedUsers()const{return m_num_licensed_users;};
 
-        ///The number of accounts that have been invited or are already active members of the team.
+            /**
+                The number of accounts that have been invited or are already
+                active members of the team.
+            */
         int numProvisionedUsers()const{return m_num_provisioned_users;};
 
-        ///None
         team_policies::TeamMemberPolicies policies()const{return m_policies;};
 
     public:
@@ -54,25 +64,30 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static TeamGetInfoResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The name of the team.
+            /**
+                The name of the team.
+            */
         QString m_name;
 
-        ///The ID of the team.
+            /**
+                The ID of the team.
+            */
         QString m_team_id;
 
-        ///The number of licenses available to the team.
+            /**
+                The number of licenses available to the team.
+            */
         int m_num_licensed_users;
 
-        ///The number of accounts that have been invited or are already active members of the team.
+            /**
+                The number of accounts that have been invited or are already
+                active members of the team.
+            */
         int m_num_provisioned_users;
 
-        ///None
         team_policies::TeamMemberPolicies m_policies;
 
     };//TeamGetInfoResult

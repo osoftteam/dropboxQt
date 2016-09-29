@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "properties"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/properties/PropertiesPropertyFieldTemplate.h"
 
 namespace dropboxQt{
@@ -29,17 +31,27 @@ namespace properties{
         PropertyGroupTemplate(const QString& arg){ m_name = arg; };
 
     public:
-        ///A display name for the property template. Property template names can be up to 256 bytes.
+            /**
+                A display name for the property template. Property template
+                names can be up to 256 bytes.
+            */
         QString name()const{return m_name;};
         PropertyGroupTemplate& setName(const QString& arg){m_name=arg;return *this;};
 
-        ///Description for new property template. Property template descriptions can be up to 1024 bytes.
+            /**
+                Description for new property template. Property template
+                descriptions can be up to 1024 bytes.
+            */
         QString description()const{return m_description;};
         PropertyGroupTemplate& setDescription(const QString& arg){m_description=arg;return *this;};
 
-        ///This is a list of custom properties associated with a property template. There can be up to 64 properties in a single property template.
+            /**
+                This is a list of custom properties associated with a property
+                template. There can be up to 64 properties in a single property
+                template.
+            */
         const std::list <PropertyFieldTemplate>& fields()const{return m_fields;};
-        PropertyGroupTemplate& setFields(const std::list <PropertyFieldTemplate>&& arg){m_fields=arg;return *this;};
+        PropertyGroupTemplate& setFields(const std::list <PropertyFieldTemplate>& arg){m_fields=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -55,19 +67,26 @@ namespace properties{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static PropertyGroupTemplate EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///A display name for the property template. Property template names can be up to 256 bytes.
+            /**
+                A display name for the property template. Property template
+                names can be up to 256 bytes.
+            */
         QString m_name;
 
-        ///Description for new property template. Property template descriptions can be up to 1024 bytes.
+            /**
+                Description for new property template. Property template
+                descriptions can be up to 1024 bytes.
+            */
         QString m_description;
 
-        ///This is a list of custom properties associated with a property template. There can be up to 64 properties in a single property template.
+            /**
+                This is a list of custom properties associated with a property
+                template. There can be up to 64 properties in a single property
+                template.
+            */
         std::list <PropertyFieldTemplate> m_fields;
 
     };//PropertyGroupTemplate

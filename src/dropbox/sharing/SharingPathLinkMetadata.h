@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingLinkMetadata.h"
 
 namespace dropboxQt{
@@ -22,7 +24,9 @@ namespace sharing{
         PathLinkMetadata(const QString& arg){ m_path = arg; };
 
     public:
-        ///Path in user's Dropbox.
+            /**
+                Path in user's Dropbox.
+            */
         QString path()const{return m_path;};
         PathLinkMetadata& setPath(const QString& arg){m_path=arg;return *this;};
 
@@ -40,13 +44,12 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static PathLinkMetadata EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Path in user's Dropbox.
+            /**
+                Path in user's Dropbox.
+            */
         QString m_path;
 
     };//PathLinkMetadata

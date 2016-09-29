@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingPendingUploadMode.h"
@@ -61,14 +63,6 @@ std::unique_ptr<PendingUploadMode>  PendingUploadMode::factory::create(const QBy
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-PendingUploadMode PendingUploadMode::EXAMPLE(){
-    PendingUploadMode rv;
-    rv.m_tag = PendingUploadMode_FILE;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

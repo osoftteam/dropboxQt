@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingModifySharedLinkSettingsArgs.h"
@@ -57,15 +59,6 @@ std::unique_ptr<ModifySharedLinkSettingsArgs>  ModifySharedLinkSettingsArgs::fac
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ModifySharedLinkSettingsArgs ModifySharedLinkSettingsArgs::EXAMPLE(){
-    ModifySharedLinkSettingsArgs rv;
-    rv.url = "test1value";
-    rv.settings = sharing::SharedLinkSettings::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

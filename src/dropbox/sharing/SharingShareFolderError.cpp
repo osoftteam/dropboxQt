@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingShareFolderError.h"
@@ -94,14 +96,6 @@ std::unique_ptr<ShareFolderError>  ShareFolderError::factory::create(const QByte
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ShareFolderError ShareFolderError::EXAMPLE(){
-    ShareFolderError rv;
-    rv.m_tag = ShareFolderError_NO_PERMISSION;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

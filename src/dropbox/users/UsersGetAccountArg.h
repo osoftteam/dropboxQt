@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace users{
@@ -19,7 +21,9 @@ namespace users{
         GetAccountArg(const QString& arg){ m_account_id = arg; };
 
     public:
-        ///A user's account identifier.
+            /**
+                A user's account identifier.
+            */
         QString accountId()const{return m_account_id;};
         GetAccountArg& setAccountid(const QString& arg){m_account_id=arg;return *this;};
 
@@ -37,13 +41,12 @@ namespace users{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetAccountArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///A user's account identifier.
+            /**
+                A user's account identifier.
+            */
         QString m_account_id;
 
     };//GetAccountArg

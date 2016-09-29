@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team_common"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team_common/TeamCommonGroupManagementType.h"
@@ -69,14 +71,6 @@ std::unique_ptr<GroupManagementType>  GroupManagementType::factory::create(const
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupManagementType GroupManagementType::EXAMPLE(){
-    GroupManagementType rv;
-    rv.m_tag = GroupManagementType_COMPANY_MANAGED;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team_common
 }//dropboxQt

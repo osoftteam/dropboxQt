@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingGroupInfo.h"
@@ -58,14 +60,6 @@ std::unique_ptr<GroupInfo>  GroupInfo::factory::create(const QJsonObject& js)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupInfo GroupInfo::EXAMPLE(){
-    GroupInfo rv;
-    rv.group_type = team_common::GroupType::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

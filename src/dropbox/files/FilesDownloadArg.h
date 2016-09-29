@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -20,11 +22,15 @@ namespace files{
         DownloadArg(const QString& arg){ m_path = arg; };
 
     public:
-        ///The path of the file to download.
+            /**
+                The path of the file to download.
+            */
         QString path()const{return m_path;};
         DownloadArg& setPath(const QString& arg){m_path=arg;return *this;};
 
-        ///Deprecated. Please specify revision in :field:`path` instead
+            /**
+                Deprecated. Please specify revision in ``path`` instead
+            */
         QString rev()const{return m_rev;};
         DownloadArg& setRev(const QString& arg){m_rev=arg;return *this;};
 
@@ -42,16 +48,17 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static DownloadArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The path of the file to download.
+            /**
+                The path of the file to download.
+            */
         QString m_path;
 
-        ///Deprecated. Please specify revision in :field:`path` instead
+            /**
+                Deprecated. Please specify revision in ``path`` instead
+            */
         QString m_rev;
 
     };//DownloadArg

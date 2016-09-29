@@ -1,12 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/files/FilesLookupError.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesLookupError.h"
 
 namespace dropboxQt{
@@ -40,7 +41,7 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///An error occurs when downloading metadata for the image.
-        LookupError getPath()const{DBOX_CHECK_STATE((ThumbnailError_PATH == m_tag), "expected tag: ThumbnailError_PATH", m_tag);return m_path;};
+        LookupError getPath()const{API_CHECK_STATE((ThumbnailError_PATH == m_tag), "expected tag: ThumbnailError_PATH", m_tag);return m_path;};
 
     public:
         operator QJsonObject ()const;
@@ -56,9 +57,6 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ThumbnailError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

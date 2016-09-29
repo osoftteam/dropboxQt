@@ -1,14 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamMembersDeactivateArg.h"
-#include "dropbox/team/TeamUserSelectorArg.h"
-#include "dropbox/team/TeamUserSelectorArg.h"
-#include "dropbox/team/TeamUserSelectorArg.h"
 #include "dropbox/team/TeamUserSelectorArg.h"
 
 namespace dropboxQt{
@@ -37,15 +36,26 @@ namespace team{
         { m_transfer_dest_id = arg; };
 
     public:
-        ///If provided, files from the deleted member account will be transferred to this user.
+            /**
+                If provided, files from the deleted member account will be
+                transferred to this user.
+            */
         UserSelectorArg transferDestId()const{return m_transfer_dest_id;};
         MembersRemoveArg& setTransferdestid(const UserSelectorArg& arg){m_transfer_dest_id=arg;return *this;};
 
-        ///If provided, errors during the transfer process will be sent via email to this user. If the transfer_dest_id argument was provided, then this argument must be provided as well.
+            /**
+                If provided, errors during the transfer process will be sent via
+                email to this user. If the transfer_dest_id argument was
+                provided, then this argument must be provided as well.
+            */
         UserSelectorArg transferAdminId()const{return m_transfer_admin_id;};
         MembersRemoveArg& setTransferadminid(const UserSelectorArg& arg){m_transfer_admin_id=arg;return *this;};
 
-        ///Downgrade the member to a Basic account. The user will retain the email address associated with their Dropbox  account and data in their account that is not restricted to team members.
+            /**
+                Downgrade the member to a Basic account. The user will retain
+                the email address associated with their Dropbox  account and
+                data in their account that is not restricted to team members.
+            */
         bool keepAccount()const{return m_keep_account;};
         MembersRemoveArg& setKeepaccount(const bool& arg){m_keep_account=arg;return *this;};
 
@@ -63,19 +73,27 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MembersRemoveArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///If provided, files from the deleted member account will be transferred to this user.
+            /**
+                If provided, files from the deleted member account will be
+                transferred to this user.
+            */
         UserSelectorArg m_transfer_dest_id;
 
-        ///If provided, errors during the transfer process will be sent via email to this user. If the transfer_dest_id argument was provided, then this argument must be provided as well.
+            /**
+                If provided, errors during the transfer process will be sent via
+                email to this user. If the transfer_dest_id argument was
+                provided, then this argument must be provided as well.
+            */
         UserSelectorArg m_transfer_admin_id;
 
-        ///Downgrade the member to a Basic account. The user will retain the email address associated with their Dropbox  account and data in their account that is not restricted to team members.
+            /**
+                Downgrade the member to a Basic account. The user will retain
+                the email address associated with their Dropbox  account and
+                data in their account that is not restricted to team members.
+            */
         bool m_keep_account;
 
     };//MembersRemoveArg

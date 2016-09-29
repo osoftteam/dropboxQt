@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -20,7 +22,10 @@ namespace files{
         GetCopyReferenceArg(const QString& arg){ m_path = arg; };
 
     public:
-        ///The path to the file or folder you want to get a copy reference to.
+            /**
+                The path to the file or folder you want to get a copy reference
+                to.
+            */
         QString path()const{return m_path;};
         GetCopyReferenceArg& setPath(const QString& arg){m_path=arg;return *this;};
 
@@ -38,13 +43,13 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetCopyReferenceArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The path to the file or folder you want to get a copy reference to.
+            /**
+                The path to the file or folder you want to get a copy reference
+                to.
+            */
         QString m_path;
 
     };//GetCopyReferenceArg

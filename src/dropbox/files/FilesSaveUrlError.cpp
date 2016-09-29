@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesSaveUrlError.h"
@@ -86,15 +88,6 @@ std::unique_ptr<SaveUrlError>  SaveUrlError::factory::create(const QByteArray& d
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SaveUrlError SaveUrlError::EXAMPLE(){
-    SaveUrlError rv;
-    rv.path = files::WriteError::EXAMPLE();
-    rv.m_tag = SaveUrlError_PATH;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

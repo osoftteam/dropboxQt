@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingFileAction.h"
 
 namespace dropboxQt{
@@ -20,16 +22,20 @@ namespace sharing{
     public:
         GetFileMetadataBatchArg(){};
 
-        GetFileMetadataBatchArg(const std::list <QString>&& arg){ m_files = arg; };
+        GetFileMetadataBatchArg(const std::list <QString>& arg){ m_files = arg; };
 
     public:
-        ///The files to query.
+            /**
+                The files to query.
+            */
         const std::list <QString>& files()const{return m_files;};
-        GetFileMetadataBatchArg& setFiles(const std::list <QString>&& arg){m_files=arg;return *this;};
+        GetFileMetadataBatchArg& setFiles(const std::list <QString>& arg){m_files=arg;return *this;};
 
-        ///File actions to query.
+            /**
+                File actions to query.
+            */
         const std::list <FileAction>& actions()const{return m_actions;};
-        GetFileMetadataBatchArg& setActions(const std::list <FileAction>&& arg){m_actions=arg;return *this;};
+        GetFileMetadataBatchArg& setActions(const std::list <FileAction>& arg){m_actions=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -45,16 +51,17 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetFileMetadataBatchArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The files to query.
+            /**
+                The files to query.
+            */
         std::list <QString> m_files;
 
-        ///File actions to query.
+            /**
+                File actions to query.
+            */
         std::list <FileAction> m_actions;
 
     };//GetFileMetadataBatchArg

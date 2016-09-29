@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -39,23 +41,37 @@ namespace files{
         { m_path = arg; };
 
     public:
-        ///The path to the folder you want to see the contents of.
+            /**
+                The path to the folder you want to see the contents of.
+            */
         QString path()const{return m_path;};
         ListFolderArg& setPath(const QString& arg){m_path=arg;return *this;};
 
-        ///If true, the list folder operation will be applied recursively to all subfolders and the response will contain contents of all subfolders.
+            /**
+                If true, the list folder operation will be applied recursively
+                to all subfolders and the response will contain contents of all
+                subfolders.
+            */
         bool recursive()const{return m_recursive;};
         ListFolderArg& setRecursive(const bool& arg){m_recursive=arg;return *this;};
 
-        ///If true, :field:`FileMetadata.media_info` is set for photo and video.
+            /**
+                If true, ``FileMetadata.media_info`` is set for photo and video.
+            */
         bool includeMediaInfo()const{return m_include_media_info;};
         ListFolderArg& setIncludemediainfo(const bool& arg){m_include_media_info=arg;return *this;};
 
-        ///If true, the results will include entries for files and folders that used to exist but were deleted.
+            /**
+                If true, the results will include entries for files and folders
+                that used to exist but were deleted.
+            */
         bool includeDeleted()const{return m_include_deleted;};
         ListFolderArg& setIncludedeleted(const bool& arg){m_include_deleted=arg;return *this;};
 
-        ///If true, the results will include a flag for each file indicating whether or not  that file has any explicit members.
+            /**
+                If true, the results will include a flag for each file
+                indicating whether or not  that file has any explicit members.
+            */
         bool includeHasExplicitSharedMembers()const{return m_include_has_explicit_shared_members;};
         ListFolderArg& setIncludehasexplicitsharedmembers(const bool& arg){m_include_has_explicit_shared_members=arg;return *this;};
 
@@ -73,25 +89,36 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFolderArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The path to the folder you want to see the contents of.
+            /**
+                The path to the folder you want to see the contents of.
+            */
         QString m_path;
 
-        ///If true, the list folder operation will be applied recursively to all subfolders and the response will contain contents of all subfolders.
+            /**
+                If true, the list folder operation will be applied recursively
+                to all subfolders and the response will contain contents of all
+                subfolders.
+            */
         bool m_recursive;
 
-        ///If true, :field:`FileMetadata.media_info` is set for photo and video.
+            /**
+                If true, ``FileMetadata.media_info`` is set for photo and video.
+            */
         bool m_include_media_info;
 
-        ///If true, the results will include entries for files and folders that used to exist but were deleted.
+            /**
+                If true, the results will include entries for files and folders
+                that used to exist but were deleted.
+            */
         bool m_include_deleted;
 
-        ///If true, the results will include a flag for each file indicating whether or not  that file has any explicit members.
+            /**
+                If true, the results will include a flag for each file
+                indicating whether or not  that file has any explicit members.
+            */
         bool m_include_has_explicit_shared_members;
 
     };//ListFolderArg

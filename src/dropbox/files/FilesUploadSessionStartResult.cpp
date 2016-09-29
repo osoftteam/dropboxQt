@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesUploadSessionStartResult.h"
@@ -53,14 +55,6 @@ std::unique_ptr<UploadSessionStartResult>  UploadSessionStartResult::factory::cr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-UploadSessionStartResult UploadSessionStartResult::EXAMPLE(){
-    UploadSessionStartResult rv;
-    rv.session_id = "test1value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

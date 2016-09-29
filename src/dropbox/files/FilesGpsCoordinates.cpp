@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesGpsCoordinates.h"
@@ -54,15 +56,6 @@ std::unique_ptr<GpsCoordinates>  GpsCoordinates::factory::create(const QJsonObje
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GpsCoordinates GpsCoordinates::EXAMPLE(){
-    GpsCoordinates rv;
-    rv.latitude = 1;
-    rv.longitude = 2;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupCreateArg.h"
@@ -58,16 +60,6 @@ std::unique_ptr<GroupCreateArg>  GroupCreateArg::factory::create(const QJsonObje
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupCreateArg GroupCreateArg::EXAMPLE(){
-    GroupCreateArg rv;
-    rv.group_name = "test1value";
-    rv.group_external_id = "test2value";
-    rv.group_management_type = team_common::GroupManagementType::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

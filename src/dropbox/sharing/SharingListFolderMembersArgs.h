@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingListFolderMembersCursorArg.h"
 
 namespace dropboxQt{
@@ -20,7 +22,9 @@ namespace sharing{
         ListFolderMembersArgs(const QString& arg){ m_shared_folder_id = arg; };
 
     public:
-        ///The ID for the shared folder.
+            /**
+                The ID for the shared folder.
+            */
         QString sharedFolderId()const{return m_shared_folder_id;};
         ListFolderMembersArgs& setSharedfolderid(const QString& arg){m_shared_folder_id=arg;return *this;};
 
@@ -38,13 +42,12 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFolderMembersArgs EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The ID for the shared folder.
+            /**
+                The ID for the shared folder.
+            */
         QString m_shared_folder_id;
 
     };//ListFolderMembersArgs

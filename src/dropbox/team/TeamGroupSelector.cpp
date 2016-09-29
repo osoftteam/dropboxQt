@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupSelector.h"
@@ -65,16 +67,6 @@ std::unique_ptr<GroupSelector>  GroupSelector::factory::create(const QByteArray&
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupSelector GroupSelector::EXAMPLE(){
-    GroupSelector rv;
-    rv.group_id = "test1value";
-    rv.group_external_id = "test2value";
-    rv.m_tag = GroupSelector_GROUP_ID;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

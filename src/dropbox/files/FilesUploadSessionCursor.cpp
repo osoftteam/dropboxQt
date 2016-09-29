@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesUploadSessionCursor.h"
@@ -55,15 +57,6 @@ std::unique_ptr<UploadSessionCursor>  UploadSessionCursor::factory::create(const
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-UploadSessionCursor UploadSessionCursor::EXAMPLE(){
-    UploadSessionCursor rv;
-    rv.session_id = "test1value";
-    rv.offset = 2;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

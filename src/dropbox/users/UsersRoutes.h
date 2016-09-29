@@ -1,10 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/users/UsersBasicAccount.h"
 #include "dropbox/users/UsersFullAccount.h"
 #include "dropbox/users/UsersGetAccountArg.h"
@@ -16,8 +19,6 @@
 namespace dropboxQt{
 
 class Endpoint;
-class DropboxRequestConfig;
-class DropboxAuthInfo;
 
 namespace users{
     class UsersRoutes{
@@ -31,7 +32,7 @@ namespace users{
 
             on error:GetAccountError throws exception GetAccountErrorException
             */
-        std::unique_ptr<BasicAccount> getAccount(const GetAccountArg&);
+        std::unique_ptr<BasicAccount> getAccount(const GetAccountArg& );
 
             /**
             ApiRoute('get_account_batch')
@@ -42,7 +43,7 @@ namespace users{
 
             on error:GetAccountBatchError throws exception GetAccountBatchErrorException
             */
-        std::list <BasicAccount> getAccountBatch(const GetAccountBatchArg&);
+        std::list <BasicAccount> getAccountBatch(const GetAccountBatchArg& );
 
             /**
             ApiRoute('get_current_account')
@@ -67,10 +68,10 @@ namespace users{
     };//UsersRoutes
 
     ///exception GetAccountError for get_account
-    DECLARE_DBOX_ERR_EXCEPTION(GetAccountErrorException, users::GetAccountError);
+    DECLARE_API_ERR_EXCEPTION(GetAccountErrorException, users::GetAccountError);
 
     ///exception GetAccountBatchError for get_account_batch
-    DECLARE_DBOX_ERR_EXCEPTION(GetAccountBatchErrorException, users::GetAccountBatchError);
+    DECLARE_API_ERR_EXCEPTION(GetAccountBatchErrorException, users::GetAccountBatchError);
 
 
 }//users

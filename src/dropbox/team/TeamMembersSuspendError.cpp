@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamMembersSuspendError.h"
@@ -93,14 +95,6 @@ std::unique_ptr<MembersSuspendError>  MembersSuspendError::factory::create(const
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-MembersSuspendError MembersSuspendError::EXAMPLE(){
-    MembersSuspendError rv;
-    rv.m_tag = MembersSuspendError_SUSPEND_INACTIVE_USER;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

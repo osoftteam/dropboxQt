@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamMemberProfile.h"
@@ -70,20 +72,6 @@ std::unique_ptr<MemberProfile>  MemberProfile::factory::create(const QJsonObject
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-MemberProfile MemberProfile::EXAMPLE(){
-    MemberProfile rv;
-    rv.team_member_id = "test1value";
-    rv.external_id = "test2value";
-    rv.account_id = "test3value";
-    rv.email = "test4value";
-    rv.status = team::TeamMemberStatus::EXAMPLE();
-    rv.name = users::Name::EXAMPLE();
-    rv.membership_type = team::TeamMembershipType::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

@@ -1,10 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingAddFileMemberArgs.h"
 #include "dropbox/sharing/SharingAddFileMemberError.h"
 #include "dropbox/sharing/SharingAddFolderMemberArg.h"
@@ -98,8 +101,6 @@
 namespace dropboxQt{
 
 class Endpoint;
-class DropboxRequestConfig;
-class DropboxAuthInfo;
 
 namespace sharing{
     class SharingRoutes{
@@ -113,7 +114,7 @@ namespace sharing{
 
             on error:AddFileMemberError throws exception AddFileMemberErrorException
             */
-        std::list <FileMemberActionResult> addFileMember(const AddFileMemberArgs&);
+        std::list <FileMemberActionResult> addFileMember(const AddFileMemberArgs& );
 
             /**
             ApiRoute('add_folder_member')
@@ -127,7 +128,7 @@ namespace sharing{
 
             on error:AddFolderMemberError throws exception AddFolderMemberErrorException
             */
-        void addFolderMember(const AddFolderMemberArg&);
+        void addFolderMember(const AddFolderMemberArg& );
 
             /**
             ApiRoute('change_file_member_access')
@@ -137,7 +138,7 @@ namespace sharing{
 
             on error:FileMemberActionError throws exception FileMemberActionErrorException
             */
-        std::unique_ptr<FileMemberActionResult> changeFileMemberAccess(const ChangeFileMemberAccessArgs&);
+        std::unique_ptr<FileMemberActionResult> changeFileMemberAccess(const ChangeFileMemberAccessArgs& );
 
             /**
             ApiRoute('check_job_status')
@@ -148,7 +149,7 @@ namespace sharing{
 
             on error:PollError throws exception PollErrorException
             */
-        std::unique_ptr<JobStatus> checkJobStatus(const async::PollArg&);
+        std::unique_ptr<JobStatus> checkJobStatus(const async::PollArg& );
 
             /**
             ApiRoute('check_remove_member_job_status')
@@ -159,7 +160,7 @@ namespace sharing{
 
             on error:PollError throws exception PollErrorException
             */
-        std::unique_ptr<RemoveMemberJobStatus> checkRemoveMemberJobStatus(const async::PollArg&);
+        std::unique_ptr<RemoveMemberJobStatus> checkRemoveMemberJobStatus(const async::PollArg& );
 
             /**
             ApiRoute('check_share_job_status')
@@ -170,7 +171,7 @@ namespace sharing{
 
             on error:PollError throws exception PollErrorException
             */
-        std::unique_ptr<ShareFolderJobStatus> checkShareJobStatus(const async::PollArg&);
+        std::unique_ptr<ShareFolderJobStatus> checkShareJobStatus(const async::PollArg& );
 
             /**
             ApiRoute('create_shared_link')
@@ -188,7 +189,7 @@ namespace sharing{
 
             on error:CreateSharedLinkError throws exception CreateSharedLinkErrorException
             */
-        std::unique_ptr<PathLinkMetadata> createSharedLink(const CreateSharedLinkArg&);
+        std::unique_ptr<PathLinkMetadata> createSharedLink(const CreateSharedLinkArg& );
 
             /**
             ApiRoute('create_shared_link_with_settings')
@@ -201,7 +202,7 @@ namespace sharing{
 
             on error:CreateSharedLinkWithSettingsError throws exception CreateSharedLinkWithSettingsErrorException
             */
-        std::unique_ptr<SharedLinkMetadata> createSharedLinkWithSettings(const CreateSharedLinkWithSettingsArg&);
+        std::unique_ptr<SharedLinkMetadata> createSharedLinkWithSettings(const CreateSharedLinkWithSettingsArg& );
 
             /**
             ApiRoute('get_file_metadata')
@@ -211,7 +212,7 @@ namespace sharing{
 
             on error:GetFileMetadataError throws exception GetFileMetadataErrorException
             */
-        std::unique_ptr<SharedFileMetadata> getFileMetadata(const GetFileMetadataArg&);
+        std::unique_ptr<SharedFileMetadata> getFileMetadata(const GetFileMetadataArg& );
 
             /**
             ApiRoute('get_file_metadata/batch')
@@ -221,7 +222,7 @@ namespace sharing{
 
             on error:SharingUserError throws exception SharingUserErrorException
             */
-        std::list <GetFileMetadataBatchResult> getFileMetadataBatch(const GetFileMetadataBatchArg&);
+        std::list <GetFileMetadataBatchResult> getFileMetadataBatch(const GetFileMetadataBatchArg& );
 
             /**
             ApiRoute('get_folder_metadata')
@@ -232,7 +233,7 @@ namespace sharing{
 
             on error:SharedFolderAccessError throws exception SharedFolderAccessErrorException
             */
-        std::unique_ptr<SharedFolderMetadata> getFolderMetadata(const GetMetadataArgs&);
+        std::unique_ptr<SharedFolderMetadata> getFolderMetadata(const GetMetadataArgs& );
 
             /**
             ApiRoute('get_shared_link_file')
@@ -242,7 +243,7 @@ namespace sharing{
 
             on error:GetSharedLinkFileError throws exception GetSharedLinkFileErrorException
             */
-        std::unique_ptr<SharedLinkMetadata> getSharedLinkFile(const GetSharedLinkMetadataArg&, QIODevice* io);
+        std::unique_ptr<SharedLinkMetadata> getSharedLinkFile(const GetSharedLinkMetadataArg& , QIODevice* writeTo);
 
             /**
             ApiRoute('get_shared_link_metadata')
@@ -252,7 +253,7 @@ namespace sharing{
 
             on error:SharedLinkError throws exception SharedLinkErrorException
             */
-        std::unique_ptr<SharedLinkMetadata> getSharedLinkMetadata(const GetSharedLinkMetadataArg&);
+        std::unique_ptr<SharedLinkMetadata> getSharedLinkMetadata(const GetSharedLinkMetadataArg& );
 
             /**
             ApiRoute('get_shared_links')
@@ -268,7 +269,7 @@ namespace sharing{
 
             on error:GetSharedLinksError throws exception GetSharedLinksErrorException
             */
-        std::unique_ptr<GetSharedLinksResult> getSharedLinks(const GetSharedLinksArg&);
+        std::unique_ptr<GetSharedLinksResult> getSharedLinks(const GetSharedLinksArg& );
 
             /**
             ApiRoute('list_file_members')
@@ -279,7 +280,7 @@ namespace sharing{
 
             on error:ListFileMembersError throws exception ListFileMembersErrorException
             */
-        std::unique_ptr<SharedFileMembers> listFileMembers(const ListFileMembersArg&);
+        std::unique_ptr<SharedFileMembers> listFileMembers(const ListFileMembersArg& );
 
             /**
             ApiRoute('list_file_members/batch')
@@ -293,7 +294,7 @@ namespace sharing{
 
             on error:SharingUserError throws exception SharingUserErrorException
             */
-        std::list <ListFileMembersBatchResult> listFileMembersBatch(const ListFileMembersBatchArg&);
+        std::list <ListFileMembersBatchResult> listFileMembersBatch(const ListFileMembersBatchArg& );
 
             /**
             ApiRoute('list_file_members/continue')
@@ -305,7 +306,7 @@ namespace sharing{
 
             on error:ListFileMembersContinueError throws exception ListFileMembersContinueErrorException
             */
-        std::unique_ptr<SharedFileMembers> listFileMembersContinue(const ListFileMembersContinueArg&);
+        std::unique_ptr<SharedFileMembers> listFileMembersContinue(const ListFileMembersContinueArg& );
 
             /**
             ApiRoute('list_folder_members')
@@ -316,7 +317,7 @@ namespace sharing{
 
             on error:SharedFolderAccessError throws exception SharedFolderAccessErrorException
             */
-        std::unique_ptr<SharedFolderMembers> listFolderMembers(const ListFolderMembersArgs&);
+        std::unique_ptr<SharedFolderMembers> listFolderMembers(const ListFolderMembersArgs& );
 
             /**
             ApiRoute('list_folder_members/continue')
@@ -328,7 +329,7 @@ namespace sharing{
 
             on error:ListFolderMembersContinueError throws exception ListFolderMembersContinueErrorException
             */
-        std::unique_ptr<SharedFolderMembers> listFolderMembersContinue(const ListFolderMembersContinueArg&);
+        std::unique_ptr<SharedFolderMembers> listFolderMembersContinue(const ListFolderMembersContinueArg& );
 
             /**
             ApiRoute('list_folders')
@@ -338,7 +339,7 @@ namespace sharing{
             to. Apps must have full Dropbox access to use this endpoint.
 
             */
-        std::unique_ptr<ListFoldersResult> listFolders(const ListFoldersArgs&);
+        std::unique_ptr<ListFoldersResult> listFolders(const ListFoldersArgs& );
 
             /**
             ApiRoute('list_folders/continue')
@@ -352,7 +353,7 @@ namespace sharing{
 
             on error:ListFoldersContinueError throws exception ListFoldersContinueErrorException
             */
-        std::unique_ptr<ListFoldersResult> listFoldersContinue(const ListFoldersContinueArg&);
+        std::unique_ptr<ListFoldersResult> listFoldersContinue(const ListFoldersContinueArg& );
 
             /**
             ApiRoute('list_mountable_folders')
@@ -362,7 +363,7 @@ namespace sharing{
             unmount. Apps must have full Dropbox access to use this endpoint.
 
             */
-        std::unique_ptr<ListFoldersResult> listMountableFolders(const ListFoldersArgs&);
+        std::unique_ptr<ListFoldersResult> listMountableFolders(const ListFoldersArgs& );
 
             /**
             ApiRoute('list_mountable_folders/continue')
@@ -377,7 +378,7 @@ namespace sharing{
 
             on error:ListFoldersContinueError throws exception ListFoldersContinueErrorException
             */
-        std::unique_ptr<ListFoldersResult> listMountableFoldersContinue(const ListFoldersContinueArg&);
+        std::unique_ptr<ListFoldersResult> listMountableFoldersContinue(const ListFoldersContinueArg& );
 
             /**
             ApiRoute('list_received_files')
@@ -389,7 +390,7 @@ namespace sharing{
 
             on error:SharingUserError throws exception SharingUserErrorException
             */
-        std::unique_ptr<ListFilesResult> listReceivedFiles(const ListFilesArg&);
+        std::unique_ptr<ListFilesResult> listReceivedFiles(const ListFilesArg& );
 
             /**
             ApiRoute('list_received_files/continue')
@@ -399,7 +400,7 @@ namespace sharing{
 
             on error:ListFilesContinueError throws exception ListFilesContinueErrorException
             */
-        std::unique_ptr<ListFilesResult> listReceivedFilesContinue(const ListFilesContinueArg&);
+        std::unique_ptr<ListFilesResult> listReceivedFilesContinue(const ListFilesContinueArg& );
 
             /**
             ApiRoute('list_shared_links')
@@ -414,7 +415,7 @@ namespace sharing{
 
             on error:ListSharedLinksError throws exception ListSharedLinksErrorException
             */
-        std::unique_ptr<ListSharedLinksResult> listSharedLinks(const ListSharedLinksArg&);
+        std::unique_ptr<ListSharedLinksResult> listSharedLinks(const ListSharedLinksArg& );
 
             /**
             ApiRoute('modify_shared_link_settings')
@@ -430,7 +431,7 @@ namespace sharing{
 
             on error:ModifySharedLinkSettingsError throws exception ModifySharedLinkSettingsErrorException
             */
-        std::unique_ptr<SharedLinkMetadata> modifySharedLinkSettings(const ModifySharedLinkSettingsArgs&);
+        std::unique_ptr<SharedLinkMetadata> modifySharedLinkSettings(const ModifySharedLinkSettingsArgs& );
 
             /**
             ApiRoute('mount_folder')
@@ -443,7 +444,7 @@ namespace sharing{
 
             on error:MountFolderError throws exception MountFolderErrorException
             */
-        std::unique_ptr<SharedFolderMetadata> mountFolder(const MountFolderArg&);
+        std::unique_ptr<SharedFolderMetadata> mountFolder(const MountFolderArg& );
 
             /**
             ApiRoute('relinquish_file_membership')
@@ -456,7 +457,7 @@ namespace sharing{
 
             on error:RelinquishFileMembershipError throws exception RelinquishFileMembershipErrorException
             */
-        void relinquishFileMembership(const RelinquishFileMembershipArg&);
+        void relinquishFileMembership(const RelinquishFileMembershipArg& );
 
             /**
             ApiRoute('relinquish_folder_membership')
@@ -471,7 +472,7 @@ namespace sharing{
 
             on error:RelinquishFolderMembershipError throws exception RelinquishFolderMembershipErrorException
             */
-        std::unique_ptr<async::LaunchEmptyResult> relinquishFolderMembership(const RelinquishFolderMembershipArg&);
+        std::unique_ptr<async::LaunchEmptyResult> relinquishFolderMembership(const RelinquishFolderMembershipArg& );
 
             /**
             ApiRoute('remove_file_member')
@@ -482,7 +483,7 @@ namespace sharing{
 
             on error:RemoveFileMemberError throws exception RemoveFileMemberErrorException
             */
-        std::unique_ptr<FileMemberActionIndividualResult> removeFileMember(const RemoveFileMemberArg&);
+        std::unique_ptr<FileMemberActionIndividualResult> removeFileMember(const RemoveFileMemberArg& );
 
             /**
             ApiRoute('remove_file_member_2')
@@ -492,7 +493,7 @@ namespace sharing{
 
             on error:RemoveFileMemberError throws exception RemoveFileMemberErrorException
             */
-        std::unique_ptr<FileMemberRemoveActionResult> removeFileMember2(const RemoveFileMemberArg&);
+        std::unique_ptr<FileMemberRemoveActionResult> removeFileMember2(const RemoveFileMemberArg& );
 
             /**
             ApiRoute('remove_folder_member')
@@ -504,7 +505,7 @@ namespace sharing{
 
             on error:RemoveFolderMemberError throws exception RemoveFolderMemberErrorException
             */
-        std::unique_ptr<async::LaunchResultBase> removeFolderMember(const RemoveFolderMemberArg&);
+        std::unique_ptr<async::LaunchResultBase> removeFolderMember(const RemoveFolderMemberArg& );
 
             /**
             ApiRoute('revoke_shared_link')
@@ -519,7 +520,7 @@ namespace sharing{
 
             on error:RevokeSharedLinkError throws exception RevokeSharedLinkErrorException
             */
-        void revokeSharedLink(const RevokeSharedLinkArg&);
+        void revokeSharedLink(const RevokeSharedLinkArg& );
 
             /**
             ApiRoute('share_folder')
@@ -536,7 +537,7 @@ namespace sharing{
 
             on error:ShareFolderError throws exception ShareFolderErrorException
             */
-        std::unique_ptr<ShareFolderLaunch> shareFolder(const ShareFolderArg&);
+        std::unique_ptr<ShareFolderLaunch> shareFolder(const ShareFolderArg& );
 
             /**
             ApiRoute('transfer_folder')
@@ -549,7 +550,7 @@ namespace sharing{
 
             on error:TransferFolderError throws exception TransferFolderErrorException
             */
-        void transferFolder(const TransferFolderArg&);
+        void transferFolder(const TransferFolderArg& );
 
             /**
             ApiRoute('unmount_folder')
@@ -561,7 +562,7 @@ namespace sharing{
 
             on error:UnmountFolderError throws exception UnmountFolderErrorException
             */
-        void unmountFolder(const UnmountFolderArg&);
+        void unmountFolder(const UnmountFolderArg& );
 
             /**
             ApiRoute('unshare_file')
@@ -572,7 +573,7 @@ namespace sharing{
 
             on error:UnshareFileError throws exception UnshareFileErrorException
             */
-        void unshareFile(const UnshareFileArg&);
+        void unshareFile(const UnshareFileArg& );
 
             /**
             ApiRoute('unshare_folder')
@@ -585,7 +586,7 @@ namespace sharing{
 
             on error:UnshareFolderError throws exception UnshareFolderErrorException
             */
-        std::unique_ptr<async::LaunchEmptyResult> unshareFolder(const UnshareFolderArg&);
+        std::unique_ptr<async::LaunchEmptyResult> unshareFolder(const UnshareFolderArg& );
 
             /**
             ApiRoute('update_folder_member')
@@ -597,7 +598,7 @@ namespace sharing{
 
             on error:UpdateFolderMemberError throws exception UpdateFolderMemberErrorException
             */
-        std::unique_ptr<MemberAccessLevelResult> updateFolderMember(const UpdateFolderMemberArg&);
+        std::unique_ptr<MemberAccessLevelResult> updateFolderMember(const UpdateFolderMemberArg& );
 
             /**
             ApiRoute('update_folder_policy')
@@ -609,107 +610,107 @@ namespace sharing{
 
             on error:UpdateFolderPolicyError throws exception UpdateFolderPolicyErrorException
             */
-        std::unique_ptr<SharedFolderMetadata> updateFolderPolicy(const UpdateFolderPolicyArg&);
+        std::unique_ptr<SharedFolderMetadata> updateFolderPolicy(const UpdateFolderPolicyArg& );
 
     protected:
         Endpoint* m_end_point;
     };//SharingRoutes
 
     ///exception AddFileMemberError for add_file_member
-    DECLARE_DBOX_ERR_EXCEPTION(AddFileMemberErrorException, sharing::AddFileMemberError);
+    DECLARE_API_ERR_EXCEPTION(AddFileMemberErrorException, sharing::AddFileMemberError);
 
     ///exception AddFolderMemberError for add_folder_member
-    DECLARE_DBOX_ERR_EXCEPTION(AddFolderMemberErrorException, sharing::AddFolderMemberError);
+    DECLARE_API_ERR_EXCEPTION(AddFolderMemberErrorException, sharing::AddFolderMemberError);
 
     ///exception FileMemberActionError for change_file_member_access
-    DECLARE_DBOX_ERR_EXCEPTION(FileMemberActionErrorException, sharing::FileMemberActionError);
+    DECLARE_API_ERR_EXCEPTION(FileMemberActionErrorException, sharing::FileMemberActionError);
 
     ///exception PollError for check_job_status
-    DECLARE_DBOX_ERR_EXCEPTION(PollErrorException, async::PollError);
+    DECLARE_API_ERR_EXCEPTION(PollErrorException, async::PollError);
 
     ///exception CreateSharedLinkError for create_shared_link
-    DECLARE_DBOX_ERR_EXCEPTION(CreateSharedLinkErrorException, sharing::CreateSharedLinkError);
+    DECLARE_API_ERR_EXCEPTION(CreateSharedLinkErrorException, sharing::CreateSharedLinkError);
 
     ///exception CreateSharedLinkWithSettingsError for create_shared_link_with_settings
-    DECLARE_DBOX_ERR_EXCEPTION(CreateSharedLinkWithSettingsErrorException, sharing::CreateSharedLinkWithSettingsError);
+    DECLARE_API_ERR_EXCEPTION(CreateSharedLinkWithSettingsErrorException, sharing::CreateSharedLinkWithSettingsError);
 
     ///exception GetFileMetadataError for get_file_metadata
-    DECLARE_DBOX_ERR_EXCEPTION(GetFileMetadataErrorException, sharing::GetFileMetadataError);
+    DECLARE_API_ERR_EXCEPTION(GetFileMetadataErrorException, sharing::GetFileMetadataError);
 
     ///exception SharingUserError for get_file_metadata/batch
-    DECLARE_DBOX_ERR_EXCEPTION(SharingUserErrorException, sharing::SharingUserError);
+    DECLARE_API_ERR_EXCEPTION(SharingUserErrorException, sharing::SharingUserError);
 
     ///exception SharedFolderAccessError for get_folder_metadata
-    DECLARE_DBOX_ERR_EXCEPTION(SharedFolderAccessErrorException, sharing::SharedFolderAccessError);
+    DECLARE_API_ERR_EXCEPTION(SharedFolderAccessErrorException, sharing::SharedFolderAccessError);
 
     ///exception GetSharedLinkFileError for get_shared_link_file
-    DECLARE_DBOX_ERR_EXCEPTION(GetSharedLinkFileErrorException, sharing::GetSharedLinkFileError);
+    DECLARE_API_ERR_EXCEPTION(GetSharedLinkFileErrorException, sharing::GetSharedLinkFileError);
 
     ///exception SharedLinkError for get_shared_link_metadata
-    DECLARE_DBOX_ERR_EXCEPTION(SharedLinkErrorException, sharing::SharedLinkError);
+    DECLARE_API_ERR_EXCEPTION(SharedLinkErrorException, sharing::SharedLinkError);
 
     ///exception GetSharedLinksError for get_shared_links
-    DECLARE_DBOX_ERR_EXCEPTION(GetSharedLinksErrorException, sharing::GetSharedLinksError);
+    DECLARE_API_ERR_EXCEPTION(GetSharedLinksErrorException, sharing::GetSharedLinksError);
 
     ///exception ListFileMembersError for list_file_members
-    DECLARE_DBOX_ERR_EXCEPTION(ListFileMembersErrorException, sharing::ListFileMembersError);
+    DECLARE_API_ERR_EXCEPTION(ListFileMembersErrorException, sharing::ListFileMembersError);
 
     ///exception ListFileMembersContinueError for list_file_members/continue
-    DECLARE_DBOX_ERR_EXCEPTION(ListFileMembersContinueErrorException, sharing::ListFileMembersContinueError);
+    DECLARE_API_ERR_EXCEPTION(ListFileMembersContinueErrorException, sharing::ListFileMembersContinueError);
 
     ///exception ListFolderMembersContinueError for list_folder_members/continue
-    DECLARE_DBOX_ERR_EXCEPTION(ListFolderMembersContinueErrorException, sharing::ListFolderMembersContinueError);
+    DECLARE_API_ERR_EXCEPTION(ListFolderMembersContinueErrorException, sharing::ListFolderMembersContinueError);
 
     ///exception ListFoldersContinueError for list_folders/continue
-    DECLARE_DBOX_ERR_EXCEPTION(ListFoldersContinueErrorException, sharing::ListFoldersContinueError);
+    DECLARE_API_ERR_EXCEPTION(ListFoldersContinueErrorException, sharing::ListFoldersContinueError);
 
     ///exception ListFilesContinueError for list_received_files/continue
-    DECLARE_DBOX_ERR_EXCEPTION(ListFilesContinueErrorException, sharing::ListFilesContinueError);
+    DECLARE_API_ERR_EXCEPTION(ListFilesContinueErrorException, sharing::ListFilesContinueError);
 
     ///exception ListSharedLinksError for list_shared_links
-    DECLARE_DBOX_ERR_EXCEPTION(ListSharedLinksErrorException, sharing::ListSharedLinksError);
+    DECLARE_API_ERR_EXCEPTION(ListSharedLinksErrorException, sharing::ListSharedLinksError);
 
     ///exception ModifySharedLinkSettingsError for modify_shared_link_settings
-    DECLARE_DBOX_ERR_EXCEPTION(ModifySharedLinkSettingsErrorException, sharing::ModifySharedLinkSettingsError);
+    DECLARE_API_ERR_EXCEPTION(ModifySharedLinkSettingsErrorException, sharing::ModifySharedLinkSettingsError);
 
     ///exception MountFolderError for mount_folder
-    DECLARE_DBOX_ERR_EXCEPTION(MountFolderErrorException, sharing::MountFolderError);
+    DECLARE_API_ERR_EXCEPTION(MountFolderErrorException, sharing::MountFolderError);
 
     ///exception RelinquishFileMembershipError for relinquish_file_membership
-    DECLARE_DBOX_ERR_EXCEPTION(RelinquishFileMembershipErrorException, sharing::RelinquishFileMembershipError);
+    DECLARE_API_ERR_EXCEPTION(RelinquishFileMembershipErrorException, sharing::RelinquishFileMembershipError);
 
     ///exception RelinquishFolderMembershipError for relinquish_folder_membership
-    DECLARE_DBOX_ERR_EXCEPTION(RelinquishFolderMembershipErrorException, sharing::RelinquishFolderMembershipError);
+    DECLARE_API_ERR_EXCEPTION(RelinquishFolderMembershipErrorException, sharing::RelinquishFolderMembershipError);
 
     ///exception RemoveFileMemberError for remove_file_member
-    DECLARE_DBOX_ERR_EXCEPTION(RemoveFileMemberErrorException, sharing::RemoveFileMemberError);
+    DECLARE_API_ERR_EXCEPTION(RemoveFileMemberErrorException, sharing::RemoveFileMemberError);
 
     ///exception RemoveFolderMemberError for remove_folder_member
-    DECLARE_DBOX_ERR_EXCEPTION(RemoveFolderMemberErrorException, sharing::RemoveFolderMemberError);
+    DECLARE_API_ERR_EXCEPTION(RemoveFolderMemberErrorException, sharing::RemoveFolderMemberError);
 
     ///exception RevokeSharedLinkError for revoke_shared_link
-    DECLARE_DBOX_ERR_EXCEPTION(RevokeSharedLinkErrorException, sharing::RevokeSharedLinkError);
+    DECLARE_API_ERR_EXCEPTION(RevokeSharedLinkErrorException, sharing::RevokeSharedLinkError);
 
     ///exception ShareFolderError for share_folder
-    DECLARE_DBOX_ERR_EXCEPTION(ShareFolderErrorException, sharing::ShareFolderError);
+    DECLARE_API_ERR_EXCEPTION(ShareFolderErrorException, sharing::ShareFolderError);
 
     ///exception TransferFolderError for transfer_folder
-    DECLARE_DBOX_ERR_EXCEPTION(TransferFolderErrorException, sharing::TransferFolderError);
+    DECLARE_API_ERR_EXCEPTION(TransferFolderErrorException, sharing::TransferFolderError);
 
     ///exception UnmountFolderError for unmount_folder
-    DECLARE_DBOX_ERR_EXCEPTION(UnmountFolderErrorException, sharing::UnmountFolderError);
+    DECLARE_API_ERR_EXCEPTION(UnmountFolderErrorException, sharing::UnmountFolderError);
 
     ///exception UnshareFileError for unshare_file
-    DECLARE_DBOX_ERR_EXCEPTION(UnshareFileErrorException, sharing::UnshareFileError);
+    DECLARE_API_ERR_EXCEPTION(UnshareFileErrorException, sharing::UnshareFileError);
 
     ///exception UnshareFolderError for unshare_folder
-    DECLARE_DBOX_ERR_EXCEPTION(UnshareFolderErrorException, sharing::UnshareFolderError);
+    DECLARE_API_ERR_EXCEPTION(UnshareFolderErrorException, sharing::UnshareFolderError);
 
     ///exception UpdateFolderMemberError for update_folder_member
-    DECLARE_DBOX_ERR_EXCEPTION(UpdateFolderMemberErrorException, sharing::UpdateFolderMemberError);
+    DECLARE_API_ERR_EXCEPTION(UpdateFolderMemberErrorException, sharing::UpdateFolderMemberError);
 
     ///exception UpdateFolderPolicyError for update_folder_policy
-    DECLARE_DBOX_ERR_EXCEPTION(UpdateFolderPolicyErrorException, sharing::UpdateFolderPolicyError);
+    DECLARE_API_ERR_EXCEPTION(UpdateFolderPolicyErrorException, sharing::UpdateFolderPolicyError);
 
 
 }//sharing

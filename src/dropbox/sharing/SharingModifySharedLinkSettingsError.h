@@ -1,13 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingSharedLinkError.h"
-#include "dropbox/sharing/SharingSharedLinkSettingsError.h"
 #include "dropbox/sharing/SharingSharedLinkSettingsError.h"
 
 namespace dropboxQt{
@@ -37,7 +38,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///There is an error with the given settings
-        SharedLinkSettingsError getSettingsError()const{DBOX_CHECK_STATE((ModifySharedLinkSettingsError_SETTINGS_ERROR == m_tag), "expected tag: ModifySharedLinkSettingsError_SETTINGS_ERROR", m_tag);return m_settings_error;};
+        SharedLinkSettingsError getSettingsError()const{API_CHECK_STATE((ModifySharedLinkSettingsError_SETTINGS_ERROR == m_tag), "expected tag: ModifySharedLinkSettingsError_SETTINGS_ERROR", m_tag);return m_settings_error;};
 
     public:
         operator QJsonObject ()const;
@@ -53,9 +54,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ModifySharedLinkSettingsError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

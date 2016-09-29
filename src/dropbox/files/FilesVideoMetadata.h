@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesMediaMetadata.h"
 
 namespace dropboxQt{
@@ -22,7 +24,9 @@ namespace files{
         VideoMetadata(const int& arg){ m_duration = arg; };
 
     public:
-        ///The duration of the video in milliseconds.
+            /**
+                The duration of the video in milliseconds.
+            */
         int duration()const{return m_duration;};
         VideoMetadata& setDuration(const int& arg){m_duration=arg;return *this;};
 
@@ -40,13 +44,12 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static VideoMetadata EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The duration of the video in milliseconds.
+            /**
+                The duration of the video in milliseconds.
+            */
         int m_duration;
 
     };//VideoMetadata

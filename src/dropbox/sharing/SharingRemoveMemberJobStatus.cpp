@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingRemoveMemberJobStatus.h"
@@ -71,16 +73,6 @@ std::unique_ptr<RemoveMemberJobStatus>  RemoveMemberJobStatus::factory::create(c
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RemoveMemberJobStatus RemoveMemberJobStatus::EXAMPLE(){
-    RemoveMemberJobStatus rv;
-    rv.complete = sharing::MemberAccessLevelResult::EXAMPLE();
-    rv.failed = sharing::RemoveFolderMemberError::EXAMPLE();
-    rv.m_tag = RemoveMemberJobStatus_COMPLETE;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

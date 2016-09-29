@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamRevokeDeviceSessionArg.h"
 
 namespace dropboxQt{
@@ -14,12 +16,11 @@ namespace team{
     public:
         RevokeDeviceSessionBatchArg(){};
 
-        RevokeDeviceSessionBatchArg(const std::list <RevokeDeviceSessionArg>&& arg){ m_revoke_devices = arg; };
+        RevokeDeviceSessionBatchArg(const std::list <RevokeDeviceSessionArg>& arg){ m_revoke_devices = arg; };
 
     public:
-        ///None
         const std::list <RevokeDeviceSessionArg>& revokeDevices()const{return m_revoke_devices;};
-        RevokeDeviceSessionBatchArg& setRevokedevices(const std::list <RevokeDeviceSessionArg>&& arg){m_revoke_devices=arg;return *this;};
+        RevokeDeviceSessionBatchArg& setRevokedevices(const std::list <RevokeDeviceSessionArg>& arg){m_revoke_devices=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -35,13 +36,9 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RevokeDeviceSessionBatchArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///None
         std::list <RevokeDeviceSessionArg> m_revoke_devices;
 
     };//RevokeDeviceSessionBatchArg

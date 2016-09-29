@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/sharing/SharingListFileMembersIndividualResult.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingListFileMembersIndividualResult.h"
 
 namespace dropboxQt{
@@ -25,10 +26,14 @@ namespace sharing{
         ListFileMembersBatchResult(const QString& arg){ m_file = arg; };
 
     public:
-        ///This is the input file identifier, whether an ID or a path.
+            /**
+                This is the input file identifier, whether an ID or a path.
+            */
         QString file()const{return m_file;};
 
-        ///The result for this particular file
+            /**
+                The result for this particular file
+            */
         ListFileMembersIndividualResult result()const{return m_result;};
 
     public:
@@ -45,16 +50,17 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFileMembersBatchResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///This is the input file identifier, whether an ID or a path.
+            /**
+                This is the input file identifier, whether an ID or a path.
+            */
         QString m_file;
 
-        ///The result for this particular file
+            /**
+                The result for this particular file
+            */
         ListFileMembersIndividualResult m_result;
 
     };//ListFileMembersBatchResult

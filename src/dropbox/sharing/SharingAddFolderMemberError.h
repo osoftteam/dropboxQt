@@ -1,14 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingSharedFolderAccessError.h"
-#include "dropbox/sharing/SharingSharedFolderAccessError.h"
-#include "dropbox/sharing/SharingAddMemberSelectorError.h"
 #include "dropbox/sharing/SharingAddMemberSelectorError.h"
 
 namespace dropboxQt{
@@ -73,16 +73,16 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///Unable to access shared folder.
-        SharedFolderAccessError getAccessError()const{DBOX_CHECK_STATE((AddFolderMemberError_ACCESS_ERROR == m_tag), "expected tag: AddFolderMemberError_ACCESS_ERROR", m_tag);return m_access_error;};
+        SharedFolderAccessError getAccessError()const{API_CHECK_STATE((AddFolderMemberError_ACCESS_ERROR == m_tag), "expected tag: AddFolderMemberError_ACCESS_ERROR", m_tag);return m_access_error;};
 
         ///:field:`AddFolderMemberArg.members` contains a bad invitation recipient.
-        AddMemberSelectorError getBadMember()const{DBOX_CHECK_STATE((AddFolderMemberError_BAD_MEMBER == m_tag), "expected tag: AddFolderMemberError_BAD_MEMBER", m_tag);return m_bad_member;};
+        AddMemberSelectorError getBadMember()const{API_CHECK_STATE((AddFolderMemberError_BAD_MEMBER == m_tag), "expected tag: AddFolderMemberError_BAD_MEMBER", m_tag);return m_bad_member;};
 
         ///The value is the member limit that was reached.
-        int getTooManyMembers()const{DBOX_CHECK_STATE((AddFolderMemberError_TOO_MANY_MEMBERS == m_tag), "expected tag: AddFolderMemberError_TOO_MANY_MEMBERS", m_tag);return m_too_many_members;};
+        int getTooManyMembers()const{API_CHECK_STATE((AddFolderMemberError_TOO_MANY_MEMBERS == m_tag), "expected tag: AddFolderMemberError_TOO_MANY_MEMBERS", m_tag);return m_too_many_members;};
 
         ///The value is the pending invite limit that was reached.
-        int getTooManyPendingInvites()const{DBOX_CHECK_STATE((AddFolderMemberError_TOO_MANY_PENDING_INVITES == m_tag), "expected tag: AddFolderMemberError_TOO_MANY_PENDING_INVITES", m_tag);return m_too_many_pending_invites;};
+        int getTooManyPendingInvites()const{API_CHECK_STATE((AddFolderMemberError_TOO_MANY_PENDING_INVITES == m_tag), "expected tag: AddFolderMemberError_TOO_MANY_PENDING_INVITES", m_tag);return m_too_many_pending_invites;};
 
     public:
         operator QJsonObject ()const;
@@ -98,9 +98,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static AddFolderMemberError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

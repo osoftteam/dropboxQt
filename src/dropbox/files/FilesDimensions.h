@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -22,11 +24,15 @@ namespace files{
         Dimensions(const int& arg){ m_height = arg; };
 
     public:
-        ///Height of the photo/video.
+            /**
+                Height of the photo/video.
+            */
         int height()const{return m_height;};
         Dimensions& setHeight(const int& arg){m_height=arg;return *this;};
 
-        ///Width of the photo/video.
+            /**
+                Width of the photo/video.
+            */
         int width()const{return m_width;};
         Dimensions& setWidth(const int& arg){m_width=arg;return *this;};
 
@@ -44,16 +50,17 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static Dimensions EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Height of the photo/video.
+            /**
+                Height of the photo/video.
+            */
         int m_height;
 
-        ///Width of the photo/video.
+            /**
+                Width of the photo/video.
+            */
         int m_width;
 
     };//Dimensions

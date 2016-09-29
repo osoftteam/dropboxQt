@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace sharing{
@@ -19,7 +21,9 @@ namespace sharing{
         GetSharedLinksArg(const QString& arg){ m_path = arg; };
 
     public:
-        ///See :route:`get_shared_links` description.
+            /**
+                See :meth:`get_shared_links` description.
+            */
         QString path()const{return m_path;};
         GetSharedLinksArg& setPath(const QString& arg){m_path=arg;return *this;};
 
@@ -37,13 +41,12 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetSharedLinksArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///See :route:`get_shared_links` description.
+            /**
+                See :meth:`get_shared_links` description.
+            */
         QString m_path;
 
     };//GetSharedLinksArg

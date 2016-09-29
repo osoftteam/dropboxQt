@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "properties"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace properties{
@@ -32,7 +34,7 @@ namespace properties{
 
         Tag tag()const{return m_tag;}
         ///Property template does not exist for given identifier.
-        QString getTemplateNotFound()const{DBOX_CHECK_STATE((PropertyTemplateError_TEMPLATE_NOT_FOUND == m_tag), "expected tag: PropertyTemplateError_TEMPLATE_NOT_FOUND", m_tag);return m_template_not_found;};
+        QString getTemplateNotFound()const{API_CHECK_STATE((PropertyTemplateError_TEMPLATE_NOT_FOUND == m_tag), "expected tag: PropertyTemplateError_TEMPLATE_NOT_FOUND", m_tag);return m_template_not_found;};
 
     public:
         operator QJsonObject ()const;
@@ -48,9 +50,6 @@ namespace properties{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static PropertyTemplateError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -20,7 +22,9 @@ namespace files{
         UploadSessionOffsetError(const int& arg){ m_correct_offset = arg; };
 
     public:
-        ///The offset up to which data has been collected.
+            /**
+                The offset up to which data has been collected.
+            */
         int correctOffset()const{return m_correct_offset;};
         UploadSessionOffsetError& setCorrectoffset(const int& arg){m_correct_offset=arg;return *this;};
 
@@ -38,13 +42,12 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UploadSessionOffsetError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The offset up to which data has been collected.
+            /**
+                The offset up to which data has been collected.
+            */
         int m_correct_offset;
 
     };//UploadSessionOffsetError

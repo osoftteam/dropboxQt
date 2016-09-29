@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupMembersRemoveError.h"
@@ -77,14 +79,6 @@ std::unique_ptr<GroupMembersRemoveError>  GroupMembersRemoveError::factory::crea
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupMembersRemoveError GroupMembersRemoveError::EXAMPLE(){
-    GroupMembersRemoveError rv;
-    rv.m_tag = GroupMembersRemoveError_GROUP_NOT_IN_TEAM;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

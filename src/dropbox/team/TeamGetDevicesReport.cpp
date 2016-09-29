@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGetDevicesReport.h"
@@ -58,16 +60,6 @@ std::unique_ptr<GetDevicesReport>  GetDevicesReport::factory::create(const QJson
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GetDevicesReport GetDevicesReport::EXAMPLE(){
-    GetDevicesReport rv;
-    rv.active_1_day = team::DevicesActive::EXAMPLE();
-    rv.active_7_day = team::DevicesActive::EXAMPLE();
-    rv.active_28_day = team::DevicesActive::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

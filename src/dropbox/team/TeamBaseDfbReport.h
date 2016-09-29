@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team{
@@ -22,7 +24,9 @@ namespace team{
         BaseDfbReport(const QString& arg){ m_start_date = arg; };
 
     public:
-        ///First date present in the results as 'YYYY-MM-DD' or None.
+            /**
+                First date present in the results as 'YYYY-MM-DD' or None.
+            */
         QString startDate()const{return m_start_date;};
         BaseDfbReport& setStartdate(const QString& arg){m_start_date=arg;return *this;};
 
@@ -40,13 +44,12 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static BaseDfbReport EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///First date present in the results as 'YYYY-MM-DD' or None.
+            /**
+                First date present in the results as 'YYYY-MM-DD' or None.
+            */
         QString m_start_date;
 
     };//BaseDfbReport

@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team{
@@ -30,13 +32,13 @@ namespace team{
 
         Tag tag()const{return m_tag;}
         ///None
-        QString getTeamMemberId()const{DBOX_CHECK_STATE((UserSelectorArg_TEAM_MEMBER_ID == m_tag), "expected tag: UserSelectorArg_TEAM_MEMBER_ID", m_tag);return m_team_member_id;};
+        QString getTeamMemberId()const{API_CHECK_STATE((UserSelectorArg_TEAM_MEMBER_ID == m_tag), "expected tag: UserSelectorArg_TEAM_MEMBER_ID", m_tag);return m_team_member_id;};
 
         ///None
-        QString getExternalId()const{DBOX_CHECK_STATE((UserSelectorArg_EXTERNAL_ID == m_tag), "expected tag: UserSelectorArg_EXTERNAL_ID", m_tag);return m_external_id;};
+        QString getExternalId()const{API_CHECK_STATE((UserSelectorArg_EXTERNAL_ID == m_tag), "expected tag: UserSelectorArg_EXTERNAL_ID", m_tag);return m_external_id;};
 
         ///None
-        QString getEmail()const{DBOX_CHECK_STATE((UserSelectorArg_EMAIL == m_tag), "expected tag: UserSelectorArg_EMAIL", m_tag);return m_email;};
+        QString getEmail()const{API_CHECK_STATE((UserSelectorArg_EMAIL == m_tag), "expected tag: UserSelectorArg_EMAIL", m_tag);return m_email;};
 
     public:
         operator QJsonObject ()const;
@@ -52,9 +54,6 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UserSelectorArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingListFilesContinueArg.h"
@@ -53,14 +55,6 @@ std::unique_ptr<ListFilesContinueArg>  ListFilesContinueArg::factory::create(con
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ListFilesContinueArg ListFilesContinueArg::EXAMPLE(){
-    ListFilesContinueArg rv;
-    rv.cursor = "test1value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

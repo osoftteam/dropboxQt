@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingSharedLinkSettings.h"
@@ -58,16 +60,6 @@ std::unique_ptr<SharedLinkSettings>  SharedLinkSettings::factory::create(const Q
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SharedLinkSettings SharedLinkSettings::EXAMPLE(){
-    SharedLinkSettings rv;
-    rv.requested_visibility = sharing::RequestedVisibility::EXAMPLE();
-    rv.link_password = "test2value";
-    rv.expires = QDateTime::currentDateTime();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingRelinquishFileMembershipError.h"
@@ -78,15 +80,6 @@ std::unique_ptr<RelinquishFileMembershipError>  RelinquishFileMembershipError::f
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RelinquishFileMembershipError RelinquishFileMembershipError::EXAMPLE(){
-    RelinquishFileMembershipError rv;
-    rv.access_error = sharing::SharingFileAccessError::EXAMPLE();
-    rv.m_tag = RelinquishFileMembershipError_ACCESS_ERROR;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

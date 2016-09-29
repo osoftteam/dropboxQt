@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team_policies"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team_policies/TeamPoliciesEmmState.h"
@@ -77,14 +79,6 @@ std::unique_ptr<EmmState>  EmmState::factory::create(const QByteArray& data)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-EmmState EmmState::EXAMPLE(){
-    EmmState rv;
-    rv.m_tag = EmmState_DISABLED;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team_policies
 }//dropboxQt

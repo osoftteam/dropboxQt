@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamDateRangeError.h"
@@ -53,14 +55,6 @@ std::unique_ptr<DateRangeError>  DateRangeError::factory::create(const QByteArra
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-DateRangeError DateRangeError::EXAMPLE(){
-    DateRangeError rv;
-    rv.m_tag = DateRangeError_OTHER;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

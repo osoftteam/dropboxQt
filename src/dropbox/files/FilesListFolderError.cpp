@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesListFolderError.h"
@@ -62,15 +64,6 @@ std::unique_ptr<ListFolderError>  ListFolderError::factory::create(const QByteAr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ListFolderError ListFolderError::EXAMPLE(){
-    ListFolderError rv;
-    rv.path = files::LookupError::EXAMPLE();
-    rv.m_tag = ListFolderError_PATH;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

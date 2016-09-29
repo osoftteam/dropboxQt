@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -19,7 +21,9 @@ namespace files{
         GetTemporaryLinkArg(const QString& arg){ m_path = arg; };
 
     public:
-        ///The path to the file you want a temporary link to.
+            /**
+                The path to the file you want a temporary link to.
+            */
         QString path()const{return m_path;};
         GetTemporaryLinkArg& setPath(const QString& arg){m_path=arg;return *this;};
 
@@ -37,13 +41,12 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetTemporaryLinkArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The path to the file you want a temporary link to.
+            /**
+                The path to the file you want a temporary link to.
+            */
         QString m_path;
 
     };//GetTemporaryLinkArg

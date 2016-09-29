@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingMembershipInfo.h"
 #include "dropbox/sharing/SharingGroupInfo.h"
 
@@ -23,7 +25,9 @@ namespace sharing{
         GroupMembershipInfo(const GroupInfo& arg){ m_group = arg; };
 
     public:
-        ///The information about the membership group.
+            /**
+                The information about the membership group.
+            */
         GroupInfo group()const{return m_group;};
         GroupMembershipInfo& setGroup(const GroupInfo& arg){m_group=arg;return *this;};
 
@@ -41,13 +45,12 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GroupMembershipInfo EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The information about the membership group.
+            /**
+                The information about the membership group.
+            */
         GroupInfo m_group;
 
     };//GroupMembershipInfo

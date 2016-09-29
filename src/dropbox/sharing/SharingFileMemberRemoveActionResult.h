@@ -1,13 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingMemberAccessLevelResult.h"
-#include "dropbox/sharing/SharingFileMemberActionError.h"
 #include "dropbox/sharing/SharingFileMemberActionError.h"
 
 namespace dropboxQt{
@@ -33,10 +34,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///Member was successfully removed from this file.
-        MemberAccessLevelResult getSuccess()const{DBOX_CHECK_STATE((FileMemberRemoveActionResult_SUCCESS == m_tag), "expected tag: FileMemberRemoveActionResult_SUCCESS", m_tag);return m_success;};
+        MemberAccessLevelResult getSuccess()const{API_CHECK_STATE((FileMemberRemoveActionResult_SUCCESS == m_tag), "expected tag: FileMemberRemoveActionResult_SUCCESS", m_tag);return m_success;};
 
         ///User was not able to remove this member.
-        FileMemberActionError getMemberError()const{DBOX_CHECK_STATE((FileMemberRemoveActionResult_MEMBER_ERROR == m_tag), "expected tag: FileMemberRemoveActionResult_MEMBER_ERROR", m_tag);return m_member_error;};
+        FileMemberActionError getMemberError()const{API_CHECK_STATE((FileMemberRemoveActionResult_MEMBER_ERROR == m_tag), "expected tag: FileMemberRemoveActionResult_MEMBER_ERROR", m_tag);return m_member_error;};
 
     public:
         operator QJsonObject ()const;
@@ -52,9 +53,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static FileMemberRemoveActionResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

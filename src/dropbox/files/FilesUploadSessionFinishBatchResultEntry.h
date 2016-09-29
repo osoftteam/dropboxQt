@@ -1,13 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesFileMetadata.h"
-#include "dropbox/files/FilesUploadSessionFinishError.h"
 #include "dropbox/files/FilesUploadSessionFinishError.h"
 
 namespace dropboxQt{
@@ -27,10 +28,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///None
-        FileMetadata getSuccess()const{DBOX_CHECK_STATE((UploadSessionFinishBatchResultEntry_SUCCESS == m_tag), "expected tag: UploadSessionFinishBatchResultEntry_SUCCESS", m_tag);return m_success;};
+        FileMetadata getSuccess()const{API_CHECK_STATE((UploadSessionFinishBatchResultEntry_SUCCESS == m_tag), "expected tag: UploadSessionFinishBatchResultEntry_SUCCESS", m_tag);return m_success;};
 
         ///None
-        UploadSessionFinishError getFailure()const{DBOX_CHECK_STATE((UploadSessionFinishBatchResultEntry_FAILURE == m_tag), "expected tag: UploadSessionFinishBatchResultEntry_FAILURE", m_tag);return m_failure;};
+        UploadSessionFinishError getFailure()const{API_CHECK_STATE((UploadSessionFinishBatchResultEntry_FAILURE == m_tag), "expected tag: UploadSessionFinishBatchResultEntry_FAILURE", m_tag);return m_failure;};
 
     public:
         operator QJsonObject ()const;
@@ -46,9 +47,6 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UploadSessionFinishBatchResultEntry EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

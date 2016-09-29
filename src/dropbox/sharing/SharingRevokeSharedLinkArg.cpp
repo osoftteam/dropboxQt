@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingRevokeSharedLinkArg.h"
@@ -53,14 +55,6 @@ std::unique_ptr<RevokeSharedLinkArg>  RevokeSharedLinkArg::factory::create(const
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RevokeSharedLinkArg RevokeSharedLinkArg::EXAMPLE(){
-    RevokeSharedLinkArg rv;
-    rv.url = "test1value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

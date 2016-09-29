@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamMembersRemoveArg.h"
@@ -58,15 +60,6 @@ std::unique_ptr<MembersRemoveArg>  MembersRemoveArg::factory::create(const QJson
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-MembersRemoveArg MembersRemoveArg::EXAMPLE(){
-    MembersRemoveArg rv;
-    rv.transfer_dest_id = team::UserSelectorArg::EXAMPLE();
-    rv.transfer_admin_id = team::UserSelectorArg::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

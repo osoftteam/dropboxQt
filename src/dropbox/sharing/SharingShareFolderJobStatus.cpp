@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingShareFolderJobStatus.h"
@@ -71,16 +73,6 @@ std::unique_ptr<ShareFolderJobStatus>  ShareFolderJobStatus::factory::create(con
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ShareFolderJobStatus ShareFolderJobStatus::EXAMPLE(){
-    ShareFolderJobStatus rv;
-    rv.complete = sharing::SharedFolderMetadata::EXAMPLE();
-    rv.failed = sharing::ShareFolderError::EXAMPLE();
-    rv.m_tag = ShareFolderJobStatus_COMPLETE;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

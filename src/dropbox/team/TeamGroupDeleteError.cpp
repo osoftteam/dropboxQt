@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupDeleteError.h"
@@ -69,14 +71,6 @@ std::unique_ptr<GroupDeleteError>  GroupDeleteError::factory::create(const QByte
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupDeleteError GroupDeleteError::EXAMPLE(){
-    GroupDeleteError rv;
-    rv.m_tag = GroupDeleteError_GROUP_ALREADY_DELETED;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

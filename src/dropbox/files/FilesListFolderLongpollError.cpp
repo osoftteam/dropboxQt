@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesListFolderLongpollError.h"
@@ -61,14 +63,6 @@ std::unique_ptr<ListFolderLongpollError>  ListFolderLongpollError::factory::crea
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ListFolderLongpollError ListFolderLongpollError::EXAMPLE(){
-    ListFolderLongpollError rv;
-    rv.m_tag = ListFolderLongpollError_RESET;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -34,19 +36,37 @@ namespace files{
         Metadata(const QString& arg){ m_name = arg; };
 
     public:
-        ///The last component of the path (including extension). This never contains a slash.
+            /**
+                The last component of the path (including extension). This never
+                contains a slash.
+            */
         QString name()const{return m_name;};
         Metadata& setName(const QString& arg){m_name=arg;return *this;};
 
-        ///The lowercased full path in the user's Dropbox. This always starts with a slash. This field will be null if the file or folder is not mounted.
+            /**
+                The lowercased full path in the user's Dropbox. This always
+                starts with a slash. This field will be null if the file or
+                folder is not mounted.
+            */
         QString pathLower()const{return m_path_lower;};
         Metadata& setPathlower(const QString& arg){m_path_lower=arg;return *this;};
 
-        ///The cased path to be used for display purposes only. In rare instances the casing will not correctly match the user's filesystem, but this behavior will match the path provided in the Core API v1. Changes to the casing of paths won't be returned by :route:`list_folder/continue`. This field will be null if the file or folder is not mounted.
+            /**
+                The cased path to be used for display purposes only. In rare
+                instances the casing will not correctly match the user's
+                filesystem, but this behavior will match the path provided in
+                the Core API v1. Changes to the casing of paths won't be
+                returned by :meth:`list_folder_continue`. This field will be
+                null if the file or folder is not mounted.
+            */
         QString pathDisplay()const{return m_path_display;};
         Metadata& setPathdisplay(const QString& arg){m_path_display=arg;return *this;};
 
-        ///Deprecated. Please use :field:`FileSharingInfo.parent_shared_folder_id` or :field:`FolderSharingInfo.parent_shared_folder_id` instead.
+            /**
+                Deprecated. Please use
+                ``FileSharingInfo.parent_shared_folder_id`` or
+                ``FolderSharingInfo.parent_shared_folder_id`` instead.
+            */
         QString parentSharedFolderId()const{return m_parent_shared_folder_id;};
         Metadata& setParentsharedfolderid(const QString& arg){m_parent_shared_folder_id=arg;return *this;};
 
@@ -64,22 +84,37 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static Metadata EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The last component of the path (including extension). This never contains a slash.
+            /**
+                The last component of the path (including extension). This never
+                contains a slash.
+            */
         QString m_name;
 
-        ///The lowercased full path in the user's Dropbox. This always starts with a slash. This field will be null if the file or folder is not mounted.
+            /**
+                The lowercased full path in the user's Dropbox. This always
+                starts with a slash. This field will be null if the file or
+                folder is not mounted.
+            */
         QString m_path_lower;
 
-        ///The cased path to be used for display purposes only. In rare instances the casing will not correctly match the user's filesystem, but this behavior will match the path provided in the Core API v1. Changes to the casing of paths won't be returned by :route:`list_folder/continue`. This field will be null if the file or folder is not mounted.
+            /**
+                The cased path to be used for display purposes only. In rare
+                instances the casing will not correctly match the user's
+                filesystem, but this behavior will match the path provided in
+                the Core API v1. Changes to the casing of paths won't be
+                returned by :meth:`list_folder_continue`. This field will be
+                null if the file or folder is not mounted.
+            */
         QString m_path_display;
 
-        ///Deprecated. Please use :field:`FileSharingInfo.parent_shared_folder_id` or :field:`FolderSharingInfo.parent_shared_folder_id` instead.
+            /**
+                Deprecated. Please use
+                ``FileSharingInfo.parent_shared_folder_id`` or
+                ``FolderSharingInfo.parent_shared_folder_id`` instead.
+            */
         QString m_parent_shared_folder_id;
 
     };//Metadata

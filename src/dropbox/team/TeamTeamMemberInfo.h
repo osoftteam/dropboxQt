@@ -1,12 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamTeamMemberProfile.h"
-#include "dropbox/team/TeamAdminTier.h"
 #include "dropbox/team/TeamAdminTier.h"
 
 namespace dropboxQt{
@@ -25,11 +26,15 @@ namespace team{
         TeamMemberInfo(const TeamMemberProfile& arg){ m_profile = arg; };
 
     public:
-        ///Profile of a user as a member of a team.
+            /**
+                Profile of a user as a member of a team.
+            */
         TeamMemberProfile profile()const{return m_profile;};
         TeamMemberInfo& setProfile(const TeamMemberProfile& arg){m_profile=arg;return *this;};
 
-        ///The user's role in the team.
+            /**
+                The user's role in the team.
+            */
         AdminTier role()const{return m_role;};
         TeamMemberInfo& setRole(const AdminTier& arg){m_role=arg;return *this;};
 
@@ -47,16 +52,17 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static TeamMemberInfo EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Profile of a user as a member of a team.
+            /**
+                Profile of a user as a member of a team.
+            */
         TeamMemberProfile m_profile;
 
-        ///The user's role in the team.
+            /**
+                The user's role in the team.
+            */
         AdminTier m_role;
 
     };//TeamMemberInfo

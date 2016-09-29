@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace users{
@@ -20,7 +22,9 @@ namespace users{
         IndividualSpaceAllocation(const int& arg){ m_allocated = arg; };
 
     public:
-        ///The total space allocated to the user's account (bytes).
+            /**
+                The total space allocated to the user's account (bytes).
+            */
         int allocated()const{return m_allocated;};
         IndividualSpaceAllocation& setAllocated(const int& arg){m_allocated=arg;return *this;};
 
@@ -38,13 +42,12 @@ namespace users{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static IndividualSpaceAllocation EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The total space allocated to the user's account (bytes).
+            /**
+                The total space allocated to the user's account (bytes).
+            */
         int m_allocated;
 
     };//IndividualSpaceAllocation

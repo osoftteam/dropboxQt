@@ -1,13 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingMemberSelector.h"
-#include "dropbox/sharing/SharingMemberSelector.h"
-#include "dropbox/sharing/SharingAccessLevel.h"
 #include "dropbox/sharing/SharingAccessLevel.h"
 
 namespace dropboxQt{
@@ -32,11 +32,16 @@ namespace sharing{
         { m_member = arg; };
 
     public:
-        ///The member to add to the shared folder.
+            /**
+                The member to add to the shared folder.
+            */
         MemberSelector member()const{return m_member;};
         AddMember& setMember(const MemberSelector& arg){m_member=arg;return *this;};
 
-        ///The access level to grant :field:`member` to the shared folder.  :field:`AccessLevel.owner` is disallowed.
+            /**
+                The access level to grant ``member`` to the shared folder.
+                ``AccessLevel.owner`` is disallowed.
+            */
         AccessLevel accessLevel()const{return m_access_level;};
         AddMember& setAccesslevel(const AccessLevel& arg){m_access_level=arg;return *this;};
 
@@ -54,16 +59,18 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static AddMember EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The member to add to the shared folder.
+            /**
+                The member to add to the shared folder.
+            */
         MemberSelector m_member;
 
-        ///The access level to grant :field:`member` to the shared folder.  :field:`AccessLevel.owner` is disallowed.
+            /**
+                The access level to grant ``member`` to the shared folder.
+                ``AccessLevel.owner`` is disallowed.
+            */
         AccessLevel m_access_level;
 
     };//AddMember

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamMemberAddArg.h"
@@ -66,18 +68,6 @@ std::unique_ptr<MemberAddArg>  MemberAddArg::factory::create(const QJsonObject& 
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-MemberAddArg MemberAddArg::EXAMPLE(){
-    MemberAddArg rv;
-    rv.member_email = "test1value";
-    rv.member_given_name = "test2value";
-    rv.member_surname = "test3value";
-    rv.member_external_id = "test4value";
-    rv.role = team::AdminTier::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

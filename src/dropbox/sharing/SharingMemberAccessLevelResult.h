@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/sharing/SharingAccessLevel.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingAccessLevel.h"
 #include "dropbox/sharing/SharingParentFolderAccessInfo.h"
 
@@ -31,13 +32,23 @@ namespace sharing{
         MemberAccessLevelResult(const AccessLevel& arg){ m_access_level = arg; };
 
     public:
-        ///The member still has this level of access to the content through a parent folder.
+            /**
+                The member still has this level of access to the content through
+                a parent folder.
+            */
         AccessLevel accessLevel()const{return m_access_level;};
 
-        ///A localized string with additional information about why the user has this access level to the content.
+            /**
+                A localized string with additional information about why the
+                user has this access level to the content.
+            */
         QString warning()const{return m_warning;};
 
-        ///The parent folders that a member has access to. The field is present if the user has access to the first parent folder where the member gains access.
+            /**
+                The parent folders that a member has access to. The field is
+                present if the user has access to the first parent folder where
+                the member gains access.
+            */
         const std::list <ParentFolderAccessInfo>& accessDetails()const{return m_access_details;};
 
     public:
@@ -54,19 +65,26 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MemberAccessLevelResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The member still has this level of access to the content through a parent folder.
+            /**
+                The member still has this level of access to the content through
+                a parent folder.
+            */
         AccessLevel m_access_level;
 
-        ///A localized string with additional information about why the user has this access level to the content.
+            /**
+                A localized string with additional information about why the
+                user has this access level to the content.
+            */
         QString m_warning;
 
-        ///The parent folders that a member has access to. The field is present if the user has access to the first parent folder where the member gains access.
+            /**
+                The parent folders that a member has access to. The field is
+                present if the user has access to the first parent folder where
+                the member gains access.
+            */
         std::list <ParentFolderAccessInfo> m_access_details;
 
     };//MemberAccessLevelResult

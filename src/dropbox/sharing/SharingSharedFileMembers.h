@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingUserMembershipInfo.h"
 #include "dropbox/sharing/SharingGroupMembershipInfo.h"
 #include "dropbox/sharing/SharingInviteeMembershipInfo.h"
@@ -30,22 +32,33 @@ namespace sharing{
     public:
         SharedFileMembers(){};
 
-        SharedFileMembers(const std::list <UserMembershipInfo>&& arg){ m_users = arg; };
+        SharedFileMembers(const std::list <UserMembershipInfo>& arg){ m_users = arg; };
 
     public:
-        ///The list of user members of the shared file.
+            /**
+                The list of user members of the shared file.
+            */
         const std::list <UserMembershipInfo>& users()const{return m_users;};
-        SharedFileMembers& setUsers(const std::list <UserMembershipInfo>&& arg){m_users=arg;return *this;};
+        SharedFileMembers& setUsers(const std::list <UserMembershipInfo>& arg){m_users=arg;return *this;};
 
-        ///The list of group members of the shared file.
+            /**
+                The list of group members of the shared file.
+            */
         const std::list <GroupMembershipInfo>& groups()const{return m_groups;};
-        SharedFileMembers& setGroups(const std::list <GroupMembershipInfo>&& arg){m_groups=arg;return *this;};
+        SharedFileMembers& setGroups(const std::list <GroupMembershipInfo>& arg){m_groups=arg;return *this;};
 
-        ///The list of invited members of a file, but have not logged in and claimed this.
+            /**
+                The list of invited members of a file, but have not logged in
+                and claimed this.
+            */
         const std::list <InviteeMembershipInfo>& invitees()const{return m_invitees;};
-        SharedFileMembers& setInvitees(const std::list <InviteeMembershipInfo>&& arg){m_invitees=arg;return *this;};
+        SharedFileMembers& setInvitees(const std::list <InviteeMembershipInfo>& arg){m_invitees=arg;return *this;};
 
-        ///Present if there are additional shared file members that have not been returned yet. Pass the cursor into :route:`list_file_members/continue` to list additional members.
+            /**
+                Present if there are additional shared file members that have
+                not been returned yet. Pass the cursor into
+                :meth:`list_file_members_continue` to list additional members.
+            */
         QString cursor()const{return m_cursor;};
         SharedFileMembers& setCursor(const QString& arg){m_cursor=arg;return *this;};
 
@@ -63,22 +76,30 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static SharedFileMembers EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The list of user members of the shared file.
+            /**
+                The list of user members of the shared file.
+            */
         std::list <UserMembershipInfo> m_users;
 
-        ///The list of group members of the shared file.
+            /**
+                The list of group members of the shared file.
+            */
         std::list <GroupMembershipInfo> m_groups;
 
-        ///The list of invited members of a file, but have not logged in and claimed this.
+            /**
+                The list of invited members of a file, but have not logged in
+                and claimed this.
+            */
         std::list <InviteeMembershipInfo> m_invitees;
 
-        ///Present if there are additional shared file members that have not been returned yet. Pass the cursor into :route:`list_file_members/continue` to list additional members.
+            /**
+                Present if there are additional shared file members that have
+                not been returned yet. Pass the cursor into
+                :meth:`list_file_members_continue` to list additional members.
+            */
         QString m_cursor;
 
     };//SharedFileMembers

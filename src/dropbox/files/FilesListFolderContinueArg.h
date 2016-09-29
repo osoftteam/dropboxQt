@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -20,7 +22,10 @@ namespace files{
         ListFolderContinueArg(const QString& arg){ m_cursor = arg; };
 
     public:
-        ///The cursor returned by your last call to :route:`list_folder` or :route:`list_folder/continue`.
+            /**
+                The cursor returned by your last call to :meth:`list_folder` or
+                :meth:`list_folder_continue`.
+            */
         QString cursor()const{return m_cursor;};
         ListFolderContinueArg& setCursor(const QString& arg){m_cursor=arg;return *this;};
 
@@ -38,13 +43,13 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFolderContinueArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The cursor returned by your last call to :route:`list_folder` or :route:`list_folder/continue`.
+            /**
+                The cursor returned by your last call to :meth:`list_folder` or
+                :meth:`list_folder_continue`.
+            */
         QString m_cursor;
 
     };//ListFolderContinueArg

@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace users{
@@ -22,11 +24,15 @@ namespace users{
         Team(const QString& arg){ m_id = arg; };
 
     public:
-        ///The team's unique ID.
+            /**
+                The team's unique ID.
+            */
         QString id()const{return m_id;};
         Team& setId(const QString& arg){m_id=arg;return *this;};
 
-        ///The name of the team.
+            /**
+                The name of the team.
+            */
         QString name()const{return m_name;};
         Team& setName(const QString& arg){m_name=arg;return *this;};
 
@@ -44,16 +50,17 @@ namespace users{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static Team EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The team's unique ID.
+            /**
+                The team's unique ID.
+            */
         QString m_id;
 
-        ///The name of the team.
+            /**
+                The name of the team.
+            */
         QString m_name;
 
     };//Team

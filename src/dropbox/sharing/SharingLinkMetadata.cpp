@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingLinkMetadata.h"
@@ -69,16 +71,6 @@ std::unique_ptr<LinkMetadata>  LinkMetadata::factory::create(const QJsonObject& 
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-LinkMetadata LinkMetadata::EXAMPLE(){
-    LinkMetadata rv;
-    rv.url = "test1value";
-    rv.visibility = sharing::Visibility::EXAMPLE();
-    rv.expires = QDateTime::currentDateTime();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

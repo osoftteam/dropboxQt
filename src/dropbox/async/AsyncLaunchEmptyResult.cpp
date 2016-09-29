@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "async"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/async/AsyncLaunchEmptyResult.h"
@@ -63,14 +65,6 @@ std::unique_ptr<LaunchEmptyResult>  LaunchEmptyResult::factory::create(const QBy
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-LaunchEmptyResult LaunchEmptyResult::EXAMPLE(){
-    LaunchEmptyResult rv;
-    rv.m_tag = LaunchEmptyResult_COMPLETE;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//async
 }//dropboxQt

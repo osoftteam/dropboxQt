@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesUploadErrorWithProperties.h"
@@ -71,15 +73,6 @@ std::unique_ptr<UploadErrorWithProperties>  UploadErrorWithProperties::factory::
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-UploadErrorWithProperties UploadErrorWithProperties::EXAMPLE(){
-    UploadErrorWithProperties rv;
-    rv.properties_error = files::InvalidPropertyGroupError::EXAMPLE();
-    rv.m_tag = UploadErrorWithProperties_PROPERTIES_ERROR;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team{
@@ -20,7 +22,9 @@ namespace team{
         RemovedStatus(const bool& arg){ m_is_recoverable = arg; };
 
     public:
-        ///True if the removed team member is recoverable
+            /**
+                True if the removed team member is recoverable
+            */
         bool isRecoverable()const{return m_is_recoverable;};
         RemovedStatus& setIsrecoverable(const bool& arg){m_is_recoverable=arg;return *this;};
 
@@ -38,13 +42,12 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RemovedStatus EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///True if the removed team member is recoverable
+            /**
+                True if the removed team member is recoverable
+            */
         bool m_is_recoverable;
 
     };//RemovedStatus

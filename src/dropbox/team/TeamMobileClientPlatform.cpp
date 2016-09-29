@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamMobileClientPlatform.h"
@@ -93,14 +95,6 @@ std::unique_ptr<MobileClientPlatform>  MobileClientPlatform::factory::create(con
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-MobileClientPlatform MobileClientPlatform::EXAMPLE(){
-    MobileClientPlatform rv;
-    rv.m_tag = MobileClientPlatform_IPHONE;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

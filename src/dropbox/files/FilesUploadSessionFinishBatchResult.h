@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesUploadSessionFinishBatchResultEntry.h"
 
 namespace dropboxQt{
@@ -17,10 +19,12 @@ namespace files{
     public:
         UploadSessionFinishBatchResult(){};
 
-        UploadSessionFinishBatchResult(const std::list <UploadSessionFinishBatchResultEntry>&& arg){ m_entries = arg; };
+        UploadSessionFinishBatchResult(const std::list <UploadSessionFinishBatchResultEntry>& arg){ m_entries = arg; };
 
     public:
-        ///Commit result for each file in the batch.
+            /**
+                Commit result for each file in the batch.
+            */
         const std::list <UploadSessionFinishBatchResultEntry>& entries()const{return m_entries;};
 
     public:
@@ -37,13 +41,12 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UploadSessionFinishBatchResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Commit result for each file in the batch.
+            /**
+                Commit result for each file in the batch.
+            */
         std::list <UploadSessionFinishBatchResultEntry> m_entries;
 
     };//UploadSessionFinishBatchResult

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesUploadSessionLookupError.h"
@@ -86,15 +88,6 @@ std::unique_ptr<UploadSessionLookupError>  UploadSessionLookupError::factory::cr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-UploadSessionLookupError UploadSessionLookupError::EXAMPLE(){
-    UploadSessionLookupError rv;
-    rv.incorrect_offset = files::UploadSessionOffsetError::EXAMPLE();
-    rv.m_tag = UploadSessionLookupError_NOT_FOUND;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

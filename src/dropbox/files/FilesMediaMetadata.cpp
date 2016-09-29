@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesMediaMetadata.h"
@@ -68,16 +70,6 @@ std::unique_ptr<MediaMetadata>  MediaMetadata::factory::create(const QJsonObject
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-MediaMetadata MediaMetadata::EXAMPLE(){
-    MediaMetadata rv;
-    rv.dimensions = files::Dimensions::EXAMPLE();
-    rv.location = files::GpsCoordinates::EXAMPLE();
-    rv.time_taken = QDateTime::currentDateTime();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

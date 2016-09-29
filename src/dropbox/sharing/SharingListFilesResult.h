@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingSharedFileMetadata.h"
 
 namespace dropboxQt{
@@ -21,13 +23,17 @@ namespace sharing{
     public:
         ListFilesResult(){};
 
-        ListFilesResult(const std::list <SharedFileMetadata>&& arg){ m_entries = arg; };
+        ListFilesResult(const std::list <SharedFileMetadata>& arg){ m_entries = arg; };
 
     public:
-        ///Information about the files shared with current user.
+            /**
+                Information about the files shared with current user.
+            */
         const std::list <SharedFileMetadata>& entries()const{return m_entries;};
 
-        ///Cursor used to obtain additional shared files.
+            /**
+                Cursor used to obtain additional shared files.
+            */
         QString cursor()const{return m_cursor;};
 
     public:
@@ -44,16 +50,17 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFilesResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Information about the files shared with current user.
+            /**
+                Information about the files shared with current user.
+            */
         std::list <SharedFileMetadata> m_entries;
 
-        ///Cursor used to obtain additional shared files.
+            /**
+                Cursor used to obtain additional shared files.
+            */
         QString m_cursor;
 
     };//ListFilesResult

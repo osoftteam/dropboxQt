@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/sharing/SharingVisibility.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingVisibility.h"
 
 namespace dropboxQt{
@@ -27,15 +28,21 @@ namespace sharing{
         LinkMetadata(const QString& arg){ m_url = arg; };
 
     public:
-        ///URL of the shared link.
+            /**
+                URL of the shared link.
+            */
         QString url()const{return m_url;};
         LinkMetadata& setUrl(const QString& arg){m_url=arg;return *this;};
 
-        ///Who can access the link.
+            /**
+                Who can access the link.
+            */
         Visibility visibility()const{return m_visibility;};
         LinkMetadata& setVisibility(const Visibility& arg){m_visibility=arg;return *this;};
 
-        ///Expiration time, if set. By default the link won't expire.
+            /**
+                Expiration time, if set. By default the link won't expire.
+            */
         QDateTime expires()const{return m_expires;};
         LinkMetadata& setExpires(const QDateTime& arg){m_expires=arg;return *this;};
 
@@ -53,19 +60,22 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static LinkMetadata EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///URL of the shared link.
+            /**
+                URL of the shared link.
+            */
         QString m_url;
 
-        ///Who can access the link.
+            /**
+                Who can access the link.
+            */
         Visibility m_visibility;
 
-        ///Expiration time, if set. By default the link won't expire.
+            /**
+                Expiration time, if set. By default the link won't expire.
+            */
         QDateTime m_expires;
 
     };//LinkMetadata

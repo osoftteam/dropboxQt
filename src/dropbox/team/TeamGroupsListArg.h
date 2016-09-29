@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team{
@@ -23,7 +25,9 @@ namespace team{
         { m_limit = arg; };
 
     public:
-        ///Number of results to return per call.
+            /**
+                Number of results to return per call.
+            */
         int limit()const{return m_limit;};
         GroupsListArg& setLimit(const int& arg){m_limit=arg;return *this;};
 
@@ -41,13 +45,12 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GroupsListArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Number of results to return per call.
+            /**
+                Number of results to return per call.
+            */
         int m_limit;
 
     };//GroupsListArg

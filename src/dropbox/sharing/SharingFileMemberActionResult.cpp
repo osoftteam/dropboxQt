@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingFileMemberActionResult.h"
@@ -54,15 +56,6 @@ std::unique_ptr<FileMemberActionResult>  FileMemberActionResult::factory::create
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-FileMemberActionResult FileMemberActionResult::EXAMPLE(){
-    FileMemberActionResult rv;
-    rv.member = sharing::MemberSelector::EXAMPLE();
-    rv.result = sharing::FileMemberActionIndividualResult::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

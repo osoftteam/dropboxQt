@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace sharing{
@@ -22,15 +24,22 @@ namespace sharing{
         ListSharedLinksArg(const QString& arg){ m_path = arg; };
 
     public:
-        ///See :route:`list_shared_links` description.
+            /**
+                See :meth:`list_shared_links` description.
+            */
         QString path()const{return m_path;};
         ListSharedLinksArg& setPath(const QString& arg){m_path=arg;return *this;};
 
-        ///The cursor returned by your last call to :route:`list_shared_links`.
+            /**
+                The cursor returned by your last call to
+                :meth:`list_shared_links`.
+            */
         QString cursor()const{return m_cursor;};
         ListSharedLinksArg& setCursor(const QString& arg){m_cursor=arg;return *this;};
 
-        ///See :route:`list_shared_links` description.
+            /**
+                See :meth:`list_shared_links` description.
+            */
         bool directOnly()const{return m_direct_only;};
         ListSharedLinksArg& setDirectonly(const bool& arg){m_direct_only=arg;return *this;};
 
@@ -48,19 +57,23 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListSharedLinksArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///See :route:`list_shared_links` description.
+            /**
+                See :meth:`list_shared_links` description.
+            */
         QString m_path;
 
-        ///The cursor returned by your last call to :route:`list_shared_links`.
+            /**
+                The cursor returned by your last call to
+                :meth:`list_shared_links`.
+            */
         QString m_cursor;
 
-        ///See :route:`list_shared_links` description.
+            /**
+                See :meth:`list_shared_links` description.
+            */
         bool m_direct_only;
 
     };//ListSharedLinksArg

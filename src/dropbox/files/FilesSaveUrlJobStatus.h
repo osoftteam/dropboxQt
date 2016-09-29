@@ -1,14 +1,15 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/async/AsyncPollResultBase.h"
 #include "dropbox/files/FilesFileMetadata.h"
-#include "dropbox/files/FilesSaveUrlError.h"
 #include "dropbox/files/FilesSaveUrlError.h"
 
 namespace dropboxQt{
@@ -33,10 +34,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///Metadata of the file where the URL is saved to.
-        FileMetadata getComplete()const{DBOX_CHECK_STATE((SaveUrlJobStatus_COMPLETE == m_tag), "expected tag: SaveUrlJobStatus_COMPLETE", m_tag);return m_complete;};
+        FileMetadata getComplete()const{API_CHECK_STATE((SaveUrlJobStatus_COMPLETE == m_tag), "expected tag: SaveUrlJobStatus_COMPLETE", m_tag);return m_complete;};
 
         ///None
-        SaveUrlError getFailed()const{DBOX_CHECK_STATE((SaveUrlJobStatus_FAILED == m_tag), "expected tag: SaveUrlJobStatus_FAILED", m_tag);return m_failed;};
+        SaveUrlError getFailed()const{API_CHECK_STATE((SaveUrlJobStatus_FAILED == m_tag), "expected tag: SaveUrlJobStatus_FAILED", m_tag);return m_failed;};
 
     public:
         operator QJsonObject ()const;
@@ -52,9 +53,6 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static SaveUrlJobStatus EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

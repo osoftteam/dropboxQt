@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "properties"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/properties/PropertiesPropertyGroup.h"
@@ -55,14 +57,6 @@ std::unique_ptr<PropertyGroup>  PropertyGroup::factory::create(const QJsonObject
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-PropertyGroup PropertyGroup::EXAMPLE(){
-    PropertyGroup rv;
-    rv.template_id = "test1value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//properties
 }//dropboxQt

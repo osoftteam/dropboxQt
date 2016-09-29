@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamRevokeLinkedAppError.h"
@@ -69,14 +71,6 @@ std::unique_ptr<RevokeLinkedAppError>  RevokeLinkedAppError::factory::create(con
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RevokeLinkedAppError RevokeLinkedAppError::EXAMPLE(){
-    RevokeLinkedAppError rv;
-    rv.m_tag = RevokeLinkedAppError_APP_NOT_FOUND;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

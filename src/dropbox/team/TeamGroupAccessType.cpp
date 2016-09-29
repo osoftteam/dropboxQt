@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupAccessType.h"
@@ -61,14 +63,6 @@ std::unique_ptr<GroupAccessType>  GroupAccessType::factory::create(const QByteAr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupAccessType GroupAccessType::EXAMPLE(){
-    GroupAccessType rv;
-    rv.m_tag = GroupAccessType_MEMBER;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/users/UsersTeam.h"
 
 namespace dropboxQt{
@@ -26,15 +28,22 @@ namespace sharing{
         TeamMemberInfo(const users::Team& arg){ m_team_info = arg; };
 
     public:
-        ///Information about the member's team
+            /**
+                Information about the member's team
+            */
         users::Team teamInfo()const{return m_team_info;};
         TeamMemberInfo& setTeaminfo(const users::Team& arg){m_team_info=arg;return *this;};
 
-        ///The display name of the user.
+            /**
+                The display name of the user.
+            */
         QString displayName()const{return m_display_name;};
         TeamMemberInfo& setDisplayname(const QString& arg){m_display_name=arg;return *this;};
 
-        ///ID of user as a member of a team. This field will only be present if the member is in the same team as current user.
+            /**
+                ID of user as a member of a team. This field will only be
+                present if the member is in the same team as current user.
+            */
         QString memberId()const{return m_member_id;};
         TeamMemberInfo& setMemberid(const QString& arg){m_member_id=arg;return *this;};
 
@@ -52,19 +61,23 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static TeamMemberInfo EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Information about the member's team
+            /**
+                Information about the member's team
+            */
         users::Team m_team_info;
 
-        ///The display name of the user.
+            /**
+                The display name of the user.
+            */
         QString m_display_name;
 
-        ///ID of user as a member of a team. This field will only be present if the member is in the same team as current user.
+            /**
+                ID of user as a member of a team. This field will only be
+                present if the member is in the same team as current user.
+            */
         QString m_member_id;
 
     };//TeamMemberInfo

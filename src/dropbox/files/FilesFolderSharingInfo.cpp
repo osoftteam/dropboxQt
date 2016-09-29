@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesFolderSharingInfo.h"
@@ -62,15 +64,6 @@ std::unique_ptr<FolderSharingInfo>  FolderSharingInfo::factory::create(const QJs
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-FolderSharingInfo FolderSharingInfo::EXAMPLE(){
-    FolderSharingInfo rv;
-    rv.parent_shared_folder_id = "test1value";
-    rv.shared_folder_id = "test2value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

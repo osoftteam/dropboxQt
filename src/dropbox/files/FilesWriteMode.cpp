@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesWriteMode.h"
@@ -71,15 +73,6 @@ std::unique_ptr<WriteMode>  WriteMode::factory::create(const QByteArray& data)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-WriteMode WriteMode::EXAMPLE(){
-    WriteMode rv;
-    rv.update = "test3value";
-    rv.m_tag = WriteMode_ADD;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "properties"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace properties{
@@ -20,7 +22,10 @@ namespace properties{
         GetPropertyTemplateArg(const QString& arg){ m_template_id = arg; };
 
     public:
-        ///An identifier for property template added by route properties/template/add.
+            /**
+                An identifier for property template added by route
+                properties/template/add.
+            */
         QString templateId()const{return m_template_id;};
         GetPropertyTemplateArg& setTemplateid(const QString& arg){m_template_id=arg;return *this;};
 
@@ -38,13 +43,13 @@ namespace properties{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetPropertyTemplateArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///An identifier for property template added by route properties/template/add.
+            /**
+                An identifier for property template added by route
+                properties/template/add.
+            */
         QString m_template_id;
 
     };//GetPropertyTemplateArg

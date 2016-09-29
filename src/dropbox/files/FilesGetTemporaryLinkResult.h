@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesFileMetadata.h"
 
 namespace dropboxQt{
@@ -22,10 +24,14 @@ namespace files{
         GetTemporaryLinkResult(const FileMetadata& arg){ m_metadata = arg; };
 
     public:
-        ///Metadata of the file.
+            /**
+                Metadata of the file.
+            */
         FileMetadata metadata()const{return m_metadata;};
 
-        ///The temporary link which can be used to stream content the file.
+            /**
+                The temporary link which can be used to stream content the file.
+            */
         QString link()const{return m_link;};
 
     public:
@@ -42,16 +48,17 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetTemporaryLinkResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Metadata of the file.
+            /**
+                Metadata of the file.
+            */
         FileMetadata m_metadata;
 
-        ///The temporary link which can be used to stream content the file.
+            /**
+                The temporary link which can be used to stream content the file.
+            */
         QString m_link;
 
     };//GetTemporaryLinkResult

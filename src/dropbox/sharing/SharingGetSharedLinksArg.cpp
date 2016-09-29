@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingGetSharedLinksArg.h"
@@ -53,14 +55,6 @@ std::unique_ptr<GetSharedLinksArg>  GetSharedLinksArg::factory::create(const QJs
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GetSharedLinksArg GetSharedLinksArg::EXAMPLE(){
-    GetSharedLinksArg rv;
-    rv.path = "test1value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

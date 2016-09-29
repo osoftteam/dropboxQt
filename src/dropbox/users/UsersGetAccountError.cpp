@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/users/UsersGetAccountError.h"
@@ -61,14 +63,6 @@ std::unique_ptr<GetAccountError>  GetAccountError::factory::create(const QByteAr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GetAccountError GetAccountError::EXAMPLE(){
-    GetAccountError rv;
-    rv.m_tag = GetAccountError_NO_ACCOUNT;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//users
 }//dropboxQt

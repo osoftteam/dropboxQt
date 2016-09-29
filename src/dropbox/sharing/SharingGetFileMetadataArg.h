@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingFileAction.h"
 
 namespace dropboxQt{
@@ -23,13 +25,17 @@ namespace sharing{
         GetFileMetadataArg(const QString& arg){ m_file = arg; };
 
     public:
-        ///The file to query.
+            /**
+                The file to query.
+            */
         QString file()const{return m_file;};
         GetFileMetadataArg& setFile(const QString& arg){m_file=arg;return *this;};
 
-        ///File actions to query.
+            /**
+                File actions to query.
+            */
         const std::list <FileAction>& actions()const{return m_actions;};
-        GetFileMetadataArg& setActions(const std::list <FileAction>&& arg){m_actions=arg;return *this;};
+        GetFileMetadataArg& setActions(const std::list <FileAction>& arg){m_actions=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -45,16 +51,17 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetFileMetadataArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The file to query.
+            /**
+                The file to query.
+            */
         QString m_file;
 
-        ///File actions to query.
+            /**
+                File actions to query.
+            */
         std::list <FileAction> m_actions;
 
     };//GetFileMetadataArg

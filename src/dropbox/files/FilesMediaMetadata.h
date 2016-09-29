@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesDimensions.h"
 #include "dropbox/files/FilesGpsCoordinates.h"
 
@@ -25,15 +27,21 @@ namespace files{
         MediaMetadata(const Dimensions& arg){ m_dimensions = arg; };
 
     public:
-        ///Dimension of the photo/video.
+            /**
+                Dimension of the photo/video.
+            */
         Dimensions dimensions()const{return m_dimensions;};
         MediaMetadata& setDimensions(const Dimensions& arg){m_dimensions=arg;return *this;};
 
-        ///The GPS coordinate of the photo/video.
+            /**
+                The GPS coordinate of the photo/video.
+            */
         GpsCoordinates location()const{return m_location;};
         MediaMetadata& setLocation(const GpsCoordinates& arg){m_location=arg;return *this;};
 
-        ///The timestamp when the photo/video is taken.
+            /**
+                The timestamp when the photo/video is taken.
+            */
         QDateTime timeTaken()const{return m_time_taken;};
         MediaMetadata& setTimetaken(const QDateTime& arg){m_time_taken=arg;return *this;};
 
@@ -51,19 +59,22 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MediaMetadata EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Dimension of the photo/video.
+            /**
+                Dimension of the photo/video.
+            */
         Dimensions m_dimensions;
 
-        ///The GPS coordinate of the photo/video.
+            /**
+                The GPS coordinate of the photo/video.
+            */
         GpsCoordinates m_location;
 
-        ///The timestamp when the photo/video is taken.
+            /**
+                The timestamp when the photo/video is taken.
+            */
         QDateTime m_time_taken;
 
     };//MediaMetadata

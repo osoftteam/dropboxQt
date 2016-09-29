@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -20,11 +22,15 @@ namespace files{
         SaveUrlArg(const QString& arg){ m_path = arg; };
 
     public:
-        ///The path in Dropbox where the URL will be saved to.
+            /**
+                The path in Dropbox where the URL will be saved to.
+            */
         QString path()const{return m_path;};
         SaveUrlArg& setPath(const QString& arg){m_path=arg;return *this;};
 
-        ///The URL to be saved.
+            /**
+                The URL to be saved.
+            */
         QString url()const{return m_url;};
         SaveUrlArg& setUrl(const QString& arg){m_url=arg;return *this;};
 
@@ -42,16 +48,17 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static SaveUrlArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The path in Dropbox where the URL will be saved to.
+            /**
+                The path in Dropbox where the URL will be saved to.
+            */
         QString m_path;
 
-        ///The URL to be saved.
+            /**
+                The URL to be saved.
+            */
         QString m_url;
 
     };//SaveUrlArg

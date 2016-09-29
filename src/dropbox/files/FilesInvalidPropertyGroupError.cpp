@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesInvalidPropertyGroupError.h"
@@ -96,14 +98,6 @@ std::unique_ptr<InvalidPropertyGroupError>  InvalidPropertyGroupError::factory::
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-InvalidPropertyGroupError InvalidPropertyGroupError::EXAMPLE(){
-    InvalidPropertyGroupError rv;
-    rv.m_tag = InvalidPropertyGroupError_PROPERTY_FIELD_TOO_LARGE;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

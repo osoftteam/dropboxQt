@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesSearchError.h"
@@ -62,15 +64,6 @@ std::unique_ptr<SearchError>  SearchError::factory::create(const QByteArray& dat
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SearchError SearchError::EXAMPLE(){
-    SearchError rv;
-    rv.path = files::LookupError::EXAMPLE();
-    rv.m_tag = SearchError_PATH;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

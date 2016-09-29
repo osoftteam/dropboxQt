@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesMetadata.h"
 
 namespace dropboxQt{
@@ -21,7 +23,9 @@ namespace files{
         SaveCopyReferenceResult(const Metadata& arg){ m_metadata = arg; };
 
     public:
-        ///The metadata of the saved file or folder in the user's Dropbox.
+            /**
+                The metadata of the saved file or folder in the user's Dropbox.
+            */
         Metadata metadata()const{return m_metadata;};
 
     public:
@@ -38,13 +42,12 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static SaveCopyReferenceResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The metadata of the saved file or folder in the user's Dropbox.
+            /**
+                The metadata of the saved file or folder in the user's Dropbox.
+            */
         Metadata m_metadata;
 
     };//SaveCopyReferenceResult

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/users/UsersAccount.h"
@@ -65,17 +67,6 @@ std::unique_ptr<Account>  Account::factory::create(const QJsonObject& js)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-Account Account::EXAMPLE(){
-    Account rv;
-    rv.account_id = "test1value";
-    rv.name = users::Name::EXAMPLE();
-    rv.email = "test3value";
-    rv.profile_photo_url = "test5value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//users
 }//dropboxQt

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingRemoveFileMemberError.h"
@@ -80,17 +82,6 @@ std::unique_ptr<RemoveFileMemberError>  RemoveFileMemberError::factory::create(c
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RemoveFileMemberError RemoveFileMemberError::EXAMPLE(){
-    RemoveFileMemberError rv;
-    rv.user_error = sharing::SharingUserError::EXAMPLE();
-    rv.access_error = sharing::SharingFileAccessError::EXAMPLE();
-    rv.no_explicit_access = sharing::MemberAccessLevelResult::EXAMPLE();
-    rv.m_tag = RemoveFileMemberError_USER_ERROR;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

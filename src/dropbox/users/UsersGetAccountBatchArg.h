@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace users{
@@ -17,12 +19,15 @@ namespace users{
     public:
         GetAccountBatchArg(){};
 
-        GetAccountBatchArg(const std::list <QString>&& arg){ m_account_ids = arg; };
+        GetAccountBatchArg(const std::list <QString>& arg){ m_account_ids = arg; };
 
     public:
-        ///List of user account identifiers.  Should not contain any duplicate account IDs.
+            /**
+                List of user account identifiers.  Should not contain any
+                duplicate account IDs.
+            */
         const std::list <QString>& accountIds()const{return m_account_ids;};
-        GetAccountBatchArg& setAccountids(const std::list <QString>&& arg){m_account_ids=arg;return *this;};
+        GetAccountBatchArg& setAccountids(const std::list <QString>& arg){m_account_ids=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -38,13 +43,13 @@ namespace users{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetAccountBatchArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///List of user account identifiers.  Should not contain any duplicate account IDs.
+            /**
+                List of user account identifiers.  Should not contain any
+                duplicate account IDs.
+            */
         std::list <QString> m_account_ids;
 
     };//GetAccountBatchArg

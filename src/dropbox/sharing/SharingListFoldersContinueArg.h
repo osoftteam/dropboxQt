@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace sharing{
@@ -20,7 +22,10 @@ namespace sharing{
         ListFoldersContinueArg(const QString& arg){ m_cursor = arg; };
 
     public:
-        ///The cursor returned by the previous API call specified in the endpoint description.
+            /**
+                The cursor returned by the previous API call specified in the
+                endpoint description.
+            */
         QString cursor()const{return m_cursor;};
         ListFoldersContinueArg& setCursor(const QString& arg){m_cursor=arg;return *this;};
 
@@ -38,13 +43,13 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFoldersContinueArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The cursor returned by the previous API call specified in the endpoint description.
+            /**
+                The cursor returned by the previous API call specified in the
+                endpoint description.
+            */
         QString m_cursor;
 
     };//ListFoldersContinueArg

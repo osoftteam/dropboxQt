@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamTeamGetInfoResult.h"
@@ -62,18 +64,6 @@ std::unique_ptr<TeamGetInfoResult>  TeamGetInfoResult::factory::create(const QJs
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-TeamGetInfoResult TeamGetInfoResult::EXAMPLE(){
-    TeamGetInfoResult rv;
-    rv.name = "test1value";
-    rv.team_id = "test2value";
-    rv.num_licensed_users = 3;
-    rv.num_provisioned_users = 4;
-    rv.policies = team_policies::TeamMemberPolicies::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

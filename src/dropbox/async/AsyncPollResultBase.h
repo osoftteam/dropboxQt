@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "async"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace async{
@@ -43,9 +45,6 @@ namespace async{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static PollResultBase EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

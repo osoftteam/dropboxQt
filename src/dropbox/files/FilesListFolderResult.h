@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesMetadata.h"
 
 namespace dropboxQt{
@@ -24,13 +26,21 @@ namespace files{
 
 
     public:
-        ///The files and (direct) subfolders in the folder.
+            /**
+                The files and (direct) subfolders in the folder.
+            */
         const std::list <std::unique_ptr<Metadata> >& entries()const{return m_entries;};
 
-        ///Pass the cursor into :route:`list_folder/continue` to see what's changed in the folder since your previous query.
+            /**
+                Pass the cursor into :meth:`list_folder_continue` to see what's
+                changed in the folder since your previous query.
+            */
         QString cursor()const{return m_cursor;};
 
-        ///If true, then there are more entries available. Pass the cursor to :route:`list_folder/continue` to retrieve the rest.
+            /**
+                If true, then there are more entries available. Pass the cursor
+                to :meth:`list_folder_continue` to retrieve the rest.
+            */
         bool hasMore()const{return m_has_more;};
 
     public:
@@ -47,19 +57,24 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFolderResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The files and (direct) subfolders in the folder.
+            /**
+                The files and (direct) subfolders in the folder.
+            */
         std::list <std::unique_ptr<Metadata> > m_entries;
 
-        ///Pass the cursor into :route:`list_folder/continue` to see what's changed in the folder since your previous query.
+            /**
+                Pass the cursor into :meth:`list_folder_continue` to see what's
+                changed in the folder since your previous query.
+            */
         QString m_cursor;
 
-        ///If true, then there are more entries available. Pass the cursor to :route:`list_folder/continue` to retrieve the rest.
+            /**
+                If true, then there are more entries available. Pass the cursor
+                to :meth:`list_folder_continue` to retrieve the rest.
+            */
         bool m_has_more;
 
     };//ListFolderResult

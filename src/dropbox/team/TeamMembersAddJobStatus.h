@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/async/AsyncPollResultBase.h"
 #include "dropbox/team/TeamMemberAddResult.h"
 
@@ -36,10 +38,10 @@ namespace team{
 
         Tag tag()const{return m_tag;}
         ///The asynchronous job has finished. For each member that was specified in the parameter :type:`MembersAddArg` that was provided to :route:`members/add`, a corresponding item is returned in this list.
-        const std::list <MemberAddResult>& getComplete()const{DBOX_CHECK_STATE((MembersAddJobStatus_COMPLETE == m_tag), "expected tag: MembersAddJobStatus_COMPLETE", m_tag);return m_complete;};
+        const std::list <MemberAddResult>& getComplete()const{API_CHECK_STATE((MembersAddJobStatus_COMPLETE == m_tag), "expected tag: MembersAddJobStatus_COMPLETE", m_tag);return m_complete;};
 
         ///The asynchronous job returned an error. The string contains an error message.
-        QString getFailed()const{DBOX_CHECK_STATE((MembersAddJobStatus_FAILED == m_tag), "expected tag: MembersAddJobStatus_FAILED", m_tag);return m_failed;};
+        QString getFailed()const{API_CHECK_STATE((MembersAddJobStatus_FAILED == m_tag), "expected tag: MembersAddJobStatus_FAILED", m_tag);return m_failed;};
 
     public:
         operator QJsonObject ()const;
@@ -55,9 +57,6 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MembersAddJobStatus EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

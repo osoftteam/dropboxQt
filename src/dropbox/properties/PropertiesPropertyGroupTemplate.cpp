@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "properties"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/properties/PropertiesPropertyGroupTemplate.h"
@@ -58,15 +60,6 @@ std::unique_ptr<PropertyGroupTemplate>  PropertyGroupTemplate::factory::create(c
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-PropertyGroupTemplate PropertyGroupTemplate::EXAMPLE(){
-    PropertyGroupTemplate rv;
-    rv.name = "test1value";
-    rv.description = "test2value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//properties
 }//dropboxQt

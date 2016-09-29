@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingSharedFileMembers.h"
 
 namespace dropboxQt{
@@ -22,10 +24,15 @@ namespace sharing{
         ListFileMembersCountResult(const SharedFileMembers& arg){ m_members = arg; };
 
     public:
-        ///A list of members on this file.
+            /**
+                A list of members on this file.
+            */
         SharedFileMembers members()const{return m_members;};
 
-        ///The number of members on this file. This does not include inherited members
+            /**
+                The number of members on this file. This does not include
+                inherited members
+            */
         int memberCount()const{return m_member_count;};
 
     public:
@@ -42,16 +49,18 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFileMembersCountResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///A list of members on this file.
+            /**
+                A list of members on this file.
+            */
         SharedFileMembers m_members;
 
-        ///The number of members on this file. This does not include inherited members
+            /**
+                The number of members on this file. This does not include
+                inherited members
+            */
         int m_member_count;
 
     };//ListFileMembersCountResult

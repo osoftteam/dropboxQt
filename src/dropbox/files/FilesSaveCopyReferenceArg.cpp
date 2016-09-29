@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesSaveCopyReferenceArg.h"
@@ -56,15 +58,6 @@ std::unique_ptr<SaveCopyReferenceArg>  SaveCopyReferenceArg::factory::create(con
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SaveCopyReferenceArg SaveCopyReferenceArg::EXAMPLE(){
-    SaveCopyReferenceArg rv;
-    rv.copy_reference = "test1value";
-    rv.path = "test2value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

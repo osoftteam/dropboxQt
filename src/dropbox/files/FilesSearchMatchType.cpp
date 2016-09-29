@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesSearchMatchType.h"
@@ -69,14 +71,6 @@ std::unique_ptr<SearchMatchType>  SearchMatchType::factory::create(const QByteAr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SearchMatchType SearchMatchType::EXAMPLE(){
-    SearchMatchType rv;
-    rv.m_tag = SearchMatchType_FILENAME;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesThumbnailSize.h"
@@ -85,14 +87,6 @@ std::unique_ptr<ThumbnailSize>  ThumbnailSize::factory::create(const QByteArray&
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ThumbnailSize ThumbnailSize::EXAMPLE(){
-    ThumbnailSize rv;
-    rv.m_tag = ThumbnailSize_W32H32;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

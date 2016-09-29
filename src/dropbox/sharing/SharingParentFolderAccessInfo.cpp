@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingParentFolderAccessInfo.h"
@@ -58,15 +60,6 @@ std::unique_ptr<ParentFolderAccessInfo>  ParentFolderAccessInfo::factory::create
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ParentFolderAccessInfo ParentFolderAccessInfo::EXAMPLE(){
-    ParentFolderAccessInfo rv;
-    rv.folder_name = "test1value";
-    rv.shared_folder_id = "test2value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

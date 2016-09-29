@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingSharedLinkMetadata.h"
 
 namespace dropboxQt{
@@ -23,16 +25,26 @@ namespace sharing{
     public:
         ListSharedLinksResult(){};
 
-        ListSharedLinksResult(const std::list <SharedLinkMetadata>&& arg){ m_links = arg; };
+        ListSharedLinksResult(const std::list <SharedLinkMetadata>& arg){ m_links = arg; };
 
     public:
-        ///Shared links applicable to the path argument.
+            /**
+                Shared links applicable to the path argument.
+            */
         const std::list <SharedLinkMetadata>& links()const{return m_links;};
 
-        ///Is true if there are additional shared links that have not been returned yet. Pass the cursor into :route:`list_shared_links` to retrieve them.
+            /**
+                Is true if there are additional shared links that have not been
+                returned yet. Pass the cursor into :meth:`list_shared_links` to
+                retrieve them.
+            */
         bool hasMore()const{return m_has_more;};
 
-        ///Pass the cursor into :route:`list_shared_links` to obtain the additional links. Cursor is returned only if no path is given or the path is empty.
+            /**
+                Pass the cursor into :meth:`list_shared_links` to obtain the
+                additional links. Cursor is returned only if no path is given or
+                the path is empty.
+            */
         QString cursor()const{return m_cursor;};
 
     public:
@@ -49,19 +61,26 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListSharedLinksResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Shared links applicable to the path argument.
+            /**
+                Shared links applicable to the path argument.
+            */
         std::list <SharedLinkMetadata> m_links;
 
-        ///Is true if there are additional shared links that have not been returned yet. Pass the cursor into :route:`list_shared_links` to retrieve them.
+            /**
+                Is true if there are additional shared links that have not been
+                returned yet. Pass the cursor into :meth:`list_shared_links` to
+                retrieve them.
+            */
         bool m_has_more;
 
-        ///Pass the cursor into :route:`list_shared_links` to obtain the additional links. Cursor is returned only if no path is given or the path is empty.
+            /**
+                Pass the cursor into :meth:`list_shared_links` to obtain the
+                additional links. Cursor is returned only if no path is given or
+                the path is empty.
+            */
         QString m_cursor;
 
     };//ListSharedLinksResult

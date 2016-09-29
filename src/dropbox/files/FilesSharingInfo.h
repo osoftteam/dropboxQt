@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -22,7 +24,9 @@ namespace files{
         SharingInfo(const bool& arg){ m_read_only = arg; };
 
     public:
-        ///True if the file or folder is inside a read-only shared folder.
+            /**
+                True if the file or folder is inside a read-only shared folder.
+            */
         bool readOnly()const{return m_read_only;};
         SharingInfo& setReadonly(const bool& arg){m_read_only=arg;return *this;};
 
@@ -40,13 +44,12 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static SharingInfo EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///True if the file or folder is inside a read-only shared folder.
+            /**
+                True if the file or folder is inside a read-only shared folder.
+            */
         bool m_read_only;
 
     };//SharingInfo

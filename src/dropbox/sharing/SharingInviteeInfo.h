@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace sharing{
@@ -29,7 +31,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///E-mail address of invited user.
-        QString getEmail()const{DBOX_CHECK_STATE((InviteeInfo_EMAIL == m_tag), "expected tag: InviteeInfo_EMAIL", m_tag);return m_email;};
+        QString getEmail()const{API_CHECK_STATE((InviteeInfo_EMAIL == m_tag), "expected tag: InviteeInfo_EMAIL", m_tag);return m_email;};
 
     public:
         operator QJsonObject ()const;
@@ -45,9 +47,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static InviteeInfo EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

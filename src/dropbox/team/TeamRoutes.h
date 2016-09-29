@@ -1,10 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamAddPropertyTemplateArg.h"
 #include "dropbox/team/TeamAddPropertyTemplateResult.h"
 #include "dropbox/team/TeamDateRange.h"
@@ -111,8 +114,6 @@
 namespace dropboxQt{
 
 class Endpoint;
-class DropboxRequestConfig;
-class DropboxAuthInfo;
 
 namespace team{
     class TeamRoutes{
@@ -127,7 +128,7 @@ namespace team{
 
             on error:GroupCreateError throws exception GroupCreateErrorException
             */
-        std::unique_ptr<GroupFullInfo> alphaGroupsCreate(const GroupCreateArg&);
+        std::unique_ptr<GroupFullInfo> alphaGroupsCreate(const GroupCreateArg& );
 
             /**
             ApiRoute('alpha/groups/get_info')
@@ -138,7 +139,7 @@ namespace team{
 
             on error:GroupsGetInfoError throws exception GroupsGetInfoErrorException
             */
-        std::list <GroupsGetInfoItem> alphaGroupsGetInfo(const GroupsSelector&);
+        std::list <GroupsGetInfoItem> alphaGroupsGetInfo(const GroupsSelector& );
 
             /**
             ApiRoute('alpha/groups/list')
@@ -147,7 +148,7 @@ namespace team{
             Lists groups on a team. Permission : Team Information
 
             */
-        std::unique_ptr<GroupsListResult> alphaGroupsList(const GroupsListArg&);
+        std::unique_ptr<GroupsListResult> alphaGroupsList(const GroupsListArg& );
 
             /**
             ApiRoute('alpha/groups/list/continue')
@@ -158,7 +159,7 @@ namespace team{
 
             on error:GroupsListContinueError throws exception GroupsListContinueErrorException
             */
-        std::unique_ptr<GroupsListResult> alphaGroupsListContinue(const GroupsListContinueArg&);
+        std::unique_ptr<GroupsListResult> alphaGroupsListContinue(const GroupsListContinueArg& );
 
             /**
             ApiRoute('alpha/groups/update')
@@ -169,7 +170,7 @@ namespace team{
 
             on error:GroupUpdateError throws exception GroupUpdateErrorException
             */
-        std::unique_ptr<GroupFullInfo> alphaGroupsUpdate(const GroupUpdateArgs&);
+        std::unique_ptr<GroupFullInfo> alphaGroupsUpdate(const GroupUpdateArgs& );
 
             /**
             ApiRoute('devices/list_member_devices')
@@ -179,7 +180,7 @@ namespace team{
 
             on error:ListMemberDevicesError throws exception ListMemberDevicesErrorException
             */
-        std::unique_ptr<ListMemberDevicesResult> devicesListMemberDevices(const ListMemberDevicesArg&);
+        std::unique_ptr<ListMemberDevicesResult> devicesListMemberDevices(const ListMemberDevicesArg& );
 
             /**
             ApiRoute('devices/list_members_devices')
@@ -189,7 +190,7 @@ namespace team{
 
             on error:ListMembersDevicesError throws exception ListMembersDevicesErrorException
             */
-        std::unique_ptr<ListMembersDevicesResult> devicesListMembersDevices(const ListMembersDevicesArg&);
+        std::unique_ptr<ListMembersDevicesResult> devicesListMembersDevices(const ListMembersDevicesArg& );
 
             /**
             ApiRoute('devices/list_team_devices')
@@ -199,7 +200,7 @@ namespace team{
 
             on error:ListTeamDevicesError throws exception ListTeamDevicesErrorException
             */
-        std::unique_ptr<ListTeamDevicesResult> devicesListTeamDevices(const ListTeamDevicesArg&);
+        std::unique_ptr<ListTeamDevicesResult> devicesListTeamDevices(const ListTeamDevicesArg& );
 
             /**
             ApiRoute('devices/revoke_device_session')
@@ -209,7 +210,7 @@ namespace team{
 
             on error:RevokeDeviceSessionError throws exception RevokeDeviceSessionErrorException
             */
-        void devicesRevokeDeviceSession(const RevokeDeviceSessionArg&);
+        void devicesRevokeDeviceSession(const RevokeDeviceSessionArg& );
 
             /**
             ApiRoute('devices/revoke_device_session_batch')
@@ -219,7 +220,7 @@ namespace team{
 
             on error:RevokeDeviceSessionBatchError throws exception RevokeDeviceSessionBatchErrorException
             */
-        std::unique_ptr<RevokeDeviceSessionBatchResult> devicesRevokeDeviceSessionBatch(const RevokeDeviceSessionBatchArg&);
+        std::unique_ptr<RevokeDeviceSessionBatchResult> devicesRevokeDeviceSessionBatch(const RevokeDeviceSessionBatchArg& );
 
             /**
             ApiRoute('get_info')
@@ -239,7 +240,7 @@ namespace team{
 
             on error:GroupCreateError throws exception GroupCreateErrorException
             */
-        std::unique_ptr<GroupFullInfo> groupsCreate(const GroupCreateArg&);
+        std::unique_ptr<GroupFullInfo> groupsCreate(const GroupCreateArg& );
 
             /**
             ApiRoute('groups/delete')
@@ -252,7 +253,7 @@ namespace team{
 
             on error:GroupDeleteError throws exception GroupDeleteErrorException
             */
-        std::unique_ptr<async::LaunchEmptyResult> groupsDelete(const GroupSelector&);
+        std::unique_ptr<async::LaunchEmptyResult> groupsDelete(const GroupSelector& );
 
             /**
             ApiRoute('groups/get_info')
@@ -263,7 +264,7 @@ namespace team{
 
             on error:GroupsGetInfoError throws exception GroupsGetInfoErrorException
             */
-        std::list <GroupsGetInfoItem> groupsGetInfo(const GroupsSelector&);
+        std::list <GroupsGetInfoItem> groupsGetInfo(const GroupsSelector& );
 
             /**
             ApiRoute('groups/job_status/get')
@@ -276,7 +277,7 @@ namespace team{
 
             on error:GroupsPollError throws exception GroupsPollErrorException
             */
-        std::unique_ptr<async::PollEmptyResult> groupsJobStatusGet(const async::PollArg&);
+        std::unique_ptr<async::PollEmptyResult> groupsJobStatusGet(const async::PollArg& );
 
             /**
             ApiRoute('groups/list')
@@ -285,7 +286,7 @@ namespace team{
             Lists groups on a team. Permission : Team Information
 
             */
-        std::unique_ptr<GroupsListResult> groupsList(const GroupsListArg&);
+        std::unique_ptr<GroupsListResult> groupsList(const GroupsListArg& );
 
             /**
             ApiRoute('groups/list/continue')
@@ -296,7 +297,7 @@ namespace team{
 
             on error:GroupsListContinueError throws exception GroupsListContinueErrorException
             */
-        std::unique_ptr<GroupsListResult> groupsListContinue(const GroupsListContinueArg&);
+        std::unique_ptr<GroupsListResult> groupsListContinue(const GroupsListContinueArg& );
 
             /**
             ApiRoute('groups/members/add')
@@ -309,7 +310,7 @@ namespace team{
 
             on error:GroupMembersAddError throws exception GroupMembersAddErrorException
             */
-        std::unique_ptr<GroupMembersChangeResult> groupsMembersAdd(const GroupMembersAddArg&);
+        std::unique_ptr<GroupMembersChangeResult> groupsMembersAdd(const GroupMembersAddArg& );
 
             /**
             ApiRoute('groups/members/list')
@@ -319,7 +320,7 @@ namespace team{
 
             on error:GroupSelectorError throws exception GroupSelectorErrorException
             */
-        std::unique_ptr<GroupsMembersListResult> groupsMembersList(const GroupsMembersListArg&);
+        std::unique_ptr<GroupsMembersListResult> groupsMembersList(const GroupsMembersListArg& );
 
             /**
             ApiRoute('groups/members/list/continue')
@@ -331,7 +332,7 @@ namespace team{
 
             on error:GroupsMembersListContinueError throws exception GroupsMembersListContinueErrorException
             */
-        std::unique_ptr<GroupsMembersListResult> groupsMembersListContinue(const GroupsMembersListContinueArg&);
+        std::unique_ptr<GroupsMembersListResult> groupsMembersListContinue(const GroupsMembersListContinueArg& );
 
             /**
             ApiRoute('groups/members/remove')
@@ -346,7 +347,7 @@ namespace team{
 
             on error:GroupMembersRemoveError throws exception GroupMembersRemoveErrorException
             */
-        std::unique_ptr<GroupMembersChangeResult> groupsMembersRemove(const GroupMembersRemoveArg&);
+        std::unique_ptr<GroupMembersChangeResult> groupsMembersRemove(const GroupMembersRemoveArg& );
 
             /**
             ApiRoute('groups/members/set_access_type')
@@ -357,7 +358,7 @@ namespace team{
 
             on error:GroupMemberSetAccessTypeError throws exception GroupMemberSetAccessTypeErrorException
             */
-        std::list <GroupsGetInfoItem> groupsMembersSetAccessType(const GroupMembersSetAccessTypeArg&);
+        std::list <GroupsGetInfoItem> groupsMembersSetAccessType(const GroupMembersSetAccessTypeArg& );
 
             /**
             ApiRoute('groups/update')
@@ -368,7 +369,7 @@ namespace team{
 
             on error:GroupUpdateError throws exception GroupUpdateErrorException
             */
-        std::unique_ptr<GroupFullInfo> groupsUpdate(const GroupUpdateArgs&);
+        std::unique_ptr<GroupFullInfo> groupsUpdate(const GroupUpdateArgs& );
 
             /**
             ApiRoute('linked_apps/list_member_linked_apps')
@@ -379,7 +380,7 @@ namespace team{
 
             on error:ListMemberAppsError throws exception ListMemberAppsErrorException
             */
-        std::unique_ptr<ListMemberAppsResult> linkedAppsListMemberLinkedApps(const ListMemberAppsArg&);
+        std::unique_ptr<ListMemberAppsResult> linkedAppsListMemberLinkedApps(const ListMemberAppsArg& );
 
             /**
             ApiRoute('linked_apps/list_members_linked_apps')
@@ -390,7 +391,7 @@ namespace team{
 
             on error:ListMembersAppsError throws exception ListMembersAppsErrorException
             */
-        std::unique_ptr<ListMembersAppsResult> linkedAppsListMembersLinkedApps(const ListMembersAppsArg&);
+        std::unique_ptr<ListMembersAppsResult> linkedAppsListMembersLinkedApps(const ListMembersAppsArg& );
 
             /**
             ApiRoute('linked_apps/list_team_linked_apps')
@@ -401,7 +402,7 @@ namespace team{
 
             on error:ListTeamAppsError throws exception ListTeamAppsErrorException
             */
-        std::unique_ptr<ListTeamAppsResult> linkedAppsListTeamLinkedApps(const ListTeamAppsArg&);
+        std::unique_ptr<ListTeamAppsResult> linkedAppsListTeamLinkedApps(const ListTeamAppsArg& );
 
             /**
             ApiRoute('linked_apps/revoke_linked_app')
@@ -411,7 +412,7 @@ namespace team{
 
             on error:RevokeLinkedAppError throws exception RevokeLinkedAppErrorException
             */
-        void linkedAppsRevokeLinkedApp(const RevokeLinkedApiAppArg&);
+        void linkedAppsRevokeLinkedApp(const RevokeLinkedApiAppArg& );
 
             /**
             ApiRoute('linked_apps/revoke_linked_app_batch')
@@ -421,7 +422,7 @@ namespace team{
 
             on error:RevokeLinkedAppBatchError throws exception RevokeLinkedAppBatchErrorException
             */
-        std::unique_ptr<RevokeLinkedAppBatchResult> linkedAppsRevokeLinkedAppBatch(const RevokeLinkedApiAppBatchArg&);
+        std::unique_ptr<RevokeLinkedAppBatchResult> linkedAppsRevokeLinkedAppBatch(const RevokeLinkedApiAppBatchArg& );
 
             /**
             ApiRoute('members/add')
@@ -441,7 +442,7 @@ namespace team{
             taken on the user before they become 'active'.
 
             */
-        std::unique_ptr<MembersAddLaunch> membersAdd(const MembersAddArg&);
+        std::unique_ptr<MembersAddLaunch> membersAdd(const MembersAddArg& );
 
             /**
             ApiRoute('members/add/job_status/get')
@@ -453,7 +454,7 @@ namespace team{
 
             on error:PollError throws exception PollErrorException
             */
-        std::unique_ptr<MembersAddJobStatus> membersAddJobStatusGet(const async::PollArg&);
+        std::unique_ptr<MembersAddJobStatus> membersAddJobStatusGet(const async::PollArg& );
 
             /**
             ApiRoute('members/get_info')
@@ -466,7 +467,7 @@ namespace team{
 
             on error:MembersGetInfoError throws exception MembersGetInfoErrorException
             */
-        std::list <MembersGetInfoItem> membersGetInfo(const MembersGetInfoArgs&);
+        std::list <MembersGetInfoItem> membersGetInfo(const MembersGetInfoArgs& );
 
             /**
             ApiRoute('members/list')
@@ -476,7 +477,7 @@ namespace team{
 
             on error:MembersListError throws exception MembersListErrorException
             */
-        std::unique_ptr<MembersListResult> membersList(const MembersListArg&);
+        std::unique_ptr<MembersListResult> membersList(const MembersListArg& );
 
             /**
             ApiRoute('members/list/continue')
@@ -487,7 +488,7 @@ namespace team{
 
             on error:MembersListContinueError throws exception MembersListContinueErrorException
             */
-        std::unique_ptr<MembersListResult> membersListContinue(const MembersListContinueArg&);
+        std::unique_ptr<MembersListResult> membersListContinue(const MembersListContinueArg& );
 
             /**
             ApiRoute('members/recover')
@@ -499,7 +500,7 @@ namespace team{
 
             on error:MembersRecoverError throws exception MembersRecoverErrorException
             */
-        void membersRecover(const MembersRecoverArg&);
+        void membersRecover(const MembersRecoverArg& );
 
             /**
             ApiRoute('members/remove')
@@ -518,7 +519,7 @@ namespace team{
 
             on error:MembersRemoveError throws exception MembersRemoveErrorException
             */
-        std::unique_ptr<async::LaunchEmptyResult> membersRemove(const MembersRemoveArg&);
+        std::unique_ptr<async::LaunchEmptyResult> membersRemove(const MembersRemoveArg& );
 
             /**
             ApiRoute('members/remove/job_status/get')
@@ -530,7 +531,7 @@ namespace team{
 
             on error:PollError throws exception PollErrorException
             */
-        std::unique_ptr<async::PollEmptyResult> membersRemoveJobStatusGet(const async::PollArg&);
+        std::unique_ptr<async::PollEmptyResult> membersRemoveJobStatusGet(const async::PollArg& );
 
             /**
             ApiRoute('members/send_welcome_email')
@@ -543,7 +544,7 @@ namespace team{
 
             on error:MembersSendWelcomeError throws exception MembersSendWelcomeErrorException
             */
-        void membersSendWelcomeEmail(const UserSelectorArg&);
+        void membersSendWelcomeEmail(const UserSelectorArg& );
 
             /**
             ApiRoute('members/set_admin_permissions')
@@ -554,7 +555,7 @@ namespace team{
 
             on error:MembersSetPermissionsError throws exception MembersSetPermissionsErrorException
             */
-        std::unique_ptr<MembersSetPermissionsResult> membersSetAdminPermissions(const MembersSetPermissionsArg&);
+        std::unique_ptr<MembersSetPermissionsResult> membersSetAdminPermissions(const MembersSetPermissionsArg& );
 
             /**
             ApiRoute('members/set_profile')
@@ -564,7 +565,7 @@ namespace team{
 
             on error:MembersSetProfileError throws exception MembersSetProfileErrorException
             */
-        std::unique_ptr<TeamMemberInfo> membersSetProfile(const MembersSetProfileArg&);
+        std::unique_ptr<TeamMemberInfo> membersSetProfile(const MembersSetProfileArg& );
 
             /**
             ApiRoute('members/suspend')
@@ -576,7 +577,7 @@ namespace team{
 
             on error:MembersSuspendError throws exception MembersSuspendErrorException
             */
-        void membersSuspend(const MembersDeactivateArg&);
+        void membersSuspend(const MembersDeactivateArg& );
 
             /**
             ApiRoute('members/unsuspend')
@@ -588,7 +589,7 @@ namespace team{
 
             on error:MembersUnsuspendError throws exception MembersUnsuspendErrorException
             */
-        void membersUnsuspend(const MembersUnsuspendArg&);
+        void membersUnsuspend(const MembersUnsuspendArg& );
 
             /**
             ApiRoute('properties/template/add')
@@ -599,7 +600,7 @@ namespace team{
 
             on error:ModifyPropertyTemplateError throws exception ModifyPropertyTemplateErrorException
             */
-        std::unique_ptr<AddPropertyTemplateResult> propertiesTemplateAdd(const AddPropertyTemplateArg&);
+        std::unique_ptr<AddPropertyTemplateResult> propertiesTemplateAdd(const AddPropertyTemplateArg& );
 
             /**
             ApiRoute('properties/template/get')
@@ -609,7 +610,7 @@ namespace team{
 
             on error:PropertyTemplateError throws exception PropertyTemplateErrorException
             */
-        std::unique_ptr<properties::GetPropertyTemplateResult> propertiesTemplateGet(const properties::GetPropertyTemplateArg&);
+        std::unique_ptr<properties::GetPropertyTemplateResult> propertiesTemplateGet(const properties::GetPropertyTemplateArg& );
 
             /**
             ApiRoute('properties/template/list')
@@ -631,7 +632,7 @@ namespace team{
 
             on error:ModifyPropertyTemplateError throws exception ModifyPropertyTemplateErrorException
             */
-        std::unique_ptr<UpdatePropertyTemplateResult> propertiesTemplateUpdate(const UpdatePropertyTemplateArg&);
+        std::unique_ptr<UpdatePropertyTemplateResult> propertiesTemplateUpdate(const UpdatePropertyTemplateArg& );
 
             /**
             ApiRoute('reports/get_activity')
@@ -641,7 +642,7 @@ namespace team{
 
             on error:DateRangeError throws exception DateRangeErrorException
             */
-        std::unique_ptr<GetActivityReport> reportsGetActivity(const DateRange&);
+        std::unique_ptr<GetActivityReport> reportsGetActivity(const DateRange& );
 
             /**
             ApiRoute('reports/get_devices')
@@ -651,7 +652,7 @@ namespace team{
 
             on error:DateRangeError throws exception DateRangeErrorException
             */
-        std::unique_ptr<GetDevicesReport> reportsGetDevices(const DateRange&);
+        std::unique_ptr<GetDevicesReport> reportsGetDevices(const DateRange& );
 
             /**
             ApiRoute('reports/get_membership')
@@ -661,7 +662,7 @@ namespace team{
 
             on error:DateRangeError throws exception DateRangeErrorException
             */
-        std::unique_ptr<GetMembershipReport> reportsGetMembership(const DateRange&);
+        std::unique_ptr<GetMembershipReport> reportsGetMembership(const DateRange& );
 
             /**
             ApiRoute('reports/get_storage')
@@ -671,116 +672,116 @@ namespace team{
 
             on error:DateRangeError throws exception DateRangeErrorException
             */
-        std::unique_ptr<GetStorageReport> reportsGetStorage(const DateRange&);
+        std::unique_ptr<GetStorageReport> reportsGetStorage(const DateRange& );
 
     protected:
         Endpoint* m_end_point;
     };//TeamRoutes
 
     ///exception GroupCreateError for alpha/groups/create
-    DECLARE_DBOX_ERR_EXCEPTION(GroupCreateErrorException, team::GroupCreateError);
+    DECLARE_API_ERR_EXCEPTION(GroupCreateErrorException, team::GroupCreateError);
 
     ///exception GroupsGetInfoError for alpha/groups/get_info
-    DECLARE_DBOX_ERR_EXCEPTION(GroupsGetInfoErrorException, team::GroupsGetInfoError);
+    DECLARE_API_ERR_EXCEPTION(GroupsGetInfoErrorException, team::GroupsGetInfoError);
 
     ///exception GroupsListContinueError for alpha/groups/list/continue
-    DECLARE_DBOX_ERR_EXCEPTION(GroupsListContinueErrorException, team::GroupsListContinueError);
+    DECLARE_API_ERR_EXCEPTION(GroupsListContinueErrorException, team::GroupsListContinueError);
 
     ///exception GroupUpdateError for alpha/groups/update
-    DECLARE_DBOX_ERR_EXCEPTION(GroupUpdateErrorException, team::GroupUpdateError);
+    DECLARE_API_ERR_EXCEPTION(GroupUpdateErrorException, team::GroupUpdateError);
 
     ///exception ListMemberDevicesError for devices/list_member_devices
-    DECLARE_DBOX_ERR_EXCEPTION(ListMemberDevicesErrorException, team::ListMemberDevicesError);
+    DECLARE_API_ERR_EXCEPTION(ListMemberDevicesErrorException, team::ListMemberDevicesError);
 
     ///exception ListMembersDevicesError for devices/list_members_devices
-    DECLARE_DBOX_ERR_EXCEPTION(ListMembersDevicesErrorException, team::ListMembersDevicesError);
+    DECLARE_API_ERR_EXCEPTION(ListMembersDevicesErrorException, team::ListMembersDevicesError);
 
     ///exception ListTeamDevicesError for devices/list_team_devices
-    DECLARE_DBOX_ERR_EXCEPTION(ListTeamDevicesErrorException, team::ListTeamDevicesError);
+    DECLARE_API_ERR_EXCEPTION(ListTeamDevicesErrorException, team::ListTeamDevicesError);
 
     ///exception RevokeDeviceSessionError for devices/revoke_device_session
-    DECLARE_DBOX_ERR_EXCEPTION(RevokeDeviceSessionErrorException, team::RevokeDeviceSessionError);
+    DECLARE_API_ERR_EXCEPTION(RevokeDeviceSessionErrorException, team::RevokeDeviceSessionError);
 
     ///exception RevokeDeviceSessionBatchError for devices/revoke_device_session_batch
-    DECLARE_DBOX_ERR_EXCEPTION(RevokeDeviceSessionBatchErrorException, team::RevokeDeviceSessionBatchError);
+    DECLARE_API_ERR_EXCEPTION(RevokeDeviceSessionBatchErrorException, team::RevokeDeviceSessionBatchError);
 
     ///exception GroupDeleteError for groups/delete
-    DECLARE_DBOX_ERR_EXCEPTION(GroupDeleteErrorException, team::GroupDeleteError);
+    DECLARE_API_ERR_EXCEPTION(GroupDeleteErrorException, team::GroupDeleteError);
 
     ///exception GroupsPollError for groups/job_status/get
-    DECLARE_DBOX_ERR_EXCEPTION(GroupsPollErrorException, team::GroupsPollError);
+    DECLARE_API_ERR_EXCEPTION(GroupsPollErrorException, team::GroupsPollError);
 
     ///exception GroupMembersAddError for groups/members/add
-    DECLARE_DBOX_ERR_EXCEPTION(GroupMembersAddErrorException, team::GroupMembersAddError);
+    DECLARE_API_ERR_EXCEPTION(GroupMembersAddErrorException, team::GroupMembersAddError);
 
     ///exception GroupSelectorError for groups/members/list
-    DECLARE_DBOX_ERR_EXCEPTION(GroupSelectorErrorException, team::GroupSelectorError);
+    DECLARE_API_ERR_EXCEPTION(GroupSelectorErrorException, team::GroupSelectorError);
 
     ///exception GroupsMembersListContinueError for groups/members/list/continue
-    DECLARE_DBOX_ERR_EXCEPTION(GroupsMembersListContinueErrorException, team::GroupsMembersListContinueError);
+    DECLARE_API_ERR_EXCEPTION(GroupsMembersListContinueErrorException, team::GroupsMembersListContinueError);
 
     ///exception GroupMembersRemoveError for groups/members/remove
-    DECLARE_DBOX_ERR_EXCEPTION(GroupMembersRemoveErrorException, team::GroupMembersRemoveError);
+    DECLARE_API_ERR_EXCEPTION(GroupMembersRemoveErrorException, team::GroupMembersRemoveError);
 
     ///exception GroupMemberSetAccessTypeError for groups/members/set_access_type
-    DECLARE_DBOX_ERR_EXCEPTION(GroupMemberSetAccessTypeErrorException, team::GroupMemberSetAccessTypeError);
+    DECLARE_API_ERR_EXCEPTION(GroupMemberSetAccessTypeErrorException, team::GroupMemberSetAccessTypeError);
 
     ///exception ListMemberAppsError for linked_apps/list_member_linked_apps
-    DECLARE_DBOX_ERR_EXCEPTION(ListMemberAppsErrorException, team::ListMemberAppsError);
+    DECLARE_API_ERR_EXCEPTION(ListMemberAppsErrorException, team::ListMemberAppsError);
 
     ///exception ListMembersAppsError for linked_apps/list_members_linked_apps
-    DECLARE_DBOX_ERR_EXCEPTION(ListMembersAppsErrorException, team::ListMembersAppsError);
+    DECLARE_API_ERR_EXCEPTION(ListMembersAppsErrorException, team::ListMembersAppsError);
 
     ///exception ListTeamAppsError for linked_apps/list_team_linked_apps
-    DECLARE_DBOX_ERR_EXCEPTION(ListTeamAppsErrorException, team::ListTeamAppsError);
+    DECLARE_API_ERR_EXCEPTION(ListTeamAppsErrorException, team::ListTeamAppsError);
 
     ///exception RevokeLinkedAppError for linked_apps/revoke_linked_app
-    DECLARE_DBOX_ERR_EXCEPTION(RevokeLinkedAppErrorException, team::RevokeLinkedAppError);
+    DECLARE_API_ERR_EXCEPTION(RevokeLinkedAppErrorException, team::RevokeLinkedAppError);
 
     ///exception RevokeLinkedAppBatchError for linked_apps/revoke_linked_app_batch
-    DECLARE_DBOX_ERR_EXCEPTION(RevokeLinkedAppBatchErrorException, team::RevokeLinkedAppBatchError);
+    DECLARE_API_ERR_EXCEPTION(RevokeLinkedAppBatchErrorException, team::RevokeLinkedAppBatchError);
 
     ///exception PollError for members/add/job_status/get
-    DECLARE_DBOX_ERR_EXCEPTION(PollErrorException, async::PollError);
+    DECLARE_API_ERR_EXCEPTION(PollErrorException, async::PollError);
 
     ///exception MembersGetInfoError for members/get_info
-    DECLARE_DBOX_ERR_EXCEPTION(MembersGetInfoErrorException, team::MembersGetInfoError);
+    DECLARE_API_ERR_EXCEPTION(MembersGetInfoErrorException, team::MembersGetInfoError);
 
     ///exception MembersListError for members/list
-    DECLARE_DBOX_ERR_EXCEPTION(MembersListErrorException, team::MembersListError);
+    DECLARE_API_ERR_EXCEPTION(MembersListErrorException, team::MembersListError);
 
     ///exception MembersListContinueError for members/list/continue
-    DECLARE_DBOX_ERR_EXCEPTION(MembersListContinueErrorException, team::MembersListContinueError);
+    DECLARE_API_ERR_EXCEPTION(MembersListContinueErrorException, team::MembersListContinueError);
 
     ///exception MembersRecoverError for members/recover
-    DECLARE_DBOX_ERR_EXCEPTION(MembersRecoverErrorException, team::MembersRecoverError);
+    DECLARE_API_ERR_EXCEPTION(MembersRecoverErrorException, team::MembersRecoverError);
 
     ///exception MembersRemoveError for members/remove
-    DECLARE_DBOX_ERR_EXCEPTION(MembersRemoveErrorException, team::MembersRemoveError);
+    DECLARE_API_ERR_EXCEPTION(MembersRemoveErrorException, team::MembersRemoveError);
 
     ///exception MembersSendWelcomeError for members/send_welcome_email
-    DECLARE_DBOX_ERR_EXCEPTION(MembersSendWelcomeErrorException, team::MembersSendWelcomeError);
+    DECLARE_API_ERR_EXCEPTION(MembersSendWelcomeErrorException, team::MembersSendWelcomeError);
 
     ///exception MembersSetPermissionsError for members/set_admin_permissions
-    DECLARE_DBOX_ERR_EXCEPTION(MembersSetPermissionsErrorException, team::MembersSetPermissionsError);
+    DECLARE_API_ERR_EXCEPTION(MembersSetPermissionsErrorException, team::MembersSetPermissionsError);
 
     ///exception MembersSetProfileError for members/set_profile
-    DECLARE_DBOX_ERR_EXCEPTION(MembersSetProfileErrorException, team::MembersSetProfileError);
+    DECLARE_API_ERR_EXCEPTION(MembersSetProfileErrorException, team::MembersSetProfileError);
 
     ///exception MembersSuspendError for members/suspend
-    DECLARE_DBOX_ERR_EXCEPTION(MembersSuspendErrorException, team::MembersSuspendError);
+    DECLARE_API_ERR_EXCEPTION(MembersSuspendErrorException, team::MembersSuspendError);
 
     ///exception MembersUnsuspendError for members/unsuspend
-    DECLARE_DBOX_ERR_EXCEPTION(MembersUnsuspendErrorException, team::MembersUnsuspendError);
+    DECLARE_API_ERR_EXCEPTION(MembersUnsuspendErrorException, team::MembersUnsuspendError);
 
     ///exception ModifyPropertyTemplateError for properties/template/add
-    DECLARE_DBOX_ERR_EXCEPTION(ModifyPropertyTemplateErrorException, properties::ModifyPropertyTemplateError);
+    DECLARE_API_ERR_EXCEPTION(ModifyPropertyTemplateErrorException, properties::ModifyPropertyTemplateError);
 
     ///exception PropertyTemplateError for properties/template/get
-    DECLARE_DBOX_ERR_EXCEPTION(PropertyTemplateErrorException, properties::PropertyTemplateError);
+    DECLARE_API_ERR_EXCEPTION(PropertyTemplateErrorException, properties::PropertyTemplateError);
 
     ///exception DateRangeError for reports/get_activity
-    DECLARE_DBOX_ERR_EXCEPTION(DateRangeErrorException, team::DateRangeError);
+    DECLARE_API_ERR_EXCEPTION(DateRangeErrorException, team::DateRangeError);
 
 
 }//team

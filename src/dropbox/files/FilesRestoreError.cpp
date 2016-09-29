@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesRestoreError.h"
@@ -79,16 +81,6 @@ std::unique_ptr<RestoreError>  RestoreError::factory::create(const QByteArray& d
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RestoreError RestoreError::EXAMPLE(){
-    RestoreError rv;
-    rv.path_lookup = files::LookupError::EXAMPLE();
-    rv.path_write = files::WriteError::EXAMPLE();
-    rv.m_tag = RestoreError_PATH_LOOKUP;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

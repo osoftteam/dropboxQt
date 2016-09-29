@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingRemoveFileMemberArg.h"
@@ -55,15 +57,6 @@ std::unique_ptr<RemoveFileMemberArg>  RemoveFileMemberArg::factory::create(const
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RemoveFileMemberArg RemoveFileMemberArg::EXAMPLE(){
-    RemoveFileMemberArg rv;
-    rv.file = "test1value";
-    rv.member = sharing::MemberSelector::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesRelocationArg.h"
@@ -56,15 +58,6 @@ std::unique_ptr<RelocationArg>  RelocationArg::factory::create(const QJsonObject
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RelocationArg RelocationArg::EXAMPLE(){
-    RelocationArg rv;
-    rv.from_path = "test1value";
-    rv.to_path = "test2value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "auth"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/auth/AuthRateLimitError.h"
@@ -54,15 +56,6 @@ std::unique_ptr<RateLimitError>  RateLimitError::factory::create(const QJsonObje
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RateLimitError RateLimitError::EXAMPLE(){
-    RateLimitError rv;
-    rv.reason = auth::RateLimitReason::EXAMPLE();
-    rv.retry_after = 2;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//auth
 }//dropboxQt

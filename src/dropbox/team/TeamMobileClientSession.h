@@ -1,12 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamDeviceSession.h"
-#include "dropbox/team/TeamMobileClientPlatform.h"
 #include "dropbox/team/TeamMobileClientPlatform.h"
 
 namespace dropboxQt{
@@ -28,23 +29,33 @@ namespace team{
         MobileClientSession(const QString& arg){ m_device_name = arg; };
 
     public:
-        ///The device name
+            /**
+                The device name
+            */
         QString deviceName()const{return m_device_name;};
         MobileClientSession& setDevicename(const QString& arg){m_device_name=arg;return *this;};
 
-        ///The mobile application type
+            /**
+                The mobile application type
+            */
         MobileClientPlatform clientType()const{return m_client_type;};
         MobileClientSession& setClienttype(const MobileClientPlatform& arg){m_client_type=arg;return *this;};
 
-        ///The dropbox client version
+            /**
+                The dropbox client version
+            */
         QString clientVersion()const{return m_client_version;};
         MobileClientSession& setClientversion(const QString& arg){m_client_version=arg;return *this;};
 
-        ///The hosting OS version
+            /**
+                The hosting OS version
+            */
         QString osVersion()const{return m_os_version;};
         MobileClientSession& setOsversion(const QString& arg){m_os_version=arg;return *this;};
 
-        ///last carrier used by the device
+            /**
+                last carrier used by the device
+            */
         QString lastCarrier()const{return m_last_carrier;};
         MobileClientSession& setLastcarrier(const QString& arg){m_last_carrier=arg;return *this;};
 
@@ -62,25 +73,32 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MobileClientSession EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The device name
+            /**
+                The device name
+            */
         QString m_device_name;
 
-        ///The mobile application type
+            /**
+                The mobile application type
+            */
         MobileClientPlatform m_client_type;
 
-        ///The dropbox client version
+            /**
+                The dropbox client version
+            */
         QString m_client_version;
 
-        ///The hosting OS version
+            /**
+                The hosting OS version
+            */
         QString m_os_version;
 
-        ///last carrier used by the device
+            /**
+                last carrier used by the device
+            */
         QString m_last_carrier;
 
     };//MobileClientSession

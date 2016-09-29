@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingFileAction.h"
 
 namespace dropboxQt{
@@ -28,13 +30,18 @@ namespace sharing{
         { m_limit = arg; };
 
     public:
-        ///Number of files to return max per query. Defaults to 100 if no limit is specified.
+            /**
+                Number of files to return max per query. Defaults to 100 if no
+                limit is specified.
+            */
         int limit()const{return m_limit;};
         ListFilesArg& setLimit(const int& arg){m_limit=arg;return *this;};
 
-        ///File actions to query.
+            /**
+                File actions to query.
+            */
         const std::list <FileAction>& actions()const{return m_actions;};
-        ListFilesArg& setActions(const std::list <FileAction>&& arg){m_actions=arg;return *this;};
+        ListFilesArg& setActions(const std::list <FileAction>& arg){m_actions=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -50,16 +57,18 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFilesArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Number of files to return max per query. Defaults to 100 if no limit is specified.
+            /**
+                Number of files to return max per query. Defaults to 100 if no
+                limit is specified.
+            */
         int m_limit;
 
-        ///File actions to query.
+            /**
+                File actions to query.
+            */
         std::list <FileAction> m_actions;
 
     };//ListFilesArg

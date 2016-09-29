@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupMembersChangeResult.h"
@@ -55,15 +57,6 @@ std::unique_ptr<GroupMembersChangeResult>  GroupMembersChangeResult::factory::cr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupMembersChangeResult GroupMembersChangeResult::EXAMPLE(){
-    GroupMembersChangeResult rv;
-    rv.group_info = team::GroupFullInfo::EXAMPLE();
-    rv.async_job_id = "test2value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

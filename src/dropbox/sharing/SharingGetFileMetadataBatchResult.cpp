@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingGetFileMetadataBatchResult.h"
@@ -55,15 +57,6 @@ std::unique_ptr<GetFileMetadataBatchResult>  GetFileMetadataBatchResult::factory
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GetFileMetadataBatchResult GetFileMetadataBatchResult::EXAMPLE(){
-    GetFileMetadataBatchResult rv;
-    rv.file = "test1value";
-    rv.result = sharing::GetFileMetadataIndividualResult::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

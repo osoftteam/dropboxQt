@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -21,7 +23,11 @@ namespace files{
         UploadSessionStartResult(const QString& arg){ m_session_id = arg; };
 
     public:
-        ///A unique identifier for the upload session. Pass this to :route:`upload_session/append_v2` and :route:`upload_session/finish`.
+            /**
+                A unique identifier for the upload session. Pass this to
+                :meth:`upload_session_append_v2` and
+                :meth:`upload_session_finish`.
+            */
         QString sessionId()const{return m_session_id;};
 
     public:
@@ -38,13 +44,14 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UploadSessionStartResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///A unique identifier for the upload session. Pass this to :route:`upload_session/append_v2` and :route:`upload_session/finish`.
+            /**
+                A unique identifier for the upload session. Pass this to
+                :meth:`upload_session_append_v2` and
+                :meth:`upload_session_finish`.
+            */
         QString m_session_id;
 
     };//UploadSessionStartResult

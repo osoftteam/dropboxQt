@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/async/AsyncPollResultBase.h"
 #include "dropbox/files/FilesUploadSessionFinishBatchResult.h"
 
@@ -30,7 +32,7 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///The :route:`upload_session/finish_batch` has finished.
-        UploadSessionFinishBatchResult getComplete()const{DBOX_CHECK_STATE((UploadSessionFinishBatchJobStatus_COMPLETE == m_tag), "expected tag: UploadSessionFinishBatchJobStatus_COMPLETE", m_tag);return m_complete;};
+        UploadSessionFinishBatchResult getComplete()const{API_CHECK_STATE((UploadSessionFinishBatchJobStatus_COMPLETE == m_tag), "expected tag: UploadSessionFinishBatchJobStatus_COMPLETE", m_tag);return m_complete;};
 
     public:
         operator QJsonObject ()const;
@@ -46,9 +48,6 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UploadSessionFinishBatchJobStatus EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

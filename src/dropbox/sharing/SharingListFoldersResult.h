@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingSharedFolderMetadata.h"
 
 namespace dropboxQt{
@@ -29,13 +31,21 @@ namespace sharing{
     public:
         ListFoldersResult(){};
 
-        ListFoldersResult(const std::list <SharedFolderMetadata>&& arg){ m_entries = arg; };
+        ListFoldersResult(const std::list <SharedFolderMetadata>& arg){ m_entries = arg; };
 
     public:
-        ///List of all shared folders the authenticated user has access to.
+            /**
+                List of all shared folders the authenticated user has access to.
+            */
         const std::list <SharedFolderMetadata>& entries()const{return m_entries;};
 
-        ///Present if there are additional shared folders that have not been returned yet. Pass the cursor into the corresponding continue endpoint (either :route:`list_folders/continue` or :route:`list_mountable_folders/continue`) to list additional folders.
+            /**
+                Present if there are additional shared folders that have not
+                been returned yet. Pass the cursor into the corresponding
+                continue endpoint (either :meth:`list_folders_continue` or
+                :meth:`list_mountable_folders_continue`) to list additional
+                folders.
+            */
         QString cursor()const{return m_cursor;};
 
     public:
@@ -52,16 +62,21 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFoldersResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///List of all shared folders the authenticated user has access to.
+            /**
+                List of all shared folders the authenticated user has access to.
+            */
         std::list <SharedFolderMetadata> m_entries;
 
-        ///Present if there are additional shared folders that have not been returned yet. Pass the cursor into the corresponding continue endpoint (either :route:`list_folders/continue` or :route:`list_mountable_folders/continue`) to list additional folders.
+            /**
+                Present if there are additional shared folders that have not
+                been returned yet. Pass the cursor into the corresponding
+                continue endpoint (either :meth:`list_folders_continue` or
+                :meth:`list_mountable_folders_continue`) to list additional
+                folders.
+            */
         QString m_cursor;
 
     };//ListFoldersResult

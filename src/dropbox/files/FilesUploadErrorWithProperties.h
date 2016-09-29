@@ -1,13 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesUploadError.h"
-#include "dropbox/files/FilesInvalidPropertyGroupError.h"
 #include "dropbox/files/FilesInvalidPropertyGroupError.h"
 
 namespace dropboxQt{
@@ -29,10 +30,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///Unable to save the uploaded contents to a file.
-        UploadWriteFailed getPath()const{DBOX_CHECK_STATE((UploadError_PATH == m_tag), "expected tag: UploadError_PATH", m_tag);return m_path;};
+        UploadWriteFailed getPath()const{API_CHECK_STATE((UploadError_PATH == m_tag), "expected tag: UploadError_PATH", m_tag);return m_path;};
 
         ///None
-        InvalidPropertyGroupError getPropertiesError()const{DBOX_CHECK_STATE((UploadErrorWithProperties_PROPERTIES_ERROR == m_tag), "expected tag: UploadErrorWithProperties_PROPERTIES_ERROR", m_tag);return m_properties_error;};
+        InvalidPropertyGroupError getPropertiesError()const{API_CHECK_STATE((UploadErrorWithProperties_PROPERTIES_ERROR == m_tag), "expected tag: UploadErrorWithProperties_PROPERTIES_ERROR", m_tag);return m_properties_error;};
 
     public:
         operator QJsonObject ()const;
@@ -48,9 +49,6 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UploadErrorWithProperties EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

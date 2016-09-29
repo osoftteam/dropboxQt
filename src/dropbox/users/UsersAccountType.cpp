@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/users/UsersAccountType.h"
@@ -69,14 +71,6 @@ std::unique_ptr<AccountType>  AccountType::factory::create(const QByteArray& dat
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-AccountType AccountType::EXAMPLE(){
-    AccountType rv;
-    rv.m_tag = AccountType_BASIC;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//users
 }//dropboxQt

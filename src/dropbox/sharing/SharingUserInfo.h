@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace sharing{
@@ -25,15 +27,22 @@ namespace sharing{
         UserInfo(const QString& arg){ m_account_id = arg; };
 
     public:
-        ///The account ID of the user.
+            /**
+                The account ID of the user.
+            */
         QString accountId()const{return m_account_id;};
         UserInfo& setAccountid(const QString& arg){m_account_id=arg;return *this;};
 
-        ///If the user is in the same team as current user.
+            /**
+                If the user is in the same team as current user.
+            */
         bool sameTeam()const{return m_same_team;};
         UserInfo& setSameteam(const bool& arg){m_same_team=arg;return *this;};
 
-        ///The team member ID of the shared folder member. Only present if :field:`same_team` is true.
+            /**
+                The team member ID of the shared folder member. Only present if
+                ``same_team`` is true.
+            */
         QString teamMemberId()const{return m_team_member_id;};
         UserInfo& setTeammemberid(const QString& arg){m_team_member_id=arg;return *this;};
 
@@ -51,19 +60,23 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UserInfo EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The account ID of the user.
+            /**
+                The account ID of the user.
+            */
         QString m_account_id;
 
-        ///If the user is in the same team as current user.
+            /**
+                If the user is in the same team as current user.
+            */
         bool m_same_team;
 
-        ///The team member ID of the shared folder member. Only present if :field:`same_team` is true.
+            /**
+                The team member ID of the shared folder member. Only present if
+                ``same_team`` is true.
+            */
         QString m_team_member_id;
 
     };//UserInfo

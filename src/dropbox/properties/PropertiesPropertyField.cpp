@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "properties"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/properties/PropertiesPropertyField.h"
@@ -56,15 +58,6 @@ std::unique_ptr<PropertyField>  PropertyField::factory::create(const QJsonObject
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-PropertyField PropertyField::EXAMPLE(){
-    PropertyField rv;
-    rv.name = "test1value";
-    rv.value = "test2value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//properties
 }//dropboxQt

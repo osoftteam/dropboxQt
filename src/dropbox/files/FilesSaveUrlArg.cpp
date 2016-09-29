@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesSaveUrlArg.h"
@@ -56,15 +58,6 @@ std::unique_ptr<SaveUrlArg>  SaveUrlArg::factory::create(const QJsonObject& js)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SaveUrlArg SaveUrlArg::EXAMPLE(){
-    SaveUrlArg rv;
-    rv.path = "test1value";
-    rv.url = "test2value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team{
@@ -26,11 +28,15 @@ namespace team{
         { m_limit = arg; };
 
     public:
-        ///Number of results to return per call.
+            /**
+                Number of results to return per call.
+            */
         int limit()const{return m_limit;};
         MembersListArg& setLimit(const int& arg){m_limit=arg;return *this;};
 
-        ///Whether to return removed members.
+            /**
+                Whether to return removed members.
+            */
         bool includeRemoved()const{return m_include_removed;};
         MembersListArg& setIncluderemoved(const bool& arg){m_include_removed=arg;return *this;};
 
@@ -48,16 +54,17 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MembersListArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Number of results to return per call.
+            /**
+                Number of results to return per call.
+            */
         int m_limit;
 
-        ///Whether to return removed members.
+            /**
+                Whether to return removed members.
+            */
         bool m_include_removed;
 
     };//MembersListArg

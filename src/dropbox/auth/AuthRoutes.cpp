@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "auth"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/auth/AuthRoutes.h"
 #include "dropbox/endpoint/Endpoint.h"
-#include "dropbox/endpoint/DropboxHost.h"
 
 namespace dropboxQt{
 
@@ -14,8 +15,7 @@ AuthRoutes::AuthRoutes(Endpoint* p):m_end_point(p){
 }
 
 void AuthRoutes::tokenRevoke(){
-    static const QJsonObject js;
-    m_end_point->rpcStyle< std::unique_ptr<VoidResult>, VoidResult, NotAnException>("2/auth/token/revoke", js);
+    m_end_point->rpcStyle<VoidType, std::unique_ptr<VoidType>, VoidType, NotAnException>("2/auth/token/revoke", VoidType::instance());
 }
 
 }//auth

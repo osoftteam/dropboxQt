@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team_policies"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team_policies/TeamPoliciesSharedFolderMemberPolicy.h"
@@ -69,14 +71,6 @@ std::unique_ptr<SharedFolderMemberPolicy>  SharedFolderMemberPolicy::factory::cr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SharedFolderMemberPolicy SharedFolderMemberPolicy::EXAMPLE(){
-    SharedFolderMemberPolicy rv;
-    rv.m_tag = SharedFolderMemberPolicy_TEAM;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team_policies
 }//dropboxQt

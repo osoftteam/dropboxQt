@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesUploadSessionFinishBatchArg.h"
@@ -52,13 +54,6 @@ std::unique_ptr<UploadSessionFinishBatchArg>  UploadSessionFinishBatchArg::facto
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-UploadSessionFinishBatchArg UploadSessionFinishBatchArg::EXAMPLE(){
-    UploadSessionFinishBatchArg rv;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

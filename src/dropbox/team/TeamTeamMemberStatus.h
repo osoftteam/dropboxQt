@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamRemovedStatus.h"
 
 namespace dropboxQt{
@@ -42,7 +44,7 @@ namespace team{
 
         Tag tag()const{return m_tag;}
         ///User is no longer a member of the team. Removed users are only listed when include_removed is true in members/list.
-        RemovedStatus getRemoved()const{DBOX_CHECK_STATE((TeamMemberStatus_REMOVED == m_tag), "expected tag: TeamMemberStatus_REMOVED", m_tag);return m_removed;};
+        RemovedStatus getRemoved()const{API_CHECK_STATE((TeamMemberStatus_REMOVED == m_tag), "expected tag: TeamMemberStatus_REMOVED", m_tag);return m_removed;};
 
     public:
         operator QJsonObject ()const;
@@ -58,9 +60,6 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static TeamMemberStatus EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

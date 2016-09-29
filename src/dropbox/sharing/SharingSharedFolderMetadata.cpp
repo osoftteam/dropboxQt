@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingSharedFolderMetadata.h"
@@ -69,18 +71,6 @@ std::unique_ptr<SharedFolderMetadata>  SharedFolderMetadata::factory::create(con
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SharedFolderMetadata SharedFolderMetadata::EXAMPLE(){
-    SharedFolderMetadata rv;
-    rv.path_lower = "test1value";
-    rv.name = "test2value";
-    rv.shared_folder_id = "test3value";
-    rv.time_invited = QDateTime::currentDateTime();
-    rv.preview_url = "test6value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesLookupError.h"
@@ -95,15 +97,6 @@ std::unique_ptr<LookupError>  LookupError::factory::create(const QByteArray& dat
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-LookupError LookupError::EXAMPLE(){
-    LookupError rv;
-    rv.malformed_path = "test1value";
-    rv.m_tag = LookupError_MALFORMED_PATH;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

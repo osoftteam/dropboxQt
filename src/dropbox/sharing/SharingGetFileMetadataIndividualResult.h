@@ -1,13 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingSharedFileMetadata.h"
-#include "dropbox/sharing/SharingSharingFileAccessError.h"
 #include "dropbox/sharing/SharingSharingFileAccessError.h"
 
 namespace dropboxQt{
@@ -33,10 +34,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///The result for this file if it was successful.
-        SharedFileMetadata getMetadata()const{DBOX_CHECK_STATE((GetFileMetadataIndividualResult_METADATA == m_tag), "expected tag: GetFileMetadataIndividualResult_METADATA", m_tag);return m_metadata;};
+        SharedFileMetadata getMetadata()const{API_CHECK_STATE((GetFileMetadataIndividualResult_METADATA == m_tag), "expected tag: GetFileMetadataIndividualResult_METADATA", m_tag);return m_metadata;};
 
         ///The result for this file if it was an error.
-        SharingFileAccessError getAccessError()const{DBOX_CHECK_STATE((GetFileMetadataIndividualResult_ACCESS_ERROR == m_tag), "expected tag: GetFileMetadataIndividualResult_ACCESS_ERROR", m_tag);return m_access_error;};
+        SharingFileAccessError getAccessError()const{API_CHECK_STATE((GetFileMetadataIndividualResult_ACCESS_ERROR == m_tag), "expected tag: GetFileMetadataIndividualResult_ACCESS_ERROR", m_tag);return m_access_error;};
 
     public:
         operator QJsonObject ()const;
@@ -52,9 +53,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetFileMetadataIndividualResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

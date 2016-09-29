@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingAddFolderMemberError.h"
@@ -145,18 +147,6 @@ std::unique_ptr<AddFolderMemberError>  AddFolderMemberError::factory::create(con
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-AddFolderMemberError AddFolderMemberError::EXAMPLE(){
-    AddFolderMemberError rv;
-    rv.access_error = sharing::SharedFolderAccessError::EXAMPLE();
-    rv.bad_member = sharing::AddMemberSelectorError::EXAMPLE();
-    rv.too_many_members = 5;
-    rv.too_many_pending_invites = 6;
-    rv.m_tag = AddFolderMemberError_ACCESS_ERROR;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

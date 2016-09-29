@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesPreviewArg.h"
@@ -56,15 +58,6 @@ std::unique_ptr<PreviewArg>  PreviewArg::factory::create(const QJsonObject& js)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-PreviewArg PreviewArg::EXAMPLE(){
-    PreviewArg rv;
-    rv.path = "test1value";
-    rv.rev = "test2value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

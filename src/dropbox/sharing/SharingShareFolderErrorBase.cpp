@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingShareFolderErrorBase.h"
@@ -86,15 +88,6 @@ std::unique_ptr<ShareFolderErrorBase>  ShareFolderErrorBase::factory::create(con
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ShareFolderErrorBase ShareFolderErrorBase::EXAMPLE(){
-    ShareFolderErrorBase rv;
-    rv.bad_path = sharing::SharePathError::EXAMPLE();
-    rv.m_tag = ShareFolderErrorBase_EMAIL_UNVERIFIED;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

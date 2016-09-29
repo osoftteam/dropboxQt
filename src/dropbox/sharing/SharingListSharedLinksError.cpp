@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingListSharedLinksError.h"
@@ -70,15 +72,6 @@ std::unique_ptr<ListSharedLinksError>  ListSharedLinksError::factory::create(con
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ListSharedLinksError ListSharedLinksError::EXAMPLE(){
-    ListSharedLinksError rv;
-    rv.path = files::LookupError::EXAMPLE();
-    rv.m_tag = ListSharedLinksError_PATH;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

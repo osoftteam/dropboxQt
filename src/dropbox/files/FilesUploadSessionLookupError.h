@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesUploadSessionOffsetError.h"
 
 namespace dropboxQt{
@@ -43,7 +45,7 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///The specified offset was incorrect. See the value for the correct offset. (This error may occur when a previous request was received and processed successfully but the client did not receive the response, e.g. due to a network error.)
-        UploadSessionOffsetError getIncorrectOffset()const{DBOX_CHECK_STATE((UploadSessionLookupError_INCORRECT_OFFSET == m_tag), "expected tag: UploadSessionLookupError_INCORRECT_OFFSET", m_tag);return m_incorrect_offset;};
+        UploadSessionOffsetError getIncorrectOffset()const{API_CHECK_STATE((UploadSessionLookupError_INCORRECT_OFFSET == m_tag), "expected tag: UploadSessionLookupError_INCORRECT_OFFSET", m_tag);return m_incorrect_offset;};
 
     public:
         operator QJsonObject ()const;
@@ -59,9 +61,6 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UploadSessionLookupError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

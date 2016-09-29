@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingCreateSharedLinkArg.h"
@@ -57,15 +59,6 @@ std::unique_ptr<CreateSharedLinkArg>  CreateSharedLinkArg::factory::create(const
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-CreateSharedLinkArg CreateSharedLinkArg::EXAMPLE(){
-    CreateSharedLinkArg rv;
-    rv.path = "test1value";
-    rv.pending_upload = sharing::PendingUploadMode::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

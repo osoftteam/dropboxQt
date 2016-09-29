@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team_policies"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team_policies/TeamPoliciesTeamMemberPolicies.h"
@@ -54,15 +56,6 @@ std::unique_ptr<TeamMemberPolicies>  TeamMemberPolicies::factory::create(const Q
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-TeamMemberPolicies TeamMemberPolicies::EXAMPLE(){
-    TeamMemberPolicies rv;
-    rv.sharing = team_policies::TeamSharingPolicies::EXAMPLE();
-    rv.emm_state = team_policies::EmmState::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team_policies
 }//dropboxQt

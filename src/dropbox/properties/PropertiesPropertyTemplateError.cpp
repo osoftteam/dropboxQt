@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "properties"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/properties/PropertiesPropertyTemplateError.h"
@@ -71,15 +73,6 @@ std::unique_ptr<PropertyTemplateError>  PropertyTemplateError::factory::create(c
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-PropertyTemplateError PropertyTemplateError::EXAMPLE(){
-    PropertyTemplateError rv;
-    rv.template_not_found = "test1value";
-    rv.m_tag = PropertyTemplateError_TEMPLATE_NOT_FOUND;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//properties
 }//dropboxQt

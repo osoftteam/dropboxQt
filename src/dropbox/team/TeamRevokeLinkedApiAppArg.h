@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team{
@@ -26,15 +28,22 @@ namespace team{
         { m_app_id = arg; };
 
     public:
-        ///The application's unique id
+            /**
+                The application's unique id
+            */
         QString appId()const{return m_app_id;};
         RevokeLinkedApiAppArg& setAppid(const QString& arg){m_app_id=arg;return *this;};
 
-        ///The unique id of the member owning the device
+            /**
+                The unique id of the member owning the device
+            */
         QString teamMemberId()const{return m_team_member_id;};
         RevokeLinkedApiAppArg& setTeammemberid(const QString& arg){m_team_member_id=arg;return *this;};
 
-        ///Whether to keep the application dedicated folder (in case the application uses  one)
+            /**
+                Whether to keep the application dedicated folder (in case the
+                application uses  one)
+            */
         bool keepAppFolder()const{return m_keep_app_folder;};
         RevokeLinkedApiAppArg& setKeepappfolder(const bool& arg){m_keep_app_folder=arg;return *this;};
 
@@ -52,19 +61,23 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RevokeLinkedApiAppArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The application's unique id
+            /**
+                The application's unique id
+            */
         QString m_app_id;
 
-        ///The unique id of the member owning the device
+            /**
+                The unique id of the member owning the device
+            */
         QString m_team_member_id;
 
-        ///Whether to keep the application dedicated folder (in case the application uses  one)
+            /**
+                Whether to keep the application dedicated folder (in case the
+                application uses  one)
+            */
         bool m_keep_app_folder;
 
     };//RevokeLinkedApiAppArg

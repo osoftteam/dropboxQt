@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "properties"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace properties{
@@ -17,12 +19,15 @@ namespace properties{
     public:
         ListPropertyTemplateIds(){};
 
-        ListPropertyTemplateIds(const std::list <QString>&& arg){ m_template_ids = arg; };
+        ListPropertyTemplateIds(const std::list <QString>& arg){ m_template_ids = arg; };
 
     public:
-        ///List of identifiers for templates added by route properties/template/add.
+            /**
+                List of identifiers for templates added by route
+                properties/template/add.
+            */
         const std::list <QString>& templateIds()const{return m_template_ids;};
-        ListPropertyTemplateIds& setTemplateids(const std::list <QString>&& arg){m_template_ids=arg;return *this;};
+        ListPropertyTemplateIds& setTemplateids(const std::list <QString>& arg){m_template_ids=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -38,13 +43,13 @@ namespace properties{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListPropertyTemplateIds EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///List of identifiers for templates added by route properties/template/add.
+            /**
+                List of identifiers for templates added by route
+                properties/template/add.
+            */
         std::list <QString> m_template_ids;
 
     };//ListPropertyTemplateIds

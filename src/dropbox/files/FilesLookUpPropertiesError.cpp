@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesLookUpPropertiesError.h"
@@ -53,14 +55,6 @@ std::unique_ptr<LookUpPropertiesError>  LookUpPropertiesError::factory::create(c
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-LookUpPropertiesError LookUpPropertiesError::EXAMPLE(){
-    LookUpPropertiesError rv;
-    rv.m_tag = LookUpPropertiesError_PROPERTY_GROUP_NOT_FOUND;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

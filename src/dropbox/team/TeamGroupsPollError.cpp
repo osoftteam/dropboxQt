@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupsPollError.h"
@@ -77,14 +79,6 @@ std::unique_ptr<GroupsPollError>  GroupsPollError::factory::create(const QByteAr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupsPollError GroupsPollError::EXAMPLE(){
-    GroupsPollError rv;
-    rv.m_tag = GroupsPollError_ACCESS_DENIED;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

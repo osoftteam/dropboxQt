@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupsMembersListArg.h"
@@ -54,15 +56,6 @@ std::unique_ptr<GroupsMembersListArg>  GroupsMembersListArg::factory::create(con
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupsMembersListArg GroupsMembersListArg::EXAMPLE(){
-    GroupsMembersListArg rv;
-    rv.group = team::GroupSelector::EXAMPLE();
-    rv.limit = 2;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

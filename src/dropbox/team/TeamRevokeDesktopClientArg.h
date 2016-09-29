@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamDeviceSessionArg.h"
 
 namespace dropboxQt{
@@ -26,7 +28,11 @@ namespace team{
         { m_delete_on_unlink = arg; };
 
     public:
-        ///Whether to delete all files of the account (this is possible only if supported by the desktop client and  will be made the next time the client access the account)
+            /**
+                Whether to delete all files of the account (this is possible
+                only if supported by the desktop client and  will be made the
+                next time the client access the account)
+            */
         bool deleteOnUnlink()const{return m_delete_on_unlink;};
         RevokeDesktopClientArg& setDeleteonunlink(const bool& arg){m_delete_on_unlink=arg;return *this;};
 
@@ -44,13 +50,14 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RevokeDesktopClientArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Whether to delete all files of the account (this is possible only if supported by the desktop client and  will be made the next time the client access the account)
+            /**
+                Whether to delete all files of the account (this is possible
+                only if supported by the desktop client and  will be made the
+                next time the client access the account)
+            */
         bool m_delete_on_unlink;
 
     };//RevokeDesktopClientArg

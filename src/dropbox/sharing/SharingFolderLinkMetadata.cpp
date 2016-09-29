@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingFolderLinkMetadata.h"
@@ -52,13 +54,6 @@ std::unique_ptr<FolderLinkMetadata>  FolderLinkMetadata::factory::create(const Q
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-FolderLinkMetadata FolderLinkMetadata::EXAMPLE(){
-    FolderLinkMetadata rv;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

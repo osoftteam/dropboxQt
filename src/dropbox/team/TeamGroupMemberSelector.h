@@ -1,13 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamGroupSelector.h"
-#include "dropbox/team/TeamGroupSelector.h"
-#include "dropbox/team/TeamUserSelectorArg.h"
 #include "dropbox/team/TeamUserSelectorArg.h"
 
 namespace dropboxQt{
@@ -26,11 +26,15 @@ namespace team{
         GroupMemberSelector(const GroupSelector& arg){ m_group = arg; };
 
     public:
-        ///Specify a group.
+            /**
+                Specify a group.
+            */
         GroupSelector group()const{return m_group;};
         GroupMemberSelector& setGroup(const GroupSelector& arg){m_group=arg;return *this;};
 
-        ///Identity of a user that is a member of :field:`group`.
+            /**
+                Identity of a user that is a member of ``group``.
+            */
         UserSelectorArg user()const{return m_user;};
         GroupMemberSelector& setUser(const UserSelectorArg& arg){m_user=arg;return *this;};
 
@@ -48,16 +52,17 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GroupMemberSelector EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Specify a group.
+            /**
+                Specify a group.
+            */
         GroupSelector m_group;
 
-        ///Identity of a user that is a member of :field:`group`.
+            /**
+                Identity of a user that is a member of ``group``.
+            */
         UserSelectorArg m_user;
 
     };//GroupMemberSelector

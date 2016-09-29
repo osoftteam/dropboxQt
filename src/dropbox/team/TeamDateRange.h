@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team{
@@ -22,11 +24,15 @@ namespace team{
         DateRange(const QDateTime& arg){ m_start_date = arg; };
 
     public:
-        ///Optional starting date (inclusive)
+            /**
+                Optional starting date (inclusive)
+            */
         QDateTime startDate()const{return m_start_date;};
         DateRange& setStartdate(const QDateTime& arg){m_start_date=arg;return *this;};
 
-        ///Optional ending date (exclusive)
+            /**
+                Optional ending date (exclusive)
+            */
         QDateTime endDate()const{return m_end_date;};
         DateRange& setEnddate(const QDateTime& arg){m_end_date=arg;return *this;};
 
@@ -44,16 +50,17 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static DateRange EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Optional starting date (inclusive)
+            /**
+                Optional starting date (inclusive)
+            */
         QDateTime m_start_date;
 
-        ///Optional ending date (exclusive)
+            /**
+                Optional ending date (exclusive)
+            */
         QDateTime m_end_date;
 
     };//DateRange

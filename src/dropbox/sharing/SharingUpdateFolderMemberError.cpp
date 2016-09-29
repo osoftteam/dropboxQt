@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingUpdateFolderMemberError.h"
@@ -96,17 +98,6 @@ std::unique_ptr<UpdateFolderMemberError>  UpdateFolderMemberError::factory::crea
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-UpdateFolderMemberError UpdateFolderMemberError::EXAMPLE(){
-    UpdateFolderMemberError rv;
-    rv.access_error = sharing::SharedFolderAccessError::EXAMPLE();
-    rv.member_error = sharing::SharedFolderMemberError::EXAMPLE();
-    rv.no_explicit_access = sharing::AddFolderMemberError::EXAMPLE();
-    rv.m_tag = UpdateFolderMemberError_ACCESS_ERROR;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

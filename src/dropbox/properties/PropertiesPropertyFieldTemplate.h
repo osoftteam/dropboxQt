@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "properties"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/properties/PropertiesPropertyType.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/properties/PropertiesPropertyType.h"
 
 namespace dropboxQt{
@@ -31,15 +32,24 @@ namespace properties{
         PropertyFieldTemplate(const QString& arg){ m_name = arg; };
 
     public:
-        ///This is the name or key of a custom property in a property template. File property names can be up to 256 bytes.
+            /**
+                This is the name or key of a custom property in a property
+                template. File property names can be up to 256 bytes.
+            */
         QString name()const{return m_name;};
         PropertyFieldTemplate& setName(const QString& arg){m_name=arg;return *this;};
 
-        ///This is the description for a custom property in a property template. File property description can be up to 1024 bytes.
+            /**
+                This is the description for a custom property in a property
+                template. File property description can be up to 1024 bytes.
+            */
         QString description()const{return m_description;};
         PropertyFieldTemplate& setDescription(const QString& arg){m_description=arg;return *this;};
 
-        ///This is the data type of the value of this property. This type will be enforced upon property creation and modifications.
+            /**
+                This is the data type of the value of this property. This type
+                will be enforced upon property creation and modifications.
+            */
         PropertyType type()const{return m_type;};
         PropertyFieldTemplate& setType(const PropertyType& arg){m_type=arg;return *this;};
 
@@ -57,19 +67,25 @@ namespace properties{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static PropertyFieldTemplate EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///This is the name or key of a custom property in a property template. File property names can be up to 256 bytes.
+            /**
+                This is the name or key of a custom property in a property
+                template. File property names can be up to 256 bytes.
+            */
         QString m_name;
 
-        ///This is the description for a custom property in a property template. File property description can be up to 1024 bytes.
+            /**
+                This is the description for a custom property in a property
+                template. File property description can be up to 1024 bytes.
+            */
         QString m_description;
 
-        ///This is the data type of the value of this property. This type will be enforced upon property creation and modifications.
+            /**
+                This is the data type of the value of this property. This type
+                will be enforced upon property creation and modifications.
+            */
         PropertyType m_type;
 
     };//PropertyFieldTemplate

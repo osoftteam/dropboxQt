@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -20,11 +22,15 @@ namespace files{
         RestoreArg(const QString& arg){ m_path = arg; };
 
     public:
-        ///The path to the file you want to restore.
+            /**
+                The path to the file you want to restore.
+            */
         QString path()const{return m_path;};
         RestoreArg& setPath(const QString& arg){m_path=arg;return *this;};
 
-        ///The revision to restore for the file.
+            /**
+                The revision to restore for the file.
+            */
         QString rev()const{return m_rev;};
         RestoreArg& setRev(const QString& arg){m_rev=arg;return *this;};
 
@@ -42,16 +48,17 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RestoreArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The path to the file you want to restore.
+            /**
+                The path to the file you want to restore.
+            */
         QString m_path;
 
-        ///The revision to restore for the file.
+            /**
+                The revision to restore for the file.
+            */
         QString m_rev;
 
     };//RestoreArg

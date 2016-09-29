@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingSharingUserError.h"
@@ -61,14 +63,6 @@ std::unique_ptr<SharingUserError>  SharingUserError::factory::create(const QByte
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SharingUserError SharingUserError::EXAMPLE(){
-    SharingUserError rv;
-    rv.m_tag = SharingUserError_EMAIL_UNVERIFIED;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

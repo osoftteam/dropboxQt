@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingSharedFolderMetadata.h"
 
 namespace dropboxQt{
@@ -65,7 +67,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///Folder is already shared. Contains metadata about the existing shared folder.
-        SharedFolderMetadata getAlreadyShared()const{DBOX_CHECK_STATE((SharePathError_ALREADY_SHARED == m_tag), "expected tag: SharePathError_ALREADY_SHARED", m_tag);return m_already_shared;};
+        SharedFolderMetadata getAlreadyShared()const{API_CHECK_STATE((SharePathError_ALREADY_SHARED == m_tag), "expected tag: SharePathError_ALREADY_SHARED", m_tag);return m_already_shared;};
 
     public:
         operator QJsonObject ()const;
@@ -81,9 +83,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static SharePathError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

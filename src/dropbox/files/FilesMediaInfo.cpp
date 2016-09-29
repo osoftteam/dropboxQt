@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesMediaInfo.h"
@@ -62,15 +64,6 @@ std::unique_ptr<MediaInfo>  MediaInfo::factory::create(const QByteArray& data)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-MediaInfo MediaInfo::EXAMPLE(){
-    MediaInfo rv;
-    rv.metadata = files::MediaMetadata::EXAMPLE();
-    rv.m_tag = MediaInfo_PENDING;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

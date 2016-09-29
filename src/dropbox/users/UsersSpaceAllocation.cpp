@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/users/UsersSpaceAllocation.h"
@@ -71,16 +73,6 @@ std::unique_ptr<SpaceAllocation>  SpaceAllocation::factory::create(const QByteAr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SpaceAllocation SpaceAllocation::EXAMPLE(){
-    SpaceAllocation rv;
-    rv.individual = users::IndividualSpaceAllocation::EXAMPLE();
-    rv.team = users::TeamSpaceAllocation::EXAMPLE();
-    rv.m_tag = SpaceAllocation_INDIVIDUAL;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//users
 }//dropboxQt

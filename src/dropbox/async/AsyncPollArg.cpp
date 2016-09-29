@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "async"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/async/AsyncPollArg.h"
@@ -53,14 +55,6 @@ std::unique_ptr<PollArg>  PollArg::factory::create(const QJsonObject& js)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-PollArg PollArg::EXAMPLE(){
-    PollArg rv;
-    rv.async_job_id = "test1value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//async
 }//dropboxQt

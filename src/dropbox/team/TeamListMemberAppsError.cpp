@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamListMemberAppsError.h"
@@ -61,14 +63,6 @@ std::unique_ptr<ListMemberAppsError>  ListMemberAppsError::factory::create(const
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ListMemberAppsError ListMemberAppsError::EXAMPLE(){
-    ListMemberAppsError rv;
-    rv.m_tag = ListMemberAppsError_MEMBER_NOT_FOUND;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

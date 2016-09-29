@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesUploadSessionFinishBatchJobStatus.h"
@@ -62,15 +64,6 @@ std::unique_ptr<UploadSessionFinishBatchJobStatus>  UploadSessionFinishBatchJobS
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-UploadSessionFinishBatchJobStatus UploadSessionFinishBatchJobStatus::EXAMPLE(){
-    UploadSessionFinishBatchJobStatus rv;
-    rv.complete = files::UploadSessionFinishBatchResult::EXAMPLE();
-    rv.m_tag = UploadSessionFinishBatchJobStatus_COMPLETE;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

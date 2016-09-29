@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/team/TeamAdminTier.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamAdminTier.h"
 
 namespace dropboxQt{
@@ -34,27 +35,37 @@ namespace team{
         { m_member_email = arg; };
 
     public:
-        ///None
         QString memberEmail()const{return m_member_email;};
         MemberAddArg& setMemberemail(const QString& arg){m_member_email=arg;return *this;};
 
-        ///Member's first name.
+            /**
+                Member's first name.
+            */
         QString memberGivenName()const{return m_member_given_name;};
         MemberAddArg& setMembergivenname(const QString& arg){m_member_given_name=arg;return *this;};
 
-        ///Member's last name.
+            /**
+                Member's last name.
+            */
         QString memberSurname()const{return m_member_surname;};
         MemberAddArg& setMembersurname(const QString& arg){m_member_surname=arg;return *this;};
 
-        ///External ID for member.
+            /**
+                External ID for member.
+            */
         QString memberExternalId()const{return m_member_external_id;};
         MemberAddArg& setMemberexternalid(const QString& arg){m_member_external_id=arg;return *this;};
 
-        ///Whether to send a welcome email to the member. If send_welcome_email is false, no email invitation will be sent to the user. This may be useful for apps using single sign-on (SSO) flows for onboarding that want to handle announcements themselves.
+            /**
+                Whether to send a welcome email to the member. If
+                send_welcome_email is false, no email invitation will be sent to
+                the user. This may be useful for apps using single sign-on (SSO)
+                flows for onboarding that want to handle announcements
+                themselves.
+            */
         bool sendWelcomeEmail()const{return m_send_welcome_email;};
         MemberAddArg& setSendwelcomeemail(const bool& arg){m_send_welcome_email=arg;return *this;};
 
-        ///None
         AdminTier role()const{return m_role;};
         MemberAddArg& setRole(const AdminTier& arg){m_role=arg;return *this;};
 
@@ -72,28 +83,35 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MemberAddArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///None
         QString m_member_email;
 
-        ///Member's first name.
+            /**
+                Member's first name.
+            */
         QString m_member_given_name;
 
-        ///Member's last name.
+            /**
+                Member's last name.
+            */
         QString m_member_surname;
 
-        ///External ID for member.
+            /**
+                External ID for member.
+            */
         QString m_member_external_id;
 
-        ///Whether to send a welcome email to the member. If send_welcome_email is false, no email invitation will be sent to the user. This may be useful for apps using single sign-on (SSO) flows for onboarding that want to handle announcements themselves.
+            /**
+                Whether to send a welcome email to the member. If
+                send_welcome_email is false, no email invitation will be sent to
+                the user. This may be useful for apps using single sign-on (SSO)
+                flows for onboarding that want to handle announcements
+                themselves.
+            */
         bool m_send_welcome_email;
 
-        ///None
         AdminTier m_role;
 
     };//MemberAddArg

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingMemberSelector.h"
@@ -73,16 +75,6 @@ std::unique_ptr<MemberSelector>  MemberSelector::factory::create(const QByteArra
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-MemberSelector MemberSelector::EXAMPLE(){
-    MemberSelector rv;
-    rv.dropbox_id = "test1value";
-    rv.email = "test2value";
-    rv.m_tag = MemberSelector_DROPBOX_ID;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

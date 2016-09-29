@@ -1,13 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingMemberSelector.h"
-#include "dropbox/sharing/SharingMemberSelector.h"
-#include "dropbox/sharing/SharingFileMemberActionIndividualResult.h"
 #include "dropbox/sharing/SharingFileMemberActionIndividualResult.h"
 
 namespace dropboxQt{
@@ -27,10 +27,14 @@ namespace sharing{
         FileMemberActionResult(const MemberSelector& arg){ m_member = arg; };
 
     public:
-        ///One of specified input members.
+            /**
+                One of specified input members.
+            */
         MemberSelector member()const{return m_member;};
 
-        ///The outcome of the action on this member.
+            /**
+                The outcome of the action on this member.
+            */
         FileMemberActionIndividualResult result()const{return m_result;};
 
     public:
@@ -47,16 +51,17 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static FileMemberActionResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///One of specified input members.
+            /**
+                One of specified input members.
+            */
         MemberSelector m_member;
 
-        ///The outcome of the action on this member.
+            /**
+                The outcome of the action on this member.
+            */
         FileMemberActionIndividualResult m_result;
 
     };//FileMemberActionResult

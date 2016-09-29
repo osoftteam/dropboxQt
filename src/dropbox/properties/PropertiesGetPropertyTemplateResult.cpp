@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "properties"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/properties/PropertiesGetPropertyTemplateResult.h"
@@ -52,13 +54,6 @@ std::unique_ptr<GetPropertyTemplateResult>  GetPropertyTemplateResult::factory::
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GetPropertyTemplateResult GetPropertyTemplateResult::EXAMPLE(){
-    GetPropertyTemplateResult rv;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//properties
 }//dropboxQt

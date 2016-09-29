@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamRevokeLinkedApiAppBatchArg.h"
@@ -52,13 +54,6 @@ std::unique_ptr<RevokeLinkedApiAppBatchArg>  RevokeLinkedApiAppBatchArg::factory
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RevokeLinkedApiAppBatchArg RevokeLinkedApiAppBatchArg::EXAMPLE(){
-    RevokeLinkedApiAppBatchArg rv;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesPreviewError.h"
@@ -78,15 +80,6 @@ std::unique_ptr<PreviewError>  PreviewError::factory::create(const QByteArray& d
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-PreviewError PreviewError::EXAMPLE(){
-    PreviewError rv;
-    rv.path = files::LookupError::EXAMPLE();
-    rv.m_tag = PreviewError_PATH;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -20,7 +22,10 @@ namespace files{
         ListFolderGetLatestCursorResult(const QString& arg){ m_cursor = arg; };
 
     public:
-        ///Pass the cursor into :route:`list_folder/continue` to see what's changed in the folder since your previous query.
+            /**
+                Pass the cursor into :meth:`list_folder_continue` to see what's
+                changed in the folder since your previous query.
+            */
         QString cursor()const{return m_cursor;};
 
     public:
@@ -37,13 +42,13 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFolderGetLatestCursorResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Pass the cursor into :route:`list_folder/continue` to see what's changed in the folder since your previous query.
+            /**
+                Pass the cursor into :meth:`list_folder_continue` to see what's
+                changed in the folder since your previous query.
+            */
         QString m_cursor;
 
     };//ListFolderGetLatestCursorResult

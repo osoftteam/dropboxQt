@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/users/UsersIndividualSpaceAllocation.h"
@@ -52,14 +54,6 @@ std::unique_ptr<IndividualSpaceAllocation>  IndividualSpaceAllocation::factory::
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-IndividualSpaceAllocation IndividualSpaceAllocation::EXAMPLE(){
-    IndividualSpaceAllocation rv;
-    rv.allocated = 1;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//users
 }//dropboxQt

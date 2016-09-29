@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/sharing/SharingMemberSelector.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingMemberSelector.h"
 
 namespace dropboxQt{
@@ -27,11 +28,18 @@ namespace sharing{
         RemoveFileMemberArg(const QString& arg){ m_file = arg; };
 
     public:
-        ///File from which to remove members.
+            /**
+                File from which to remove members.
+            */
         QString file()const{return m_file;};
         RemoveFileMemberArg& setFile(const QString& arg){m_file=arg;return *this;};
 
-        ///Member to remove from this file. Note that even if an email is specified, it may result in the removal of a user (not an invitee) if the user's main account corresponds to that email address.
+            /**
+                Member to remove from this file. Note that even if an email is
+                specified, it may result in the removal of a user (not an
+                invitee) if the user's main account corresponds to that email
+                address.
+            */
         MemberSelector member()const{return m_member;};
         RemoveFileMemberArg& setMember(const MemberSelector& arg){m_member=arg;return *this;};
 
@@ -49,16 +57,20 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RemoveFileMemberArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///File from which to remove members.
+            /**
+                File from which to remove members.
+            */
         QString m_file;
 
-        ///Member to remove from this file. Note that even if an email is specified, it may result in the removal of a user (not an invitee) if the user's main account corresponds to that email address.
+            /**
+                Member to remove from this file. Note that even if an email is
+                specified, it may result in the removal of a user (not an
+                invitee) if the user's main account corresponds to that email
+                address.
+            */
         MemberSelector m_member;
 
     };//RemoveFileMemberArg

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupMemberSelectorError.h"
@@ -69,14 +71,6 @@ std::unique_ptr<GroupMemberSelectorError>  GroupMemberSelectorError::factory::cr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupMemberSelectorError GroupMemberSelectorError::EXAMPLE(){
-    GroupMemberSelectorError rv;
-    rv.m_tag = GroupMemberSelectorError_MEMBER_NOT_IN_GROUP;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

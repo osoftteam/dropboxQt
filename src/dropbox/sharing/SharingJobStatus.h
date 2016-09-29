@@ -1,13 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/async/AsyncPollResultBase.h"
-#include "dropbox/sharing/SharingJobError.h"
 #include "dropbox/sharing/SharingJobError.h"
 
 namespace dropboxQt{
@@ -33,7 +34,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///The asynchronous job returned an error.
-        JobError getFailed()const{DBOX_CHECK_STATE((JobStatus_FAILED == m_tag), "expected tag: JobStatus_FAILED", m_tag);return m_failed;};
+        JobError getFailed()const{API_CHECK_STATE((JobStatus_FAILED == m_tag), "expected tag: JobStatus_FAILED", m_tag);return m_failed;};
 
     public:
         operator QJsonObject ()const;
@@ -49,9 +50,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static JobStatus EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

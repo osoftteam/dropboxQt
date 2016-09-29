@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamApiApp.h"
@@ -67,18 +69,6 @@ std::unique_ptr<ApiApp>  ApiApp::factory::create(const QJsonObject& js)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ApiApp ApiApp::EXAMPLE(){
-    ApiApp rv;
-    rv.app_id = "test1value";
-    rv.app_name = "test2value";
-    rv.publisher = "test3value";
-    rv.publisher_url = "test4value";
-    rv.linked = QDateTime::currentDateTime();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

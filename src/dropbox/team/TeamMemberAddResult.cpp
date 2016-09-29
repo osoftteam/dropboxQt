@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamMemberAddResult.h"
@@ -134,23 +136,6 @@ std::unique_ptr<MemberAddResult>  MemberAddResult::factory::create(const QByteAr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-MemberAddResult MemberAddResult::EXAMPLE(){
-    MemberAddResult rv;
-    rv.success = team::TeamMemberInfo::EXAMPLE();
-    rv.team_license_limit = "test2value";
-    rv.free_team_member_limit_reached = "test3value";
-    rv.user_already_on_team = "test4value";
-    rv.user_on_another_team = "test5value";
-    rv.user_already_paired = "test6value";
-    rv.user_migration_failed = "test7value";
-    rv.duplicate_external_member_id = "test8value";
-    rv.user_creation_failed = "test9value";
-    rv.m_tag = MemberAddResult_SUCCESS;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

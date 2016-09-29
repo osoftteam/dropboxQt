@@ -1,14 +1,15 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamDeviceSessionArg.h"
 #include "dropbox/team/TeamRevokeDesktopClientArg.h"
-#include "dropbox/team/TeamDeviceSessionArg.h"
 
 namespace dropboxQt{
 namespace team{
@@ -34,13 +35,13 @@ namespace team{
 
         Tag tag()const{return m_tag;}
         ///End an active session
-        DeviceSessionArg getWebSession()const{DBOX_CHECK_STATE((RevokeDeviceSessionArg_WEB_SESSION == m_tag), "expected tag: RevokeDeviceSessionArg_WEB_SESSION", m_tag);return m_web_session;};
+        DeviceSessionArg getWebSession()const{API_CHECK_STATE((RevokeDeviceSessionArg_WEB_SESSION == m_tag), "expected tag: RevokeDeviceSessionArg_WEB_SESSION", m_tag);return m_web_session;};
 
         ///Unlink a linked desktop device
-        RevokeDesktopClientArg getDesktopClient()const{DBOX_CHECK_STATE((RevokeDeviceSessionArg_DESKTOP_CLIENT == m_tag), "expected tag: RevokeDeviceSessionArg_DESKTOP_CLIENT", m_tag);return m_desktop_client;};
+        RevokeDesktopClientArg getDesktopClient()const{API_CHECK_STATE((RevokeDeviceSessionArg_DESKTOP_CLIENT == m_tag), "expected tag: RevokeDeviceSessionArg_DESKTOP_CLIENT", m_tag);return m_desktop_client;};
 
         ///Unlink a linked mobile device
-        DeviceSessionArg getMobileClient()const{DBOX_CHECK_STATE((RevokeDeviceSessionArg_MOBILE_CLIENT == m_tag), "expected tag: RevokeDeviceSessionArg_MOBILE_CLIENT", m_tag);return m_mobile_client;};
+        DeviceSessionArg getMobileClient()const{API_CHECK_STATE((RevokeDeviceSessionArg_MOBILE_CLIENT == m_tag), "expected tag: RevokeDeviceSessionArg_MOBILE_CLIENT", m_tag);return m_mobile_client;};
 
     public:
         operator QJsonObject ()const;
@@ -56,9 +57,6 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RevokeDeviceSessionArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesGetCopyReferenceResult.h"
@@ -58,16 +60,6 @@ std::unique_ptr<GetCopyReferenceResult>  GetCopyReferenceResult::factory::create
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GetCopyReferenceResult GetCopyReferenceResult::EXAMPLE(){
-    GetCopyReferenceResult rv;
-    rv.metadata = files::Metadata::EXAMPLE();
-    rv.copy_reference = "test2value";
-    rv.expires = QDateTime::currentDateTime();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

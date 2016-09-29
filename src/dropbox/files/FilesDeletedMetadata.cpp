@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesDeletedMetadata.h"
@@ -52,13 +54,6 @@ std::unique_ptr<DeletedMetadata>  DeletedMetadata::factory::create(const QJsonOb
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-DeletedMetadata DeletedMetadata::EXAMPLE(){
-    DeletedMetadata rv;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

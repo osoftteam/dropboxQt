@@ -1,14 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingSharedFolderAccessError.h"
-#include "dropbox/sharing/SharingSharedFolderAccessError.h"
-#include "dropbox/sharing/SharingSharedFolderMemberError.h"
 #include "dropbox/sharing/SharingSharedFolderMemberError.h"
 
 namespace dropboxQt{
@@ -49,10 +49,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///None
-        SharedFolderAccessError getAccessError()const{DBOX_CHECK_STATE((RemoveFolderMemberError_ACCESS_ERROR == m_tag), "expected tag: RemoveFolderMemberError_ACCESS_ERROR", m_tag);return m_access_error;};
+        SharedFolderAccessError getAccessError()const{API_CHECK_STATE((RemoveFolderMemberError_ACCESS_ERROR == m_tag), "expected tag: RemoveFolderMemberError_ACCESS_ERROR", m_tag);return m_access_error;};
 
         ///None
-        SharedFolderMemberError getMemberError()const{DBOX_CHECK_STATE((RemoveFolderMemberError_MEMBER_ERROR == m_tag), "expected tag: RemoveFolderMemberError_MEMBER_ERROR", m_tag);return m_member_error;};
+        SharedFolderMemberError getMemberError()const{API_CHECK_STATE((RemoveFolderMemberError_MEMBER_ERROR == m_tag), "expected tag: RemoveFolderMemberError_MEMBER_ERROR", m_tag);return m_member_error;};
 
     public:
         operator QJsonObject ()const;
@@ -68,9 +68,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RemoveFolderMemberError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

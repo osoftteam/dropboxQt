@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupMembersAddError.h"
@@ -112,14 +114,6 @@ std::unique_ptr<GroupMembersAddError>  GroupMembersAddError::factory::create(con
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupMembersAddError GroupMembersAddError::EXAMPLE(){
-    GroupMembersAddError rv;
-    rv.m_tag = GroupMembersAddError_DUPLICATE_USER;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

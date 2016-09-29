@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesCommitInfoWithProperties.h"
@@ -54,13 +56,6 @@ std::unique_ptr<CommitInfoWithProperties>  CommitInfoWithProperties::factory::cr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-CommitInfoWithProperties CommitInfoWithProperties::EXAMPLE(){
-    CommitInfoWithProperties rv;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

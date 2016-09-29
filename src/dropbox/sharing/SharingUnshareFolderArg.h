@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace sharing{
@@ -27,11 +29,18 @@ namespace sharing{
         { m_shared_folder_id = arg; };
 
     public:
-        ///The ID for the shared folder.
+            /**
+                The ID for the shared folder.
+            */
         QString sharedFolderId()const{return m_shared_folder_id;};
         UnshareFolderArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg;return *this;};
 
-        ///If true, members of this shared folder will get a copy of this folder after it's unshared. Otherwise, it will be removed from their Dropbox. The current user, who is an owner, will always retain their copy.
+            /**
+                If true, members of this shared folder will get a copy of this
+                folder after it's unshared. Otherwise, it will be removed from
+                their Dropbox. The current user, who is an owner, will always
+                retain their copy.
+            */
         bool leaveACopy()const{return m_leave_a_copy;};
         UnshareFolderArg& setLeaveacopy(const bool& arg){m_leave_a_copy=arg;return *this;};
 
@@ -49,16 +58,20 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UnshareFolderArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The ID for the shared folder.
+            /**
+                The ID for the shared folder.
+            */
         QString m_shared_folder_id;
 
-        ///If true, members of this shared folder will get a copy of this folder after it's unshared. Otherwise, it will be removed from their Dropbox. The current user, who is an owner, will always retain their copy.
+            /**
+                If true, members of this shared folder will get a copy of this
+                folder after it's unshared. Otherwise, it will be removed from
+                their Dropbox. The current user, who is an owner, will always
+                retain their copy.
+            */
         bool m_leave_a_copy;
 
     };//UnshareFolderArg

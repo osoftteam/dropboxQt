@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team_common"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team_common/TeamCommonGroupType.h"
@@ -69,14 +71,6 @@ std::unique_ptr<GroupType>  GroupType::factory::create(const QByteArray& data)
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupType GroupType::EXAMPLE(){
-    GroupType rv;
-    rv.m_tag = GroupType_TEAM;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team_common
 }//dropboxQt

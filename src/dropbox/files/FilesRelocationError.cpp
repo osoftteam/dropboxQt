@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesRelocationError.h"
@@ -112,17 +114,6 @@ std::unique_ptr<RelocationError>  RelocationError::factory::create(const QByteAr
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RelocationError RelocationError::EXAMPLE(){
-    RelocationError rv;
-    rv.from_lookup = files::LookupError::EXAMPLE();
-    rv.from_write = files::WriteError::EXAMPLE();
-    rv.to = files::WriteError::EXAMPLE();
-    rv.m_tag = RelocationError_FROM_LOOKUP;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

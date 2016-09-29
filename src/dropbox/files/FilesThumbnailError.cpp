@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesThumbnailError.h"
@@ -78,15 +80,6 @@ std::unique_ptr<ThumbnailError>  ThumbnailError::factory::create(const QByteArra
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ThumbnailError ThumbnailError::EXAMPLE(){
-    ThumbnailError rv;
-    rv.path = files::LookupError::EXAMPLE();
-    rv.m_tag = ThumbnailError_PATH;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

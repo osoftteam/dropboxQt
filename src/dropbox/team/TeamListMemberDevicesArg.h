@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team{
@@ -33,19 +35,27 @@ namespace team{
         { m_team_member_id = arg; };
 
     public:
-        ///The team's member id
+            /**
+                The team's member id
+            */
         QString teamMemberId()const{return m_team_member_id;};
         ListMemberDevicesArg& setTeammemberid(const QString& arg){m_team_member_id=arg;return *this;};
 
-        ///Whether to list web sessions of the team's member
+            /**
+                Whether to list web sessions of the team's member
+            */
         bool includeWebSessions()const{return m_include_web_sessions;};
         ListMemberDevicesArg& setIncludewebsessions(const bool& arg){m_include_web_sessions=arg;return *this;};
 
-        ///Whether to list linked desktop devices of the team's member
+            /**
+                Whether to list linked desktop devices of the team's member
+            */
         bool includeDesktopClients()const{return m_include_desktop_clients;};
         ListMemberDevicesArg& setIncludedesktopclients(const bool& arg){m_include_desktop_clients=arg;return *this;};
 
-        ///Whether to list linked mobile devices of the team's member
+            /**
+                Whether to list linked mobile devices of the team's member
+            */
         bool includeMobileClients()const{return m_include_mobile_clients;};
         ListMemberDevicesArg& setIncludemobileclients(const bool& arg){m_include_mobile_clients=arg;return *this;};
 
@@ -63,22 +73,27 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListMemberDevicesArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The team's member id
+            /**
+                The team's member id
+            */
         QString m_team_member_id;
 
-        ///Whether to list web sessions of the team's member
+            /**
+                Whether to list web sessions of the team's member
+            */
         bool m_include_web_sessions;
 
-        ///Whether to list linked desktop devices of the team's member
+            /**
+                Whether to list linked desktop devices of the team's member
+            */
         bool m_include_desktop_clients;
 
-        ///Whether to list linked mobile devices of the team's member
+            /**
+                Whether to list linked mobile devices of the team's member
+            */
         bool m_include_mobile_clients;
 
     };//ListMemberDevicesArg

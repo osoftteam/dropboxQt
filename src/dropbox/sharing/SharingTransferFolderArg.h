@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace sharing{
@@ -21,11 +23,15 @@ namespace sharing{
         TransferFolderArg(const QString& arg){ m_shared_folder_id = arg; };
 
     public:
-        ///The ID for the shared folder.
+            /**
+                The ID for the shared folder.
+            */
         QString sharedFolderId()const{return m_shared_folder_id;};
         TransferFolderArg& setSharedfolderid(const QString& arg){m_shared_folder_id=arg;return *this;};
 
-        ///A account or team member ID to transfer ownership to.
+            /**
+                A account or team member ID to transfer ownership to.
+            */
         QString toDropboxId()const{return m_to_dropbox_id;};
         TransferFolderArg& setTodropboxid(const QString& arg){m_to_dropbox_id=arg;return *this;};
 
@@ -43,16 +49,17 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static TransferFolderArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The ID for the shared folder.
+            /**
+                The ID for the shared folder.
+            */
         QString m_shared_folder_id;
 
-        ///A account or team member ID to transfer ownership to.
+            /**
+                A account or team member ID to transfer ownership to.
+            */
         QString m_to_dropbox_id;
 
     };//TransferFolderArg

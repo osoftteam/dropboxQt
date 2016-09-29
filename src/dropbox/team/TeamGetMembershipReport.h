@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamBaseDfbReport.h"
 
 namespace dropboxQt{
@@ -29,28 +31,38 @@ namespace team{
     public:
         GetMembershipReport(){};
 
-        GetMembershipReport(const std::list <int>&& arg){ m_team_size = arg; };
+        GetMembershipReport(const std::list <int>& arg){ m_team_size = arg; };
 
     public:
-        ///Team size, for each day.
+            /**
+                Team size, for each day.
+            */
         const std::list <int>& teamSize()const{return m_team_size;};
-        GetMembershipReport& setTeamsize(const std::list <int>&& arg){m_team_size=arg;return *this;};
+        GetMembershipReport& setTeamsize(const std::list <int>& arg){m_team_size=arg;return *this;};
 
-        ///The number of pending invites to the team, for each day.
+            /**
+                The number of pending invites to the team, for each day.
+            */
         const std::list <int>& pendingInvites()const{return m_pending_invites;};
-        GetMembershipReport& setPendinginvites(const std::list <int>&& arg){m_pending_invites=arg;return *this;};
+        GetMembershipReport& setPendinginvites(const std::list <int>& arg){m_pending_invites=arg;return *this;};
 
-        ///The number of members that joined the team, for each day.
+            /**
+                The number of members that joined the team, for each day.
+            */
         const std::list <int>& membersJoined()const{return m_members_joined;};
-        GetMembershipReport& setMembersjoined(const std::list <int>&& arg){m_members_joined=arg;return *this;};
+        GetMembershipReport& setMembersjoined(const std::list <int>& arg){m_members_joined=arg;return *this;};
 
-        ///The number of suspended team members, for each day.
+            /**
+                The number of suspended team members, for each day.
+            */
         const std::list <int>& suspendedMembers()const{return m_suspended_members;};
-        GetMembershipReport& setSuspendedmembers(const std::list <int>&& arg){m_suspended_members=arg;return *this;};
+        GetMembershipReport& setSuspendedmembers(const std::list <int>& arg){m_suspended_members=arg;return *this;};
 
-        ///The total number of licenses the team has, for each day.
+            /**
+                The total number of licenses the team has, for each day.
+            */
         const std::list <int>& licenses()const{return m_licenses;};
-        GetMembershipReport& setLicenses(const std::list <int>&& arg){m_licenses=arg;return *this;};
+        GetMembershipReport& setLicenses(const std::list <int>& arg){m_licenses=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -66,25 +78,32 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetMembershipReport EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Team size, for each day.
+            /**
+                Team size, for each day.
+            */
         std::list <int> m_team_size;
 
-        ///The number of pending invites to the team, for each day.
+            /**
+                The number of pending invites to the team, for each day.
+            */
         std::list <int> m_pending_invites;
 
-        ///The number of members that joined the team, for each day.
+            /**
+                The number of members that joined the team, for each day.
+            */
         std::list <int> m_members_joined;
 
-        ///The number of suspended team members, for each day.
+            /**
+                The number of suspended team members, for each day.
+            */
         std::list <int> m_suspended_members;
 
-        ///The total number of licenses the team has, for each day.
+            /**
+                The total number of licenses the team has, for each day.
+            */
         std::list <int> m_licenses;
 
     };//GetMembershipReport

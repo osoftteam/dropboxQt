@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/team/TeamAdminTier.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamAdminTier.h"
 
 namespace dropboxQt{
@@ -23,10 +24,14 @@ namespace team{
         MembersSetPermissionsResult(const QString& arg){ m_team_member_id = arg; };
 
     public:
-        ///The member ID of the user to which the change was applied.
+            /**
+                The member ID of the user to which the change was applied.
+            */
         QString teamMemberId()const{return m_team_member_id;};
 
-        ///The role after the change.
+            /**
+                The role after the change.
+            */
         AdminTier role()const{return m_role;};
 
     public:
@@ -43,16 +48,17 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MembersSetPermissionsResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The member ID of the user to which the change was applied.
+            /**
+                The member ID of the user to which the change was applied.
+            */
         QString m_team_member_id;
 
-        ///The role after the change.
+            /**
+                The role after the change.
+            */
         AdminTier m_role;
 
     };//MembersSetPermissionsResult

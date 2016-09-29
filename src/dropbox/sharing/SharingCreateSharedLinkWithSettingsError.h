@@ -1,14 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesLookupError.h"
-#include "dropbox/files/FilesLookupError.h"
-#include "dropbox/sharing/SharingSharedLinkSettingsError.h"
 #include "dropbox/sharing/SharingSharedLinkSettingsError.h"
 
 namespace dropboxQt{
@@ -40,10 +40,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///None
-        files::LookupError getPath()const{DBOX_CHECK_STATE((CreateSharedLinkWithSettingsError_PATH == m_tag), "expected tag: CreateSharedLinkWithSettingsError_PATH", m_tag);return m_path;};
+        files::LookupError getPath()const{API_CHECK_STATE((CreateSharedLinkWithSettingsError_PATH == m_tag), "expected tag: CreateSharedLinkWithSettingsError_PATH", m_tag);return m_path;};
 
         ///There is an error with the given settings
-        SharedLinkSettingsError getSettingsError()const{DBOX_CHECK_STATE((CreateSharedLinkWithSettingsError_SETTINGS_ERROR == m_tag), "expected tag: CreateSharedLinkWithSettingsError_SETTINGS_ERROR", m_tag);return m_settings_error;};
+        SharedLinkSettingsError getSettingsError()const{API_CHECK_STATE((CreateSharedLinkWithSettingsError_SETTINGS_ERROR == m_tag), "expected tag: CreateSharedLinkWithSettingsError_SETTINGS_ERROR", m_tag);return m_settings_error;};
 
     public:
         operator QJsonObject ()const;
@@ -59,9 +59,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static CreateSharedLinkWithSettingsError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

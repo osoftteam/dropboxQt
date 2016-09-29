@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingListFileMembersError.h"
@@ -71,16 +73,6 @@ std::unique_ptr<ListFileMembersError>  ListFileMembersError::factory::create(con
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ListFileMembersError ListFileMembersError::EXAMPLE(){
-    ListFileMembersError rv;
-    rv.user_error = sharing::SharingUserError::EXAMPLE();
-    rv.access_error = sharing::SharingFileAccessError::EXAMPLE();
-    rv.m_tag = ListFileMembersError_USER_ERROR;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -19,7 +21,9 @@ namespace files{
         DeleteArg(const QString& arg){ m_path = arg; };
 
     public:
-        ///Path in the user's Dropbox to delete.
+            /**
+                Path in the user's Dropbox to delete.
+            */
         QString path()const{return m_path;};
         DeleteArg& setPath(const QString& arg){m_path=arg;return *this;};
 
@@ -37,13 +41,12 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static DeleteArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Path in the user's Dropbox to delete.
+            /**
+                Path in the user's Dropbox to delete.
+            */
         QString m_path;
 
     };//DeleteArg

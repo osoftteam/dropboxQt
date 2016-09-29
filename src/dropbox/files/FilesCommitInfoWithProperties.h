@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesCommitInfo.h"
 #include "dropbox/properties/PropertiesPropertyGroup.h"
 
@@ -18,12 +20,14 @@ namespace files{
     public:
         CommitInfoWithProperties(){};
 
-        CommitInfoWithProperties(const std::list <properties::PropertyGroup>&& arg){ m_property_groups = arg; };
+        CommitInfoWithProperties(const std::list <properties::PropertyGroup>& arg){ m_property_groups = arg; };
 
     public:
-        ///List of custom properties to add to file.
+            /**
+                List of custom properties to add to file.
+            */
         const std::list <properties::PropertyGroup>& propertyGroups()const{return m_property_groups;};
-        CommitInfoWithProperties& setPropertygroups(const std::list <properties::PropertyGroup>&& arg){m_property_groups=arg;return *this;};
+        CommitInfoWithProperties& setPropertygroups(const std::list <properties::PropertyGroup>& arg){m_property_groups=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -39,13 +43,12 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static CommitInfoWithProperties EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///List of custom properties to add to file.
+            /**
+                List of custom properties to add to file.
+            */
         std::list <properties::PropertyGroup> m_property_groups;
 
     };//CommitInfoWithProperties

@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/team/TeamUserSelectorArg.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamUserSelectorArg.h"
 
 namespace dropboxQt{
@@ -24,7 +25,9 @@ namespace team{
         MembersRecoverArg(const UserSelectorArg& arg){ m_user = arg; };
 
     public:
-        ///Identity of user to recover.
+            /**
+                Identity of user to recover.
+            */
         UserSelectorArg user()const{return m_user;};
         MembersRecoverArg& setUser(const UserSelectorArg& arg){m_user=arg;return *this;};
 
@@ -42,13 +45,12 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MembersRecoverArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Identity of user to recover.
+            /**
+                Identity of user to recover.
+            */
         UserSelectorArg m_user;
 
     };//MembersRecoverArg

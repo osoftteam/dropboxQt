@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamTeamMemberInfo.h"
 
 namespace dropboxQt{
@@ -35,10 +37,10 @@ namespace team{
 
         Tag tag()const{return m_tag;}
         ///An ID that was provided as a parameter to :route:`members/get_info`, and did not match a corresponding user. This might be a team_member_id, an email, or an external ID, depending on how the method was called.
-        QString getIdNotFound()const{DBOX_CHECK_STATE((MembersGetInfoItem_ID_NOT_FOUND == m_tag), "expected tag: MembersGetInfoItem_ID_NOT_FOUND", m_tag);return m_id_not_found;};
+        QString getIdNotFound()const{API_CHECK_STATE((MembersGetInfoItem_ID_NOT_FOUND == m_tag), "expected tag: MembersGetInfoItem_ID_NOT_FOUND", m_tag);return m_id_not_found;};
 
         ///Info about a team member.
-        TeamMemberInfo getMemberInfo()const{DBOX_CHECK_STATE((MembersGetInfoItem_MEMBER_INFO == m_tag), "expected tag: MembersGetInfoItem_MEMBER_INFO", m_tag);return m_member_info;};
+        TeamMemberInfo getMemberInfo()const{API_CHECK_STATE((MembersGetInfoItem_MEMBER_INFO == m_tag), "expected tag: MembersGetInfoItem_MEMBER_INFO", m_tag);return m_member_info;};
 
     public:
         operator QJsonObject ()const;
@@ -54,9 +56,6 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MembersGetInfoItem EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

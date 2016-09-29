@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team_common"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/team_common/TeamCommonGroupManagementType.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team_common/TeamCommonGroupManagementType.h"
 
 namespace dropboxQt{
@@ -26,23 +27,28 @@ namespace team_common{
         GroupSummary(const QString& arg){ m_group_name = arg; };
 
     public:
-        ///None
         QString groupName()const{return m_group_name;};
         GroupSummary& setGroupname(const QString& arg){m_group_name=arg;return *this;};
 
-        ///None
         QString groupId()const{return m_group_id;};
         GroupSummary& setGroupid(const QString& arg){m_group_id=arg;return *this;};
 
-        ///External ID of group. This is an arbitrary ID that an admin can attach to a group.
+            /**
+                External ID of group. This is an arbitrary ID that an admin can
+                attach to a group.
+            */
         QString groupExternalId()const{return m_group_external_id;};
         GroupSummary& setGroupexternalid(const QString& arg){m_group_external_id=arg;return *this;};
 
-        ///The number of members in the group.
+            /**
+                The number of members in the group.
+            */
         int memberCount()const{return m_member_count;};
         GroupSummary& setMembercount(const int& arg){m_member_count=arg;return *this;};
 
-        ///Who is allowed to manage the group.
+            /**
+                Who is allowed to manage the group.
+            */
         GroupManagementType groupManagementType()const{return m_group_management_type;};
         GroupSummary& setGroupmanagementtype(const GroupManagementType& arg){m_group_management_type=arg;return *this;};
 
@@ -60,25 +66,27 @@ namespace team_common{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GroupSummary EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///None
         QString m_group_name;
 
-        ///None
         QString m_group_id;
 
-        ///External ID of group. This is an arbitrary ID that an admin can attach to a group.
+            /**
+                External ID of group. This is an arbitrary ID that an admin can
+                attach to a group.
+            */
         QString m_group_external_id;
 
-        ///The number of members in the group.
+            /**
+                The number of members in the group.
+            */
         int m_member_count;
 
-        ///Who is allowed to manage the group.
+            /**
+                Who is allowed to manage the group.
+            */
         GroupManagementType m_group_management_type;
 
     };//GroupSummary

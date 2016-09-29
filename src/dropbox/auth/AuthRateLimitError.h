@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "auth"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/auth/AuthRateLimitReason.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/auth/AuthRateLimitReason.h"
 
 namespace dropboxQt{
@@ -29,11 +30,16 @@ namespace auth{
         { m_reason = arg; };
 
     public:
-        ///The reason why the app is being rate limited.
+            /**
+                The reason why the app is being rate limited.
+            */
         RateLimitReason reason()const{return m_reason;};
         RateLimitError& setReason(const RateLimitReason& arg){m_reason=arg;return *this;};
 
-        ///The number of seconds that the app should wait before making another request.
+            /**
+                The number of seconds that the app should wait before making
+                another request.
+            */
         int retryAfter()const{return m_retry_after;};
         RateLimitError& setRetryafter(const int& arg){m_retry_after=arg;return *this;};
 
@@ -51,16 +57,18 @@ namespace auth{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RateLimitError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The reason why the app is being rate limited.
+            /**
+                The reason why the app is being rate limited.
+            */
         RateLimitReason m_reason;
 
-        ///The number of seconds that the app should wait before making another request.
+            /**
+                The number of seconds that the app should wait before making
+                another request.
+            */
         int m_retry_after;
 
     };//RateLimitError

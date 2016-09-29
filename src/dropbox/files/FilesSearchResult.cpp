@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesSearchResult.h"
@@ -56,14 +58,6 @@ std::unique_ptr<SearchResult>  SearchResult::factory::create(const QJsonObject& 
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-SearchResult SearchResult::EXAMPLE(){
-    SearchResult rv;
-    rv.start = 3;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

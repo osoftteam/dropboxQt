@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesSearchMatch.h"
 
 namespace dropboxQt{
@@ -22,16 +24,25 @@ namespace files{
     public:
         SearchResult(){};
 
-        SearchResult(const std::list <SearchMatch>&& arg){ m_matches = arg; };
+        SearchResult(const std::list <SearchMatch>& arg){ m_matches = arg; };
 
     public:
-        ///A list (possibly empty) of matches for the query.
+            /**
+                A list (possibly empty) of matches for the query.
+            */
         const std::list <SearchMatch>& matches()const{return m_matches;};
 
-        ///Used for paging. If true, indicates there is another page of results available that can be fetched by calling :route:`search` again.
+            /**
+                Used for paging. If true, indicates there is another page of
+                results available that can be fetched by calling :meth:`search`
+                again.
+            */
         bool more()const{return m_more;};
 
-        ///Used for paging. Value to set the start argument to when calling :route:`search` to fetch the next page of results.
+            /**
+                Used for paging. Value to set the start argument to when calling
+                :meth:`search` to fetch the next page of results.
+            */
         int start()const{return m_start;};
 
     public:
@@ -48,19 +59,25 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static SearchResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///A list (possibly empty) of matches for the query.
+            /**
+                A list (possibly empty) of matches for the query.
+            */
         std::list <SearchMatch> m_matches;
 
-        ///Used for paging. If true, indicates there is another page of results available that can be fetched by calling :route:`search` again.
+            /**
+                Used for paging. If true, indicates there is another page of
+                results available that can be fetched by calling :meth:`search`
+                again.
+            */
         bool m_more;
 
-        ///Used for paging. Value to set the start argument to when calling :route:`search` to fetch the next page of results.
+            /**
+                Used for paging. Value to set the start argument to when calling
+                :meth:`search` to fetch the next page of results.
+            */
         int m_start;
 
     };//SearchResult

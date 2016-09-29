@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/users/UsersFullAccount.h"
@@ -70,19 +72,6 @@ std::unique_ptr<FullAccount>  FullAccount::factory::create(const QJsonObject& js
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-FullAccount FullAccount::EXAMPLE(){
-    FullAccount rv;
-    rv.country = "test1value";
-    rv.locale = "test2value";
-    rv.referral_link = "test3value";
-    rv.team = users::FullTeam::EXAMPLE();
-    rv.team_member_id = "test5value";
-    rv.account_type = users::AccountType::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//users
 }//dropboxQt

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamRevokeLinkedApiAppArg.h"
@@ -58,15 +60,6 @@ std::unique_ptr<RevokeLinkedApiAppArg>  RevokeLinkedApiAppArg::factory::create(c
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-RevokeLinkedApiAppArg RevokeLinkedApiAppArg::EXAMPLE(){
-    RevokeLinkedApiAppArg rv;
-    rv.app_id = "test1value";
-    rv.team_member_id = "test2value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

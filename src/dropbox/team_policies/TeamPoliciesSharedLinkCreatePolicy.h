@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team_policies"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team_policies{
@@ -54,9 +56,6 @@ namespace team_policies{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static SharedLinkCreatePolicy EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

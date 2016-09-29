@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/sharing/SharingAccessLevel.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingAccessLevel.h"
 #include "dropbox/sharing/SharingMemberPermission.h"
 
@@ -34,19 +35,28 @@ namespace sharing{
         { m_access_type = arg; };
 
     public:
-        ///The access type for this member.
+            /**
+                The access type for this member.
+            */
         AccessLevel accessType()const{return m_access_type;};
         MembershipInfo& setAccesstype(const AccessLevel& arg){m_access_type=arg;return *this;};
 
-        ///The permissions that requesting user has on this member. The set of permissions corresponds to the MemberActions in the request.
+            /**
+                The permissions that requesting user has on this member. The set
+                of permissions corresponds to the MemberActions in the request.
+            */
         const std::list <MemberPermission>& permissions()const{return m_permissions;};
-        MembershipInfo& setPermissions(const std::list <MemberPermission>&& arg){m_permissions=arg;return *this;};
+        MembershipInfo& setPermissions(const std::list <MemberPermission>& arg){m_permissions=arg;return *this;};
 
-        ///Suggested name initials for a member.
+            /**
+                Suggested name initials for a member.
+            */
         QString initials()const{return m_initials;};
         MembershipInfo& setInitials(const QString& arg){m_initials=arg;return *this;};
 
-        ///True if the member has access from a parent folder.
+            /**
+                True if the member has access from a parent folder.
+            */
         bool isInherited()const{return m_is_inherited;};
         MembershipInfo& setIsinherited(const bool& arg){m_is_inherited=arg;return *this;};
 
@@ -64,22 +74,28 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MembershipInfo EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The access type for this member.
+            /**
+                The access type for this member.
+            */
         AccessLevel m_access_type;
 
-        ///The permissions that requesting user has on this member. The set of permissions corresponds to the MemberActions in the request.
+            /**
+                The permissions that requesting user has on this member. The set
+                of permissions corresponds to the MemberActions in the request.
+            */
         std::list <MemberPermission> m_permissions;
 
-        ///Suggested name initials for a member.
+            /**
+                Suggested name initials for a member.
+            */
         QString m_initials;
 
-        ///True if the member has access from a parent folder.
+            /**
+                True if the member has access from a parent folder.
+            */
         bool m_is_inherited;
 
     };//MembershipInfo

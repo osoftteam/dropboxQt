@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team{
@@ -26,7 +28,12 @@ namespace team{
         { m_return_members = arg; };
 
     public:
-        ///Whether to return the list of members in the group.  Note that the default value will cause all the group members  to be returned in the response. This may take a long time for large groups.
+            /**
+                Whether to return the list of members in the group.  Note that
+                the default value will cause all the group members  to be
+                returned in the response. This may take a long time for large
+                groups.
+            */
         bool returnMembers()const{return m_return_members;};
         IncludeMembersArg& setReturnmembers(const bool& arg){m_return_members=arg;return *this;};
 
@@ -44,13 +51,15 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static IncludeMembersArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Whether to return the list of members in the group.  Note that the default value will cause all the group members  to be returned in the response. This may take a long time for large groups.
+            /**
+                Whether to return the list of members in the group.  Note that
+                the default value will cause all the group members  to be
+                returned in the response. This may take a long time for large
+                groups.
+            */
         bool m_return_members;
 
     };//IncludeMembersArg

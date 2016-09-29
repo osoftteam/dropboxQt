@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesUploadSessionFinishArg.h"
 
 namespace dropboxQt{
@@ -17,12 +19,14 @@ namespace files{
     public:
         UploadSessionFinishBatchArg(){};
 
-        UploadSessionFinishBatchArg(const std::list <UploadSessionFinishArg>&& arg){ m_entries = arg; };
+        UploadSessionFinishBatchArg(const std::list <UploadSessionFinishArg>& arg){ m_entries = arg; };
 
     public:
-        ///Commit information for each file in the batch.
+            /**
+                Commit information for each file in the batch.
+            */
         const std::list <UploadSessionFinishArg>& entries()const{return m_entries;};
-        UploadSessionFinishBatchArg& setEntries(const std::list <UploadSessionFinishArg>&& arg){m_entries=arg;return *this;};
+        UploadSessionFinishBatchArg& setEntries(const std::list <UploadSessionFinishArg>& arg){m_entries=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -38,13 +42,12 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UploadSessionFinishBatchArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Commit information for each file in the batch.
+            /**
+                Commit information for each file in the batch.
+            */
         std::list <UploadSessionFinishArg> m_entries;
 
     };//UploadSessionFinishBatchArg

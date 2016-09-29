@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesAlphaGetMetadataError.h"
@@ -63,15 +65,6 @@ std::unique_ptr<AlphaGetMetadataError>  AlphaGetMetadataError::factory::create(c
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-AlphaGetMetadataError AlphaGetMetadataError::EXAMPLE(){
-    AlphaGetMetadataError rv;
-    rv.properties_error = files::LookUpPropertiesError::EXAMPLE();
-    rv.m_tag = AlphaGetMetadataError_PROPERTIES_ERROR;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

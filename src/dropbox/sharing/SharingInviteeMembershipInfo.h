@@ -1,12 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingMembershipInfo.h"
-#include "dropbox/sharing/SharingInviteeInfo.h"
 #include "dropbox/sharing/SharingInviteeInfo.h"
 #include "dropbox/sharing/SharingUserInfo.h"
 
@@ -26,11 +27,15 @@ namespace sharing{
         InviteeMembershipInfo(const InviteeInfo& arg){ m_invitee = arg; };
 
     public:
-        ///Recipient of the invitation.
+            /**
+                Recipient of the invitation.
+            */
         InviteeInfo invitee()const{return m_invitee;};
         InviteeMembershipInfo& setInvitee(const InviteeInfo& arg){m_invitee=arg;return *this;};
 
-        ///The user this invitation is tied to, if available.
+            /**
+                The user this invitation is tied to, if available.
+            */
         UserInfo user()const{return m_user;};
         InviteeMembershipInfo& setUser(const UserInfo& arg){m_user=arg;return *this;};
 
@@ -48,16 +53,17 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static InviteeMembershipInfo EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Recipient of the invitation.
+            /**
+                Recipient of the invitation.
+            */
         InviteeInfo m_invitee;
 
-        ///The user this invitation is tied to, if available.
+            /**
+                The user this invitation is tied to, if available.
+            */
         UserInfo m_user;
 
     };//InviteeMembershipInfo

@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingSharedLinkSettings.h"
 
 namespace dropboxQt{
@@ -27,15 +29,21 @@ namespace sharing{
         { m_url = arg; };
 
     public:
-        ///URL of the shared link to change its settings
+            /**
+                URL of the shared link to change its settings
+            */
         QString url()const{return m_url;};
         ModifySharedLinkSettingsArgs& setUrl(const QString& arg){m_url=arg;return *this;};
 
-        ///Set of settings for the shared link.
+            /**
+                Set of settings for the shared link.
+            */
         SharedLinkSettings settings()const{return m_settings;};
         ModifySharedLinkSettingsArgs& setSettings(const SharedLinkSettings& arg){m_settings=arg;return *this;};
 
-        ///If set to true, removes the expiration of the shared link.
+            /**
+                If set to true, removes the expiration of the shared link.
+            */
         bool removeExpiration()const{return m_remove_expiration;};
         ModifySharedLinkSettingsArgs& setRemoveexpiration(const bool& arg){m_remove_expiration=arg;return *this;};
 
@@ -53,19 +61,22 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ModifySharedLinkSettingsArgs EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///URL of the shared link to change its settings
+            /**
+                URL of the shared link to change its settings
+            */
         QString m_url;
 
-        ///Set of settings for the shared link.
+            /**
+                Set of settings for the shared link.
+            */
         SharedLinkSettings m_settings;
 
-        ///If set to true, removes the expiration of the shared link.
+            /**
+                If set to true, removes the expiration of the shared link.
+            */
         bool m_remove_expiration;
 
     };//ModifySharedLinkSettingsArgs

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupMemberSetAccessTypeError.h"
@@ -77,14 +79,6 @@ std::unique_ptr<GroupMemberSetAccessTypeError>  GroupMemberSetAccessTypeError::f
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupMemberSetAccessTypeError GroupMemberSetAccessTypeError::EXAMPLE(){
-    GroupMemberSetAccessTypeError rv;
-    rv.m_tag = GroupMemberSetAccessTypeError_USER_CANNOT_BE_MANAGER_OF_COMPANY_MANAGED_GROUP;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

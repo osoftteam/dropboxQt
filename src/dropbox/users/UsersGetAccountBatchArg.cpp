@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/users/UsersGetAccountBatchArg.h"
@@ -52,13 +54,6 @@ std::unique_ptr<GetAccountBatchArg>  GetAccountBatchArg::factory::create(const Q
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GetAccountBatchArg GetAccountBatchArg::EXAMPLE(){
-    GetAccountBatchArg rv;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//users
 }//dropboxQt

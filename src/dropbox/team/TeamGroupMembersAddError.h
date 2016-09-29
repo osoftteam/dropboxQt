@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamGroupSelectorError.h"
 
 namespace dropboxQt{
@@ -54,13 +56,13 @@ namespace team{
 
         Tag tag()const{return m_tag;}
         ///These members are not part of your team. Currently, you cannot add members to a group if they are not part of your team, though this may change in a subsequent version. To add new members to your Dropbox Business team, use the :route:`members/add` endpoint.
-        const std::list <QString>& getMembersNotInTeam()const{DBOX_CHECK_STATE((GroupMembersAddError_MEMBERS_NOT_IN_TEAM == m_tag), "expected tag: GroupMembersAddError_MEMBERS_NOT_IN_TEAM", m_tag);return m_members_not_in_team;};
+        const std::list <QString>& getMembersNotInTeam()const{API_CHECK_STATE((GroupMembersAddError_MEMBERS_NOT_IN_TEAM == m_tag), "expected tag: GroupMembersAddError_MEMBERS_NOT_IN_TEAM", m_tag);return m_members_not_in_team;};
 
         ///These users were not found in Dropbox.
-        const std::list <QString>& getUsersNotFound()const{DBOX_CHECK_STATE((GroupMembersAddError_USERS_NOT_FOUND == m_tag), "expected tag: GroupMembersAddError_USERS_NOT_FOUND", m_tag);return m_users_not_found;};
+        const std::list <QString>& getUsersNotFound()const{API_CHECK_STATE((GroupMembersAddError_USERS_NOT_FOUND == m_tag), "expected tag: GroupMembersAddError_USERS_NOT_FOUND", m_tag);return m_users_not_found;};
 
         ///A company-managed group cannot be managed by a user.
-        const std::list <QString>& getUserCannotBeManagerOfCompanyManagedGroup()const{DBOX_CHECK_STATE((GroupMembersAddError_USER_CANNOT_BE_MANAGER_OF_COMPANY_MANAGED_GROUP == m_tag), "expected tag: GroupMembersAddError_USER_CANNOT_BE_MANAGER_OF_COMPANY_MANAGED_GROUP", m_tag);return m_user_cannot_be_manager_of_company_managed_group;};
+        const std::list <QString>& getUserCannotBeManagerOfCompanyManagedGroup()const{API_CHECK_STATE((GroupMembersAddError_USER_CANNOT_BE_MANAGER_OF_COMPANY_MANAGED_GROUP == m_tag), "expected tag: GroupMembersAddError_USER_CANNOT_BE_MANAGER_OF_COMPANY_MANAGED_GROUP", m_tag);return m_user_cannot_be_manager_of_company_managed_group;};
 
     public:
         operator QJsonObject ()const;
@@ -76,9 +78,6 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GroupMembersAddError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

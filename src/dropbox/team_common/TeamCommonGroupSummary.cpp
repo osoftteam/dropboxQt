@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team_common"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team_common/TeamCommonGroupSummary.h"
@@ -63,18 +65,6 @@ std::unique_ptr<GroupSummary>  GroupSummary::factory::create(const QJsonObject& 
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupSummary GroupSummary::EXAMPLE(){
-    GroupSummary rv;
-    rv.group_name = "test1value";
-    rv.group_id = "test2value";
-    rv.group_external_id = "test3value";
-    rv.member_count = 4;
-    rv.group_management_type = team_common::GroupManagementType::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team_common
 }//dropboxQt

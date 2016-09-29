@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupsMembersListContinueArg.h"
@@ -53,14 +55,6 @@ std::unique_ptr<GroupsMembersListContinueArg>  GroupsMembersListContinueArg::fac
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupsMembersListContinueArg GroupsMembersListContinueArg::EXAMPLE(){
-    GroupsMembersListContinueArg rv;
-    rv.cursor = "test1value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

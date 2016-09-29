@@ -1,13 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/properties/PropertiesPropertyTemplateError.h"
-#include "dropbox/files/FilesLookupError.h"
 #include "dropbox/files/FilesLookupError.h"
 
 namespace dropboxQt{
@@ -31,10 +32,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///Property template does not exist for given identifier.
-        QString getTemplateNotFound()const{DBOX_CHECK_STATE((PropertyTemplateError_TEMPLATE_NOT_FOUND == m_tag), "expected tag: PropertyTemplateError_TEMPLATE_NOT_FOUND", m_tag);return m_template_not_found;};
+        QString getTemplateNotFound()const{API_CHECK_STATE((PropertyTemplateError_TEMPLATE_NOT_FOUND == m_tag), "expected tag: PropertyTemplateError_TEMPLATE_NOT_FOUND", m_tag);return m_template_not_found;};
 
         ///None
-        LookupError getPath()const{DBOX_CHECK_STATE((PropertiesError_PATH == m_tag), "expected tag: PropertiesError_PATH", m_tag);return m_path;};
+        LookupError getPath()const{API_CHECK_STATE((PropertiesError_PATH == m_tag), "expected tag: PropertiesError_PATH", m_tag);return m_path;};
 
     public:
         operator QJsonObject ()const;
@@ -50,9 +51,6 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static PropertiesError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

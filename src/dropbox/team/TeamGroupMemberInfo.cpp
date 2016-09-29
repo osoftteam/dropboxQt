@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupMemberInfo.h"
@@ -54,15 +56,6 @@ std::unique_ptr<GroupMemberInfo>  GroupMemberInfo::factory::create(const QJsonOb
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GroupMemberInfo GroupMemberInfo::EXAMPLE(){
-    GroupMemberInfo rv;
-    rv.profile = team::MemberProfile::EXAMPLE();
-    rv.access_type = team::GroupAccessType::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

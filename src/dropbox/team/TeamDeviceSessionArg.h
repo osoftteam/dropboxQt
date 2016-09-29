@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team{
@@ -20,11 +22,15 @@ namespace team{
         DeviceSessionArg(const QString& arg){ m_session_id = arg; };
 
     public:
-        ///The session id
+            /**
+                The session id
+            */
         QString sessionId()const{return m_session_id;};
         DeviceSessionArg& setSessionid(const QString& arg){m_session_id=arg;return *this;};
 
-        ///The unique id of the member owning the device
+            /**
+                The unique id of the member owning the device
+            */
         QString teamMemberId()const{return m_team_member_id;};
         DeviceSessionArg& setTeammemberid(const QString& arg){m_team_member_id=arg;return *this;};
 
@@ -42,16 +48,17 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static DeviceSessionArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The session id
+            /**
+                The session id
+            */
         QString m_session_id;
 
-        ///The unique id of the member owning the device
+            /**
+                The unique id of the member owning the device
+            */
         QString m_team_member_id;
 
     };//DeviceSessionArg

@@ -1,11 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/sharing/SharingGetFileMetadataIndividualResult.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingGetFileMetadataIndividualResult.h"
 
 namespace dropboxQt{
@@ -25,10 +26,15 @@ namespace sharing{
         GetFileMetadataBatchResult(const QString& arg){ m_file = arg; };
 
     public:
-        ///This is the input file identifier corresponding to one of :field:`GetFileMetadataBatchArg.files`.
+            /**
+                This is the input file identifier corresponding to one of
+                ``GetFileMetadataBatchArg.files``.
+            */
         QString file()const{return m_file;};
 
-        ///The result for this particular file
+            /**
+                The result for this particular file
+            */
         GetFileMetadataIndividualResult result()const{return m_result;};
 
     public:
@@ -45,16 +51,18 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GetFileMetadataBatchResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///This is the input file identifier corresponding to one of :field:`GetFileMetadataBatchArg.files`.
+            /**
+                This is the input file identifier corresponding to one of
+                ``GetFileMetadataBatchArg.files``.
+            */
         QString m_file;
 
-        ///The result for this particular file
+            /**
+                The result for this particular file
+            */
         GetFileMetadataIndividualResult m_result;
 
     };//GetFileMetadataBatchResult

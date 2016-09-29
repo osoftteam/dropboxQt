@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesCreateFolderError.h"
@@ -54,15 +56,6 @@ std::unique_ptr<CreateFolderError>  CreateFolderError::factory::create(const QBy
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-CreateFolderError CreateFolderError::EXAMPLE(){
-    CreateFolderError rv;
-    rv.path = files::WriteError::EXAMPLE();
-    rv.m_tag = CreateFolderError_PATH;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

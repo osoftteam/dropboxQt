@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team{
@@ -25,23 +27,34 @@ namespace team{
         DeviceSession(const QString& arg){ m_session_id = arg; };
 
     public:
-        ///The session id
+            /**
+                The session id
+            */
         QString sessionId()const{return m_session_id;};
         DeviceSession& setSessionid(const QString& arg){m_session_id=arg;return *this;};
 
-        ///The IP address of the last activity from this session
+            /**
+                The IP address of the last activity from this session
+            */
         QString ipAddress()const{return m_ip_address;};
         DeviceSession& setIpaddress(const QString& arg){m_ip_address=arg;return *this;};
 
-        ///The country from which the last activity from this session was made
+            /**
+                The country from which the last activity from this session was
+                made
+            */
         QString country()const{return m_country;};
         DeviceSession& setCountry(const QString& arg){m_country=arg;return *this;};
 
-        ///The time this session was created
+            /**
+                The time this session was created
+            */
         QDateTime created()const{return m_created;};
         DeviceSession& setCreated(const QDateTime& arg){m_created=arg;return *this;};
 
-        ///The time of the last activity from this session
+            /**
+                The time of the last activity from this session
+            */
         QDateTime updated()const{return m_updated;};
         DeviceSession& setUpdated(const QDateTime& arg){m_updated=arg;return *this;};
 
@@ -59,25 +72,33 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static DeviceSession EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The session id
+            /**
+                The session id
+            */
         QString m_session_id;
 
-        ///The IP address of the last activity from this session
+            /**
+                The IP address of the last activity from this session
+            */
         QString m_ip_address;
 
-        ///The country from which the last activity from this session was made
+            /**
+                The country from which the last activity from this session was
+                made
+            */
         QString m_country;
 
-        ///The time this session was created
+            /**
+                The time this session was created
+            */
         QDateTime m_created;
 
-        ///The time of the last activity from this session
+            /**
+                The time of the last activity from this session
+            */
         QDateTime m_updated;
 
     };//DeviceSession

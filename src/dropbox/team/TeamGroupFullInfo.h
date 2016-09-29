@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team_common/TeamCommonGroupSummary.h"
 #include "dropbox/team/TeamGroupMemberInfo.h"
 
@@ -22,14 +24,19 @@ namespace team{
     public:
         GroupFullInfo(){};
 
-        GroupFullInfo(const std::list <GroupMemberInfo>&& arg){ m_members = arg; };
+        GroupFullInfo(const std::list <GroupMemberInfo>& arg){ m_members = arg; };
 
     public:
-        ///List of group members.
+            /**
+                List of group members.
+            */
         const std::list <GroupMemberInfo>& members()const{return m_members;};
-        GroupFullInfo& setMembers(const std::list <GroupMemberInfo>&& arg){m_members=arg;return *this;};
+        GroupFullInfo& setMembers(const std::list <GroupMemberInfo>& arg){m_members=arg;return *this;};
 
-        ///The group creation time as a UTC timestamp in milliseconds since the Unix epoch.
+            /**
+                The group creation time as a UTC timestamp in milliseconds since
+                the Unix epoch.
+            */
         int created()const{return m_created;};
         GroupFullInfo& setCreated(const int& arg){m_created=arg;return *this;};
 
@@ -47,16 +54,18 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GroupFullInfo EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///List of group members.
+            /**
+                List of group members.
+            */
         std::list <GroupMemberInfo> m_members;
 
-        ///The group creation time as a UTC timestamp in milliseconds since the Unix epoch.
+            /**
+                The group creation time as a UTC timestamp in milliseconds since
+                the Unix epoch.
+            */
         int m_created;
 
     };//GroupFullInfo

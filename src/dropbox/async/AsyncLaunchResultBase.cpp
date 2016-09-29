@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "async"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/async/AsyncLaunchResultBase.h"
@@ -55,15 +57,6 @@ std::unique_ptr<LaunchResultBase>  LaunchResultBase::factory::create(const QByte
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-LaunchResultBase LaunchResultBase::EXAMPLE(){
-    LaunchResultBase rv;
-    rv.async_job_id = "test1value";
-    rv.m_tag = LaunchResultBase_ASYNC_JOB_ID;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//async
 }//dropboxQt

@@ -1,13 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesThumbnailFormat.h"
-#include "dropbox/files/FilesThumbnailFormat.h"
-#include "dropbox/files/FilesThumbnailSize.h"
 #include "dropbox/files/FilesThumbnailSize.h"
 
 namespace dropboxQt{
@@ -33,15 +33,23 @@ namespace files{
         { m_path = arg; };
 
     public:
-        ///The path to the image file you want to thumbnail.
+            /**
+                The path to the image file you want to thumbnail.
+            */
         QString path()const{return m_path;};
         ThumbnailArg& setPath(const QString& arg){m_path=arg;return *this;};
 
-        ///The format for the thumbnail image, jpeg (default) or png. For  images that are photos, jpeg should be preferred, while png is  better for screenshots and digital arts.
+            /**
+                The format for the thumbnail image, jpeg (default) or png. For
+                images that are photos, jpeg should be preferred, while png is
+                better for screenshots and digital arts.
+            */
         ThumbnailFormat format()const{return m_format;};
         ThumbnailArg& setFormat(const ThumbnailFormat& arg){m_format=arg;return *this;};
 
-        ///The size for the thumbnail image.
+            /**
+                The size for the thumbnail image.
+            */
         ThumbnailSize size()const{return m_size;};
         ThumbnailArg& setSize(const ThumbnailSize& arg){m_size=arg;return *this;};
 
@@ -59,19 +67,24 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ThumbnailArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The path to the image file you want to thumbnail.
+            /**
+                The path to the image file you want to thumbnail.
+            */
         QString m_path;
 
-        ///The format for the thumbnail image, jpeg (default) or png. For  images that are photos, jpeg should be preferred, while png is  better for screenshots and digital arts.
+            /**
+                The format for the thumbnail image, jpeg (default) or png. For
+                images that are photos, jpeg should be preferred, while png is
+                better for screenshots and digital arts.
+            */
         ThumbnailFormat m_format;
 
-        ///The size for the thumbnail image.
+            /**
+                The size for the thumbnail image.
+            */
         ThumbnailSize m_size;
 
     };//ThumbnailArg

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingAddFileMemberArgs.h"
@@ -64,16 +66,6 @@ std::unique_ptr<AddFileMemberArgs>  AddFileMemberArgs::factory::create(const QJs
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-AddFileMemberArgs AddFileMemberArgs::EXAMPLE(){
-    AddFileMemberArgs rv;
-    rv.file = "test1value";
-    rv.custom_message = "test3value";
-    rv.access_level = sharing::AccessLevel::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

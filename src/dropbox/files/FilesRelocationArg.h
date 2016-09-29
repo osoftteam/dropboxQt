@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -20,11 +22,15 @@ namespace files{
         RelocationArg(const QString& arg){ m_from_path = arg; };
 
     public:
-        ///Path in the user's Dropbox to be copied or moved.
+            /**
+                Path in the user's Dropbox to be copied or moved.
+            */
         QString fromPath()const{return m_from_path;};
         RelocationArg& setFrompath(const QString& arg){m_from_path=arg;return *this;};
 
-        ///Path in the user's Dropbox that is the destination.
+            /**
+                Path in the user's Dropbox that is the destination.
+            */
         QString toPath()const{return m_to_path;};
         RelocationArg& setTopath(const QString& arg){m_to_path=arg;return *this;};
 
@@ -42,16 +48,17 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RelocationArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Path in the user's Dropbox to be copied or moved.
+            /**
+                Path in the user's Dropbox to be copied or moved.
+            */
         QString m_from_path;
 
-        ///Path in the user's Dropbox that is the destination.
+            /**
+                Path in the user's Dropbox that is the destination.
+            */
         QString m_to_path;
 
     };//RelocationArg

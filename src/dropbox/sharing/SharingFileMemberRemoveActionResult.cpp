@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingFileMemberRemoveActionResult.h"
@@ -71,16 +73,6 @@ std::unique_ptr<FileMemberRemoveActionResult>  FileMemberRemoveActionResult::fac
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-FileMemberRemoveActionResult FileMemberRemoveActionResult::EXAMPLE(){
-    FileMemberRemoveActionResult rv;
-    rv.success = sharing::MemberAccessLevelResult::EXAMPLE();
-    rv.member_error = sharing::FileMemberActionError::EXAMPLE();
-    rv.m_tag = FileMemberRemoveActionResult_SUCCESS;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

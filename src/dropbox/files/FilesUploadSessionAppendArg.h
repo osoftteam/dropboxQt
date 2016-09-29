@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesUploadSessionCursor.h"
 
 namespace dropboxQt{
@@ -27,11 +29,17 @@ namespace files{
         { m_cursor = arg; };
 
     public:
-        ///Contains the upload session ID and the offset.
+            /**
+                Contains the upload session ID and the offset.
+            */
         UploadSessionCursor cursor()const{return m_cursor;};
         UploadSessionAppendArg& setCursor(const UploadSessionCursor& arg){m_cursor=arg;return *this;};
 
-        ///If true, the current session will be closed, at which point you won't be able to call :route:`upload_session/append_v2` anymore with the current session.
+            /**
+                If true, the current session will be closed, at which point you
+                won't be able to call :meth:`upload_session_append_v2` anymore
+                with the current session.
+            */
         bool close()const{return m_close;};
         UploadSessionAppendArg& setClose(const bool& arg){m_close=arg;return *this;};
 
@@ -49,16 +57,19 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UploadSessionAppendArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Contains the upload session ID and the offset.
+            /**
+                Contains the upload session ID and the offset.
+            */
         UploadSessionCursor m_cursor;
 
-        ///If true, the current session will be closed, at which point you won't be able to call :route:`upload_session/append_v2` anymore with the current session.
+            /**
+                If true, the current session will be closed, at which point you
+                won't be able to call :meth:`upload_session_append_v2` anymore
+                with the current session.
+            */
         bool m_close;
 
     };//UploadSessionAppendArg

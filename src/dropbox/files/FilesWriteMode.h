@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -48,7 +50,7 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///Overwrite if the given "rev" matches the existing file's "rev". The autorename strategy is to append the string "conflicted copy" to the file name. For example, "document.txt" might become "document (conflicted copy).txt" or "document (Panda's conflicted copy).txt".
-        QString getUpdate()const{DBOX_CHECK_STATE((WriteMode_UPDATE == m_tag), "expected tag: WriteMode_UPDATE", m_tag);return m_update;};
+        QString getUpdate()const{API_CHECK_STATE((WriteMode_UPDATE == m_tag), "expected tag: WriteMode_UPDATE", m_tag);return m_update;};
 
     public:
         operator QJsonObject ()const;
@@ -64,9 +66,6 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static WriteMode EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

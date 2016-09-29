@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace team{
@@ -31,10 +33,10 @@ namespace team{
 
         Tag tag()const{return m_tag;}
         ///Group ID.
-        QString getGroupId()const{DBOX_CHECK_STATE((GroupSelector_GROUP_ID == m_tag), "expected tag: GroupSelector_GROUP_ID", m_tag);return m_group_id;};
+        QString getGroupId()const{API_CHECK_STATE((GroupSelector_GROUP_ID == m_tag), "expected tag: GroupSelector_GROUP_ID", m_tag);return m_group_id;};
 
         ///External ID of the group.
-        QString getGroupExternalId()const{DBOX_CHECK_STATE((GroupSelector_GROUP_EXTERNAL_ID == m_tag), "expected tag: GroupSelector_GROUP_EXTERNAL_ID", m_tag);return m_group_external_id;};
+        QString getGroupExternalId()const{API_CHECK_STATE((GroupSelector_GROUP_EXTERNAL_ID == m_tag), "expected tag: GroupSelector_GROUP_EXTERNAL_ID", m_tag);return m_group_external_id;};
 
     public:
         operator QJsonObject ()const;
@@ -50,9 +52,6 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GroupSelector EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

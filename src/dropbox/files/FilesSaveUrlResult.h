@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/async/AsyncLaunchResultBase.h"
 #include "dropbox/files/FilesFileMetadata.h"
 
@@ -29,10 +31,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///This response indicates that the processing is asynchronous. The string is an id that can be used to obtain the status of the asynchronous job.
-        QString getAsyncJobId()const{DBOX_CHECK_STATE((LaunchResultBase_ASYNC_JOB_ID == m_tag), "expected tag: LaunchResultBase_ASYNC_JOB_ID", m_tag);return m_async_job_id;};
+        QString getAsyncJobId()const{API_CHECK_STATE((LaunchResultBase_ASYNC_JOB_ID == m_tag), "expected tag: LaunchResultBase_ASYNC_JOB_ID", m_tag);return m_async_job_id;};
 
         ///Metadata of the file where the URL is saved to.
-        FileMetadata getComplete()const{DBOX_CHECK_STATE((SaveUrlResult_COMPLETE == m_tag), "expected tag: SaveUrlResult_COMPLETE", m_tag);return m_complete;};
+        FileMetadata getComplete()const{API_CHECK_STATE((SaveUrlResult_COMPLETE == m_tag), "expected tag: SaveUrlResult_COMPLETE", m_tag);return m_complete;};
 
     public:
         operator QJsonObject ()const;
@@ -48,9 +50,6 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static SaveUrlResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

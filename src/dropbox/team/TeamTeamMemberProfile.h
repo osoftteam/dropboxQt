@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamMemberProfile.h"
 
 namespace dropboxQt{
@@ -19,12 +21,14 @@ namespace team{
     public:
         TeamMemberProfile(){};
 
-        TeamMemberProfile(const std::list <QString>&& arg){ m_groups = arg; };
+        TeamMemberProfile(const std::list <QString>& arg){ m_groups = arg; };
 
     public:
-        ///List of group IDs of groups that the user belongs to.
+            /**
+                List of group IDs of groups that the user belongs to.
+            */
         const std::list <QString>& groups()const{return m_groups;};
-        TeamMemberProfile& setGroups(const std::list <QString>&& arg){m_groups=arg;return *this;};
+        TeamMemberProfile& setGroups(const std::list <QString>& arg){m_groups=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -40,13 +44,12 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static TeamMemberProfile EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///List of group IDs of groups that the user belongs to.
+            /**
+                List of group IDs of groups that the user belongs to.
+            */
         std::list <QString> m_groups;
 
     };//TeamMemberProfile

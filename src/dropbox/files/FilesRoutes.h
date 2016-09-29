@@ -1,10 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesAddPropertiesError.h"
 #include "dropbox/files/FilesAlphaGetMetadataArg.h"
 #include "dropbox/files/FilesAlphaGetMetadataError.h"
@@ -85,8 +88,6 @@
 namespace dropboxQt{
 
 class Endpoint;
-class DropboxRequestConfig;
-class DropboxAuthInfo;
 
 namespace files{
     class FilesRoutes{
@@ -102,7 +103,7 @@ namespace files{
 
             on error:AlphaGetMetadataError throws exception AlphaGetMetadataErrorException
             */
-        std::unique_ptr<Metadata> alphaGetMetadata(const AlphaGetMetadataArg&);
+        std::unique_ptr<Metadata> alphaGetMetadata(const AlphaGetMetadataArg& );
 
             /**
             ApiRoute('alpha/upload')
@@ -116,7 +117,7 @@ namespace files{
 
             on error:UploadErrorWithProperties throws exception UploadErrorWithPropertiesException
             */
-        std::unique_ptr<FileMetadata> alphaUpload(const CommitInfoWithProperties&, QIODevice* io);
+        std::unique_ptr<FileMetadata> alphaUpload(const CommitInfoWithProperties& , QIODevice* readFrom);
 
             /**
             ApiRoute('copy')
@@ -127,7 +128,7 @@ namespace files{
 
             on error:RelocationError throws exception RelocationErrorException
             */
-        std::unique_ptr<Metadata> copy(const RelocationArg&);
+        std::unique_ptr<Metadata> copy(const RelocationArg& );
 
             /**
             ApiRoute('copy_reference/get')
@@ -139,7 +140,7 @@ namespace files{
 
             on error:GetCopyReferenceError throws exception GetCopyReferenceErrorException
             */
-        std::unique_ptr<GetCopyReferenceResult> copyReferenceGet(const GetCopyReferenceArg&);
+        std::unique_ptr<GetCopyReferenceResult> copyReferenceGet(const GetCopyReferenceArg& );
 
             /**
             ApiRoute('copy_reference/save')
@@ -150,7 +151,7 @@ namespace files{
 
             on error:SaveCopyReferenceError throws exception SaveCopyReferenceErrorException
             */
-        std::unique_ptr<SaveCopyReferenceResult> copyReferenceSave(const SaveCopyReferenceArg&);
+        std::unique_ptr<SaveCopyReferenceResult> copyReferenceSave(const SaveCopyReferenceArg& );
 
             /**
             ApiRoute('create_folder')
@@ -160,7 +161,7 @@ namespace files{
 
             on error:CreateFolderError throws exception CreateFolderErrorException
             */
-        std::unique_ptr<FolderMetadata> createFolder(const CreateFolderArg&);
+        std::unique_ptr<FolderMetadata> createFolder(const CreateFolderArg& );
 
             /**
             ApiRoute('delete')
@@ -175,7 +176,7 @@ namespace files{
 
             on error:DeleteError throws exception DeleteErrorException
             */
-        std::unique_ptr<Metadata> deleteOperation(const DeleteArg&);
+        std::unique_ptr<Metadata> deleteOperation(const DeleteArg& );
 
             /**
             ApiRoute('download')
@@ -185,7 +186,7 @@ namespace files{
 
             on error:DownloadError throws exception DownloadErrorException
             */
-        std::unique_ptr<FileMetadata> download(const DownloadArg&, QIODevice* io);
+        std::unique_ptr<FileMetadata> download(const DownloadArg& , QIODevice* writeTo);
 
             /**
             ApiRoute('get_metadata')
@@ -196,7 +197,7 @@ namespace files{
 
             on error:GetMetadataError throws exception GetMetadataErrorException
             */
-        std::unique_ptr<Metadata> getMetadata(const GetMetadataArg&);
+        std::unique_ptr<Metadata> getMetadata(const GetMetadataArg& );
 
             /**
             ApiRoute('get_preview')
@@ -208,7 +209,7 @@ namespace files{
 
             on error:PreviewError throws exception PreviewErrorException
             */
-        std::unique_ptr<FileMetadata> getPreview(const PreviewArg&, QIODevice* io);
+        std::unique_ptr<FileMetadata> getPreview(const PreviewArg& , QIODevice* writeTo);
 
             /**
             ApiRoute('get_temporary_link')
@@ -221,7 +222,7 @@ namespace files{
 
             on error:GetTemporaryLinkError throws exception GetTemporaryLinkErrorException
             */
-        std::unique_ptr<GetTemporaryLinkResult> getTemporaryLink(const GetTemporaryLinkArg&);
+        std::unique_ptr<GetTemporaryLinkResult> getTemporaryLink(const GetTemporaryLinkArg& );
 
             /**
             ApiRoute('get_thumbnail')
@@ -234,7 +235,7 @@ namespace files{
 
             on error:ThumbnailError throws exception ThumbnailErrorException
             */
-        std::unique_ptr<FileMetadata> getThumbnail(const ThumbnailArg&, QIODevice* io);
+        std::unique_ptr<FileMetadata> getThumbnail(const ThumbnailArg& , QIODevice* writeTo);
 
             /**
             ApiRoute('list_folder')
@@ -244,7 +245,7 @@ namespace files{
 
             on error:ListFolderError throws exception ListFolderErrorException
             */
-        std::unique_ptr<ListFolderResult> listFolder(const ListFolderArg&);
+        std::unique_ptr<ListFolderResult> listFolder(const ListFolderArg& );
 
             /**
             ApiRoute('list_folder/continue')
@@ -255,7 +256,7 @@ namespace files{
 
             on error:ListFolderContinueError throws exception ListFolderContinueErrorException
             */
-        std::unique_ptr<ListFolderResult> listFolderContinue(const ListFolderContinueArg&);
+        std::unique_ptr<ListFolderResult> listFolderContinue(const ListFolderContinueArg& );
 
             /**
             ApiRoute('list_folder/get_latest_cursor')
@@ -269,7 +270,7 @@ namespace files{
 
             on error:ListFolderError throws exception ListFolderErrorException
             */
-        std::unique_ptr<ListFolderGetLatestCursorResult> listFolderGetLatestCursor(const ListFolderArg&);
+        std::unique_ptr<ListFolderGetLatestCursorResult> listFolderGetLatestCursor(const ListFolderArg& );
 
             /**
             ApiRoute('list_folder/longpoll')
@@ -286,7 +287,7 @@ namespace files{
 
             on error:ListFolderLongpollError throws exception ListFolderLongpollErrorException
             */
-        std::unique_ptr<ListFolderLongpollResult> listFolderLongpoll(const ListFolderLongpollArg&);
+        std::unique_ptr<ListFolderLongpollResult> listFolderLongpoll(const ListFolderLongpollArg& );
 
             /**
             ApiRoute('list_revisions')
@@ -296,7 +297,7 @@ namespace files{
 
             on error:ListRevisionsError throws exception ListRevisionsErrorException
             */
-        std::unique_ptr<ListRevisionsResult> listRevisions(const ListRevisionsArg&);
+        std::unique_ptr<ListRevisionsResult> listRevisions(const ListRevisionsArg& );
 
             /**
             ApiRoute('move')
@@ -307,7 +308,7 @@ namespace files{
 
             on error:RelocationError throws exception RelocationErrorException
             */
-        std::unique_ptr<Metadata> move(const RelocationArg&);
+        std::unique_ptr<Metadata> move(const RelocationArg& );
 
             /**
             ApiRoute('permanently_delete')
@@ -319,7 +320,7 @@ namespace files{
 
             on error:DeleteError throws exception DeleteErrorException
             */
-        void permanentlyDelete(const DeleteArg&);
+        void permanentlyDelete(const DeleteArg& );
 
             /**
             ApiRoute('properties/add')
@@ -330,7 +331,7 @@ namespace files{
 
             on error:AddPropertiesError throws exception AddPropertiesErrorException
             */
-        void propertiesAdd(const PropertyGroupWithPath&);
+        void propertiesAdd(const PropertyGroupWithPath& );
 
             /**
             ApiRoute('properties/overwrite')
@@ -341,7 +342,7 @@ namespace files{
 
             on error:InvalidPropertyGroupError throws exception InvalidPropertyGroupErrorException
             */
-        void propertiesOverwrite(const PropertyGroupWithPath&);
+        void propertiesOverwrite(const PropertyGroupWithPath& );
 
             /**
             ApiRoute('properties/remove')
@@ -355,7 +356,7 @@ namespace files{
 
             on error:RemovePropertiesError throws exception RemovePropertiesErrorException
             */
-        void propertiesRemove(const RemovePropertiesArg&);
+        void propertiesRemove(const RemovePropertiesArg& );
 
             /**
             ApiRoute('properties/template/get')
@@ -365,7 +366,7 @@ namespace files{
 
             on error:PropertyTemplateError throws exception PropertyTemplateErrorException
             */
-        std::unique_ptr<properties::GetPropertyTemplateResult> propertiesTemplateGet(const properties::GetPropertyTemplateArg&);
+        std::unique_ptr<properties::GetPropertyTemplateResult> propertiesTemplateGet(const properties::GetPropertyTemplateArg& );
 
             /**
             ApiRoute('properties/template/list')
@@ -388,7 +389,7 @@ namespace files{
 
             on error:UpdatePropertiesError throws exception UpdatePropertiesErrorException
             */
-        void propertiesUpdate(const UpdatePropertyGroupArg&);
+        void propertiesUpdate(const UpdatePropertyGroupArg& );
 
             /**
             ApiRoute('restore')
@@ -398,7 +399,7 @@ namespace files{
 
             on error:RestoreError throws exception RestoreErrorException
             */
-        std::unique_ptr<FileMetadata> restore(const RestoreArg&);
+        std::unique_ptr<FileMetadata> restore(const RestoreArg& );
 
             /**
             ApiRoute('save_url')
@@ -410,7 +411,7 @@ namespace files{
 
             on error:SaveUrlError throws exception SaveUrlErrorException
             */
-        std::unique_ptr<SaveUrlResult> saveUrl(const SaveUrlArg&);
+        std::unique_ptr<SaveUrlResult> saveUrl(const SaveUrlArg& );
 
             /**
             ApiRoute('save_url/check_job_status')
@@ -420,7 +421,7 @@ namespace files{
 
             on error:PollError throws exception PollErrorException
             */
-        std::unique_ptr<SaveUrlJobStatus> saveUrlCheckJobStatus(const async::PollArg&);
+        std::unique_ptr<SaveUrlJobStatus> saveUrlCheckJobStatus(const async::PollArg& );
 
             /**
             ApiRoute('search')
@@ -432,7 +433,7 @@ namespace files{
 
             on error:SearchError throws exception SearchErrorException
             */
-        std::unique_ptr<SearchResult> search(const SearchArg&);
+        std::unique_ptr<SearchResult> search(const SearchArg& );
 
             /**
             ApiRoute('upload')
@@ -444,7 +445,7 @@ namespace files{
 
             on error:UploadError throws exception UploadErrorException
             */
-        std::unique_ptr<FileMetadata> upload(const CommitInfo&, QIODevice* io);
+        std::unique_ptr<FileMetadata> upload(const CommitInfo& , QIODevice* readFrom);
 
             /**
             ApiRoute('upload_session/append')
@@ -455,7 +456,7 @@ namespace files{
 
             on error:UploadSessionLookupError throws exception UploadSessionLookupErrorException
             */
-        void uploadSessionAppend(const UploadSessionCursor&, QIODevice* readFrom);
+        void uploadSessionAppend(const UploadSessionCursor& , QIODevice* readFrom);
 
             /**
             ApiRoute('upload_session/append_v2')
@@ -467,7 +468,7 @@ namespace files{
 
             on error:UploadSessionLookupError throws exception UploadSessionLookupErrorException
             */
-        void uploadSessionAppendV2(const UploadSessionAppendArg&, QIODevice* readFrom);
+        void uploadSessionAppendV2(const UploadSessionAppendArg& , QIODevice* readFrom);
 
             /**
             ApiRoute('upload_session/finish')
@@ -479,7 +480,7 @@ namespace files{
 
             on error:UploadSessionFinishError throws exception UploadSessionFinishErrorException
             */
-        std::unique_ptr<FileMetadata> uploadSessionFinish(const UploadSessionFinishArg&, QIODevice* io);
+        std::unique_ptr<FileMetadata> uploadSessionFinish(const UploadSessionFinishArg& , QIODevice* readFrom);
 
             /**
             ApiRoute('upload_session/finish_batch')
@@ -502,7 +503,7 @@ namespace files{
             Also we only allow up to 1000 entries in a single request
 
             */
-        std::unique_ptr<async::LaunchEmptyResult> uploadSessionFinishBatch(const UploadSessionFinishBatchArg&);
+        std::unique_ptr<async::LaunchEmptyResult> uploadSessionFinishBatch(const UploadSessionFinishBatchArg& );
 
             /**
             ApiRoute('upload_session/finish_batch/check')
@@ -514,7 +515,7 @@ namespace files{
 
             on error:PollError throws exception PollErrorException
             */
-        std::unique_ptr<UploadSessionFinishBatchJobStatus> uploadSessionFinishBatchCheck(const async::PollArg&);
+        std::unique_ptr<UploadSessionFinishBatchJobStatus> uploadSessionFinishBatchCheck(const async::PollArg& );
 
             /**
             ApiRoute('upload_session/start')
@@ -528,95 +529,95 @@ namespace files{
             contents.
 
             */
-        std::unique_ptr<UploadSessionStartResult> uploadSessionStart(const UploadSessionStartArg&, QIODevice* io);
+        std::unique_ptr<UploadSessionStartResult> uploadSessionStart(const UploadSessionStartArg& , QIODevice* readFrom);
 
     protected:
         Endpoint* m_end_point;
     };//FilesRoutes
 
     ///exception AlphaGetMetadataError for alpha/get_metadata
-    DECLARE_DBOX_ERR_EXCEPTION(AlphaGetMetadataErrorException, files::AlphaGetMetadataError);
+    DECLARE_API_ERR_EXCEPTION(AlphaGetMetadataErrorException, files::AlphaGetMetadataError);
 
     ///exception UploadErrorWithProperties for alpha/upload
-    DECLARE_DBOX_ERR_EXCEPTION(UploadErrorWithPropertiesException, files::UploadErrorWithProperties);
+    DECLARE_API_ERR_EXCEPTION(UploadErrorWithPropertiesException, files::UploadErrorWithProperties);
 
     ///exception RelocationError for copy
-    DECLARE_DBOX_ERR_EXCEPTION(RelocationErrorException, files::RelocationError);
+    DECLARE_API_ERR_EXCEPTION(RelocationErrorException, files::RelocationError);
 
     ///exception GetCopyReferenceError for copy_reference/get
-    DECLARE_DBOX_ERR_EXCEPTION(GetCopyReferenceErrorException, files::GetCopyReferenceError);
+    DECLARE_API_ERR_EXCEPTION(GetCopyReferenceErrorException, files::GetCopyReferenceError);
 
     ///exception SaveCopyReferenceError for copy_reference/save
-    DECLARE_DBOX_ERR_EXCEPTION(SaveCopyReferenceErrorException, files::SaveCopyReferenceError);
+    DECLARE_API_ERR_EXCEPTION(SaveCopyReferenceErrorException, files::SaveCopyReferenceError);
 
     ///exception CreateFolderError for create_folder
-    DECLARE_DBOX_ERR_EXCEPTION(CreateFolderErrorException, files::CreateFolderError);
+    DECLARE_API_ERR_EXCEPTION(CreateFolderErrorException, files::CreateFolderError);
 
     ///exception DeleteError for delete
-    DECLARE_DBOX_ERR_EXCEPTION(DeleteErrorException, files::DeleteError);
+    DECLARE_API_ERR_EXCEPTION(DeleteErrorException, files::DeleteError);
 
     ///exception DownloadError for download
-    DECLARE_DBOX_ERR_EXCEPTION(DownloadErrorException, files::DownloadError);
+    DECLARE_API_ERR_EXCEPTION(DownloadErrorException, files::DownloadError);
 
     ///exception GetMetadataError for get_metadata
-    DECLARE_DBOX_ERR_EXCEPTION(GetMetadataErrorException, files::GetMetadataError);
+    DECLARE_API_ERR_EXCEPTION(GetMetadataErrorException, files::GetMetadataError);
 
     ///exception PreviewError for get_preview
-    DECLARE_DBOX_ERR_EXCEPTION(PreviewErrorException, files::PreviewError);
+    DECLARE_API_ERR_EXCEPTION(PreviewErrorException, files::PreviewError);
 
     ///exception GetTemporaryLinkError for get_temporary_link
-    DECLARE_DBOX_ERR_EXCEPTION(GetTemporaryLinkErrorException, files::GetTemporaryLinkError);
+    DECLARE_API_ERR_EXCEPTION(GetTemporaryLinkErrorException, files::GetTemporaryLinkError);
 
     ///exception ThumbnailError for get_thumbnail
-    DECLARE_DBOX_ERR_EXCEPTION(ThumbnailErrorException, files::ThumbnailError);
+    DECLARE_API_ERR_EXCEPTION(ThumbnailErrorException, files::ThumbnailError);
 
     ///exception ListFolderError for list_folder
-    DECLARE_DBOX_ERR_EXCEPTION(ListFolderErrorException, files::ListFolderError);
+    DECLARE_API_ERR_EXCEPTION(ListFolderErrorException, files::ListFolderError);
 
     ///exception ListFolderContinueError for list_folder/continue
-    DECLARE_DBOX_ERR_EXCEPTION(ListFolderContinueErrorException, files::ListFolderContinueError);
+    DECLARE_API_ERR_EXCEPTION(ListFolderContinueErrorException, files::ListFolderContinueError);
 
     ///exception ListFolderLongpollError for list_folder/longpoll
-    DECLARE_DBOX_ERR_EXCEPTION(ListFolderLongpollErrorException, files::ListFolderLongpollError);
+    DECLARE_API_ERR_EXCEPTION(ListFolderLongpollErrorException, files::ListFolderLongpollError);
 
     ///exception ListRevisionsError for list_revisions
-    DECLARE_DBOX_ERR_EXCEPTION(ListRevisionsErrorException, files::ListRevisionsError);
+    DECLARE_API_ERR_EXCEPTION(ListRevisionsErrorException, files::ListRevisionsError);
 
     ///exception AddPropertiesError for properties/add
-    DECLARE_DBOX_ERR_EXCEPTION(AddPropertiesErrorException, files::AddPropertiesError);
+    DECLARE_API_ERR_EXCEPTION(AddPropertiesErrorException, files::AddPropertiesError);
 
     ///exception InvalidPropertyGroupError for properties/overwrite
-    DECLARE_DBOX_ERR_EXCEPTION(InvalidPropertyGroupErrorException, files::InvalidPropertyGroupError);
+    DECLARE_API_ERR_EXCEPTION(InvalidPropertyGroupErrorException, files::InvalidPropertyGroupError);
 
     ///exception RemovePropertiesError for properties/remove
-    DECLARE_DBOX_ERR_EXCEPTION(RemovePropertiesErrorException, files::RemovePropertiesError);
+    DECLARE_API_ERR_EXCEPTION(RemovePropertiesErrorException, files::RemovePropertiesError);
 
     ///exception PropertyTemplateError for properties/template/get
-    DECLARE_DBOX_ERR_EXCEPTION(PropertyTemplateErrorException, properties::PropertyTemplateError);
+    DECLARE_API_ERR_EXCEPTION(PropertyTemplateErrorException, properties::PropertyTemplateError);
 
     ///exception UpdatePropertiesError for properties/update
-    DECLARE_DBOX_ERR_EXCEPTION(UpdatePropertiesErrorException, files::UpdatePropertiesError);
+    DECLARE_API_ERR_EXCEPTION(UpdatePropertiesErrorException, files::UpdatePropertiesError);
 
     ///exception RestoreError for restore
-    DECLARE_DBOX_ERR_EXCEPTION(RestoreErrorException, files::RestoreError);
+    DECLARE_API_ERR_EXCEPTION(RestoreErrorException, files::RestoreError);
 
     ///exception SaveUrlError for save_url
-    DECLARE_DBOX_ERR_EXCEPTION(SaveUrlErrorException, files::SaveUrlError);
+    DECLARE_API_ERR_EXCEPTION(SaveUrlErrorException, files::SaveUrlError);
 
     ///exception PollError for save_url/check_job_status
-    DECLARE_DBOX_ERR_EXCEPTION(PollErrorException, async::PollError);
+    DECLARE_API_ERR_EXCEPTION(PollErrorException, async::PollError);
 
     ///exception SearchError for search
-    DECLARE_DBOX_ERR_EXCEPTION(SearchErrorException, files::SearchError);
+    DECLARE_API_ERR_EXCEPTION(SearchErrorException, files::SearchError);
 
     ///exception UploadError for upload
-    DECLARE_DBOX_ERR_EXCEPTION(UploadErrorException, files::UploadError);
+    DECLARE_API_ERR_EXCEPTION(UploadErrorException, files::UploadError);
 
     ///exception UploadSessionLookupError for upload_session/append
-    DECLARE_DBOX_ERR_EXCEPTION(UploadSessionLookupErrorException, files::UploadSessionLookupError);
+    DECLARE_API_ERR_EXCEPTION(UploadSessionLookupErrorException, files::UploadSessionLookupError);
 
     ///exception UploadSessionFinishError for upload_session/finish
-    DECLARE_DBOX_ERR_EXCEPTION(UploadSessionFinishErrorException, files::UploadSessionFinishError);
+    DECLARE_API_ERR_EXCEPTION(UploadSessionFinishErrorException, files::UploadSessionFinishError);
 
 
 }//files

@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace files{
@@ -22,11 +24,15 @@ namespace files{
         GpsCoordinates(const float& arg){ m_latitude = arg; };
 
     public:
-        ///Latitude of the GPS coordinates.
+            /**
+                Latitude of the GPS coordinates.
+            */
         float latitude()const{return m_latitude;};
         GpsCoordinates& setLatitude(const float& arg){m_latitude=arg;return *this;};
 
-        ///Longitude of the GPS coordinates.
+            /**
+                Longitude of the GPS coordinates.
+            */
         float longitude()const{return m_longitude;};
         GpsCoordinates& setLongitude(const float& arg){m_longitude=arg;return *this;};
 
@@ -44,16 +50,17 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GpsCoordinates EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Latitude of the GPS coordinates.
+            /**
+                Latitude of the GPS coordinates.
+            */
         float m_latitude;
 
-        ///Longitude of the GPS coordinates.
+            /**
+                Longitude of the GPS coordinates.
+            */
         float m_longitude;
 
     };//GpsCoordinates

@@ -1,12 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamIncludeMembersArg.h"
-#include "dropbox/team/TeamGroupSelector.h"
 #include "dropbox/team/TeamGroupSelector.h"
 #include "dropbox/team/TeamMemberAccess.h"
 
@@ -24,13 +25,17 @@ namespace team{
         GroupMembersAddArg(const GroupSelector& arg){ m_group = arg; };
 
     public:
-        ///Group to which users will be added.
+            /**
+                Group to which users will be added.
+            */
         GroupSelector group()const{return m_group;};
         GroupMembersAddArg& setGroup(const GroupSelector& arg){m_group=arg;return *this;};
 
-        ///List of users to be added to the group.
+            /**
+                List of users to be added to the group.
+            */
         const std::list <MemberAccess>& members()const{return m_members;};
-        GroupMembersAddArg& setMembers(const std::list <MemberAccess>&& arg){m_members=arg;return *this;};
+        GroupMembersAddArg& setMembers(const std::list <MemberAccess>& arg){m_members=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -46,16 +51,17 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static GroupMembersAddArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Group to which users will be added.
+            /**
+                Group to which users will be added.
+            */
         GroupSelector m_group;
 
-        ///List of users to be added to the group.
+            /**
+                List of users to be added to the group.
+            */
         std::list <MemberAccess> m_members;
 
     };//GroupMembersAddArg

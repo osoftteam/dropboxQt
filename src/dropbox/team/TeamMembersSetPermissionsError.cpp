@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamMembersSetPermissionsError.h"
@@ -93,14 +95,6 @@ std::unique_ptr<MembersSetPermissionsError>  MembersSetPermissionsError::factory
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-MembersSetPermissionsError MembersSetPermissionsError::EXAMPLE(){
-    MembersSetPermissionsError rv;
-    rv.m_tag = MembersSetPermissionsError_LAST_ADMIN;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

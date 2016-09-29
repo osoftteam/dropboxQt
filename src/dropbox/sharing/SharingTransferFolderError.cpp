@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingTransferFolderError.h"
@@ -110,15 +112,6 @@ std::unique_ptr<TransferFolderError>  TransferFolderError::factory::create(const
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-TransferFolderError TransferFolderError::EXAMPLE(){
-    TransferFolderError rv;
-    rv.access_error = sharing::SharedFolderAccessError::EXAMPLE();
-    rv.m_tag = TransferFolderError_ACCESS_ERROR;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

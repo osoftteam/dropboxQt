@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesUploadSessionCursor.h"
 #include "dropbox/files/FilesCommitInfo.h"
 
@@ -23,11 +25,15 @@ namespace files{
         UploadSessionFinishArg(const UploadSessionCursor& arg){ m_cursor = arg; };
 
     public:
-        ///Contains the upload session ID and the offset.
+            /**
+                Contains the upload session ID and the offset.
+            */
         UploadSessionCursor cursor()const{return m_cursor;};
         UploadSessionFinishArg& setCursor(const UploadSessionCursor& arg){m_cursor=arg;return *this;};
 
-        ///Contains the path and other optional modifiers for the commit.
+            /**
+                Contains the path and other optional modifiers for the commit.
+            */
         CommitInfo commit()const{return m_commit;};
         UploadSessionFinishArg& setCommit(const CommitInfo& arg){m_commit=arg;return *this;};
 
@@ -45,16 +51,17 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static UploadSessionFinishArg EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Contains the upload session ID and the offset.
+            /**
+                Contains the upload session ID and the offset.
+            */
         UploadSessionCursor m_cursor;
 
-        ///Contains the path and other optional modifiers for the commit.
+            /**
+                Contains the path and other optional modifiers for the commit.
+            */
         CommitInfo m_commit;
 
     };//UploadSessionFinishArg

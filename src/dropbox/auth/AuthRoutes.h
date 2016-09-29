@@ -1,16 +1,17 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "auth"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 
 class Endpoint;
-class DropboxRequestConfig;
-class DropboxAuthInfo;
 
 namespace auth{
     class AuthRoutes{

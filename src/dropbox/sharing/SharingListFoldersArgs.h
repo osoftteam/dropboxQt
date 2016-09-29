@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingFolderAction.h"
 
 namespace dropboxQt{
@@ -28,13 +30,20 @@ namespace sharing{
         { m_limit = arg; };
 
     public:
-        ///The maximum number of results to return per request.
+            /**
+                The maximum number of results to return per request.
+            */
         int limit()const{return m_limit;};
         ListFoldersArgs& setLimit(const int& arg){m_limit=arg;return *this;};
 
-        ///This is a list indicating whether each returned folder data entry will include a boolean field :field:`FolderPermission.allow` that describes whether the current user can perform the `FolderAction` on the folder.
+            /**
+                This is a list indicating whether each returned folder data
+                entry will include a boolean field ``FolderPermission.allow``
+                that describes whether the current user can perform the
+                `FolderAction` on the folder.
+            */
         const std::list <FolderAction>& actions()const{return m_actions;};
-        ListFoldersArgs& setActions(const std::list <FolderAction>&& arg){m_actions=arg;return *this;};
+        ListFoldersArgs& setActions(const std::list <FolderAction>& arg){m_actions=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -50,16 +59,20 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ListFoldersArgs EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///The maximum number of results to return per request.
+            /**
+                The maximum number of results to return per request.
+            */
         int m_limit;
 
-        ///This is a list indicating whether each returned folder data entry will include a boolean field :field:`FolderPermission.allow` that describes whether the current user can perform the `FolderAction` on the folder.
+            /**
+                This is a list indicating whether each returned folder data
+                entry will include a boolean field ``FolderPermission.allow``
+                that describes whether the current user can perform the
+                `FolderAction` on the folder.
+            */
         std::list <FolderAction> m_actions;
 
     };//ListFoldersArgs

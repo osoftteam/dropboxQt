@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingGetSharedLinkFileError.h"
@@ -77,14 +79,6 @@ std::unique_ptr<GetSharedLinkFileError>  GetSharedLinkFileError::factory::create
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GetSharedLinkFileError GetSharedLinkFileError::EXAMPLE(){
-    GetSharedLinkFileError rv;
-    rv.m_tag = GetSharedLinkFileError_SHARED_LINK_IS_DIRECTORY;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

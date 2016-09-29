@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamUserSelectorArg.h"
 
 namespace dropboxQt{
@@ -17,12 +19,14 @@ namespace team{
     public:
         MembersGetInfoArgs(){};
 
-        MembersGetInfoArgs(const std::list <UserSelectorArg>&& arg){ m_members = arg; };
+        MembersGetInfoArgs(const std::list <UserSelectorArg>& arg){ m_members = arg; };
 
     public:
-        ///List of team members.
+            /**
+                List of team members.
+            */
         const std::list <UserSelectorArg>& members()const{return m_members;};
-        MembersGetInfoArgs& setMembers(const std::list <UserSelectorArg>&& arg){m_members=arg;return *this;};
+        MembersGetInfoArgs& setMembers(const std::list <UserSelectorArg>& arg){m_members=arg;return *this;};
 
     public:
         operator QJsonObject ()const;
@@ -38,13 +42,12 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MembersGetInfoArgs EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///List of team members.
+            /**
+                List of team members.
+            */
         std::list <UserSelectorArg> m_members;
 
     };//MembersGetInfoArgs

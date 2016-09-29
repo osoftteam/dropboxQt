@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/files/FilesGetTemporaryLinkResult.h"
@@ -55,15 +57,6 @@ std::unique_ptr<GetTemporaryLinkResult>  GetTemporaryLinkResult::factory::create
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-GetTemporaryLinkResult GetTemporaryLinkResult::EXAMPLE(){
-    GetTemporaryLinkResult rv;
-    rv.metadata = files::FileMetadata::EXAMPLE();
-    rv.link = "test2value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//files
 }//dropboxQt

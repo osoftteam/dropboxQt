@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingMemberAccessLevelResult.h"
@@ -57,15 +59,6 @@ std::unique_ptr<MemberAccessLevelResult>  MemberAccessLevelResult::factory::crea
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-MemberAccessLevelResult MemberAccessLevelResult::EXAMPLE(){
-    MemberAccessLevelResult rv;
-    rv.access_level = sharing::AccessLevel::EXAMPLE();
-    rv.warning = "test2value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

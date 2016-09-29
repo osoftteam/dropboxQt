@@ -1,14 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "files"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesLookupError.h"
-#include "dropbox/files/FilesLookupError.h"
-#include "dropbox/files/FilesWriteError.h"
 #include "dropbox/files/FilesWriteError.h"
 
 namespace dropboxQt{
@@ -30,10 +30,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///None
-        LookupError getPathLookup()const{DBOX_CHECK_STATE((DeleteError_PATH_LOOKUP == m_tag), "expected tag: DeleteError_PATH_LOOKUP", m_tag);return m_path_lookup;};
+        LookupError getPathLookup()const{API_CHECK_STATE((DeleteError_PATH_LOOKUP == m_tag), "expected tag: DeleteError_PATH_LOOKUP", m_tag);return m_path_lookup;};
 
         ///None
-        WriteError getPathWrite()const{DBOX_CHECK_STATE((DeleteError_PATH_WRITE == m_tag), "expected tag: DeleteError_PATH_WRITE", m_tag);return m_path_write;};
+        WriteError getPathWrite()const{API_CHECK_STATE((DeleteError_PATH_WRITE == m_tag), "expected tag: DeleteError_PATH_WRITE", m_tag);return m_path_write;};
 
     public:
         operator QJsonObject ()const;
@@ -49,9 +49,6 @@ namespace files{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static DeleteError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
 namespace sharing{
@@ -33,10 +35,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///Dropbox account, team member, or group ID of member.
-        QString getDropboxId()const{DBOX_CHECK_STATE((MemberSelector_DROPBOX_ID == m_tag), "expected tag: MemberSelector_DROPBOX_ID", m_tag);return m_dropbox_id;};
+        QString getDropboxId()const{API_CHECK_STATE((MemberSelector_DROPBOX_ID == m_tag), "expected tag: MemberSelector_DROPBOX_ID", m_tag);return m_dropbox_id;};
 
         ///E-mail address of member.
-        QString getEmail()const{DBOX_CHECK_STATE((MemberSelector_EMAIL == m_tag), "expected tag: MemberSelector_EMAIL", m_tag);return m_email;};
+        QString getEmail()const{API_CHECK_STATE((MemberSelector_EMAIL == m_tag), "expected tag: MemberSelector_EMAIL", m_tag);return m_email;};
 
     public:
         operator QJsonObject ()const;
@@ -52,9 +54,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MemberSelector EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

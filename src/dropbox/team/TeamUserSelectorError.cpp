@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamUserSelectorError.h"
@@ -53,14 +55,6 @@ std::unique_ptr<UserSelectorError>  UserSelectorError::factory::create(const QBy
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-UserSelectorError UserSelectorError::EXAMPLE(){
-    UserSelectorError rv;
-    rv.m_tag = UserSelectorError_USER_NOT_FOUND;
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

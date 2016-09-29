@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/sharing/SharingFolderPolicy.h"
@@ -58,17 +60,6 @@ std::unique_ptr<FolderPolicy>  FolderPolicy::factory::create(const QJsonObject& 
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-FolderPolicy FolderPolicy::EXAMPLE(){
-    FolderPolicy rv;
-    rv.member_policy = sharing::MemberPolicy::EXAMPLE();
-    rv.resolved_member_policy = sharing::MemberPolicy::EXAMPLE();
-    rv.acl_update_policy = sharing::AclUpdatePolicy::EXAMPLE();
-    rv.shared_link_policy = sharing::SharedLinkPolicy::EXAMPLE();
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//sharing
 }//dropboxQt

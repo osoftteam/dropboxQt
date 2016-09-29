@@ -1,17 +1,14 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
-#include "dropbox/sharing/SharingMemberPolicy.h"
-#include "dropbox/sharing/SharingMemberPolicy.h"
-#include "dropbox/sharing/SharingMemberPolicy.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingMemberPolicy.h"
 #include "dropbox/sharing/SharingAclUpdatePolicy.h"
-#include "dropbox/sharing/SharingAclUpdatePolicy.h"
-#include "dropbox/sharing/SharingSharedLinkPolicy.h"
 #include "dropbox/sharing/SharingSharedLinkPolicy.h"
 
 namespace dropboxQt{
@@ -41,19 +38,34 @@ namespace sharing{
         FolderPolicy(const MemberPolicy& arg){ m_member_policy = arg; };
 
     public:
-        ///Who can be a member of this shared folder, as set on the folder itself. The effective policy may differ from this value if the team-wide policy is more restrictive. Present only if the folder is owned by a team.
+            /**
+                Who can be a member of this shared folder, as set on the folder
+                itself. The effective policy may differ from this value if the
+                team-wide policy is more restrictive. Present only if the folder
+                is owned by a team.
+            */
         MemberPolicy memberPolicy()const{return m_member_policy;};
         FolderPolicy& setMemberpolicy(const MemberPolicy& arg){m_member_policy=arg;return *this;};
 
-        ///Who can be a member of this shared folder, taking into account both the folder and the team-wide policy. This value may differ from that of member_policy if the team-wide policy is more restrictive than the folder policy. Present only if the folder is owned by a team.
+            /**
+                Who can be a member of this shared folder, taking into account
+                both the folder and the team-wide policy. This value may differ
+                from that of member_policy if the team-wide policy is more
+                restrictive than the folder policy. Present only if the folder
+                is owned by a team.
+            */
         MemberPolicy resolvedMemberPolicy()const{return m_resolved_member_policy;};
         FolderPolicy& setResolvedmemberpolicy(const MemberPolicy& arg){m_resolved_member_policy=arg;return *this;};
 
-        ///Who can add and remove members from this shared folder.
+            /**
+                Who can add and remove members from this shared folder.
+            */
         AclUpdatePolicy aclUpdatePolicy()const{return m_acl_update_policy;};
         FolderPolicy& setAclupdatepolicy(const AclUpdatePolicy& arg){m_acl_update_policy=arg;return *this;};
 
-        ///Who links can be shared with.
+            /**
+                Who links can be shared with.
+            */
         SharedLinkPolicy sharedLinkPolicy()const{return m_shared_link_policy;};
         FolderPolicy& setSharedlinkpolicy(const SharedLinkPolicy& arg){m_shared_link_policy=arg;return *this;};
 
@@ -71,22 +83,34 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static FolderPolicy EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Who can be a member of this shared folder, as set on the folder itself. The effective policy may differ from this value if the team-wide policy is more restrictive. Present only if the folder is owned by a team.
+            /**
+                Who can be a member of this shared folder, as set on the folder
+                itself. The effective policy may differ from this value if the
+                team-wide policy is more restrictive. Present only if the folder
+                is owned by a team.
+            */
         MemberPolicy m_member_policy;
 
-        ///Who can be a member of this shared folder, taking into account both the folder and the team-wide policy. This value may differ from that of member_policy if the team-wide policy is more restrictive than the folder policy. Present only if the folder is owned by a team.
+            /**
+                Who can be a member of this shared folder, taking into account
+                both the folder and the team-wide policy. This value may differ
+                from that of member_policy if the team-wide policy is more
+                restrictive than the folder policy. Present only if the folder
+                is owned by a team.
+            */
         MemberPolicy m_resolved_member_policy;
 
-        ///Who can add and remove members from this shared folder.
+            /**
+                Who can add and remove members from this shared folder.
+            */
         AclUpdatePolicy m_acl_update_policy;
 
-        ///Who links can be shared with.
+            /**
+                Who links can be shared with.
+            */
         SharedLinkPolicy m_shared_link_policy;
 
     };//FolderPolicy

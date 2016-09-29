@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/users/UsersTeam.h"
 #include "dropbox/team_policies/TeamPoliciesTeamSharingPolicies.h"
 
@@ -23,7 +25,9 @@ namespace users{
         FullTeam(const team_policies::TeamSharingPolicies& arg){ m_sharing_policies = arg; };
 
     public:
-        ///Team policies governing sharing.
+            /**
+                Team policies governing sharing.
+            */
         team_policies::TeamSharingPolicies sharingPolicies()const{return m_sharing_policies;};
         FullTeam& setSharingpolicies(const team_policies::TeamSharingPolicies& arg){m_sharing_policies=arg;return *this;};
 
@@ -41,13 +45,12 @@ namespace users{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static FullTeam EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Team policies governing sharing.
+            /**
+                Team policies governing sharing.
+            */
         team_policies::TeamSharingPolicies m_sharing_policies;
 
     };//FullTeam

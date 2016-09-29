@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "sharing"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingShareFolderErrorBase.h"
 
 namespace dropboxQt{
@@ -37,7 +39,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///:field:`ShareFolderArg.path` is invalid.
-        SharePathError getBadPath()const{DBOX_CHECK_STATE((ShareFolderErrorBase_BAD_PATH == m_tag), "expected tag: ShareFolderErrorBase_BAD_PATH", m_tag);return m_bad_path;};
+        SharePathError getBadPath()const{API_CHECK_STATE((ShareFolderErrorBase_BAD_PATH == m_tag), "expected tag: ShareFolderErrorBase_BAD_PATH", m_tag);return m_bad_path;};
 
     public:
         operator QJsonObject ()const;
@@ -53,9 +55,6 @@ namespace sharing{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static ShareFolderError EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:

@@ -1,6 +1,8 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team/TeamActiveWebSession.h"
@@ -61,16 +63,6 @@ std::unique_ptr<ActiveWebSession>  ActiveWebSession::factory::create(const QJson
     rv->fromJson(js);
     return rv;
 }
-
-#ifdef DROPBOX_QT_AUTOTEST
-ActiveWebSession ActiveWebSession::EXAMPLE(){
-    ActiveWebSession rv;
-    rv.user_agent = "test1value";
-    rv.os = "test2value";
-    rv.browser = "test3value";
-    return rv;
-}
-#endif //DROPBOX_QT_AUTOTEST
 
 }//team
 }//dropboxQt

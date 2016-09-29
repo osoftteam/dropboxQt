@@ -1,10 +1,12 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamRevokeLinkedAppStatus.h"
 
 namespace dropboxQt{
@@ -14,10 +16,9 @@ namespace team{
     public:
         RevokeLinkedAppBatchResult(){};
 
-        RevokeLinkedAppBatchResult(const std::list <RevokeLinkedAppStatus>&& arg){ m_revoke_linked_app_status = arg; };
+        RevokeLinkedAppBatchResult(const std::list <RevokeLinkedAppStatus>& arg){ m_revoke_linked_app_status = arg; };
 
     public:
-        ///None
         const std::list <RevokeLinkedAppStatus>& revokeLinkedAppStatus()const{return m_revoke_linked_app_status;};
 
     public:
@@ -34,13 +35,9 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static RevokeLinkedAppBatchResult EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///None
         std::list <RevokeLinkedAppStatus> m_revoke_linked_app_status;
 
     };//RevokeLinkedAppBatchResult

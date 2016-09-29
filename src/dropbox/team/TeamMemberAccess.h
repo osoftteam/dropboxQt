@@ -1,13 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "team"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamUserSelectorArg.h"
-#include "dropbox/team/TeamUserSelectorArg.h"
-#include "dropbox/team/TeamGroupAccessType.h"
 #include "dropbox/team/TeamGroupAccessType.h"
 
 namespace dropboxQt{
@@ -26,11 +26,15 @@ namespace team{
         MemberAccess(const UserSelectorArg& arg){ m_user = arg; };
 
     public:
-        ///Identity of a user.
+            /**
+                Identity of a user.
+            */
         UserSelectorArg user()const{return m_user;};
         MemberAccess& setUser(const UserSelectorArg& arg){m_user=arg;return *this;};
 
-        ///Access type.
+            /**
+                Access type.
+            */
         GroupAccessType accessType()const{return m_access_type;};
         MemberAccess& setAccesstype(const GroupAccessType& arg){m_access_type=arg;return *this;};
 
@@ -48,16 +52,17 @@ namespace team{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static MemberAccess EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
-        ///Identity of a user.
+            /**
+                Identity of a user.
+            */
         UserSelectorArg m_user;
 
-        ///Access type.
+            /**
+                Access type.
+            */
         GroupAccessType m_access_type;
 
     };//MemberAccess

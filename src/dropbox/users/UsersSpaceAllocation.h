@@ -1,11 +1,13 @@
 /**********************************************************
  DO NOT EDIT
  This file was generated from stone specification "users"
+ www.prokarpaty.net
+ 29, Sep 2016
 ***********************************************************/
 
 #pragma once
 
-#include "dropbox/endpoint/DropboxUtil.h"
+#include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/users/UsersIndividualSpaceAllocation.h"
 #include "dropbox/users/UsersTeamSpaceAllocation.h"
 
@@ -35,10 +37,10 @@ namespace users{
 
         Tag tag()const{return m_tag;}
         ///The user's space allocation applies only to their individual account.
-        IndividualSpaceAllocation getIndividual()const{DBOX_CHECK_STATE((SpaceAllocation_INDIVIDUAL == m_tag), "expected tag: SpaceAllocation_INDIVIDUAL", m_tag);return m_individual;};
+        IndividualSpaceAllocation getIndividual()const{API_CHECK_STATE((SpaceAllocation_INDIVIDUAL == m_tag), "expected tag: SpaceAllocation_INDIVIDUAL", m_tag);return m_individual;};
 
         ///The user shares space with other members of their team.
-        TeamSpaceAllocation getTeam()const{DBOX_CHECK_STATE((SpaceAllocation_TEAM == m_tag), "expected tag: SpaceAllocation_TEAM", m_tag);return m_team;};
+        TeamSpaceAllocation getTeam()const{API_CHECK_STATE((SpaceAllocation_TEAM == m_tag), "expected tag: SpaceAllocation_TEAM", m_tag);return m_team;};
 
     public:
         operator QJsonObject ()const;
@@ -54,9 +56,6 @@ namespace users{
         };
 
 
-        #ifdef DROPBOX_QT_AUTOTEST
-        static SpaceAllocation EXAMPLE();
-        #endif //DROPBOX_QT_AUTOTEST
 
 
     protected:
