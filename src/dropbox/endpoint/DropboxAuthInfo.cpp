@@ -1,6 +1,6 @@
 #include <QJsonObject>
 #include "DropboxAuthInfo.h"
-#include "DropboxUtil.h"
+#include "ApiUtil.h"
 
 using namespace dropboxQt;
 

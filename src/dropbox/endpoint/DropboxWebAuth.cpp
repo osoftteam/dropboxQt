@@ -7,7 +7,7 @@
 #include "DropboxWebAuth.h"
 #include "DropboxAppInfo.h"
 #include "DropboxHost.h"
-#include "DropboxException.h"
+#include "ApiException.h"
 
 using namespace dropboxQt;
 

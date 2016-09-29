@@ -2,7 +2,7 @@
 #include <QJsonObject>
 #include "DropboxAppInfo.h"
 #include "DropboxHost.h"
-#include "DropboxUtil.h"
+#include "ApiUtil.h"
 
 using namespace dropboxQt;
 
