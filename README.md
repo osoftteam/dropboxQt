@@ -96,10 +96,7 @@ on windows and generate project files - see folder 'bin' and win-configure-open-
 You have to add dropboxQt to your LIB list (as shown in sample) and add path to cprj/src to the INCLUDE list.
 
 ###Current status
-Work in progress - use it as reference at your discretion.
-We need some time to clean up utility code and samples.
-Until the final integration with AridneOrganize - the host project, library code cannot be regarded as stable and tested.
-
+Work in progress - use at your discretion. Public interfaces are stabilized (unlikely to be changed in such a way that would break client code), examples are working, host application - AriadneOrganizer is being testest under all supported by Qt platforms. We call it beta.
 
 ###Features
 - connect to Dropbox using Api v2.
