@@ -38,36 +38,37 @@ namespace dropboxQt{
             RES res;
             RESULT_FACTORY factory;
             QNetworkReply *reply = postData(req, bytes2post);
-            ENDPOINT_SETUP_DEFAULT_SLOTS(reply)
-                QObject::connect(reply, &QNetworkReply::finished, [&]()
-                                 {
-                                     status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-                                     switch(status_code)
+            if(!reply)return res;
+            ENDPOINT_SETUP_DEFAULT_SLOTS(reply);
+            QObject::connect(reply, &QNetworkReply::finished, [&]()
+                             {
+                                 status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+                                 switch(status_code)
+                                     {
+                                     case 200:
                                          {
-                                         case 200:
-                                             {
-                                                 QByteArray data = reply->readAll();
-                                                 if(!data.isEmpty())
-                                                     {
-                                                         res = std::move(factory.create(data));
-                                                         ok = true;
-                                                     }
-                                             }break;
+                                             QByteArray data = reply->readAll();
+                                             if(!data.isEmpty())
+                                                 {
+                                                     res = std::move(factory.create(data));
+                                                     ok = true;
+                                                 }
+                                         }break;
 												 
-                                         case 409:
-                                             {
-                                                 exception_data = reply->readAll();
-                                                 ENDPOINT_PREPARE_ERR_INFO(exception_data, bytes2post);
-                                                 raise_details_exception = true;
-                                             }break;
-                                         default:
-                                             {
-                                                 QByteArray data = reply->readAll();
-                                                 ENDPOINT_PREPARE_ERR_INFO(data, bytes2post);
-                                             }break;
-                                         }
-                                     exitEventLoop(reply);
-                                 });//response lambda
+                                     case 409:
+                                         {
+                                             exception_data = reply->readAll();
+                                             ENDPOINT_PREPARE_ERR_INFO(exception_data, bytes2post);
+                                             raise_details_exception = true;
+                                         }break;
+                                     default:
+                                         {
+                                             QByteArray data = reply->readAll();
+                                             ENDPOINT_PREPARE_ERR_INFO(data, bytes2post);
+                                         }break;
+                                     }
+                                 exitEventLoop(reply);
+                             });//response lambda
             execEventLoop(reply);
             if(raise_details_exception)
                 {
@@ -97,17 +98,18 @@ namespace dropboxQt{
             RESULT_FACTORY factory;
             QByteArray bytes2post;
             QNetworkReply *reply = postData(req, bytes2post);
-            ENDPOINT_SETUP_DEFAULT_SLOTS(reply)
-                QObject::connect(reply, &QNetworkReply::readyRead, [&]()
-                                 {
-                                     qint64 sz = reply->bytesAvailable();
-                                     if(sz > 0){
-                                         QByteArray data = reply->read(sz);
-                                         writeTo->write(data);
-                                         if(errInData.empty())
-                                             errInData = data.constData();
-                                     }
-                                 });
+            if(!reply)return res;
+            ENDPOINT_SETUP_DEFAULT_SLOTS(reply);
+            QObject::connect(reply, &QNetworkReply::readyRead, [&]()
+                             {
+                                 qint64 sz = reply->bytesAvailable();
+                                 if(sz > 0 && writeTo != NULL){
+                                     QByteArray data = reply->read(sz);
+                                     writeTo->write(data);
+                                     if(errInData.empty())
+                                         errInData = data.constData();
+                                 }
+                             });
 
             QObject::connect(reply, &QNetworkReply::finished, [&]()
                              {
@@ -169,7 +171,8 @@ namespace dropboxQt{
             int status_code = 0;
             RES res;
             RESULT_FACTORY factory;
-            QNetworkReply *reply = postData(req, readFrom->readAll());
+            QNetworkReply *reply = postData(req, readFrom ? readFrom->readAll() : QByteArray());
+            if(!reply)return res;
             ENDPOINT_SETUP_DEFAULT_SLOTS(reply);
             QObject::connect(reply, &QNetworkReply::finished, [&]()
                              {

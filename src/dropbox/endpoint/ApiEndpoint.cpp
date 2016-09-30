@@ -1,5 +1,12 @@
 #include "ApiEndpoint.h"
 
+#ifdef API_QT_AUTOTEST
+#include "dropbox/AUTOTEST/ApiAutotest.h"
+#define LOG_REQUEST     ApiAutotest::INSTANCE() << m_last_request_info;\
+                        ApiAutotest::INSTANCE() << "--------------------------";
+
+#endif
+
 using namespace dropboxQt;
 
 ApiEndpoint::ApiEndpoint(ApiClient* c):m_client(c), m_reply_in_progress(NULL)
@@ -35,43 +42,67 @@ void ApiEndpoint::cancel()
 };
 
 QNetworkReply* ApiEndpoint::getData(const QNetworkRequest &req)
-{
-    QNetworkReply *reply = m_con_mgr.get(req);
+{    
     m_last_request_info = "GET " + req.url().toString() + "\n";
     QList<QByteArray> lst = req.rawHeaderList();
     for(QList<QByteArray>::iterator i = lst.begin(); i != lst.end(); i++)
         m_last_request_info += QString("--header %1 : %2 \n").arg(i->constData()).arg(req.rawHeader(*i).constData());
+
+#ifdef API_QT_AUTOTEST
+    LOG_REQUEST;
+    return nullptr;
+#else
+    QNetworkReply *reply = m_con_mgr.get(req);
     return reply;
+#endif
 };
 
 QNetworkReply* ApiEndpoint::postData(const QNetworkRequest &req, const QByteArray& data)
-{
-    QNetworkReply *reply = m_con_mgr.post(req, data);
+{    
     m_last_request_info = "POST " + req.url().toString() + "\n";
     QList<QByteArray> lst = req.rawHeaderList();
     for(QList<QByteArray>::iterator i = lst.begin(); i != lst.end(); i++)
         m_last_request_info += QString("--header %1 : %2 \n").arg(i->constData()).arg(req.rawHeader(*i).constData());
-    m_last_request_info += QString("--data %1").arg(data.constData());    
+    m_last_request_info += QString("--data %1").arg(data.constData());
+
+#ifdef API_QT_AUTOTEST
+    LOG_REQUEST;
+    return nullptr;
+#else
+    QNetworkReply *reply = m_con_mgr.post(req, data);
     return reply;
+#endif
 };
 
 QNetworkReply* ApiEndpoint::putData(const QNetworkRequest &req, const QByteArray& data)
-{
-    QNetworkReply *reply = m_con_mgr.put(req, data);
+{    
     m_last_request_info = "PUT " + req.url().toString() + "\n";
     QList<QByteArray> lst = req.rawHeaderList();
     for(QList<QByteArray>::iterator i = lst.begin(); i != lst.end(); i++)
         m_last_request_info += QString("--header %1 : %2 \n").arg(i->constData()).arg(req.rawHeader(*i).constData());
-    m_last_request_info += QString("--data %1").arg(data.constData());    
+    m_last_request_info += QString("--data %1").arg(data.constData());
+
+#ifdef API_QT_AUTOTEST
+    LOG_REQUEST;
+    return nullptr;
+#else
+    QNetworkReply *reply = m_con_mgr.put(req, data);
     return reply;
+#endif
 };
 
 QNetworkReply* ApiEndpoint::deleteData(const QNetworkRequest &req)
-{
-    QNetworkReply *reply = m_con_mgr.deleteResource(req);
+{    
     m_last_request_info = "DELETE " + req.url().toString() + "\n";
     QList<QByteArray> lst = req.rawHeaderList();
     for(QList<QByteArray>::iterator i = lst.begin(); i != lst.end(); i++)
         m_last_request_info += QString("--header %1 : %2 \n").arg(i->constData()).arg(req.rawHeader(*i).constData());
+
+#ifdef API_QT_AUTOTEST
+    LOG_REQUEST;
+    return nullptr;
+#else
+    QNetworkReply *reply = m_con_mgr.deleteResource(req);
     return reply;
+#endif
 };
