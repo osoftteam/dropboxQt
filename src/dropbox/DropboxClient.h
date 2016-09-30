@@ -44,7 +44,7 @@ namespace dropboxQt{
         bool downloadFile(QString dropboxFilePath, QString localDestinationPath);
 
         /// upload file to Dropbox
-        bool uploadFile(QString localFilePath, QString dropboxDestinationPath);
+        bool uploadFile(QString localFilePath, QString dropboxDestinationPath, bool overwriteIfExists = false);
 
         /// return true if file exist on given path
         bool fileExists(QString dropboxPath);

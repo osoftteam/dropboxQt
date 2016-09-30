@@ -97,7 +97,7 @@ bool DropboxClient::downloadFile(QString dropboxFilePath, QString localDestinati
 	return rv;
 };
 
-bool DropboxClient::uploadFile(QString localFilePath, QString dropboxDestinationPath)
+    bool DropboxClient::uploadFile(QString localFilePath, QString dropboxDestinationPath, bool overwriteIfExists)
 {
 	bool rv = false;
 
@@ -110,6 +110,9 @@ bool DropboxClient::uploadFile(QString localFilePath, QString dropboxDestination
     try
         {
 			files::CommitInfo arg(dropboxDestinationPath);
+            if(overwriteIfExists){
+                arg.setMode(files::WriteMode::WriteMode_OVERWRITE);
+            }
             getFiles()->upload(arg, &file_in);
 			rv = true;
         }
