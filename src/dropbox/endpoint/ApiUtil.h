@@ -96,7 +96,7 @@ namespace dropboxQt{
 # if QT_VERSION > QT_VERSION_CHECK(5, 6, 0)
         int Max = arr.size();
         for (int i = 0; i < Max; ++i){
-            v = arr[i].toInt();
+            auto v = arr[i].toInt();
             lst.push_back(v);
         }
 #else
