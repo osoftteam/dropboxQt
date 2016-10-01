@@ -19,5 +19,14 @@ for(m, API_MODULES){
 HEADERS += $${API_DIR}/*.h
 SOURCES += $${API_DIR}/*.cpp
 
+################################################################
+# autotest generation (internal profiling usage)               #
+#                                                              #
+# HEADERS += $${API_DIR}/AUTOTEST/*.h                          #
+# SOURCES += $${API_DIR}/AUTOTEST/*.cpp                        #
+# DEFINES += API_QT_AUTOTEST                                   #
+################################################################
+
+
 INCLUDEPATH += $${SRC_DIR}
 
