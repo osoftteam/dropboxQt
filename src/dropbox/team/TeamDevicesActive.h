@@ -52,7 +52,7 @@ namespace team{
             /**
                 Array of number of linked linus (desktop) clients with activity.
             */
-        const std::list <int>& linux()const{return m_linux;};
+        const std::list <int>& Linux()const{return m_linux;};
         DevicesActive& setLinux(const std::list <int>& arg){m_linux=arg;return *this;};
 
             /**
