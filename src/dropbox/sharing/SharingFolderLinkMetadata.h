@@ -2,7 +2,6 @@
  DO NOT EDIT
  This file was generated from stone specification "sharing"
  www.prokarpaty.net
- 29, Sep 2016
 ***********************************************************/
 
 #pragma once
@@ -33,7 +32,6 @@ namespace sharing{
             static std::unique_ptr<FolderLinkMetadata>  create(const QByteArray& data);
             static std::unique_ptr<FolderLinkMetadata>  create(const QJsonObject& js);
         };
-
 
 
 

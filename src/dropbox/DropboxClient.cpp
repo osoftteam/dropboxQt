@@ -97,7 +97,7 @@ bool DropboxClient::downloadFile(QString dropboxFilePath, QString localDestinati
 	return rv;
 };
 
-    bool DropboxClient::uploadFile(QString localFilePath, QString dropboxDestinationPath, bool overwriteIfExists)
+bool DropboxClient::uploadFile(QString localFilePath, QString dropboxDestinationPath, bool overwriteIfExists)
 {
 	bool rv = false;
 
@@ -122,6 +122,28 @@ bool DropboxClient::downloadFile(QString dropboxFilePath, QString localDestinati
         }
     file_in.close();
 	return rv;
+};
+
+bool DropboxClient::upgradeDropboxFile(QString localFilePath, QString dropboxDestinationPath)
+{
+    QString dropboxTmpFile = dropboxDestinationPath + "._tmp";
+    if(!uploadFile(localFilePath, dropboxTmpFile)){
+        return false;
+    }
+
+    if(fileExists(dropboxDestinationPath)){
+        if(!deleteFile(dropboxDestinationPath)){
+            qWarning() << "DropboxClient::upgradeDropboxFile failed to delete file:" << dropboxDestinationPath;
+            return false;
+        }
+    }
+
+    if(!moveFile(dropboxTmpFile, dropboxDestinationPath)){
+        qWarning() << "DropboxClient::upgradeDropboxFile failed to move file:" << dropboxTmpFile << dropboxDestinationPath;
+        return false;
+    }
+
+    return true;
 };
 
 bool DropboxClient::createFolder(QString dropboxPath)

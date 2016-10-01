@@ -2,7 +2,6 @@
  DO NOT EDIT
  This file was generated from stone specification "auth"
  www.prokarpaty.net
- 29, Sep 2016
 ***********************************************************/
 
 #pragma once
@@ -45,7 +44,6 @@ namespace auth{
             static std::unique_ptr<RateLimitReason>  create(const QByteArray& data);
             static std::unique_ptr<RateLimitReason>  create(const QJsonObject& js);
         };
-
 
 
 

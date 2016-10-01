@@ -2,7 +2,6 @@
  DO NOT EDIT
  This file was generated from stone specification "team_policies"
  www.prokarpaty.net
- 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team_policies/TeamPoliciesSharedFolderMemberPolicy.h"

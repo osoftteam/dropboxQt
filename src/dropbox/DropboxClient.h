@@ -46,6 +46,11 @@ namespace dropboxQt{
         /// upload file to Dropbox
         bool uploadFile(QString localFilePath, QString dropboxDestinationPath, bool overwriteIfExists = false);
 
+        /// upload file to Dropbox in steps, if file exists upload to a tmp file then in upload succeded rename the file
+        /// to the final destination file, by using this function there is less chance to generate corrupted (incomplete) file on the cloud
+        /// it'a slower than regular upload and should be applied to critical files, only (database maybe)
+        bool upgradeDropboxFile(QString localFilePath, QString dropboxDestinationPath);
+
         /// return true if file exist on given path
         bool fileExists(QString dropboxPath);
 

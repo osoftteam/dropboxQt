@@ -2,7 +2,6 @@
  DO NOT EDIT
  This file was generated from stone specification "users"
  www.prokarpaty.net
- 29, Sep 2016
 ***********************************************************/
 
 #pragma once
@@ -49,7 +48,6 @@ namespace users{
             static std::unique_ptr<SpaceUsage>  create(const QByteArray& data);
             static std::unique_ptr<SpaceUsage>  create(const QJsonObject& js);
         };
-
 
 
 

@@ -2,7 +2,6 @@
  DO NOT EDIT
  This file was generated from stone specification "team_policies"
  www.prokarpaty.net
- 29, Sep 2016
 ***********************************************************/
 
 #pragma once
@@ -48,7 +47,6 @@ namespace team_policies{
             static std::unique_ptr<SharedFolderMemberPolicy>  create(const QByteArray& data);
             static std::unique_ptr<SharedFolderMemberPolicy>  create(const QJsonObject& js);
         };
-
 
 
 

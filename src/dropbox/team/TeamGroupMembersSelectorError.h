@@ -2,7 +2,6 @@
  DO NOT EDIT
  This file was generated from stone specification "team"
  www.prokarpaty.net
- 29, Sep 2016
 ***********************************************************/
 
 #pragma once
@@ -47,7 +46,6 @@ namespace team{
             static std::unique_ptr<GroupMembersSelectorError>  create(const QByteArray& data);
             static std::unique_ptr<GroupMembersSelectorError>  create(const QJsonObject& js);
         };
-
 
 
 

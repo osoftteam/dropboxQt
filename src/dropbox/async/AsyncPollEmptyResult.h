@@ -2,7 +2,6 @@
  DO NOT EDIT
  This file was generated from stone specification "async"
  www.prokarpaty.net
- 29, Sep 2016
 ***********************************************************/
 
 #pragma once
@@ -45,7 +44,6 @@ namespace async{
             static std::unique_ptr<PollEmptyResult>  create(const QByteArray& data);
             static std::unique_ptr<PollEmptyResult>  create(const QJsonObject& js);
         };
-
 
 
 

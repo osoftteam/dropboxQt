@@ -2,7 +2,6 @@
  DO NOT EDIT
  This file was generated from stone specification "team_common"
  www.prokarpaty.net
- 29, Sep 2016
 ***********************************************************/
 
 #include "dropbox/team_common/TeamCommonGroupType.h"

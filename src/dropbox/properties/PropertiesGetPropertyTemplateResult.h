@@ -2,7 +2,6 @@
  DO NOT EDIT
  This file was generated from stone specification "properties"
  www.prokarpaty.net
- 29, Sep 2016
 ***********************************************************/
 
 #pragma once
@@ -33,7 +32,6 @@ namespace properties{
             static std::unique_ptr<GetPropertyTemplateResult>  create(const QByteArray& data);
             static std::unique_ptr<GetPropertyTemplateResult>  create(const QJsonObject& js);
         };
-
 
 
 

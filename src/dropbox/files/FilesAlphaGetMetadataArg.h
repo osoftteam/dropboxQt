@@ -2,7 +2,6 @@
  DO NOT EDIT
  This file was generated from stone specification "files"
  www.prokarpaty.net
- 29, Sep 2016
 ***********************************************************/
 
 #pragma once
@@ -44,7 +43,6 @@ namespace files{
             static std::unique_ptr<AlphaGetMetadataArg>  create(const QByteArray& data);
             static std::unique_ptr<AlphaGetMetadataArg>  create(const QJsonObject& js);
         };
-
 
 
 
