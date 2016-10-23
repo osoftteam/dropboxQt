@@ -17,9 +17,12 @@ BoxCommands::BoxCommands(DropboxClient& c):m_c(c)
 
 void BoxCommands::printLastApiCall()
 {
+    //uncomment to see HTTP request
+    /*
     std::cout << "-----------------------------------------" << std::endl;
     std::cout << "API call" << std::endl;
     std::cout << m_c.lastApiCall().toStdString() << std::endl;
+    */
 };
 
 void BoxCommands::account(QString)
