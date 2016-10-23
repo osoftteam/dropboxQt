@@ -27,7 +27,7 @@ void GetTemporaryLinkResult::toJson(QJsonObject& js)const{
 
 void GetTemporaryLinkResult::fromJson(const QJsonObject& js){
 
-    m_metadata.fromJson(js);
+    m_metadata.fromJson(js["metadata"].toObject());
     m_link = js["link"].toString();
 }
 

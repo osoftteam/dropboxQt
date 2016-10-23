@@ -39,10 +39,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///The session arguments are incorrect; the value explains the reason.
-        UploadSessionLookupError getLookupFailed()const{API_CHECK_STATE((UploadSessionFinishError_LOOKUP_FAILED == m_tag), "expected tag: UploadSessionFinishError_LOOKUP_FAILED", m_tag);return m_lookup_failed;};
+        const UploadSessionLookupError& getLookupFailed()const{API_CHECK_STATE((UploadSessionFinishError_LOOKUP_FAILED == m_tag), "expected tag: UploadSessionFinishError_LOOKUP_FAILED", m_tag);return m_lookup_failed;};
 
         ///Unable to save the uploaded contents to a file.
-        WriteError getPath()const{API_CHECK_STATE((UploadSessionFinishError_PATH == m_tag), "expected tag: UploadSessionFinishError_PATH", m_tag);return m_path;};
+        const WriteError& getPath()const{API_CHECK_STATE((UploadSessionFinishError_PATH == m_tag), "expected tag: UploadSessionFinishError_PATH", m_tag);return m_path;};
 
     public:
         operator QJsonObject ()const;

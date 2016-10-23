@@ -35,7 +35,7 @@ namespace sharing{
             /**
                 The member to remove from the folder.
             */
-        MemberSelector member()const{return m_member;};
+        const MemberSelector& member()const{return m_member;};
         RemoveFolderMemberArg& setMember(const MemberSelector& arg){m_member=arg;return *this;};
 
             /**

@@ -28,13 +28,13 @@ namespace team{
             /**
                 Specify a group.
             */
-        GroupSelector group()const{return m_group;};
+        const GroupSelector& group()const{return m_group;};
         GroupMemberSelector& setGroup(const GroupSelector& arg){m_group=arg;return *this;};
 
             /**
                 Identity of a user that is a member of ``group``.
             */
-        UserSelectorArg user()const{return m_user;};
+        const UserSelectorArg& user()const{return m_user;};
         GroupMemberSelector& setUser(const UserSelectorArg& arg){m_user=arg;return *this;};
 
     public:

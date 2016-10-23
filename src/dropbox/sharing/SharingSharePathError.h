@@ -66,7 +66,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///Folder is already shared. Contains metadata about the existing shared folder.
-        SharedFolderMetadata getAlreadyShared()const{API_CHECK_STATE((SharePathError_ALREADY_SHARED == m_tag), "expected tag: SharePathError_ALREADY_SHARED", m_tag);return m_already_shared;};
+        const SharedFolderMetadata& getAlreadyShared()const{API_CHECK_STATE((SharePathError_ALREADY_SHARED == m_tag), "expected tag: SharePathError_ALREADY_SHARED", m_tag);return m_already_shared;};
 
     public:
         operator QJsonObject ()const;

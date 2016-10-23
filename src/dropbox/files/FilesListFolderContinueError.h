@@ -32,7 +32,7 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///None
-        LookupError getPath()const{API_CHECK_STATE((ListFolderContinueError_PATH == m_tag), "expected tag: ListFolderContinueError_PATH", m_tag);return m_path;};
+        const LookupError& getPath()const{API_CHECK_STATE((ListFolderContinueError_PATH == m_tag), "expected tag: ListFolderContinueError_PATH", m_tag);return m_path;};
 
     public:
         operator QJsonObject ()const;

@@ -37,7 +37,7 @@ namespace team{
             /**
                 The mobile application type
             */
-        MobileClientPlatform clientType()const{return m_client_type;};
+        const MobileClientPlatform& clientType()const{return m_client_type;};
         MobileClientSession& setClienttype(const MobileClientPlatform& arg){m_client_type=arg;return *this;};
 
             /**

@@ -34,7 +34,7 @@ void Account::toJson(QJsonObject& js)const{
 void Account::fromJson(const QJsonObject& js){
 
     m_account_id = js["account_id"].toString();
-    m_name.fromJson(js);
+    m_name.fromJson(js["name"].toObject());
     m_email = js["email"].toString();
     m_email_verified = js["email_verified"].toVariant().toBool();
     m_profile_photo_url = js["profile_photo_url"].toString();

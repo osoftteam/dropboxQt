@@ -47,7 +47,7 @@ void ShareFolderJobStatus::fromJson(const QJsonObject& js){
     }
     if(s.compare("complete") == 0){
         m_tag = ShareFolderJobStatus_COMPLETE;
-        m_complete.fromJson(js);
+        m_complete.fromJson(js["complete"].toObject());
     }
     else if(s.compare("failed") == 0){
         m_tag = ShareFolderJobStatus_FAILED;

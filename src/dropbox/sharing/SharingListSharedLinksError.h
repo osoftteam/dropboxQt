@@ -32,7 +32,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///None
-        files::LookupError getPath()const{API_CHECK_STATE((ListSharedLinksError_PATH == m_tag), "expected tag: ListSharedLinksError_PATH", m_tag);return m_path;};
+        const files::LookupError& getPath()const{API_CHECK_STATE((ListSharedLinksError_PATH == m_tag), "expected tag: ListSharedLinksError_PATH", m_tag);return m_path;};
 
     public:
         operator QJsonObject ()const;

@@ -43,13 +43,13 @@ namespace files{
                 images that are photos, jpeg should be preferred, while png is
                 better for screenshots and digital arts.
             */
-        ThumbnailFormat format()const{return m_format;};
+        const ThumbnailFormat& format()const{return m_format;};
         ThumbnailArg& setFormat(const ThumbnailFormat& arg){m_format=arg;return *this;};
 
             /**
                 The size for the thumbnail image.
             */
-        ThumbnailSize size()const{return m_size;};
+        const ThumbnailSize& size()const{return m_size;};
         ThumbnailArg& setSize(const ThumbnailSize& arg){m_size=arg;return *this;};
 
     public:

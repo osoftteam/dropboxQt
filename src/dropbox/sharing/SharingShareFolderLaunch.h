@@ -30,7 +30,7 @@ namespace sharing{
         QString getAsyncJobId()const{API_CHECK_STATE((LaunchResultBase_ASYNC_JOB_ID == m_tag), "expected tag: LaunchResultBase_ASYNC_JOB_ID", m_tag);return m_async_job_id;};
 
         ///None
-        SharedFolderMetadata getComplete()const{API_CHECK_STATE((ShareFolderLaunch_COMPLETE == m_tag), "expected tag: ShareFolderLaunch_COMPLETE", m_tag);return m_complete;};
+        const SharedFolderMetadata& getComplete()const{API_CHECK_STATE((ShareFolderLaunch_COMPLETE == m_tag), "expected tag: ShareFolderLaunch_COMPLETE", m_tag);return m_complete;};
 
     public:
         operator QJsonObject ()const;

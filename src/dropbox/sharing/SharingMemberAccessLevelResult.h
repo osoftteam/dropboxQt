@@ -35,7 +35,7 @@ namespace sharing{
                 The member still has this level of access to the content through
                 a parent folder.
             */
-        AccessLevel accessLevel()const{return m_access_level;};
+        const AccessLevel& accessLevel()const{return m_access_level;};
 
             /**
                 A localized string with additional information about why the

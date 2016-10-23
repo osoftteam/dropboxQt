@@ -54,7 +54,7 @@ void SharedFolderMemberError::fromJson(const QJsonObject& js){
     }
     else if(s.compare("no_explicit_access") == 0){
         m_tag = SharedFolderMemberError_NO_EXPLICIT_ACCESS;
-        m_no_explicit_access.fromJson(js);
+        m_no_explicit_access.fromJson(js["no_explicit_access"].toObject());
     }
     else if(s.compare("other") == 0){
         m_tag = SharedFolderMemberError_OTHER;

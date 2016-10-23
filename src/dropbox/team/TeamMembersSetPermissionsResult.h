@@ -31,7 +31,7 @@ namespace team{
             /**
                 The role after the change.
             */
-        AdminTier role()const{return m_role;};
+        const AdminTier& role()const{return m_role;};
 
     public:
         operator QJsonObject ()const;

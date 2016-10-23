@@ -43,13 +43,13 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///Error occurred while performing :route:`unshare_folder` action.
-        UnshareFolderError getUnshareFolderError()const{API_CHECK_STATE((JobError_UNSHARE_FOLDER_ERROR == m_tag), "expected tag: JobError_UNSHARE_FOLDER_ERROR", m_tag);return m_unshare_folder_error;};
+        const UnshareFolderError& getUnshareFolderError()const{API_CHECK_STATE((JobError_UNSHARE_FOLDER_ERROR == m_tag), "expected tag: JobError_UNSHARE_FOLDER_ERROR", m_tag);return m_unshare_folder_error;};
 
         ///Error occurred while performing :route:`remove_folder_member` action.
-        RemoveFolderMemberError getRemoveFolderMemberError()const{API_CHECK_STATE((JobError_REMOVE_FOLDER_MEMBER_ERROR == m_tag), "expected tag: JobError_REMOVE_FOLDER_MEMBER_ERROR", m_tag);return m_remove_folder_member_error;};
+        const RemoveFolderMemberError& getRemoveFolderMemberError()const{API_CHECK_STATE((JobError_REMOVE_FOLDER_MEMBER_ERROR == m_tag), "expected tag: JobError_REMOVE_FOLDER_MEMBER_ERROR", m_tag);return m_remove_folder_member_error;};
 
         ///Error occurred while performing :route:`relinquish_folder_membership` action.
-        RelinquishFolderMembershipError getRelinquishFolderMembershipError()const{API_CHECK_STATE((JobError_RELINQUISH_FOLDER_MEMBERSHIP_ERROR == m_tag), "expected tag: JobError_RELINQUISH_FOLDER_MEMBERSHIP_ERROR", m_tag);return m_relinquish_folder_membership_error;};
+        const RelinquishFolderMembershipError& getRelinquishFolderMembershipError()const{API_CHECK_STATE((JobError_RELINQUISH_FOLDER_MEMBERSHIP_ERROR == m_tag), "expected tag: JobError_RELINQUISH_FOLDER_MEMBERSHIP_ERROR", m_tag);return m_relinquish_folder_membership_error;};
 
     public:
         operator QJsonObject ()const;

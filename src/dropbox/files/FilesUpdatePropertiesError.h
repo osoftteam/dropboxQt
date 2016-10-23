@@ -40,10 +40,10 @@ namespace files{
         QString getTemplateNotFound()const{API_CHECK_STATE((PropertyTemplateError_TEMPLATE_NOT_FOUND == m_tag), "expected tag: PropertyTemplateError_TEMPLATE_NOT_FOUND", m_tag);return m_template_not_found;};
 
         ///None
-        LookupError getPath()const{API_CHECK_STATE((PropertiesError_PATH == m_tag), "expected tag: PropertiesError_PATH", m_tag);return m_path;};
+        const LookupError& getPath()const{API_CHECK_STATE((PropertiesError_PATH == m_tag), "expected tag: PropertiesError_PATH", m_tag);return m_path;};
 
         ///None
-        LookUpPropertiesError getPropertyGroupLookup()const{API_CHECK_STATE((UpdatePropertiesError_PROPERTY_GROUP_LOOKUP == m_tag), "expected tag: UpdatePropertiesError_PROPERTY_GROUP_LOOKUP", m_tag);return m_property_group_lookup;};
+        const LookUpPropertiesError& getPropertyGroupLookup()const{API_CHECK_STATE((UpdatePropertiesError_PROPERTY_GROUP_LOOKUP == m_tag), "expected tag: UpdatePropertiesError_PROPERTY_GROUP_LOOKUP", m_tag);return m_property_group_lookup;};
 
     public:
         operator QJsonObject ()const;

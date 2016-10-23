@@ -41,9 +41,9 @@ void SharedFileMetadata::toJson(QJsonObject& js)const{
 
 void SharedFileMetadata::fromJson(const QJsonObject& js){
 
-    m_policy.fromJson(js);
+    m_policy.fromJson(js["policy"].toObject());
     jsonarray2struct_list(js["permissions"].toArray(), m_permissions);
-    m_owner_team.fromJson(js);
+    m_owner_team.fromJson(js["owner_team"].toObject());
     m_parent_shared_folder_id = js["parent_shared_folder_id"].toString();
     m_preview_url = js["preview_url"].toString();
     m_path_lower = js["path_lower"].toString();

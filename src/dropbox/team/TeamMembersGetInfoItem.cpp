@@ -44,7 +44,7 @@ void MembersGetInfoItem::fromJson(const QJsonObject& js){
     }
     else if(s.compare("member_info") == 0){
         m_tag = MembersGetInfoItem_MEMBER_INFO;
-        m_member_info.fromJson(js);
+        m_member_info.fromJson(js["member_info"].toObject());
     }
 }
 

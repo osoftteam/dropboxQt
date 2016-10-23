@@ -47,7 +47,7 @@ namespace files{
         QString getMalformedPath()const{API_CHECK_STATE((WriteError_MALFORMED_PATH == m_tag), "expected tag: WriteError_MALFORMED_PATH", m_tag);return m_malformed_path;};
 
         ///Couldn't write to the target path because there was something in the way.
-        WriteConflictError getConflict()const{API_CHECK_STATE((WriteError_CONFLICT == m_tag), "expected tag: WriteError_CONFLICT", m_tag);return m_conflict;};
+        const WriteConflictError& getConflict()const{API_CHECK_STATE((WriteError_CONFLICT == m_tag), "expected tag: WriteError_CONFLICT", m_tag);return m_conflict;};
 
     public:
         operator QJsonObject ()const;

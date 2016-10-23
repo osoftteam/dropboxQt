@@ -27,7 +27,7 @@ namespace team{
             /**
                 Identity of user to recover.
             */
-        UserSelectorArg user()const{return m_user;};
+        const UserSelectorArg& user()const{return m_user;};
         MembersRecoverArg& setUser(const UserSelectorArg& arg){m_user=arg;return *this;};
 
     public:

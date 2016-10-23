@@ -37,7 +37,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///The target member only has inherited access to the shared folder.
-        MemberAccessLevelResult getNoExplicitAccess()const{API_CHECK_STATE((SharedFolderMemberError_NO_EXPLICIT_ACCESS == m_tag), "expected tag: SharedFolderMemberError_NO_EXPLICIT_ACCESS", m_tag);return m_no_explicit_access;};
+        const MemberAccessLevelResult& getNoExplicitAccess()const{API_CHECK_STATE((SharedFolderMemberError_NO_EXPLICIT_ACCESS == m_tag), "expected tag: SharedFolderMemberError_NO_EXPLICIT_ACCESS", m_tag);return m_no_explicit_access;};
 
     public:
         operator QJsonObject ()const;

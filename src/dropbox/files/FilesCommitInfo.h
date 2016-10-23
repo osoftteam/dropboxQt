@@ -52,7 +52,7 @@ namespace files{
             /**
                 Selects what to do if the file already exists.
             */
-        WriteMode mode()const{return m_mode;};
+        const WriteMode& mode()const{return m_mode;};
         CommitInfo& setMode(const WriteMode& arg){m_mode=arg;return *this;};
 
             /**

@@ -25,7 +25,7 @@ void SaveCopyReferenceResult::toJson(QJsonObject& js)const{
 
 void SaveCopyReferenceResult::fromJson(const QJsonObject& js){
 
-    m_metadata.fromJson(js);
+    m_metadata.fromJson(js["metadata"].toObject());
 }
 
 QString SaveCopyReferenceResult::toString(bool multiline)const

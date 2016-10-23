@@ -26,7 +26,7 @@ void TeamMemberPolicies::toJson(QJsonObject& js)const{
 
 void TeamMemberPolicies::fromJson(const QJsonObject& js){
 
-    m_sharing.fromJson(js);
+    m_sharing.fromJson(js["sharing"].toObject());
     m_emm_state.fromJson(js["emm_state"].toObject());
 }
 

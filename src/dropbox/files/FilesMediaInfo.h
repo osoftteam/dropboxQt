@@ -31,7 +31,7 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///The metadata for the photo/video.
-        MediaMetadata getMetadata()const{API_CHECK_STATE((MediaInfo_METADATA == m_tag), "expected tag: MediaInfo_METADATA", m_tag);return m_metadata;};
+        const MediaMetadata& getMetadata()const{API_CHECK_STATE((MediaInfo_METADATA == m_tag), "expected tag: MediaInfo_METADATA", m_tag);return m_metadata;};
 
     public:
         operator QJsonObject ()const;

@@ -34,7 +34,7 @@ namespace team_policies{
             /**
                 Policies governing sharing.
             */
-        TeamSharingPolicies sharing()const{return m_sharing;};
+        const TeamSharingPolicies& sharing()const{return m_sharing;};
         TeamMemberPolicies& setSharing(const TeamSharingPolicies& arg){m_sharing=arg;return *this;};
 
             /**
@@ -45,7 +45,7 @@ namespace team_policies{
                 usage on mobile devices. This is a new feature and in the future
                 we'll be adding more new fields and additional documentation.
             */
-        EmmState emmState()const{return m_emm_state;};
+        const EmmState& emmState()const{return m_emm_state;};
         TeamMemberPolicies& setEmmstate(const EmmState& arg){m_emm_state=arg;return *this;};
 
     public:

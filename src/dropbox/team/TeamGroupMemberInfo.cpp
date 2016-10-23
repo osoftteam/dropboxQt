@@ -26,7 +26,7 @@ void GroupMemberInfo::toJson(QJsonObject& js)const{
 
 void GroupMemberInfo::fromJson(const QJsonObject& js){
 
-    m_profile.fromJson(js);
+    m_profile.fromJson(js["profile"].toObject());
     m_access_type.fromJson(js["access_type"].toObject());
 }
 

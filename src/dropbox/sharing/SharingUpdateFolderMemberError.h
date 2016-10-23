@@ -47,13 +47,13 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///None
-        SharedFolderAccessError getAccessError()const{API_CHECK_STATE((UpdateFolderMemberError_ACCESS_ERROR == m_tag), "expected tag: UpdateFolderMemberError_ACCESS_ERROR", m_tag);return m_access_error;};
+        const SharedFolderAccessError& getAccessError()const{API_CHECK_STATE((UpdateFolderMemberError_ACCESS_ERROR == m_tag), "expected tag: UpdateFolderMemberError_ACCESS_ERROR", m_tag);return m_access_error;};
 
         ///None
-        SharedFolderMemberError getMemberError()const{API_CHECK_STATE((UpdateFolderMemberError_MEMBER_ERROR == m_tag), "expected tag: UpdateFolderMemberError_MEMBER_ERROR", m_tag);return m_member_error;};
+        const SharedFolderMemberError& getMemberError()const{API_CHECK_STATE((UpdateFolderMemberError_MEMBER_ERROR == m_tag), "expected tag: UpdateFolderMemberError_MEMBER_ERROR", m_tag);return m_member_error;};
 
         ///If updating the access type required the member to be added to the shared folder and there was an error when adding the member.
-        AddFolderMemberError getNoExplicitAccess()const{API_CHECK_STATE((UpdateFolderMemberError_NO_EXPLICIT_ACCESS == m_tag), "expected tag: UpdateFolderMemberError_NO_EXPLICIT_ACCESS", m_tag);return m_no_explicit_access;};
+        const AddFolderMemberError& getNoExplicitAccess()const{API_CHECK_STATE((UpdateFolderMemberError_NO_EXPLICIT_ACCESS == m_tag), "expected tag: UpdateFolderMemberError_NO_EXPLICIT_ACCESS", m_tag);return m_no_explicit_access;};
 
     public:
         operator QJsonObject ()const;

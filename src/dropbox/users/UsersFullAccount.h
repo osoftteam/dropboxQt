@@ -67,7 +67,7 @@ namespace users{
                 If this account is a member of a team, information about that
                 team.
             */
-        FullTeam team()const{return m_team;};
+        const FullTeam& team()const{return m_team;};
         FullAccount& setTeam(const FullTeam& arg){m_team=arg;return *this;};
 
             /**
@@ -88,7 +88,7 @@ namespace users{
             /**
                 What type of account this user has.
             */
-        AccountType accountType()const{return m_account_type;};
+        const AccountType& accountType()const{return m_account_type;};
         FullAccount& setAccounttype(const AccountType& arg){m_account_type=arg;return *this;};
 
     public:

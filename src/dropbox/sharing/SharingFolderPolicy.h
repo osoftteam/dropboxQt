@@ -43,7 +43,7 @@ namespace sharing{
                 team-wide policy is more restrictive. Present only if the folder
                 is owned by a team.
             */
-        MemberPolicy memberPolicy()const{return m_member_policy;};
+        const MemberPolicy& memberPolicy()const{return m_member_policy;};
         FolderPolicy& setMemberpolicy(const MemberPolicy& arg){m_member_policy=arg;return *this;};
 
             /**
@@ -53,19 +53,19 @@ namespace sharing{
                 restrictive than the folder policy. Present only if the folder
                 is owned by a team.
             */
-        MemberPolicy resolvedMemberPolicy()const{return m_resolved_member_policy;};
+        const MemberPolicy& resolvedMemberPolicy()const{return m_resolved_member_policy;};
         FolderPolicy& setResolvedmemberpolicy(const MemberPolicy& arg){m_resolved_member_policy=arg;return *this;};
 
             /**
                 Who can add and remove members from this shared folder.
             */
-        AclUpdatePolicy aclUpdatePolicy()const{return m_acl_update_policy;};
+        const AclUpdatePolicy& aclUpdatePolicy()const{return m_acl_update_policy;};
         FolderPolicy& setAclupdatepolicy(const AclUpdatePolicy& arg){m_acl_update_policy=arg;return *this;};
 
             /**
                 Who links can be shared with.
             */
-        SharedLinkPolicy sharedLinkPolicy()const{return m_shared_link_policy;};
+        const SharedLinkPolicy& sharedLinkPolicy()const{return m_shared_link_policy;};
         FolderPolicy& setSharedlinkpolicy(const SharedLinkPolicy& arg){m_shared_link_policy=arg;return *this;};
 
     public:

@@ -33,10 +33,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///The result for this file if it was successful.
-        SharedFileMetadata getMetadata()const{API_CHECK_STATE((GetFileMetadataIndividualResult_METADATA == m_tag), "expected tag: GetFileMetadataIndividualResult_METADATA", m_tag);return m_metadata;};
+        const SharedFileMetadata& getMetadata()const{API_CHECK_STATE((GetFileMetadataIndividualResult_METADATA == m_tag), "expected tag: GetFileMetadataIndividualResult_METADATA", m_tag);return m_metadata;};
 
         ///The result for this file if it was an error.
-        SharingFileAccessError getAccessError()const{API_CHECK_STATE((GetFileMetadataIndividualResult_ACCESS_ERROR == m_tag), "expected tag: GetFileMetadataIndividualResult_ACCESS_ERROR", m_tag);return m_access_error;};
+        const SharingFileAccessError& getAccessError()const{API_CHECK_STATE((GetFileMetadataIndividualResult_ACCESS_ERROR == m_tag), "expected tag: GetFileMetadataIndividualResult_ACCESS_ERROR", m_tag);return m_access_error;};
 
     public:
         operator QJsonObject ()const;

@@ -33,10 +33,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///Member was successfully removed from this file.
-        MemberAccessLevelResult getSuccess()const{API_CHECK_STATE((FileMemberRemoveActionResult_SUCCESS == m_tag), "expected tag: FileMemberRemoveActionResult_SUCCESS", m_tag);return m_success;};
+        const MemberAccessLevelResult& getSuccess()const{API_CHECK_STATE((FileMemberRemoveActionResult_SUCCESS == m_tag), "expected tag: FileMemberRemoveActionResult_SUCCESS", m_tag);return m_success;};
 
         ///User was not able to remove this member.
-        FileMemberActionError getMemberError()const{API_CHECK_STATE((FileMemberRemoveActionResult_MEMBER_ERROR == m_tag), "expected tag: FileMemberRemoveActionResult_MEMBER_ERROR", m_tag);return m_member_error;};
+        const FileMemberActionError& getMemberError()const{API_CHECK_STATE((FileMemberRemoveActionResult_MEMBER_ERROR == m_tag), "expected tag: FileMemberRemoveActionResult_MEMBER_ERROR", m_tag);return m_member_error;};
 
     public:
         operator QJsonObject ()const;

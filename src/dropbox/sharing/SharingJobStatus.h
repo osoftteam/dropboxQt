@@ -33,7 +33,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///The asynchronous job returned an error.
-        JobError getFailed()const{API_CHECK_STATE((JobStatus_FAILED == m_tag), "expected tag: JobStatus_FAILED", m_tag);return m_failed;};
+        const JobError& getFailed()const{API_CHECK_STATE((JobStatus_FAILED == m_tag), "expected tag: JobStatus_FAILED", m_tag);return m_failed;};
 
     public:
         operator QJsonObject ()const;

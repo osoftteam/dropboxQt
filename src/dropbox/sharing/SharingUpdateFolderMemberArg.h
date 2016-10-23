@@ -36,14 +36,14 @@ namespace sharing{
                 The member of the shared folder to update.  Only the
                 ``MemberSelector.dropbox_id`` may be set at this time.
             */
-        MemberSelector member()const{return m_member;};
+        const MemberSelector& member()const{return m_member;};
         UpdateFolderMemberArg& setMember(const MemberSelector& arg){m_member=arg;return *this;};
 
             /**
                 The new access level for ``member``. ``AccessLevel.owner`` is
                 disallowed.
             */
-        AccessLevel accessLevel()const{return m_access_level;};
+        const AccessLevel& accessLevel()const{return m_access_level;};
         UpdateFolderMemberArg& setAccesslevel(const AccessLevel& arg){m_access_level=arg;return *this;};
 
     public:

@@ -31,7 +31,7 @@ namespace files{
             /**
                 Contains the upload session ID and the offset.
             */
-        UploadSessionCursor cursor()const{return m_cursor;};
+        const UploadSessionCursor& cursor()const{return m_cursor;};
         UploadSessionAppendArg& setCursor(const UploadSessionCursor& arg){m_cursor=arg;return *this;};
 
             /**

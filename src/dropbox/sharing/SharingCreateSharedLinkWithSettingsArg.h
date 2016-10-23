@@ -32,7 +32,7 @@ namespace sharing{
             /**
                 The requested settings for the newly created shared link
             */
-        SharedLinkSettings settings()const{return m_settings;};
+        const SharedLinkSettings& settings()const{return m_settings;};
         CreateSharedLinkWithSettingsArg& setSettings(const SharedLinkSettings& arg){m_settings=arg;return *this;};
 
     public:

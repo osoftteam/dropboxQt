@@ -67,7 +67,7 @@ void MountFolderError::fromJson(const QJsonObject& js){
     }
     else if(s.compare("insufficient_quota") == 0){
         m_tag = MountFolderError_INSUFFICIENT_QUOTA;
-        m_insufficient_quota.fromJson(js);
+        m_insufficient_quota.fromJson(js["insufficient_quota"].toObject());
     }
     else if(s.compare("already_mounted") == 0){
         m_tag = MountFolderError_ALREADY_MOUNTED;

@@ -47,7 +47,7 @@ namespace team{
             */
         int numProvisionedUsers()const{return m_num_provisioned_users;};
 
-        team_policies::TeamMemberPolicies policies()const{return m_policies;};
+        const team_policies::TeamMemberPolicies& policies()const{return m_policies;};
 
     public:
         operator QJsonObject ()const;

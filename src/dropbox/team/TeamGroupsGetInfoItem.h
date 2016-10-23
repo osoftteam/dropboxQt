@@ -36,7 +36,7 @@ namespace team{
         QString getIdNotFound()const{API_CHECK_STATE((GroupsGetInfoItem_ID_NOT_FOUND == m_tag), "expected tag: GroupsGetInfoItem_ID_NOT_FOUND", m_tag);return m_id_not_found;};
 
         ///Info about a group.
-        GroupFullInfo getGroupInfo()const{API_CHECK_STATE((GroupsGetInfoItem_GROUP_INFO == m_tag), "expected tag: GroupsGetInfoItem_GROUP_INFO", m_tag);return m_group_info;};
+        const GroupFullInfo& getGroupInfo()const{API_CHECK_STATE((GroupsGetInfoItem_GROUP_INFO == m_tag), "expected tag: GroupsGetInfoItem_GROUP_INFO", m_tag);return m_group_info;};
 
     public:
         operator QJsonObject ()const;

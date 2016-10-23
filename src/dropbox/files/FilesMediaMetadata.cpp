@@ -30,8 +30,8 @@ void MediaMetadata::toJson(QJsonObject& js)const{
 
 void MediaMetadata::fromJson(const QJsonObject& js){
 
-    m_dimensions.fromJson(js);
-    m_location.fromJson(js);
+    m_dimensions.fromJson(js["dimensions"].toObject());
+    m_location.fromJson(js["location"].toObject());
     m_time_taken = QDateTime::fromString(js["time_taken"].toString(), "yyyy-MM-ddThh:mm:ssZ");
 }
 

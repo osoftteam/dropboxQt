@@ -26,7 +26,7 @@ namespace sharing{
             /**
                 A list of members on this file.
             */
-        SharedFileMembers members()const{return m_members;};
+        const SharedFileMembers& members()const{return m_members;};
 
             /**
                 The number of members on this file. This does not include

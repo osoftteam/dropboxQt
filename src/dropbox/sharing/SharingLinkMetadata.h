@@ -36,7 +36,7 @@ namespace sharing{
             /**
                 Who can access the link.
             */
-        Visibility visibility()const{return m_visibility;};
+        const Visibility& visibility()const{return m_visibility;};
         LinkMetadata& setVisibility(const Visibility& arg){m_visibility=arg;return *this;};
 
             /**

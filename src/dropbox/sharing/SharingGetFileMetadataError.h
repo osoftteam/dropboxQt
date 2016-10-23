@@ -32,10 +32,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///None
-        SharingUserError getUserError()const{API_CHECK_STATE((GetFileMetadataError_USER_ERROR == m_tag), "expected tag: GetFileMetadataError_USER_ERROR", m_tag);return m_user_error;};
+        const SharingUserError& getUserError()const{API_CHECK_STATE((GetFileMetadataError_USER_ERROR == m_tag), "expected tag: GetFileMetadataError_USER_ERROR", m_tag);return m_user_error;};
 
         ///None
-        SharingFileAccessError getAccessError()const{API_CHECK_STATE((GetFileMetadataError_ACCESS_ERROR == m_tag), "expected tag: GetFileMetadataError_ACCESS_ERROR", m_tag);return m_access_error;};
+        const SharingFileAccessError& getAccessError()const{API_CHECK_STATE((GetFileMetadataError_ACCESS_ERROR == m_tag), "expected tag: GetFileMetadataError_ACCESS_ERROR", m_tag);return m_access_error;};
 
     public:
         operator QJsonObject ()const;

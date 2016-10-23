@@ -32,8 +32,8 @@ void SharedFolderMetadataBase::fromJson(const QJsonObject& js){
 
     m_access_type.fromJson(js["access_type"].toObject());
     m_is_team_folder = js["is_team_folder"].toVariant().toBool();
-    m_policy.fromJson(js);
-    m_owner_team.fromJson(js);
+    m_policy.fromJson(js["policy"].toObject());
+    m_owner_team.fromJson(js["owner_team"].toObject());
     m_parent_shared_folder_id = js["parent_shared_folder_id"].toString();
 }
 

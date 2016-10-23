@@ -34,7 +34,7 @@ void FolderMetadata::fromJson(const QJsonObject& js){
     Metadata::fromJson(js);
     m_id = js["id"].toString();
     m_shared_folder_id = js["shared_folder_id"].toString();
-    m_sharing_info.fromJson(js);
+    m_sharing_info.fromJson(js["sharing_info"].toObject());
     jsonarray2struct_list(js["property_groups"].toArray(), m_property_groups);
 }
 

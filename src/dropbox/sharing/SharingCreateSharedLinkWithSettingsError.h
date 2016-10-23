@@ -39,10 +39,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///None
-        files::LookupError getPath()const{API_CHECK_STATE((CreateSharedLinkWithSettingsError_PATH == m_tag), "expected tag: CreateSharedLinkWithSettingsError_PATH", m_tag);return m_path;};
+        const files::LookupError& getPath()const{API_CHECK_STATE((CreateSharedLinkWithSettingsError_PATH == m_tag), "expected tag: CreateSharedLinkWithSettingsError_PATH", m_tag);return m_path;};
 
         ///There is an error with the given settings
-        SharedLinkSettingsError getSettingsError()const{API_CHECK_STATE((CreateSharedLinkWithSettingsError_SETTINGS_ERROR == m_tag), "expected tag: CreateSharedLinkWithSettingsError_SETTINGS_ERROR", m_tag);return m_settings_error;};
+        const SharedLinkSettingsError& getSettingsError()const{API_CHECK_STATE((CreateSharedLinkWithSettingsError_SETTINGS_ERROR == m_tag), "expected tag: CreateSharedLinkWithSettingsError_SETTINGS_ERROR", m_tag);return m_settings_error;};
 
     public:
         operator QJsonObject ()const;

@@ -48,10 +48,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///None
-        SharedFolderAccessError getAccessError()const{API_CHECK_STATE((RemoveFolderMemberError_ACCESS_ERROR == m_tag), "expected tag: RemoveFolderMemberError_ACCESS_ERROR", m_tag);return m_access_error;};
+        const SharedFolderAccessError& getAccessError()const{API_CHECK_STATE((RemoveFolderMemberError_ACCESS_ERROR == m_tag), "expected tag: RemoveFolderMemberError_ACCESS_ERROR", m_tag);return m_access_error;};
 
         ///None
-        SharedFolderMemberError getMemberError()const{API_CHECK_STATE((RemoveFolderMemberError_MEMBER_ERROR == m_tag), "expected tag: RemoveFolderMemberError_MEMBER_ERROR", m_tag);return m_member_error;};
+        const SharedFolderMemberError& getMemberError()const{API_CHECK_STATE((RemoveFolderMemberError_MEMBER_ERROR == m_tag), "expected tag: RemoveFolderMemberError_MEMBER_ERROR", m_tag);return m_member_error;};
 
     public:
         operator QJsonObject ()const;

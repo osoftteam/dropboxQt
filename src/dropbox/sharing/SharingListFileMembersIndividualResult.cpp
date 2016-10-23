@@ -43,7 +43,7 @@ void ListFileMembersIndividualResult::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("result") == 0){
         m_tag = ListFileMembersIndividualResult_RESULT;
-        m_result.fromJson(js);
+        m_result.fromJson(js["result"].toObject());
     }
     else if(s.compare("access_error") == 0){
         m_tag = ListFileMembersIndividualResult_ACCESS_ERROR;

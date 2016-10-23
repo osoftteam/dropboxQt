@@ -33,19 +33,19 @@ namespace team_policies{
             /**
                 Who can join folders shared by team members.
             */
-        SharedFolderMemberPolicy sharedFolderMemberPolicy()const{return m_shared_folder_member_policy;};
+        const SharedFolderMemberPolicy& sharedFolderMemberPolicy()const{return m_shared_folder_member_policy;};
         TeamSharingPolicies& setSharedfoldermemberpolicy(const SharedFolderMemberPolicy& arg){m_shared_folder_member_policy=arg;return *this;};
 
             /**
                 Which shared folders team members can join.
             */
-        SharedFolderJoinPolicy sharedFolderJoinPolicy()const{return m_shared_folder_join_policy;};
+        const SharedFolderJoinPolicy& sharedFolderJoinPolicy()const{return m_shared_folder_join_policy;};
         TeamSharingPolicies& setSharedfolderjoinpolicy(const SharedFolderJoinPolicy& arg){m_shared_folder_join_policy=arg;return *this;};
 
             /**
                 What is the visibility of newly created shared links.
             */
-        SharedLinkCreatePolicy sharedLinkCreatePolicy()const{return m_shared_link_create_policy;};
+        const SharedLinkCreatePolicy& sharedLinkCreatePolicy()const{return m_shared_link_create_policy;};
         TeamSharingPolicies& setSharedlinkcreatepolicy(const SharedLinkCreatePolicy& arg){m_shared_link_create_policy=arg;return *this;};
 
     public:

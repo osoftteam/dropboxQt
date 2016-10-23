@@ -35,19 +35,19 @@ namespace team{
             /**
                 Report of the number of devices active in the last day.
             */
-        DevicesActive active1Day()const{return m_active_1_day;};
+        const DevicesActive& active1Day()const{return m_active_1_day;};
         GetDevicesReport& setActive1Day(const DevicesActive& arg){m_active_1_day=arg;return *this;};
 
             /**
                 Report of the number of devices active in the last 7 days.
             */
-        DevicesActive active7Day()const{return m_active_7_day;};
+        const DevicesActive& active7Day()const{return m_active_7_day;};
         GetDevicesReport& setActive7Day(const DevicesActive& arg){m_active_7_day=arg;return *this;};
 
             /**
                 Report of the number of devices active in the last 28 days.
             */
-        DevicesActive active28Day()const{return m_active_28_day;};
+        const DevicesActive& active28Day()const{return m_active_28_day;};
         GetDevicesReport& setActive28Day(const DevicesActive& arg){m_active_28_day=arg;return *this;};
 
     public:

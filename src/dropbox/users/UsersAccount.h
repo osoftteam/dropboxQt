@@ -42,7 +42,7 @@ namespace users{
             /**
                 Details of a user's name.
             */
-        Name name()const{return m_name;};
+        const Name& name()const{return m_name;};
         Account& setName(const Name& arg){m_name=arg;return *this;};
 
             /**

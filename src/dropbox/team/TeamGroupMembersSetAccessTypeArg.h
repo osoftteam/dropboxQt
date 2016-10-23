@@ -33,7 +33,7 @@ namespace team{
             /**
                 New group access type the user will have.
             */
-        GroupAccessType accessType()const{return m_access_type;};
+        const GroupAccessType& accessType()const{return m_access_type;};
         GroupMembersSetAccessTypeArg& setAccesstype(const GroupAccessType& arg){m_access_type=arg;return *this;};
 
             /**

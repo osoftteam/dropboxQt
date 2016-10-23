@@ -32,7 +32,7 @@ namespace sharing{
             /**
                 The action that the user may wish to take on the member.
             */
-        MemberAction action()const{return m_action;};
+        const MemberAction& action()const{return m_action;};
         MemberPermission& setAction(const MemberAction& arg){m_action=arg;return *this;};
 
             /**
@@ -45,7 +45,7 @@ namespace sharing{
                 The reason why the user is denied the permission. Not present if
                 the action is allowed
             */
-        PermissionDeniedReason reason()const{return m_reason;};
+        const PermissionDeniedReason& reason()const{return m_reason;};
         MemberPermission& setReason(const PermissionDeniedReason& arg){m_reason=arg;return *this;};
 
     public:

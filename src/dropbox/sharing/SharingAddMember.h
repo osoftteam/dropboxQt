@@ -34,14 +34,14 @@ namespace sharing{
             /**
                 The member to add to the shared folder.
             */
-        MemberSelector member()const{return m_member;};
+        const MemberSelector& member()const{return m_member;};
         AddMember& setMember(const MemberSelector& arg){m_member=arg;return *this;};
 
             /**
                 The access level to grant ``member`` to the shared folder.
                 ``AccessLevel.owner`` is disallowed.
             */
-        AccessLevel accessLevel()const{return m_access_level;};
+        const AccessLevel& accessLevel()const{return m_access_level;};
         AddMember& setAccesslevel(const AccessLevel& arg){m_access_level=arg;return *this;};
 
     public:

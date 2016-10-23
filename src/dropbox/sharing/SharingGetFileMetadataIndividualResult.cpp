@@ -43,7 +43,7 @@ void GetFileMetadataIndividualResult::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("metadata") == 0){
         m_tag = GetFileMetadataIndividualResult_METADATA;
-        m_metadata.fromJson(js);
+        m_metadata.fromJson(js["metadata"].toObject());
     }
     else if(s.compare("access_error") == 0){
         m_tag = GetFileMetadataIndividualResult_ACCESS_ERROR;

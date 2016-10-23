@@ -29,13 +29,13 @@ namespace team{
             /**
                 Identity of user whose role will be set.
             */
-        UserSelectorArg user()const{return m_user;};
+        const UserSelectorArg& user()const{return m_user;};
         MembersSetPermissionsArg& setUser(const UserSelectorArg& arg){m_user=arg;return *this;};
 
             /**
                 The new role of the member.
             */
-        AdminTier newRole()const{return m_new_role;};
+        const AdminTier& newRole()const{return m_new_role;};
         MembersSetPermissionsArg& setNewrole(const AdminTier& arg){m_new_role=arg;return *this;};
 
     public:

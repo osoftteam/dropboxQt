@@ -35,13 +35,13 @@ namespace sharing{
             /**
                 The member whose access we are changing.
             */
-        MemberSelector member()const{return m_member;};
+        const MemberSelector& member()const{return m_member;};
         ChangeFileMemberAccessArgs& setMember(const MemberSelector& arg){m_member=arg;return *this;};
 
             /**
                 The new access level for the member.
             */
-        AccessLevel accessLevel()const{return m_access_level;};
+        const AccessLevel& accessLevel()const{return m_access_level;};
         ChangeFileMemberAccessArgs& setAccesslevel(const AccessLevel& arg){m_access_level=arg;return *this;};
 
     public:

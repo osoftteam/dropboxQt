@@ -67,7 +67,7 @@ namespace team{
 
         Tag tag()const{return m_tag;}
         ///Describes a user that was successfully added to the team.
-        TeamMemberInfo getSuccess()const{API_CHECK_STATE((MemberAddResult_SUCCESS == m_tag), "expected tag: MemberAddResult_SUCCESS", m_tag);return m_success;};
+        const TeamMemberInfo& getSuccess()const{API_CHECK_STATE((MemberAddResult_SUCCESS == m_tag), "expected tag: MemberAddResult_SUCCESS", m_tag);return m_success;};
 
         ///Team is already full. The organization has no available licenses.
         QString getTeamLicenseLimit()const{API_CHECK_STATE((MemberAddResult_TEAM_LICENSE_LIMIT == m_tag), "expected tag: MemberAddResult_TEAM_LICENSE_LIMIT", m_tag);return m_team_license_limit;};

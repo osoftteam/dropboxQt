@@ -29,9 +29,9 @@ void GetDevicesReport::toJson(QJsonObject& js)const{
 void GetDevicesReport::fromJson(const QJsonObject& js){
 
     BaseDfbReport::fromJson(js);
-    m_active_1_day.fromJson(js);
-    m_active_7_day.fromJson(js);
-    m_active_28_day.fromJson(js);
+    m_active_1_day.fromJson(js["active_1_day"].toObject());
+    m_active_7_day.fromJson(js["active_7_day"].toObject());
+    m_active_28_day.fromJson(js["active_28_day"].toObject());
 }
 
 QString GetDevicesReport::toString(bool multiline)const

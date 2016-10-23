@@ -44,15 +44,15 @@ void RevokeDeviceSessionArg::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("web_session") == 0){
         m_tag = RevokeDeviceSessionArg_WEB_SESSION;
-        m_web_session.fromJson(js);
+        m_web_session.fromJson(js["web_session"].toObject());
     }
     else if(s.compare("desktop_client") == 0){
         m_tag = RevokeDeviceSessionArg_DESKTOP_CLIENT;
-        m_desktop_client.fromJson(js);
+        m_desktop_client.fromJson(js["desktop_client"].toObject());
     }
     else if(s.compare("mobile_client") == 0){
         m_tag = RevokeDeviceSessionArg_MOBILE_CLIENT;
-        m_mobile_client.fromJson(js);
+        m_mobile_client.fromJson(js["mobile_client"].toObject());
     }
 }
 

@@ -55,13 +55,13 @@ namespace sharing{
                 Who can be a member of this shared folder. Only applicable if
                 the current user is on a team.
             */
-        MemberPolicy memberPolicy()const{return m_member_policy;};
+        const MemberPolicy& memberPolicy()const{return m_member_policy;};
         ShareFolderArg& setMemberpolicy(const MemberPolicy& arg){m_member_policy=arg;return *this;};
 
             /**
                 Who can add and remove members of this shared folder.
             */
-        AclUpdatePolicy aclUpdatePolicy()const{return m_acl_update_policy;};
+        const AclUpdatePolicy& aclUpdatePolicy()const{return m_acl_update_policy;};
         ShareFolderArg& setAclupdatepolicy(const AclUpdatePolicy& arg){m_acl_update_policy=arg;return *this;};
 
             /**
@@ -69,7 +69,7 @@ namespace sharing{
                 this shared folder.  The current user must be on a team to set
                 this policy to ``SharedLinkPolicy.members``.
             */
-        SharedLinkPolicy sharedLinkPolicy()const{return m_shared_link_policy;};
+        const SharedLinkPolicy& sharedLinkPolicy()const{return m_shared_link_policy;};
         ShareFolderArg& setSharedlinkpolicy(const SharedLinkPolicy& arg){m_shared_link_policy=arg;return *this;};
 
             /**

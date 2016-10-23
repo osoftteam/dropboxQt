@@ -40,7 +40,7 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///An error occurs when downloading metadata for the image.
-        LookupError getPath()const{API_CHECK_STATE((ThumbnailError_PATH == m_tag), "expected tag: ThumbnailError_PATH", m_tag);return m_path;};
+        const LookupError& getPath()const{API_CHECK_STATE((ThumbnailError_PATH == m_tag), "expected tag: ThumbnailError_PATH", m_tag);return m_path;};
 
     public:
         operator QJsonObject ()const;

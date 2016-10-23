@@ -29,7 +29,7 @@ namespace team{
             /**
                 The group whose members are to be listed.
             */
-        GroupSelector group()const{return m_group;};
+        const GroupSelector& group()const{return m_group;};
         GroupsMembersListArg& setGroup(const GroupSelector& arg){m_group=arg;return *this;};
 
             /**

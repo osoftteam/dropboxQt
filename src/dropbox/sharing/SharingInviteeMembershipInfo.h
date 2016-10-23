@@ -29,13 +29,13 @@ namespace sharing{
             /**
                 Recipient of the invitation.
             */
-        InviteeInfo invitee()const{return m_invitee;};
+        const InviteeInfo& invitee()const{return m_invitee;};
         InviteeMembershipInfo& setInvitee(const InviteeInfo& arg){m_invitee=arg;return *this;};
 
             /**
                 The user this invitation is tied to, if available.
             */
-        UserInfo user()const{return m_user;};
+        const UserInfo& user()const{return m_user;};
         InviteeMembershipInfo& setUser(const UserInfo& arg){m_user=arg;return *this;};
 
     public:

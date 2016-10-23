@@ -27,7 +27,7 @@ void UserMembershipInfo::toJson(QJsonObject& js)const{
 void UserMembershipInfo::fromJson(const QJsonObject& js){
 
     MembershipInfo::fromJson(js);
-    m_user.fromJson(js);
+    m_user.fromJson(js["user"].toObject());
 }
 
 QString UserMembershipInfo::toString(bool multiline)const

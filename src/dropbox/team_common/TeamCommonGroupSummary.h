@@ -48,7 +48,7 @@ namespace team_common{
             /**
                 Who is allowed to manage the group.
             */
-        GroupManagementType groupManagementType()const{return m_group_management_type;};
+        const GroupManagementType& groupManagementType()const{return m_group_management_type;};
         GroupSummary& setGroupmanagementtype(const GroupManagementType& arg){m_group_management_type=arg;return *this;};
 
     public:

@@ -39,7 +39,7 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///An error occurs when downloading metadata for the file.
-        LookupError getPath()const{API_CHECK_STATE((PreviewError_PATH == m_tag), "expected tag: PreviewError_PATH", m_tag);return m_path;};
+        const LookupError& getPath()const{API_CHECK_STATE((PreviewError_PATH == m_tag), "expected tag: PreviewError_PATH", m_tag);return m_path;};
 
     public:
         operator QJsonObject ()const;

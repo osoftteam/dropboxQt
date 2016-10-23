@@ -44,7 +44,7 @@ void SaveUrlResult::fromJson(const QJsonObject& js){
     }
     if(s.compare("complete") == 0){
         m_tag = SaveUrlResult_COMPLETE;
-        m_complete.fromJson(js);
+        m_complete.fromJson(js["complete"].toObject());
     }
 }
 

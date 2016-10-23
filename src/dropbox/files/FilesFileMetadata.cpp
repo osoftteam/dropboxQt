@@ -45,7 +45,7 @@ void FileMetadata::fromJson(const QJsonObject& js){
     m_rev = js["rev"].toString();
     m_size = js["size"].toVariant().toInt();
     m_media_info.fromJson(js["media_info"].toObject());
-    m_sharing_info.fromJson(js);
+    m_sharing_info.fromJson(js["sharing_info"].toObject());
     jsonarray2struct_list(js["property_groups"].toArray(), m_property_groups);
     m_has_explicit_shared_members = js["has_explicit_shared_members"].toVariant().toBool();
 }

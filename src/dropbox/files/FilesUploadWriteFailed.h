@@ -26,7 +26,7 @@ namespace files{
             /**
                 The reason why the file couldn't be saved.
             */
-        WriteError reason()const{return m_reason;};
+        const WriteError& reason()const{return m_reason;};
         UploadWriteFailed& setReason(const WriteError& arg){m_reason=arg;return *this;};
 
             /**

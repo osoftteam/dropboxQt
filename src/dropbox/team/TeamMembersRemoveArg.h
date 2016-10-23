@@ -39,7 +39,7 @@ namespace team{
                 If provided, files from the deleted member account will be
                 transferred to this user.
             */
-        UserSelectorArg transferDestId()const{return m_transfer_dest_id;};
+        const UserSelectorArg& transferDestId()const{return m_transfer_dest_id;};
         MembersRemoveArg& setTransferdestid(const UserSelectorArg& arg){m_transfer_dest_id=arg;return *this;};
 
             /**
@@ -47,7 +47,7 @@ namespace team{
                 email to this user. If the transfer_dest_id argument was
                 provided, then this argument must be provided as well.
             */
-        UserSelectorArg transferAdminId()const{return m_transfer_admin_id;};
+        const UserSelectorArg& transferAdminId()const{return m_transfer_admin_id;};
         MembersRemoveArg& setTransferadminid(const UserSelectorArg& arg){m_transfer_admin_id=arg;return *this;};
 
             /**

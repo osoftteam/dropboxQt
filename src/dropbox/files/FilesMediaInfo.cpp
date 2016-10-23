@@ -42,7 +42,7 @@ void MediaInfo::fromJson(const QJsonObject& js){
     }
     else if(s.compare("metadata") == 0){
         m_tag = MediaInfo_METADATA;
-        m_metadata.fromJson(js);
+        m_metadata.fromJson(js["metadata"].toObject());
     }
 }
 

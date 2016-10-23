@@ -26,7 +26,7 @@ void TeamMemberInfo::toJson(QJsonObject& js)const{
 
 void TeamMemberInfo::fromJson(const QJsonObject& js){
 
-    m_profile.fromJson(js);
+    m_profile.fromJson(js["profile"].toObject());
     m_role.fromJson(js["role"].toObject());
 }
 

@@ -37,7 +37,7 @@ namespace sharing{
             /**
                 Set of settings for the shared link.
             */
-        SharedLinkSettings settings()const{return m_settings;};
+        const SharedLinkSettings& settings()const{return m_settings;};
         ModifySharedLinkSettingsArgs& setSettings(const SharedLinkSettings& arg){m_settings=arg;return *this;};
 
             /**

@@ -29,10 +29,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///Unable to save the uploaded contents to a file.
-        UploadWriteFailed getPath()const{API_CHECK_STATE((UploadError_PATH == m_tag), "expected tag: UploadError_PATH", m_tag);return m_path;};
+        const UploadWriteFailed& getPath()const{API_CHECK_STATE((UploadError_PATH == m_tag), "expected tag: UploadError_PATH", m_tag);return m_path;};
 
         ///None
-        InvalidPropertyGroupError getPropertiesError()const{API_CHECK_STATE((UploadErrorWithProperties_PROPERTIES_ERROR == m_tag), "expected tag: UploadErrorWithProperties_PROPERTIES_ERROR", m_tag);return m_properties_error;};
+        const InvalidPropertyGroupError& getPropertiesError()const{API_CHECK_STATE((UploadErrorWithProperties_PROPERTIES_ERROR == m_tag), "expected tag: UploadErrorWithProperties_PROPERTIES_ERROR", m_tag);return m_properties_error;};
 
     public:
         operator QJsonObject ()const;

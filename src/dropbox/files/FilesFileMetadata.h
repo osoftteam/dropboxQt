@@ -89,13 +89,13 @@ namespace files{
             /**
                 Additional information if the file is a photo or video.
             */
-        MediaInfo mediaInfo()const{return m_media_info;};
+        const MediaInfo& mediaInfo()const{return m_media_info;};
         FileMetadata& setMediainfo(const MediaInfo& arg){m_media_info=arg;return *this;};
 
             /**
                 Set if this file is contained in a shared folder.
             */
-        FileSharingInfo sharingInfo()const{return m_sharing_info;};
+        const FileSharingInfo& sharingInfo()const{return m_sharing_info;};
         FileMetadata& setSharinginfo(const FileSharingInfo& arg){m_sharing_info=arg;return *this;};
 
             /**

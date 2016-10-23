@@ -39,7 +39,7 @@ namespace team{
         QString getIdNotFound()const{API_CHECK_STATE((MembersGetInfoItem_ID_NOT_FOUND == m_tag), "expected tag: MembersGetInfoItem_ID_NOT_FOUND", m_tag);return m_id_not_found;};
 
         ///Info about a team member.
-        TeamMemberInfo getMemberInfo()const{API_CHECK_STATE((MembersGetInfoItem_MEMBER_INFO == m_tag), "expected tag: MembersGetInfoItem_MEMBER_INFO", m_tag);return m_member_info;};
+        const TeamMemberInfo& getMemberInfo()const{API_CHECK_STATE((MembersGetInfoItem_MEMBER_INFO == m_tag), "expected tag: MembersGetInfoItem_MEMBER_INFO", m_tag);return m_member_info;};
 
     public:
         operator QJsonObject ()const;

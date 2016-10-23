@@ -29,7 +29,7 @@ void GetCopyReferenceResult::toJson(QJsonObject& js)const{
 
 void GetCopyReferenceResult::fromJson(const QJsonObject& js){
 
-    m_metadata.fromJson(js);
+    m_metadata.fromJson(js["metadata"].toObject());
     m_copy_reference = js["copy_reference"].toString();
     m_expires = QDateTime::fromString(js["expires"].toString(), "yyyy-MM-ddThh:mm:ssZ");
 }

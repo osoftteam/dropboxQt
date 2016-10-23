@@ -27,7 +27,7 @@ namespace team{
             /**
                 Group from which users will be removed.
             */
-        GroupSelector group()const{return m_group;};
+        const GroupSelector& group()const{return m_group;};
         GroupMembersRemoveArg& setGroup(const GroupSelector& arg){m_group=arg;return *this;};
 
             /**

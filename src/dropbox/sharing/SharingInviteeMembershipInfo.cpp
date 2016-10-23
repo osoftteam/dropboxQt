@@ -29,7 +29,7 @@ void InviteeMembershipInfo::fromJson(const QJsonObject& js){
 
     MembershipInfo::fromJson(js);
     m_invitee.fromJson(js["invitee"].toObject());
-    m_user.fromJson(js);
+    m_user.fromJson(js["user"].toObject());
 }
 
 QString InviteeMembershipInfo::toString(bool multiline)const

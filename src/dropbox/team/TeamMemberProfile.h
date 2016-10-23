@@ -72,20 +72,20 @@ namespace team{
             /**
                 The user's status as a member of a specific team.
             */
-        TeamMemberStatus status()const{return m_status;};
+        const TeamMemberStatus& status()const{return m_status;};
         MemberProfile& setStatus(const TeamMemberStatus& arg){m_status=arg;return *this;};
 
             /**
                 Representations for a person's name.
             */
-        users::Name name()const{return m_name;};
+        const users::Name& name()const{return m_name;};
         MemberProfile& setName(const users::Name& arg){m_name=arg;return *this;};
 
             /**
                 The user's membership type: full (normal team member) vs limited
                 (does not use a license; no access to the team's shared quota).
             */
-        TeamMembershipType membershipType()const{return m_membership_type;};
+        const TeamMembershipType& membershipType()const{return m_membership_type;};
         MemberProfile& setMembershiptype(const TeamMembershipType& arg){m_membership_type=arg;return *this;};
 
     public:

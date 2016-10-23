@@ -35,10 +35,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///Removing the folder member has finished. The value is information about whether the member has another form of access.
-        MemberAccessLevelResult getComplete()const{API_CHECK_STATE((RemoveMemberJobStatus_COMPLETE == m_tag), "expected tag: RemoveMemberJobStatus_COMPLETE", m_tag);return m_complete;};
+        const MemberAccessLevelResult& getComplete()const{API_CHECK_STATE((RemoveMemberJobStatus_COMPLETE == m_tag), "expected tag: RemoveMemberJobStatus_COMPLETE", m_tag);return m_complete;};
 
         ///None
-        RemoveFolderMemberError getFailed()const{API_CHECK_STATE((RemoveMemberJobStatus_FAILED == m_tag), "expected tag: RemoveMemberJobStatus_FAILED", m_tag);return m_failed;};
+        const RemoveFolderMemberError& getFailed()const{API_CHECK_STATE((RemoveMemberJobStatus_FAILED == m_tag), "expected tag: RemoveMemberJobStatus_FAILED", m_tag);return m_failed;};
 
     public:
         operator QJsonObject ()const;

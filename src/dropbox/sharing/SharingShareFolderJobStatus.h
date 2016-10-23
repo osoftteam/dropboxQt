@@ -34,10 +34,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///The share job has finished. The value is the metadata for the folder.
-        SharedFolderMetadata getComplete()const{API_CHECK_STATE((ShareFolderJobStatus_COMPLETE == m_tag), "expected tag: ShareFolderJobStatus_COMPLETE", m_tag);return m_complete;};
+        const SharedFolderMetadata& getComplete()const{API_CHECK_STATE((ShareFolderJobStatus_COMPLETE == m_tag), "expected tag: ShareFolderJobStatus_COMPLETE", m_tag);return m_complete;};
 
         ///None
-        ShareFolderError getFailed()const{API_CHECK_STATE((ShareFolderJobStatus_FAILED == m_tag), "expected tag: ShareFolderJobStatus_FAILED", m_tag);return m_failed;};
+        const ShareFolderError& getFailed()const{API_CHECK_STATE((ShareFolderJobStatus_FAILED == m_tag), "expected tag: ShareFolderJobStatus_FAILED", m_tag);return m_failed;};
 
     public:
         operator QJsonObject ()const;

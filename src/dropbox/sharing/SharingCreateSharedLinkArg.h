@@ -48,7 +48,7 @@ namespace sharing{
                 ``PendingUploadMode.folder`` to indicate whether to assume it's
                 a file or folder.
             */
-        PendingUploadMode pendingUpload()const{return m_pending_upload;};
+        const PendingUploadMode& pendingUpload()const{return m_pending_upload;};
         CreateSharedLinkArg& setPendingupload(const PendingUploadMode& arg){m_pending_upload=arg;return *this;};
 
     public:

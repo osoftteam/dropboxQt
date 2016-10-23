@@ -32,7 +32,7 @@ namespace auth{
             /**
                 The reason why the app is being rate limited.
             */
-        RateLimitReason reason()const{return m_reason;};
+        const RateLimitReason& reason()const{return m_reason;};
         RateLimitError& setReason(const RateLimitReason& arg){m_reason=arg;return *this;};
 
             /**

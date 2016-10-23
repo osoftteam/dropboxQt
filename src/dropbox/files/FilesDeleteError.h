@@ -29,10 +29,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///None
-        LookupError getPathLookup()const{API_CHECK_STATE((DeleteError_PATH_LOOKUP == m_tag), "expected tag: DeleteError_PATH_LOOKUP", m_tag);return m_path_lookup;};
+        const LookupError& getPathLookup()const{API_CHECK_STATE((DeleteError_PATH_LOOKUP == m_tag), "expected tag: DeleteError_PATH_LOOKUP", m_tag);return m_path_lookup;};
 
         ///None
-        WriteError getPathWrite()const{API_CHECK_STATE((DeleteError_PATH_WRITE == m_tag), "expected tag: DeleteError_PATH_WRITE", m_tag);return m_path_write;};
+        const WriteError& getPathWrite()const{API_CHECK_STATE((DeleteError_PATH_WRITE == m_tag), "expected tag: DeleteError_PATH_WRITE", m_tag);return m_path_write;};
 
     public:
         operator QJsonObject ()const;

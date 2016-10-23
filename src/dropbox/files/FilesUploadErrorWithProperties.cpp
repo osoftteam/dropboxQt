@@ -43,7 +43,7 @@ void UploadErrorWithProperties::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("path") == 0){
         m_tag = UploadError_PATH;
-        m_path.fromJson(js);
+        m_path.fromJson(js["path"].toObject());
     }
     else if(s.compare("other") == 0){
         m_tag = UploadError_OTHER;

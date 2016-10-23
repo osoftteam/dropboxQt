@@ -58,7 +58,7 @@ void TeamMemberStatus::fromJson(const QJsonObject& js){
     }
     else if(s.compare("removed") == 0){
         m_tag = TeamMemberStatus_REMOVED;
-        m_removed.fromJson(js);
+        m_removed.fromJson(js["removed"].toObject());
     }
 }
 

@@ -34,13 +34,13 @@ namespace team{
 
         Tag tag()const{return m_tag;}
         ///End an active session
-        DeviceSessionArg getWebSession()const{API_CHECK_STATE((RevokeDeviceSessionArg_WEB_SESSION == m_tag), "expected tag: RevokeDeviceSessionArg_WEB_SESSION", m_tag);return m_web_session;};
+        const DeviceSessionArg& getWebSession()const{API_CHECK_STATE((RevokeDeviceSessionArg_WEB_SESSION == m_tag), "expected tag: RevokeDeviceSessionArg_WEB_SESSION", m_tag);return m_web_session;};
 
         ///Unlink a linked desktop device
-        RevokeDesktopClientArg getDesktopClient()const{API_CHECK_STATE((RevokeDeviceSessionArg_DESKTOP_CLIENT == m_tag), "expected tag: RevokeDeviceSessionArg_DESKTOP_CLIENT", m_tag);return m_desktop_client;};
+        const RevokeDesktopClientArg& getDesktopClient()const{API_CHECK_STATE((RevokeDeviceSessionArg_DESKTOP_CLIENT == m_tag), "expected tag: RevokeDeviceSessionArg_DESKTOP_CLIENT", m_tag);return m_desktop_client;};
 
         ///Unlink a linked mobile device
-        DeviceSessionArg getMobileClient()const{API_CHECK_STATE((RevokeDeviceSessionArg_MOBILE_CLIENT == m_tag), "expected tag: RevokeDeviceSessionArg_MOBILE_CLIENT", m_tag);return m_mobile_client;};
+        const DeviceSessionArg& getMobileClient()const{API_CHECK_STATE((RevokeDeviceSessionArg_MOBILE_CLIENT == m_tag), "expected tag: RevokeDeviceSessionArg_MOBILE_CLIENT", m_tag);return m_mobile_client;};
 
     public:
         operator QJsonObject ()const;

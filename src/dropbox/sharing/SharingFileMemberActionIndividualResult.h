@@ -33,10 +33,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///Member was successfully removed from this file. If AccessLevel is given, the member still has access via a parent shared folder.
-        AccessLevel getSuccess()const{API_CHECK_STATE((FileMemberActionIndividualResult_SUCCESS == m_tag), "expected tag: FileMemberActionIndividualResult_SUCCESS", m_tag);return m_success;};
+        const AccessLevel& getSuccess()const{API_CHECK_STATE((FileMemberActionIndividualResult_SUCCESS == m_tag), "expected tag: FileMemberActionIndividualResult_SUCCESS", m_tag);return m_success;};
 
         ///User was not able to perform this action.
-        FileMemberActionError getMemberError()const{API_CHECK_STATE((FileMemberActionIndividualResult_MEMBER_ERROR == m_tag), "expected tag: FileMemberActionIndividualResult_MEMBER_ERROR", m_tag);return m_member_error;};
+        const FileMemberActionError& getMemberError()const{API_CHECK_STATE((FileMemberActionIndividualResult_MEMBER_ERROR == m_tag), "expected tag: FileMemberActionIndividualResult_MEMBER_ERROR", m_tag);return m_member_error;};
 
     public:
         operator QJsonObject ()const;

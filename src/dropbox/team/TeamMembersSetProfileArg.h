@@ -33,7 +33,7 @@ namespace team{
             /**
                 Identity of user whose profile will be set.
             */
-        UserSelectorArg user()const{return m_user;};
+        const UserSelectorArg& user()const{return m_user;};
         MembersSetProfileArg& setUser(const UserSelectorArg& arg){m_user=arg;return *this;};
 
             /**

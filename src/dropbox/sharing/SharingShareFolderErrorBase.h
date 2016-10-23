@@ -42,7 +42,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///:field:`ShareFolderArg.path` is invalid.
-        SharePathError getBadPath()const{API_CHECK_STATE((ShareFolderErrorBase_BAD_PATH == m_tag), "expected tag: ShareFolderErrorBase_BAD_PATH", m_tag);return m_bad_path;};
+        const SharePathError& getBadPath()const{API_CHECK_STATE((ShareFolderErrorBase_BAD_PATH == m_tag), "expected tag: ShareFolderErrorBase_BAD_PATH", m_tag);return m_bad_path;};
 
     public:
         operator QJsonObject ()const;

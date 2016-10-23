@@ -29,12 +29,12 @@ namespace sharing{
             /**
                 One of specified input members.
             */
-        MemberSelector member()const{return m_member;};
+        const MemberSelector& member()const{return m_member;};
 
             /**
                 The outcome of the action on this member.
             */
-        FileMemberActionIndividualResult result()const{return m_result;};
+        const FileMemberActionIndividualResult& result()const{return m_result;};
 
     public:
         operator QJsonObject ()const;

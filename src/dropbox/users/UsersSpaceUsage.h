@@ -33,7 +33,7 @@ namespace users{
             /**
                 The user's space allocation.
             */
-        SpaceAllocation allocation()const{return m_allocation;};
+        const SpaceAllocation& allocation()const{return m_allocation;};
         SpaceUsage& setAllocation(const SpaceAllocation& arg){m_allocation=arg;return *this;};
 
     public:

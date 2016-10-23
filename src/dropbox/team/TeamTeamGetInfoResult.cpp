@@ -35,7 +35,7 @@ void TeamGetInfoResult::fromJson(const QJsonObject& js){
     m_team_id = js["team_id"].toString();
     m_num_licensed_users = js["num_licensed_users"].toVariant().toInt();
     m_num_provisioned_users = js["num_provisioned_users"].toVariant().toInt();
-    m_policies.fromJson(js);
+    m_policies.fromJson(js["policies"].toObject());
 }
 
 QString TeamGetInfoResult::toString(bool multiline)const

@@ -30,7 +30,7 @@ namespace team{
             /**
                 The group info after member change operation has been performed.
             */
-        GroupFullInfo groupInfo()const{return m_group_info;};
+        const GroupFullInfo& groupInfo()const{return m_group_info;};
 
             /**
                 An ID that can be used to obtain the status of granting/revoking

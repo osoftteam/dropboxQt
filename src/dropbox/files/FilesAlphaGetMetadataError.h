@@ -27,10 +27,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///None
-        LookupError getPath()const{API_CHECK_STATE((GetMetadataError_PATH == m_tag), "expected tag: GetMetadataError_PATH", m_tag);return m_path;};
+        const LookupError& getPath()const{API_CHECK_STATE((GetMetadataError_PATH == m_tag), "expected tag: GetMetadataError_PATH", m_tag);return m_path;};
 
         ///None
-        LookUpPropertiesError getPropertiesError()const{API_CHECK_STATE((AlphaGetMetadataError_PROPERTIES_ERROR == m_tag), "expected tag: AlphaGetMetadataError_PROPERTIES_ERROR", m_tag);return m_properties_error;};
+        const LookUpPropertiesError& getPropertiesError()const{API_CHECK_STATE((AlphaGetMetadataError_PROPERTIES_ERROR == m_tag), "expected tag: AlphaGetMetadataError_PROPERTIES_ERROR", m_tag);return m_properties_error;};
 
     public:
         operator QJsonObject ()const;

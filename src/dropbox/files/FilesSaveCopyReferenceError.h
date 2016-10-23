@@ -45,7 +45,7 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///None
-        WriteError getPath()const{API_CHECK_STATE((SaveCopyReferenceError_PATH == m_tag), "expected tag: SaveCopyReferenceError_PATH", m_tag);return m_path;};
+        const WriteError& getPath()const{API_CHECK_STATE((SaveCopyReferenceError_PATH == m_tag), "expected tag: SaveCopyReferenceError_PATH", m_tag);return m_path;};
 
     public:
         operator QJsonObject ()const;

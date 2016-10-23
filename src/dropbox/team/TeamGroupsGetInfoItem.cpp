@@ -44,7 +44,7 @@ void GroupsGetInfoItem::fromJson(const QJsonObject& js){
     }
     else if(s.compare("group_info") == 0){
         m_tag = GroupsGetInfoItem_GROUP_INFO;
-        m_group_info.fromJson(js);
+        m_group_info.fromJson(js["group_info"].toObject());
     }
 }
 

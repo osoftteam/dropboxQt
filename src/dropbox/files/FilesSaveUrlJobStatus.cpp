@@ -47,7 +47,7 @@ void SaveUrlJobStatus::fromJson(const QJsonObject& js){
     }
     if(s.compare("complete") == 0){
         m_tag = SaveUrlJobStatus_COMPLETE;
-        m_complete.fromJson(js);
+        m_complete.fromJson(js["complete"].toObject());
     }
     else if(s.compare("failed") == 0){
         m_tag = SaveUrlJobStatus_FAILED;

@@ -27,7 +27,7 @@ void GroupMembersChangeResult::toJson(QJsonObject& js)const{
 
 void GroupMembersChangeResult::fromJson(const QJsonObject& js){
 
-    m_group_info.fromJson(js);
+    m_group_info.fromJson(js["group_info"].toObject());
     m_async_job_id = js["async_job_id"].toString();
 }
 

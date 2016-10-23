@@ -27,7 +27,7 @@ namespace sharing{
             /**
                 The information about the membership group.
             */
-        GroupInfo group()const{return m_group;};
+        const GroupInfo& group()const{return m_group;};
         GroupMembershipInfo& setGroup(const GroupInfo& arg){m_group=arg;return *this;};
 
     public:

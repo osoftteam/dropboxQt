@@ -45,7 +45,7 @@ namespace files{
                 Set if the folder is contained in a shared folder or is a shared
                 folder mount point.
             */
-        FolderSharingInfo sharingInfo()const{return m_sharing_info;};
+        const FolderSharingInfo& sharingInfo()const{return m_sharing_info;};
         FolderMetadata& setSharinginfo(const FolderSharingInfo& arg){m_sharing_info=arg;return *this;};
 
             /**

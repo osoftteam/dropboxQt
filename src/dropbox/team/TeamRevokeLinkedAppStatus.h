@@ -31,7 +31,7 @@ namespace team{
             /**
                 The error cause in case of a failure
             */
-        RevokeLinkedAppError errorType()const{return m_error_type;};
+        const RevokeLinkedAppError& errorType()const{return m_error_type;};
         RevokeLinkedAppStatus& setErrortype(const RevokeLinkedAppError& arg){m_error_type=arg;return *this;};
 
     public:

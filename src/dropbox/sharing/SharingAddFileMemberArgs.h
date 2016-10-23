@@ -74,7 +74,7 @@ namespace sharing{
                 AccessLevel union object, describing what access level we want
                 to give new members.
             */
-        AccessLevel accessLevel()const{return m_access_level;};
+        const AccessLevel& accessLevel()const{return m_access_level;};
         AddFileMemberArgs& setAccesslevel(const AccessLevel& arg){m_access_level=arg;return *this;};
 
             /**

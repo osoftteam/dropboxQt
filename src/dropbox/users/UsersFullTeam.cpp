@@ -27,7 +27,7 @@ void FullTeam::toJson(QJsonObject& js)const{
 void FullTeam::fromJson(const QJsonObject& js){
 
     Team::fromJson(js);
-    m_sharing_policies.fromJson(js);
+    m_sharing_policies.fromJson(js["sharing_policies"].toObject());
 }
 
 QString FullTeam::toString(bool multiline)const

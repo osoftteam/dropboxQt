@@ -28,13 +28,13 @@ namespace team{
             /**
                 Profile of group member.
             */
-        MemberProfile profile()const{return m_profile;};
+        const MemberProfile& profile()const{return m_profile;};
         GroupMemberInfo& setProfile(const MemberProfile& arg){m_profile=arg;return *this;};
 
             /**
                 The role that the user has in the group.
             */
-        GroupAccessType accessType()const{return m_access_type;};
+        const GroupAccessType& accessType()const{return m_access_type;};
         GroupMemberInfo& setAccesstype(const GroupAccessType& arg){m_access_type=arg;return *this;};
 
     public:

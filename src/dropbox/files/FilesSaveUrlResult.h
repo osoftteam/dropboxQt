@@ -33,7 +33,7 @@ namespace files{
         QString getAsyncJobId()const{API_CHECK_STATE((LaunchResultBase_ASYNC_JOB_ID == m_tag), "expected tag: LaunchResultBase_ASYNC_JOB_ID", m_tag);return m_async_job_id;};
 
         ///Metadata of the file where the URL is saved to.
-        FileMetadata getComplete()const{API_CHECK_STATE((SaveUrlResult_COMPLETE == m_tag), "expected tag: SaveUrlResult_COMPLETE", m_tag);return m_complete;};
+        const FileMetadata& getComplete()const{API_CHECK_STATE((SaveUrlResult_COMPLETE == m_tag), "expected tag: SaveUrlResult_COMPLETE", m_tag);return m_complete;};
 
     public:
         operator QJsonObject ()const;

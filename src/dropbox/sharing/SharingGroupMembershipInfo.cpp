@@ -27,7 +27,7 @@ void GroupMembershipInfo::toJson(QJsonObject& js)const{
 void GroupMembershipInfo::fromJson(const QJsonObject& js){
 
     MembershipInfo::fromJson(js);
-    m_group.fromJson(js);
+    m_group.fromJson(js["group"].toObject());
 }
 
 QString GroupMembershipInfo::toString(bool multiline)const

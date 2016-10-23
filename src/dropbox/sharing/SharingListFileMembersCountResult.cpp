@@ -26,7 +26,7 @@ void ListFileMembersCountResult::toJson(QJsonObject& js)const{
 
 void ListFileMembersCountResult::fromJson(const QJsonObject& js){
 
-    m_members.fromJson(js);
+    m_members.fromJson(js["members"].toObject());
     m_member_count = js["member_count"].toVariant().toInt();
 }
 

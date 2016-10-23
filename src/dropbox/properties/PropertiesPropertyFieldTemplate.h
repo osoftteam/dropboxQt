@@ -49,7 +49,7 @@ namespace properties{
                 This is the data type of the value of this property. This type
                 will be enforced upon property creation and modifications.
             */
-        PropertyType type()const{return m_type;};
+        const PropertyType& type()const{return m_type;};
         PropertyFieldTemplate& setType(const PropertyType& arg){m_type=arg;return *this;};
 
     public:

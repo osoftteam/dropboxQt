@@ -39,10 +39,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///An error occurs when downloading metadata for the file.
-        LookupError getPathLookup()const{API_CHECK_STATE((RestoreError_PATH_LOOKUP == m_tag), "expected tag: RestoreError_PATH_LOOKUP", m_tag);return m_path_lookup;};
+        const LookupError& getPathLookup()const{API_CHECK_STATE((RestoreError_PATH_LOOKUP == m_tag), "expected tag: RestoreError_PATH_LOOKUP", m_tag);return m_path_lookup;};
 
         ///An error occurs when trying to restore the file to that path.
-        WriteError getPathWrite()const{API_CHECK_STATE((RestoreError_PATH_WRITE == m_tag), "expected tag: RestoreError_PATH_WRITE", m_tag);return m_path_write;};
+        const WriteError& getPathWrite()const{API_CHECK_STATE((RestoreError_PATH_WRITE == m_tag), "expected tag: RestoreError_PATH_WRITE", m_tag);return m_path_write;};
 
     public:
         operator QJsonObject ()const;

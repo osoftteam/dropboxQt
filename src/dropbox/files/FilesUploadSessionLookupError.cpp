@@ -54,7 +54,7 @@ void UploadSessionLookupError::fromJson(const QJsonObject& js){
     }
     else if(s.compare("incorrect_offset") == 0){
         m_tag = UploadSessionLookupError_INCORRECT_OFFSET;
-        m_incorrect_offset.fromJson(js);
+        m_incorrect_offset.fromJson(js["incorrect_offset"].toObject());
     }
     else if(s.compare("closed") == 0){
         m_tag = UploadSessionLookupError_CLOSED;

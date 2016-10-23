@@ -29,7 +29,7 @@ void ModifySharedLinkSettingsArgs::toJson(QJsonObject& js)const{
 void ModifySharedLinkSettingsArgs::fromJson(const QJsonObject& js){
 
     m_url = js["url"].toString();
-    m_settings.fromJson(js);
+    m_settings.fromJson(js["settings"].toObject());
     m_remove_expiration = js["remove_expiration"].toVariant().toBool();
 }
 

@@ -25,7 +25,7 @@ namespace files{
             /**
                 The metadata of the saved file or folder in the user's Dropbox.
             */
-        Metadata metadata()const{return m_metadata;};
+        const Metadata& metadata()const{return m_metadata;};
 
     public:
         operator QJsonObject ()const;

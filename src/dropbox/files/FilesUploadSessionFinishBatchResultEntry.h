@@ -27,10 +27,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///None
-        FileMetadata getSuccess()const{API_CHECK_STATE((UploadSessionFinishBatchResultEntry_SUCCESS == m_tag), "expected tag: UploadSessionFinishBatchResultEntry_SUCCESS", m_tag);return m_success;};
+        const FileMetadata& getSuccess()const{API_CHECK_STATE((UploadSessionFinishBatchResultEntry_SUCCESS == m_tag), "expected tag: UploadSessionFinishBatchResultEntry_SUCCESS", m_tag);return m_success;};
 
         ///None
-        UploadSessionFinishError getFailure()const{API_CHECK_STATE((UploadSessionFinishBatchResultEntry_FAILURE == m_tag), "expected tag: UploadSessionFinishBatchResultEntry_FAILURE", m_tag);return m_failure;};
+        const UploadSessionFinishError& getFailure()const{API_CHECK_STATE((UploadSessionFinishBatchResultEntry_FAILURE == m_tag), "expected tag: UploadSessionFinishBatchResultEntry_FAILURE", m_tag);return m_failure;};
 
     public:
         operator QJsonObject ()const;

@@ -48,13 +48,13 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///None
-        LookupError getFromLookup()const{API_CHECK_STATE((RelocationError_FROM_LOOKUP == m_tag), "expected tag: RelocationError_FROM_LOOKUP", m_tag);return m_from_lookup;};
+        const LookupError& getFromLookup()const{API_CHECK_STATE((RelocationError_FROM_LOOKUP == m_tag), "expected tag: RelocationError_FROM_LOOKUP", m_tag);return m_from_lookup;};
 
         ///None
-        WriteError getFromWrite()const{API_CHECK_STATE((RelocationError_FROM_WRITE == m_tag), "expected tag: RelocationError_FROM_WRITE", m_tag);return m_from_write;};
+        const WriteError& getFromWrite()const{API_CHECK_STATE((RelocationError_FROM_WRITE == m_tag), "expected tag: RelocationError_FROM_WRITE", m_tag);return m_from_write;};
 
         ///None
-        WriteError getTo()const{API_CHECK_STATE((RelocationError_TO == m_tag), "expected tag: RelocationError_TO", m_tag);return m_to;};
+        const WriteError& getTo()const{API_CHECK_STATE((RelocationError_TO == m_tag), "expected tag: RelocationError_TO", m_tag);return m_to;};
 
     public:
         operator QJsonObject ()const;

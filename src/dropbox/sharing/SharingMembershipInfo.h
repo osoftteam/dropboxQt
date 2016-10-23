@@ -37,7 +37,7 @@ namespace sharing{
             /**
                 The access type for this member.
             */
-        AccessLevel accessType()const{return m_access_type;};
+        const AccessLevel& accessType()const{return m_access_type;};
         MembershipInfo& setAccesstype(const AccessLevel& arg){m_access_type=arg;return *this;};
 
             /**

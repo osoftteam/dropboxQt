@@ -45,7 +45,7 @@ namespace sharing{
                 has access to this info (the link's owner always has access to
                 this data).
             */
-        ResolvedVisibility resolvedVisibility()const{return m_resolved_visibility;};
+        const ResolvedVisibility& resolvedVisibility()const{return m_resolved_visibility;};
         LinkPermissions& setResolvedvisibility(const ResolvedVisibility& arg){m_resolved_visibility=arg;return *this;};
 
             /**
@@ -55,7 +55,7 @@ namespace sharing{
                 ``resolved_visibility``. This is shown only if the caller is the
                 link's owner.
             */
-        RequestedVisibility requestedVisibility()const{return m_requested_visibility;};
+        const RequestedVisibility& requestedVisibility()const{return m_requested_visibility;};
         LinkPermissions& setRequestedvisibility(const RequestedVisibility& arg){m_requested_visibility=arg;return *this;};
 
             /**
@@ -68,7 +68,7 @@ namespace sharing{
                 The failure reason for revoking the link. This field will only
                 be present if the ``can_revoke`` is ``False``.
             */
-        SharedLinkAccessFailureReason revokeFailureReason()const{return m_revoke_failure_reason;};
+        const SharedLinkAccessFailureReason& revokeFailureReason()const{return m_revoke_failure_reason;};
         LinkPermissions& setRevokefailurereason(const SharedLinkAccessFailureReason& arg){m_revoke_failure_reason=arg;return *this;};
 
     public:

@@ -27,13 +27,13 @@ namespace files{
             /**
                 Contains the upload session ID and the offset.
             */
-        UploadSessionCursor cursor()const{return m_cursor;};
+        const UploadSessionCursor& cursor()const{return m_cursor;};
         UploadSessionFinishArg& setCursor(const UploadSessionCursor& arg){m_cursor=arg;return *this;};
 
             /**
                 Contains the path and other optional modifiers for the commit.
             */
-        CommitInfo commit()const{return m_commit;};
+        const CommitInfo& commit()const{return m_commit;};
         UploadSessionFinishArg& setCommit(const CommitInfo& arg){m_commit=arg;return *this;};
 
     public:

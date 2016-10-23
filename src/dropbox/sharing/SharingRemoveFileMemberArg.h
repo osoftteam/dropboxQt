@@ -39,7 +39,7 @@ namespace sharing{
                 invitee) if the user's main account corresponds to that email
                 address.
             */
-        MemberSelector member()const{return m_member;};
+        const MemberSelector& member()const{return m_member;};
         RemoveFileMemberArg& setMember(const MemberSelector& arg){m_member=arg;return *this;};
 
     public:

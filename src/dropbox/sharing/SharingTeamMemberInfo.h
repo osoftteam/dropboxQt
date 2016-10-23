@@ -30,7 +30,7 @@ namespace sharing{
             /**
                 Information about the member's team
             */
-        users::Team teamInfo()const{return m_team_info;};
+        const users::Team& teamInfo()const{return m_team_info;};
         TeamMemberInfo& setTeaminfo(const users::Team& arg){m_team_info=arg;return *this;};
 
             /**

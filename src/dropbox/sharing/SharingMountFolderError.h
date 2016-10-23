@@ -49,10 +49,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///None
-        SharedFolderAccessError getAccessError()const{API_CHECK_STATE((MountFolderError_ACCESS_ERROR == m_tag), "expected tag: MountFolderError_ACCESS_ERROR", m_tag);return m_access_error;};
+        const SharedFolderAccessError& getAccessError()const{API_CHECK_STATE((MountFolderError_ACCESS_ERROR == m_tag), "expected tag: MountFolderError_ACCESS_ERROR", m_tag);return m_access_error;};
 
         ///The current user does not have enough space to mount the shared folder.
-        InsufficientQuotaAmounts getInsufficientQuota()const{API_CHECK_STATE((MountFolderError_INSUFFICIENT_QUOTA == m_tag), "expected tag: MountFolderError_INSUFFICIENT_QUOTA", m_tag);return m_insufficient_quota;};
+        const InsufficientQuotaAmounts& getInsufficientQuota()const{API_CHECK_STATE((MountFolderError_INSUFFICIENT_QUOTA == m_tag), "expected tag: MountFolderError_INSUFFICIENT_QUOTA", m_tag);return m_insufficient_quota;};
 
     public:
         operator QJsonObject ()const;

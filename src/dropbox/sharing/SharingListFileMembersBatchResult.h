@@ -33,7 +33,7 @@ namespace sharing{
             /**
                 The result for this particular file
             */
-        ListFileMembersIndividualResult result()const{return m_result;};
+        const ListFileMembersIndividualResult& result()const{return m_result;};
 
     public:
         operator QJsonObject ()const;

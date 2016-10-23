@@ -34,7 +34,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///User account had a problem.
-        SharingUserError getUserError()const{API_CHECK_STATE((ListFilesContinueError_USER_ERROR == m_tag), "expected tag: ListFilesContinueError_USER_ERROR", m_tag);return m_user_error;};
+        const SharingUserError& getUserError()const{API_CHECK_STATE((ListFilesContinueError_USER_ERROR == m_tag), "expected tag: ListFilesContinueError_USER_ERROR", m_tag);return m_user_error;};
 
     public:
         operator QJsonObject ()const;

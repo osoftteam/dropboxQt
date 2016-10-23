@@ -42,7 +42,7 @@ namespace team{
                 Whether the team can be managed by selected users, or only by
                 team admins
             */
-        team_common::GroupManagementType groupManagementType()const{return m_group_management_type;};
+        const team_common::GroupManagementType& groupManagementType()const{return m_group_management_type;};
         GroupCreateArg& setGroupmanagementtype(const team_common::GroupManagementType& arg){m_group_management_type=arg;return *this;};
 
     public:

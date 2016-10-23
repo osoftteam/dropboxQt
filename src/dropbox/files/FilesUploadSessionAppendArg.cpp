@@ -26,7 +26,7 @@ void UploadSessionAppendArg::toJson(QJsonObject& js)const{
 
 void UploadSessionAppendArg::fromJson(const QJsonObject& js){
 
-    m_cursor.fromJson(js);
+    m_cursor.fromJson(js["cursor"].toObject());
     m_close = js["close"].toVariant().toBool();
 }
 

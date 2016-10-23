@@ -33,10 +33,10 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///Metadata of the file where the URL is saved to.
-        FileMetadata getComplete()const{API_CHECK_STATE((SaveUrlJobStatus_COMPLETE == m_tag), "expected tag: SaveUrlJobStatus_COMPLETE", m_tag);return m_complete;};
+        const FileMetadata& getComplete()const{API_CHECK_STATE((SaveUrlJobStatus_COMPLETE == m_tag), "expected tag: SaveUrlJobStatus_COMPLETE", m_tag);return m_complete;};
 
         ///None
-        SaveUrlError getFailed()const{API_CHECK_STATE((SaveUrlJobStatus_FAILED == m_tag), "expected tag: SaveUrlJobStatus_FAILED", m_tag);return m_failed;};
+        const SaveUrlError& getFailed()const{API_CHECK_STATE((SaveUrlJobStatus_FAILED == m_tag), "expected tag: SaveUrlJobStatus_FAILED", m_tag);return m_failed;};
 
     public:
         operator QJsonObject ()const;

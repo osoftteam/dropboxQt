@@ -72,10 +72,10 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///Unable to access shared folder.
-        SharedFolderAccessError getAccessError()const{API_CHECK_STATE((AddFolderMemberError_ACCESS_ERROR == m_tag), "expected tag: AddFolderMemberError_ACCESS_ERROR", m_tag);return m_access_error;};
+        const SharedFolderAccessError& getAccessError()const{API_CHECK_STATE((AddFolderMemberError_ACCESS_ERROR == m_tag), "expected tag: AddFolderMemberError_ACCESS_ERROR", m_tag);return m_access_error;};
 
         ///:field:`AddFolderMemberArg.members` contains a bad invitation recipient.
-        AddMemberSelectorError getBadMember()const{API_CHECK_STATE((AddFolderMemberError_BAD_MEMBER == m_tag), "expected tag: AddFolderMemberError_BAD_MEMBER", m_tag);return m_bad_member;};
+        const AddMemberSelectorError& getBadMember()const{API_CHECK_STATE((AddFolderMemberError_BAD_MEMBER == m_tag), "expected tag: AddFolderMemberError_BAD_MEMBER", m_tag);return m_bad_member;};
 
         ///The value is the member limit that was reached.
         int getTooManyMembers()const{API_CHECK_STATE((AddFolderMemberError_TOO_MANY_MEMBERS == m_tag), "expected tag: AddFolderMemberError_TOO_MANY_MEMBERS", m_tag);return m_too_many_members;};

@@ -82,7 +82,7 @@ void MemberAddResult::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("success") == 0){
         m_tag = MemberAddResult_SUCCESS;
-        m_success.fromJson(js);
+        m_success.fromJson(js["success"].toObject());
     }
     else if(s.compare("team_license_limit") == 0){
         m_tag = MemberAddResult_TEAM_LICENSE_LIMIT;

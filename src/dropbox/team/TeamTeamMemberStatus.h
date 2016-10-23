@@ -43,7 +43,7 @@ namespace team{
 
         Tag tag()const{return m_tag;}
         ///User is no longer a member of the team. Removed users are only listed when include_removed is true in members/list.
-        RemovedStatus getRemoved()const{API_CHECK_STATE((TeamMemberStatus_REMOVED == m_tag), "expected tag: TeamMemberStatus_REMOVED", m_tag);return m_removed;};
+        const RemovedStatus& getRemoved()const{API_CHECK_STATE((TeamMemberStatus_REMOVED == m_tag), "expected tag: TeamMemberStatus_REMOVED", m_tag);return m_removed;};
 
     public:
         operator QJsonObject ()const;

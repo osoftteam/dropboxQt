@@ -73,7 +73,7 @@ namespace files{
                 deleted_filename). Note that searching file content is only
                 available for Dropbox Business accounts.
             */
-        SearchMode mode()const{return m_mode;};
+        const SearchMode& mode()const{return m_mode;};
         SearchArg& setMode(const SearchMode& arg){m_mode=arg;return *this;};
 
     public:

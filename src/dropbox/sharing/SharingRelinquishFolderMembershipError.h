@@ -50,7 +50,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///None
-        SharedFolderAccessError getAccessError()const{API_CHECK_STATE((RelinquishFolderMembershipError_ACCESS_ERROR == m_tag), "expected tag: RelinquishFolderMembershipError_ACCESS_ERROR", m_tag);return m_access_error;};
+        const SharedFolderAccessError& getAccessError()const{API_CHECK_STATE((RelinquishFolderMembershipError_ACCESS_ERROR == m_tag), "expected tag: RelinquishFolderMembershipError_ACCESS_ERROR", m_tag);return m_access_error;};
 
     public:
         operator QJsonObject ()const;

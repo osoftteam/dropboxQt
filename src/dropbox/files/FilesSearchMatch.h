@@ -26,13 +26,13 @@ namespace files{
             /**
                 The type of the match.
             */
-        SearchMatchType matchType()const{return m_match_type;};
+        const SearchMatchType& matchType()const{return m_match_type;};
         SearchMatch& setMatchtype(const SearchMatchType& arg){m_match_type=arg;return *this;};
 
             /**
                 The metadata for the matched file or folder.
             */
-        Metadata metadata()const{return m_metadata;};
+        const Metadata& metadata()const{return m_metadata;};
         SearchMatch& setMetadata(const Metadata& arg){m_metadata=arg;return *this;};
 
     public:

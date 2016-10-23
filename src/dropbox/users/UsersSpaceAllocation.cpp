@@ -43,11 +43,11 @@ void SpaceAllocation::fromJson(const QJsonObject& js){
     QString s = js[".tag"].toString();
     if(s.compare("individual") == 0){
         m_tag = SpaceAllocation_INDIVIDUAL;
-        m_individual.fromJson(js);
+        m_individual.fromJson(js["individual"].toObject());
     }
     else if(s.compare("team") == 0){
         m_tag = SpaceAllocation_TEAM;
-        m_team.fromJson(js);
+        m_team.fromJson(js["team"].toObject());
     }
     else if(s.compare("other") == 0){
         m_tag = SpaceAllocation_OTHER;

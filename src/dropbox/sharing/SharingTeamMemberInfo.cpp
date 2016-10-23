@@ -29,7 +29,7 @@ void TeamMemberInfo::toJson(QJsonObject& js)const{
 
 void TeamMemberInfo::fromJson(const QJsonObject& js){
 
-    m_team_info.fromJson(js);
+    m_team_info.fromJson(js["team_info"].toObject());
     m_display_name = js["display_name"].toString();
     m_member_id = js["member_id"].toString();
 }

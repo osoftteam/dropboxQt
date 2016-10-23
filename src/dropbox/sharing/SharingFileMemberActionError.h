@@ -37,7 +37,7 @@ namespace sharing{
 
         Tag tag()const{return m_tag;}
         ///Specified file was invalid or user does not have access.
-        SharingFileAccessError getAccessError()const{API_CHECK_STATE((FileMemberActionError_ACCESS_ERROR == m_tag), "expected tag: FileMemberActionError_ACCESS_ERROR", m_tag);return m_access_error;};
+        const SharingFileAccessError& getAccessError()const{API_CHECK_STATE((FileMemberActionError_ACCESS_ERROR == m_tag), "expected tag: FileMemberActionError_ACCESS_ERROR", m_tag);return m_access_error;};
 
     public:
         operator QJsonObject ()const;

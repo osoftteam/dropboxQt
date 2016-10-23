@@ -31,7 +31,7 @@ namespace files{
 
         Tag tag()const{return m_tag;}
         ///The :route:`upload_session/finish_batch` has finished.
-        UploadSessionFinishBatchResult getComplete()const{API_CHECK_STATE((UploadSessionFinishBatchJobStatus_COMPLETE == m_tag), "expected tag: UploadSessionFinishBatchJobStatus_COMPLETE", m_tag);return m_complete;};
+        const UploadSessionFinishBatchResult& getComplete()const{API_CHECK_STATE((UploadSessionFinishBatchJobStatus_COMPLETE == m_tag), "expected tag: UploadSessionFinishBatchJobStatus_COMPLETE", m_tag);return m_complete;};
 
     public:
         operator QJsonObject ()const;

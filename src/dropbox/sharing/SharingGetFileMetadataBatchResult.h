@@ -34,7 +34,7 @@ namespace sharing{
             /**
                 The result for this particular file
             */
-        GetFileMetadataIndividualResult result()const{return m_result;};
+        const GetFileMetadataIndividualResult& result()const{return m_result;};
 
     public:
         operator QJsonObject ()const;

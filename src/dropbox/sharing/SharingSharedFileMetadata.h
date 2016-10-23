@@ -51,7 +51,7 @@ namespace sharing{
             /**
                 Policies governing this shared file.
             */
-        FolderPolicy policy()const{return m_policy;};
+        const FolderPolicy& policy()const{return m_policy;};
         SharedFileMetadata& setPolicy(const FolderPolicy& arg){m_policy=arg;return *this;};
 
             /**
@@ -67,7 +67,7 @@ namespace sharing{
                 The team that owns the file. This field is not present if the
                 file is not owned by a team.
             */
-        users::Team ownerTeam()const{return m_owner_team;};
+        const users::Team& ownerTeam()const{return m_owner_team;};
         SharedFileMetadata& setOwnerteam(const users::Team& arg){m_owner_team=arg;return *this;};
 
             /**

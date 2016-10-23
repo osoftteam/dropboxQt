@@ -26,8 +26,8 @@ void UploadSessionFinishArg::toJson(QJsonObject& js)const{
 
 void UploadSessionFinishArg::fromJson(const QJsonObject& js){
 
-    m_cursor.fromJson(js);
-    m_commit.fromJson(js);
+    m_cursor.fromJson(js["cursor"].toObject());
+    m_commit.fromJson(js["commit"].toObject());
 }
 
 QString UploadSessionFinishArg::toString(bool multiline)const

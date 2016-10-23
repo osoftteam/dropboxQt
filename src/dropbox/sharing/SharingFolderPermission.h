@@ -31,7 +31,7 @@ namespace sharing{
             /**
                 The action that the user may wish to take on the folder.
             */
-        FolderAction action()const{return m_action;};
+        const FolderAction& action()const{return m_action;};
         FolderPermission& setAction(const FolderAction& arg){m_action=arg;return *this;};
 
             /**
@@ -44,7 +44,7 @@ namespace sharing{
                 The reason why the user is denied the permission. Not present if
                 the action is allowed, or if no reason is available.
             */
-        PermissionDeniedReason reason()const{return m_reason;};
+        const PermissionDeniedReason& reason()const{return m_reason;};
         FolderPermission& setReason(const PermissionDeniedReason& arg){m_reason=arg;return *this;};
 
     public:

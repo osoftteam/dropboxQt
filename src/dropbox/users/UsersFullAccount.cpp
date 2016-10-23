@@ -40,7 +40,7 @@ void FullAccount::fromJson(const QJsonObject& js){
     m_country = js["country"].toString();
     m_locale = js["locale"].toString();
     m_referral_link = js["referral_link"].toString();
-    m_team.fromJson(js);
+    m_team.fromJson(js["team"].toObject());
     m_team_member_id = js["team_member_id"].toString();
     m_is_paired = js["is_paired"].toVariant().toBool();
     m_account_type.fromJson(js["account_type"].toObject());

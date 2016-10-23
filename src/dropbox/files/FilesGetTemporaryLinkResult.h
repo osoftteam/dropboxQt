@@ -26,7 +26,7 @@ namespace files{
             /**
                 Metadata of the file.
             */
-        FileMetadata metadata()const{return m_metadata;};
+        const FileMetadata& metadata()const{return m_metadata;};
 
             /**
                 The temporary link which can be used to stream content the file.

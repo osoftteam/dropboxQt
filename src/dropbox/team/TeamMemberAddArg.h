@@ -65,7 +65,7 @@ namespace team{
         bool sendWelcomeEmail()const{return m_send_welcome_email;};
         MemberAddArg& setSendwelcomeemail(const bool& arg){m_send_welcome_email=arg;return *this;};
 
-        AdminTier role()const{return m_role;};
+        const AdminTier& role()const{return m_role;};
         MemberAddArg& setRole(const AdminTier& arg){m_role=arg;return *this;};
 
     public:

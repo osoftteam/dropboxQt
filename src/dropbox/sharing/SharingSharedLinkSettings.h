@@ -30,7 +30,7 @@ namespace sharing{
             /**
                 The requested access for this shared link.
             */
-        RequestedVisibility requestedVisibility()const{return m_requested_visibility;};
+        const RequestedVisibility& requestedVisibility()const{return m_requested_visibility;};
         SharedLinkSettings& setRequestedvisibility(const RequestedVisibility& arg){m_requested_visibility=arg;return *this;};
 
             /**

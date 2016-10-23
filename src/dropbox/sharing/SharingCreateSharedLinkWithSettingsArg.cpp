@@ -28,7 +28,7 @@ void CreateSharedLinkWithSettingsArg::toJson(QJsonObject& js)const{
 void CreateSharedLinkWithSettingsArg::fromJson(const QJsonObject& js){
 
     m_path = js["path"].toString();
-    m_settings.fromJson(js);
+    m_settings.fromJson(js["settings"].toObject());
 }
 
 QString CreateSharedLinkWithSettingsArg::toString(bool multiline)const

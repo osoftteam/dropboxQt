@@ -28,7 +28,7 @@ namespace files{
             /**
                 Metadata of the file or folder.
             */
-        Metadata metadata()const{return m_metadata;};
+        const Metadata& metadata()const{return m_metadata;};
 
             /**
                 A copy reference to the file or folder.

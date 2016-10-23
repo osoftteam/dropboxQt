@@ -77,14 +77,14 @@ namespace sharing{
             /**
                 The link's access permissions.
             */
-        LinkPermissions linkPermissions()const{return m_link_permissions;};
+        const LinkPermissions& linkPermissions()const{return m_link_permissions;};
         SharedLinkMetadata& setLinkpermissions(const LinkPermissions& arg){m_link_permissions=arg;return *this;};
 
             /**
                 The team membership information of the link's owner.  This field
                 will only be present  if the link's owner is a team member.
             */
-        TeamMemberInfo teamMemberInfo()const{return m_team_member_info;};
+        const TeamMemberInfo& teamMemberInfo()const{return m_team_member_info;};
         SharedLinkMetadata& setTeammemberinfo(const TeamMemberInfo& arg){m_team_member_info=arg;return *this;};
 
             /**
@@ -92,7 +92,7 @@ namespace sharing{
                 only be present if the content's owner is a team member and the
                 content's owner team is different from the link's owner team.
             */
-        users::Team contentOwnerTeamInfo()const{return m_content_owner_team_info;};
+        const users::Team& contentOwnerTeamInfo()const{return m_content_owner_team_info;};
         SharedLinkMetadata& setContentownerteaminfo(const users::Team& arg){m_content_owner_team_info=arg;return *this;};
 
     public:

@@ -27,7 +27,7 @@ void SearchMatch::toJson(QJsonObject& js)const{
 void SearchMatch::fromJson(const QJsonObject& js){
 
     m_match_type.fromJson(js["match_type"].toObject());
-    m_metadata.fromJson(js);
+    m_metadata.fromJson(js["metadata"].toObject());
 }
 
 QString SearchMatch::toString(bool multiline)const

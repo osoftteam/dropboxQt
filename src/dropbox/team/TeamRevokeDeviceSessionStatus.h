@@ -31,7 +31,7 @@ namespace team{
             /**
                 The error cause in case of a failure
             */
-        RevokeDeviceSessionError errorType()const{return m_error_type;};
+        const RevokeDeviceSessionError& errorType()const{return m_error_type;};
         RevokeDeviceSessionStatus& setErrortype(const RevokeDeviceSessionError& arg){m_error_type=arg;return *this;};
 
     public:

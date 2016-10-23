@@ -42,7 +42,7 @@ void MemberProfile::fromJson(const QJsonObject& js){
     m_email = js["email"].toString();
     m_email_verified = js["email_verified"].toVariant().toBool();
     m_status.fromJson(js["status"].toObject());
-    m_name.fromJson(js);
+    m_name.fromJson(js["name"].toObject());
     m_membership_type.fromJson(js["membership_type"].toObject());
 }
 

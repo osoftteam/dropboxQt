@@ -33,7 +33,7 @@ namespace team{
             /**
                 Identity of user to remove/suspend.
             */
-        UserSelectorArg user()const{return m_user;};
+        const UserSelectorArg& user()const{return m_user;};
         MembersDeactivateArg& setUser(const UserSelectorArg& arg){m_user=arg;return *this;};
 
             /**

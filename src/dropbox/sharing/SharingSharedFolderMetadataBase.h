@@ -37,7 +37,7 @@ namespace sharing{
             /**
                 The current user's access level for this shared folder.
             */
-        AccessLevel accessType()const{return m_access_type;};
+        const AccessLevel& accessType()const{return m_access_type;};
         SharedFolderMetadataBase& setAccesstype(const AccessLevel& arg){m_access_type=arg;return *this;};
 
             /**
@@ -50,14 +50,14 @@ namespace sharing{
             /**
                 Policies governing this shared folder.
             */
-        FolderPolicy policy()const{return m_policy;};
+        const FolderPolicy& policy()const{return m_policy;};
         SharedFolderMetadataBase& setPolicy(const FolderPolicy& arg){m_policy=arg;return *this;};
 
             /**
                 The team that owns the folder. This field is not present if the
                 folder is not owned by a team.
             */
-        users::Team ownerTeam()const{return m_owner_team;};
+        const users::Team& ownerTeam()const{return m_owner_team;};
         SharedFolderMetadataBase& setOwnerteam(const users::Team& arg){m_owner_team=arg;return *this;};
 
             /**

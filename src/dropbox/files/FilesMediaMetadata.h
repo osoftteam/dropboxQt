@@ -29,13 +29,13 @@ namespace files{
             /**
                 Dimension of the photo/video.
             */
-        Dimensions dimensions()const{return m_dimensions;};
+        const Dimensions& dimensions()const{return m_dimensions;};
         MediaMetadata& setDimensions(const Dimensions& arg){m_dimensions=arg;return *this;};
 
             /**
                 The GPS coordinate of the photo/video.
             */
-        GpsCoordinates location()const{return m_location;};
+        const GpsCoordinates& location()const{return m_location;};
         MediaMetadata& setLocation(const GpsCoordinates& arg){m_location=arg;return *this;};
 
             /**

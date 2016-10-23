@@ -38,7 +38,7 @@ namespace team{
             /**
                 The Dropbox desktop client type
             */
-        DesktopPlatform clientType()const{return m_client_type;};
+        const DesktopPlatform& clientType()const{return m_client_type;};
         DesktopClientSession& setClienttype(const DesktopPlatform& arg){m_client_type=arg;return *this;};
 
             /**

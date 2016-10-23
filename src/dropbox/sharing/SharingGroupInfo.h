@@ -30,7 +30,7 @@ namespace sharing{
             /**
                 The type of group.
             */
-        team_common::GroupType groupType()const{return m_group_type;};
+        const team_common::GroupType& groupType()const{return m_group_type;};
         GroupInfo& setGrouptype(const team_common::GroupType& arg){m_group_type=arg;return *this;};
 
             /**

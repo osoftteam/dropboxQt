@@ -34,7 +34,7 @@ namespace team{
             /**
                 Specify a group.
             */
-        GroupSelector group()const{return m_group;};
+        const GroupSelector& group()const{return m_group;};
         GroupUpdateArgs& setGroup(const GroupSelector& arg){m_group=arg;return *this;};
 
             /**
@@ -54,7 +54,7 @@ namespace team{
             /**
                 Set new group management type, if provided.
             */
-        team_common::GroupManagementType newGroupManagementType()const{return m_new_group_management_type;};
+        const team_common::GroupManagementType& newGroupManagementType()const{return m_new_group_management_type;};
         GroupUpdateArgs& setNewgroupmanagementtype(const team_common::GroupManagementType& arg){m_new_group_management_type=arg;return *this;};
 
     public:

@@ -31,7 +31,7 @@ namespace sharing{
             /**
                 The action that the user may wish to take on the file.
             */
-        FileAction action()const{return m_action;};
+        const FileAction& action()const{return m_action;};
         FilePermission& setAction(const FileAction& arg){m_action=arg;return *this;};
 
             /**
@@ -44,7 +44,7 @@ namespace sharing{
                 The reason why the user is denied the permission. Not present if
                 the action is allowed
             */
-        PermissionDeniedReason reason()const{return m_reason;};
+        const PermissionDeniedReason& reason()const{return m_reason;};
         FilePermission& setReason(const PermissionDeniedReason& arg){m_reason=arg;return *this;};
 
     public:

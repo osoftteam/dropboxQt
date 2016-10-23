@@ -106,7 +106,7 @@ void SharePathError::fromJson(const QJsonObject& js){
     }
     else if(s.compare("already_shared") == 0){
         m_tag = SharePathError_ALREADY_SHARED;
-        m_already_shared.fromJson(js);
+        m_already_shared.fromJson(js["already_shared"].toObject());
     }
     else if(s.compare("invalid_path") == 0){
         m_tag = SharePathError_INVALID_PATH;
