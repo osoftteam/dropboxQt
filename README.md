@@ -1,36 +1,66 @@
 dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API built on HTTP, OAuth 2.0, and JSON.
 
-###Code Example
+There are two flavors of API functions - asynchronous and blocking. The blocking calls return unique_ptr of result object and can throw exceptions derived from DropboxException. The asynchronous companion functions (with Async suffix) don't throw exception but provide two callbacks - for result and error. The regular GUI Qt application may take advantage of asynchronous functions as they fit better into event driven model. The blocking APIs functions are convenient for algorithms running in background thread as they lead to compact and clean code.
 
+###Create Folder example
+```
+using namespace dropboxQt;
+DropboxClient dbox("ACCESS_TOKEN");
+files::CreateFolderArg arg("path_to_new_folder");
+```
+####1.Async call, no exceptions, callback on completed
+```
+dbox.getFiles()->createFolder_Async(arg, 
+[](std::unique_ptr<files::FolderMetadata> res)
+{
+  qDebug() << "folder created, id=" << res->id();
+});
+```
+####also callback on completed and error
+```
+dbox.getFiles()->createFolder_Async(arg, 
+[](std::unique_ptr<files::FolderMetadata> res)
+{
+  qDebug() << "folder created, id=" << res->id();
+},
+[](std::unique_ptr<DropboxException> e) 
+{
+  qDebug() << "Exception: " << e->what();
+});
+```
+####2.Blocking call, no callbacks, exception checking
+```
+try
+{
+  std::unique_ptr<files::FolderMetadata> res = dbox.getFiles()->createFolder(arg);
+  qDebug() << "folder created, id=" << res->id();
+}
+catch (DropboxException& e)
+{
+  qDebug() << "Exception: " << e.what();
+}
+```
+####3. Blocking call, no callbacks, no exception, returns boolean
+```
+if(dbox.createFolder("path_to_new_folder")){
+  qDebug() << "folder created";
+}
+else{
+  qDebug() << "failed to create folder";
+}
+```
+###More Code Examples
 ####Get user account info
 ```
     try
         {
             std::unique_ptr<users::FullAccount> accountInfo = m_c.getUsers()->getCurrentAccount();
-            std::cout << accountInfo->toString().toStdString() << std::endl;
+            qDebug() << accountInfo->toString();
         }
     catch(DropboxException& e)
         {
-            std::cout << "Exception: " << e.what() << std::endl;
+            qDebug() << "Exception: " << e.what();
         }
-```
-####Create a folder
-```
-    try
-        {
-            files::CreateFolderArg arg(m_curr_dir + path);
-            std::unique_ptr<files::FolderMetadata> res = m_c.getFiles()->createFolder(arg);
-            std::cout << "created: " << path.toStdString() << " id=" << res->id().toStdString() << std::endl;
-        }
-    catch(DropboxException& e)
-        {
-            std::cout << "Exception: " << e.what() << std::endl;
-        }
-```
-####Or create a folder, the easy way
-```
-DropboxClient client(token_string);
-client.createFolder(path);
 ```
 ####Check Folder exists
 ```
