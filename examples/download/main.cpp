@@ -11,8 +11,8 @@ using namespace dropboxQt;
 
 void ApiListener::progressDownload(qint64 bytesProcessed, qint64 total)
 {
-	if(bytesProcessed != total && total != -1)
-		std::cout << "progress " << bytesProcessed << " " << total << std::endl;
+    if(bytesProcessed != total && total != -1)
+        std::cout << "progress " << bytesProcessed << " " << total << std::endl;
 };
 
 int main(int argc, char *argv[]) 
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
     
     ApiListener lsn;
     DropboxClient c(authInfo.getAccessToken());
-    QObject::connect(&c, &DropboxClient::progress, &lsn, &ApiListener::progressDownload);
+    QObject::connect(&c, &DropboxClient::downloadProgress, &lsn, &ApiListener::progressDownload);
     try
         {
             files::DownloadArg arg(argSourceFile);

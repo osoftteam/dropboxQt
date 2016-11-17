@@ -8,4 +8,5 @@ class ApiListener: public QObject
 
 public slots:
     void progressUpload(qint64 bytesProcessed, qint64 total);
+    void progressDownload(qint64 bytesProcessed, qint64 total);
 };

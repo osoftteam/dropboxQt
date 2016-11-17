@@ -12,7 +12,7 @@ using namespace dropboxQt;
 
 BoxCommands::BoxCommands(DropboxClient& c):m_c(c)
 {
-	m_curr_dir = "/";
+    m_curr_dir = "/";
 };
 
 void BoxCommands::printLastApiCall()
@@ -66,7 +66,7 @@ void BoxCommands::info(QString fileName)
 
 void BoxCommands::pwd(QString)
 {
-	std::cout << m_curr_dir.toStdString() << std::endl;
+    std::cout << m_curr_dir.toStdString() << std::endl;
 };
 
 void BoxCommands::ls(QString)
@@ -80,7 +80,7 @@ void BoxCommands::ls(QString)
                 }
             files::ListFolderArg arg(path);
             std::unique_ptr<files::ListFolderResult> r = m_c.getFiles()->listFolder(arg);
-		
+        
             std::function<void(const std::unique_ptr<files::ListFolderResult>& r)> print_folder_entries = [&](const std::unique_ptr<files::ListFolderResult>& r)
                 {
                     const std::list<std::unique_ptr<files::Metadata>>& entries = r->entries();
@@ -89,12 +89,12 @@ void BoxCommands::ls(QString)
                             const std::unique_ptr<files::Metadata>& m = *i;
                             std::cout << m->name().toStdString() << std::endl;
                             // std::cout << m->toString().toStdString() << std::endl;
-                        }		
+                        }       
                     
                 };
 
             print_folder_entries(r);
-		
+        
             while(r->hasMore())
                 {
                     files::ListFolderContinueArg continue_arg(r->cursor());
@@ -111,10 +111,10 @@ void BoxCommands::ls(QString)
 
 void BoxCommands::mkdir(QString path)
 {
-	if(path.isEmpty()){
-		std::cout << "ERROR argument reguired" << std::endl;
-		return;
-	}
+    if(path.isEmpty()){
+        std::cout << "ERROR argument reguired" << std::endl;
+        return;
+    }
 
     try
         {
@@ -131,12 +131,12 @@ void BoxCommands::mkdir(QString path)
 
 void BoxCommands::cat(QString fileName)
 {
-	if(fileName.isEmpty()){
-		std::cout << "ERROR argument reguired" << std::endl;
-		return;
-	}
+    if(fileName.isEmpty()){
+        std::cout << "ERROR argument reguired" << std::endl;
+        return;
+    }
 
-	QByteArray byteArray;
+    QByteArray byteArray;
     QBuffer buffer(&byteArray);
     buffer.open(QIODevice::WriteOnly);
 
@@ -158,10 +158,10 @@ void BoxCommands::cat(QString fileName)
 
 void BoxCommands::cd(QString dirName)
 {
-	if(dirName.isEmpty()){
-		std::cout << "ERROR argument reguired" << std::endl;
-		return;
-	}
+    if(dirName.isEmpty()){
+        std::cout << "ERROR argument reguired" << std::endl;
+        return;
+    }
 
     try
         {
@@ -205,10 +205,10 @@ void BoxCommands::cd(QString dirName)
 
 void BoxCommands::put(QString fileName)
 {
-	if(fileName.isEmpty()){
-		std::cout << "ERROR argument reguired" << std::endl;
-		return;
-	}
+    if(fileName.isEmpty()){
+        std::cout << "ERROR argument reguired" << std::endl;
+        return;
+    }
 
     QFile file_in(fileName);
     if(!file_in.open(QFile::ReadOnly)){
@@ -216,12 +216,12 @@ void BoxCommands::put(QString fileName)
         return;
     }
 
-	QFileInfo fi(fileName);
-	QString doxFileName = fi.fileName();
+    QFileInfo fi(fileName);
+    QString doxFileName = fi.fileName();
     
     try
         {
-			files::CommitInfo arg(m_curr_dir + doxFileName);
+            files::CommitInfo arg(m_curr_dir + doxFileName);
             std::unique_ptr<files::Metadata> res = m_c.getFiles()->upload(arg, &file_in);
             std::cout << "file uploaded" << std::endl;
             std::cout << res->toString().toStdString() << std::endl;
@@ -236,18 +236,18 @@ void BoxCommands::put(QString fileName)
 
 void BoxCommands::get(QString fileName)
 {
-	if (fileName.isEmpty()){
-		std::cout << "ERROR argument reguired" << std::endl;
-		return;
-	}
+    if (fileName.isEmpty()){
+        std::cout << "ERROR argument reguired" << std::endl;
+        return;
+    }
 
-	QFile out(fileName);
-	if (!out.open(QFile::WriteOnly | QIODevice::Truncate)){
-		std::cout << "Error opening file: " << fileName.toStdString() << std::endl;
-		return;
-	}
+    QFile out(fileName);
+    if (!out.open(QFile::WriteOnly | QIODevice::Truncate)){
+        std::cout << "Error opening file: " << fileName.toStdString() << std::endl;
+        return;
+    }
 
-	try
+    try
         {
             files::DownloadArg arg(m_curr_dir + fileName);
             std::unique_ptr<files::Metadata> res = m_c.getFiles()->download(arg, &out);
@@ -255,20 +255,20 @@ void BoxCommands::get(QString fileName)
             std::cout << res->toString().toStdString() << std::endl;
             printLastApiCall();
         }
-	catch (DropboxException& e)
+    catch (DropboxException& e)
         {
             std::cout << "Exception: " << e.what() << std::endl;
         }
 
-	out.close();
+    out.close();
 };
 
 void BoxCommands::rm(QString fileName)
 {
-	if(fileName.isEmpty()){
-		std::cout << "ERROR argument reguired" << std::endl;
-		return;
-	}
+    if(fileName.isEmpty()){
+        std::cout << "ERROR argument reguired" << std::endl;
+        return;
+    }
     
     std::string confirm_str;
     std::cout << "Please type 'yes' to confirm deleting " << fileName.toStdString() << " >";

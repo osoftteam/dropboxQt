@@ -11,8 +11,8 @@ using namespace dropboxQt;
 
 void ApiListener::progressUpload(qint64 bytesProcessed, qint64 total)
 {
-	if(bytesProcessed != total && total != -1)
-		std::cout << "progress " << bytesProcessed << " " << total << std::endl;
+    if(bytesProcessed != total && total != -1)
+        std::cout << "progress " << bytesProcessed << " " << total << std::endl;
 };
 
 int main(int argc, char *argv[]) 
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
     
     ApiListener lsn;
     DropboxClient c(authInfo.getAccessToken());
-    QObject::connect(&c, &DropboxClient::progress, &lsn, &ApiListener::progressUpload);
+    QObject::connect(&c, &DropboxClient::uploadProgress, &lsn, &ApiListener::progressUpload);
     try
         {
             files::CommitInfo arg(argDestFile);
