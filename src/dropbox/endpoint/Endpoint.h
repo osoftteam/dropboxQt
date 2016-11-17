@@ -57,7 +57,9 @@ namespace dropboxQt{
 				{
 					if (failed_callback != nullptr) {
 						QByteArray exception_data = reply->readAll();
-						std::string errorInfo = prepareErrorInfo(status_code, url, exception_data).toStdString();
+						std::string errorInfo = prepareErrorInfo(status_code,
+                                                                 url,
+                                                                 exception_data).toStdString();
 						failed_callback(EXCEPTION::create(exception_data,
 							status_code,
 							errorInfo));
@@ -67,7 +69,9 @@ namespace dropboxQt{
 				{
 					if (failed_callback != nullptr) {
 						QByteArray exception_data = reply->readAll();
-						std::string errorInfo = prepareErrorInfo(status_code, url, exception_data).toStdString();
+						std::string errorInfo = prepareErrorInfo(status_code,
+                                                                 url,
+                                                                 exception_data).toStdString();
 						std::unique_ptr<DropboxException> ex(new DropboxException(errorInfo,
 							status_code,
 							""));
@@ -202,8 +206,12 @@ namespace dropboxQt{
 					if (failed_callback != nullptr)
 					{
 						QByteArray exception_data = reply->readAll();
-						std::string errorInfo = prepareErrorInfo(status_code, url, exception_data).toStdString();
-						failed_callback(EXCEPTION::create(exception_data, status_code, errorInfo));
+						std::string errorInfo = prepareErrorInfo(status_code,
+                                                                 url,
+                                                                 exception_data).toStdString();
+						failed_callback(EXCEPTION::create(exception_data,
+                                                          status_code,
+                                                          errorInfo));
 					}
 				}
 				}
@@ -252,8 +260,12 @@ namespace dropboxQt{
 					if (failed_callback != nullptr)
 					{
 						QByteArray exception_data = reply->readAll();
-						std::string errorInfo = prepareErrorInfo(status_code, url, exception_data).toStdString();
-						failed_callback(EXCEPTION::create(exception_data, status_code, errorInfo));
+						std::string errorInfo = prepareErrorInfo(status_code,
+                                                                 url,
+                                                                 exception_data).toStdString();
+						failed_callback(EXCEPTION::create(exception_data,
+                                                          status_code,
+                                                          errorInfo));
 					}
 				}
 				}
