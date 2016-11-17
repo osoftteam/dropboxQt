@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingGetSharedLinksResult.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

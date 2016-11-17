@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingCollectionLinkMetadata.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

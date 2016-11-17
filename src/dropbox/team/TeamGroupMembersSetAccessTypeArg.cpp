@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupMembersSetAccessTypeArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

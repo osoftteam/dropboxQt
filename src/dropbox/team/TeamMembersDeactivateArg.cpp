@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamMembersDeactivateArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

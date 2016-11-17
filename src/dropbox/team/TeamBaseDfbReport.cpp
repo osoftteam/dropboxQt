@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamBaseDfbReport.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

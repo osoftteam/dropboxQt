@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingListFolderMembersArgs.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingListFilesResult.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

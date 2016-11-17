@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/properties/PropertiesGetPropertyTemplateArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

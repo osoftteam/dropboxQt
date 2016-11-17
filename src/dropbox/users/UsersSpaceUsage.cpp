@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/users/UsersSpaceUsage.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesRelocationArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

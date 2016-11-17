@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesSearchArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

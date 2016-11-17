@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team_common/TeamCommonGroupSummary.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

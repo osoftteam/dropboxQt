@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingListFileMembersBatchArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

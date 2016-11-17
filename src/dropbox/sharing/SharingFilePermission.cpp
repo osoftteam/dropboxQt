@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingFilePermission.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

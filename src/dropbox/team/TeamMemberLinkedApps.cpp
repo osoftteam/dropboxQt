@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamMemberLinkedApps.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

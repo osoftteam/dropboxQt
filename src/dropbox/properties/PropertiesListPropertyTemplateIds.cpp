@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/properties/PropertiesListPropertyTemplateIds.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

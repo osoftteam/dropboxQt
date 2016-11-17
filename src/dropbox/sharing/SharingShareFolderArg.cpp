@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingShareFolderArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

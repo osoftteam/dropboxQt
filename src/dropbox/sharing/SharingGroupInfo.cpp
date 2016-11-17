@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingGroupInfo.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

@@ -6,16 +6,16 @@
 
 #pragma once
 
+#include "dropbox/DropboxRouteBase.h"
 #include "dropbox/endpoint/ApiUtil.h"
 
 namespace dropboxQt{
-
-class Endpoint;
-
 namespace auth{
-    class AuthRoutes{
+
+
+    class AuthRoutes: public DropboxRouteBase{
     public:
-        AuthRoutes(Endpoint*);
+        AuthRoutes(Endpoint* ep):DropboxRouteBase(ep){};
             /**
             ApiRoute('token/revoke')
 
@@ -24,11 +24,12 @@ namespace auth{
 
             */
         void tokenRevoke(void);
+        void tokenRevoke_Async(
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
 
     protected:
-        Endpoint* m_end_point;
     };//AuthRoutes
-
 
 }//auth
 }//dropboxQt

@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesGetTemporaryLinkResult.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

@@ -9,17 +9,17 @@ namespace dropboxQt{
     class DropboxWebAuth
     {
     public:
-		/**
-			getCodeAuthorizeUrl - format string that should be opened to enable
-			Dropbox access and request for access token, which will be used in all
-			API interactions.
-			appInfo - information about application, that represends cliend side API,
-			includes client id, secret key.
-			redirectUrl - URI that will be used by Dropbox to deliver code, if empty
-			it will appear on user browser page
-			antiCSRFstate - up to 500 bytes of arbitrary data that will be delivered along
-			with code to the redirect URI. CSRF stands for "cross-site request forgery"
-		*/
+        /**
+            getCodeAuthorizeUrl - format string that should be opened to enable
+            Dropbox access and request for access token, which will be used in all
+            API interactions.
+            appInfo - information about application, that represends cliend side API,
+            includes client id, secret key.
+            redirectUrl - URI that will be used by Dropbox to deliver code, if empty
+            it will appear on user browser page
+            antiCSRFstate - up to 500 bytes of arbitrary data that will be delivered along
+            with code to the redirect URI. CSRF stands for "cross-site request forgery"
+        */
         static QString getCodeAuthorizeUrl(const DropboxAppInfo& appInfo, QString redirectUrl = "", QString antiCSRFstate = "");
 
         /**

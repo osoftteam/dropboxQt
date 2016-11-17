@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupMembersChangeResult.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

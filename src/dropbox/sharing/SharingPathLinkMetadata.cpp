@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingPathLinkMetadata.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

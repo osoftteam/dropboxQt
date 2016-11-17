@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamApiApp.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

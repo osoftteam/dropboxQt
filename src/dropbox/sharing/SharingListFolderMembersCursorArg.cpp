@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingListFolderMembersCursorArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

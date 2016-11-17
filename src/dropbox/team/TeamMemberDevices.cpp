@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamMemberDevices.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

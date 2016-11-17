@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesGpsCoordinates.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

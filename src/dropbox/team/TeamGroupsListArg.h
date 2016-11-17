@@ -49,7 +49,7 @@ namespace team{
             /**
                 Number of results to return per call.
             */
-        int m_limit;
+        int m_limit = {0};
 
     };//GroupsListArg
 

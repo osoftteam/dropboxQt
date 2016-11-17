@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesPropertyGroupWithPath.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

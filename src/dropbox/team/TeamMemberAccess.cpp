@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamMemberAccess.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

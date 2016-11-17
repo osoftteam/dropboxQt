@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "dropbox/DropboxRouteBase.h"
 #include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/sharing/SharingAddFileMemberArgs.h"
 #include "dropbox/sharing/SharingAddFileMemberError.h"
@@ -98,522 +99,7 @@
 #include "dropbox/sharing/SharingUpdateFolderPolicyError.h"
 
 namespace dropboxQt{
-
-class Endpoint;
-
 namespace sharing{
-    class SharingRoutes{
-    public:
-        SharingRoutes(Endpoint*);
-            /**
-            ApiRoute('add_file_member')
-
-
-            Adds specified members to a file.
-
-            on error:AddFileMemberError throws exception AddFileMemberErrorException
-            */
-        std::list <FileMemberActionResult> addFileMember(const AddFileMemberArgs& );
-
-            /**
-            ApiRoute('add_folder_member')
-
-
-            Allows an owner or editor (if the ACL update policy allows) of a
-            shared folder to add another member. For the new member to get
-            access to all the functionality for this folder, you will need to
-            call :meth:`mount_folder` on their behalf. Apps must have full
-            Dropbox access to use this endpoint.
-
-            on error:AddFolderMemberError throws exception AddFolderMemberErrorException
-            */
-        void addFolderMember(const AddFolderMemberArg& );
-
-            /**
-            ApiRoute('change_file_member_access')
-
-
-            Changes a member's access on a shared file.
-
-            on error:FileMemberActionError throws exception FileMemberActionErrorException
-            */
-        std::unique_ptr<FileMemberActionResult> changeFileMemberAccess(const ChangeFileMemberAccessArgs& );
-
-            /**
-            ApiRoute('check_job_status')
-
-
-            Returns the status of an asynchronous job. Apps must have full
-            Dropbox access to use this endpoint.
-
-            on error:PollError throws exception PollErrorException
-            */
-        std::unique_ptr<JobStatus> checkJobStatus(const async::PollArg& );
-
-            /**
-            ApiRoute('check_remove_member_job_status')
-
-
-            Returns the status of an asynchronous job for sharing a folder. Apps
-            must have full Dropbox access to use this endpoint.
-
-            on error:PollError throws exception PollErrorException
-            */
-        std::unique_ptr<RemoveMemberJobStatus> checkRemoveMemberJobStatus(const async::PollArg& );
-
-            /**
-            ApiRoute('check_share_job_status')
-
-
-            Returns the status of an asynchronous job for sharing a folder. Apps
-            must have full Dropbox access to use this endpoint.
-
-            on error:PollError throws exception PollErrorException
-            */
-        std::unique_ptr<ShareFolderJobStatus> checkShareJobStatus(const async::PollArg& );
-
-            /**
-            ApiRoute('create_shared_link')
-
-
-            Create a shared link. If a shared link already exists for the given
-            path, that link is returned. Note that in the returned
-            :class:`PathLinkMetadata`, the ``PathLinkMetadata.url`` field is the
-            shortened URL if ``CreateSharedLinkArg.short_url`` argument is set
-            to ``True``. Previously, it was technically possible to break a
-            shared link by moving or renaming the corresponding file or folder.
-            In the future, this will no longer be the case, so your app
-            shouldn't rely on this behavior. Instead, if your app needs to
-            revoke a shared link, use :meth:`revoke_shared_link`.
-
-            on error:CreateSharedLinkError throws exception CreateSharedLinkErrorException
-            */
-        std::unique_ptr<PathLinkMetadata> createSharedLink(const CreateSharedLinkArg& );
-
-            /**
-            ApiRoute('create_shared_link_with_settings')
-
-
-            Create a shared link with custom settings. If no settings are given
-            then the default visibility is ``RequestedVisibility.public`` (The
-            resolved visibility, though, may depend on other aspects such as
-            team and shared folder settings).
-
-            on error:CreateSharedLinkWithSettingsError throws exception CreateSharedLinkWithSettingsErrorException
-            */
-        std::unique_ptr<SharedLinkMetadata> createSharedLinkWithSettings(const CreateSharedLinkWithSettingsArg& );
-
-            /**
-            ApiRoute('get_file_metadata')
-
-
-            Returns shared file metadata.
-
-            on error:GetFileMetadataError throws exception GetFileMetadataErrorException
-            */
-        std::unique_ptr<SharedFileMetadata> getFileMetadata(const GetFileMetadataArg& );
-
-            /**
-            ApiRoute('get_file_metadata/batch')
-
-
-            Returns shared file metadata.
-
-            on error:SharingUserError throws exception SharingUserErrorException
-            */
-        std::list <GetFileMetadataBatchResult> getFileMetadataBatch(const GetFileMetadataBatchArg& );
-
-            /**
-            ApiRoute('get_folder_metadata')
-
-
-            Returns shared folder metadata by its folder ID. Apps must have full
-            Dropbox access to use this endpoint.
-
-            on error:SharedFolderAccessError throws exception SharedFolderAccessErrorException
-            */
-        std::unique_ptr<SharedFolderMetadata> getFolderMetadata(const GetMetadataArgs& );
-
-            /**
-            ApiRoute('get_shared_link_file')
-
-
-            Download the shared link's file from a user's Dropbox.
-
-            on error:GetSharedLinkFileError throws exception GetSharedLinkFileErrorException
-            */
-        std::unique_ptr<SharedLinkMetadata> getSharedLinkFile(const GetSharedLinkMetadataArg& , QIODevice* writeTo);
-
-            /**
-            ApiRoute('get_shared_link_metadata')
-
-
-            Get the shared link's metadata.
-
-            on error:SharedLinkError throws exception SharedLinkErrorException
-            */
-        std::unique_ptr<SharedLinkMetadata> getSharedLinkMetadata(const GetSharedLinkMetadataArg& );
-
-            /**
-            ApiRoute('get_shared_links')
-
-
-            Returns a list of :class:`LinkMetadata` objects for this user,
-            including collection links. If no path is given or the path is
-            empty, returns a list of all shared links for the current user,
-            including collection links. If a non-empty path is given, returns a
-            list of all shared links that allow access to the given path.
-            Collection links are never returned in this case. Note that the url
-            field in the response is never the shortened URL.
-
-            on error:GetSharedLinksError throws exception GetSharedLinksErrorException
-            */
-        std::unique_ptr<GetSharedLinksResult> getSharedLinks(const GetSharedLinksArg& );
-
-            /**
-            ApiRoute('list_file_members')
-
-
-            Use to obtain the members who have been invited to a file, both
-            inherited and uninherited members.
-
-            on error:ListFileMembersError throws exception ListFileMembersErrorException
-            */
-        std::unique_ptr<SharedFileMembers> listFileMembers(const ListFileMembersArg& );
-
-            /**
-            ApiRoute('list_file_members/batch')
-
-
-            Get members of multiple files at once. The arguments to this route
-            are more limited, and the limit on query result size per file is
-            more strict. To customize the results more, use the individual file
-            endpoint. Inherited users are not included in the result, and
-            permissions are not returned for this endpoint.
-
-            on error:SharingUserError throws exception SharingUserErrorException
-            */
-        std::list <ListFileMembersBatchResult> listFileMembersBatch(const ListFileMembersBatchArg& );
-
-            /**
-            ApiRoute('list_file_members/continue')
-
-
-            Once a cursor has been retrieved from :meth:`list_file_members` or
-            :meth:`list_file_members_batch`, use this to paginate through all
-            shared file members.
-
-            on error:ListFileMembersContinueError throws exception ListFileMembersContinueErrorException
-            */
-        std::unique_ptr<SharedFileMembers> listFileMembersContinue(const ListFileMembersContinueArg& );
-
-            /**
-            ApiRoute('list_folder_members')
-
-
-            Returns shared folder membership by its folder ID. Apps must have
-            full Dropbox access to use this endpoint.
-
-            on error:SharedFolderAccessError throws exception SharedFolderAccessErrorException
-            */
-        std::unique_ptr<SharedFolderMembers> listFolderMembers(const ListFolderMembersArgs& );
-
-            /**
-            ApiRoute('list_folder_members/continue')
-
-
-            Once a cursor has been retrieved from :meth:`list_folder_members`,
-            use this to paginate through all shared folder members. Apps must
-            have full Dropbox access to use this endpoint.
-
-            on error:ListFolderMembersContinueError throws exception ListFolderMembersContinueErrorException
-            */
-        std::unique_ptr<SharedFolderMembers> listFolderMembersContinue(const ListFolderMembersContinueArg& );
-
-            /**
-            ApiRoute('list_folders')
-
-
-            Return the list of all shared folders the current user has access
-            to. Apps must have full Dropbox access to use this endpoint.
-
-            */
-        std::unique_ptr<ListFoldersResult> listFolders(const ListFoldersArgs& );
-
-            /**
-            ApiRoute('list_folders/continue')
-
-
-            Once a cursor has been retrieved from :meth:`list_folders`, use this
-            to paginate through all shared folders. The cursor must come from a
-            previous call to :meth:`list_folders` or
-            :meth:`list_folders_continue`. Apps must have full Dropbox access to
-            use this endpoint.
-
-            on error:ListFoldersContinueError throws exception ListFoldersContinueErrorException
-            */
-        std::unique_ptr<ListFoldersResult> listFoldersContinue(const ListFoldersContinueArg& );
-
-            /**
-            ApiRoute('list_mountable_folders')
-
-
-            Return the list of all shared folders the current user can mount or
-            unmount. Apps must have full Dropbox access to use this endpoint.
-
-            */
-        std::unique_ptr<ListFoldersResult> listMountableFolders(const ListFoldersArgs& );
-
-            /**
-            ApiRoute('list_mountable_folders/continue')
-
-
-            Once a cursor has been retrieved from
-            :meth:`list_mountable_folders`, use this to paginate through all
-            mountable shared folders. The cursor must come from a previous call
-            to :meth:`list_mountable_folders` or
-            :meth:`list_mountable_folders_continue`. Apps must have full Dropbox
-            access to use this endpoint.
-
-            on error:ListFoldersContinueError throws exception ListFoldersContinueErrorException
-            */
-        std::unique_ptr<ListFoldersResult> listMountableFoldersContinue(const ListFoldersContinueArg& );
-
-            /**
-            ApiRoute('list_received_files')
-
-
-            Returns a list of all files shared with current user.  Does not
-            include files the user has received via shared folders, and does
-            not include unclaimed invitations.
-
-            on error:SharingUserError throws exception SharingUserErrorException
-            */
-        std::unique_ptr<ListFilesResult> listReceivedFiles(const ListFilesArg& );
-
-            /**
-            ApiRoute('list_received_files/continue')
-
-
-            Get more results with a cursor from :meth:`list_received_files`.
-
-            on error:ListFilesContinueError throws exception ListFilesContinueErrorException
-            */
-        std::unique_ptr<ListFilesResult> listReceivedFilesContinue(const ListFilesContinueArg& );
-
-            /**
-            ApiRoute('list_shared_links')
-
-
-            List shared links of this user. If no path is given or the path is
-            empty, returns a list of all shared links for the current user. If a
-            non-empty path is given, returns a list of all shared links that
-            allow access to the given path - direct links to the given path and
-            links to parent folders of the given path. Links to parent folders
-            can be suppressed by setting direct_only to true.
-
-            on error:ListSharedLinksError throws exception ListSharedLinksErrorException
-            */
-        std::unique_ptr<ListSharedLinksResult> listSharedLinks(const ListSharedLinksArg& );
-
-            /**
-            ApiRoute('modify_shared_link_settings')
-
-
-            Modify the shared link's settings. If the requested visibility
-            conflict with the shared links policy of the team or the shared
-            folder (in case the linked file is part of a shared folder) then the
-            ``LinkPermissions.resolved_visibility`` of the returned
-            :class:`SharedLinkMetadata` will reflect the actual visibility of
-            the shared link and the ``LinkPermissions.requested_visibility``
-            will reflect the requested visibility.
-
-            on error:ModifySharedLinkSettingsError throws exception ModifySharedLinkSettingsErrorException
-            */
-        std::unique_ptr<SharedLinkMetadata> modifySharedLinkSettings(const ModifySharedLinkSettingsArgs& );
-
-            /**
-            ApiRoute('mount_folder')
-
-
-            The current user mounts the designated folder. Mount a shared folder
-            for a user after they have been added as a member. Once mounted, the
-            shared folder will appear in their Dropbox. Apps must have full
-            Dropbox access to use this endpoint.
-
-            on error:MountFolderError throws exception MountFolderErrorException
-            */
-        std::unique_ptr<SharedFolderMetadata> mountFolder(const MountFolderArg& );
-
-            /**
-            ApiRoute('relinquish_file_membership')
-
-
-            The current user relinquishes their membership in the designated
-            file. Note that the current user may still have inherited access to
-            this file through the parent folder. Apps must have full Dropbox
-            access to use this endpoint.
-
-            on error:RelinquishFileMembershipError throws exception RelinquishFileMembershipErrorException
-            */
-        void relinquishFileMembership(const RelinquishFileMembershipArg& );
-
-            /**
-            ApiRoute('relinquish_folder_membership')
-
-
-            The current user relinquishes their membership in the designated
-            shared folder and will no longer have access to the folder.  A
-            folder owner cannot relinquish membership in their own folder. This
-            will run synchronously if leave_a_copy is false, and asynchronously
-            if leave_a_copy is true. Apps must have full Dropbox access to use
-            this endpoint.
-
-            on error:RelinquishFolderMembershipError throws exception RelinquishFolderMembershipErrorException
-            */
-        std::unique_ptr<async::LaunchEmptyResult> relinquishFolderMembership(const RelinquishFolderMembershipArg& );
-
-            /**
-            ApiRoute('remove_file_member')
-
-
-            Identical to remove_file_member_2 but with less information
-            returned.
-
-            on error:RemoveFileMemberError throws exception RemoveFileMemberErrorException
-            */
-        std::unique_ptr<FileMemberActionIndividualResult> removeFileMember(const RemoveFileMemberArg& );
-
-            /**
-            ApiRoute('remove_file_member_2')
-
-
-            Removes a specified member from the file.
-
-            on error:RemoveFileMemberError throws exception RemoveFileMemberErrorException
-            */
-        std::unique_ptr<FileMemberRemoveActionResult> removeFileMember2(const RemoveFileMemberArg& );
-
-            /**
-            ApiRoute('remove_folder_member')
-
-
-            Allows an owner or editor (if the ACL update policy allows) of a
-            shared folder to remove another member. Apps must have full Dropbox
-            access to use this endpoint.
-
-            on error:RemoveFolderMemberError throws exception RemoveFolderMemberErrorException
-            */
-        std::unique_ptr<async::LaunchResultBase> removeFolderMember(const RemoveFolderMemberArg& );
-
-            /**
-            ApiRoute('revoke_shared_link')
-
-
-            Revoke a shared link. Note that even after revoking a shared link to
-            a file, the file may be accessible if there are shared links leading
-            to any of the file parent folders. To list all shared links that
-            enable access to a specific file, you can use the
-            :meth:`list_shared_links` with the file as the
-            ``ListSharedLinksArg.path`` argument.
-
-            on error:RevokeSharedLinkError throws exception RevokeSharedLinkErrorException
-            */
-        void revokeSharedLink(const RevokeSharedLinkArg& );
-
-            /**
-            ApiRoute('share_folder')
-
-
-            Share a folder with collaborators. Most sharing will be completed
-            synchronously. Large folders will be completed asynchronously. To
-            make testing the async case repeatable, set
-            `ShareFolderArg.force_async`. If a
-            ``ShareFolderLaunch.async_job_id`` is returned, you'll need to call
-            :meth:`check_share_job_status` until the action completes to get the
-            metadata for the folder. Apps must have full Dropbox access to use
-            this endpoint.
-
-            on error:ShareFolderError throws exception ShareFolderErrorException
-            */
-        std::unique_ptr<ShareFolderLaunch> shareFolder(const ShareFolderArg& );
-
-            /**
-            ApiRoute('transfer_folder')
-
-
-            Transfer ownership of a shared folder to a member of the shared
-            folder. User must have ``AccessLevel.owner`` access to the shared
-            folder to perform a transfer. Apps must have full Dropbox access to
-            use this endpoint.
-
-            on error:TransferFolderError throws exception TransferFolderErrorException
-            */
-        void transferFolder(const TransferFolderArg& );
-
-            /**
-            ApiRoute('unmount_folder')
-
-
-            The current user unmounts the designated folder. They can re-mount
-            the folder at a later time using :meth:`mount_folder`. Apps must
-            have full Dropbox access to use this endpoint.
-
-            on error:UnmountFolderError throws exception UnmountFolderErrorException
-            */
-        void unmountFolder(const UnmountFolderArg& );
-
-            /**
-            ApiRoute('unshare_file')
-
-
-            Remove all members from this file. Does not remove inherited
-            members.
-
-            on error:UnshareFileError throws exception UnshareFileErrorException
-            */
-        void unshareFile(const UnshareFileArg& );
-
-            /**
-            ApiRoute('unshare_folder')
-
-
-            Allows a shared folder owner to unshare the folder. You'll need to
-            call :meth:`check_job_status` to determine if the action has
-            completed successfully. Apps must have full Dropbox access to use
-            this endpoint.
-
-            on error:UnshareFolderError throws exception UnshareFolderErrorException
-            */
-        std::unique_ptr<async::LaunchEmptyResult> unshareFolder(const UnshareFolderArg& );
-
-            /**
-            ApiRoute('update_folder_member')
-
-
-            Allows an owner or editor of a shared folder to update another
-            member's permissions. Apps must have full Dropbox access to use this
-            endpoint.
-
-            on error:UpdateFolderMemberError throws exception UpdateFolderMemberErrorException
-            */
-        std::unique_ptr<MemberAccessLevelResult> updateFolderMember(const UpdateFolderMemberArg& );
-
-            /**
-            ApiRoute('update_folder_policy')
-
-
-            Update the sharing policies for a shared folder. User must have
-            ``AccessLevel.owner`` access to the shared folder to update its
-            policies. Apps must have full Dropbox access to use this endpoint.
-
-            on error:UpdateFolderPolicyError throws exception UpdateFolderPolicyErrorException
-            */
-        std::unique_ptr<SharedFolderMetadata> updateFolderPolicy(const UpdateFolderPolicyArg& );
-
-    protected:
-        Endpoint* m_end_point;
-    };//SharingRoutes
 
     ///exception AddFileMemberError for add_file_member
     DECLARE_API_ERR_EXCEPTION(AddFileMemberErrorException, sharing::AddFileMemberError);
@@ -711,6 +197,683 @@ namespace sharing{
     ///exception UpdateFolderPolicyError for update_folder_policy
     DECLARE_API_ERR_EXCEPTION(UpdateFolderPolicyErrorException, sharing::UpdateFolderPolicyError);
 
+
+    class SharingRoutes: public DropboxRouteBase{
+    public:
+        SharingRoutes(Endpoint* ep):DropboxRouteBase(ep){};
+            /**
+            ApiRoute('add_file_member')
+
+
+            Adds specified members to a file.
+
+            on error:AddFileMemberError throws exception AddFileMemberErrorException
+            */
+        std::unique_ptr<std::list <FileMemberActionResult>> addFileMember(const AddFileMemberArgs& );
+        void addFileMember_Async(
+            const AddFileMemberArgs&,
+            std::function<void(std::unique_ptr<std::list <FileMemberActionResult>>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('add_folder_member')
+
+
+            Allows an owner or editor (if the ACL update policy allows) of a
+            shared folder to add another member. For the new member to get
+            access to all the functionality for this folder, you will need to
+            call :meth:`mount_folder` on their behalf. Apps must have full
+            Dropbox access to use this endpoint.
+
+            on error:AddFolderMemberError throws exception AddFolderMemberErrorException
+            */
+        void addFolderMember(const AddFolderMemberArg& );
+        void addFolderMember_Async(
+            const AddFolderMemberArg&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('change_file_member_access')
+
+
+            Changes a member's access on a shared file.
+
+            on error:FileMemberActionError throws exception FileMemberActionErrorException
+            */
+        std::unique_ptr<FileMemberActionResult> changeFileMemberAccess(const ChangeFileMemberAccessArgs& );
+        void changeFileMemberAccess_Async(
+            const ChangeFileMemberAccessArgs&,
+            std::function<void(std::unique_ptr<FileMemberActionResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('check_job_status')
+
+
+            Returns the status of an asynchronous job. Apps must have full
+            Dropbox access to use this endpoint.
+
+            on error:PollError throws exception PollErrorException
+            */
+        std::unique_ptr<JobStatus> checkJobStatus(const async::PollArg& );
+        void checkJobStatus_Async(
+            const async::PollArg&,
+            std::function<void(std::unique_ptr<JobStatus>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('check_remove_member_job_status')
+
+
+            Returns the status of an asynchronous job for sharing a folder. Apps
+            must have full Dropbox access to use this endpoint.
+
+            on error:PollError throws exception PollErrorException
+            */
+        std::unique_ptr<RemoveMemberJobStatus> checkRemoveMemberJobStatus(const async::PollArg& );
+        void checkRemoveMemberJobStatus_Async(
+            const async::PollArg&,
+            std::function<void(std::unique_ptr<RemoveMemberJobStatus>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('check_share_job_status')
+
+
+            Returns the status of an asynchronous job for sharing a folder. Apps
+            must have full Dropbox access to use this endpoint.
+
+            on error:PollError throws exception PollErrorException
+            */
+        std::unique_ptr<ShareFolderJobStatus> checkShareJobStatus(const async::PollArg& );
+        void checkShareJobStatus_Async(
+            const async::PollArg&,
+            std::function<void(std::unique_ptr<ShareFolderJobStatus>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('create_shared_link')
+
+
+            Create a shared link. If a shared link already exists for the given
+            path, that link is returned. Note that in the returned
+            :class:`PathLinkMetadata`, the ``PathLinkMetadata.url`` field is the
+            shortened URL if ``CreateSharedLinkArg.short_url`` argument is set
+            to ``True``. Previously, it was technically possible to break a
+            shared link by moving or renaming the corresponding file or folder.
+            In the future, this will no longer be the case, so your app
+            shouldn't rely on this behavior. Instead, if your app needs to
+            revoke a shared link, use :meth:`revoke_shared_link`.
+
+            on error:CreateSharedLinkError throws exception CreateSharedLinkErrorException
+            */
+        std::unique_ptr<PathLinkMetadata> createSharedLink(const CreateSharedLinkArg& );
+        void createSharedLink_Async(
+            const CreateSharedLinkArg&,
+            std::function<void(std::unique_ptr<PathLinkMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('create_shared_link_with_settings')
+
+
+            Create a shared link with custom settings. If no settings are given
+            then the default visibility is ``RequestedVisibility.public`` (The
+            resolved visibility, though, may depend on other aspects such as
+            team and shared folder settings).
+
+            on error:CreateSharedLinkWithSettingsError throws exception CreateSharedLinkWithSettingsErrorException
+            */
+        std::unique_ptr<SharedLinkMetadata> createSharedLinkWithSettings(const CreateSharedLinkWithSettingsArg& );
+        void createSharedLinkWithSettings_Async(
+            const CreateSharedLinkWithSettingsArg&,
+            std::function<void(std::unique_ptr<SharedLinkMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('get_file_metadata')
+
+
+            Returns shared file metadata.
+
+            on error:GetFileMetadataError throws exception GetFileMetadataErrorException
+            */
+        std::unique_ptr<SharedFileMetadata> getFileMetadata(const GetFileMetadataArg& );
+        void getFileMetadata_Async(
+            const GetFileMetadataArg&,
+            std::function<void(std::unique_ptr<SharedFileMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('get_file_metadata/batch')
+
+
+            Returns shared file metadata.
+
+            on error:SharingUserError throws exception SharingUserErrorException
+            */
+        std::unique_ptr<std::list <GetFileMetadataBatchResult>> getFileMetadataBatch(const GetFileMetadataBatchArg& );
+        void getFileMetadataBatch_Async(
+            const GetFileMetadataBatchArg&,
+            std::function<void(std::unique_ptr<std::list <GetFileMetadataBatchResult>>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('get_folder_metadata')
+
+
+            Returns shared folder metadata by its folder ID. Apps must have full
+            Dropbox access to use this endpoint.
+
+            on error:SharedFolderAccessError throws exception SharedFolderAccessErrorException
+            */
+        std::unique_ptr<SharedFolderMetadata> getFolderMetadata(const GetMetadataArgs& );
+        void getFolderMetadata_Async(
+            const GetMetadataArgs&,
+            std::function<void(std::unique_ptr<SharedFolderMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('get_shared_link_file')
+
+
+            Download the shared link's file from a user's Dropbox.
+
+            on error:GetSharedLinkFileError throws exception GetSharedLinkFileErrorException
+            */
+        std::unique_ptr<SharedLinkMetadata> getSharedLinkFile(const GetSharedLinkMetadataArg& , QIODevice* writeTo);
+        void getSharedLinkFile_Async(
+            const GetSharedLinkMetadataArg&,
+            QIODevice* data,
+            std::function<void(std::unique_ptr<SharedLinkMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('get_shared_link_metadata')
+
+
+            Get the shared link's metadata.
+
+            on error:SharedLinkError throws exception SharedLinkErrorException
+            */
+        std::unique_ptr<SharedLinkMetadata> getSharedLinkMetadata(const GetSharedLinkMetadataArg& );
+        void getSharedLinkMetadata_Async(
+            const GetSharedLinkMetadataArg&,
+            std::function<void(std::unique_ptr<SharedLinkMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('get_shared_links')
+
+
+            Returns a list of :class:`LinkMetadata` objects for this user,
+            including collection links. If no path is given or the path is
+            empty, returns a list of all shared links for the current user,
+            including collection links. If a non-empty path is given, returns a
+            list of all shared links that allow access to the given path.
+            Collection links are never returned in this case. Note that the url
+            field in the response is never the shortened URL.
+
+            on error:GetSharedLinksError throws exception GetSharedLinksErrorException
+            */
+        std::unique_ptr<GetSharedLinksResult> getSharedLinks(const GetSharedLinksArg& );
+        void getSharedLinks_Async(
+            const GetSharedLinksArg&,
+            std::function<void(std::unique_ptr<GetSharedLinksResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_file_members')
+
+
+            Use to obtain the members who have been invited to a file, both
+            inherited and uninherited members.
+
+            on error:ListFileMembersError throws exception ListFileMembersErrorException
+            */
+        std::unique_ptr<SharedFileMembers> listFileMembers(const ListFileMembersArg& );
+        void listFileMembers_Async(
+            const ListFileMembersArg&,
+            std::function<void(std::unique_ptr<SharedFileMembers>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_file_members/batch')
+
+
+            Get members of multiple files at once. The arguments to this route
+            are more limited, and the limit on query result size per file is
+            more strict. To customize the results more, use the individual file
+            endpoint. Inherited users are not included in the result, and
+            permissions are not returned for this endpoint.
+
+            on error:SharingUserError throws exception SharingUserErrorException
+            */
+        std::unique_ptr<std::list <ListFileMembersBatchResult>> listFileMembersBatch(const ListFileMembersBatchArg& );
+        void listFileMembersBatch_Async(
+            const ListFileMembersBatchArg&,
+            std::function<void(std::unique_ptr<std::list <ListFileMembersBatchResult>>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_file_members/continue')
+
+
+            Once a cursor has been retrieved from :meth:`list_file_members` or
+            :meth:`list_file_members_batch`, use this to paginate through all
+            shared file members.
+
+            on error:ListFileMembersContinueError throws exception ListFileMembersContinueErrorException
+            */
+        std::unique_ptr<SharedFileMembers> listFileMembersContinue(const ListFileMembersContinueArg& );
+        void listFileMembersContinue_Async(
+            const ListFileMembersContinueArg&,
+            std::function<void(std::unique_ptr<SharedFileMembers>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_folder_members')
+
+
+            Returns shared folder membership by its folder ID. Apps must have
+            full Dropbox access to use this endpoint.
+
+            on error:SharedFolderAccessError throws exception SharedFolderAccessErrorException
+            */
+        std::unique_ptr<SharedFolderMembers> listFolderMembers(const ListFolderMembersArgs& );
+        void listFolderMembers_Async(
+            const ListFolderMembersArgs&,
+            std::function<void(std::unique_ptr<SharedFolderMembers>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_folder_members/continue')
+
+
+            Once a cursor has been retrieved from :meth:`list_folder_members`,
+            use this to paginate through all shared folder members. Apps must
+            have full Dropbox access to use this endpoint.
+
+            on error:ListFolderMembersContinueError throws exception ListFolderMembersContinueErrorException
+            */
+        std::unique_ptr<SharedFolderMembers> listFolderMembersContinue(const ListFolderMembersContinueArg& );
+        void listFolderMembersContinue_Async(
+            const ListFolderMembersContinueArg&,
+            std::function<void(std::unique_ptr<SharedFolderMembers>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_folders')
+
+
+            Return the list of all shared folders the current user has access
+            to. Apps must have full Dropbox access to use this endpoint.
+
+            */
+        std::unique_ptr<ListFoldersResult> listFolders(const ListFoldersArgs& );
+        void listFolders_Async(
+            const ListFoldersArgs&,
+            std::function<void(std::unique_ptr<ListFoldersResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_folders/continue')
+
+
+            Once a cursor has been retrieved from :meth:`list_folders`, use this
+            to paginate through all shared folders. The cursor must come from a
+            previous call to :meth:`list_folders` or
+            :meth:`list_folders_continue`. Apps must have full Dropbox access to
+            use this endpoint.
+
+            on error:ListFoldersContinueError throws exception ListFoldersContinueErrorException
+            */
+        std::unique_ptr<ListFoldersResult> listFoldersContinue(const ListFoldersContinueArg& );
+        void listFoldersContinue_Async(
+            const ListFoldersContinueArg&,
+            std::function<void(std::unique_ptr<ListFoldersResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_mountable_folders')
+
+
+            Return the list of all shared folders the current user can mount or
+            unmount. Apps must have full Dropbox access to use this endpoint.
+
+            */
+        std::unique_ptr<ListFoldersResult> listMountableFolders(const ListFoldersArgs& );
+        void listMountableFolders_Async(
+            const ListFoldersArgs&,
+            std::function<void(std::unique_ptr<ListFoldersResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_mountable_folders/continue')
+
+
+            Once a cursor has been retrieved from
+            :meth:`list_mountable_folders`, use this to paginate through all
+            mountable shared folders. The cursor must come from a previous call
+            to :meth:`list_mountable_folders` or
+            :meth:`list_mountable_folders_continue`. Apps must have full Dropbox
+            access to use this endpoint.
+
+            on error:ListFoldersContinueError throws exception ListFoldersContinueErrorException
+            */
+        std::unique_ptr<ListFoldersResult> listMountableFoldersContinue(const ListFoldersContinueArg& );
+        void listMountableFoldersContinue_Async(
+            const ListFoldersContinueArg&,
+            std::function<void(std::unique_ptr<ListFoldersResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_received_files')
+
+
+            Returns a list of all files shared with current user.  Does not
+            include files the user has received via shared folders, and does
+            not include unclaimed invitations.
+
+            on error:SharingUserError throws exception SharingUserErrorException
+            */
+        std::unique_ptr<ListFilesResult> listReceivedFiles(const ListFilesArg& );
+        void listReceivedFiles_Async(
+            const ListFilesArg&,
+            std::function<void(std::unique_ptr<ListFilesResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_received_files/continue')
+
+
+            Get more results with a cursor from :meth:`list_received_files`.
+
+            on error:ListFilesContinueError throws exception ListFilesContinueErrorException
+            */
+        std::unique_ptr<ListFilesResult> listReceivedFilesContinue(const ListFilesContinueArg& );
+        void listReceivedFilesContinue_Async(
+            const ListFilesContinueArg&,
+            std::function<void(std::unique_ptr<ListFilesResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_shared_links')
+
+
+            List shared links of this user. If no path is given or the path is
+            empty, returns a list of all shared links for the current user. If a
+            non-empty path is given, returns a list of all shared links that
+            allow access to the given path - direct links to the given path and
+            links to parent folders of the given path. Links to parent folders
+            can be suppressed by setting direct_only to true.
+
+            on error:ListSharedLinksError throws exception ListSharedLinksErrorException
+            */
+        std::unique_ptr<ListSharedLinksResult> listSharedLinks(const ListSharedLinksArg& );
+        void listSharedLinks_Async(
+            const ListSharedLinksArg&,
+            std::function<void(std::unique_ptr<ListSharedLinksResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('modify_shared_link_settings')
+
+
+            Modify the shared link's settings. If the requested visibility
+            conflict with the shared links policy of the team or the shared
+            folder (in case the linked file is part of a shared folder) then the
+            ``LinkPermissions.resolved_visibility`` of the returned
+            :class:`SharedLinkMetadata` will reflect the actual visibility of
+            the shared link and the ``LinkPermissions.requested_visibility``
+            will reflect the requested visibility.
+
+            on error:ModifySharedLinkSettingsError throws exception ModifySharedLinkSettingsErrorException
+            */
+        std::unique_ptr<SharedLinkMetadata> modifySharedLinkSettings(const ModifySharedLinkSettingsArgs& );
+        void modifySharedLinkSettings_Async(
+            const ModifySharedLinkSettingsArgs&,
+            std::function<void(std::unique_ptr<SharedLinkMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('mount_folder')
+
+
+            The current user mounts the designated folder. Mount a shared folder
+            for a user after they have been added as a member. Once mounted, the
+            shared folder will appear in their Dropbox. Apps must have full
+            Dropbox access to use this endpoint.
+
+            on error:MountFolderError throws exception MountFolderErrorException
+            */
+        std::unique_ptr<SharedFolderMetadata> mountFolder(const MountFolderArg& );
+        void mountFolder_Async(
+            const MountFolderArg&,
+            std::function<void(std::unique_ptr<SharedFolderMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('relinquish_file_membership')
+
+
+            The current user relinquishes their membership in the designated
+            file. Note that the current user may still have inherited access to
+            this file through the parent folder. Apps must have full Dropbox
+            access to use this endpoint.
+
+            on error:RelinquishFileMembershipError throws exception RelinquishFileMembershipErrorException
+            */
+        void relinquishFileMembership(const RelinquishFileMembershipArg& );
+        void relinquishFileMembership_Async(
+            const RelinquishFileMembershipArg&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('relinquish_folder_membership')
+
+
+            The current user relinquishes their membership in the designated
+            shared folder and will no longer have access to the folder.  A
+            folder owner cannot relinquish membership in their own folder. This
+            will run synchronously if leave_a_copy is false, and asynchronously
+            if leave_a_copy is true. Apps must have full Dropbox access to use
+            this endpoint.
+
+            on error:RelinquishFolderMembershipError throws exception RelinquishFolderMembershipErrorException
+            */
+        std::unique_ptr<async::LaunchEmptyResult> relinquishFolderMembership(const RelinquishFolderMembershipArg& );
+        void relinquishFolderMembership_Async(
+            const RelinquishFolderMembershipArg&,
+            std::function<void(std::unique_ptr<async::LaunchEmptyResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('remove_file_member')
+
+
+            Identical to remove_file_member_2 but with less information
+            returned.
+
+            on error:RemoveFileMemberError throws exception RemoveFileMemberErrorException
+            */
+        std::unique_ptr<FileMemberActionIndividualResult> removeFileMember(const RemoveFileMemberArg& );
+        void removeFileMember_Async(
+            const RemoveFileMemberArg&,
+            std::function<void(std::unique_ptr<FileMemberActionIndividualResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('remove_file_member_2')
+
+
+            Removes a specified member from the file.
+
+            on error:RemoveFileMemberError throws exception RemoveFileMemberErrorException
+            */
+        std::unique_ptr<FileMemberRemoveActionResult> removeFileMember2(const RemoveFileMemberArg& );
+        void removeFileMember2_Async(
+            const RemoveFileMemberArg&,
+            std::function<void(std::unique_ptr<FileMemberRemoveActionResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('remove_folder_member')
+
+
+            Allows an owner or editor (if the ACL update policy allows) of a
+            shared folder to remove another member. Apps must have full Dropbox
+            access to use this endpoint.
+
+            on error:RemoveFolderMemberError throws exception RemoveFolderMemberErrorException
+            */
+        std::unique_ptr<async::LaunchResultBase> removeFolderMember(const RemoveFolderMemberArg& );
+        void removeFolderMember_Async(
+            const RemoveFolderMemberArg&,
+            std::function<void(std::unique_ptr<async::LaunchResultBase>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('revoke_shared_link')
+
+
+            Revoke a shared link. Note that even after revoking a shared link to
+            a file, the file may be accessible if there are shared links leading
+            to any of the file parent folders. To list all shared links that
+            enable access to a specific file, you can use the
+            :meth:`list_shared_links` with the file as the
+            ``ListSharedLinksArg.path`` argument.
+
+            on error:RevokeSharedLinkError throws exception RevokeSharedLinkErrorException
+            */
+        void revokeSharedLink(const RevokeSharedLinkArg& );
+        void revokeSharedLink_Async(
+            const RevokeSharedLinkArg&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('share_folder')
+
+
+            Share a folder with collaborators. Most sharing will be completed
+            synchronously. Large folders will be completed asynchronously. To
+            make testing the async case repeatable, set
+            `ShareFolderArg.force_async`. If a
+            ``ShareFolderLaunch.async_job_id`` is returned, you'll need to call
+            :meth:`check_share_job_status` until the action completes to get the
+            metadata for the folder. Apps must have full Dropbox access to use
+            this endpoint.
+
+            on error:ShareFolderError throws exception ShareFolderErrorException
+            */
+        std::unique_ptr<ShareFolderLaunch> shareFolder(const ShareFolderArg& );
+        void shareFolder_Async(
+            const ShareFolderArg&,
+            std::function<void(std::unique_ptr<ShareFolderLaunch>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('transfer_folder')
+
+
+            Transfer ownership of a shared folder to a member of the shared
+            folder. User must have ``AccessLevel.owner`` access to the shared
+            folder to perform a transfer. Apps must have full Dropbox access to
+            use this endpoint.
+
+            on error:TransferFolderError throws exception TransferFolderErrorException
+            */
+        void transferFolder(const TransferFolderArg& );
+        void transferFolder_Async(
+            const TransferFolderArg&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('unmount_folder')
+
+
+            The current user unmounts the designated folder. They can re-mount
+            the folder at a later time using :meth:`mount_folder`. Apps must
+            have full Dropbox access to use this endpoint.
+
+            on error:UnmountFolderError throws exception UnmountFolderErrorException
+            */
+        void unmountFolder(const UnmountFolderArg& );
+        void unmountFolder_Async(
+            const UnmountFolderArg&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('unshare_file')
+
+
+            Remove all members from this file. Does not remove inherited
+            members.
+
+            on error:UnshareFileError throws exception UnshareFileErrorException
+            */
+        void unshareFile(const UnshareFileArg& );
+        void unshareFile_Async(
+            const UnshareFileArg&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('unshare_folder')
+
+
+            Allows a shared folder owner to unshare the folder. You'll need to
+            call :meth:`check_job_status` to determine if the action has
+            completed successfully. Apps must have full Dropbox access to use
+            this endpoint.
+
+            on error:UnshareFolderError throws exception UnshareFolderErrorException
+            */
+        std::unique_ptr<async::LaunchEmptyResult> unshareFolder(const UnshareFolderArg& );
+        void unshareFolder_Async(
+            const UnshareFolderArg&,
+            std::function<void(std::unique_ptr<async::LaunchEmptyResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('update_folder_member')
+
+
+            Allows an owner or editor of a shared folder to update another
+            member's permissions. Apps must have full Dropbox access to use this
+            endpoint.
+
+            on error:UpdateFolderMemberError throws exception UpdateFolderMemberErrorException
+            */
+        std::unique_ptr<MemberAccessLevelResult> updateFolderMember(const UpdateFolderMemberArg& );
+        void updateFolderMember_Async(
+            const UpdateFolderMemberArg&,
+            std::function<void(std::unique_ptr<MemberAccessLevelResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('update_folder_policy')
+
+
+            Update the sharing policies for a shared folder. User must have
+            ``AccessLevel.owner`` access to the shared folder to update its
+            policies. Apps must have full Dropbox access to use this endpoint.
+
+            on error:UpdateFolderPolicyError throws exception UpdateFolderPolicyErrorException
+            */
+        std::unique_ptr<SharedFolderMetadata> updateFolderPolicy(const UpdateFolderPolicyArg& );
+        void updateFolderPolicy_Async(
+            const UpdateFolderPolicyArg&,
+            std::function<void(std::unique_ptr<SharedFolderMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+    protected:
+    };//SharingRoutes
 
 }//sharing
 }//dropboxQt

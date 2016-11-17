@@ -6,16 +6,21 @@
 
 #include "dropbox/auth/AuthRoutes.h"
 #include "dropbox/endpoint/Endpoint.h"
-
-namespace dropboxQt{
-
-namespace auth{
-AuthRoutes::AuthRoutes(Endpoint* p):m_end_point(p){
-}
+using namespace dropboxQt;
+using namespace auth;
 
 void AuthRoutes::tokenRevoke(){
-    m_end_point->rpcStyle<VoidType, std::unique_ptr<VoidType>, VoidType, NotAnException>("2/auth/token/revoke", VoidType::instance());
+    VOID_ARG_VOID_RESULT_DBC(tokenRevoke_Async);
 }
 
-}//auth
-}//dropboxQt
+void AuthRoutes::tokenRevoke_Async(
+    std::function<void()> completed_callback ,
+    std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
+{
+    m_end_point->rpcStyle<
+        DropboxException>
+        ("2/auth/token/revoke",
+        completed_callback,
+        failed_callback);
+}
+

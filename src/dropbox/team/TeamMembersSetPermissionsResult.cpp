@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamMembersSetPermissionsResult.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

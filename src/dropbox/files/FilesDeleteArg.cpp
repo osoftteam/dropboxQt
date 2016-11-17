@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesDeleteArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "dropbox/DropboxRouteBase.h"
 #include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/team/TeamAddPropertyTemplateArg.h"
 #include "dropbox/team/TeamAddPropertyTemplateResult.h"
@@ -111,571 +112,7 @@
 #include "dropbox/team/TeamUserSelectorArg.h"
 
 namespace dropboxQt{
-
-class Endpoint;
-
 namespace team{
-    class TeamRoutes{
-    public:
-        TeamRoutes(Endpoint*);
-            /**
-            ApiRoute('alpha/groups/create')
-
-
-            Creates a new, empty group, with a requested name. Permission : Team
-            member management
-
-            on error:GroupCreateError throws exception GroupCreateErrorException
-            */
-        std::unique_ptr<GroupFullInfo> alphaGroupsCreate(const GroupCreateArg& );
-
-            /**
-            ApiRoute('alpha/groups/get_info')
-
-
-            Retrieves information about one or more groups. Permission : Team
-            Information
-
-            on error:GroupsGetInfoError throws exception GroupsGetInfoErrorException
-            */
-        std::list <GroupsGetInfoItem> alphaGroupsGetInfo(const GroupsSelector& );
-
-            /**
-            ApiRoute('alpha/groups/list')
-
-
-            Lists groups on a team. Permission : Team Information
-
-            */
-        std::unique_ptr<GroupsListResult> alphaGroupsList(const GroupsListArg& );
-
-            /**
-            ApiRoute('alpha/groups/list/continue')
-
-
-            Once a cursor has been retrieved from :meth:`alpha_groups_list`, use
-            this to paginate through all groups. Permission : Team information
-
-            on error:GroupsListContinueError throws exception GroupsListContinueErrorException
-            */
-        std::unique_ptr<GroupsListResult> alphaGroupsListContinue(const GroupsListContinueArg& );
-
-            /**
-            ApiRoute('alpha/groups/update')
-
-
-            Updates a group's name, external ID or management type. Permission :
-            Team member management
-
-            on error:GroupUpdateError throws exception GroupUpdateErrorException
-            */
-        std::unique_ptr<GroupFullInfo> alphaGroupsUpdate(const GroupUpdateArgs& );
-
-            /**
-            ApiRoute('devices/list_member_devices')
-
-
-            List all device sessions of a team's member.
-
-            on error:ListMemberDevicesError throws exception ListMemberDevicesErrorException
-            */
-        std::unique_ptr<ListMemberDevicesResult> devicesListMemberDevices(const ListMemberDevicesArg& );
-
-            /**
-            ApiRoute('devices/list_members_devices')
-
-
-            List all device sessions of a team.
-
-            on error:ListMembersDevicesError throws exception ListMembersDevicesErrorException
-            */
-        std::unique_ptr<ListMembersDevicesResult> devicesListMembersDevices(const ListMembersDevicesArg& );
-
-            /**
-            ApiRoute('devices/list_team_devices')
-
-
-            List all device sessions of a team.
-
-            on error:ListTeamDevicesError throws exception ListTeamDevicesErrorException
-            */
-        std::unique_ptr<ListTeamDevicesResult> devicesListTeamDevices(const ListTeamDevicesArg& );
-
-            /**
-            ApiRoute('devices/revoke_device_session')
-
-
-            Revoke a device session of a team's member
-
-            on error:RevokeDeviceSessionError throws exception RevokeDeviceSessionErrorException
-            */
-        void devicesRevokeDeviceSession(const RevokeDeviceSessionArg& );
-
-            /**
-            ApiRoute('devices/revoke_device_session_batch')
-
-
-            Revoke a list of device sessions of team members
-
-            on error:RevokeDeviceSessionBatchError throws exception RevokeDeviceSessionBatchErrorException
-            */
-        std::unique_ptr<RevokeDeviceSessionBatchResult> devicesRevokeDeviceSessionBatch(const RevokeDeviceSessionBatchArg& );
-
-            /**
-            ApiRoute('get_info')
-
-
-            Retrieves information about a team.
-
-            */
-        std::unique_ptr<TeamGetInfoResult> getInfo(void);
-
-            /**
-            ApiRoute('groups/create')
-
-
-            Creates a new, empty group, with a requested name. Permission : Team
-            member management
-
-            on error:GroupCreateError throws exception GroupCreateErrorException
-            */
-        std::unique_ptr<GroupFullInfo> groupsCreate(const GroupCreateArg& );
-
-            /**
-            ApiRoute('groups/delete')
-
-
-            Deletes a group. The group is deleted immediately. However the
-            revoking of group-owned resources may take additional time. Use the
-            :meth:`groups_job_status_get` to determine whether this process has
-            completed. Permission : Team member management
-
-            on error:GroupDeleteError throws exception GroupDeleteErrorException
-            */
-        std::unique_ptr<async::LaunchEmptyResult> groupsDelete(const GroupSelector& );
-
-            /**
-            ApiRoute('groups/get_info')
-
-
-            Retrieves information about one or more groups. Permission : Team
-            Information
-
-            on error:GroupsGetInfoError throws exception GroupsGetInfoErrorException
-            */
-        std::list <GroupsGetInfoItem> groupsGetInfo(const GroupsSelector& );
-
-            /**
-            ApiRoute('groups/job_status/get')
-
-
-            Once an async_job_id is returned from :meth:`groups_delete`,
-            :meth:`groups_members_add` , or :meth:`groups_members_remove` use
-            this method to poll the status of granting/revoking group members'
-            access to group-owned resources. Permission : Team member management
-
-            on error:GroupsPollError throws exception GroupsPollErrorException
-            */
-        std::unique_ptr<async::PollEmptyResult> groupsJobStatusGet(const async::PollArg& );
-
-            /**
-            ApiRoute('groups/list')
-
-
-            Lists groups on a team. Permission : Team Information
-
-            */
-        std::unique_ptr<GroupsListResult> groupsList(const GroupsListArg& );
-
-            /**
-            ApiRoute('groups/list/continue')
-
-
-            Once a cursor has been retrieved from :meth:`groups_list`, use this
-            to paginate through all groups. Permission : Team information
-
-            on error:GroupsListContinueError throws exception GroupsListContinueErrorException
-            */
-        std::unique_ptr<GroupsListResult> groupsListContinue(const GroupsListContinueArg& );
-
-            /**
-            ApiRoute('groups/members/add')
-
-
-            Adds members to a group. The members are added immediately. However
-            the granting of group-owned resources may take additional time. Use
-            the :meth:`groups_job_status_get` to determine whether this process
-            has completed. Permission : Team member management
-
-            on error:GroupMembersAddError throws exception GroupMembersAddErrorException
-            */
-        std::unique_ptr<GroupMembersChangeResult> groupsMembersAdd(const GroupMembersAddArg& );
-
-            /**
-            ApiRoute('groups/members/list')
-
-
-            Lists members of a group. Permission : Team Information
-
-            on error:GroupSelectorError throws exception GroupSelectorErrorException
-            */
-        std::unique_ptr<GroupsMembersListResult> groupsMembersList(const GroupsMembersListArg& );
-
-            /**
-            ApiRoute('groups/members/list/continue')
-
-
-            Once a cursor has been retrieved from :meth:`groups_members_list`,
-            use this to paginate through all members of the group. Permission :
-            Team information
-
-            on error:GroupsMembersListContinueError throws exception GroupsMembersListContinueErrorException
-            */
-        std::unique_ptr<GroupsMembersListResult> groupsMembersListContinue(const GroupsMembersListContinueArg& );
-
-            /**
-            ApiRoute('groups/members/remove')
-
-
-            Removes members from a group. The members are removed immediately.
-            However the revoking of group-owned resources may take additional
-            time. Use the :meth:`groups_job_status_get` to determine whether
-            this process has completed. This method permits removing the only
-            owner of a group, even in cases where this is not possible via the
-            web client. Permission : Team member management
-
-            on error:GroupMembersRemoveError throws exception GroupMembersRemoveErrorException
-            */
-        std::unique_ptr<GroupMembersChangeResult> groupsMembersRemove(const GroupMembersRemoveArg& );
-
-            /**
-            ApiRoute('groups/members/set_access_type')
-
-
-            Sets a member's access type in a group. Permission : Team member
-            management
-
-            on error:GroupMemberSetAccessTypeError throws exception GroupMemberSetAccessTypeErrorException
-            */
-        std::list <GroupsGetInfoItem> groupsMembersSetAccessType(const GroupMembersSetAccessTypeArg& );
-
-            /**
-            ApiRoute('groups/update')
-
-
-            Updates a group's name and/or external ID. Permission : Team member
-            management
-
-            on error:GroupUpdateError throws exception GroupUpdateErrorException
-            */
-        std::unique_ptr<GroupFullInfo> groupsUpdate(const GroupUpdateArgs& );
-
-            /**
-            ApiRoute('linked_apps/list_member_linked_apps')
-
-
-            List all linked applications of the team member. Note, this endpoint
-            does not list any team-linked applications.
-
-            on error:ListMemberAppsError throws exception ListMemberAppsErrorException
-            */
-        std::unique_ptr<ListMemberAppsResult> linkedAppsListMemberLinkedApps(const ListMemberAppsArg& );
-
-            /**
-            ApiRoute('linked_apps/list_members_linked_apps')
-
-
-            List all applications linked to the team members' accounts. Note,
-            this endpoint does not list any team-linked applications.
-
-            on error:ListMembersAppsError throws exception ListMembersAppsErrorException
-            */
-        std::unique_ptr<ListMembersAppsResult> linkedAppsListMembersLinkedApps(const ListMembersAppsArg& );
-
-            /**
-            ApiRoute('linked_apps/list_team_linked_apps')
-
-
-            List all applications linked to the team members' accounts. Note,
-            this endpoint doesn't list any team-linked applications.
-
-            on error:ListTeamAppsError throws exception ListTeamAppsErrorException
-            */
-        std::unique_ptr<ListTeamAppsResult> linkedAppsListTeamLinkedApps(const ListTeamAppsArg& );
-
-            /**
-            ApiRoute('linked_apps/revoke_linked_app')
-
-
-            Revoke a linked application of the team member
-
-            on error:RevokeLinkedAppError throws exception RevokeLinkedAppErrorException
-            */
-        void linkedAppsRevokeLinkedApp(const RevokeLinkedApiAppArg& );
-
-            /**
-            ApiRoute('linked_apps/revoke_linked_app_batch')
-
-
-            Revoke a list of linked applications of the team members
-
-            on error:RevokeLinkedAppBatchError throws exception RevokeLinkedAppBatchErrorException
-            */
-        std::unique_ptr<RevokeLinkedAppBatchResult> linkedAppsRevokeLinkedAppBatch(const RevokeLinkedApiAppBatchArg& );
-
-            /**
-            ApiRoute('members/add')
-
-
-            Adds members to a team. Permission : Team member management A
-            maximum of 20 members can be specified in a single call. If no
-            Dropbox account exists with the email address specified, a new
-            Dropbox account will be created with the given email address, and
-            that account will be invited to the team. If a personal Dropbox
-            account exists with the email address specified in the call, this
-            call will create a placeholder Dropbox account for the user on the
-            team and send an email inviting the user to migrate their existing
-            personal account onto the team. Team member management apps are
-            required to set an initial given_name and surname for a user to use
-            in the team invitation and for 'Perform as team member' actions
-            taken on the user before they become 'active'.
-
-            */
-        std::unique_ptr<MembersAddLaunch> membersAdd(const MembersAddArg& );
-
-            /**
-            ApiRoute('members/add/job_status/get')
-
-
-            Once an async_job_id is returned from :meth:`members_add` , use this
-            to poll the status of the asynchronous request. Permission : Team
-            member management
-
-            on error:PollError throws exception PollErrorException
-            */
-        std::unique_ptr<MembersAddJobStatus> membersAddJobStatusGet(const async::PollArg& );
-
-            /**
-            ApiRoute('members/get_info')
-
-
-            Returns information about multiple team members. Permission : Team
-            information This endpoint will return
-            ``MembersGetInfoItem.id_not_found``, for IDs (or emails) that cannot
-            be matched to a valid team member.
-
-            on error:MembersGetInfoError throws exception MembersGetInfoErrorException
-            */
-        std::list <MembersGetInfoItem> membersGetInfo(const MembersGetInfoArgs& );
-
-            /**
-            ApiRoute('members/list')
-
-
-            Lists members of a team. Permission : Team information
-
-            on error:MembersListError throws exception MembersListErrorException
-            */
-        std::unique_ptr<MembersListResult> membersList(const MembersListArg& );
-
-            /**
-            ApiRoute('members/list/continue')
-
-
-            Once a cursor has been retrieved from :meth:`members_list`, use this
-            to paginate through all team members. Permission : Team information
-
-            on error:MembersListContinueError throws exception MembersListContinueErrorException
-            */
-        std::unique_ptr<MembersListResult> membersListContinue(const MembersListContinueArg& );
-
-            /**
-            ApiRoute('members/recover')
-
-
-            Recover a deleted member. Permission : Team member management
-            Exactly one of team_member_id, email, or external_id must be
-            provided to identify the user account.
-
-            on error:MembersRecoverError throws exception MembersRecoverErrorException
-            */
-        void membersRecover(const MembersRecoverArg& );
-
-            /**
-            ApiRoute('members/remove')
-
-
-            Removes a member from a team. Permission : Team member management
-            Exactly one of team_member_id, email, or external_id must be
-            provided to identify the user account. This is not a deactivation
-            where the account can be re-activated again. Calling
-            :meth:`members_add` with the removed user's email address will
-            create a new account with a new team_member_id that will not have
-            access to any content that was shared with the initial account. This
-            endpoint may initiate an asynchronous job. To obtain the final
-            result of the job, the client should periodically poll
-            :meth:`members_remove_job_status_get`.
-
-            on error:MembersRemoveError throws exception MembersRemoveErrorException
-            */
-        std::unique_ptr<async::LaunchEmptyResult> membersRemove(const MembersRemoveArg& );
-
-            /**
-            ApiRoute('members/remove/job_status/get')
-
-
-            Once an async_job_id is returned from :meth:`members_remove` , use
-            this to poll the status of the asynchronous request. Permission :
-            Team member management
-
-            on error:PollError throws exception PollErrorException
-            */
-        std::unique_ptr<async::PollEmptyResult> membersRemoveJobStatusGet(const async::PollArg& );
-
-            /**
-            ApiRoute('members/send_welcome_email')
-
-
-            Sends welcome email to pending team member. Permission : Team member
-            management Exactly one of team_member_id, email, or external_id must
-            be provided to identify the user account. No-op if team member is
-            not pending.
-
-            on error:MembersSendWelcomeError throws exception MembersSendWelcomeErrorException
-            */
-        void membersSendWelcomeEmail(const UserSelectorArg& );
-
-            /**
-            ApiRoute('members/set_admin_permissions')
-
-
-            Updates a team member's permissions. Permission : Team member
-            management
-
-            on error:MembersSetPermissionsError throws exception MembersSetPermissionsErrorException
-            */
-        std::unique_ptr<MembersSetPermissionsResult> membersSetAdminPermissions(const MembersSetPermissionsArg& );
-
-            /**
-            ApiRoute('members/set_profile')
-
-
-            Updates a team member's profile. Permission : Team member management
-
-            on error:MembersSetProfileError throws exception MembersSetProfileErrorException
-            */
-        std::unique_ptr<TeamMemberInfo> membersSetProfile(const MembersSetProfileArg& );
-
-            /**
-            ApiRoute('members/suspend')
-
-
-            Suspend a member from a team. Permission : Team member management
-            Exactly one of team_member_id, email, or external_id must be
-            provided to identify the user account.
-
-            on error:MembersSuspendError throws exception MembersSuspendErrorException
-            */
-        void membersSuspend(const MembersDeactivateArg& );
-
-            /**
-            ApiRoute('members/unsuspend')
-
-
-            Unsuspend a member from a team. Permission : Team member management
-            Exactly one of team_member_id, email, or external_id must be
-            provided to identify the user account.
-
-            on error:MembersUnsuspendError throws exception MembersUnsuspendErrorException
-            */
-        void membersUnsuspend(const MembersUnsuspendArg& );
-
-            /**
-            ApiRoute('properties/template/add')
-
-
-            Add a property template. See route files/properties/add to add
-            properties to a file.
-
-            on error:ModifyPropertyTemplateError throws exception ModifyPropertyTemplateErrorException
-            */
-        std::unique_ptr<AddPropertyTemplateResult> propertiesTemplateAdd(const AddPropertyTemplateArg& );
-
-            /**
-            ApiRoute('properties/template/get')
-
-
-            Get the schema for a specified template.
-
-            on error:PropertyTemplateError throws exception PropertyTemplateErrorException
-            */
-        std::unique_ptr<properties::GetPropertyTemplateResult> propertiesTemplateGet(const properties::GetPropertyTemplateArg& );
-
-            /**
-            ApiRoute('properties/template/list')
-
-
-            Get the property template identifiers for a team. To get the schema
-            of each template use :meth:`properties_template_get`.
-
-            on error:PropertyTemplateError throws exception PropertyTemplateErrorException
-            */
-        std::unique_ptr<properties::ListPropertyTemplateIds> propertiesTemplateList(void);
-
-            /**
-            ApiRoute('properties/template/update')
-
-
-            Update a property template. This route can update the template name,
-            the template description and add optional properties to templates.
-
-            on error:ModifyPropertyTemplateError throws exception ModifyPropertyTemplateErrorException
-            */
-        std::unique_ptr<UpdatePropertyTemplateResult> propertiesTemplateUpdate(const UpdatePropertyTemplateArg& );
-
-            /**
-            ApiRoute('reports/get_activity')
-
-
-            Retrieves reporting data about a team's user activity.
-
-            on error:DateRangeError throws exception DateRangeErrorException
-            */
-        std::unique_ptr<GetActivityReport> reportsGetActivity(const DateRange& );
-
-            /**
-            ApiRoute('reports/get_devices')
-
-
-            Retrieves reporting data about a team's linked devices.
-
-            on error:DateRangeError throws exception DateRangeErrorException
-            */
-        std::unique_ptr<GetDevicesReport> reportsGetDevices(const DateRange& );
-
-            /**
-            ApiRoute('reports/get_membership')
-
-
-            Retrieves reporting data about a team's membership.
-
-            on error:DateRangeError throws exception DateRangeErrorException
-            */
-        std::unique_ptr<GetMembershipReport> reportsGetMembership(const DateRange& );
-
-            /**
-            ApiRoute('reports/get_storage')
-
-
-            Retrieves reporting data about a team's storage usage.
-
-            on error:DateRangeError throws exception DateRangeErrorException
-            */
-        std::unique_ptr<GetStorageReport> reportsGetStorage(const DateRange& );
-
-    protected:
-        Endpoint* m_end_point;
-    };//TeamRoutes
 
     ///exception GroupCreateError for alpha/groups/create
     DECLARE_API_ERR_EXCEPTION(GroupCreateErrorException, team::GroupCreateError);
@@ -782,6 +219,761 @@ namespace team{
     ///exception DateRangeError for reports/get_activity
     DECLARE_API_ERR_EXCEPTION(DateRangeErrorException, team::DateRangeError);
 
+
+    class TeamRoutes: public DropboxRouteBase{
+    public:
+        TeamRoutes(Endpoint* ep):DropboxRouteBase(ep){};
+            /**
+            ApiRoute('alpha/groups/create')
+
+
+            Creates a new, empty group, with a requested name. Permission : Team
+            member management
+
+            on error:GroupCreateError throws exception GroupCreateErrorException
+            */
+        std::unique_ptr<GroupFullInfo> alphaGroupsCreate(const GroupCreateArg& );
+        void alphaGroupsCreate_Async(
+            const GroupCreateArg&,
+            std::function<void(std::unique_ptr<GroupFullInfo>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('alpha/groups/get_info')
+
+
+            Retrieves information about one or more groups. Permission : Team
+            Information
+
+            on error:GroupsGetInfoError throws exception GroupsGetInfoErrorException
+            */
+        std::unique_ptr<std::list <GroupsGetInfoItem>> alphaGroupsGetInfo(const GroupsSelector& );
+        void alphaGroupsGetInfo_Async(
+            const GroupsSelector&,
+            std::function<void(std::unique_ptr<std::list <GroupsGetInfoItem>>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('alpha/groups/list')
+
+
+            Lists groups on a team. Permission : Team Information
+
+            */
+        std::unique_ptr<GroupsListResult> alphaGroupsList(const GroupsListArg& );
+        void alphaGroupsList_Async(
+            const GroupsListArg&,
+            std::function<void(std::unique_ptr<GroupsListResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('alpha/groups/list/continue')
+
+
+            Once a cursor has been retrieved from :meth:`alpha_groups_list`, use
+            this to paginate through all groups. Permission : Team information
+
+            on error:GroupsListContinueError throws exception GroupsListContinueErrorException
+            */
+        std::unique_ptr<GroupsListResult> alphaGroupsListContinue(const GroupsListContinueArg& );
+        void alphaGroupsListContinue_Async(
+            const GroupsListContinueArg&,
+            std::function<void(std::unique_ptr<GroupsListResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('alpha/groups/update')
+
+
+            Updates a group's name, external ID or management type. Permission :
+            Team member management
+
+            on error:GroupUpdateError throws exception GroupUpdateErrorException
+            */
+        std::unique_ptr<GroupFullInfo> alphaGroupsUpdate(const GroupUpdateArgs& );
+        void alphaGroupsUpdate_Async(
+            const GroupUpdateArgs&,
+            std::function<void(std::unique_ptr<GroupFullInfo>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('devices/list_member_devices')
+
+
+            List all device sessions of a team's member.
+
+            on error:ListMemberDevicesError throws exception ListMemberDevicesErrorException
+            */
+        std::unique_ptr<ListMemberDevicesResult> devicesListMemberDevices(const ListMemberDevicesArg& );
+        void devicesListMemberDevices_Async(
+            const ListMemberDevicesArg&,
+            std::function<void(std::unique_ptr<ListMemberDevicesResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('devices/list_members_devices')
+
+
+            List all device sessions of a team.
+
+            on error:ListMembersDevicesError throws exception ListMembersDevicesErrorException
+            */
+        std::unique_ptr<ListMembersDevicesResult> devicesListMembersDevices(const ListMembersDevicesArg& );
+        void devicesListMembersDevices_Async(
+            const ListMembersDevicesArg&,
+            std::function<void(std::unique_ptr<ListMembersDevicesResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('devices/list_team_devices')
+
+
+            List all device sessions of a team.
+
+            on error:ListTeamDevicesError throws exception ListTeamDevicesErrorException
+            */
+        std::unique_ptr<ListTeamDevicesResult> devicesListTeamDevices(const ListTeamDevicesArg& );
+        void devicesListTeamDevices_Async(
+            const ListTeamDevicesArg&,
+            std::function<void(std::unique_ptr<ListTeamDevicesResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('devices/revoke_device_session')
+
+
+            Revoke a device session of a team's member
+
+            on error:RevokeDeviceSessionError throws exception RevokeDeviceSessionErrorException
+            */
+        void devicesRevokeDeviceSession(const RevokeDeviceSessionArg& );
+        void devicesRevokeDeviceSession_Async(
+            const RevokeDeviceSessionArg&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('devices/revoke_device_session_batch')
+
+
+            Revoke a list of device sessions of team members
+
+            on error:RevokeDeviceSessionBatchError throws exception RevokeDeviceSessionBatchErrorException
+            */
+        std::unique_ptr<RevokeDeviceSessionBatchResult> devicesRevokeDeviceSessionBatch(const RevokeDeviceSessionBatchArg& );
+        void devicesRevokeDeviceSessionBatch_Async(
+            const RevokeDeviceSessionBatchArg&,
+            std::function<void(std::unique_ptr<RevokeDeviceSessionBatchResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('get_info')
+
+
+            Retrieves information about a team.
+
+            */
+        std::unique_ptr<TeamGetInfoResult> getInfo();
+        void getInfo_Async(
+            std::function<void(std::unique_ptr<TeamGetInfoResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('groups/create')
+
+
+            Creates a new, empty group, with a requested name. Permission : Team
+            member management
+
+            on error:GroupCreateError throws exception GroupCreateErrorException
+            */
+        std::unique_ptr<GroupFullInfo> groupsCreate(const GroupCreateArg& );
+        void groupsCreate_Async(
+            const GroupCreateArg&,
+            std::function<void(std::unique_ptr<GroupFullInfo>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('groups/delete')
+
+
+            Deletes a group. The group is deleted immediately. However the
+            revoking of group-owned resources may take additional time. Use the
+            :meth:`groups_job_status_get` to determine whether this process has
+            completed. Permission : Team member management
+
+            on error:GroupDeleteError throws exception GroupDeleteErrorException
+            */
+        std::unique_ptr<async::LaunchEmptyResult> groupsDelete(const GroupSelector& );
+        void groupsDelete_Async(
+            const GroupSelector&,
+            std::function<void(std::unique_ptr<async::LaunchEmptyResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('groups/get_info')
+
+
+            Retrieves information about one or more groups. Permission : Team
+            Information
+
+            on error:GroupsGetInfoError throws exception GroupsGetInfoErrorException
+            */
+        std::unique_ptr<std::list <GroupsGetInfoItem>> groupsGetInfo(const GroupsSelector& );
+        void groupsGetInfo_Async(
+            const GroupsSelector&,
+            std::function<void(std::unique_ptr<std::list <GroupsGetInfoItem>>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('groups/job_status/get')
+
+
+            Once an async_job_id is returned from :meth:`groups_delete`,
+            :meth:`groups_members_add` , or :meth:`groups_members_remove` use
+            this method to poll the status of granting/revoking group members'
+            access to group-owned resources. Permission : Team member management
+
+            on error:GroupsPollError throws exception GroupsPollErrorException
+            */
+        std::unique_ptr<async::PollEmptyResult> groupsJobStatusGet(const async::PollArg& );
+        void groupsJobStatusGet_Async(
+            const async::PollArg&,
+            std::function<void(std::unique_ptr<async::PollEmptyResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('groups/list')
+
+
+            Lists groups on a team. Permission : Team Information
+
+            */
+        std::unique_ptr<GroupsListResult> groupsList(const GroupsListArg& );
+        void groupsList_Async(
+            const GroupsListArg&,
+            std::function<void(std::unique_ptr<GroupsListResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('groups/list/continue')
+
+
+            Once a cursor has been retrieved from :meth:`groups_list`, use this
+            to paginate through all groups. Permission : Team information
+
+            on error:GroupsListContinueError throws exception GroupsListContinueErrorException
+            */
+        std::unique_ptr<GroupsListResult> groupsListContinue(const GroupsListContinueArg& );
+        void groupsListContinue_Async(
+            const GroupsListContinueArg&,
+            std::function<void(std::unique_ptr<GroupsListResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('groups/members/add')
+
+
+            Adds members to a group. The members are added immediately. However
+            the granting of group-owned resources may take additional time. Use
+            the :meth:`groups_job_status_get` to determine whether this process
+            has completed. Permission : Team member management
+
+            on error:GroupMembersAddError throws exception GroupMembersAddErrorException
+            */
+        std::unique_ptr<GroupMembersChangeResult> groupsMembersAdd(const GroupMembersAddArg& );
+        void groupsMembersAdd_Async(
+            const GroupMembersAddArg&,
+            std::function<void(std::unique_ptr<GroupMembersChangeResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('groups/members/list')
+
+
+            Lists members of a group. Permission : Team Information
+
+            on error:GroupSelectorError throws exception GroupSelectorErrorException
+            */
+        std::unique_ptr<GroupsMembersListResult> groupsMembersList(const GroupsMembersListArg& );
+        void groupsMembersList_Async(
+            const GroupsMembersListArg&,
+            std::function<void(std::unique_ptr<GroupsMembersListResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('groups/members/list/continue')
+
+
+            Once a cursor has been retrieved from :meth:`groups_members_list`,
+            use this to paginate through all members of the group. Permission :
+            Team information
+
+            on error:GroupsMembersListContinueError throws exception GroupsMembersListContinueErrorException
+            */
+        std::unique_ptr<GroupsMembersListResult> groupsMembersListContinue(const GroupsMembersListContinueArg& );
+        void groupsMembersListContinue_Async(
+            const GroupsMembersListContinueArg&,
+            std::function<void(std::unique_ptr<GroupsMembersListResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('groups/members/remove')
+
+
+            Removes members from a group. The members are removed immediately.
+            However the revoking of group-owned resources may take additional
+            time. Use the :meth:`groups_job_status_get` to determine whether
+            this process has completed. This method permits removing the only
+            owner of a group, even in cases where this is not possible via the
+            web client. Permission : Team member management
+
+            on error:GroupMembersRemoveError throws exception GroupMembersRemoveErrorException
+            */
+        std::unique_ptr<GroupMembersChangeResult> groupsMembersRemove(const GroupMembersRemoveArg& );
+        void groupsMembersRemove_Async(
+            const GroupMembersRemoveArg&,
+            std::function<void(std::unique_ptr<GroupMembersChangeResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('groups/members/set_access_type')
+
+
+            Sets a member's access type in a group. Permission : Team member
+            management
+
+            on error:GroupMemberSetAccessTypeError throws exception GroupMemberSetAccessTypeErrorException
+            */
+        std::unique_ptr<std::list <GroupsGetInfoItem>> groupsMembersSetAccessType(const GroupMembersSetAccessTypeArg& );
+        void groupsMembersSetAccessType_Async(
+            const GroupMembersSetAccessTypeArg&,
+            std::function<void(std::unique_ptr<std::list <GroupsGetInfoItem>>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('groups/update')
+
+
+            Updates a group's name and/or external ID. Permission : Team member
+            management
+
+            on error:GroupUpdateError throws exception GroupUpdateErrorException
+            */
+        std::unique_ptr<GroupFullInfo> groupsUpdate(const GroupUpdateArgs& );
+        void groupsUpdate_Async(
+            const GroupUpdateArgs&,
+            std::function<void(std::unique_ptr<GroupFullInfo>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('linked_apps/list_member_linked_apps')
+
+
+            List all linked applications of the team member. Note, this endpoint
+            does not list any team-linked applications.
+
+            on error:ListMemberAppsError throws exception ListMemberAppsErrorException
+            */
+        std::unique_ptr<ListMemberAppsResult> linkedAppsListMemberLinkedApps(const ListMemberAppsArg& );
+        void linkedAppsListMemberLinkedApps_Async(
+            const ListMemberAppsArg&,
+            std::function<void(std::unique_ptr<ListMemberAppsResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('linked_apps/list_members_linked_apps')
+
+
+            List all applications linked to the team members' accounts. Note,
+            this endpoint does not list any team-linked applications.
+
+            on error:ListMembersAppsError throws exception ListMembersAppsErrorException
+            */
+        std::unique_ptr<ListMembersAppsResult> linkedAppsListMembersLinkedApps(const ListMembersAppsArg& );
+        void linkedAppsListMembersLinkedApps_Async(
+            const ListMembersAppsArg&,
+            std::function<void(std::unique_ptr<ListMembersAppsResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('linked_apps/list_team_linked_apps')
+
+
+            List all applications linked to the team members' accounts. Note,
+            this endpoint doesn't list any team-linked applications.
+
+            on error:ListTeamAppsError throws exception ListTeamAppsErrorException
+            */
+        std::unique_ptr<ListTeamAppsResult> linkedAppsListTeamLinkedApps(const ListTeamAppsArg& );
+        void linkedAppsListTeamLinkedApps_Async(
+            const ListTeamAppsArg&,
+            std::function<void(std::unique_ptr<ListTeamAppsResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('linked_apps/revoke_linked_app')
+
+
+            Revoke a linked application of the team member
+
+            on error:RevokeLinkedAppError throws exception RevokeLinkedAppErrorException
+            */
+        void linkedAppsRevokeLinkedApp(const RevokeLinkedApiAppArg& );
+        void linkedAppsRevokeLinkedApp_Async(
+            const RevokeLinkedApiAppArg&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('linked_apps/revoke_linked_app_batch')
+
+
+            Revoke a list of linked applications of the team members
+
+            on error:RevokeLinkedAppBatchError throws exception RevokeLinkedAppBatchErrorException
+            */
+        std::unique_ptr<RevokeLinkedAppBatchResult> linkedAppsRevokeLinkedAppBatch(const RevokeLinkedApiAppBatchArg& );
+        void linkedAppsRevokeLinkedAppBatch_Async(
+            const RevokeLinkedApiAppBatchArg&,
+            std::function<void(std::unique_ptr<RevokeLinkedAppBatchResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('members/add')
+
+
+            Adds members to a team. Permission : Team member management A
+            maximum of 20 members can be specified in a single call. If no
+            Dropbox account exists with the email address specified, a new
+            Dropbox account will be created with the given email address, and
+            that account will be invited to the team. If a personal Dropbox
+            account exists with the email address specified in the call, this
+            call will create a placeholder Dropbox account for the user on the
+            team and send an email inviting the user to migrate their existing
+            personal account onto the team. Team member management apps are
+            required to set an initial given_name and surname for a user to use
+            in the team invitation and for 'Perform as team member' actions
+            taken on the user before they become 'active'.
+
+            */
+        std::unique_ptr<MembersAddLaunch> membersAdd(const MembersAddArg& );
+        void membersAdd_Async(
+            const MembersAddArg&,
+            std::function<void(std::unique_ptr<MembersAddLaunch>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('members/add/job_status/get')
+
+
+            Once an async_job_id is returned from :meth:`members_add` , use this
+            to poll the status of the asynchronous request. Permission : Team
+            member management
+
+            on error:PollError throws exception PollErrorException
+            */
+        std::unique_ptr<MembersAddJobStatus> membersAddJobStatusGet(const async::PollArg& );
+        void membersAddJobStatusGet_Async(
+            const async::PollArg&,
+            std::function<void(std::unique_ptr<MembersAddJobStatus>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('members/get_info')
+
+
+            Returns information about multiple team members. Permission : Team
+            information This endpoint will return
+            ``MembersGetInfoItem.id_not_found``, for IDs (or emails) that cannot
+            be matched to a valid team member.
+
+            on error:MembersGetInfoError throws exception MembersGetInfoErrorException
+            */
+        std::unique_ptr<std::list <MembersGetInfoItem>> membersGetInfo(const MembersGetInfoArgs& );
+        void membersGetInfo_Async(
+            const MembersGetInfoArgs&,
+            std::function<void(std::unique_ptr<std::list <MembersGetInfoItem>>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('members/list')
+
+
+            Lists members of a team. Permission : Team information
+
+            on error:MembersListError throws exception MembersListErrorException
+            */
+        std::unique_ptr<MembersListResult> membersList(const MembersListArg& );
+        void membersList_Async(
+            const MembersListArg&,
+            std::function<void(std::unique_ptr<MembersListResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('members/list/continue')
+
+
+            Once a cursor has been retrieved from :meth:`members_list`, use this
+            to paginate through all team members. Permission : Team information
+
+            on error:MembersListContinueError throws exception MembersListContinueErrorException
+            */
+        std::unique_ptr<MembersListResult> membersListContinue(const MembersListContinueArg& );
+        void membersListContinue_Async(
+            const MembersListContinueArg&,
+            std::function<void(std::unique_ptr<MembersListResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('members/recover')
+
+
+            Recover a deleted member. Permission : Team member management
+            Exactly one of team_member_id, email, or external_id must be
+            provided to identify the user account.
+
+            on error:MembersRecoverError throws exception MembersRecoverErrorException
+            */
+        void membersRecover(const MembersRecoverArg& );
+        void membersRecover_Async(
+            const MembersRecoverArg&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('members/remove')
+
+
+            Removes a member from a team. Permission : Team member management
+            Exactly one of team_member_id, email, or external_id must be
+            provided to identify the user account. This is not a deactivation
+            where the account can be re-activated again. Calling
+            :meth:`members_add` with the removed user's email address will
+            create a new account with a new team_member_id that will not have
+            access to any content that was shared with the initial account. This
+            endpoint may initiate an asynchronous job. To obtain the final
+            result of the job, the client should periodically poll
+            :meth:`members_remove_job_status_get`.
+
+            on error:MembersRemoveError throws exception MembersRemoveErrorException
+            */
+        std::unique_ptr<async::LaunchEmptyResult> membersRemove(const MembersRemoveArg& );
+        void membersRemove_Async(
+            const MembersRemoveArg&,
+            std::function<void(std::unique_ptr<async::LaunchEmptyResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('members/remove/job_status/get')
+
+
+            Once an async_job_id is returned from :meth:`members_remove` , use
+            this to poll the status of the asynchronous request. Permission :
+            Team member management
+
+            on error:PollError throws exception PollErrorException
+            */
+        std::unique_ptr<async::PollEmptyResult> membersRemoveJobStatusGet(const async::PollArg& );
+        void membersRemoveJobStatusGet_Async(
+            const async::PollArg&,
+            std::function<void(std::unique_ptr<async::PollEmptyResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('members/send_welcome_email')
+
+
+            Sends welcome email to pending team member. Permission : Team member
+            management Exactly one of team_member_id, email, or external_id must
+            be provided to identify the user account. No-op if team member is
+            not pending.
+
+            on error:MembersSendWelcomeError throws exception MembersSendWelcomeErrorException
+            */
+        void membersSendWelcomeEmail(const UserSelectorArg& );
+        void membersSendWelcomeEmail_Async(
+            const UserSelectorArg&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('members/set_admin_permissions')
+
+
+            Updates a team member's permissions. Permission : Team member
+            management
+
+            on error:MembersSetPermissionsError throws exception MembersSetPermissionsErrorException
+            */
+        std::unique_ptr<MembersSetPermissionsResult> membersSetAdminPermissions(const MembersSetPermissionsArg& );
+        void membersSetAdminPermissions_Async(
+            const MembersSetPermissionsArg&,
+            std::function<void(std::unique_ptr<MembersSetPermissionsResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('members/set_profile')
+
+
+            Updates a team member's profile. Permission : Team member management
+
+            on error:MembersSetProfileError throws exception MembersSetProfileErrorException
+            */
+        std::unique_ptr<TeamMemberInfo> membersSetProfile(const MembersSetProfileArg& );
+        void membersSetProfile_Async(
+            const MembersSetProfileArg&,
+            std::function<void(std::unique_ptr<TeamMemberInfo>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('members/suspend')
+
+
+            Suspend a member from a team. Permission : Team member management
+            Exactly one of team_member_id, email, or external_id must be
+            provided to identify the user account.
+
+            on error:MembersSuspendError throws exception MembersSuspendErrorException
+            */
+        void membersSuspend(const MembersDeactivateArg& );
+        void membersSuspend_Async(
+            const MembersDeactivateArg&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('members/unsuspend')
+
+
+            Unsuspend a member from a team. Permission : Team member management
+            Exactly one of team_member_id, email, or external_id must be
+            provided to identify the user account.
+
+            on error:MembersUnsuspendError throws exception MembersUnsuspendErrorException
+            */
+        void membersUnsuspend(const MembersUnsuspendArg& );
+        void membersUnsuspend_Async(
+            const MembersUnsuspendArg&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('properties/template/add')
+
+
+            Add a property template. See route files/properties/add to add
+            properties to a file.
+
+            on error:ModifyPropertyTemplateError throws exception ModifyPropertyTemplateErrorException
+            */
+        std::unique_ptr<AddPropertyTemplateResult> propertiesTemplateAdd(const AddPropertyTemplateArg& );
+        void propertiesTemplateAdd_Async(
+            const AddPropertyTemplateArg&,
+            std::function<void(std::unique_ptr<AddPropertyTemplateResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('properties/template/get')
+
+
+            Get the schema for a specified template.
+
+            on error:PropertyTemplateError throws exception PropertyTemplateErrorException
+            */
+        std::unique_ptr<properties::GetPropertyTemplateResult> propertiesTemplateGet(const properties::GetPropertyTemplateArg& );
+        void propertiesTemplateGet_Async(
+            const properties::GetPropertyTemplateArg&,
+            std::function<void(std::unique_ptr<properties::GetPropertyTemplateResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('properties/template/list')
+
+
+            Get the property template identifiers for a team. To get the schema
+            of each template use :meth:`properties_template_get`.
+
+            on error:PropertyTemplateError throws exception PropertyTemplateErrorException
+            */
+        std::unique_ptr<properties::ListPropertyTemplateIds> propertiesTemplateList();
+        void propertiesTemplateList_Async(
+            std::function<void(std::unique_ptr<properties::ListPropertyTemplateIds>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('properties/template/update')
+
+
+            Update a property template. This route can update the template name,
+            the template description and add optional properties to templates.
+
+            on error:ModifyPropertyTemplateError throws exception ModifyPropertyTemplateErrorException
+            */
+        std::unique_ptr<UpdatePropertyTemplateResult> propertiesTemplateUpdate(const UpdatePropertyTemplateArg& );
+        void propertiesTemplateUpdate_Async(
+            const UpdatePropertyTemplateArg&,
+            std::function<void(std::unique_ptr<UpdatePropertyTemplateResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('reports/get_activity')
+
+
+            Retrieves reporting data about a team's user activity.
+
+            on error:DateRangeError throws exception DateRangeErrorException
+            */
+        std::unique_ptr<GetActivityReport> reportsGetActivity(const DateRange& );
+        void reportsGetActivity_Async(
+            const DateRange&,
+            std::function<void(std::unique_ptr<GetActivityReport>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('reports/get_devices')
+
+
+            Retrieves reporting data about a team's linked devices.
+
+            on error:DateRangeError throws exception DateRangeErrorException
+            */
+        std::unique_ptr<GetDevicesReport> reportsGetDevices(const DateRange& );
+        void reportsGetDevices_Async(
+            const DateRange&,
+            std::function<void(std::unique_ptr<GetDevicesReport>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('reports/get_membership')
+
+
+            Retrieves reporting data about a team's membership.
+
+            on error:DateRangeError throws exception DateRangeErrorException
+            */
+        std::unique_ptr<GetMembershipReport> reportsGetMembership(const DateRange& );
+        void reportsGetMembership_Async(
+            const DateRange&,
+            std::function<void(std::unique_ptr<GetMembershipReport>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('reports/get_storage')
+
+
+            Retrieves reporting data about a team's storage usage.
+
+            on error:DateRangeError throws exception DateRangeErrorException
+            */
+        std::unique_ptr<GetStorageReport> reportsGetStorage(const DateRange& );
+        void reportsGetStorage_Async(
+            const DateRange&,
+            std::function<void(std::unique_ptr<GetStorageReport>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+    protected:
+    };//TeamRoutes
 
 }//team
 }//dropboxQt

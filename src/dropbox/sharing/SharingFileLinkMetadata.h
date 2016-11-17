@@ -104,7 +104,7 @@ namespace sharing{
             /**
                 The file size in bytes.
             */
-        int m_size;
+        int m_size = {0};
 
     };//FileLinkMetadata
 

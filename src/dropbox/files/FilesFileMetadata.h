@@ -163,7 +163,7 @@ namespace files{
             /**
                 The file size in bytes.
             */
-        int m_size;
+        int m_size = {0};
 
             /**
                 Additional information if the file is a photo or video.

@@ -7,6 +7,7 @@
 #include "dropbox/files/FilesMediaMetadata.h"
 #include "dropbox/files/FilesPhotoMetadata.h"
 #include "dropbox/files/FilesVideoMetadata.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

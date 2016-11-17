@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/properties/PropertiesPropertyFieldTemplate.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

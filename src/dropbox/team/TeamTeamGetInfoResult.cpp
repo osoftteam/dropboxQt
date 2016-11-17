@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamTeamGetInfoResult.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

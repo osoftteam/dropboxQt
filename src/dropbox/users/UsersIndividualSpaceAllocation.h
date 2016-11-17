@@ -46,7 +46,7 @@ namespace users{
             /**
                 The total space allocated to the user's account (bytes).
             */
-        int m_allocated;
+        int m_allocated = {0};
 
     };//IndividualSpaceAllocation
 

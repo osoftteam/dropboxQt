@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesDownloadArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

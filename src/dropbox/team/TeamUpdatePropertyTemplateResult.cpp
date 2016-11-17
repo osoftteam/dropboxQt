@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamUpdatePropertyTemplateResult.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

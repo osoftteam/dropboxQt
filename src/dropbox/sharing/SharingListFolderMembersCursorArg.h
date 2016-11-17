@@ -74,7 +74,7 @@ namespace sharing{
                 The maximum number of results that include members, groups and
                 invitees to return per request.
             */
-        int m_limit;
+        int m_limit = {0};
 
     };//ListFolderMembersCursorArg
 

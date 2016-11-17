@@ -54,12 +54,12 @@ namespace files{
             /**
                 Height of the photo/video.
             */
-        int m_height;
+        int m_height = {0};
 
             /**
                 Width of the photo/video.
             */
-        int m_width;
+        int m_width = {0};
 
     };//Dimensions
 

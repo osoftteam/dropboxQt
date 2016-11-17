@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamRevokeLinkedApiAppArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

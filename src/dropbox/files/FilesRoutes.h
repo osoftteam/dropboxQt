@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "dropbox/DropboxRouteBase.h"
 #include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/files/FilesAddPropertiesError.h"
 #include "dropbox/files/FilesAlphaGetMetadataArg.h"
@@ -85,454 +86,7 @@
 #include "dropbox/files/FilesUploadSessionStartResult.h"
 
 namespace dropboxQt{
-
-class Endpoint;
-
 namespace files{
-    class FilesRoutes{
-    public:
-        FilesRoutes(Endpoint*);
-            /**
-            ApiRoute('alpha/get_metadata')
-
-
-            Returns the metadata for a file or folder. This is an alpha endpoint
-            compatible with the properties API. Note: Metadata for the root
-            folder is unsupported.
-
-            on error:AlphaGetMetadataError throws exception AlphaGetMetadataErrorException
-            */
-        std::unique_ptr<Metadata> alphaGetMetadata(const AlphaGetMetadataArg& );
-
-            /**
-            ApiRoute('alpha/upload')
-
-
-            Create a new file with the contents provided in the request. Note
-            that this endpoint is part of the properties API alpha and is
-            slightly different from :meth:`upload`. Do not use this to upload a
-            file larger than 150 MB. Instead, create an upload session with
-            :meth:`upload_session_start`.
-
-            on error:UploadErrorWithProperties throws exception UploadErrorWithPropertiesException
-            */
-        std::unique_ptr<FileMetadata> alphaUpload(const CommitInfoWithProperties& , QIODevice* readFrom);
-
-            /**
-            ApiRoute('copy')
-
-
-            Copy a file or folder to a different location in the user's Dropbox.
-            If the source path is a folder all its contents will be copied.
-
-            on error:RelocationError throws exception RelocationErrorException
-            */
-        std::unique_ptr<Metadata> copy(const RelocationArg& );
-
-            /**
-            ApiRoute('copy_reference/get')
-
-
-            Get a copy reference to a file or folder. This reference string can
-            be used to save that file or folder to another user's Dropbox by
-            passing it to :meth:`copy_reference_save`.
-
-            on error:GetCopyReferenceError throws exception GetCopyReferenceErrorException
-            */
-        std::unique_ptr<GetCopyReferenceResult> copyReferenceGet(const GetCopyReferenceArg& );
-
-            /**
-            ApiRoute('copy_reference/save')
-
-
-            Save a copy reference returned by :meth:`copy_reference_get` to the
-            user's Dropbox.
-
-            on error:SaveCopyReferenceError throws exception SaveCopyReferenceErrorException
-            */
-        std::unique_ptr<SaveCopyReferenceResult> copyReferenceSave(const SaveCopyReferenceArg& );
-
-            /**
-            ApiRoute('create_folder')
-
-
-            Create a folder at a given path.
-
-            on error:CreateFolderError throws exception CreateFolderErrorException
-            */
-        std::unique_ptr<FolderMetadata> createFolder(const CreateFolderArg& );
-
-            /**
-            ApiRoute('delete')
-
-
-            Delete the file or folder at a given path. If the path is a folder,
-            all its contents will be deleted too. A successful response
-            indicates that the file or folder was deleted. The returned metadata
-            will be the corresponding :class:`FileMetadata` or
-            :class:`FolderMetadata` for the item at time of deletion, and not a
-            :class:`DeletedMetadata` object.
-
-            on error:DeleteError throws exception DeleteErrorException
-            */
-        std::unique_ptr<Metadata> deleteOperation(const DeleteArg& );
-
-            /**
-            ApiRoute('download')
-
-
-            Download a file from a user's Dropbox.
-
-            on error:DownloadError throws exception DownloadErrorException
-            */
-        std::unique_ptr<FileMetadata> download(const DownloadArg& , QIODevice* writeTo);
-
-            /**
-            ApiRoute('get_metadata')
-
-
-            Returns the metadata for a file or folder. Note: Metadata for the
-            root folder is unsupported.
-
-            on error:GetMetadataError throws exception GetMetadataErrorException
-            */
-        std::unique_ptr<Metadata> getMetadata(const GetMetadataArg& );
-
-            /**
-            ApiRoute('get_preview')
-
-
-            Get a preview for a file. Currently previews are only generated for
-            the files with  the following extensions: .doc, .docx, .docm, .ppt,
-            .pps, .ppsx, .ppsm, .pptx, .pptm,  .xls, .xlsx, .xlsm, .rtf
-
-            on error:PreviewError throws exception PreviewErrorException
-            */
-        std::unique_ptr<FileMetadata> getPreview(const PreviewArg& , QIODevice* writeTo);
-
-            /**
-            ApiRoute('get_temporary_link')
-
-
-            Get a temporary link to stream content of a file. This link will
-            expire in four hours and afterwards you will get 410 Gone.
-            Content-Type of the link is determined automatically by the file's
-            mime type.
-
-            on error:GetTemporaryLinkError throws exception GetTemporaryLinkErrorException
-            */
-        std::unique_ptr<GetTemporaryLinkResult> getTemporaryLink(const GetTemporaryLinkArg& );
-
-            /**
-            ApiRoute('get_thumbnail')
-
-
-            Get a thumbnail for an image. This method currently supports files
-            with the following file extensions: jpg, jpeg, png, tiff, tif, gif
-            and bmp. Photos that are larger than 20MB in size won't be converted
-            to a thumbnail.
-
-            on error:ThumbnailError throws exception ThumbnailErrorException
-            */
-        std::unique_ptr<FileMetadata> getThumbnail(const ThumbnailArg& , QIODevice* writeTo);
-
-            /**
-            ApiRoute('list_folder')
-
-
-            Returns the contents of a folder.
-
-            on error:ListFolderError throws exception ListFolderErrorException
-            */
-        std::unique_ptr<ListFolderResult> listFolder(const ListFolderArg& );
-
-            /**
-            ApiRoute('list_folder/continue')
-
-
-            Once a cursor has been retrieved from :meth:`list_folder`, use this
-            to paginate through all files and retrieve updates to the folder.
-
-            on error:ListFolderContinueError throws exception ListFolderContinueErrorException
-            */
-        std::unique_ptr<ListFolderResult> listFolderContinue(const ListFolderContinueArg& );
-
-            /**
-            ApiRoute('list_folder/get_latest_cursor')
-
-
-            A way to quickly get a cursor for the folder's state. Unlike
-            :meth:`list_folder`, :meth:`list_folder_get_latest_cursor` doesn't
-            return any entries. This endpoint is for app which only needs to
-            know about new files and modifications and doesn't need to know
-            about files that already exist in Dropbox.
-
-            on error:ListFolderError throws exception ListFolderErrorException
-            */
-        std::unique_ptr<ListFolderGetLatestCursorResult> listFolderGetLatestCursor(const ListFolderArg& );
-
-            /**
-            ApiRoute('list_folder/longpoll')
-
-
-            A longpoll endpoint to wait for changes on an account. In
-            conjunction with :meth:`list_folder_continue`, this call gives you a
-            low-latency way to monitor an account for file changes. The
-            connection will block until there are changes available or a timeout
-            occurs. This endpoint is useful mostly for client-side apps. If
-            you're looking for server-side notifications, check out our
-            `webhooks documentation
-            <https://www.dropbox.com/developers/reference/webhooks>`_.
-
-            on error:ListFolderLongpollError throws exception ListFolderLongpollErrorException
-            */
-        std::unique_ptr<ListFolderLongpollResult> listFolderLongpoll(const ListFolderLongpollArg& );
-
-            /**
-            ApiRoute('list_revisions')
-
-
-            Return revisions of a file
-
-            on error:ListRevisionsError throws exception ListRevisionsErrorException
-            */
-        std::unique_ptr<ListRevisionsResult> listRevisions(const ListRevisionsArg& );
-
-            /**
-            ApiRoute('move')
-
-
-            Move a file or folder to a different location in the user's Dropbox.
-            If the source path is a folder all its contents will be moved.
-
-            on error:RelocationError throws exception RelocationErrorException
-            */
-        std::unique_ptr<Metadata> move(const RelocationArg& );
-
-            /**
-            ApiRoute('permanently_delete')
-
-
-            Permanently delete the file or folder at a given path (see
-            https://www.dropbox.com/en/help/40). Note: This endpoint is only
-            available for Dropbox Business apps.
-
-            on error:DeleteError throws exception DeleteErrorException
-            */
-        void permanentlyDelete(const DeleteArg& );
-
-            /**
-            ApiRoute('properties/add')
-
-
-            Add custom properties to a file using a filled property template.
-            See properties/template/add to create new property templates.
-
-            on error:AddPropertiesError throws exception AddPropertiesErrorException
-            */
-        void propertiesAdd(const PropertyGroupWithPath& );
-
-            /**
-            ApiRoute('properties/overwrite')
-
-
-            Overwrite custom properties from a specified template associated
-            with a file.
-
-            on error:InvalidPropertyGroupError throws exception InvalidPropertyGroupErrorException
-            */
-        void propertiesOverwrite(const PropertyGroupWithPath& );
-
-            /**
-            ApiRoute('properties/remove')
-
-
-            Remove all custom properties from a specified template associated
-            with a file. To remove specific property key value pairs, see
-            :meth:`properties_update`. To update a property template, see
-            properties/template/update. Property templates can't be removed once
-            created.
-
-            on error:RemovePropertiesError throws exception RemovePropertiesErrorException
-            */
-        void propertiesRemove(const RemovePropertiesArg& );
-
-            /**
-            ApiRoute('properties/template/get')
-
-
-            Get the schema for a specified template.
-
-            on error:PropertyTemplateError throws exception PropertyTemplateErrorException
-            */
-        std::unique_ptr<properties::GetPropertyTemplateResult> propertiesTemplateGet(const properties::GetPropertyTemplateArg& );
-
-            /**
-            ApiRoute('properties/template/list')
-
-
-            Get the property template identifiers for a user. To get the schema
-            of each template use :meth:`properties_template_get`.
-
-            on error:PropertyTemplateError throws exception PropertyTemplateErrorException
-            */
-        std::unique_ptr<properties::ListPropertyTemplateIds> propertiesTemplateList(void);
-
-            /**
-            ApiRoute('properties/update')
-
-
-            Add, update or remove custom properties from a specified template
-            associated with a file. Fields that already exist and not described
-            in the request will not be modified.
-
-            on error:UpdatePropertiesError throws exception UpdatePropertiesErrorException
-            */
-        void propertiesUpdate(const UpdatePropertyGroupArg& );
-
-            /**
-            ApiRoute('restore')
-
-
-            Restore a file to a specific revision
-
-            on error:RestoreError throws exception RestoreErrorException
-            */
-        std::unique_ptr<FileMetadata> restore(const RestoreArg& );
-
-            /**
-            ApiRoute('save_url')
-
-
-            Save a specified URL into a file in user's Dropbox. If the given
-            path already exists, the file will be renamed to avoid the conflict
-            (e.g. myfile (1).txt).
-
-            on error:SaveUrlError throws exception SaveUrlErrorException
-            */
-        std::unique_ptr<SaveUrlResult> saveUrl(const SaveUrlArg& );
-
-            /**
-            ApiRoute('save_url/check_job_status')
-
-
-            Check the status of a :meth:`save_url` job.
-
-            on error:PollError throws exception PollErrorException
-            */
-        std::unique_ptr<SaveUrlJobStatus> saveUrlCheckJobStatus(const async::PollArg& );
-
-            /**
-            ApiRoute('search')
-
-
-            Searches for files and folders. Note: Recent changes may not
-            immediately be reflected in search results due to a short delay in
-            indexing.
-
-            on error:SearchError throws exception SearchErrorException
-            */
-        std::unique_ptr<SearchResult> search(const SearchArg& );
-
-            /**
-            ApiRoute('upload')
-
-
-            Create a new file with the contents provided in the request. Do not
-            use this to upload a file larger than 150 MB. Instead, create an
-            upload session with :meth:`upload_session_start`.
-
-            on error:UploadError throws exception UploadErrorException
-            */
-        std::unique_ptr<FileMetadata> upload(const CommitInfo& , QIODevice* readFrom);
-
-            /**
-            ApiRoute('upload_session/append')
-
-
-            Append more data to an upload session. A single request should not
-            upload more than 150 MB of file contents.
-
-            on error:UploadSessionLookupError throws exception UploadSessionLookupErrorException
-            */
-        void uploadSessionAppend(const UploadSessionCursor& , QIODevice* readFrom);
-
-            /**
-            ApiRoute('upload_session/append_v2')
-
-
-            Append more data to an upload session. When the parameter close is
-            set, this call will close the session. A single request should not
-            upload more than 150 MB of file contents.
-
-            on error:UploadSessionLookupError throws exception UploadSessionLookupErrorException
-            */
-        void uploadSessionAppendV2(const UploadSessionAppendArg& , QIODevice* readFrom);
-
-            /**
-            ApiRoute('upload_session/finish')
-
-
-            Finish an upload session and save the uploaded data to the given
-            file path. A single request should not upload more than 150 MB of
-            file contents.
-
-            on error:UploadSessionFinishError throws exception UploadSessionFinishErrorException
-            */
-        std::unique_ptr<FileMetadata> uploadSessionFinish(const UploadSessionFinishArg& , QIODevice* readFrom);
-
-            /**
-            ApiRoute('upload_session/finish_batch')
-
-
-            This route helps you commit many files at once into a user's
-            Dropbox. Use :meth:`upload_session_start` and
-            :meth:`upload_session_append_v2` to upload file contents. We
-            recommend uploading many files in parallel to increase throughput.
-            Once the file contents have been uploaded, rather than calling
-            :meth:`upload_session_finish`, use this route to finish all your
-            upload sessions in a single request. ``UploadSessionStartArg.close``
-            or ``UploadSessionAppendArg.close`` needs to be true for last
-            :meth:`upload_session_start` or :meth:`upload_session_append_v2`
-            call. This route will return job_id immediately and do the async
-            commit job in background. We have another route
-            :meth:`upload_session_finish_batch_check` to check the job status.
-            For the same account, this route should be executed serially. That
-            means you should not start next job before current job finishes.
-            Also we only allow up to 1000 entries in a single request
-
-            */
-        std::unique_ptr<async::LaunchEmptyResult> uploadSessionFinishBatch(const UploadSessionFinishBatchArg& );
-
-            /**
-            ApiRoute('upload_session/finish_batch/check')
-
-
-            Returns the status of an asynchronous job for
-            :meth:`upload_session_finish_batch`. If success, it returns list of
-            result for each entry
-
-            on error:PollError throws exception PollErrorException
-            */
-        std::unique_ptr<UploadSessionFinishBatchJobStatus> uploadSessionFinishBatchCheck(const async::PollArg& );
-
-            /**
-            ApiRoute('upload_session/start')
-
-
-            Upload sessions allow you to upload a single file using multiple
-            requests. This call starts a new upload session with the given data.
-            You can then use :meth:`upload_session_append_v2` to add more data
-            and :meth:`upload_session_finish` to save all the data to a file in
-            Dropbox. A single request should not upload more than 150 MB of file
-            contents.
-
-            */
-        std::unique_ptr<UploadSessionStartResult> uploadSessionStart(const UploadSessionStartArg& , QIODevice* readFrom);
-
-    protected:
-        Endpoint* m_end_point;
-    };//FilesRoutes
 
     ///exception AlphaGetMetadataError for alpha/get_metadata
     DECLARE_API_ERR_EXCEPTION(AlphaGetMetadataErrorException, files::AlphaGetMetadataError);
@@ -618,6 +172,602 @@ namespace files{
     ///exception UploadSessionFinishError for upload_session/finish
     DECLARE_API_ERR_EXCEPTION(UploadSessionFinishErrorException, files::UploadSessionFinishError);
 
+
+    class FilesRoutes: public DropboxRouteBase{
+    public:
+        FilesRoutes(Endpoint* ep):DropboxRouteBase(ep){};
+            /**
+            ApiRoute('alpha/get_metadata')
+
+
+            Returns the metadata for a file or folder. This is an alpha endpoint
+            compatible with the properties API. Note: Metadata for the root
+            folder is unsupported.
+
+            on error:AlphaGetMetadataError throws exception AlphaGetMetadataErrorException
+            */
+        std::unique_ptr<Metadata> alphaGetMetadata(const AlphaGetMetadataArg& );
+        void alphaGetMetadata_Async(
+            const AlphaGetMetadataArg&,
+            std::function<void(std::unique_ptr<Metadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('alpha/upload')
+
+
+            Create a new file with the contents provided in the request. Note
+            that this endpoint is part of the properties API alpha and is
+            slightly different from :meth:`upload`. Do not use this to upload a
+            file larger than 150 MB. Instead, create an upload session with
+            :meth:`upload_session_start`.
+
+            on error:UploadErrorWithProperties throws exception UploadErrorWithPropertiesException
+            */
+        std::unique_ptr<FileMetadata> alphaUpload(const CommitInfoWithProperties& , QIODevice* readFrom);
+        void alphaUpload_Async(
+            const CommitInfoWithProperties&,
+            QIODevice* data,
+            std::function<void(std::unique_ptr<FileMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('copy')
+
+
+            Copy a file or folder to a different location in the user's Dropbox.
+            If the source path is a folder all its contents will be copied.
+
+            on error:RelocationError throws exception RelocationErrorException
+            */
+        std::unique_ptr<Metadata> copy(const RelocationArg& );
+        void copy_Async(
+            const RelocationArg&,
+            std::function<void(std::unique_ptr<Metadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('copy_reference/get')
+
+
+            Get a copy reference to a file or folder. This reference string can
+            be used to save that file or folder to another user's Dropbox by
+            passing it to :meth:`copy_reference_save`.
+
+            on error:GetCopyReferenceError throws exception GetCopyReferenceErrorException
+            */
+        std::unique_ptr<GetCopyReferenceResult> copyReferenceGet(const GetCopyReferenceArg& );
+        void copyReferenceGet_Async(
+            const GetCopyReferenceArg&,
+            std::function<void(std::unique_ptr<GetCopyReferenceResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('copy_reference/save')
+
+
+            Save a copy reference returned by :meth:`copy_reference_get` to the
+            user's Dropbox.
+
+            on error:SaveCopyReferenceError throws exception SaveCopyReferenceErrorException
+            */
+        std::unique_ptr<SaveCopyReferenceResult> copyReferenceSave(const SaveCopyReferenceArg& );
+        void copyReferenceSave_Async(
+            const SaveCopyReferenceArg&,
+            std::function<void(std::unique_ptr<SaveCopyReferenceResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('create_folder')
+
+
+            Create a folder at a given path.
+
+            on error:CreateFolderError throws exception CreateFolderErrorException
+            */
+        std::unique_ptr<FolderMetadata> createFolder(const CreateFolderArg& );
+        void createFolder_Async(
+            const CreateFolderArg&,
+            std::function<void(std::unique_ptr<FolderMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('delete')
+
+
+            Delete the file or folder at a given path. If the path is a folder,
+            all its contents will be deleted too. A successful response
+            indicates that the file or folder was deleted. The returned metadata
+            will be the corresponding :class:`FileMetadata` or
+            :class:`FolderMetadata` for the item at time of deletion, and not a
+            :class:`DeletedMetadata` object.
+
+            on error:DeleteError throws exception DeleteErrorException
+            */
+        std::unique_ptr<Metadata> deleteOperation(const DeleteArg& );
+        void deleteOperation_Async(
+            const DeleteArg&,
+            std::function<void(std::unique_ptr<Metadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('download')
+
+
+            Download a file from a user's Dropbox.
+
+            on error:DownloadError throws exception DownloadErrorException
+            */
+        std::unique_ptr<FileMetadata> download(const DownloadArg& , QIODevice* writeTo);
+        void download_Async(
+            const DownloadArg&,
+            QIODevice* data,
+            std::function<void(std::unique_ptr<FileMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('get_metadata')
+
+
+            Returns the metadata for a file or folder. Note: Metadata for the
+            root folder is unsupported.
+
+            on error:GetMetadataError throws exception GetMetadataErrorException
+            */
+        std::unique_ptr<Metadata> getMetadata(const GetMetadataArg& );
+        void getMetadata_Async(
+            const GetMetadataArg&,
+            std::function<void(std::unique_ptr<Metadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('get_preview')
+
+
+            Get a preview for a file. Currently previews are only generated for
+            the files with  the following extensions: .doc, .docx, .docm, .ppt,
+            .pps, .ppsx, .ppsm, .pptx, .pptm,  .xls, .xlsx, .xlsm, .rtf
+
+            on error:PreviewError throws exception PreviewErrorException
+            */
+        std::unique_ptr<FileMetadata> getPreview(const PreviewArg& , QIODevice* writeTo);
+        void getPreview_Async(
+            const PreviewArg&,
+            QIODevice* data,
+            std::function<void(std::unique_ptr<FileMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('get_temporary_link')
+
+
+            Get a temporary link to stream content of a file. This link will
+            expire in four hours and afterwards you will get 410 Gone.
+            Content-Type of the link is determined automatically by the file's
+            mime type.
+
+            on error:GetTemporaryLinkError throws exception GetTemporaryLinkErrorException
+            */
+        std::unique_ptr<GetTemporaryLinkResult> getTemporaryLink(const GetTemporaryLinkArg& );
+        void getTemporaryLink_Async(
+            const GetTemporaryLinkArg&,
+            std::function<void(std::unique_ptr<GetTemporaryLinkResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('get_thumbnail')
+
+
+            Get a thumbnail for an image. This method currently supports files
+            with the following file extensions: jpg, jpeg, png, tiff, tif, gif
+            and bmp. Photos that are larger than 20MB in size won't be converted
+            to a thumbnail.
+
+            on error:ThumbnailError throws exception ThumbnailErrorException
+            */
+        std::unique_ptr<FileMetadata> getThumbnail(const ThumbnailArg& , QIODevice* writeTo);
+        void getThumbnail_Async(
+            const ThumbnailArg&,
+            QIODevice* data,
+            std::function<void(std::unique_ptr<FileMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_folder')
+
+
+            Returns the contents of a folder.
+
+            on error:ListFolderError throws exception ListFolderErrorException
+            */
+        std::unique_ptr<ListFolderResult> listFolder(const ListFolderArg& );
+        void listFolder_Async(
+            const ListFolderArg&,
+            std::function<void(std::unique_ptr<ListFolderResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_folder/continue')
+
+
+            Once a cursor has been retrieved from :meth:`list_folder`, use this
+            to paginate through all files and retrieve updates to the folder.
+
+            on error:ListFolderContinueError throws exception ListFolderContinueErrorException
+            */
+        std::unique_ptr<ListFolderResult> listFolderContinue(const ListFolderContinueArg& );
+        void listFolderContinue_Async(
+            const ListFolderContinueArg&,
+            std::function<void(std::unique_ptr<ListFolderResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_folder/get_latest_cursor')
+
+
+            A way to quickly get a cursor for the folder's state. Unlike
+            :meth:`list_folder`, :meth:`list_folder_get_latest_cursor` doesn't
+            return any entries. This endpoint is for app which only needs to
+            know about new files and modifications and doesn't need to know
+            about files that already exist in Dropbox.
+
+            on error:ListFolderError throws exception ListFolderErrorException
+            */
+        std::unique_ptr<ListFolderGetLatestCursorResult> listFolderGetLatestCursor(const ListFolderArg& );
+        void listFolderGetLatestCursor_Async(
+            const ListFolderArg&,
+            std::function<void(std::unique_ptr<ListFolderGetLatestCursorResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_folder/longpoll')
+
+
+            A longpoll endpoint to wait for changes on an account. In
+            conjunction with :meth:`list_folder_continue`, this call gives you a
+            low-latency way to monitor an account for file changes. The
+            connection will block until there are changes available or a timeout
+            occurs. This endpoint is useful mostly for client-side apps. If
+            you're looking for server-side notifications, check out our
+            `webhooks documentation
+            <https://www.dropbox.com/developers/reference/webhooks>`_.
+
+            on error:ListFolderLongpollError throws exception ListFolderLongpollErrorException
+            */
+        std::unique_ptr<ListFolderLongpollResult> listFolderLongpoll(const ListFolderLongpollArg& );
+        void listFolderLongpoll_Async(
+            const ListFolderLongpollArg&,
+            std::function<void(std::unique_ptr<ListFolderLongpollResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('list_revisions')
+
+
+            Return revisions of a file
+
+            on error:ListRevisionsError throws exception ListRevisionsErrorException
+            */
+        std::unique_ptr<ListRevisionsResult> listRevisions(const ListRevisionsArg& );
+        void listRevisions_Async(
+            const ListRevisionsArg&,
+            std::function<void(std::unique_ptr<ListRevisionsResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('move')
+
+
+            Move a file or folder to a different location in the user's Dropbox.
+            If the source path is a folder all its contents will be moved.
+
+            on error:RelocationError throws exception RelocationErrorException
+            */
+        std::unique_ptr<Metadata> move(const RelocationArg& );
+        void move_Async(
+            const RelocationArg&,
+            std::function<void(std::unique_ptr<Metadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('permanently_delete')
+
+
+            Permanently delete the file or folder at a given path (see
+            https://www.dropbox.com/en/help/40). Note: This endpoint is only
+            available for Dropbox Business apps.
+
+            on error:DeleteError throws exception DeleteErrorException
+            */
+        void permanentlyDelete(const DeleteArg& );
+        void permanentlyDelete_Async(
+            const DeleteArg&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('properties/add')
+
+
+            Add custom properties to a file using a filled property template.
+            See properties/template/add to create new property templates.
+
+            on error:AddPropertiesError throws exception AddPropertiesErrorException
+            */
+        void propertiesAdd(const PropertyGroupWithPath& );
+        void propertiesAdd_Async(
+            const PropertyGroupWithPath&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('properties/overwrite')
+
+
+            Overwrite custom properties from a specified template associated
+            with a file.
+
+            on error:InvalidPropertyGroupError throws exception InvalidPropertyGroupErrorException
+            */
+        void propertiesOverwrite(const PropertyGroupWithPath& );
+        void propertiesOverwrite_Async(
+            const PropertyGroupWithPath&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('properties/remove')
+
+
+            Remove all custom properties from a specified template associated
+            with a file. To remove specific property key value pairs, see
+            :meth:`properties_update`. To update a property template, see
+            properties/template/update. Property templates can't be removed once
+            created.
+
+            on error:RemovePropertiesError throws exception RemovePropertiesErrorException
+            */
+        void propertiesRemove(const RemovePropertiesArg& );
+        void propertiesRemove_Async(
+            const RemovePropertiesArg&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('properties/template/get')
+
+
+            Get the schema for a specified template.
+
+            on error:PropertyTemplateError throws exception PropertyTemplateErrorException
+            */
+        std::unique_ptr<properties::GetPropertyTemplateResult> propertiesTemplateGet(const properties::GetPropertyTemplateArg& );
+        void propertiesTemplateGet_Async(
+            const properties::GetPropertyTemplateArg&,
+            std::function<void(std::unique_ptr<properties::GetPropertyTemplateResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('properties/template/list')
+
+
+            Get the property template identifiers for a user. To get the schema
+            of each template use :meth:`properties_template_get`.
+
+            on error:PropertyTemplateError throws exception PropertyTemplateErrorException
+            */
+        std::unique_ptr<properties::ListPropertyTemplateIds> propertiesTemplateList();
+        void propertiesTemplateList_Async(
+            std::function<void(std::unique_ptr<properties::ListPropertyTemplateIds>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('properties/update')
+
+
+            Add, update or remove custom properties from a specified template
+            associated with a file. Fields that already exist and not described
+            in the request will not be modified.
+
+            on error:UpdatePropertiesError throws exception UpdatePropertiesErrorException
+            */
+        void propertiesUpdate(const UpdatePropertyGroupArg& );
+        void propertiesUpdate_Async(
+            const UpdatePropertyGroupArg&,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('restore')
+
+
+            Restore a file to a specific revision
+
+            on error:RestoreError throws exception RestoreErrorException
+            */
+        std::unique_ptr<FileMetadata> restore(const RestoreArg& );
+        void restore_Async(
+            const RestoreArg&,
+            std::function<void(std::unique_ptr<FileMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('save_url')
+
+
+            Save a specified URL into a file in user's Dropbox. If the given
+            path already exists, the file will be renamed to avoid the conflict
+            (e.g. myfile (1).txt).
+
+            on error:SaveUrlError throws exception SaveUrlErrorException
+            */
+        std::unique_ptr<SaveUrlResult> saveUrl(const SaveUrlArg& );
+        void saveUrl_Async(
+            const SaveUrlArg&,
+            std::function<void(std::unique_ptr<SaveUrlResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('save_url/check_job_status')
+
+
+            Check the status of a :meth:`save_url` job.
+
+            on error:PollError throws exception PollErrorException
+            */
+        std::unique_ptr<SaveUrlJobStatus> saveUrlCheckJobStatus(const async::PollArg& );
+        void saveUrlCheckJobStatus_Async(
+            const async::PollArg&,
+            std::function<void(std::unique_ptr<SaveUrlJobStatus>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('search')
+
+
+            Searches for files and folders. Note: Recent changes may not
+            immediately be reflected in search results due to a short delay in
+            indexing.
+
+            on error:SearchError throws exception SearchErrorException
+            */
+        std::unique_ptr<SearchResult> search(const SearchArg& );
+        void search_Async(
+            const SearchArg&,
+            std::function<void(std::unique_ptr<SearchResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('upload')
+
+
+            Create a new file with the contents provided in the request. Do not
+            use this to upload a file larger than 150 MB. Instead, create an
+            upload session with :meth:`upload_session_start`.
+
+            on error:UploadError throws exception UploadErrorException
+            */
+        std::unique_ptr<FileMetadata> upload(const CommitInfo& , QIODevice* readFrom);
+        void upload_Async(
+            const CommitInfo&,
+            QIODevice* data,
+            std::function<void(std::unique_ptr<FileMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('upload_session/append')
+
+
+            Append more data to an upload session. A single request should not
+            upload more than 150 MB of file contents.
+
+            on error:UploadSessionLookupError throws exception UploadSessionLookupErrorException
+            */
+        void uploadSessionAppend(const UploadSessionCursor& , QIODevice* readFrom);
+        void uploadSessionAppend_Async(
+            const UploadSessionCursor&,
+            QIODevice* data,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('upload_session/append_v2')
+
+
+            Append more data to an upload session. When the parameter close is
+            set, this call will close the session. A single request should not
+            upload more than 150 MB of file contents.
+
+            on error:UploadSessionLookupError throws exception UploadSessionLookupErrorException
+            */
+        void uploadSessionAppendV2(const UploadSessionAppendArg& , QIODevice* readFrom);
+        void uploadSessionAppendV2_Async(
+            const UploadSessionAppendArg&,
+            QIODevice* data,
+            std::function<void()> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('upload_session/finish')
+
+
+            Finish an upload session and save the uploaded data to the given
+            file path. A single request should not upload more than 150 MB of
+            file contents.
+
+            on error:UploadSessionFinishError throws exception UploadSessionFinishErrorException
+            */
+        std::unique_ptr<FileMetadata> uploadSessionFinish(const UploadSessionFinishArg& , QIODevice* readFrom);
+        void uploadSessionFinish_Async(
+            const UploadSessionFinishArg&,
+            QIODevice* data,
+            std::function<void(std::unique_ptr<FileMetadata>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('upload_session/finish_batch')
+
+
+            This route helps you commit many files at once into a user's
+            Dropbox. Use :meth:`upload_session_start` and
+            :meth:`upload_session_append_v2` to upload file contents. We
+            recommend uploading many files in parallel to increase throughput.
+            Once the file contents have been uploaded, rather than calling
+            :meth:`upload_session_finish`, use this route to finish all your
+            upload sessions in a single request. ``UploadSessionStartArg.close``
+            or ``UploadSessionAppendArg.close`` needs to be true for last
+            :meth:`upload_session_start` or :meth:`upload_session_append_v2`
+            call. This route will return job_id immediately and do the async
+            commit job in background. We have another route
+            :meth:`upload_session_finish_batch_check` to check the job status.
+            For the same account, this route should be executed serially. That
+            means you should not start next job before current job finishes.
+            Also we only allow up to 1000 entries in a single request
+
+            */
+        std::unique_ptr<async::LaunchEmptyResult> uploadSessionFinishBatch(const UploadSessionFinishBatchArg& );
+        void uploadSessionFinishBatch_Async(
+            const UploadSessionFinishBatchArg&,
+            std::function<void(std::unique_ptr<async::LaunchEmptyResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('upload_session/finish_batch/check')
+
+
+            Returns the status of an asynchronous job for
+            :meth:`upload_session_finish_batch`. If success, it returns list of
+            result for each entry
+
+            on error:PollError throws exception PollErrorException
+            */
+        std::unique_ptr<UploadSessionFinishBatchJobStatus> uploadSessionFinishBatchCheck(const async::PollArg& );
+        void uploadSessionFinishBatchCheck_Async(
+            const async::PollArg&,
+            std::function<void(std::unique_ptr<UploadSessionFinishBatchJobStatus>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+            /**
+            ApiRoute('upload_session/start')
+
+
+            Upload sessions allow you to upload a single file using multiple
+            requests. This call starts a new upload session with the given data.
+            You can then use :meth:`upload_session_append_v2` to add more data
+            and :meth:`upload_session_finish` to save all the data to a file in
+            Dropbox. A single request should not upload more than 150 MB of file
+            contents.
+
+            */
+        std::unique_ptr<UploadSessionStartResult> uploadSessionStart(const UploadSessionStartArg& , QIODevice* readFrom);
+        void uploadSessionStart_Async(
+            const UploadSessionStartArg&,
+            QIODevice* data,
+            std::function<void(std::unique_ptr<UploadSessionStartResult>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
+
+    protected:
+    };//FilesRoutes
 
 }//files
 }//dropboxQt

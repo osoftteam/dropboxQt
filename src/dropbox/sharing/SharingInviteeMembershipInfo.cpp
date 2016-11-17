@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingInviteeMembershipInfo.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

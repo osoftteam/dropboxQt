@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamDeviceSessionArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

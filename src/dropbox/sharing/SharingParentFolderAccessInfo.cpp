@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingParentFolderAccessInfo.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

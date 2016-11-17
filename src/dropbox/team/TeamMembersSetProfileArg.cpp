@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamMembersSetProfileArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

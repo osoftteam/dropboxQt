@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingTeamMemberInfo.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

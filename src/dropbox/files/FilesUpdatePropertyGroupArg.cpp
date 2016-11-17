@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesUpdatePropertyGroupArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

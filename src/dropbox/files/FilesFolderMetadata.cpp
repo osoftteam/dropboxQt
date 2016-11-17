@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesFolderMetadata.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

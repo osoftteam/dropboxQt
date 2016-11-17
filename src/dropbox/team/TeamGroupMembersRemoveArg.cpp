@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupMembersRemoveArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

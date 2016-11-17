@@ -78,13 +78,13 @@ namespace team{
             /**
                 The number of licenses available to the team.
             */
-        int m_num_licensed_users;
+        int m_num_licensed_users = {0};
 
             /**
                 The number of accounts that have been invited or are already
                 active members of the team.
             */
-        int m_num_provisioned_users;
+        int m_num_provisioned_users = {0};
 
         team_policies::TeamMemberPolicies m_policies;
 

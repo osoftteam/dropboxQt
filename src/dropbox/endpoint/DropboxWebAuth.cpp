@@ -17,12 +17,12 @@ QString DropboxWebAuth::getCodeAuthorizeUrl(const DropboxAppInfo& appInfo, QStri
     QUrlQuery q;
     q.addQueryItem("response_type", "code");
     q.addQueryItem("client_id", appInfo.getKey());
-	if(!redirectUrl.isEmpty()){
-		q.addQueryItem("redirect_uri", redirectUrl);
-	}
-	if(!antiCSRFstate.isEmpty()){
-		q.addQueryItem("state", antiCSRFstate);
-	}
+    if(!redirectUrl.isEmpty()){
+        q.addQueryItem("redirect_uri", redirectUrl);
+    }
+    if(!antiCSRFstate.isEmpty()){
+        q.addQueryItem("state", antiCSRFstate);
+    }
     url.setQuery(q);
     return url.toString();
 };
@@ -32,7 +32,7 @@ DropboxAuthInfo DropboxWebAuth::getTokenFromCode(const DropboxAppInfo& appInfo, 
     QNetworkAccessManager mgr;
     QEventLoop            loop;
     QUrl url(QString("https://%1/%2").arg(DropboxHost::DEFAULT().getApi()).arg("oauth2/token"));
-	
+    
     QUrlQuery q;
     q.addQueryItem("grant_type", "authorization_code");
     q.addQueryItem("code", code.toStdString().c_str());
@@ -63,7 +63,7 @@ DropboxAuthInfo DropboxWebAuth::getTokenFromCode(const DropboxAppInfo& appInfo, 
                                              QJsonObject js_in = doc.object();
                                              rv.accessToken = js_in["access_token"].toString();
                                              ok = true;
-                                         }				
+                                         }              
                                  }break;
                              default:
                                  {
@@ -77,7 +77,7 @@ DropboxAuthInfo DropboxWebAuth::getTokenFromCode(const DropboxAppInfo& appInfo, 
                          loop.exit();
                          if(!ok)
                              {
-                                 throw ReplyException(errorInfo, status_code, "");
+                                 throw DropboxException(errorInfo, status_code, "");
                              }        
                      });
     loop.exec();
@@ -90,7 +90,7 @@ QString DropboxWebAuth::getCodeFromRedirectServer(QString httpsRedirectUrl, QStr
     QNetworkAccessManager mgr;
     QEventLoop            loop;
 
-    QUrl url(httpsRedirectUrl);	
+    QUrl url(httpsRedirectUrl); 
     QUrlQuery q;
     q.addQueryItem("state", antiCSRFstate.toStdString().c_str());
     url.setQuery(q);
@@ -118,7 +118,7 @@ QString DropboxWebAuth::getCodeFromRedirectServer(QString httpsRedirectUrl, QStr
                                              QJsonObject js_in = doc.object();
                                              rv = js_in["code"].toString();
                                              ok = true;
-                                         }				
+                                         }              
                                  }break;
                              default:
                                  {
@@ -132,7 +132,7 @@ QString DropboxWebAuth::getCodeFromRedirectServer(QString httpsRedirectUrl, QStr
                          loop.exit();
                          if(!ok)
                              {
-                                 throw ReplyException(errorInfo, status_code, "");
+                                 throw DropboxException(errorInfo, status_code, "");
                              }        
                      });
     loop.exec();

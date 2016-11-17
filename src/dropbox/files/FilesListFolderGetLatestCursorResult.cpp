@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesListFolderGetLatestCursorResult.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

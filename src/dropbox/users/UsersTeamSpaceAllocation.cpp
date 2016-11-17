@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/users/UsersTeamSpaceAllocation.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

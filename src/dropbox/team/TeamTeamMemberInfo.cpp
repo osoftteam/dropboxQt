@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamTeamMemberInfo.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

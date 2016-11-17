@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesUploadWriteFailed.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

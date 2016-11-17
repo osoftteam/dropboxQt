@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamGetMembershipReport.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

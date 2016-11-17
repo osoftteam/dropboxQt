@@ -55,7 +55,7 @@ namespace users{
             /**
                 The user's total space usage (bytes).
             */
-        int m_used;
+        int m_used = {0};
 
             /**
                 The user's space allocation.

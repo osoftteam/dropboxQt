@@ -54,12 +54,12 @@ namespace users{
             /**
                 The total space currently used by the user's team (bytes).
             */
-        int m_used;
+        int m_used = {0};
 
             /**
                 The total space allocated to the user's team (bytes).
             */
-        int m_allocated;
+        int m_allocated = {0};
 
     };//TeamSpaceAllocation
 

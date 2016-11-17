@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingGetFileMetadataBatchArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

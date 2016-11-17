@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingInsufficientQuotaAmounts.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

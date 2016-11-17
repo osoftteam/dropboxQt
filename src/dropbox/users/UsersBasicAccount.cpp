@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/users/UsersBasicAccount.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

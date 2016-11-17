@@ -1,211 +1,294 @@
 #pragma once
 
+#include <functional>
 #include "DropboxHost.h"
 #include "ApiEndpoint.h"
 
 namespace dropboxQt{
 
-    class Endpoint: public ApiEndpoint{
-    public:
-        Endpoint(ApiClient* c);
+	class Endpoint : public ApiEndpoint {
+	public:
+		Endpoint(ApiClient* c);
 
-        template <class ARG, class RES, class RESULT_FACTORY, class EXCEPTION>
-        RES rpcStyle(QString path, const ARG& arg)
-        {
-            QJsonObject js_out(arg);
+		template <class ARG,
+			class RES,
+			class RESULT_FACTORY,
+			class EXCEPTION>
+			void rpcStyle(QString path, const ARG& arg,
+				std::function<void(RES)> completed_callback = nullptr,
+				std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr)
+		{
+			RESULT_FACTORY factory;
+			QByteArray bytes2post;
+			QJsonObject js_out(arg);
+			QUrl url(QString("https://%1/%2").arg(getHost().getApi()).arg(path));
+			QNetworkRequest req(url);
+			addAuthHeader(req);
+			req.setRawHeader("Content-Type", "application/json; charset=utf-8");
+			QJsonDocument doc(js_out);
 
-            QUrl url(QString("https://%1/%2").arg(getHost().getApi()).arg(path));
-            QNetworkRequest req(url);
-            addAuthHeader(req);
-            req.setRawHeader("Content-Type", "application/json; charset=utf-8");
+			if (js_out.isEmpty()) {
+				bytes2post.append("null");
+			}
+			else {
+				QJsonDocument doc(js_out);
+				bytes2post = doc.toJson(QJsonDocument::Compact);
+			}
+			QNetworkReply *reply = postData(req, bytes2post);			
+			if (!reply)return;
+			QObject::connect(reply, &QNetworkReply::finished, [=]()
+			{
+				int status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+				switch (status_code)
+				{
+				case 200:
+				{
+					if (completed_callback != nullptr)
+					{
+						QByteArray data = reply->readAll();
+						if (!data.isEmpty())
+						{
+							completed_callback(factory.create(data));
+						}
+					}
+				}break;
 
-            QByteArray bytes2post;
-            QJsonDocument doc(js_out);
-            
-            if(js_out.isEmpty()){
-                bytes2post.append("null");
-            }
-            else{
-                QJsonDocument doc(js_out);
-                bytes2post = doc.toJson(QJsonDocument::Compact);
-            }           
+				case 409:
+				{
+					if (failed_callback != nullptr) {
+						QByteArray exception_data = reply->readAll();
+						std::string errorInfo = prepareErrorInfo(status_code, url, exception_data).toStdString();
+						failed_callback(EXCEPTION::create(exception_data,
+							status_code,
+							errorInfo));
+					}
+				}break;
+				default:
+				{
+					if (failed_callback != nullptr) {
+						QByteArray exception_data = reply->readAll();
+						std::string errorInfo = prepareErrorInfo(status_code, url, exception_data).toStdString();
+						std::unique_ptr<DropboxException> ex(new DropboxException(errorInfo,
+							status_code,
+							""));
+						failed_callback(std::move(ex));
+					}
+				}break;
+				}
+				unregisterReply(reply);
+			});//finished
+		}
 
-            bool ok = false;
-            bool raise_details_exception = false;
-            QByteArray exception_data;
-            std::string errorInfo;
-            int status_code = 0;
-            RES res;
-            RESULT_FACTORY factory;
-            QNetworkReply *reply = postData(req, bytes2post);
-            if(!reply)return res;
-            ENDPOINT_SETUP_DEFAULT_SLOTS(reply);
-            QObject::connect(reply, &QNetworkReply::finished, [&]()
-                             {
-                                 status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-                                 switch(status_code)
-                                     {
-                                     case 200:
-                                         {
-                                             QByteArray data = reply->readAll();
-                                             if(!data.isEmpty())
-                                                 {
-                                                     res = std::move(factory.create(data));
-                                                     ok = true;
-                                                 }
-                                         }break;
-												 
-                                     case 409:
-                                         {
-                                             exception_data = reply->readAll();
-                                             ENDPOINT_PREPARE_ERR_INFO(exception_data, bytes2post);
-                                             raise_details_exception = true;
-                                         }break;
-                                     default:
-                                         {
-                                             QByteArray data = reply->readAll();
-                                             ENDPOINT_PREPARE_ERR_INFO(data, bytes2post);
-                                         }break;
-                                     }
-                                 exitEventLoop(reply);
-                             });//response lambda
-            execEventLoop(reply);
-            if(raise_details_exception)
-                {
-                    EXCEPTION::raise(exception_data, status_code, errorInfo);
-                }
-            if(!ok)
-                {
-                    throw ReplyException(errorInfo, status_code, ""); 
-                }
-            return res;
-        }
+		// void-arg + result
+		template <class RES,
+			class RESULT_FACTORY,
+			class EXCEPTION>
+			void rpcStyle(QString path,
+				std::function<void(RES)> completed_callback = nullptr,
+				std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr)
+		{
+			rpcStyle<VoidType, RES, RESULT_FACTORY, EXCEPTION>(path,
+				VoidType::instance(),
+				completed_callback,
+				failed_callback);
+		}
 
-        template <class ARG, class RES, class RESULT_FACTORY, class EXCEPTION>
-        RES downloadStyle(QString path, const ARG& arg, QIODevice* writeTo)
-        {
-            QJsonObject js_out(arg);
-            QUrl url(QString("https://%1/%2").arg(getHost().getContent()).arg(path));
-            QNetworkRequest req(url);
-            addAuthHeader(req);
-            QJsonDocument doc(js_out);
-            req.setRawHeader("Dropbox-API-Arg", doc.toJson(QJsonDocument::Compact));
+		// arg + void-result
+		template <class ARG,
+			class EXCEPTION>
+			void rpcStyle(QString path,
+				const ARG& arg,
+				std::function<void()> completed_callback = nullptr,
+				std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr)
+		{
+			std::function<void(std::unique_ptr<dropboxQt::VoidType>)> completed_with_type = nullptr;
+			if (completed_callback != nullptr)
+			{
+				completed_with_type = [=](std::unique_ptr<dropboxQt::VoidType>)
+				{
+					completed_callback();
+				};
+			}
+			rpcStyle<ARG, std::unique_ptr<VoidType>, VoidType, EXCEPTION>(path,
+				arg,
+				completed_with_type,
+				failed_callback);
+		}
 
-            bool ok = false;
-            std::string errorInfo = "", errInData = "";
-            int status_code = 0;
-            RES res;
-            RESULT_FACTORY factory;
-            QByteArray bytes2post;
-            QNetworkReply *reply = postData(req, bytes2post);
-            if(!reply)return res;
-            ENDPOINT_SETUP_DEFAULT_SLOTS(reply);
-            QObject::connect(reply, &QNetworkReply::readyRead, [&]()
-                             {
-                                 qint64 sz = reply->bytesAvailable();
-                                 if(sz > 0 && writeTo != NULL){
-                                     QByteArray data = reply->read(sz);
-                                     writeTo->write(data);
-                                     if(errInData.empty())
-                                         errInData = data.constData();
-                                 }
-                             });
+		// void-arg + void-result
+		template <class EXCEPTION>
+		void rpcStyle(QString path,
+			std::function<void()> completed_callback = nullptr,
+			std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr)
+		{
+			std::function<void(std::unique_ptr<dropboxQt::VoidType>)> completed_with_type = nullptr;
+			if (completed_callback != nullptr)
+			{
+				completed_with_type = [=](std::unique_ptr<dropboxQt::VoidType>)
+				{
+					completed_callback();
+				};
+			}
 
-            QObject::connect(reply, &QNetworkReply::finished, [&]()
-                             {
-                                 int status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-                                 switch(status_code)
-                                     {
-                                     case 200:
-                                         {
-                                             ok = true;
-                                             exitEventLoop(reply);
-                                         }break;// fall-through
-                                     case 206:
-                                         {
-                                             QList<QByteArray> lst = reply->rawHeaderList();
-                                             for(QList<QByteArray>::iterator i = lst.begin(); i != lst.end(); i++){
-                                                 QByteArray data =  reply->rawHeader(*i);
-                                                 if(!data.isEmpty())
-                                                     {
-                                                         res = std::move(factory.create(data));
-                                                         break;
-                                                     }
-                                             }
-                                             ok = true;
-                                             exitEventLoop(reply);
-                                         }break;
-                                     default:
-                                         {
-                                             QByteArray data = reply->readAll();
-                                             ENDPOINT_PREPARE_ERR_INFO(data, bytes2post);
-                                             if(data.isEmpty()){
-                                                 errorInfo += "\n";
-                                                 errorInfo += errInData;
-                                             }
-                                             exitEventLoop(reply);
-                                         }
-                                     }				
-                             });//response lambda
-            execEventLoop(reply);
-            if(!ok)
-                {
-                    throw ReplyException(errorInfo, status_code, ""); 
-                }
-            return res;
-        }
+			rpcStyle<VoidType,
+				std::unique_ptr<VoidType>,
+				VoidType,
+				EXCEPTION>(path,
+					VoidType::instance(),
+					completed_with_type,
+					failed_callback);
+		}
 
-        template <class ARG, class RES, class RESULT_FACTORY, class EXCEPTION>
-        RES uploadStyle(QString path, const ARG& arg, QIODevice* readFrom)
-        {
-            QJsonObject js_out(arg);
-            QUrl url(QString("https://%1/%2").arg(getHost().getContent()).arg(path));
-            QNetworkRequest req(url);
-            addAuthHeader(req);
-            QJsonDocument doc(js_out);
-            req.setRawHeader("Dropbox-API-Arg", doc.toJson(QJsonDocument::Compact));
-            req.setRawHeader("Content-Type", "application/octet-stream");
+		template <class ARG,
+			class RES,
+			class RESULT_FACTORY,
+			class EXCEPTION>
+			void downloadStyle(QString path,
+				const ARG& arg,
+				QIODevice* writeTo,
+				std::function<void(RES)> completed_callback = nullptr,
+				std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr)
+		{
+			QJsonObject js_out(arg);
+			QUrl url(QString("https://%1/%2").arg(getHost().getContent()).arg(path));
+			QNetworkRequest req(url);
+			addAuthHeader(req);
+			QJsonDocument doc(js_out);
+			req.setRawHeader("Dropbox-API-Arg", doc.toJson(QJsonDocument::Compact));
 
-            bool ok = false;
-            std::string errorInfo;
-            int status_code = 0;
-            RES res;
-            RESULT_FACTORY factory;
-            QNetworkReply *reply = postData(req, readFrom ? readFrom->readAll() : QByteArray());
-            if(!reply)return res;
-            ENDPOINT_SETUP_DEFAULT_SLOTS(reply);
-            QObject::connect(reply, &QNetworkReply::finished, [&]()
-                             {
-                                 int status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-                                 switch(status_code)
-                                     {
-                                     case 200:{
-                                         QByteArray data = reply->readAll();
-                                         if(!data.isEmpty())
-                                             {
-                                                 res = std::move(factory.create(data));
-                                                 ok = true;
-                                             }
-                                         exitEventLoop(reply);
-                                     }break;
-                                     default:
-                                         {
-                                             QByteArray data = reply->readAll();
-                                             QByteArray no_data_in_upload;
-                                             ENDPOINT_PREPARE_ERR_INFO(data, no_data_in_upload);
-                                             exitEventLoop(reply);
-                                         }
-                                     }
-                             });
-            execEventLoop(reply);
-            if(!ok)
-                {
-                    throw ReplyException(errorInfo, status_code, ""); 
-                }
-            return res;
-        }
+			RESULT_FACTORY factory;
+			QByteArray bytes2post;
+			QNetworkReply *reply = postData(req, bytes2post);
+			if (!reply)return;
+			QObject::connect(reply, &QNetworkReply::readyRead, [=]()
+			{
+				qint64 sz = reply->bytesAvailable();
+				if (sz > 0 && writeTo != NULL) {
+					QByteArray data = reply->read(sz);
+					writeTo->write(data);
+				}
+			});
 
-        const DropboxHost& getHost()const{return DropboxHost::DEFAULT();}
-    };//Endpoint
-    
-}//qtdropbox2
+			QObject::connect(reply, &QNetworkReply::finished, [=]()
+			{
+				int status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+				switch (status_code)
+				{
+				case 200:
+				{
+					if (completed_callback != nullptr)
+					{
+						QByteArray data;
+						completed_callback(factory.create(data));
+					}
+				}break;// fall-through
+				case 206:
+				{
+					if (completed_callback != nullptr)
+					{
+						QList<QByteArray> lst = reply->rawHeaderList();
+						for (QList<QByteArray>::iterator i = lst.begin(); i != lst.end(); i++) {
+							QByteArray data = reply->rawHeader(*i);
+							if (!data.isEmpty())
+							{
+								completed_callback(factory.create(data));
+								break;
+							}
+						}
+					}
+				}break;
+				default:
+				{
+					if (failed_callback != nullptr)
+					{
+						QByteArray exception_data = reply->readAll();
+						std::string errorInfo = prepareErrorInfo(status_code, url, exception_data).toStdString();
+						failed_callback(EXCEPTION::create(exception_data, status_code, errorInfo));
+					}
+				}
+				}
+				unregisterReply(reply);
+			});//finished
+		}
+
+		template <class ARG,
+			class RES,
+			class RESULT_FACTORY,
+			class EXCEPTION>
+			void uploadStyle(QString path,
+				const ARG& arg,
+				QIODevice* readFrom,
+				std::function<void(RES)> completed_callback = nullptr,
+				std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr)
+		{
+			QJsonObject js_out(arg);
+			QUrl url(QString("https://%1/%2").arg(getHost().getContent()).arg(path));
+			QNetworkRequest req(url);
+			addAuthHeader(req);
+			QJsonDocument doc(js_out);
+			req.setRawHeader("Dropbox-API-Arg", doc.toJson(QJsonDocument::Compact));
+			req.setRawHeader("Content-Type", "application/octet-stream");
+
+			RESULT_FACTORY factory;
+			QNetworkReply *reply = postData(req, readFrom ? readFrom->readAll() : QByteArray());
+			if (!reply)return;
+			QObject::connect(reply, &QNetworkReply::finished, [=]()
+			{
+				int status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+				switch (status_code)
+				{
+				case 200: {
+					if (completed_callback != NULL)
+					{
+						QByteArray data = reply->readAll();
+						if (!data.isEmpty())
+						{
+							completed_callback(factory.create(data));
+						}
+					}
+				}break;
+				default:
+				{
+					if (failed_callback != nullptr)
+					{
+						QByteArray exception_data = reply->readAll();
+						std::string errorInfo = prepareErrorInfo(status_code, url, exception_data).toStdString();
+						failed_callback(EXCEPTION::create(exception_data, status_code, errorInfo));
+					}
+				}
+				}
+				unregisterReply(reply);
+			});//finished
+		}//uploadStyle
+
+		// arg + void-result
+		template <class ARG,
+			class EXCEPTION>
+			void uploadStyle(QString path,
+				const ARG& arg,
+				QIODevice* readFrom,
+				std::function<void(void)> completed_callback = nullptr,
+				std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr)
+		{
+			std::function<void(std::unique_ptr<dropboxQt::VoidType>)> completed_with_type = nullptr;
+			if (completed_callback != nullptr)
+			{
+				completed_with_type = [=](std::unique_ptr<dropboxQt::VoidType>)
+				{
+					completed_callback();
+				};
+			}
+			uploadStyle<ARG, std::unique_ptr<VoidType>, VoidType, EXCEPTION>(path,
+				arg,
+				readFrom,
+				completed_with_type,
+				failed_callback);
+		}
+
+		const DropboxHost& getHost()const { return DropboxHost::DEFAULT(); }
+
+	protected:
+
+		QString prepareErrorInfo(int status_code, const QUrl& url, const QByteArray& data);
+	};//Endpoint
+}//dropboxQt

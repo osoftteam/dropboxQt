@@ -46,7 +46,7 @@ namespace files{
             /**
                 The offset up to which data has been collected.
             */
-        int m_correct_offset;
+        int m_correct_offset = {0};
 
     };//UploadSessionOffsetError
 

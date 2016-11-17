@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamRevokeDeviceSessionBatchArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

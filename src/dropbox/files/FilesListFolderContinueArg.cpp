@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesListFolderContinueArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

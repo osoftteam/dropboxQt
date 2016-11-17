@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupMembersAddArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

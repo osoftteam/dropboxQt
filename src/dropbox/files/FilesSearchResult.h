@@ -76,7 +76,7 @@ namespace files{
                 Used for paging. Value to set the start argument to when calling
                 :meth:`search` to fetch the next page of results.
             */
-        int m_start;
+        int m_start = {0};
 
     };//SearchResult
 

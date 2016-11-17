@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/async/AsyncPollArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/users/UsersGetAccountBatchArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

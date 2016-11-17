@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesCommitInfo.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

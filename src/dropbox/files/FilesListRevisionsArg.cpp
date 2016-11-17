@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesListRevisionsArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

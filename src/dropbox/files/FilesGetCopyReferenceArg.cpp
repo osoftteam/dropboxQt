@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesGetCopyReferenceArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamRevokeDesktopClientArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

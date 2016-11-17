@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingFolderPolicy.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

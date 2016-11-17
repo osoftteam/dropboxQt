@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesRemovePropertiesArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

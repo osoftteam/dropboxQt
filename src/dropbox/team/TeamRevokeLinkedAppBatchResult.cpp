@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamRevokeLinkedAppBatchResult.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

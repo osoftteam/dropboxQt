@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingTransferFolderArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

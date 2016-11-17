@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamMembersUnsuspendArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

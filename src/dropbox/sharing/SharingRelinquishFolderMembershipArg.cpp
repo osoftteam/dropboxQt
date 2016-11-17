@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingRelinquishFolderMembershipArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

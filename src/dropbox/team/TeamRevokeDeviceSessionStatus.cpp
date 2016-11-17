@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamRevokeDeviceSessionStatus.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

@@ -8,6 +8,7 @@
 #include "dropbox/files/FilesFileMetadata.h"
 #include "dropbox/files/FilesFolderMetadata.h"
 #include "dropbox/files/FilesDeletedMetadata.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamMembersRecoverArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

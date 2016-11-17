@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamDesktopClientSession.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

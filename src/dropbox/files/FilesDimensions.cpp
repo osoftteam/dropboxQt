@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesDimensions.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

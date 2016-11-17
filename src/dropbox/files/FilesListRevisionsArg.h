@@ -61,7 +61,7 @@ namespace files{
             /**
                 The maximum number of revision entries returned.
             */
-        int m_limit;
+        int m_limit = {0};
 
     };//ListRevisionsArg
 

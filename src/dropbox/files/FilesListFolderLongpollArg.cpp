@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesListFolderLongpollArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingUpdateFolderMemberArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

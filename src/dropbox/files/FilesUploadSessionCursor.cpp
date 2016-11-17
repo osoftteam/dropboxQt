@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesUploadSessionCursor.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

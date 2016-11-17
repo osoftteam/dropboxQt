@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/users/UsersIndividualSpaceAllocation.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

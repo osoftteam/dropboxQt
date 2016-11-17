@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/auth/AuthRateLimitError.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

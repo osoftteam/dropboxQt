@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesSaveUrlArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

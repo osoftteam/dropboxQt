@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingRemoveFolderMemberArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <set>
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QNetworkReply>
@@ -11,26 +12,31 @@
 
 namespace dropboxQt{
     class ApiEndpoint
-    {
+    {      
+		typedef std::set<QNetworkReply*> NET_REPLIES_IN_PROGRESS;
+
     public:
         ApiEndpoint(ApiClient* c);
         QString       lastRequestInfo()const{return m_last_request_info;}
         void          cancel();
+        void          runEventsLoop()const;
+        void          exitEventsLoop()const;
 
     protected:
-        virtual void execEventLoop(QNetworkReply *reply);
-        virtual void exitEventLoop(QNetworkReply *reply);
         virtual void addAuthHeader(QNetworkRequest& request);
         
-        virtual QNetworkReply*	getData(const QNetworkRequest &request);
-        virtual QNetworkReply*	postData(const QNetworkRequest &request, const QByteArray& data);
-        virtual QNetworkReply*	putData(const QNetworkRequest &request, const QByteArray& data);
-        virtual QNetworkReply*	deleteData(const QNetworkRequest &request);
+        virtual QNetworkReply*  getData(const QNetworkRequest &request);
+        virtual QNetworkReply*  postData(const QNetworkRequest &request, const QByteArray& data);
+        virtual QNetworkReply*  putData(const QNetworkRequest &request, const QByteArray& data);
+        virtual QNetworkReply*  deleteData(const QNetworkRequest &request);
+
+        virtual void            registerReply(QNetworkReply*);
+        virtual void            unregisterReply(QNetworkReply*);
     protected:
         QNetworkAccessManager m_con_mgr;
-        QEventLoop            m_loop;
+        mutable QEventLoop    m_loop;
         ApiClient*            m_client;
-        QNetworkReply*        m_reply_in_progress;
+        NET_REPLIES_IN_PROGRESS m_replies_in_progress;
         QString               m_last_request_info;        
     };
 }

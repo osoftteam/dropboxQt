@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "dropbox/DropboxRouteBase.h"
 #include "dropbox/endpoint/ApiUtil.h"
 #include "dropbox/users/UsersBasicAccount.h"
 #include "dropbox/users/UsersFullAccount.h"
@@ -16,13 +17,18 @@
 #include "dropbox/users/UsersSpaceUsage.h"
 
 namespace dropboxQt{
-
-class Endpoint;
-
 namespace users{
-    class UsersRoutes{
+
+    ///exception GetAccountError for get_account
+    DECLARE_API_ERR_EXCEPTION(GetAccountErrorException, users::GetAccountError);
+
+    ///exception GetAccountBatchError for get_account_batch
+    DECLARE_API_ERR_EXCEPTION(GetAccountBatchErrorException, users::GetAccountBatchError);
+
+
+    class UsersRoutes: public DropboxRouteBase{
     public:
-        UsersRoutes(Endpoint*);
+        UsersRoutes(Endpoint* ep):DropboxRouteBase(ep){};
             /**
             ApiRoute('get_account')
 
@@ -32,6 +38,10 @@ namespace users{
             on error:GetAccountError throws exception GetAccountErrorException
             */
         std::unique_ptr<BasicAccount> getAccount(const GetAccountArg& );
+        void getAccount_Async(
+            const GetAccountArg&,
+            std::function<void(std::unique_ptr<BasicAccount>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
 
             /**
             ApiRoute('get_account_batch')
@@ -42,7 +52,11 @@ namespace users{
 
             on error:GetAccountBatchError throws exception GetAccountBatchErrorException
             */
-        std::list <BasicAccount> getAccountBatch(const GetAccountBatchArg& );
+        std::unique_ptr<std::list <BasicAccount>> getAccountBatch(const GetAccountBatchArg& );
+        void getAccountBatch_Async(
+            const GetAccountBatchArg&,
+            std::function<void(std::unique_ptr<std::list <BasicAccount>>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
 
             /**
             ApiRoute('get_current_account')
@@ -51,7 +65,10 @@ namespace users{
             Get information about the current user's account.
 
             */
-        std::unique_ptr<FullAccount> getCurrentAccount(void);
+        std::unique_ptr<FullAccount> getCurrentAccount();
+        void getCurrentAccount_Async(
+            std::function<void(std::unique_ptr<FullAccount>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
 
             /**
             ApiRoute('get_space_usage')
@@ -60,18 +77,13 @@ namespace users{
             Get the space usage information for the current user's account.
 
             */
-        std::unique_ptr<SpaceUsage> getSpaceUsage(void);
+        std::unique_ptr<SpaceUsage> getSpaceUsage();
+        void getSpaceUsage_Async(
+            std::function<void(std::unique_ptr<SpaceUsage>)> completed_callback = nullptr,
+            std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
 
     protected:
-        Endpoint* m_end_point;
     };//UsersRoutes
-
-    ///exception GetAccountError for get_account
-    DECLARE_API_ERR_EXCEPTION(GetAccountErrorException, users::GetAccountError);
-
-    ///exception GetAccountBatchError for get_account_batch
-    DECLARE_API_ERR_EXCEPTION(GetAccountBatchErrorException, users::GetAccountBatchError);
-
 
 }//users
 }//dropboxQt

@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamGetActivityReport.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

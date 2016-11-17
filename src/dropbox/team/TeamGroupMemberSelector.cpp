@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamGroupMemberSelector.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

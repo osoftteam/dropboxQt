@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesListFolderResult.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

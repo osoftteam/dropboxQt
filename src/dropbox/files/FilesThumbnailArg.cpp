@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesThumbnailArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

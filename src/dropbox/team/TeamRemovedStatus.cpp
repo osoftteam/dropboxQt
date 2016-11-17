@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamRemovedStatus.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

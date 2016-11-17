@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamMobileClientSession.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

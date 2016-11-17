@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesRestoreArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

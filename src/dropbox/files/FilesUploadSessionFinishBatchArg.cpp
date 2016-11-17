@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesUploadSessionFinishBatchArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

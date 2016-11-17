@@ -11,7 +11,8 @@ namespace dropboxQt{
         void setToken(QString s){m_token = s;}
 
     signals:
-        void progress(qint64 bytesProcessed, qint64 total);
+        void downloadProgress(qint64 bytesProcessed, qint64 total);
+        void uploadProgress(qint64 bytesProcessed, qint64 total);
 
     protected:
         QString m_token;

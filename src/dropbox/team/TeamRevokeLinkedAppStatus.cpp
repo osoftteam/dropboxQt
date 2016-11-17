@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamRevokeLinkedAppStatus.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

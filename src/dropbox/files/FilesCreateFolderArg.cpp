@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesCreateFolderArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

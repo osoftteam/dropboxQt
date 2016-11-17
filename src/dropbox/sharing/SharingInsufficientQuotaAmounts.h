@@ -65,18 +65,18 @@ namespace sharing{
                 The amount of space needed to add the item (the size of the
                 item).
             */
-        int m_space_needed;
+        int m_space_needed = {0};
 
             /**
                 The amount of extra space needed to add the item.
             */
-        int m_space_shortage;
+        int m_space_shortage = {0};
 
             /**
                 The amount of space left in the user's Dropbox, less than
                 space_needed.
             */
-        int m_space_left;
+        int m_space_left = {0};
 
     };//InsufficientQuotaAmounts
 

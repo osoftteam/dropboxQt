@@ -66,7 +66,7 @@ namespace files{
                 make sure upload data isn't lost or duplicated in the event of a
                 network error.
             */
-        int m_offset;
+        int m_offset = {0};
 
     };//UploadSessionCursor
 

@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingChangeFileMemberAccessArgs.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

@@ -59,7 +59,7 @@ namespace sharing{
                 The number of members on this file. This does not include
                 inherited members
             */
-        int m_member_count;
+        int m_member_count = {0};
 
     };//ListFileMembersCountResult
 

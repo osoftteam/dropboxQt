@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingFileMemberActionResult.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

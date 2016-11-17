@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesSharingInfo.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

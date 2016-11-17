@@ -1,6 +1,5 @@
 #include <QFile>
 #include <QJsonParseError>
-#include <functional>
 #include "ApiUtil.h"
 
 namespace dropboxQt{

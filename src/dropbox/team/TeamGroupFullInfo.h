@@ -64,7 +64,7 @@ namespace team{
                 The group creation time as a UTC timestamp in milliseconds since
                 the Unix epoch.
             */
-        int m_created;
+        int m_created = {0};
 
     };//GroupFullInfo
 

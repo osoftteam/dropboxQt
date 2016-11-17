@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingListSharedLinksArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

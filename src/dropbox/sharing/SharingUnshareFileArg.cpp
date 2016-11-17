@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingUnshareFileArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

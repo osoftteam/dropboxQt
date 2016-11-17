@@ -13,6 +13,50 @@ namespace dropboxQt{
     namespace users     { class UsersRoutes; };
     class Endpoint;
 
+	/**
+		@brief DropboxClient - v2 Dropbox API Client for Qt/C++11
+		Usage sample
+	
+        using namespace dropboxQt;
+        DropboxClient dbox("ACCESS_TOKEN");
+	    files::CreateFolderArg arg("path_to_new_folder");
+	
+		//1---- async call, no exceptions, callback on completed ----
+		dbox.getFiles()->createFolder_Async(arg, [](std::unique_ptr<files::FolderMetadata> res)
+		{
+			qDebug() << "folder created, id=" << res->id();
+		});
+	
+		//---- also callback on completed and error ----
+		dbox.getFiles()->createFolder_Async(arg, [](std::unique_ptr<files::FolderMetadata> res)
+		{
+			qDebug() << "folder created, id=" << res->id();
+		},
+			[](std::unique_ptr<DropboxException> e) 
+		{
+			qDebug() << "Exception: " << e->what();
+		});
+	
+		//2---- blocking call, no callbacks, exception checking ---
+		try
+		{
+			std::unique_ptr<files::FolderMetadata> res = dbox.getFiles()->createFolder(arg);
+			qDebug() << "folder created, id=" << res->id();
+		}
+		catch (DropboxException& e)
+		{
+			qDebug() << "Exception: " << e.what();
+		}
+	
+	   //3---- blocking call, no callbacks, no exception, returns boolean
+	   if(dbox.createFolder("path_to_new_folder")){
+			qDebug() << "folder created";
+		}
+		else{
+			qDebug() << "failed to create folder";
+		}	   
+	*/
+
     class DropboxClient: public ApiClient{
     Q_OBJECT
     public:
@@ -84,10 +128,10 @@ namespace dropboxQt{
     };//DropboxClient
 
 
-	namespace files
-	{
-		class Metadata;
-	};
+    namespace files
+    {
+        class Metadata;
+    };
 
-	typedef std::list <std::unique_ptr<files::Metadata>> FOLDER_ENTRIES;
+    typedef std::list <std::unique_ptr<files::Metadata>> FOLDER_ENTRIES;
 }//dropboxQt

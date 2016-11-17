@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/users/UsersTeam.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

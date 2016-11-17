@@ -97,7 +97,7 @@ namespace sharing{
                 Number of members to return max per query. Defaults to 100 if no
                 limit is specified.
             */
-        int m_limit;
+        int m_limit = {0};
 
     };//ListFileMembersArg
 

@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamStorageBucket.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

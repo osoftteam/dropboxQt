@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team_policies/TeamPoliciesTeamMemberPolicies.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

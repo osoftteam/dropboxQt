@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/users/UsersGetAccountArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

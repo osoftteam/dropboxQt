@@ -65,7 +65,7 @@ namespace team{
                 The number of people whose storage is in the range of this
                 storage bucket.
             */
-        int m_users;
+        int m_users = {0};
 
     };//StorageBucket
 

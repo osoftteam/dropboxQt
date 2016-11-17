@@ -63,7 +63,7 @@ namespace sharing{
             /**
                 The maximum number of results to return per request.
             */
-        int m_limit;
+        int m_limit = {0};
 
             /**
                 This is a list indicating whether each returned folder data

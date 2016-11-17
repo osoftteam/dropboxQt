@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamListMembersAppsResult.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

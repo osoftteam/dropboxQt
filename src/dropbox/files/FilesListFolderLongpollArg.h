@@ -82,7 +82,7 @@ namespace files{
                 using this parameter, as some network infrastructure does not
                 support long timeouts.
             */
-        int m_timeout;
+        int m_timeout = {0};
 
     };//ListFolderLongpollArg
 

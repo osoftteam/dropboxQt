@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/files/FilesGetMetadataArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

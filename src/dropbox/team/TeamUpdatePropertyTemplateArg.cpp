@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/team/TeamUpdatePropertyTemplateArg.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

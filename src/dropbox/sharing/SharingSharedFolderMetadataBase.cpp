@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingSharedFolderMetadataBase.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 

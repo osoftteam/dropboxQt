@@ -5,6 +5,7 @@
 ***********************************************************/
 
 #include "dropbox/sharing/SharingMemberAccessLevelResult.h"
+using namespace dropboxQt;
 
 namespace dropboxQt{
 
