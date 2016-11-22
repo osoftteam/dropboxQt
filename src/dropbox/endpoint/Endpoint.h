@@ -46,10 +46,12 @@ namespace dropboxQt{
 					if (completed_callback != nullptr)
 					{
 						QByteArray data = reply->readAll();
+                        completed_callback(factory.create(data));
+                        /*
 						if (!data.isEmpty())
 						{
 							completed_callback(factory.create(data));
-						}
+                            }*/
 					}
 				}break;
 
@@ -182,23 +184,29 @@ namespace dropboxQt{
 				{
 					if (completed_callback != nullptr)
 					{
-						QByteArray data;
-						completed_callback(factory.create(data));
+                        //						QByteArray data;
+						completed_callback(factory.create(QByteArray()));
 					}
 				}break;// fall-through
 				case 206:
 				{
 					if (completed_callback != nullptr)
 					{
+                        bool processed206 = false;
 						QList<QByteArray> lst = reply->rawHeaderList();
 						for (QList<QByteArray>::iterator i = lst.begin(); i != lst.end(); i++) {
 							QByteArray data = reply->rawHeader(*i);
 							if (!data.isEmpty())
 							{
+                                processed206 = true;
 								completed_callback(factory.create(data));
 								break;
 							}
 						}
+
+                        if(!processed206){
+                            completed_callback(factory.create(QByteArray()));
+                        }
 					}
 				}break;
 				default:
@@ -249,10 +257,12 @@ namespace dropboxQt{
 					if (completed_callback != NULL)
 					{
 						QByteArray data = reply->readAll();
+                        completed_callback(factory.create(data));
+                        /*
 						if (!data.isEmpty())
 						{
 							completed_callback(factory.create(data));
-						}
+                            }*/
 					}
 				}break;
 				default:

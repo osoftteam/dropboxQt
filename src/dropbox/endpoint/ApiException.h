@@ -47,28 +47,6 @@ namespace dropboxQt{
         std::string m_what;
     };
 
-    /*
-    class ReplyException: public DropboxException
-    {
-    public:
-        explicit ReplyException(const std::string& message, int code, const std::string summary)
-            :DropboxException(message, code), m_error_summary(summary){build("");};
-
-        virtual const char* what() const throw (){
-            return m_what.c_str();
-        }
-
-        const std::string& errSummary()const{return m_error_summary;}
-        void raise()override { throw *this; }
-        
-    protected:
-        void build(std::string err);
-        
-    protected:
-        std::string m_error_summary;
-        std::string m_what;
-    };
-    */
     class IllegalStateException: public DropboxException
     {
     public:
@@ -89,8 +67,6 @@ namespace dropboxQt{
     protected:                                                                          \
         F m_err;                                                                        \
     };                                                                                  \
-
-//  static void raise(const QByteArray& data, int status_code, const std::string& message); 
 
 
 #define IMPLEMENT_API_ERR_EXCEPTION(E, F) E::E(const F& err, const std::string& summary, int status_code, const std::string& message)\
