@@ -116,8 +116,12 @@ namespace dropboxQt{
         /// return list of the files in a folder
         std::list<QString> listFolder(QString dropboxPath);
 
+        /// HTTP calls debug function
         QString lastApiCall();
 
+        /// cancell all current pending Dropbox requests
+        void cancellAll();
+        
     protected:
         std::unique_ptr<auth::AuthRoutes>           m_AuthRoutes;
         std::unique_ptr<files::FilesRoutes>         m_FilesRoutes;

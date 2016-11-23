@@ -8,8 +8,8 @@
 #include "dropbox/users/UsersRoutes.h"
 #include "dropbox/endpoint/Endpoint.h"
 
+using namespace dropboxQt;
 
-namespace dropboxQt{
 DropboxClient::DropboxClient()
 {
     m_endpoint.reset(new Endpoint(this));
@@ -286,5 +286,7 @@ bool DropboxClient::folderExists(QString dropboxPath)
 
 };
 
-
-}//dropboxQt
+void DropboxClient::cancellAll()
+{
+    m_endpoint->cancelAll();
+};
