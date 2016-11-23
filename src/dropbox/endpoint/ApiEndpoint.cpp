@@ -20,7 +20,7 @@ void ApiEndpoint::addAuthHeader(QNetworkRequest& request)
     request.setRawHeader("Authorization", bearer.toUtf8());
 };
 
-void ApiEndpoint::cancel()
+void ApiEndpoint::cancelAll()
 {
     NET_REPLIES_IN_PROGRESS copy_of_replies = m_replies_in_progress;
     std::for_each(copy_of_replies.begin(), copy_of_replies.end(), [](QNetworkReply *r) 

@@ -13,12 +13,12 @@
 namespace dropboxQt{
     class ApiEndpoint
     {      
-		typedef std::set<QNetworkReply*> NET_REPLIES_IN_PROGRESS;
+        typedef std::set<QNetworkReply*> NET_REPLIES_IN_PROGRESS;
 
     public:
         ApiEndpoint(ApiClient* c);
         QString       lastRequestInfo()const{return m_last_request_info;}
-        void          cancel();
+        void          cancelAll();
         void          runEventsLoop()const;
         void          exitEventsLoop()const;
 
