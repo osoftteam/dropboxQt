@@ -210,7 +210,8 @@ namespace sharing{
             on error:AddFileMemberError throws exception AddFileMemberErrorException
             */
         std::unique_ptr<std::list <FileMemberActionResult>> addFileMember(const AddFileMemberArgs& );
-        void addFileMember_Async(
+        DropboxTask<std::list <FileMemberActionResult>>* addFileMember_Async(const AddFileMemberArgs&);
+        void addFileMember_AsyncCB(
             const AddFileMemberArgs&,
             std::function<void(std::unique_ptr<std::list <FileMemberActionResult>>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -228,7 +229,8 @@ namespace sharing{
             on error:AddFolderMemberError throws exception AddFolderMemberErrorException
             */
         void addFolderMember(const AddFolderMemberArg& );
-        void addFolderMember_Async(
+        DropboxVoidTask* addFolderMember_Async(const AddFolderMemberArg&);
+        void addFolderMember_AsyncCB(
             const AddFolderMemberArg&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -242,7 +244,8 @@ namespace sharing{
             on error:FileMemberActionError throws exception FileMemberActionErrorException
             */
         std::unique_ptr<FileMemberActionResult> changeFileMemberAccess(const ChangeFileMemberAccessArgs& );
-        void changeFileMemberAccess_Async(
+        DropboxTask<FileMemberActionResult>* changeFileMemberAccess_Async(const ChangeFileMemberAccessArgs&);
+        void changeFileMemberAccess_AsyncCB(
             const ChangeFileMemberAccessArgs&,
             std::function<void(std::unique_ptr<FileMemberActionResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -257,7 +260,8 @@ namespace sharing{
             on error:PollError throws exception PollErrorException
             */
         std::unique_ptr<JobStatus> checkJobStatus(const async::PollArg& );
-        void checkJobStatus_Async(
+        DropboxTask<JobStatus>* checkJobStatus_Async(const async::PollArg&);
+        void checkJobStatus_AsyncCB(
             const async::PollArg&,
             std::function<void(std::unique_ptr<JobStatus>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -272,7 +276,8 @@ namespace sharing{
             on error:PollError throws exception PollErrorException
             */
         std::unique_ptr<RemoveMemberJobStatus> checkRemoveMemberJobStatus(const async::PollArg& );
-        void checkRemoveMemberJobStatus_Async(
+        DropboxTask<RemoveMemberJobStatus>* checkRemoveMemberJobStatus_Async(const async::PollArg&);
+        void checkRemoveMemberJobStatus_AsyncCB(
             const async::PollArg&,
             std::function<void(std::unique_ptr<RemoveMemberJobStatus>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -287,7 +292,8 @@ namespace sharing{
             on error:PollError throws exception PollErrorException
             */
         std::unique_ptr<ShareFolderJobStatus> checkShareJobStatus(const async::PollArg& );
-        void checkShareJobStatus_Async(
+        DropboxTask<ShareFolderJobStatus>* checkShareJobStatus_Async(const async::PollArg&);
+        void checkShareJobStatus_AsyncCB(
             const async::PollArg&,
             std::function<void(std::unique_ptr<ShareFolderJobStatus>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -309,7 +315,8 @@ namespace sharing{
             on error:CreateSharedLinkError throws exception CreateSharedLinkErrorException
             */
         std::unique_ptr<PathLinkMetadata> createSharedLink(const CreateSharedLinkArg& );
-        void createSharedLink_Async(
+        DropboxTask<PathLinkMetadata>* createSharedLink_Async(const CreateSharedLinkArg&);
+        void createSharedLink_AsyncCB(
             const CreateSharedLinkArg&,
             std::function<void(std::unique_ptr<PathLinkMetadata>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -326,7 +333,8 @@ namespace sharing{
             on error:CreateSharedLinkWithSettingsError throws exception CreateSharedLinkWithSettingsErrorException
             */
         std::unique_ptr<SharedLinkMetadata> createSharedLinkWithSettings(const CreateSharedLinkWithSettingsArg& );
-        void createSharedLinkWithSettings_Async(
+        DropboxTask<SharedLinkMetadata>* createSharedLinkWithSettings_Async(const CreateSharedLinkWithSettingsArg&);
+        void createSharedLinkWithSettings_AsyncCB(
             const CreateSharedLinkWithSettingsArg&,
             std::function<void(std::unique_ptr<SharedLinkMetadata>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -340,7 +348,8 @@ namespace sharing{
             on error:GetFileMetadataError throws exception GetFileMetadataErrorException
             */
         std::unique_ptr<SharedFileMetadata> getFileMetadata(const GetFileMetadataArg& );
-        void getFileMetadata_Async(
+        DropboxTask<SharedFileMetadata>* getFileMetadata_Async(const GetFileMetadataArg&);
+        void getFileMetadata_AsyncCB(
             const GetFileMetadataArg&,
             std::function<void(std::unique_ptr<SharedFileMetadata>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -354,7 +363,8 @@ namespace sharing{
             on error:SharingUserError throws exception SharingUserErrorException
             */
         std::unique_ptr<std::list <GetFileMetadataBatchResult>> getFileMetadataBatch(const GetFileMetadataBatchArg& );
-        void getFileMetadataBatch_Async(
+        DropboxTask<std::list <GetFileMetadataBatchResult>>* getFileMetadataBatch_Async(const GetFileMetadataBatchArg&);
+        void getFileMetadataBatch_AsyncCB(
             const GetFileMetadataBatchArg&,
             std::function<void(std::unique_ptr<std::list <GetFileMetadataBatchResult>>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -369,7 +379,8 @@ namespace sharing{
             on error:SharedFolderAccessError throws exception SharedFolderAccessErrorException
             */
         std::unique_ptr<SharedFolderMetadata> getFolderMetadata(const GetMetadataArgs& );
-        void getFolderMetadata_Async(
+        DropboxTask<SharedFolderMetadata>* getFolderMetadata_Async(const GetMetadataArgs&);
+        void getFolderMetadata_AsyncCB(
             const GetMetadataArgs&,
             std::function<void(std::unique_ptr<SharedFolderMetadata>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -383,7 +394,8 @@ namespace sharing{
             on error:GetSharedLinkFileError throws exception GetSharedLinkFileErrorException
             */
         std::unique_ptr<SharedLinkMetadata> getSharedLinkFile(const GetSharedLinkMetadataArg& , QIODevice* writeTo);
-        void getSharedLinkFile_Async(
+        DropboxTask<SharedLinkMetadata>* getSharedLinkFile_Async(const GetSharedLinkMetadataArg&, QIODevice* data);
+        void getSharedLinkFile_AsyncCB(
             const GetSharedLinkMetadataArg&,
             QIODevice* data,
             std::function<void(std::unique_ptr<SharedLinkMetadata>)> completed_callback = nullptr,
@@ -398,7 +410,8 @@ namespace sharing{
             on error:SharedLinkError throws exception SharedLinkErrorException
             */
         std::unique_ptr<SharedLinkMetadata> getSharedLinkMetadata(const GetSharedLinkMetadataArg& );
-        void getSharedLinkMetadata_Async(
+        DropboxTask<SharedLinkMetadata>* getSharedLinkMetadata_Async(const GetSharedLinkMetadataArg&);
+        void getSharedLinkMetadata_AsyncCB(
             const GetSharedLinkMetadataArg&,
             std::function<void(std::unique_ptr<SharedLinkMetadata>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -418,7 +431,8 @@ namespace sharing{
             on error:GetSharedLinksError throws exception GetSharedLinksErrorException
             */
         std::unique_ptr<GetSharedLinksResult> getSharedLinks(const GetSharedLinksArg& );
-        void getSharedLinks_Async(
+        DropboxTask<GetSharedLinksResult>* getSharedLinks_Async(const GetSharedLinksArg&);
+        void getSharedLinks_AsyncCB(
             const GetSharedLinksArg&,
             std::function<void(std::unique_ptr<GetSharedLinksResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -433,7 +447,8 @@ namespace sharing{
             on error:ListFileMembersError throws exception ListFileMembersErrorException
             */
         std::unique_ptr<SharedFileMembers> listFileMembers(const ListFileMembersArg& );
-        void listFileMembers_Async(
+        DropboxTask<SharedFileMembers>* listFileMembers_Async(const ListFileMembersArg&);
+        void listFileMembers_AsyncCB(
             const ListFileMembersArg&,
             std::function<void(std::unique_ptr<SharedFileMembers>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -451,7 +466,8 @@ namespace sharing{
             on error:SharingUserError throws exception SharingUserErrorException
             */
         std::unique_ptr<std::list <ListFileMembersBatchResult>> listFileMembersBatch(const ListFileMembersBatchArg& );
-        void listFileMembersBatch_Async(
+        DropboxTask<std::list <ListFileMembersBatchResult>>* listFileMembersBatch_Async(const ListFileMembersBatchArg&);
+        void listFileMembersBatch_AsyncCB(
             const ListFileMembersBatchArg&,
             std::function<void(std::unique_ptr<std::list <ListFileMembersBatchResult>>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -467,7 +483,8 @@ namespace sharing{
             on error:ListFileMembersContinueError throws exception ListFileMembersContinueErrorException
             */
         std::unique_ptr<SharedFileMembers> listFileMembersContinue(const ListFileMembersContinueArg& );
-        void listFileMembersContinue_Async(
+        DropboxTask<SharedFileMembers>* listFileMembersContinue_Async(const ListFileMembersContinueArg&);
+        void listFileMembersContinue_AsyncCB(
             const ListFileMembersContinueArg&,
             std::function<void(std::unique_ptr<SharedFileMembers>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -482,7 +499,8 @@ namespace sharing{
             on error:SharedFolderAccessError throws exception SharedFolderAccessErrorException
             */
         std::unique_ptr<SharedFolderMembers> listFolderMembers(const ListFolderMembersArgs& );
-        void listFolderMembers_Async(
+        DropboxTask<SharedFolderMembers>* listFolderMembers_Async(const ListFolderMembersArgs&);
+        void listFolderMembers_AsyncCB(
             const ListFolderMembersArgs&,
             std::function<void(std::unique_ptr<SharedFolderMembers>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -498,7 +516,8 @@ namespace sharing{
             on error:ListFolderMembersContinueError throws exception ListFolderMembersContinueErrorException
             */
         std::unique_ptr<SharedFolderMembers> listFolderMembersContinue(const ListFolderMembersContinueArg& );
-        void listFolderMembersContinue_Async(
+        DropboxTask<SharedFolderMembers>* listFolderMembersContinue_Async(const ListFolderMembersContinueArg&);
+        void listFolderMembersContinue_AsyncCB(
             const ListFolderMembersContinueArg&,
             std::function<void(std::unique_ptr<SharedFolderMembers>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -512,7 +531,8 @@ namespace sharing{
 
             */
         std::unique_ptr<ListFoldersResult> listFolders(const ListFoldersArgs& );
-        void listFolders_Async(
+        DropboxTask<ListFoldersResult>* listFolders_Async(const ListFoldersArgs&);
+        void listFolders_AsyncCB(
             const ListFoldersArgs&,
             std::function<void(std::unique_ptr<ListFoldersResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -530,7 +550,8 @@ namespace sharing{
             on error:ListFoldersContinueError throws exception ListFoldersContinueErrorException
             */
         std::unique_ptr<ListFoldersResult> listFoldersContinue(const ListFoldersContinueArg& );
-        void listFoldersContinue_Async(
+        DropboxTask<ListFoldersResult>* listFoldersContinue_Async(const ListFoldersContinueArg&);
+        void listFoldersContinue_AsyncCB(
             const ListFoldersContinueArg&,
             std::function<void(std::unique_ptr<ListFoldersResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -544,7 +565,8 @@ namespace sharing{
 
             */
         std::unique_ptr<ListFoldersResult> listMountableFolders(const ListFoldersArgs& );
-        void listMountableFolders_Async(
+        DropboxTask<ListFoldersResult>* listMountableFolders_Async(const ListFoldersArgs&);
+        void listMountableFolders_AsyncCB(
             const ListFoldersArgs&,
             std::function<void(std::unique_ptr<ListFoldersResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -563,7 +585,8 @@ namespace sharing{
             on error:ListFoldersContinueError throws exception ListFoldersContinueErrorException
             */
         std::unique_ptr<ListFoldersResult> listMountableFoldersContinue(const ListFoldersContinueArg& );
-        void listMountableFoldersContinue_Async(
+        DropboxTask<ListFoldersResult>* listMountableFoldersContinue_Async(const ListFoldersContinueArg&);
+        void listMountableFoldersContinue_AsyncCB(
             const ListFoldersContinueArg&,
             std::function<void(std::unique_ptr<ListFoldersResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -579,7 +602,8 @@ namespace sharing{
             on error:SharingUserError throws exception SharingUserErrorException
             */
         std::unique_ptr<ListFilesResult> listReceivedFiles(const ListFilesArg& );
-        void listReceivedFiles_Async(
+        DropboxTask<ListFilesResult>* listReceivedFiles_Async(const ListFilesArg&);
+        void listReceivedFiles_AsyncCB(
             const ListFilesArg&,
             std::function<void(std::unique_ptr<ListFilesResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -593,7 +617,8 @@ namespace sharing{
             on error:ListFilesContinueError throws exception ListFilesContinueErrorException
             */
         std::unique_ptr<ListFilesResult> listReceivedFilesContinue(const ListFilesContinueArg& );
-        void listReceivedFilesContinue_Async(
+        DropboxTask<ListFilesResult>* listReceivedFilesContinue_Async(const ListFilesContinueArg&);
+        void listReceivedFilesContinue_AsyncCB(
             const ListFilesContinueArg&,
             std::function<void(std::unique_ptr<ListFilesResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -612,7 +637,8 @@ namespace sharing{
             on error:ListSharedLinksError throws exception ListSharedLinksErrorException
             */
         std::unique_ptr<ListSharedLinksResult> listSharedLinks(const ListSharedLinksArg& );
-        void listSharedLinks_Async(
+        DropboxTask<ListSharedLinksResult>* listSharedLinks_Async(const ListSharedLinksArg&);
+        void listSharedLinks_AsyncCB(
             const ListSharedLinksArg&,
             std::function<void(std::unique_ptr<ListSharedLinksResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -632,7 +658,8 @@ namespace sharing{
             on error:ModifySharedLinkSettingsError throws exception ModifySharedLinkSettingsErrorException
             */
         std::unique_ptr<SharedLinkMetadata> modifySharedLinkSettings(const ModifySharedLinkSettingsArgs& );
-        void modifySharedLinkSettings_Async(
+        DropboxTask<SharedLinkMetadata>* modifySharedLinkSettings_Async(const ModifySharedLinkSettingsArgs&);
+        void modifySharedLinkSettings_AsyncCB(
             const ModifySharedLinkSettingsArgs&,
             std::function<void(std::unique_ptr<SharedLinkMetadata>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -649,7 +676,8 @@ namespace sharing{
             on error:MountFolderError throws exception MountFolderErrorException
             */
         std::unique_ptr<SharedFolderMetadata> mountFolder(const MountFolderArg& );
-        void mountFolder_Async(
+        DropboxTask<SharedFolderMetadata>* mountFolder_Async(const MountFolderArg&);
+        void mountFolder_AsyncCB(
             const MountFolderArg&,
             std::function<void(std::unique_ptr<SharedFolderMetadata>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -666,7 +694,8 @@ namespace sharing{
             on error:RelinquishFileMembershipError throws exception RelinquishFileMembershipErrorException
             */
         void relinquishFileMembership(const RelinquishFileMembershipArg& );
-        void relinquishFileMembership_Async(
+        DropboxVoidTask* relinquishFileMembership_Async(const RelinquishFileMembershipArg&);
+        void relinquishFileMembership_AsyncCB(
             const RelinquishFileMembershipArg&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -685,7 +714,8 @@ namespace sharing{
             on error:RelinquishFolderMembershipError throws exception RelinquishFolderMembershipErrorException
             */
         std::unique_ptr<async::LaunchEmptyResult> relinquishFolderMembership(const RelinquishFolderMembershipArg& );
-        void relinquishFolderMembership_Async(
+        DropboxTask<async::LaunchEmptyResult>* relinquishFolderMembership_Async(const RelinquishFolderMembershipArg&);
+        void relinquishFolderMembership_AsyncCB(
             const RelinquishFolderMembershipArg&,
             std::function<void(std::unique_ptr<async::LaunchEmptyResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -700,7 +730,8 @@ namespace sharing{
             on error:RemoveFileMemberError throws exception RemoveFileMemberErrorException
             */
         std::unique_ptr<FileMemberActionIndividualResult> removeFileMember(const RemoveFileMemberArg& );
-        void removeFileMember_Async(
+        DropboxTask<FileMemberActionIndividualResult>* removeFileMember_Async(const RemoveFileMemberArg&);
+        void removeFileMember_AsyncCB(
             const RemoveFileMemberArg&,
             std::function<void(std::unique_ptr<FileMemberActionIndividualResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -714,7 +745,8 @@ namespace sharing{
             on error:RemoveFileMemberError throws exception RemoveFileMemberErrorException
             */
         std::unique_ptr<FileMemberRemoveActionResult> removeFileMember2(const RemoveFileMemberArg& );
-        void removeFileMember2_Async(
+        DropboxTask<FileMemberRemoveActionResult>* removeFileMember2_Async(const RemoveFileMemberArg&);
+        void removeFileMember2_AsyncCB(
             const RemoveFileMemberArg&,
             std::function<void(std::unique_ptr<FileMemberRemoveActionResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -730,7 +762,8 @@ namespace sharing{
             on error:RemoveFolderMemberError throws exception RemoveFolderMemberErrorException
             */
         std::unique_ptr<async::LaunchResultBase> removeFolderMember(const RemoveFolderMemberArg& );
-        void removeFolderMember_Async(
+        DropboxTask<async::LaunchResultBase>* removeFolderMember_Async(const RemoveFolderMemberArg&);
+        void removeFolderMember_AsyncCB(
             const RemoveFolderMemberArg&,
             std::function<void(std::unique_ptr<async::LaunchResultBase>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -749,7 +782,8 @@ namespace sharing{
             on error:RevokeSharedLinkError throws exception RevokeSharedLinkErrorException
             */
         void revokeSharedLink(const RevokeSharedLinkArg& );
-        void revokeSharedLink_Async(
+        DropboxVoidTask* revokeSharedLink_Async(const RevokeSharedLinkArg&);
+        void revokeSharedLink_AsyncCB(
             const RevokeSharedLinkArg&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -770,7 +804,8 @@ namespace sharing{
             on error:ShareFolderError throws exception ShareFolderErrorException
             */
         std::unique_ptr<ShareFolderLaunch> shareFolder(const ShareFolderArg& );
-        void shareFolder_Async(
+        DropboxTask<ShareFolderLaunch>* shareFolder_Async(const ShareFolderArg&);
+        void shareFolder_AsyncCB(
             const ShareFolderArg&,
             std::function<void(std::unique_ptr<ShareFolderLaunch>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -787,7 +822,8 @@ namespace sharing{
             on error:TransferFolderError throws exception TransferFolderErrorException
             */
         void transferFolder(const TransferFolderArg& );
-        void transferFolder_Async(
+        DropboxVoidTask* transferFolder_Async(const TransferFolderArg&);
+        void transferFolder_AsyncCB(
             const TransferFolderArg&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -803,7 +839,8 @@ namespace sharing{
             on error:UnmountFolderError throws exception UnmountFolderErrorException
             */
         void unmountFolder(const UnmountFolderArg& );
-        void unmountFolder_Async(
+        DropboxVoidTask* unmountFolder_Async(const UnmountFolderArg&);
+        void unmountFolder_AsyncCB(
             const UnmountFolderArg&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -818,7 +855,8 @@ namespace sharing{
             on error:UnshareFileError throws exception UnshareFileErrorException
             */
         void unshareFile(const UnshareFileArg& );
-        void unshareFile_Async(
+        DropboxVoidTask* unshareFile_Async(const UnshareFileArg&);
+        void unshareFile_AsyncCB(
             const UnshareFileArg&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -835,7 +873,8 @@ namespace sharing{
             on error:UnshareFolderError throws exception UnshareFolderErrorException
             */
         std::unique_ptr<async::LaunchEmptyResult> unshareFolder(const UnshareFolderArg& );
-        void unshareFolder_Async(
+        DropboxTask<async::LaunchEmptyResult>* unshareFolder_Async(const UnshareFolderArg&);
+        void unshareFolder_AsyncCB(
             const UnshareFolderArg&,
             std::function<void(std::unique_ptr<async::LaunchEmptyResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -851,7 +890,8 @@ namespace sharing{
             on error:UpdateFolderMemberError throws exception UpdateFolderMemberErrorException
             */
         std::unique_ptr<MemberAccessLevelResult> updateFolderMember(const UpdateFolderMemberArg& );
-        void updateFolderMember_Async(
+        DropboxTask<MemberAccessLevelResult>* updateFolderMember_Async(const UpdateFolderMemberArg&);
+        void updateFolderMember_AsyncCB(
             const UpdateFolderMemberArg&,
             std::function<void(std::unique_ptr<MemberAccessLevelResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -867,7 +907,8 @@ namespace sharing{
             on error:UpdateFolderPolicyError throws exception UpdateFolderPolicyErrorException
             */
         std::unique_ptr<SharedFolderMetadata> updateFolderPolicy(const UpdateFolderPolicyArg& );
-        void updateFolderPolicy_Async(
+        DropboxTask<SharedFolderMetadata>* updateFolderPolicy_Async(const UpdateFolderPolicyArg&);
+        void updateFolderPolicy_AsyncCB(
             const UpdateFolderPolicyArg&,
             std::function<void(std::unique_ptr<SharedFolderMetadata>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);

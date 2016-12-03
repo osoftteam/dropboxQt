@@ -233,7 +233,8 @@ namespace team{
             on error:GroupCreateError throws exception GroupCreateErrorException
             */
         std::unique_ptr<GroupFullInfo> alphaGroupsCreate(const GroupCreateArg& );
-        void alphaGroupsCreate_Async(
+        DropboxTask<GroupFullInfo>* alphaGroupsCreate_Async(const GroupCreateArg&);
+        void alphaGroupsCreate_AsyncCB(
             const GroupCreateArg&,
             std::function<void(std::unique_ptr<GroupFullInfo>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -248,7 +249,8 @@ namespace team{
             on error:GroupsGetInfoError throws exception GroupsGetInfoErrorException
             */
         std::unique_ptr<std::list <GroupsGetInfoItem>> alphaGroupsGetInfo(const GroupsSelector& );
-        void alphaGroupsGetInfo_Async(
+        DropboxTask<std::list <GroupsGetInfoItem>>* alphaGroupsGetInfo_Async(const GroupsSelector&);
+        void alphaGroupsGetInfo_AsyncCB(
             const GroupsSelector&,
             std::function<void(std::unique_ptr<std::list <GroupsGetInfoItem>>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -261,7 +263,8 @@ namespace team{
 
             */
         std::unique_ptr<GroupsListResult> alphaGroupsList(const GroupsListArg& );
-        void alphaGroupsList_Async(
+        DropboxTask<GroupsListResult>* alphaGroupsList_Async(const GroupsListArg&);
+        void alphaGroupsList_AsyncCB(
             const GroupsListArg&,
             std::function<void(std::unique_ptr<GroupsListResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -276,7 +279,8 @@ namespace team{
             on error:GroupsListContinueError throws exception GroupsListContinueErrorException
             */
         std::unique_ptr<GroupsListResult> alphaGroupsListContinue(const GroupsListContinueArg& );
-        void alphaGroupsListContinue_Async(
+        DropboxTask<GroupsListResult>* alphaGroupsListContinue_Async(const GroupsListContinueArg&);
+        void alphaGroupsListContinue_AsyncCB(
             const GroupsListContinueArg&,
             std::function<void(std::unique_ptr<GroupsListResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -291,7 +295,8 @@ namespace team{
             on error:GroupUpdateError throws exception GroupUpdateErrorException
             */
         std::unique_ptr<GroupFullInfo> alphaGroupsUpdate(const GroupUpdateArgs& );
-        void alphaGroupsUpdate_Async(
+        DropboxTask<GroupFullInfo>* alphaGroupsUpdate_Async(const GroupUpdateArgs&);
+        void alphaGroupsUpdate_AsyncCB(
             const GroupUpdateArgs&,
             std::function<void(std::unique_ptr<GroupFullInfo>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -305,7 +310,8 @@ namespace team{
             on error:ListMemberDevicesError throws exception ListMemberDevicesErrorException
             */
         std::unique_ptr<ListMemberDevicesResult> devicesListMemberDevices(const ListMemberDevicesArg& );
-        void devicesListMemberDevices_Async(
+        DropboxTask<ListMemberDevicesResult>* devicesListMemberDevices_Async(const ListMemberDevicesArg&);
+        void devicesListMemberDevices_AsyncCB(
             const ListMemberDevicesArg&,
             std::function<void(std::unique_ptr<ListMemberDevicesResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -319,7 +325,8 @@ namespace team{
             on error:ListMembersDevicesError throws exception ListMembersDevicesErrorException
             */
         std::unique_ptr<ListMembersDevicesResult> devicesListMembersDevices(const ListMembersDevicesArg& );
-        void devicesListMembersDevices_Async(
+        DropboxTask<ListMembersDevicesResult>* devicesListMembersDevices_Async(const ListMembersDevicesArg&);
+        void devicesListMembersDevices_AsyncCB(
             const ListMembersDevicesArg&,
             std::function<void(std::unique_ptr<ListMembersDevicesResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -333,7 +340,8 @@ namespace team{
             on error:ListTeamDevicesError throws exception ListTeamDevicesErrorException
             */
         std::unique_ptr<ListTeamDevicesResult> devicesListTeamDevices(const ListTeamDevicesArg& );
-        void devicesListTeamDevices_Async(
+        DropboxTask<ListTeamDevicesResult>* devicesListTeamDevices_Async(const ListTeamDevicesArg&);
+        void devicesListTeamDevices_AsyncCB(
             const ListTeamDevicesArg&,
             std::function<void(std::unique_ptr<ListTeamDevicesResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -347,7 +355,8 @@ namespace team{
             on error:RevokeDeviceSessionError throws exception RevokeDeviceSessionErrorException
             */
         void devicesRevokeDeviceSession(const RevokeDeviceSessionArg& );
-        void devicesRevokeDeviceSession_Async(
+        DropboxVoidTask* devicesRevokeDeviceSession_Async(const RevokeDeviceSessionArg&);
+        void devicesRevokeDeviceSession_AsyncCB(
             const RevokeDeviceSessionArg&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -361,7 +370,8 @@ namespace team{
             on error:RevokeDeviceSessionBatchError throws exception RevokeDeviceSessionBatchErrorException
             */
         std::unique_ptr<RevokeDeviceSessionBatchResult> devicesRevokeDeviceSessionBatch(const RevokeDeviceSessionBatchArg& );
-        void devicesRevokeDeviceSessionBatch_Async(
+        DropboxTask<RevokeDeviceSessionBatchResult>* devicesRevokeDeviceSessionBatch_Async(const RevokeDeviceSessionBatchArg&);
+        void devicesRevokeDeviceSessionBatch_AsyncCB(
             const RevokeDeviceSessionBatchArg&,
             std::function<void(std::unique_ptr<RevokeDeviceSessionBatchResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -374,7 +384,8 @@ namespace team{
 
             */
         std::unique_ptr<TeamGetInfoResult> getInfo();
-        void getInfo_Async(
+        DropboxTask<TeamGetInfoResult>* getInfo_Async();
+        void getInfo_AsyncCB(
             std::function<void(std::unique_ptr<TeamGetInfoResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
 
@@ -388,7 +399,8 @@ namespace team{
             on error:GroupCreateError throws exception GroupCreateErrorException
             */
         std::unique_ptr<GroupFullInfo> groupsCreate(const GroupCreateArg& );
-        void groupsCreate_Async(
+        DropboxTask<GroupFullInfo>* groupsCreate_Async(const GroupCreateArg&);
+        void groupsCreate_AsyncCB(
             const GroupCreateArg&,
             std::function<void(std::unique_ptr<GroupFullInfo>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -405,7 +417,8 @@ namespace team{
             on error:GroupDeleteError throws exception GroupDeleteErrorException
             */
         std::unique_ptr<async::LaunchEmptyResult> groupsDelete(const GroupSelector& );
-        void groupsDelete_Async(
+        DropboxTask<async::LaunchEmptyResult>* groupsDelete_Async(const GroupSelector&);
+        void groupsDelete_AsyncCB(
             const GroupSelector&,
             std::function<void(std::unique_ptr<async::LaunchEmptyResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -420,7 +433,8 @@ namespace team{
             on error:GroupsGetInfoError throws exception GroupsGetInfoErrorException
             */
         std::unique_ptr<std::list <GroupsGetInfoItem>> groupsGetInfo(const GroupsSelector& );
-        void groupsGetInfo_Async(
+        DropboxTask<std::list <GroupsGetInfoItem>>* groupsGetInfo_Async(const GroupsSelector&);
+        void groupsGetInfo_AsyncCB(
             const GroupsSelector&,
             std::function<void(std::unique_ptr<std::list <GroupsGetInfoItem>>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -437,7 +451,8 @@ namespace team{
             on error:GroupsPollError throws exception GroupsPollErrorException
             */
         std::unique_ptr<async::PollEmptyResult> groupsJobStatusGet(const async::PollArg& );
-        void groupsJobStatusGet_Async(
+        DropboxTask<async::PollEmptyResult>* groupsJobStatusGet_Async(const async::PollArg&);
+        void groupsJobStatusGet_AsyncCB(
             const async::PollArg&,
             std::function<void(std::unique_ptr<async::PollEmptyResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -450,7 +465,8 @@ namespace team{
 
             */
         std::unique_ptr<GroupsListResult> groupsList(const GroupsListArg& );
-        void groupsList_Async(
+        DropboxTask<GroupsListResult>* groupsList_Async(const GroupsListArg&);
+        void groupsList_AsyncCB(
             const GroupsListArg&,
             std::function<void(std::unique_ptr<GroupsListResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -465,7 +481,8 @@ namespace team{
             on error:GroupsListContinueError throws exception GroupsListContinueErrorException
             */
         std::unique_ptr<GroupsListResult> groupsListContinue(const GroupsListContinueArg& );
-        void groupsListContinue_Async(
+        DropboxTask<GroupsListResult>* groupsListContinue_Async(const GroupsListContinueArg&);
+        void groupsListContinue_AsyncCB(
             const GroupsListContinueArg&,
             std::function<void(std::unique_ptr<GroupsListResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -482,7 +499,8 @@ namespace team{
             on error:GroupMembersAddError throws exception GroupMembersAddErrorException
             */
         std::unique_ptr<GroupMembersChangeResult> groupsMembersAdd(const GroupMembersAddArg& );
-        void groupsMembersAdd_Async(
+        DropboxTask<GroupMembersChangeResult>* groupsMembersAdd_Async(const GroupMembersAddArg&);
+        void groupsMembersAdd_AsyncCB(
             const GroupMembersAddArg&,
             std::function<void(std::unique_ptr<GroupMembersChangeResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -496,7 +514,8 @@ namespace team{
             on error:GroupSelectorError throws exception GroupSelectorErrorException
             */
         std::unique_ptr<GroupsMembersListResult> groupsMembersList(const GroupsMembersListArg& );
-        void groupsMembersList_Async(
+        DropboxTask<GroupsMembersListResult>* groupsMembersList_Async(const GroupsMembersListArg&);
+        void groupsMembersList_AsyncCB(
             const GroupsMembersListArg&,
             std::function<void(std::unique_ptr<GroupsMembersListResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -512,7 +531,8 @@ namespace team{
             on error:GroupsMembersListContinueError throws exception GroupsMembersListContinueErrorException
             */
         std::unique_ptr<GroupsMembersListResult> groupsMembersListContinue(const GroupsMembersListContinueArg& );
-        void groupsMembersListContinue_Async(
+        DropboxTask<GroupsMembersListResult>* groupsMembersListContinue_Async(const GroupsMembersListContinueArg&);
+        void groupsMembersListContinue_AsyncCB(
             const GroupsMembersListContinueArg&,
             std::function<void(std::unique_ptr<GroupsMembersListResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -531,7 +551,8 @@ namespace team{
             on error:GroupMembersRemoveError throws exception GroupMembersRemoveErrorException
             */
         std::unique_ptr<GroupMembersChangeResult> groupsMembersRemove(const GroupMembersRemoveArg& );
-        void groupsMembersRemove_Async(
+        DropboxTask<GroupMembersChangeResult>* groupsMembersRemove_Async(const GroupMembersRemoveArg&);
+        void groupsMembersRemove_AsyncCB(
             const GroupMembersRemoveArg&,
             std::function<void(std::unique_ptr<GroupMembersChangeResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -546,7 +567,8 @@ namespace team{
             on error:GroupMemberSetAccessTypeError throws exception GroupMemberSetAccessTypeErrorException
             */
         std::unique_ptr<std::list <GroupsGetInfoItem>> groupsMembersSetAccessType(const GroupMembersSetAccessTypeArg& );
-        void groupsMembersSetAccessType_Async(
+        DropboxTask<std::list <GroupsGetInfoItem>>* groupsMembersSetAccessType_Async(const GroupMembersSetAccessTypeArg&);
+        void groupsMembersSetAccessType_AsyncCB(
             const GroupMembersSetAccessTypeArg&,
             std::function<void(std::unique_ptr<std::list <GroupsGetInfoItem>>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -561,7 +583,8 @@ namespace team{
             on error:GroupUpdateError throws exception GroupUpdateErrorException
             */
         std::unique_ptr<GroupFullInfo> groupsUpdate(const GroupUpdateArgs& );
-        void groupsUpdate_Async(
+        DropboxTask<GroupFullInfo>* groupsUpdate_Async(const GroupUpdateArgs&);
+        void groupsUpdate_AsyncCB(
             const GroupUpdateArgs&,
             std::function<void(std::unique_ptr<GroupFullInfo>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -576,7 +599,8 @@ namespace team{
             on error:ListMemberAppsError throws exception ListMemberAppsErrorException
             */
         std::unique_ptr<ListMemberAppsResult> linkedAppsListMemberLinkedApps(const ListMemberAppsArg& );
-        void linkedAppsListMemberLinkedApps_Async(
+        DropboxTask<ListMemberAppsResult>* linkedAppsListMemberLinkedApps_Async(const ListMemberAppsArg&);
+        void linkedAppsListMemberLinkedApps_AsyncCB(
             const ListMemberAppsArg&,
             std::function<void(std::unique_ptr<ListMemberAppsResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -591,7 +615,8 @@ namespace team{
             on error:ListMembersAppsError throws exception ListMembersAppsErrorException
             */
         std::unique_ptr<ListMembersAppsResult> linkedAppsListMembersLinkedApps(const ListMembersAppsArg& );
-        void linkedAppsListMembersLinkedApps_Async(
+        DropboxTask<ListMembersAppsResult>* linkedAppsListMembersLinkedApps_Async(const ListMembersAppsArg&);
+        void linkedAppsListMembersLinkedApps_AsyncCB(
             const ListMembersAppsArg&,
             std::function<void(std::unique_ptr<ListMembersAppsResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -606,7 +631,8 @@ namespace team{
             on error:ListTeamAppsError throws exception ListTeamAppsErrorException
             */
         std::unique_ptr<ListTeamAppsResult> linkedAppsListTeamLinkedApps(const ListTeamAppsArg& );
-        void linkedAppsListTeamLinkedApps_Async(
+        DropboxTask<ListTeamAppsResult>* linkedAppsListTeamLinkedApps_Async(const ListTeamAppsArg&);
+        void linkedAppsListTeamLinkedApps_AsyncCB(
             const ListTeamAppsArg&,
             std::function<void(std::unique_ptr<ListTeamAppsResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -620,7 +646,8 @@ namespace team{
             on error:RevokeLinkedAppError throws exception RevokeLinkedAppErrorException
             */
         void linkedAppsRevokeLinkedApp(const RevokeLinkedApiAppArg& );
-        void linkedAppsRevokeLinkedApp_Async(
+        DropboxVoidTask* linkedAppsRevokeLinkedApp_Async(const RevokeLinkedApiAppArg&);
+        void linkedAppsRevokeLinkedApp_AsyncCB(
             const RevokeLinkedApiAppArg&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -634,7 +661,8 @@ namespace team{
             on error:RevokeLinkedAppBatchError throws exception RevokeLinkedAppBatchErrorException
             */
         std::unique_ptr<RevokeLinkedAppBatchResult> linkedAppsRevokeLinkedAppBatch(const RevokeLinkedApiAppBatchArg& );
-        void linkedAppsRevokeLinkedAppBatch_Async(
+        DropboxTask<RevokeLinkedAppBatchResult>* linkedAppsRevokeLinkedAppBatch_Async(const RevokeLinkedApiAppBatchArg&);
+        void linkedAppsRevokeLinkedAppBatch_AsyncCB(
             const RevokeLinkedApiAppBatchArg&,
             std::function<void(std::unique_ptr<RevokeLinkedAppBatchResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -658,7 +686,8 @@ namespace team{
 
             */
         std::unique_ptr<MembersAddLaunch> membersAdd(const MembersAddArg& );
-        void membersAdd_Async(
+        DropboxTask<MembersAddLaunch>* membersAdd_Async(const MembersAddArg&);
+        void membersAdd_AsyncCB(
             const MembersAddArg&,
             std::function<void(std::unique_ptr<MembersAddLaunch>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -674,7 +703,8 @@ namespace team{
             on error:PollError throws exception PollErrorException
             */
         std::unique_ptr<MembersAddJobStatus> membersAddJobStatusGet(const async::PollArg& );
-        void membersAddJobStatusGet_Async(
+        DropboxTask<MembersAddJobStatus>* membersAddJobStatusGet_Async(const async::PollArg&);
+        void membersAddJobStatusGet_AsyncCB(
             const async::PollArg&,
             std::function<void(std::unique_ptr<MembersAddJobStatus>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -691,7 +721,8 @@ namespace team{
             on error:MembersGetInfoError throws exception MembersGetInfoErrorException
             */
         std::unique_ptr<std::list <MembersGetInfoItem>> membersGetInfo(const MembersGetInfoArgs& );
-        void membersGetInfo_Async(
+        DropboxTask<std::list <MembersGetInfoItem>>* membersGetInfo_Async(const MembersGetInfoArgs&);
+        void membersGetInfo_AsyncCB(
             const MembersGetInfoArgs&,
             std::function<void(std::unique_ptr<std::list <MembersGetInfoItem>>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -705,7 +736,8 @@ namespace team{
             on error:MembersListError throws exception MembersListErrorException
             */
         std::unique_ptr<MembersListResult> membersList(const MembersListArg& );
-        void membersList_Async(
+        DropboxTask<MembersListResult>* membersList_Async(const MembersListArg&);
+        void membersList_AsyncCB(
             const MembersListArg&,
             std::function<void(std::unique_ptr<MembersListResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -720,7 +752,8 @@ namespace team{
             on error:MembersListContinueError throws exception MembersListContinueErrorException
             */
         std::unique_ptr<MembersListResult> membersListContinue(const MembersListContinueArg& );
-        void membersListContinue_Async(
+        DropboxTask<MembersListResult>* membersListContinue_Async(const MembersListContinueArg&);
+        void membersListContinue_AsyncCB(
             const MembersListContinueArg&,
             std::function<void(std::unique_ptr<MembersListResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -736,7 +769,8 @@ namespace team{
             on error:MembersRecoverError throws exception MembersRecoverErrorException
             */
         void membersRecover(const MembersRecoverArg& );
-        void membersRecover_Async(
+        DropboxVoidTask* membersRecover_Async(const MembersRecoverArg&);
+        void membersRecover_AsyncCB(
             const MembersRecoverArg&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -759,7 +793,8 @@ namespace team{
             on error:MembersRemoveError throws exception MembersRemoveErrorException
             */
         std::unique_ptr<async::LaunchEmptyResult> membersRemove(const MembersRemoveArg& );
-        void membersRemove_Async(
+        DropboxTask<async::LaunchEmptyResult>* membersRemove_Async(const MembersRemoveArg&);
+        void membersRemove_AsyncCB(
             const MembersRemoveArg&,
             std::function<void(std::unique_ptr<async::LaunchEmptyResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -775,7 +810,8 @@ namespace team{
             on error:PollError throws exception PollErrorException
             */
         std::unique_ptr<async::PollEmptyResult> membersRemoveJobStatusGet(const async::PollArg& );
-        void membersRemoveJobStatusGet_Async(
+        DropboxTask<async::PollEmptyResult>* membersRemoveJobStatusGet_Async(const async::PollArg&);
+        void membersRemoveJobStatusGet_AsyncCB(
             const async::PollArg&,
             std::function<void(std::unique_ptr<async::PollEmptyResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -792,7 +828,8 @@ namespace team{
             on error:MembersSendWelcomeError throws exception MembersSendWelcomeErrorException
             */
         void membersSendWelcomeEmail(const UserSelectorArg& );
-        void membersSendWelcomeEmail_Async(
+        DropboxVoidTask* membersSendWelcomeEmail_Async(const UserSelectorArg&);
+        void membersSendWelcomeEmail_AsyncCB(
             const UserSelectorArg&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -807,7 +844,8 @@ namespace team{
             on error:MembersSetPermissionsError throws exception MembersSetPermissionsErrorException
             */
         std::unique_ptr<MembersSetPermissionsResult> membersSetAdminPermissions(const MembersSetPermissionsArg& );
-        void membersSetAdminPermissions_Async(
+        DropboxTask<MembersSetPermissionsResult>* membersSetAdminPermissions_Async(const MembersSetPermissionsArg&);
+        void membersSetAdminPermissions_AsyncCB(
             const MembersSetPermissionsArg&,
             std::function<void(std::unique_ptr<MembersSetPermissionsResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -821,7 +859,8 @@ namespace team{
             on error:MembersSetProfileError throws exception MembersSetProfileErrorException
             */
         std::unique_ptr<TeamMemberInfo> membersSetProfile(const MembersSetProfileArg& );
-        void membersSetProfile_Async(
+        DropboxTask<TeamMemberInfo>* membersSetProfile_Async(const MembersSetProfileArg&);
+        void membersSetProfile_AsyncCB(
             const MembersSetProfileArg&,
             std::function<void(std::unique_ptr<TeamMemberInfo>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -837,7 +876,8 @@ namespace team{
             on error:MembersSuspendError throws exception MembersSuspendErrorException
             */
         void membersSuspend(const MembersDeactivateArg& );
-        void membersSuspend_Async(
+        DropboxVoidTask* membersSuspend_Async(const MembersDeactivateArg&);
+        void membersSuspend_AsyncCB(
             const MembersDeactivateArg&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -853,7 +893,8 @@ namespace team{
             on error:MembersUnsuspendError throws exception MembersUnsuspendErrorException
             */
         void membersUnsuspend(const MembersUnsuspendArg& );
-        void membersUnsuspend_Async(
+        DropboxVoidTask* membersUnsuspend_Async(const MembersUnsuspendArg&);
+        void membersUnsuspend_AsyncCB(
             const MembersUnsuspendArg&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -868,7 +909,8 @@ namespace team{
             on error:ModifyPropertyTemplateError throws exception ModifyPropertyTemplateErrorException
             */
         std::unique_ptr<AddPropertyTemplateResult> propertiesTemplateAdd(const AddPropertyTemplateArg& );
-        void propertiesTemplateAdd_Async(
+        DropboxTask<AddPropertyTemplateResult>* propertiesTemplateAdd_Async(const AddPropertyTemplateArg&);
+        void propertiesTemplateAdd_AsyncCB(
             const AddPropertyTemplateArg&,
             std::function<void(std::unique_ptr<AddPropertyTemplateResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -882,7 +924,8 @@ namespace team{
             on error:PropertyTemplateError throws exception PropertyTemplateErrorException
             */
         std::unique_ptr<properties::GetPropertyTemplateResult> propertiesTemplateGet(const properties::GetPropertyTemplateArg& );
-        void propertiesTemplateGet_Async(
+        DropboxTask<properties::GetPropertyTemplateResult>* propertiesTemplateGet_Async(const properties::GetPropertyTemplateArg&);
+        void propertiesTemplateGet_AsyncCB(
             const properties::GetPropertyTemplateArg&,
             std::function<void(std::unique_ptr<properties::GetPropertyTemplateResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -897,7 +940,8 @@ namespace team{
             on error:PropertyTemplateError throws exception PropertyTemplateErrorException
             */
         std::unique_ptr<properties::ListPropertyTemplateIds> propertiesTemplateList();
-        void propertiesTemplateList_Async(
+        DropboxTask<properties::ListPropertyTemplateIds>* propertiesTemplateList_Async();
+        void propertiesTemplateList_AsyncCB(
             std::function<void(std::unique_ptr<properties::ListPropertyTemplateIds>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
 
@@ -911,7 +955,8 @@ namespace team{
             on error:ModifyPropertyTemplateError throws exception ModifyPropertyTemplateErrorException
             */
         std::unique_ptr<UpdatePropertyTemplateResult> propertiesTemplateUpdate(const UpdatePropertyTemplateArg& );
-        void propertiesTemplateUpdate_Async(
+        DropboxTask<UpdatePropertyTemplateResult>* propertiesTemplateUpdate_Async(const UpdatePropertyTemplateArg&);
+        void propertiesTemplateUpdate_AsyncCB(
             const UpdatePropertyTemplateArg&,
             std::function<void(std::unique_ptr<UpdatePropertyTemplateResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -925,7 +970,8 @@ namespace team{
             on error:DateRangeError throws exception DateRangeErrorException
             */
         std::unique_ptr<GetActivityReport> reportsGetActivity(const DateRange& );
-        void reportsGetActivity_Async(
+        DropboxTask<GetActivityReport>* reportsGetActivity_Async(const DateRange&);
+        void reportsGetActivity_AsyncCB(
             const DateRange&,
             std::function<void(std::unique_ptr<GetActivityReport>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -939,7 +985,8 @@ namespace team{
             on error:DateRangeError throws exception DateRangeErrorException
             */
         std::unique_ptr<GetDevicesReport> reportsGetDevices(const DateRange& );
-        void reportsGetDevices_Async(
+        DropboxTask<GetDevicesReport>* reportsGetDevices_Async(const DateRange&);
+        void reportsGetDevices_AsyncCB(
             const DateRange&,
             std::function<void(std::unique_ptr<GetDevicesReport>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -953,7 +1000,8 @@ namespace team{
             on error:DateRangeError throws exception DateRangeErrorException
             */
         std::unique_ptr<GetMembershipReport> reportsGetMembership(const DateRange& );
-        void reportsGetMembership_Async(
+        DropboxTask<GetMembershipReport>* reportsGetMembership_Async(const DateRange&);
+        void reportsGetMembership_AsyncCB(
             const DateRange&,
             std::function<void(std::unique_ptr<GetMembershipReport>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -967,7 +1015,8 @@ namespace team{
             on error:DateRangeError throws exception DateRangeErrorException
             */
         std::unique_ptr<GetStorageReport> reportsGetStorage(const DateRange& );
-        void reportsGetStorage_Async(
+        DropboxTask<GetStorageReport>* reportsGetStorage_Async(const DateRange&);
+        void reportsGetStorage_AsyncCB(
             const DateRange&,
             std::function<void(std::unique_ptr<GetStorageReport>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);

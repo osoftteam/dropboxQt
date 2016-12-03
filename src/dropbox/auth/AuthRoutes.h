@@ -24,7 +24,8 @@ namespace auth{
 
             */
         void tokenRevoke(void);
-        void tokenRevoke_Async(
+        DropboxVoidTask* tokenRevoke_Async();
+        void tokenRevoke_AsyncCB(
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
 

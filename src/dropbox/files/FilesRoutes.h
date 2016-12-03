@@ -187,7 +187,8 @@ namespace files{
             on error:AlphaGetMetadataError throws exception AlphaGetMetadataErrorException
             */
         std::unique_ptr<Metadata> alphaGetMetadata(const AlphaGetMetadataArg& );
-        void alphaGetMetadata_Async(
+        DropboxTask<Metadata>* alphaGetMetadata_Async(const AlphaGetMetadataArg&);
+        void alphaGetMetadata_AsyncCB(
             const AlphaGetMetadataArg&,
             std::function<void(std::unique_ptr<Metadata>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -205,7 +206,8 @@ namespace files{
             on error:UploadErrorWithProperties throws exception UploadErrorWithPropertiesException
             */
         std::unique_ptr<FileMetadata> alphaUpload(const CommitInfoWithProperties& , QIODevice* readFrom);
-        void alphaUpload_Async(
+        DropboxTask<FileMetadata>* alphaUpload_Async(const CommitInfoWithProperties&, QIODevice* data);
+        void alphaUpload_AsyncCB(
             const CommitInfoWithProperties&,
             QIODevice* data,
             std::function<void(std::unique_ptr<FileMetadata>)> completed_callback = nullptr,
@@ -221,7 +223,8 @@ namespace files{
             on error:RelocationError throws exception RelocationErrorException
             */
         std::unique_ptr<Metadata> copy(const RelocationArg& );
-        void copy_Async(
+        DropboxTask<Metadata>* copy_Async(const RelocationArg&);
+        void copy_AsyncCB(
             const RelocationArg&,
             std::function<void(std::unique_ptr<Metadata>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -237,7 +240,8 @@ namespace files{
             on error:GetCopyReferenceError throws exception GetCopyReferenceErrorException
             */
         std::unique_ptr<GetCopyReferenceResult> copyReferenceGet(const GetCopyReferenceArg& );
-        void copyReferenceGet_Async(
+        DropboxTask<GetCopyReferenceResult>* copyReferenceGet_Async(const GetCopyReferenceArg&);
+        void copyReferenceGet_AsyncCB(
             const GetCopyReferenceArg&,
             std::function<void(std::unique_ptr<GetCopyReferenceResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -252,7 +256,8 @@ namespace files{
             on error:SaveCopyReferenceError throws exception SaveCopyReferenceErrorException
             */
         std::unique_ptr<SaveCopyReferenceResult> copyReferenceSave(const SaveCopyReferenceArg& );
-        void copyReferenceSave_Async(
+        DropboxTask<SaveCopyReferenceResult>* copyReferenceSave_Async(const SaveCopyReferenceArg&);
+        void copyReferenceSave_AsyncCB(
             const SaveCopyReferenceArg&,
             std::function<void(std::unique_ptr<SaveCopyReferenceResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -266,7 +271,8 @@ namespace files{
             on error:CreateFolderError throws exception CreateFolderErrorException
             */
         std::unique_ptr<FolderMetadata> createFolder(const CreateFolderArg& );
-        void createFolder_Async(
+        DropboxTask<FolderMetadata>* createFolder_Async(const CreateFolderArg&);
+        void createFolder_AsyncCB(
             const CreateFolderArg&,
             std::function<void(std::unique_ptr<FolderMetadata>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -285,7 +291,8 @@ namespace files{
             on error:DeleteError throws exception DeleteErrorException
             */
         std::unique_ptr<Metadata> deleteOperation(const DeleteArg& );
-        void deleteOperation_Async(
+        DropboxTask<Metadata>* deleteOperation_Async(const DeleteArg&);
+        void deleteOperation_AsyncCB(
             const DeleteArg&,
             std::function<void(std::unique_ptr<Metadata>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -299,7 +306,8 @@ namespace files{
             on error:DownloadError throws exception DownloadErrorException
             */
         std::unique_ptr<FileMetadata> download(const DownloadArg& , QIODevice* writeTo);
-        void download_Async(
+        DropboxTask<FileMetadata>* download_Async(const DownloadArg&, QIODevice* data);
+        void download_AsyncCB(
             const DownloadArg&,
             QIODevice* data,
             std::function<void(std::unique_ptr<FileMetadata>)> completed_callback = nullptr,
@@ -315,7 +323,8 @@ namespace files{
             on error:GetMetadataError throws exception GetMetadataErrorException
             */
         std::unique_ptr<Metadata> getMetadata(const GetMetadataArg& );
-        void getMetadata_Async(
+        DropboxTask<Metadata>* getMetadata_Async(const GetMetadataArg&);
+        void getMetadata_AsyncCB(
             const GetMetadataArg&,
             std::function<void(std::unique_ptr<Metadata>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -331,7 +340,8 @@ namespace files{
             on error:PreviewError throws exception PreviewErrorException
             */
         std::unique_ptr<FileMetadata> getPreview(const PreviewArg& , QIODevice* writeTo);
-        void getPreview_Async(
+        DropboxTask<FileMetadata>* getPreview_Async(const PreviewArg&, QIODevice* data);
+        void getPreview_AsyncCB(
             const PreviewArg&,
             QIODevice* data,
             std::function<void(std::unique_ptr<FileMetadata>)> completed_callback = nullptr,
@@ -349,7 +359,8 @@ namespace files{
             on error:GetTemporaryLinkError throws exception GetTemporaryLinkErrorException
             */
         std::unique_ptr<GetTemporaryLinkResult> getTemporaryLink(const GetTemporaryLinkArg& );
-        void getTemporaryLink_Async(
+        DropboxTask<GetTemporaryLinkResult>* getTemporaryLink_Async(const GetTemporaryLinkArg&);
+        void getTemporaryLink_AsyncCB(
             const GetTemporaryLinkArg&,
             std::function<void(std::unique_ptr<GetTemporaryLinkResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -366,7 +377,8 @@ namespace files{
             on error:ThumbnailError throws exception ThumbnailErrorException
             */
         std::unique_ptr<FileMetadata> getThumbnail(const ThumbnailArg& , QIODevice* writeTo);
-        void getThumbnail_Async(
+        DropboxTask<FileMetadata>* getThumbnail_Async(const ThumbnailArg&, QIODevice* data);
+        void getThumbnail_AsyncCB(
             const ThumbnailArg&,
             QIODevice* data,
             std::function<void(std::unique_ptr<FileMetadata>)> completed_callback = nullptr,
@@ -381,7 +393,8 @@ namespace files{
             on error:ListFolderError throws exception ListFolderErrorException
             */
         std::unique_ptr<ListFolderResult> listFolder(const ListFolderArg& );
-        void listFolder_Async(
+        DropboxTask<ListFolderResult>* listFolder_Async(const ListFolderArg&);
+        void listFolder_AsyncCB(
             const ListFolderArg&,
             std::function<void(std::unique_ptr<ListFolderResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -396,7 +409,8 @@ namespace files{
             on error:ListFolderContinueError throws exception ListFolderContinueErrorException
             */
         std::unique_ptr<ListFolderResult> listFolderContinue(const ListFolderContinueArg& );
-        void listFolderContinue_Async(
+        DropboxTask<ListFolderResult>* listFolderContinue_Async(const ListFolderContinueArg&);
+        void listFolderContinue_AsyncCB(
             const ListFolderContinueArg&,
             std::function<void(std::unique_ptr<ListFolderResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -414,7 +428,8 @@ namespace files{
             on error:ListFolderError throws exception ListFolderErrorException
             */
         std::unique_ptr<ListFolderGetLatestCursorResult> listFolderGetLatestCursor(const ListFolderArg& );
-        void listFolderGetLatestCursor_Async(
+        DropboxTask<ListFolderGetLatestCursorResult>* listFolderGetLatestCursor_Async(const ListFolderArg&);
+        void listFolderGetLatestCursor_AsyncCB(
             const ListFolderArg&,
             std::function<void(std::unique_ptr<ListFolderGetLatestCursorResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -435,7 +450,8 @@ namespace files{
             on error:ListFolderLongpollError throws exception ListFolderLongpollErrorException
             */
         std::unique_ptr<ListFolderLongpollResult> listFolderLongpoll(const ListFolderLongpollArg& );
-        void listFolderLongpoll_Async(
+        DropboxTask<ListFolderLongpollResult>* listFolderLongpoll_Async(const ListFolderLongpollArg&);
+        void listFolderLongpoll_AsyncCB(
             const ListFolderLongpollArg&,
             std::function<void(std::unique_ptr<ListFolderLongpollResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -449,7 +465,8 @@ namespace files{
             on error:ListRevisionsError throws exception ListRevisionsErrorException
             */
         std::unique_ptr<ListRevisionsResult> listRevisions(const ListRevisionsArg& );
-        void listRevisions_Async(
+        DropboxTask<ListRevisionsResult>* listRevisions_Async(const ListRevisionsArg&);
+        void listRevisions_AsyncCB(
             const ListRevisionsArg&,
             std::function<void(std::unique_ptr<ListRevisionsResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -464,7 +481,8 @@ namespace files{
             on error:RelocationError throws exception RelocationErrorException
             */
         std::unique_ptr<Metadata> move(const RelocationArg& );
-        void move_Async(
+        DropboxTask<Metadata>* move_Async(const RelocationArg&);
+        void move_AsyncCB(
             const RelocationArg&,
             std::function<void(std::unique_ptr<Metadata>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -480,7 +498,8 @@ namespace files{
             on error:DeleteError throws exception DeleteErrorException
             */
         void permanentlyDelete(const DeleteArg& );
-        void permanentlyDelete_Async(
+        DropboxVoidTask* permanentlyDelete_Async(const DeleteArg&);
+        void permanentlyDelete_AsyncCB(
             const DeleteArg&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -495,7 +514,8 @@ namespace files{
             on error:AddPropertiesError throws exception AddPropertiesErrorException
             */
         void propertiesAdd(const PropertyGroupWithPath& );
-        void propertiesAdd_Async(
+        DropboxVoidTask* propertiesAdd_Async(const PropertyGroupWithPath&);
+        void propertiesAdd_AsyncCB(
             const PropertyGroupWithPath&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -510,7 +530,8 @@ namespace files{
             on error:InvalidPropertyGroupError throws exception InvalidPropertyGroupErrorException
             */
         void propertiesOverwrite(const PropertyGroupWithPath& );
-        void propertiesOverwrite_Async(
+        DropboxVoidTask* propertiesOverwrite_Async(const PropertyGroupWithPath&);
+        void propertiesOverwrite_AsyncCB(
             const PropertyGroupWithPath&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -528,7 +549,8 @@ namespace files{
             on error:RemovePropertiesError throws exception RemovePropertiesErrorException
             */
         void propertiesRemove(const RemovePropertiesArg& );
-        void propertiesRemove_Async(
+        DropboxVoidTask* propertiesRemove_Async(const RemovePropertiesArg&);
+        void propertiesRemove_AsyncCB(
             const RemovePropertiesArg&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -542,7 +564,8 @@ namespace files{
             on error:PropertyTemplateError throws exception PropertyTemplateErrorException
             */
         std::unique_ptr<properties::GetPropertyTemplateResult> propertiesTemplateGet(const properties::GetPropertyTemplateArg& );
-        void propertiesTemplateGet_Async(
+        DropboxTask<properties::GetPropertyTemplateResult>* propertiesTemplateGet_Async(const properties::GetPropertyTemplateArg&);
+        void propertiesTemplateGet_AsyncCB(
             const properties::GetPropertyTemplateArg&,
             std::function<void(std::unique_ptr<properties::GetPropertyTemplateResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -557,7 +580,8 @@ namespace files{
             on error:PropertyTemplateError throws exception PropertyTemplateErrorException
             */
         std::unique_ptr<properties::ListPropertyTemplateIds> propertiesTemplateList();
-        void propertiesTemplateList_Async(
+        DropboxTask<properties::ListPropertyTemplateIds>* propertiesTemplateList_Async();
+        void propertiesTemplateList_AsyncCB(
             std::function<void(std::unique_ptr<properties::ListPropertyTemplateIds>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
 
@@ -572,7 +596,8 @@ namespace files{
             on error:UpdatePropertiesError throws exception UpdatePropertiesErrorException
             */
         void propertiesUpdate(const UpdatePropertyGroupArg& );
-        void propertiesUpdate_Async(
+        DropboxVoidTask* propertiesUpdate_Async(const UpdatePropertyGroupArg&);
+        void propertiesUpdate_AsyncCB(
             const UpdatePropertyGroupArg&,
             std::function<void()> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -586,7 +611,8 @@ namespace files{
             on error:RestoreError throws exception RestoreErrorException
             */
         std::unique_ptr<FileMetadata> restore(const RestoreArg& );
-        void restore_Async(
+        DropboxTask<FileMetadata>* restore_Async(const RestoreArg&);
+        void restore_AsyncCB(
             const RestoreArg&,
             std::function<void(std::unique_ptr<FileMetadata>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -602,7 +628,8 @@ namespace files{
             on error:SaveUrlError throws exception SaveUrlErrorException
             */
         std::unique_ptr<SaveUrlResult> saveUrl(const SaveUrlArg& );
-        void saveUrl_Async(
+        DropboxTask<SaveUrlResult>* saveUrl_Async(const SaveUrlArg&);
+        void saveUrl_AsyncCB(
             const SaveUrlArg&,
             std::function<void(std::unique_ptr<SaveUrlResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -616,7 +643,8 @@ namespace files{
             on error:PollError throws exception PollErrorException
             */
         std::unique_ptr<SaveUrlJobStatus> saveUrlCheckJobStatus(const async::PollArg& );
-        void saveUrlCheckJobStatus_Async(
+        DropboxTask<SaveUrlJobStatus>* saveUrlCheckJobStatus_Async(const async::PollArg&);
+        void saveUrlCheckJobStatus_AsyncCB(
             const async::PollArg&,
             std::function<void(std::unique_ptr<SaveUrlJobStatus>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -632,7 +660,8 @@ namespace files{
             on error:SearchError throws exception SearchErrorException
             */
         std::unique_ptr<SearchResult> search(const SearchArg& );
-        void search_Async(
+        DropboxTask<SearchResult>* search_Async(const SearchArg&);
+        void search_AsyncCB(
             const SearchArg&,
             std::function<void(std::unique_ptr<SearchResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -648,7 +677,8 @@ namespace files{
             on error:UploadError throws exception UploadErrorException
             */
         std::unique_ptr<FileMetadata> upload(const CommitInfo& , QIODevice* readFrom);
-        void upload_Async(
+        DropboxTask<FileMetadata>* upload_Async(const CommitInfo&, QIODevice* data);
+        void upload_AsyncCB(
             const CommitInfo&,
             QIODevice* data,
             std::function<void(std::unique_ptr<FileMetadata>)> completed_callback = nullptr,
@@ -664,7 +694,8 @@ namespace files{
             on error:UploadSessionLookupError throws exception UploadSessionLookupErrorException
             */
         void uploadSessionAppend(const UploadSessionCursor& , QIODevice* readFrom);
-        void uploadSessionAppend_Async(
+        DropboxVoidTask* uploadSessionAppend_Async(const UploadSessionCursor&, QIODevice* data);
+        void uploadSessionAppend_AsyncCB(
             const UploadSessionCursor&,
             QIODevice* data,
             std::function<void()> completed_callback = nullptr,
@@ -681,7 +712,8 @@ namespace files{
             on error:UploadSessionLookupError throws exception UploadSessionLookupErrorException
             */
         void uploadSessionAppendV2(const UploadSessionAppendArg& , QIODevice* readFrom);
-        void uploadSessionAppendV2_Async(
+        DropboxVoidTask* uploadSessionAppendV2_Async(const UploadSessionAppendArg&, QIODevice* data);
+        void uploadSessionAppendV2_AsyncCB(
             const UploadSessionAppendArg&,
             QIODevice* data,
             std::function<void()> completed_callback = nullptr,
@@ -698,7 +730,8 @@ namespace files{
             on error:UploadSessionFinishError throws exception UploadSessionFinishErrorException
             */
         std::unique_ptr<FileMetadata> uploadSessionFinish(const UploadSessionFinishArg& , QIODevice* readFrom);
-        void uploadSessionFinish_Async(
+        DropboxTask<FileMetadata>* uploadSessionFinish_Async(const UploadSessionFinishArg&, QIODevice* data);
+        void uploadSessionFinish_AsyncCB(
             const UploadSessionFinishArg&,
             QIODevice* data,
             std::function<void(std::unique_ptr<FileMetadata>)> completed_callback = nullptr,
@@ -726,7 +759,8 @@ namespace files{
 
             */
         std::unique_ptr<async::LaunchEmptyResult> uploadSessionFinishBatch(const UploadSessionFinishBatchArg& );
-        void uploadSessionFinishBatch_Async(
+        DropboxTask<async::LaunchEmptyResult>* uploadSessionFinishBatch_Async(const UploadSessionFinishBatchArg&);
+        void uploadSessionFinishBatch_AsyncCB(
             const UploadSessionFinishBatchArg&,
             std::function<void(std::unique_ptr<async::LaunchEmptyResult>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -742,7 +776,8 @@ namespace files{
             on error:PollError throws exception PollErrorException
             */
         std::unique_ptr<UploadSessionFinishBatchJobStatus> uploadSessionFinishBatchCheck(const async::PollArg& );
-        void uploadSessionFinishBatchCheck_Async(
+        DropboxTask<UploadSessionFinishBatchJobStatus>* uploadSessionFinishBatchCheck_Async(const async::PollArg&);
+        void uploadSessionFinishBatchCheck_AsyncCB(
             const async::PollArg&,
             std::function<void(std::unique_ptr<UploadSessionFinishBatchJobStatus>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -760,7 +795,8 @@ namespace files{
 
             */
         std::unique_ptr<UploadSessionStartResult> uploadSessionStart(const UploadSessionStartArg& , QIODevice* readFrom);
-        void uploadSessionStart_Async(
+        DropboxTask<UploadSessionStartResult>* uploadSessionStart_Async(const UploadSessionStartArg&, QIODevice* data);
+        void uploadSessionStart_AsyncCB(
             const UploadSessionStartArg&,
             QIODevice* data,
             std::function<void(std::unique_ptr<UploadSessionStartResult>)> completed_callback = nullptr,

@@ -10,17 +10,31 @@ using namespace dropboxQt;
 using namespace sharing;
 
 std::unique_ptr<std::list <FileMemberActionResult>> SharingRoutes::addFileMember(const AddFileMemberArgs& arg ){
-    DROPBOX_BLOCKING_CALL(addFileMember_Async, std::list <FileMemberActionResult>, arg);
+    DROPBOX_BLOCKING_CALL(addFileMember_AsyncCB, std::list <FileMemberActionResult>, arg);
 }
 
-void SharingRoutes::addFileMember_Async(
+DropboxTask<std::list <FileMemberActionResult>>* SharingRoutes::addFileMember_Async(const AddFileMemberArgs& arg)
+{
+    DropboxTask<std::list <FileMemberActionResult>>* t = new DropboxTask<std::list <FileMemberActionResult>>();
+    m_end_point->rpcStyle<
+        AddFileMemberArgs,
+        std::list <FileMemberActionResult>,
+        ListFromJsonLoader<std::list <FileMemberActionResult>, FileMemberActionResult>,
+        AddFileMemberErrorException>
+        ("2/sharing/add_file_member",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::addFileMember_AsyncCB(
     const AddFileMemberArgs& arg,
     std::function<void(std::unique_ptr<std::list <FileMemberActionResult>>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         AddFileMemberArgs,
-        std::unique_ptr<std::list <FileMemberActionResult>>,
+        std::list <FileMemberActionResult>,
         ListFromJsonLoader<std::list <FileMemberActionResult>, FileMemberActionResult>,
         AddFileMemberErrorException>
         ("2/sharing/add_file_member",
@@ -30,10 +44,22 @@ void SharingRoutes::addFileMember_Async(
 }
 
 void SharingRoutes::addFolderMember(const AddFolderMemberArg& arg ){
-    VOID_RESULT_DBC(addFolderMember_Async, arg);
+    VOID_RESULT_DBC(addFolderMember_AsyncCB, arg);
 }
 
-void SharingRoutes::addFolderMember_Async(
+DropboxVoidTask* SharingRoutes::addFolderMember_Async(const AddFolderMemberArg& arg)
+{
+    DropboxVoidTask* t = new DropboxVoidTask();
+    m_end_point->rpcStyle<
+        AddFolderMemberArg,
+        AddFolderMemberErrorException>
+        ("2/sharing/add_folder_member",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::addFolderMember_AsyncCB(
     const AddFolderMemberArg& arg,
     std::function<void()> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
@@ -48,17 +74,31 @@ void SharingRoutes::addFolderMember_Async(
 }
 
 std::unique_ptr<FileMemberActionResult> SharingRoutes::changeFileMemberAccess(const ChangeFileMemberAccessArgs& arg ){
-    DROPBOX_BLOCKING_CALL(changeFileMemberAccess_Async, FileMemberActionResult, arg);
+    DROPBOX_BLOCKING_CALL(changeFileMemberAccess_AsyncCB, FileMemberActionResult, arg);
 }
 
-void SharingRoutes::changeFileMemberAccess_Async(
+DropboxTask<FileMemberActionResult>* SharingRoutes::changeFileMemberAccess_Async(const ChangeFileMemberAccessArgs& arg)
+{
+    DropboxTask<FileMemberActionResult>* t = new DropboxTask<FileMemberActionResult>();
+    m_end_point->rpcStyle<
+        ChangeFileMemberAccessArgs,
+        FileMemberActionResult,
+        FileMemberActionResult::factory,
+        FileMemberActionErrorException>
+        ("2/sharing/change_file_member_access",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::changeFileMemberAccess_AsyncCB(
     const ChangeFileMemberAccessArgs& arg,
     std::function<void(std::unique_ptr<FileMemberActionResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ChangeFileMemberAccessArgs,
-        std::unique_ptr<FileMemberActionResult>,
+        FileMemberActionResult,
         FileMemberActionResult::factory,
         FileMemberActionErrorException>
         ("2/sharing/change_file_member_access",
@@ -68,17 +108,31 @@ void SharingRoutes::changeFileMemberAccess_Async(
 }
 
 std::unique_ptr<JobStatus> SharingRoutes::checkJobStatus(const async::PollArg& arg ){
-    DROPBOX_BLOCKING_CALL(checkJobStatus_Async, JobStatus, arg);
+    DROPBOX_BLOCKING_CALL(checkJobStatus_AsyncCB, JobStatus, arg);
 }
 
-void SharingRoutes::checkJobStatus_Async(
+DropboxTask<JobStatus>* SharingRoutes::checkJobStatus_Async(const async::PollArg& arg)
+{
+    DropboxTask<JobStatus>* t = new DropboxTask<JobStatus>();
+    m_end_point->rpcStyle<
+        async::PollArg,
+        JobStatus,
+        JobStatus::factory,
+        PollErrorException>
+        ("2/sharing/check_job_status",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::checkJobStatus_AsyncCB(
     const async::PollArg& arg,
     std::function<void(std::unique_ptr<JobStatus>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         async::PollArg,
-        std::unique_ptr<JobStatus>,
+        JobStatus,
         JobStatus::factory,
         PollErrorException>
         ("2/sharing/check_job_status",
@@ -88,17 +142,31 @@ void SharingRoutes::checkJobStatus_Async(
 }
 
 std::unique_ptr<RemoveMemberJobStatus> SharingRoutes::checkRemoveMemberJobStatus(const async::PollArg& arg ){
-    DROPBOX_BLOCKING_CALL(checkRemoveMemberJobStatus_Async, RemoveMemberJobStatus, arg);
+    DROPBOX_BLOCKING_CALL(checkRemoveMemberJobStatus_AsyncCB, RemoveMemberJobStatus, arg);
 }
 
-void SharingRoutes::checkRemoveMemberJobStatus_Async(
+DropboxTask<RemoveMemberJobStatus>* SharingRoutes::checkRemoveMemberJobStatus_Async(const async::PollArg& arg)
+{
+    DropboxTask<RemoveMemberJobStatus>* t = new DropboxTask<RemoveMemberJobStatus>();
+    m_end_point->rpcStyle<
+        async::PollArg,
+        RemoveMemberJobStatus,
+        RemoveMemberJobStatus::factory,
+        PollErrorException>
+        ("2/sharing/check_remove_member_job_status",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::checkRemoveMemberJobStatus_AsyncCB(
     const async::PollArg& arg,
     std::function<void(std::unique_ptr<RemoveMemberJobStatus>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         async::PollArg,
-        std::unique_ptr<RemoveMemberJobStatus>,
+        RemoveMemberJobStatus,
         RemoveMemberJobStatus::factory,
         PollErrorException>
         ("2/sharing/check_remove_member_job_status",
@@ -108,17 +176,31 @@ void SharingRoutes::checkRemoveMemberJobStatus_Async(
 }
 
 std::unique_ptr<ShareFolderJobStatus> SharingRoutes::checkShareJobStatus(const async::PollArg& arg ){
-    DROPBOX_BLOCKING_CALL(checkShareJobStatus_Async, ShareFolderJobStatus, arg);
+    DROPBOX_BLOCKING_CALL(checkShareJobStatus_AsyncCB, ShareFolderJobStatus, arg);
 }
 
-void SharingRoutes::checkShareJobStatus_Async(
+DropboxTask<ShareFolderJobStatus>* SharingRoutes::checkShareJobStatus_Async(const async::PollArg& arg)
+{
+    DropboxTask<ShareFolderJobStatus>* t = new DropboxTask<ShareFolderJobStatus>();
+    m_end_point->rpcStyle<
+        async::PollArg,
+        ShareFolderJobStatus,
+        ShareFolderJobStatus::factory,
+        PollErrorException>
+        ("2/sharing/check_share_job_status",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::checkShareJobStatus_AsyncCB(
     const async::PollArg& arg,
     std::function<void(std::unique_ptr<ShareFolderJobStatus>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         async::PollArg,
-        std::unique_ptr<ShareFolderJobStatus>,
+        ShareFolderJobStatus,
         ShareFolderJobStatus::factory,
         PollErrorException>
         ("2/sharing/check_share_job_status",
@@ -128,17 +210,31 @@ void SharingRoutes::checkShareJobStatus_Async(
 }
 
 std::unique_ptr<PathLinkMetadata> SharingRoutes::createSharedLink(const CreateSharedLinkArg& arg ){
-    DROPBOX_BLOCKING_CALL(createSharedLink_Async, PathLinkMetadata, arg);
+    DROPBOX_BLOCKING_CALL(createSharedLink_AsyncCB, PathLinkMetadata, arg);
 }
 
-void SharingRoutes::createSharedLink_Async(
+DropboxTask<PathLinkMetadata>* SharingRoutes::createSharedLink_Async(const CreateSharedLinkArg& arg)
+{
+    DropboxTask<PathLinkMetadata>* t = new DropboxTask<PathLinkMetadata>();
+    m_end_point->rpcStyle<
+        CreateSharedLinkArg,
+        PathLinkMetadata,
+        PathLinkMetadata::factory,
+        CreateSharedLinkErrorException>
+        ("2/sharing/create_shared_link",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::createSharedLink_AsyncCB(
     const CreateSharedLinkArg& arg,
     std::function<void(std::unique_ptr<PathLinkMetadata>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         CreateSharedLinkArg,
-        std::unique_ptr<PathLinkMetadata>,
+        PathLinkMetadata,
         PathLinkMetadata::factory,
         CreateSharedLinkErrorException>
         ("2/sharing/create_shared_link",
@@ -148,17 +244,31 @@ void SharingRoutes::createSharedLink_Async(
 }
 
 std::unique_ptr<SharedLinkMetadata> SharingRoutes::createSharedLinkWithSettings(const CreateSharedLinkWithSettingsArg& arg ){
-    DROPBOX_BLOCKING_CALL(createSharedLinkWithSettings_Async, SharedLinkMetadata, arg);
+    DROPBOX_BLOCKING_CALL(createSharedLinkWithSettings_AsyncCB, SharedLinkMetadata, arg);
 }
 
-void SharingRoutes::createSharedLinkWithSettings_Async(
+DropboxTask<SharedLinkMetadata>* SharingRoutes::createSharedLinkWithSettings_Async(const CreateSharedLinkWithSettingsArg& arg)
+{
+    DropboxTask<SharedLinkMetadata>* t = new DropboxTask<SharedLinkMetadata>();
+    m_end_point->rpcStyle<
+        CreateSharedLinkWithSettingsArg,
+        SharedLinkMetadata,
+        SharedLinkMetadata::factory,
+        CreateSharedLinkWithSettingsErrorException>
+        ("2/sharing/create_shared_link_with_settings",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::createSharedLinkWithSettings_AsyncCB(
     const CreateSharedLinkWithSettingsArg& arg,
     std::function<void(std::unique_ptr<SharedLinkMetadata>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         CreateSharedLinkWithSettingsArg,
-        std::unique_ptr<SharedLinkMetadata>,
+        SharedLinkMetadata,
         SharedLinkMetadata::factory,
         CreateSharedLinkWithSettingsErrorException>
         ("2/sharing/create_shared_link_with_settings",
@@ -168,17 +278,31 @@ void SharingRoutes::createSharedLinkWithSettings_Async(
 }
 
 std::unique_ptr<SharedFileMetadata> SharingRoutes::getFileMetadata(const GetFileMetadataArg& arg ){
-    DROPBOX_BLOCKING_CALL(getFileMetadata_Async, SharedFileMetadata, arg);
+    DROPBOX_BLOCKING_CALL(getFileMetadata_AsyncCB, SharedFileMetadata, arg);
 }
 
-void SharingRoutes::getFileMetadata_Async(
+DropboxTask<SharedFileMetadata>* SharingRoutes::getFileMetadata_Async(const GetFileMetadataArg& arg)
+{
+    DropboxTask<SharedFileMetadata>* t = new DropboxTask<SharedFileMetadata>();
+    m_end_point->rpcStyle<
+        GetFileMetadataArg,
+        SharedFileMetadata,
+        SharedFileMetadata::factory,
+        GetFileMetadataErrorException>
+        ("2/sharing/get_file_metadata",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::getFileMetadata_AsyncCB(
     const GetFileMetadataArg& arg,
     std::function<void(std::unique_ptr<SharedFileMetadata>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         GetFileMetadataArg,
-        std::unique_ptr<SharedFileMetadata>,
+        SharedFileMetadata,
         SharedFileMetadata::factory,
         GetFileMetadataErrorException>
         ("2/sharing/get_file_metadata",
@@ -188,17 +312,31 @@ void SharingRoutes::getFileMetadata_Async(
 }
 
 std::unique_ptr<std::list <GetFileMetadataBatchResult>> SharingRoutes::getFileMetadataBatch(const GetFileMetadataBatchArg& arg ){
-    DROPBOX_BLOCKING_CALL(getFileMetadataBatch_Async, std::list <GetFileMetadataBatchResult>, arg);
+    DROPBOX_BLOCKING_CALL(getFileMetadataBatch_AsyncCB, std::list <GetFileMetadataBatchResult>, arg);
 }
 
-void SharingRoutes::getFileMetadataBatch_Async(
+DropboxTask<std::list <GetFileMetadataBatchResult>>* SharingRoutes::getFileMetadataBatch_Async(const GetFileMetadataBatchArg& arg)
+{
+    DropboxTask<std::list <GetFileMetadataBatchResult>>* t = new DropboxTask<std::list <GetFileMetadataBatchResult>>();
+    m_end_point->rpcStyle<
+        GetFileMetadataBatchArg,
+        std::list <GetFileMetadataBatchResult>,
+        ListFromJsonLoader<std::list <GetFileMetadataBatchResult>, GetFileMetadataBatchResult>,
+        SharingUserErrorException>
+        ("2/sharing/get_file_metadata/batch",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::getFileMetadataBatch_AsyncCB(
     const GetFileMetadataBatchArg& arg,
     std::function<void(std::unique_ptr<std::list <GetFileMetadataBatchResult>>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         GetFileMetadataBatchArg,
-        std::unique_ptr<std::list <GetFileMetadataBatchResult>>,
+        std::list <GetFileMetadataBatchResult>,
         ListFromJsonLoader<std::list <GetFileMetadataBatchResult>, GetFileMetadataBatchResult>,
         SharingUserErrorException>
         ("2/sharing/get_file_metadata/batch",
@@ -208,17 +346,31 @@ void SharingRoutes::getFileMetadataBatch_Async(
 }
 
 std::unique_ptr<SharedFolderMetadata> SharingRoutes::getFolderMetadata(const GetMetadataArgs& arg ){
-    DROPBOX_BLOCKING_CALL(getFolderMetadata_Async, SharedFolderMetadata, arg);
+    DROPBOX_BLOCKING_CALL(getFolderMetadata_AsyncCB, SharedFolderMetadata, arg);
 }
 
-void SharingRoutes::getFolderMetadata_Async(
+DropboxTask<SharedFolderMetadata>* SharingRoutes::getFolderMetadata_Async(const GetMetadataArgs& arg)
+{
+    DropboxTask<SharedFolderMetadata>* t = new DropboxTask<SharedFolderMetadata>();
+    m_end_point->rpcStyle<
+        GetMetadataArgs,
+        SharedFolderMetadata,
+        SharedFolderMetadata::factory,
+        SharedFolderAccessErrorException>
+        ("2/sharing/get_folder_metadata",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::getFolderMetadata_AsyncCB(
     const GetMetadataArgs& arg,
     std::function<void(std::unique_ptr<SharedFolderMetadata>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         GetMetadataArgs,
-        std::unique_ptr<SharedFolderMetadata>,
+        SharedFolderMetadata,
         SharedFolderMetadata::factory,
         SharedFolderAccessErrorException>
         ("2/sharing/get_folder_metadata",
@@ -228,10 +380,25 @@ void SharingRoutes::getFolderMetadata_Async(
 }
 
 std::unique_ptr<SharedLinkMetadata> SharingRoutes::getSharedLinkFile(const GetSharedLinkMetadataArg& arg , QIODevice* data){
-    DATA_DBC(getSharedLinkFile_Async, SharedLinkMetadata, arg, data);
+    DATA_DBC(getSharedLinkFile_AsyncCB, SharedLinkMetadata, arg, data);
 }
 
-void SharingRoutes::getSharedLinkFile_Async(
+DropboxTask<SharedLinkMetadata>* SharingRoutes::getSharedLinkFile_Async(const GetSharedLinkMetadataArg& arg, QIODevice* data)
+{
+    DropboxTask<SharedLinkMetadata>* t = new DropboxTask<SharedLinkMetadata>();
+    m_end_point->downloadStyle<
+        GetSharedLinkMetadataArg,
+        SharedLinkMetadata,
+        SharedLinkMetadata::factory,
+        GetSharedLinkFileErrorException>
+        ("2/sharing/get_shared_link_file",
+        arg,
+        data,
+        t);
+    return t;
+}
+
+void SharingRoutes::getSharedLinkFile_AsyncCB(
     const GetSharedLinkMetadataArg& arg,
     QIODevice* data,
     std::function<void(std::unique_ptr<SharedLinkMetadata>)> completed_callback ,
@@ -239,7 +406,7 @@ void SharingRoutes::getSharedLinkFile_Async(
 {
     m_end_point->downloadStyle<
         GetSharedLinkMetadataArg,
-        std::unique_ptr<SharedLinkMetadata>,
+        SharedLinkMetadata,
         SharedLinkMetadata::factory,
         GetSharedLinkFileErrorException>
         ("2/sharing/get_shared_link_file",
@@ -250,17 +417,31 @@ void SharingRoutes::getSharedLinkFile_Async(
 }
 
 std::unique_ptr<SharedLinkMetadata> SharingRoutes::getSharedLinkMetadata(const GetSharedLinkMetadataArg& arg ){
-    DROPBOX_BLOCKING_CALL(getSharedLinkMetadata_Async, SharedLinkMetadata, arg);
+    DROPBOX_BLOCKING_CALL(getSharedLinkMetadata_AsyncCB, SharedLinkMetadata, arg);
 }
 
-void SharingRoutes::getSharedLinkMetadata_Async(
+DropboxTask<SharedLinkMetadata>* SharingRoutes::getSharedLinkMetadata_Async(const GetSharedLinkMetadataArg& arg)
+{
+    DropboxTask<SharedLinkMetadata>* t = new DropboxTask<SharedLinkMetadata>();
+    m_end_point->rpcStyle<
+        GetSharedLinkMetadataArg,
+        SharedLinkMetadata,
+        SharedLinkMetadata::factory,
+        SharedLinkErrorException>
+        ("2/sharing/get_shared_link_metadata",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::getSharedLinkMetadata_AsyncCB(
     const GetSharedLinkMetadataArg& arg,
     std::function<void(std::unique_ptr<SharedLinkMetadata>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         GetSharedLinkMetadataArg,
-        std::unique_ptr<SharedLinkMetadata>,
+        SharedLinkMetadata,
         SharedLinkMetadata::factory,
         SharedLinkErrorException>
         ("2/sharing/get_shared_link_metadata",
@@ -270,17 +451,31 @@ void SharingRoutes::getSharedLinkMetadata_Async(
 }
 
 std::unique_ptr<GetSharedLinksResult> SharingRoutes::getSharedLinks(const GetSharedLinksArg& arg ){
-    DROPBOX_BLOCKING_CALL(getSharedLinks_Async, GetSharedLinksResult, arg);
+    DROPBOX_BLOCKING_CALL(getSharedLinks_AsyncCB, GetSharedLinksResult, arg);
 }
 
-void SharingRoutes::getSharedLinks_Async(
+DropboxTask<GetSharedLinksResult>* SharingRoutes::getSharedLinks_Async(const GetSharedLinksArg& arg)
+{
+    DropboxTask<GetSharedLinksResult>* t = new DropboxTask<GetSharedLinksResult>();
+    m_end_point->rpcStyle<
+        GetSharedLinksArg,
+        GetSharedLinksResult,
+        GetSharedLinksResult::factory,
+        GetSharedLinksErrorException>
+        ("2/sharing/get_shared_links",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::getSharedLinks_AsyncCB(
     const GetSharedLinksArg& arg,
     std::function<void(std::unique_ptr<GetSharedLinksResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         GetSharedLinksArg,
-        std::unique_ptr<GetSharedLinksResult>,
+        GetSharedLinksResult,
         GetSharedLinksResult::factory,
         GetSharedLinksErrorException>
         ("2/sharing/get_shared_links",
@@ -290,17 +485,31 @@ void SharingRoutes::getSharedLinks_Async(
 }
 
 std::unique_ptr<SharedFileMembers> SharingRoutes::listFileMembers(const ListFileMembersArg& arg ){
-    DROPBOX_BLOCKING_CALL(listFileMembers_Async, SharedFileMembers, arg);
+    DROPBOX_BLOCKING_CALL(listFileMembers_AsyncCB, SharedFileMembers, arg);
 }
 
-void SharingRoutes::listFileMembers_Async(
+DropboxTask<SharedFileMembers>* SharingRoutes::listFileMembers_Async(const ListFileMembersArg& arg)
+{
+    DropboxTask<SharedFileMembers>* t = new DropboxTask<SharedFileMembers>();
+    m_end_point->rpcStyle<
+        ListFileMembersArg,
+        SharedFileMembers,
+        SharedFileMembers::factory,
+        ListFileMembersErrorException>
+        ("2/sharing/list_file_members",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::listFileMembers_AsyncCB(
     const ListFileMembersArg& arg,
     std::function<void(std::unique_ptr<SharedFileMembers>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListFileMembersArg,
-        std::unique_ptr<SharedFileMembers>,
+        SharedFileMembers,
         SharedFileMembers::factory,
         ListFileMembersErrorException>
         ("2/sharing/list_file_members",
@@ -310,17 +519,31 @@ void SharingRoutes::listFileMembers_Async(
 }
 
 std::unique_ptr<std::list <ListFileMembersBatchResult>> SharingRoutes::listFileMembersBatch(const ListFileMembersBatchArg& arg ){
-    DROPBOX_BLOCKING_CALL(listFileMembersBatch_Async, std::list <ListFileMembersBatchResult>, arg);
+    DROPBOX_BLOCKING_CALL(listFileMembersBatch_AsyncCB, std::list <ListFileMembersBatchResult>, arg);
 }
 
-void SharingRoutes::listFileMembersBatch_Async(
+DropboxTask<std::list <ListFileMembersBatchResult>>* SharingRoutes::listFileMembersBatch_Async(const ListFileMembersBatchArg& arg)
+{
+    DropboxTask<std::list <ListFileMembersBatchResult>>* t = new DropboxTask<std::list <ListFileMembersBatchResult>>();
+    m_end_point->rpcStyle<
+        ListFileMembersBatchArg,
+        std::list <ListFileMembersBatchResult>,
+        ListFromJsonLoader<std::list <ListFileMembersBatchResult>, ListFileMembersBatchResult>,
+        SharingUserErrorException>
+        ("2/sharing/list_file_members/batch",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::listFileMembersBatch_AsyncCB(
     const ListFileMembersBatchArg& arg,
     std::function<void(std::unique_ptr<std::list <ListFileMembersBatchResult>>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListFileMembersBatchArg,
-        std::unique_ptr<std::list <ListFileMembersBatchResult>>,
+        std::list <ListFileMembersBatchResult>,
         ListFromJsonLoader<std::list <ListFileMembersBatchResult>, ListFileMembersBatchResult>,
         SharingUserErrorException>
         ("2/sharing/list_file_members/batch",
@@ -330,17 +553,31 @@ void SharingRoutes::listFileMembersBatch_Async(
 }
 
 std::unique_ptr<SharedFileMembers> SharingRoutes::listFileMembersContinue(const ListFileMembersContinueArg& arg ){
-    DROPBOX_BLOCKING_CALL(listFileMembersContinue_Async, SharedFileMembers, arg);
+    DROPBOX_BLOCKING_CALL(listFileMembersContinue_AsyncCB, SharedFileMembers, arg);
 }
 
-void SharingRoutes::listFileMembersContinue_Async(
+DropboxTask<SharedFileMembers>* SharingRoutes::listFileMembersContinue_Async(const ListFileMembersContinueArg& arg)
+{
+    DropboxTask<SharedFileMembers>* t = new DropboxTask<SharedFileMembers>();
+    m_end_point->rpcStyle<
+        ListFileMembersContinueArg,
+        SharedFileMembers,
+        SharedFileMembers::factory,
+        ListFileMembersContinueErrorException>
+        ("2/sharing/list_file_members/continue",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::listFileMembersContinue_AsyncCB(
     const ListFileMembersContinueArg& arg,
     std::function<void(std::unique_ptr<SharedFileMembers>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListFileMembersContinueArg,
-        std::unique_ptr<SharedFileMembers>,
+        SharedFileMembers,
         SharedFileMembers::factory,
         ListFileMembersContinueErrorException>
         ("2/sharing/list_file_members/continue",
@@ -350,17 +587,31 @@ void SharingRoutes::listFileMembersContinue_Async(
 }
 
 std::unique_ptr<SharedFolderMembers> SharingRoutes::listFolderMembers(const ListFolderMembersArgs& arg ){
-    DROPBOX_BLOCKING_CALL(listFolderMembers_Async, SharedFolderMembers, arg);
+    DROPBOX_BLOCKING_CALL(listFolderMembers_AsyncCB, SharedFolderMembers, arg);
 }
 
-void SharingRoutes::listFolderMembers_Async(
+DropboxTask<SharedFolderMembers>* SharingRoutes::listFolderMembers_Async(const ListFolderMembersArgs& arg)
+{
+    DropboxTask<SharedFolderMembers>* t = new DropboxTask<SharedFolderMembers>();
+    m_end_point->rpcStyle<
+        ListFolderMembersArgs,
+        SharedFolderMembers,
+        SharedFolderMembers::factory,
+        SharedFolderAccessErrorException>
+        ("2/sharing/list_folder_members",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::listFolderMembers_AsyncCB(
     const ListFolderMembersArgs& arg,
     std::function<void(std::unique_ptr<SharedFolderMembers>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListFolderMembersArgs,
-        std::unique_ptr<SharedFolderMembers>,
+        SharedFolderMembers,
         SharedFolderMembers::factory,
         SharedFolderAccessErrorException>
         ("2/sharing/list_folder_members",
@@ -370,17 +621,31 @@ void SharingRoutes::listFolderMembers_Async(
 }
 
 std::unique_ptr<SharedFolderMembers> SharingRoutes::listFolderMembersContinue(const ListFolderMembersContinueArg& arg ){
-    DROPBOX_BLOCKING_CALL(listFolderMembersContinue_Async, SharedFolderMembers, arg);
+    DROPBOX_BLOCKING_CALL(listFolderMembersContinue_AsyncCB, SharedFolderMembers, arg);
 }
 
-void SharingRoutes::listFolderMembersContinue_Async(
+DropboxTask<SharedFolderMembers>* SharingRoutes::listFolderMembersContinue_Async(const ListFolderMembersContinueArg& arg)
+{
+    DropboxTask<SharedFolderMembers>* t = new DropboxTask<SharedFolderMembers>();
+    m_end_point->rpcStyle<
+        ListFolderMembersContinueArg,
+        SharedFolderMembers,
+        SharedFolderMembers::factory,
+        ListFolderMembersContinueErrorException>
+        ("2/sharing/list_folder_members/continue",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::listFolderMembersContinue_AsyncCB(
     const ListFolderMembersContinueArg& arg,
     std::function<void(std::unique_ptr<SharedFolderMembers>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListFolderMembersContinueArg,
-        std::unique_ptr<SharedFolderMembers>,
+        SharedFolderMembers,
         SharedFolderMembers::factory,
         ListFolderMembersContinueErrorException>
         ("2/sharing/list_folder_members/continue",
@@ -390,17 +655,31 @@ void SharingRoutes::listFolderMembersContinue_Async(
 }
 
 std::unique_ptr<ListFoldersResult> SharingRoutes::listFolders(const ListFoldersArgs& arg ){
-    DROPBOX_BLOCKING_CALL(listFolders_Async, ListFoldersResult, arg);
+    DROPBOX_BLOCKING_CALL(listFolders_AsyncCB, ListFoldersResult, arg);
 }
 
-void SharingRoutes::listFolders_Async(
+DropboxTask<ListFoldersResult>* SharingRoutes::listFolders_Async(const ListFoldersArgs& arg)
+{
+    DropboxTask<ListFoldersResult>* t = new DropboxTask<ListFoldersResult>();
+    m_end_point->rpcStyle<
+        ListFoldersArgs,
+        ListFoldersResult,
+        ListFoldersResult::factory,
+        DropboxException>
+        ("2/sharing/list_folders",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::listFolders_AsyncCB(
     const ListFoldersArgs& arg,
     std::function<void(std::unique_ptr<ListFoldersResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListFoldersArgs,
-        std::unique_ptr<ListFoldersResult>,
+        ListFoldersResult,
         ListFoldersResult::factory,
         DropboxException>
         ("2/sharing/list_folders",
@@ -410,17 +689,31 @@ void SharingRoutes::listFolders_Async(
 }
 
 std::unique_ptr<ListFoldersResult> SharingRoutes::listFoldersContinue(const ListFoldersContinueArg& arg ){
-    DROPBOX_BLOCKING_CALL(listFoldersContinue_Async, ListFoldersResult, arg);
+    DROPBOX_BLOCKING_CALL(listFoldersContinue_AsyncCB, ListFoldersResult, arg);
 }
 
-void SharingRoutes::listFoldersContinue_Async(
+DropboxTask<ListFoldersResult>* SharingRoutes::listFoldersContinue_Async(const ListFoldersContinueArg& arg)
+{
+    DropboxTask<ListFoldersResult>* t = new DropboxTask<ListFoldersResult>();
+    m_end_point->rpcStyle<
+        ListFoldersContinueArg,
+        ListFoldersResult,
+        ListFoldersResult::factory,
+        ListFoldersContinueErrorException>
+        ("2/sharing/list_folders/continue",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::listFoldersContinue_AsyncCB(
     const ListFoldersContinueArg& arg,
     std::function<void(std::unique_ptr<ListFoldersResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListFoldersContinueArg,
-        std::unique_ptr<ListFoldersResult>,
+        ListFoldersResult,
         ListFoldersResult::factory,
         ListFoldersContinueErrorException>
         ("2/sharing/list_folders/continue",
@@ -430,17 +723,31 @@ void SharingRoutes::listFoldersContinue_Async(
 }
 
 std::unique_ptr<ListFoldersResult> SharingRoutes::listMountableFolders(const ListFoldersArgs& arg ){
-    DROPBOX_BLOCKING_CALL(listMountableFolders_Async, ListFoldersResult, arg);
+    DROPBOX_BLOCKING_CALL(listMountableFolders_AsyncCB, ListFoldersResult, arg);
 }
 
-void SharingRoutes::listMountableFolders_Async(
+DropboxTask<ListFoldersResult>* SharingRoutes::listMountableFolders_Async(const ListFoldersArgs& arg)
+{
+    DropboxTask<ListFoldersResult>* t = new DropboxTask<ListFoldersResult>();
+    m_end_point->rpcStyle<
+        ListFoldersArgs,
+        ListFoldersResult,
+        ListFoldersResult::factory,
+        DropboxException>
+        ("2/sharing/list_mountable_folders",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::listMountableFolders_AsyncCB(
     const ListFoldersArgs& arg,
     std::function<void(std::unique_ptr<ListFoldersResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListFoldersArgs,
-        std::unique_ptr<ListFoldersResult>,
+        ListFoldersResult,
         ListFoldersResult::factory,
         DropboxException>
         ("2/sharing/list_mountable_folders",
@@ -450,17 +757,31 @@ void SharingRoutes::listMountableFolders_Async(
 }
 
 std::unique_ptr<ListFoldersResult> SharingRoutes::listMountableFoldersContinue(const ListFoldersContinueArg& arg ){
-    DROPBOX_BLOCKING_CALL(listMountableFoldersContinue_Async, ListFoldersResult, arg);
+    DROPBOX_BLOCKING_CALL(listMountableFoldersContinue_AsyncCB, ListFoldersResult, arg);
 }
 
-void SharingRoutes::listMountableFoldersContinue_Async(
+DropboxTask<ListFoldersResult>* SharingRoutes::listMountableFoldersContinue_Async(const ListFoldersContinueArg& arg)
+{
+    DropboxTask<ListFoldersResult>* t = new DropboxTask<ListFoldersResult>();
+    m_end_point->rpcStyle<
+        ListFoldersContinueArg,
+        ListFoldersResult,
+        ListFoldersResult::factory,
+        ListFoldersContinueErrorException>
+        ("2/sharing/list_mountable_folders/continue",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::listMountableFoldersContinue_AsyncCB(
     const ListFoldersContinueArg& arg,
     std::function<void(std::unique_ptr<ListFoldersResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListFoldersContinueArg,
-        std::unique_ptr<ListFoldersResult>,
+        ListFoldersResult,
         ListFoldersResult::factory,
         ListFoldersContinueErrorException>
         ("2/sharing/list_mountable_folders/continue",
@@ -470,17 +791,31 @@ void SharingRoutes::listMountableFoldersContinue_Async(
 }
 
 std::unique_ptr<ListFilesResult> SharingRoutes::listReceivedFiles(const ListFilesArg& arg ){
-    DROPBOX_BLOCKING_CALL(listReceivedFiles_Async, ListFilesResult, arg);
+    DROPBOX_BLOCKING_CALL(listReceivedFiles_AsyncCB, ListFilesResult, arg);
 }
 
-void SharingRoutes::listReceivedFiles_Async(
+DropboxTask<ListFilesResult>* SharingRoutes::listReceivedFiles_Async(const ListFilesArg& arg)
+{
+    DropboxTask<ListFilesResult>* t = new DropboxTask<ListFilesResult>();
+    m_end_point->rpcStyle<
+        ListFilesArg,
+        ListFilesResult,
+        ListFilesResult::factory,
+        SharingUserErrorException>
+        ("2/sharing/list_received_files",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::listReceivedFiles_AsyncCB(
     const ListFilesArg& arg,
     std::function<void(std::unique_ptr<ListFilesResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListFilesArg,
-        std::unique_ptr<ListFilesResult>,
+        ListFilesResult,
         ListFilesResult::factory,
         SharingUserErrorException>
         ("2/sharing/list_received_files",
@@ -490,17 +825,31 @@ void SharingRoutes::listReceivedFiles_Async(
 }
 
 std::unique_ptr<ListFilesResult> SharingRoutes::listReceivedFilesContinue(const ListFilesContinueArg& arg ){
-    DROPBOX_BLOCKING_CALL(listReceivedFilesContinue_Async, ListFilesResult, arg);
+    DROPBOX_BLOCKING_CALL(listReceivedFilesContinue_AsyncCB, ListFilesResult, arg);
 }
 
-void SharingRoutes::listReceivedFilesContinue_Async(
+DropboxTask<ListFilesResult>* SharingRoutes::listReceivedFilesContinue_Async(const ListFilesContinueArg& arg)
+{
+    DropboxTask<ListFilesResult>* t = new DropboxTask<ListFilesResult>();
+    m_end_point->rpcStyle<
+        ListFilesContinueArg,
+        ListFilesResult,
+        ListFilesResult::factory,
+        ListFilesContinueErrorException>
+        ("2/sharing/list_received_files/continue",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::listReceivedFilesContinue_AsyncCB(
     const ListFilesContinueArg& arg,
     std::function<void(std::unique_ptr<ListFilesResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListFilesContinueArg,
-        std::unique_ptr<ListFilesResult>,
+        ListFilesResult,
         ListFilesResult::factory,
         ListFilesContinueErrorException>
         ("2/sharing/list_received_files/continue",
@@ -510,17 +859,31 @@ void SharingRoutes::listReceivedFilesContinue_Async(
 }
 
 std::unique_ptr<ListSharedLinksResult> SharingRoutes::listSharedLinks(const ListSharedLinksArg& arg ){
-    DROPBOX_BLOCKING_CALL(listSharedLinks_Async, ListSharedLinksResult, arg);
+    DROPBOX_BLOCKING_CALL(listSharedLinks_AsyncCB, ListSharedLinksResult, arg);
 }
 
-void SharingRoutes::listSharedLinks_Async(
+DropboxTask<ListSharedLinksResult>* SharingRoutes::listSharedLinks_Async(const ListSharedLinksArg& arg)
+{
+    DropboxTask<ListSharedLinksResult>* t = new DropboxTask<ListSharedLinksResult>();
+    m_end_point->rpcStyle<
+        ListSharedLinksArg,
+        ListSharedLinksResult,
+        ListSharedLinksResult::factory,
+        ListSharedLinksErrorException>
+        ("2/sharing/list_shared_links",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::listSharedLinks_AsyncCB(
     const ListSharedLinksArg& arg,
     std::function<void(std::unique_ptr<ListSharedLinksResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListSharedLinksArg,
-        std::unique_ptr<ListSharedLinksResult>,
+        ListSharedLinksResult,
         ListSharedLinksResult::factory,
         ListSharedLinksErrorException>
         ("2/sharing/list_shared_links",
@@ -530,17 +893,31 @@ void SharingRoutes::listSharedLinks_Async(
 }
 
 std::unique_ptr<SharedLinkMetadata> SharingRoutes::modifySharedLinkSettings(const ModifySharedLinkSettingsArgs& arg ){
-    DROPBOX_BLOCKING_CALL(modifySharedLinkSettings_Async, SharedLinkMetadata, arg);
+    DROPBOX_BLOCKING_CALL(modifySharedLinkSettings_AsyncCB, SharedLinkMetadata, arg);
 }
 
-void SharingRoutes::modifySharedLinkSettings_Async(
+DropboxTask<SharedLinkMetadata>* SharingRoutes::modifySharedLinkSettings_Async(const ModifySharedLinkSettingsArgs& arg)
+{
+    DropboxTask<SharedLinkMetadata>* t = new DropboxTask<SharedLinkMetadata>();
+    m_end_point->rpcStyle<
+        ModifySharedLinkSettingsArgs,
+        SharedLinkMetadata,
+        SharedLinkMetadata::factory,
+        ModifySharedLinkSettingsErrorException>
+        ("2/sharing/modify_shared_link_settings",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::modifySharedLinkSettings_AsyncCB(
     const ModifySharedLinkSettingsArgs& arg,
     std::function<void(std::unique_ptr<SharedLinkMetadata>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ModifySharedLinkSettingsArgs,
-        std::unique_ptr<SharedLinkMetadata>,
+        SharedLinkMetadata,
         SharedLinkMetadata::factory,
         ModifySharedLinkSettingsErrorException>
         ("2/sharing/modify_shared_link_settings",
@@ -550,17 +927,31 @@ void SharingRoutes::modifySharedLinkSettings_Async(
 }
 
 std::unique_ptr<SharedFolderMetadata> SharingRoutes::mountFolder(const MountFolderArg& arg ){
-    DROPBOX_BLOCKING_CALL(mountFolder_Async, SharedFolderMetadata, arg);
+    DROPBOX_BLOCKING_CALL(mountFolder_AsyncCB, SharedFolderMetadata, arg);
 }
 
-void SharingRoutes::mountFolder_Async(
+DropboxTask<SharedFolderMetadata>* SharingRoutes::mountFolder_Async(const MountFolderArg& arg)
+{
+    DropboxTask<SharedFolderMetadata>* t = new DropboxTask<SharedFolderMetadata>();
+    m_end_point->rpcStyle<
+        MountFolderArg,
+        SharedFolderMetadata,
+        SharedFolderMetadata::factory,
+        MountFolderErrorException>
+        ("2/sharing/mount_folder",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::mountFolder_AsyncCB(
     const MountFolderArg& arg,
     std::function<void(std::unique_ptr<SharedFolderMetadata>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         MountFolderArg,
-        std::unique_ptr<SharedFolderMetadata>,
+        SharedFolderMetadata,
         SharedFolderMetadata::factory,
         MountFolderErrorException>
         ("2/sharing/mount_folder",
@@ -570,10 +961,22 @@ void SharingRoutes::mountFolder_Async(
 }
 
 void SharingRoutes::relinquishFileMembership(const RelinquishFileMembershipArg& arg ){
-    VOID_RESULT_DBC(relinquishFileMembership_Async, arg);
+    VOID_RESULT_DBC(relinquishFileMembership_AsyncCB, arg);
 }
 
-void SharingRoutes::relinquishFileMembership_Async(
+DropboxVoidTask* SharingRoutes::relinquishFileMembership_Async(const RelinquishFileMembershipArg& arg)
+{
+    DropboxVoidTask* t = new DropboxVoidTask();
+    m_end_point->rpcStyle<
+        RelinquishFileMembershipArg,
+        RelinquishFileMembershipErrorException>
+        ("2/sharing/relinquish_file_membership",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::relinquishFileMembership_AsyncCB(
     const RelinquishFileMembershipArg& arg,
     std::function<void()> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
@@ -588,17 +991,31 @@ void SharingRoutes::relinquishFileMembership_Async(
 }
 
 std::unique_ptr<async::LaunchEmptyResult> SharingRoutes::relinquishFolderMembership(const RelinquishFolderMembershipArg& arg ){
-    DROPBOX_BLOCKING_CALL(relinquishFolderMembership_Async, async::LaunchEmptyResult, arg);
+    DROPBOX_BLOCKING_CALL(relinquishFolderMembership_AsyncCB, async::LaunchEmptyResult, arg);
 }
 
-void SharingRoutes::relinquishFolderMembership_Async(
+DropboxTask<async::LaunchEmptyResult>* SharingRoutes::relinquishFolderMembership_Async(const RelinquishFolderMembershipArg& arg)
+{
+    DropboxTask<async::LaunchEmptyResult>* t = new DropboxTask<async::LaunchEmptyResult>();
+    m_end_point->rpcStyle<
+        RelinquishFolderMembershipArg,
+        async::LaunchEmptyResult,
+        async::LaunchEmptyResult::factory,
+        RelinquishFolderMembershipErrorException>
+        ("2/sharing/relinquish_folder_membership",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::relinquishFolderMembership_AsyncCB(
     const RelinquishFolderMembershipArg& arg,
     std::function<void(std::unique_ptr<async::LaunchEmptyResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         RelinquishFolderMembershipArg,
-        std::unique_ptr<async::LaunchEmptyResult>,
+        async::LaunchEmptyResult,
         async::LaunchEmptyResult::factory,
         RelinquishFolderMembershipErrorException>
         ("2/sharing/relinquish_folder_membership",
@@ -608,17 +1025,31 @@ void SharingRoutes::relinquishFolderMembership_Async(
 }
 
 std::unique_ptr<FileMemberActionIndividualResult> SharingRoutes::removeFileMember(const RemoveFileMemberArg& arg ){
-    DROPBOX_BLOCKING_CALL(removeFileMember_Async, FileMemberActionIndividualResult, arg);
+    DROPBOX_BLOCKING_CALL(removeFileMember_AsyncCB, FileMemberActionIndividualResult, arg);
 }
 
-void SharingRoutes::removeFileMember_Async(
+DropboxTask<FileMemberActionIndividualResult>* SharingRoutes::removeFileMember_Async(const RemoveFileMemberArg& arg)
+{
+    DropboxTask<FileMemberActionIndividualResult>* t = new DropboxTask<FileMemberActionIndividualResult>();
+    m_end_point->rpcStyle<
+        RemoveFileMemberArg,
+        FileMemberActionIndividualResult,
+        FileMemberActionIndividualResult::factory,
+        RemoveFileMemberErrorException>
+        ("2/sharing/remove_file_member",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::removeFileMember_AsyncCB(
     const RemoveFileMemberArg& arg,
     std::function<void(std::unique_ptr<FileMemberActionIndividualResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         RemoveFileMemberArg,
-        std::unique_ptr<FileMemberActionIndividualResult>,
+        FileMemberActionIndividualResult,
         FileMemberActionIndividualResult::factory,
         RemoveFileMemberErrorException>
         ("2/sharing/remove_file_member",
@@ -628,17 +1059,31 @@ void SharingRoutes::removeFileMember_Async(
 }
 
 std::unique_ptr<FileMemberRemoveActionResult> SharingRoutes::removeFileMember2(const RemoveFileMemberArg& arg ){
-    DROPBOX_BLOCKING_CALL(removeFileMember2_Async, FileMemberRemoveActionResult, arg);
+    DROPBOX_BLOCKING_CALL(removeFileMember2_AsyncCB, FileMemberRemoveActionResult, arg);
 }
 
-void SharingRoutes::removeFileMember2_Async(
+DropboxTask<FileMemberRemoveActionResult>* SharingRoutes::removeFileMember2_Async(const RemoveFileMemberArg& arg)
+{
+    DropboxTask<FileMemberRemoveActionResult>* t = new DropboxTask<FileMemberRemoveActionResult>();
+    m_end_point->rpcStyle<
+        RemoveFileMemberArg,
+        FileMemberRemoveActionResult,
+        FileMemberRemoveActionResult::factory,
+        RemoveFileMemberErrorException>
+        ("2/sharing/remove_file_member_2",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::removeFileMember2_AsyncCB(
     const RemoveFileMemberArg& arg,
     std::function<void(std::unique_ptr<FileMemberRemoveActionResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         RemoveFileMemberArg,
-        std::unique_ptr<FileMemberRemoveActionResult>,
+        FileMemberRemoveActionResult,
         FileMemberRemoveActionResult::factory,
         RemoveFileMemberErrorException>
         ("2/sharing/remove_file_member_2",
@@ -648,17 +1093,31 @@ void SharingRoutes::removeFileMember2_Async(
 }
 
 std::unique_ptr<async::LaunchResultBase> SharingRoutes::removeFolderMember(const RemoveFolderMemberArg& arg ){
-    DROPBOX_BLOCKING_CALL(removeFolderMember_Async, async::LaunchResultBase, arg);
+    DROPBOX_BLOCKING_CALL(removeFolderMember_AsyncCB, async::LaunchResultBase, arg);
 }
 
-void SharingRoutes::removeFolderMember_Async(
+DropboxTask<async::LaunchResultBase>* SharingRoutes::removeFolderMember_Async(const RemoveFolderMemberArg& arg)
+{
+    DropboxTask<async::LaunchResultBase>* t = new DropboxTask<async::LaunchResultBase>();
+    m_end_point->rpcStyle<
+        RemoveFolderMemberArg,
+        async::LaunchResultBase,
+        async::LaunchResultBase::factory,
+        RemoveFolderMemberErrorException>
+        ("2/sharing/remove_folder_member",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::removeFolderMember_AsyncCB(
     const RemoveFolderMemberArg& arg,
     std::function<void(std::unique_ptr<async::LaunchResultBase>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         RemoveFolderMemberArg,
-        std::unique_ptr<async::LaunchResultBase>,
+        async::LaunchResultBase,
         async::LaunchResultBase::factory,
         RemoveFolderMemberErrorException>
         ("2/sharing/remove_folder_member",
@@ -668,10 +1127,22 @@ void SharingRoutes::removeFolderMember_Async(
 }
 
 void SharingRoutes::revokeSharedLink(const RevokeSharedLinkArg& arg ){
-    VOID_RESULT_DBC(revokeSharedLink_Async, arg);
+    VOID_RESULT_DBC(revokeSharedLink_AsyncCB, arg);
 }
 
-void SharingRoutes::revokeSharedLink_Async(
+DropboxVoidTask* SharingRoutes::revokeSharedLink_Async(const RevokeSharedLinkArg& arg)
+{
+    DropboxVoidTask* t = new DropboxVoidTask();
+    m_end_point->rpcStyle<
+        RevokeSharedLinkArg,
+        RevokeSharedLinkErrorException>
+        ("2/sharing/revoke_shared_link",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::revokeSharedLink_AsyncCB(
     const RevokeSharedLinkArg& arg,
     std::function<void()> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
@@ -686,17 +1157,31 @@ void SharingRoutes::revokeSharedLink_Async(
 }
 
 std::unique_ptr<ShareFolderLaunch> SharingRoutes::shareFolder(const ShareFolderArg& arg ){
-    DROPBOX_BLOCKING_CALL(shareFolder_Async, ShareFolderLaunch, arg);
+    DROPBOX_BLOCKING_CALL(shareFolder_AsyncCB, ShareFolderLaunch, arg);
 }
 
-void SharingRoutes::shareFolder_Async(
+DropboxTask<ShareFolderLaunch>* SharingRoutes::shareFolder_Async(const ShareFolderArg& arg)
+{
+    DropboxTask<ShareFolderLaunch>* t = new DropboxTask<ShareFolderLaunch>();
+    m_end_point->rpcStyle<
+        ShareFolderArg,
+        ShareFolderLaunch,
+        ShareFolderLaunch::factory,
+        ShareFolderErrorException>
+        ("2/sharing/share_folder",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::shareFolder_AsyncCB(
     const ShareFolderArg& arg,
     std::function<void(std::unique_ptr<ShareFolderLaunch>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ShareFolderArg,
-        std::unique_ptr<ShareFolderLaunch>,
+        ShareFolderLaunch,
         ShareFolderLaunch::factory,
         ShareFolderErrorException>
         ("2/sharing/share_folder",
@@ -706,10 +1191,22 @@ void SharingRoutes::shareFolder_Async(
 }
 
 void SharingRoutes::transferFolder(const TransferFolderArg& arg ){
-    VOID_RESULT_DBC(transferFolder_Async, arg);
+    VOID_RESULT_DBC(transferFolder_AsyncCB, arg);
 }
 
-void SharingRoutes::transferFolder_Async(
+DropboxVoidTask* SharingRoutes::transferFolder_Async(const TransferFolderArg& arg)
+{
+    DropboxVoidTask* t = new DropboxVoidTask();
+    m_end_point->rpcStyle<
+        TransferFolderArg,
+        TransferFolderErrorException>
+        ("2/sharing/transfer_folder",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::transferFolder_AsyncCB(
     const TransferFolderArg& arg,
     std::function<void()> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
@@ -724,10 +1221,22 @@ void SharingRoutes::transferFolder_Async(
 }
 
 void SharingRoutes::unmountFolder(const UnmountFolderArg& arg ){
-    VOID_RESULT_DBC(unmountFolder_Async, arg);
+    VOID_RESULT_DBC(unmountFolder_AsyncCB, arg);
 }
 
-void SharingRoutes::unmountFolder_Async(
+DropboxVoidTask* SharingRoutes::unmountFolder_Async(const UnmountFolderArg& arg)
+{
+    DropboxVoidTask* t = new DropboxVoidTask();
+    m_end_point->rpcStyle<
+        UnmountFolderArg,
+        UnmountFolderErrorException>
+        ("2/sharing/unmount_folder",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::unmountFolder_AsyncCB(
     const UnmountFolderArg& arg,
     std::function<void()> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
@@ -742,10 +1251,22 @@ void SharingRoutes::unmountFolder_Async(
 }
 
 void SharingRoutes::unshareFile(const UnshareFileArg& arg ){
-    VOID_RESULT_DBC(unshareFile_Async, arg);
+    VOID_RESULT_DBC(unshareFile_AsyncCB, arg);
 }
 
-void SharingRoutes::unshareFile_Async(
+DropboxVoidTask* SharingRoutes::unshareFile_Async(const UnshareFileArg& arg)
+{
+    DropboxVoidTask* t = new DropboxVoidTask();
+    m_end_point->rpcStyle<
+        UnshareFileArg,
+        UnshareFileErrorException>
+        ("2/sharing/unshare_file",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::unshareFile_AsyncCB(
     const UnshareFileArg& arg,
     std::function<void()> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
@@ -760,17 +1281,31 @@ void SharingRoutes::unshareFile_Async(
 }
 
 std::unique_ptr<async::LaunchEmptyResult> SharingRoutes::unshareFolder(const UnshareFolderArg& arg ){
-    DROPBOX_BLOCKING_CALL(unshareFolder_Async, async::LaunchEmptyResult, arg);
+    DROPBOX_BLOCKING_CALL(unshareFolder_AsyncCB, async::LaunchEmptyResult, arg);
 }
 
-void SharingRoutes::unshareFolder_Async(
+DropboxTask<async::LaunchEmptyResult>* SharingRoutes::unshareFolder_Async(const UnshareFolderArg& arg)
+{
+    DropboxTask<async::LaunchEmptyResult>* t = new DropboxTask<async::LaunchEmptyResult>();
+    m_end_point->rpcStyle<
+        UnshareFolderArg,
+        async::LaunchEmptyResult,
+        async::LaunchEmptyResult::factory,
+        UnshareFolderErrorException>
+        ("2/sharing/unshare_folder",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::unshareFolder_AsyncCB(
     const UnshareFolderArg& arg,
     std::function<void(std::unique_ptr<async::LaunchEmptyResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         UnshareFolderArg,
-        std::unique_ptr<async::LaunchEmptyResult>,
+        async::LaunchEmptyResult,
         async::LaunchEmptyResult::factory,
         UnshareFolderErrorException>
         ("2/sharing/unshare_folder",
@@ -780,17 +1315,31 @@ void SharingRoutes::unshareFolder_Async(
 }
 
 std::unique_ptr<MemberAccessLevelResult> SharingRoutes::updateFolderMember(const UpdateFolderMemberArg& arg ){
-    DROPBOX_BLOCKING_CALL(updateFolderMember_Async, MemberAccessLevelResult, arg);
+    DROPBOX_BLOCKING_CALL(updateFolderMember_AsyncCB, MemberAccessLevelResult, arg);
 }
 
-void SharingRoutes::updateFolderMember_Async(
+DropboxTask<MemberAccessLevelResult>* SharingRoutes::updateFolderMember_Async(const UpdateFolderMemberArg& arg)
+{
+    DropboxTask<MemberAccessLevelResult>* t = new DropboxTask<MemberAccessLevelResult>();
+    m_end_point->rpcStyle<
+        UpdateFolderMemberArg,
+        MemberAccessLevelResult,
+        MemberAccessLevelResult::factory,
+        UpdateFolderMemberErrorException>
+        ("2/sharing/update_folder_member",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::updateFolderMember_AsyncCB(
     const UpdateFolderMemberArg& arg,
     std::function<void(std::unique_ptr<MemberAccessLevelResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         UpdateFolderMemberArg,
-        std::unique_ptr<MemberAccessLevelResult>,
+        MemberAccessLevelResult,
         MemberAccessLevelResult::factory,
         UpdateFolderMemberErrorException>
         ("2/sharing/update_folder_member",
@@ -800,17 +1349,31 @@ void SharingRoutes::updateFolderMember_Async(
 }
 
 std::unique_ptr<SharedFolderMetadata> SharingRoutes::updateFolderPolicy(const UpdateFolderPolicyArg& arg ){
-    DROPBOX_BLOCKING_CALL(updateFolderPolicy_Async, SharedFolderMetadata, arg);
+    DROPBOX_BLOCKING_CALL(updateFolderPolicy_AsyncCB, SharedFolderMetadata, arg);
 }
 
-void SharingRoutes::updateFolderPolicy_Async(
+DropboxTask<SharedFolderMetadata>* SharingRoutes::updateFolderPolicy_Async(const UpdateFolderPolicyArg& arg)
+{
+    DropboxTask<SharedFolderMetadata>* t = new DropboxTask<SharedFolderMetadata>();
+    m_end_point->rpcStyle<
+        UpdateFolderPolicyArg,
+        SharedFolderMetadata,
+        SharedFolderMetadata::factory,
+        UpdateFolderPolicyErrorException>
+        ("2/sharing/update_folder_policy",
+        arg,
+        t);
+    return t;
+}
+
+void SharingRoutes::updateFolderPolicy_AsyncCB(
     const UpdateFolderPolicyArg& arg,
     std::function<void(std::unique_ptr<SharedFolderMetadata>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         UpdateFolderPolicyArg,
-        std::unique_ptr<SharedFolderMetadata>,
+        SharedFolderMetadata,
         SharedFolderMetadata::factory,
         UpdateFolderPolicyErrorException>
         ("2/sharing/update_folder_policy",

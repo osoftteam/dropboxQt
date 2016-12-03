@@ -38,7 +38,8 @@ namespace users{
             on error:GetAccountError throws exception GetAccountErrorException
             */
         std::unique_ptr<BasicAccount> getAccount(const GetAccountArg& );
-        void getAccount_Async(
+        DropboxTask<BasicAccount>* getAccount_Async(const GetAccountArg&);
+        void getAccount_AsyncCB(
             const GetAccountArg&,
             std::function<void(std::unique_ptr<BasicAccount>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -53,7 +54,8 @@ namespace users{
             on error:GetAccountBatchError throws exception GetAccountBatchErrorException
             */
         std::unique_ptr<std::list <BasicAccount>> getAccountBatch(const GetAccountBatchArg& );
-        void getAccountBatch_Async(
+        DropboxTask<std::list <BasicAccount>>* getAccountBatch_Async(const GetAccountBatchArg&);
+        void getAccountBatch_AsyncCB(
             const GetAccountBatchArg&,
             std::function<void(std::unique_ptr<std::list <BasicAccount>>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
@@ -66,7 +68,8 @@ namespace users{
 
             */
         std::unique_ptr<FullAccount> getCurrentAccount();
-        void getCurrentAccount_Async(
+        DropboxTask<FullAccount>* getCurrentAccount_Async();
+        void getCurrentAccount_AsyncCB(
             std::function<void(std::unique_ptr<FullAccount>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
 
@@ -78,7 +81,8 @@ namespace users{
 
             */
         std::unique_ptr<SpaceUsage> getSpaceUsage();
-        void getSpaceUsage_Async(
+        DropboxTask<SpaceUsage>* getSpaceUsage_Async();
+        void getSpaceUsage_AsyncCB(
             std::function<void(std::unique_ptr<SpaceUsage>)> completed_callback = nullptr,
             std::function<void(std::unique_ptr<DropboxException>)> failed_callback = nullptr);
 

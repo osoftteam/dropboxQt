@@ -10,17 +10,31 @@ using namespace dropboxQt;
 using namespace files;
 
 std::unique_ptr<Metadata> FilesRoutes::alphaGetMetadata(const AlphaGetMetadataArg& arg ){
-    DROPBOX_BLOCKING_CALL(alphaGetMetadata_Async, Metadata, arg);
+    DROPBOX_BLOCKING_CALL(alphaGetMetadata_AsyncCB, Metadata, arg);
 }
 
-void FilesRoutes::alphaGetMetadata_Async(
+DropboxTask<Metadata>* FilesRoutes::alphaGetMetadata_Async(const AlphaGetMetadataArg& arg)
+{
+    DropboxTask<Metadata>* t = new DropboxTask<Metadata>();
+    m_end_point->rpcStyle<
+        AlphaGetMetadataArg,
+        Metadata,
+        Metadata::factory,
+        AlphaGetMetadataErrorException>
+        ("2/files/alpha/get_metadata",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::alphaGetMetadata_AsyncCB(
     const AlphaGetMetadataArg& arg,
     std::function<void(std::unique_ptr<Metadata>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         AlphaGetMetadataArg,
-        std::unique_ptr<Metadata>,
+        Metadata,
         Metadata::factory,
         AlphaGetMetadataErrorException>
         ("2/files/alpha/get_metadata",
@@ -30,10 +44,25 @@ void FilesRoutes::alphaGetMetadata_Async(
 }
 
 std::unique_ptr<FileMetadata> FilesRoutes::alphaUpload(const CommitInfoWithProperties& arg , QIODevice* data){
-    DATA_DBC(alphaUpload_Async, FileMetadata, arg, data);
+    DATA_DBC(alphaUpload_AsyncCB, FileMetadata, arg, data);
 }
 
-void FilesRoutes::alphaUpload_Async(
+DropboxTask<FileMetadata>* FilesRoutes::alphaUpload_Async(const CommitInfoWithProperties& arg, QIODevice* data)
+{
+    DropboxTask<FileMetadata>* t = new DropboxTask<FileMetadata>();
+    m_end_point->uploadStyle<
+        CommitInfoWithProperties,
+        FileMetadata,
+        FileMetadata::factory,
+        UploadErrorWithPropertiesException>
+        ("2/files/alpha/upload",
+        arg,
+        data,
+        t);
+    return t;
+}
+
+void FilesRoutes::alphaUpload_AsyncCB(
     const CommitInfoWithProperties& arg,
     QIODevice* data,
     std::function<void(std::unique_ptr<FileMetadata>)> completed_callback ,
@@ -41,7 +70,7 @@ void FilesRoutes::alphaUpload_Async(
 {
     m_end_point->uploadStyle<
         CommitInfoWithProperties,
-        std::unique_ptr<FileMetadata>,
+        FileMetadata,
         FileMetadata::factory,
         UploadErrorWithPropertiesException>
         ("2/files/alpha/upload",
@@ -52,17 +81,31 @@ void FilesRoutes::alphaUpload_Async(
 }
 
 std::unique_ptr<Metadata> FilesRoutes::copy(const RelocationArg& arg ){
-    DROPBOX_BLOCKING_CALL(copy_Async, Metadata, arg);
+    DROPBOX_BLOCKING_CALL(copy_AsyncCB, Metadata, arg);
 }
 
-void FilesRoutes::copy_Async(
+DropboxTask<Metadata>* FilesRoutes::copy_Async(const RelocationArg& arg)
+{
+    DropboxTask<Metadata>* t = new DropboxTask<Metadata>();
+    m_end_point->rpcStyle<
+        RelocationArg,
+        Metadata,
+        Metadata::factory,
+        RelocationErrorException>
+        ("2/files/copy",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::copy_AsyncCB(
     const RelocationArg& arg,
     std::function<void(std::unique_ptr<Metadata>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         RelocationArg,
-        std::unique_ptr<Metadata>,
+        Metadata,
         Metadata::factory,
         RelocationErrorException>
         ("2/files/copy",
@@ -72,17 +115,31 @@ void FilesRoutes::copy_Async(
 }
 
 std::unique_ptr<GetCopyReferenceResult> FilesRoutes::copyReferenceGet(const GetCopyReferenceArg& arg ){
-    DROPBOX_BLOCKING_CALL(copyReferenceGet_Async, GetCopyReferenceResult, arg);
+    DROPBOX_BLOCKING_CALL(copyReferenceGet_AsyncCB, GetCopyReferenceResult, arg);
 }
 
-void FilesRoutes::copyReferenceGet_Async(
+DropboxTask<GetCopyReferenceResult>* FilesRoutes::copyReferenceGet_Async(const GetCopyReferenceArg& arg)
+{
+    DropboxTask<GetCopyReferenceResult>* t = new DropboxTask<GetCopyReferenceResult>();
+    m_end_point->rpcStyle<
+        GetCopyReferenceArg,
+        GetCopyReferenceResult,
+        GetCopyReferenceResult::factory,
+        GetCopyReferenceErrorException>
+        ("2/files/copy_reference/get",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::copyReferenceGet_AsyncCB(
     const GetCopyReferenceArg& arg,
     std::function<void(std::unique_ptr<GetCopyReferenceResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         GetCopyReferenceArg,
-        std::unique_ptr<GetCopyReferenceResult>,
+        GetCopyReferenceResult,
         GetCopyReferenceResult::factory,
         GetCopyReferenceErrorException>
         ("2/files/copy_reference/get",
@@ -92,17 +149,31 @@ void FilesRoutes::copyReferenceGet_Async(
 }
 
 std::unique_ptr<SaveCopyReferenceResult> FilesRoutes::copyReferenceSave(const SaveCopyReferenceArg& arg ){
-    DROPBOX_BLOCKING_CALL(copyReferenceSave_Async, SaveCopyReferenceResult, arg);
+    DROPBOX_BLOCKING_CALL(copyReferenceSave_AsyncCB, SaveCopyReferenceResult, arg);
 }
 
-void FilesRoutes::copyReferenceSave_Async(
+DropboxTask<SaveCopyReferenceResult>* FilesRoutes::copyReferenceSave_Async(const SaveCopyReferenceArg& arg)
+{
+    DropboxTask<SaveCopyReferenceResult>* t = new DropboxTask<SaveCopyReferenceResult>();
+    m_end_point->rpcStyle<
+        SaveCopyReferenceArg,
+        SaveCopyReferenceResult,
+        SaveCopyReferenceResult::factory,
+        SaveCopyReferenceErrorException>
+        ("2/files/copy_reference/save",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::copyReferenceSave_AsyncCB(
     const SaveCopyReferenceArg& arg,
     std::function<void(std::unique_ptr<SaveCopyReferenceResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         SaveCopyReferenceArg,
-        std::unique_ptr<SaveCopyReferenceResult>,
+        SaveCopyReferenceResult,
         SaveCopyReferenceResult::factory,
         SaveCopyReferenceErrorException>
         ("2/files/copy_reference/save",
@@ -112,17 +183,31 @@ void FilesRoutes::copyReferenceSave_Async(
 }
 
 std::unique_ptr<FolderMetadata> FilesRoutes::createFolder(const CreateFolderArg& arg ){
-    DROPBOX_BLOCKING_CALL(createFolder_Async, FolderMetadata, arg);
+    DROPBOX_BLOCKING_CALL(createFolder_AsyncCB, FolderMetadata, arg);
 }
 
-void FilesRoutes::createFolder_Async(
+DropboxTask<FolderMetadata>* FilesRoutes::createFolder_Async(const CreateFolderArg& arg)
+{
+    DropboxTask<FolderMetadata>* t = new DropboxTask<FolderMetadata>();
+    m_end_point->rpcStyle<
+        CreateFolderArg,
+        FolderMetadata,
+        FolderMetadata::factory,
+        CreateFolderErrorException>
+        ("2/files/create_folder",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::createFolder_AsyncCB(
     const CreateFolderArg& arg,
     std::function<void(std::unique_ptr<FolderMetadata>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         CreateFolderArg,
-        std::unique_ptr<FolderMetadata>,
+        FolderMetadata,
         FolderMetadata::factory,
         CreateFolderErrorException>
         ("2/files/create_folder",
@@ -132,17 +217,31 @@ void FilesRoutes::createFolder_Async(
 }
 
 std::unique_ptr<Metadata> FilesRoutes::deleteOperation(const DeleteArg& arg ){
-    DROPBOX_BLOCKING_CALL(deleteOperation_Async, Metadata, arg);
+    DROPBOX_BLOCKING_CALL(deleteOperation_AsyncCB, Metadata, arg);
 }
 
-void FilesRoutes::deleteOperation_Async(
+DropboxTask<Metadata>* FilesRoutes::deleteOperation_Async(const DeleteArg& arg)
+{
+    DropboxTask<Metadata>* t = new DropboxTask<Metadata>();
+    m_end_point->rpcStyle<
+        DeleteArg,
+        Metadata,
+        Metadata::factory,
+        DeleteErrorException>
+        ("2/files/delete",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::deleteOperation_AsyncCB(
     const DeleteArg& arg,
     std::function<void(std::unique_ptr<Metadata>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         DeleteArg,
-        std::unique_ptr<Metadata>,
+        Metadata,
         Metadata::factory,
         DeleteErrorException>
         ("2/files/delete",
@@ -152,10 +251,25 @@ void FilesRoutes::deleteOperation_Async(
 }
 
 std::unique_ptr<FileMetadata> FilesRoutes::download(const DownloadArg& arg , QIODevice* data){
-    DATA_DBC(download_Async, FileMetadata, arg, data);
+    DATA_DBC(download_AsyncCB, FileMetadata, arg, data);
 }
 
-void FilesRoutes::download_Async(
+DropboxTask<FileMetadata>* FilesRoutes::download_Async(const DownloadArg& arg, QIODevice* data)
+{
+    DropboxTask<FileMetadata>* t = new DropboxTask<FileMetadata>();
+    m_end_point->downloadStyle<
+        DownloadArg,
+        FileMetadata,
+        FileMetadata::factory,
+        DownloadErrorException>
+        ("2/files/download",
+        arg,
+        data,
+        t);
+    return t;
+}
+
+void FilesRoutes::download_AsyncCB(
     const DownloadArg& arg,
     QIODevice* data,
     std::function<void(std::unique_ptr<FileMetadata>)> completed_callback ,
@@ -163,7 +277,7 @@ void FilesRoutes::download_Async(
 {
     m_end_point->downloadStyle<
         DownloadArg,
-        std::unique_ptr<FileMetadata>,
+        FileMetadata,
         FileMetadata::factory,
         DownloadErrorException>
         ("2/files/download",
@@ -174,17 +288,31 @@ void FilesRoutes::download_Async(
 }
 
 std::unique_ptr<Metadata> FilesRoutes::getMetadata(const GetMetadataArg& arg ){
-    DROPBOX_BLOCKING_CALL(getMetadata_Async, Metadata, arg);
+    DROPBOX_BLOCKING_CALL(getMetadata_AsyncCB, Metadata, arg);
 }
 
-void FilesRoutes::getMetadata_Async(
+DropboxTask<Metadata>* FilesRoutes::getMetadata_Async(const GetMetadataArg& arg)
+{
+    DropboxTask<Metadata>* t = new DropboxTask<Metadata>();
+    m_end_point->rpcStyle<
+        GetMetadataArg,
+        Metadata,
+        Metadata::factory,
+        GetMetadataErrorException>
+        ("2/files/get_metadata",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::getMetadata_AsyncCB(
     const GetMetadataArg& arg,
     std::function<void(std::unique_ptr<Metadata>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         GetMetadataArg,
-        std::unique_ptr<Metadata>,
+        Metadata,
         Metadata::factory,
         GetMetadataErrorException>
         ("2/files/get_metadata",
@@ -194,10 +322,25 @@ void FilesRoutes::getMetadata_Async(
 }
 
 std::unique_ptr<FileMetadata> FilesRoutes::getPreview(const PreviewArg& arg , QIODevice* data){
-    DATA_DBC(getPreview_Async, FileMetadata, arg, data);
+    DATA_DBC(getPreview_AsyncCB, FileMetadata, arg, data);
 }
 
-void FilesRoutes::getPreview_Async(
+DropboxTask<FileMetadata>* FilesRoutes::getPreview_Async(const PreviewArg& arg, QIODevice* data)
+{
+    DropboxTask<FileMetadata>* t = new DropboxTask<FileMetadata>();
+    m_end_point->downloadStyle<
+        PreviewArg,
+        FileMetadata,
+        FileMetadata::factory,
+        PreviewErrorException>
+        ("2/files/get_preview",
+        arg,
+        data,
+        t);
+    return t;
+}
+
+void FilesRoutes::getPreview_AsyncCB(
     const PreviewArg& arg,
     QIODevice* data,
     std::function<void(std::unique_ptr<FileMetadata>)> completed_callback ,
@@ -205,7 +348,7 @@ void FilesRoutes::getPreview_Async(
 {
     m_end_point->downloadStyle<
         PreviewArg,
-        std::unique_ptr<FileMetadata>,
+        FileMetadata,
         FileMetadata::factory,
         PreviewErrorException>
         ("2/files/get_preview",
@@ -216,17 +359,31 @@ void FilesRoutes::getPreview_Async(
 }
 
 std::unique_ptr<GetTemporaryLinkResult> FilesRoutes::getTemporaryLink(const GetTemporaryLinkArg& arg ){
-    DROPBOX_BLOCKING_CALL(getTemporaryLink_Async, GetTemporaryLinkResult, arg);
+    DROPBOX_BLOCKING_CALL(getTemporaryLink_AsyncCB, GetTemporaryLinkResult, arg);
 }
 
-void FilesRoutes::getTemporaryLink_Async(
+DropboxTask<GetTemporaryLinkResult>* FilesRoutes::getTemporaryLink_Async(const GetTemporaryLinkArg& arg)
+{
+    DropboxTask<GetTemporaryLinkResult>* t = new DropboxTask<GetTemporaryLinkResult>();
+    m_end_point->rpcStyle<
+        GetTemporaryLinkArg,
+        GetTemporaryLinkResult,
+        GetTemporaryLinkResult::factory,
+        GetTemporaryLinkErrorException>
+        ("2/files/get_temporary_link",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::getTemporaryLink_AsyncCB(
     const GetTemporaryLinkArg& arg,
     std::function<void(std::unique_ptr<GetTemporaryLinkResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         GetTemporaryLinkArg,
-        std::unique_ptr<GetTemporaryLinkResult>,
+        GetTemporaryLinkResult,
         GetTemporaryLinkResult::factory,
         GetTemporaryLinkErrorException>
         ("2/files/get_temporary_link",
@@ -236,10 +393,25 @@ void FilesRoutes::getTemporaryLink_Async(
 }
 
 std::unique_ptr<FileMetadata> FilesRoutes::getThumbnail(const ThumbnailArg& arg , QIODevice* data){
-    DATA_DBC(getThumbnail_Async, FileMetadata, arg, data);
+    DATA_DBC(getThumbnail_AsyncCB, FileMetadata, arg, data);
 }
 
-void FilesRoutes::getThumbnail_Async(
+DropboxTask<FileMetadata>* FilesRoutes::getThumbnail_Async(const ThumbnailArg& arg, QIODevice* data)
+{
+    DropboxTask<FileMetadata>* t = new DropboxTask<FileMetadata>();
+    m_end_point->downloadStyle<
+        ThumbnailArg,
+        FileMetadata,
+        FileMetadata::factory,
+        ThumbnailErrorException>
+        ("2/files/get_thumbnail",
+        arg,
+        data,
+        t);
+    return t;
+}
+
+void FilesRoutes::getThumbnail_AsyncCB(
     const ThumbnailArg& arg,
     QIODevice* data,
     std::function<void(std::unique_ptr<FileMetadata>)> completed_callback ,
@@ -247,7 +419,7 @@ void FilesRoutes::getThumbnail_Async(
 {
     m_end_point->downloadStyle<
         ThumbnailArg,
-        std::unique_ptr<FileMetadata>,
+        FileMetadata,
         FileMetadata::factory,
         ThumbnailErrorException>
         ("2/files/get_thumbnail",
@@ -258,17 +430,31 @@ void FilesRoutes::getThumbnail_Async(
 }
 
 std::unique_ptr<ListFolderResult> FilesRoutes::listFolder(const ListFolderArg& arg ){
-    DROPBOX_BLOCKING_CALL(listFolder_Async, ListFolderResult, arg);
+    DROPBOX_BLOCKING_CALL(listFolder_AsyncCB, ListFolderResult, arg);
 }
 
-void FilesRoutes::listFolder_Async(
+DropboxTask<ListFolderResult>* FilesRoutes::listFolder_Async(const ListFolderArg& arg)
+{
+    DropboxTask<ListFolderResult>* t = new DropboxTask<ListFolderResult>();
+    m_end_point->rpcStyle<
+        ListFolderArg,
+        ListFolderResult,
+        ListFolderResult::factory,
+        ListFolderErrorException>
+        ("2/files/list_folder",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::listFolder_AsyncCB(
     const ListFolderArg& arg,
     std::function<void(std::unique_ptr<ListFolderResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListFolderArg,
-        std::unique_ptr<ListFolderResult>,
+        ListFolderResult,
         ListFolderResult::factory,
         ListFolderErrorException>
         ("2/files/list_folder",
@@ -278,17 +464,31 @@ void FilesRoutes::listFolder_Async(
 }
 
 std::unique_ptr<ListFolderResult> FilesRoutes::listFolderContinue(const ListFolderContinueArg& arg ){
-    DROPBOX_BLOCKING_CALL(listFolderContinue_Async, ListFolderResult, arg);
+    DROPBOX_BLOCKING_CALL(listFolderContinue_AsyncCB, ListFolderResult, arg);
 }
 
-void FilesRoutes::listFolderContinue_Async(
+DropboxTask<ListFolderResult>* FilesRoutes::listFolderContinue_Async(const ListFolderContinueArg& arg)
+{
+    DropboxTask<ListFolderResult>* t = new DropboxTask<ListFolderResult>();
+    m_end_point->rpcStyle<
+        ListFolderContinueArg,
+        ListFolderResult,
+        ListFolderResult::factory,
+        ListFolderContinueErrorException>
+        ("2/files/list_folder/continue",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::listFolderContinue_AsyncCB(
     const ListFolderContinueArg& arg,
     std::function<void(std::unique_ptr<ListFolderResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListFolderContinueArg,
-        std::unique_ptr<ListFolderResult>,
+        ListFolderResult,
         ListFolderResult::factory,
         ListFolderContinueErrorException>
         ("2/files/list_folder/continue",
@@ -298,17 +498,31 @@ void FilesRoutes::listFolderContinue_Async(
 }
 
 std::unique_ptr<ListFolderGetLatestCursorResult> FilesRoutes::listFolderGetLatestCursor(const ListFolderArg& arg ){
-    DROPBOX_BLOCKING_CALL(listFolderGetLatestCursor_Async, ListFolderGetLatestCursorResult, arg);
+    DROPBOX_BLOCKING_CALL(listFolderGetLatestCursor_AsyncCB, ListFolderGetLatestCursorResult, arg);
 }
 
-void FilesRoutes::listFolderGetLatestCursor_Async(
+DropboxTask<ListFolderGetLatestCursorResult>* FilesRoutes::listFolderGetLatestCursor_Async(const ListFolderArg& arg)
+{
+    DropboxTask<ListFolderGetLatestCursorResult>* t = new DropboxTask<ListFolderGetLatestCursorResult>();
+    m_end_point->rpcStyle<
+        ListFolderArg,
+        ListFolderGetLatestCursorResult,
+        ListFolderGetLatestCursorResult::factory,
+        ListFolderErrorException>
+        ("2/files/list_folder/get_latest_cursor",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::listFolderGetLatestCursor_AsyncCB(
     const ListFolderArg& arg,
     std::function<void(std::unique_ptr<ListFolderGetLatestCursorResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListFolderArg,
-        std::unique_ptr<ListFolderGetLatestCursorResult>,
+        ListFolderGetLatestCursorResult,
         ListFolderGetLatestCursorResult::factory,
         ListFolderErrorException>
         ("2/files/list_folder/get_latest_cursor",
@@ -318,17 +532,31 @@ void FilesRoutes::listFolderGetLatestCursor_Async(
 }
 
 std::unique_ptr<ListFolderLongpollResult> FilesRoutes::listFolderLongpoll(const ListFolderLongpollArg& arg ){
-    DROPBOX_BLOCKING_CALL(listFolderLongpoll_Async, ListFolderLongpollResult, arg);
+    DROPBOX_BLOCKING_CALL(listFolderLongpoll_AsyncCB, ListFolderLongpollResult, arg);
 }
 
-void FilesRoutes::listFolderLongpoll_Async(
+DropboxTask<ListFolderLongpollResult>* FilesRoutes::listFolderLongpoll_Async(const ListFolderLongpollArg& arg)
+{
+    DropboxTask<ListFolderLongpollResult>* t = new DropboxTask<ListFolderLongpollResult>();
+    m_end_point->rpcStyle<
+        ListFolderLongpollArg,
+        ListFolderLongpollResult,
+        ListFolderLongpollResult::factory,
+        ListFolderLongpollErrorException>
+        ("2/files/list_folder/longpoll",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::listFolderLongpoll_AsyncCB(
     const ListFolderLongpollArg& arg,
     std::function<void(std::unique_ptr<ListFolderLongpollResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListFolderLongpollArg,
-        std::unique_ptr<ListFolderLongpollResult>,
+        ListFolderLongpollResult,
         ListFolderLongpollResult::factory,
         ListFolderLongpollErrorException>
         ("2/files/list_folder/longpoll",
@@ -338,17 +566,31 @@ void FilesRoutes::listFolderLongpoll_Async(
 }
 
 std::unique_ptr<ListRevisionsResult> FilesRoutes::listRevisions(const ListRevisionsArg& arg ){
-    DROPBOX_BLOCKING_CALL(listRevisions_Async, ListRevisionsResult, arg);
+    DROPBOX_BLOCKING_CALL(listRevisions_AsyncCB, ListRevisionsResult, arg);
 }
 
-void FilesRoutes::listRevisions_Async(
+DropboxTask<ListRevisionsResult>* FilesRoutes::listRevisions_Async(const ListRevisionsArg& arg)
+{
+    DropboxTask<ListRevisionsResult>* t = new DropboxTask<ListRevisionsResult>();
+    m_end_point->rpcStyle<
+        ListRevisionsArg,
+        ListRevisionsResult,
+        ListRevisionsResult::factory,
+        ListRevisionsErrorException>
+        ("2/files/list_revisions",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::listRevisions_AsyncCB(
     const ListRevisionsArg& arg,
     std::function<void(std::unique_ptr<ListRevisionsResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         ListRevisionsArg,
-        std::unique_ptr<ListRevisionsResult>,
+        ListRevisionsResult,
         ListRevisionsResult::factory,
         ListRevisionsErrorException>
         ("2/files/list_revisions",
@@ -358,17 +600,31 @@ void FilesRoutes::listRevisions_Async(
 }
 
 std::unique_ptr<Metadata> FilesRoutes::move(const RelocationArg& arg ){
-    DROPBOX_BLOCKING_CALL(move_Async, Metadata, arg);
+    DROPBOX_BLOCKING_CALL(move_AsyncCB, Metadata, arg);
 }
 
-void FilesRoutes::move_Async(
+DropboxTask<Metadata>* FilesRoutes::move_Async(const RelocationArg& arg)
+{
+    DropboxTask<Metadata>* t = new DropboxTask<Metadata>();
+    m_end_point->rpcStyle<
+        RelocationArg,
+        Metadata,
+        Metadata::factory,
+        RelocationErrorException>
+        ("2/files/move",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::move_AsyncCB(
     const RelocationArg& arg,
     std::function<void(std::unique_ptr<Metadata>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         RelocationArg,
-        std::unique_ptr<Metadata>,
+        Metadata,
         Metadata::factory,
         RelocationErrorException>
         ("2/files/move",
@@ -378,10 +634,22 @@ void FilesRoutes::move_Async(
 }
 
 void FilesRoutes::permanentlyDelete(const DeleteArg& arg ){
-    VOID_RESULT_DBC(permanentlyDelete_Async, arg);
+    VOID_RESULT_DBC(permanentlyDelete_AsyncCB, arg);
 }
 
-void FilesRoutes::permanentlyDelete_Async(
+DropboxVoidTask* FilesRoutes::permanentlyDelete_Async(const DeleteArg& arg)
+{
+    DropboxVoidTask* t = new DropboxVoidTask();
+    m_end_point->rpcStyle<
+        DeleteArg,
+        DeleteErrorException>
+        ("2/files/permanently_delete",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::permanentlyDelete_AsyncCB(
     const DeleteArg& arg,
     std::function<void()> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
@@ -396,10 +664,22 @@ void FilesRoutes::permanentlyDelete_Async(
 }
 
 void FilesRoutes::propertiesAdd(const PropertyGroupWithPath& arg ){
-    VOID_RESULT_DBC(propertiesAdd_Async, arg);
+    VOID_RESULT_DBC(propertiesAdd_AsyncCB, arg);
 }
 
-void FilesRoutes::propertiesAdd_Async(
+DropboxVoidTask* FilesRoutes::propertiesAdd_Async(const PropertyGroupWithPath& arg)
+{
+    DropboxVoidTask* t = new DropboxVoidTask();
+    m_end_point->rpcStyle<
+        PropertyGroupWithPath,
+        AddPropertiesErrorException>
+        ("2/files/properties/add",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::propertiesAdd_AsyncCB(
     const PropertyGroupWithPath& arg,
     std::function<void()> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
@@ -414,10 +694,22 @@ void FilesRoutes::propertiesAdd_Async(
 }
 
 void FilesRoutes::propertiesOverwrite(const PropertyGroupWithPath& arg ){
-    VOID_RESULT_DBC(propertiesOverwrite_Async, arg);
+    VOID_RESULT_DBC(propertiesOverwrite_AsyncCB, arg);
 }
 
-void FilesRoutes::propertiesOverwrite_Async(
+DropboxVoidTask* FilesRoutes::propertiesOverwrite_Async(const PropertyGroupWithPath& arg)
+{
+    DropboxVoidTask* t = new DropboxVoidTask();
+    m_end_point->rpcStyle<
+        PropertyGroupWithPath,
+        InvalidPropertyGroupErrorException>
+        ("2/files/properties/overwrite",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::propertiesOverwrite_AsyncCB(
     const PropertyGroupWithPath& arg,
     std::function<void()> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
@@ -432,10 +724,22 @@ void FilesRoutes::propertiesOverwrite_Async(
 }
 
 void FilesRoutes::propertiesRemove(const RemovePropertiesArg& arg ){
-    VOID_RESULT_DBC(propertiesRemove_Async, arg);
+    VOID_RESULT_DBC(propertiesRemove_AsyncCB, arg);
 }
 
-void FilesRoutes::propertiesRemove_Async(
+DropboxVoidTask* FilesRoutes::propertiesRemove_Async(const RemovePropertiesArg& arg)
+{
+    DropboxVoidTask* t = new DropboxVoidTask();
+    m_end_point->rpcStyle<
+        RemovePropertiesArg,
+        RemovePropertiesErrorException>
+        ("2/files/properties/remove",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::propertiesRemove_AsyncCB(
     const RemovePropertiesArg& arg,
     std::function<void()> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
@@ -450,17 +754,31 @@ void FilesRoutes::propertiesRemove_Async(
 }
 
 std::unique_ptr<properties::GetPropertyTemplateResult> FilesRoutes::propertiesTemplateGet(const properties::GetPropertyTemplateArg& arg ){
-    DROPBOX_BLOCKING_CALL(propertiesTemplateGet_Async, properties::GetPropertyTemplateResult, arg);
+    DROPBOX_BLOCKING_CALL(propertiesTemplateGet_AsyncCB, properties::GetPropertyTemplateResult, arg);
 }
 
-void FilesRoutes::propertiesTemplateGet_Async(
+DropboxTask<properties::GetPropertyTemplateResult>* FilesRoutes::propertiesTemplateGet_Async(const properties::GetPropertyTemplateArg& arg)
+{
+    DropboxTask<properties::GetPropertyTemplateResult>* t = new DropboxTask<properties::GetPropertyTemplateResult>();
+    m_end_point->rpcStyle<
+        properties::GetPropertyTemplateArg,
+        properties::GetPropertyTemplateResult,
+        properties::GetPropertyTemplateResult::factory,
+        PropertyTemplateErrorException>
+        ("2/files/properties/template/get",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::propertiesTemplateGet_AsyncCB(
     const properties::GetPropertyTemplateArg& arg,
     std::function<void(std::unique_ptr<properties::GetPropertyTemplateResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         properties::GetPropertyTemplateArg,
-        std::unique_ptr<properties::GetPropertyTemplateResult>,
+        properties::GetPropertyTemplateResult,
         properties::GetPropertyTemplateResult::factory,
         PropertyTemplateErrorException>
         ("2/files/properties/template/get",
@@ -470,15 +788,27 @@ void FilesRoutes::propertiesTemplateGet_Async(
 }
 
 std::unique_ptr<properties::ListPropertyTemplateIds> FilesRoutes::propertiesTemplateList(void){
-    VOID_ARG_DBC(propertiesTemplateList_Async, properties::ListPropertyTemplateIds);
+    VOID_ARG_DBC(propertiesTemplateList_AsyncCB, properties::ListPropertyTemplateIds);
 }
 
-void FilesRoutes::propertiesTemplateList_Async(
+DropboxTask<properties::ListPropertyTemplateIds>* FilesRoutes::propertiesTemplateList_Async()
+{
+    DropboxTask<properties::ListPropertyTemplateIds>* t = new DropboxTask<properties::ListPropertyTemplateIds>();
+    m_end_point->rpcStyle<
+        properties::ListPropertyTemplateIds,
+        properties::ListPropertyTemplateIds::factory,
+        PropertyTemplateErrorException>
+        ("2/files/properties/template/list",
+        t);
+    return t;
+}
+
+void FilesRoutes::propertiesTemplateList_AsyncCB(
     std::function<void(std::unique_ptr<properties::ListPropertyTemplateIds>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
-        std::unique_ptr<properties::ListPropertyTemplateIds>,
+        properties::ListPropertyTemplateIds,
         properties::ListPropertyTemplateIds::factory,
         PropertyTemplateErrorException>
         ("2/files/properties/template/list",
@@ -487,10 +817,22 @@ void FilesRoutes::propertiesTemplateList_Async(
 }
 
 void FilesRoutes::propertiesUpdate(const UpdatePropertyGroupArg& arg ){
-    VOID_RESULT_DBC(propertiesUpdate_Async, arg);
+    VOID_RESULT_DBC(propertiesUpdate_AsyncCB, arg);
 }
 
-void FilesRoutes::propertiesUpdate_Async(
+DropboxVoidTask* FilesRoutes::propertiesUpdate_Async(const UpdatePropertyGroupArg& arg)
+{
+    DropboxVoidTask* t = new DropboxVoidTask();
+    m_end_point->rpcStyle<
+        UpdatePropertyGroupArg,
+        UpdatePropertiesErrorException>
+        ("2/files/properties/update",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::propertiesUpdate_AsyncCB(
     const UpdatePropertyGroupArg& arg,
     std::function<void()> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
@@ -505,17 +847,31 @@ void FilesRoutes::propertiesUpdate_Async(
 }
 
 std::unique_ptr<FileMetadata> FilesRoutes::restore(const RestoreArg& arg ){
-    DROPBOX_BLOCKING_CALL(restore_Async, FileMetadata, arg);
+    DROPBOX_BLOCKING_CALL(restore_AsyncCB, FileMetadata, arg);
 }
 
-void FilesRoutes::restore_Async(
+DropboxTask<FileMetadata>* FilesRoutes::restore_Async(const RestoreArg& arg)
+{
+    DropboxTask<FileMetadata>* t = new DropboxTask<FileMetadata>();
+    m_end_point->rpcStyle<
+        RestoreArg,
+        FileMetadata,
+        FileMetadata::factory,
+        RestoreErrorException>
+        ("2/files/restore",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::restore_AsyncCB(
     const RestoreArg& arg,
     std::function<void(std::unique_ptr<FileMetadata>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         RestoreArg,
-        std::unique_ptr<FileMetadata>,
+        FileMetadata,
         FileMetadata::factory,
         RestoreErrorException>
         ("2/files/restore",
@@ -525,17 +881,31 @@ void FilesRoutes::restore_Async(
 }
 
 std::unique_ptr<SaveUrlResult> FilesRoutes::saveUrl(const SaveUrlArg& arg ){
-    DROPBOX_BLOCKING_CALL(saveUrl_Async, SaveUrlResult, arg);
+    DROPBOX_BLOCKING_CALL(saveUrl_AsyncCB, SaveUrlResult, arg);
 }
 
-void FilesRoutes::saveUrl_Async(
+DropboxTask<SaveUrlResult>* FilesRoutes::saveUrl_Async(const SaveUrlArg& arg)
+{
+    DropboxTask<SaveUrlResult>* t = new DropboxTask<SaveUrlResult>();
+    m_end_point->rpcStyle<
+        SaveUrlArg,
+        SaveUrlResult,
+        SaveUrlResult::factory,
+        SaveUrlErrorException>
+        ("2/files/save_url",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::saveUrl_AsyncCB(
     const SaveUrlArg& arg,
     std::function<void(std::unique_ptr<SaveUrlResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         SaveUrlArg,
-        std::unique_ptr<SaveUrlResult>,
+        SaveUrlResult,
         SaveUrlResult::factory,
         SaveUrlErrorException>
         ("2/files/save_url",
@@ -545,17 +915,31 @@ void FilesRoutes::saveUrl_Async(
 }
 
 std::unique_ptr<SaveUrlJobStatus> FilesRoutes::saveUrlCheckJobStatus(const async::PollArg& arg ){
-    DROPBOX_BLOCKING_CALL(saveUrlCheckJobStatus_Async, SaveUrlJobStatus, arg);
+    DROPBOX_BLOCKING_CALL(saveUrlCheckJobStatus_AsyncCB, SaveUrlJobStatus, arg);
 }
 
-void FilesRoutes::saveUrlCheckJobStatus_Async(
+DropboxTask<SaveUrlJobStatus>* FilesRoutes::saveUrlCheckJobStatus_Async(const async::PollArg& arg)
+{
+    DropboxTask<SaveUrlJobStatus>* t = new DropboxTask<SaveUrlJobStatus>();
+    m_end_point->rpcStyle<
+        async::PollArg,
+        SaveUrlJobStatus,
+        SaveUrlJobStatus::factory,
+        PollErrorException>
+        ("2/files/save_url/check_job_status",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::saveUrlCheckJobStatus_AsyncCB(
     const async::PollArg& arg,
     std::function<void(std::unique_ptr<SaveUrlJobStatus>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         async::PollArg,
-        std::unique_ptr<SaveUrlJobStatus>,
+        SaveUrlJobStatus,
         SaveUrlJobStatus::factory,
         PollErrorException>
         ("2/files/save_url/check_job_status",
@@ -565,17 +949,31 @@ void FilesRoutes::saveUrlCheckJobStatus_Async(
 }
 
 std::unique_ptr<SearchResult> FilesRoutes::search(const SearchArg& arg ){
-    DROPBOX_BLOCKING_CALL(search_Async, SearchResult, arg);
+    DROPBOX_BLOCKING_CALL(search_AsyncCB, SearchResult, arg);
 }
 
-void FilesRoutes::search_Async(
+DropboxTask<SearchResult>* FilesRoutes::search_Async(const SearchArg& arg)
+{
+    DropboxTask<SearchResult>* t = new DropboxTask<SearchResult>();
+    m_end_point->rpcStyle<
+        SearchArg,
+        SearchResult,
+        SearchResult::factory,
+        SearchErrorException>
+        ("2/files/search",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::search_AsyncCB(
     const SearchArg& arg,
     std::function<void(std::unique_ptr<SearchResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         SearchArg,
-        std::unique_ptr<SearchResult>,
+        SearchResult,
         SearchResult::factory,
         SearchErrorException>
         ("2/files/search",
@@ -585,10 +983,25 @@ void FilesRoutes::search_Async(
 }
 
 std::unique_ptr<FileMetadata> FilesRoutes::upload(const CommitInfo& arg , QIODevice* data){
-    DATA_DBC(upload_Async, FileMetadata, arg, data);
+    DATA_DBC(upload_AsyncCB, FileMetadata, arg, data);
 }
 
-void FilesRoutes::upload_Async(
+DropboxTask<FileMetadata>* FilesRoutes::upload_Async(const CommitInfo& arg, QIODevice* data)
+{
+    DropboxTask<FileMetadata>* t = new DropboxTask<FileMetadata>();
+    m_end_point->uploadStyle<
+        CommitInfo,
+        FileMetadata,
+        FileMetadata::factory,
+        UploadErrorException>
+        ("2/files/upload",
+        arg,
+        data,
+        t);
+    return t;
+}
+
+void FilesRoutes::upload_AsyncCB(
     const CommitInfo& arg,
     QIODevice* data,
     std::function<void(std::unique_ptr<FileMetadata>)> completed_callback ,
@@ -596,7 +1009,7 @@ void FilesRoutes::upload_Async(
 {
     m_end_point->uploadStyle<
         CommitInfo,
-        std::unique_ptr<FileMetadata>,
+        FileMetadata,
         FileMetadata::factory,
         UploadErrorException>
         ("2/files/upload",
@@ -607,10 +1020,23 @@ void FilesRoutes::upload_Async(
 }
 
 void FilesRoutes::uploadSessionAppend(const UploadSessionCursor& arg , QIODevice* data){
-    VOID_RESULT_ARG_WITH_DATA_DBC(uploadSessionAppend_Async, arg, data);
+    VOID_RESULT_ARG_WITH_DATA_DBC(uploadSessionAppend_AsyncCB, arg, data);
 }
 
-void FilesRoutes::uploadSessionAppend_Async(
+DropboxVoidTask* FilesRoutes::uploadSessionAppend_Async(const UploadSessionCursor& arg, QIODevice* data)
+{
+    DropboxVoidTask* t = new DropboxVoidTask();
+    m_end_point->uploadStyle<
+        UploadSessionCursor,
+        UploadSessionLookupErrorException>
+        ("2/files/upload_session/append",
+        arg,
+        data,
+        t);
+    return t;
+}
+
+void FilesRoutes::uploadSessionAppend_AsyncCB(
     const UploadSessionCursor& arg,
     QIODevice* data,
     std::function<void()> completed_callback ,
@@ -627,10 +1053,23 @@ void FilesRoutes::uploadSessionAppend_Async(
 }
 
 void FilesRoutes::uploadSessionAppendV2(const UploadSessionAppendArg& arg , QIODevice* data){
-    VOID_RESULT_ARG_WITH_DATA_DBC(uploadSessionAppendV2_Async, arg, data);
+    VOID_RESULT_ARG_WITH_DATA_DBC(uploadSessionAppendV2_AsyncCB, arg, data);
 }
 
-void FilesRoutes::uploadSessionAppendV2_Async(
+DropboxVoidTask* FilesRoutes::uploadSessionAppendV2_Async(const UploadSessionAppendArg& arg, QIODevice* data)
+{
+    DropboxVoidTask* t = new DropboxVoidTask();
+    m_end_point->uploadStyle<
+        UploadSessionAppendArg,
+        UploadSessionLookupErrorException>
+        ("2/files/upload_session/append_v2",
+        arg,
+        data,
+        t);
+    return t;
+}
+
+void FilesRoutes::uploadSessionAppendV2_AsyncCB(
     const UploadSessionAppendArg& arg,
     QIODevice* data,
     std::function<void()> completed_callback ,
@@ -647,10 +1086,25 @@ void FilesRoutes::uploadSessionAppendV2_Async(
 }
 
 std::unique_ptr<FileMetadata> FilesRoutes::uploadSessionFinish(const UploadSessionFinishArg& arg , QIODevice* data){
-    DATA_DBC(uploadSessionFinish_Async, FileMetadata, arg, data);
+    DATA_DBC(uploadSessionFinish_AsyncCB, FileMetadata, arg, data);
 }
 
-void FilesRoutes::uploadSessionFinish_Async(
+DropboxTask<FileMetadata>* FilesRoutes::uploadSessionFinish_Async(const UploadSessionFinishArg& arg, QIODevice* data)
+{
+    DropboxTask<FileMetadata>* t = new DropboxTask<FileMetadata>();
+    m_end_point->uploadStyle<
+        UploadSessionFinishArg,
+        FileMetadata,
+        FileMetadata::factory,
+        UploadSessionFinishErrorException>
+        ("2/files/upload_session/finish",
+        arg,
+        data,
+        t);
+    return t;
+}
+
+void FilesRoutes::uploadSessionFinish_AsyncCB(
     const UploadSessionFinishArg& arg,
     QIODevice* data,
     std::function<void(std::unique_ptr<FileMetadata>)> completed_callback ,
@@ -658,7 +1112,7 @@ void FilesRoutes::uploadSessionFinish_Async(
 {
     m_end_point->uploadStyle<
         UploadSessionFinishArg,
-        std::unique_ptr<FileMetadata>,
+        FileMetadata,
         FileMetadata::factory,
         UploadSessionFinishErrorException>
         ("2/files/upload_session/finish",
@@ -669,17 +1123,31 @@ void FilesRoutes::uploadSessionFinish_Async(
 }
 
 std::unique_ptr<async::LaunchEmptyResult> FilesRoutes::uploadSessionFinishBatch(const UploadSessionFinishBatchArg& arg ){
-    DROPBOX_BLOCKING_CALL(uploadSessionFinishBatch_Async, async::LaunchEmptyResult, arg);
+    DROPBOX_BLOCKING_CALL(uploadSessionFinishBatch_AsyncCB, async::LaunchEmptyResult, arg);
 }
 
-void FilesRoutes::uploadSessionFinishBatch_Async(
+DropboxTask<async::LaunchEmptyResult>* FilesRoutes::uploadSessionFinishBatch_Async(const UploadSessionFinishBatchArg& arg)
+{
+    DropboxTask<async::LaunchEmptyResult>* t = new DropboxTask<async::LaunchEmptyResult>();
+    m_end_point->rpcStyle<
+        UploadSessionFinishBatchArg,
+        async::LaunchEmptyResult,
+        async::LaunchEmptyResult::factory,
+        DropboxException>
+        ("2/files/upload_session/finish_batch",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::uploadSessionFinishBatch_AsyncCB(
     const UploadSessionFinishBatchArg& arg,
     std::function<void(std::unique_ptr<async::LaunchEmptyResult>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         UploadSessionFinishBatchArg,
-        std::unique_ptr<async::LaunchEmptyResult>,
+        async::LaunchEmptyResult,
         async::LaunchEmptyResult::factory,
         DropboxException>
         ("2/files/upload_session/finish_batch",
@@ -689,17 +1157,31 @@ void FilesRoutes::uploadSessionFinishBatch_Async(
 }
 
 std::unique_ptr<UploadSessionFinishBatchJobStatus> FilesRoutes::uploadSessionFinishBatchCheck(const async::PollArg& arg ){
-    DROPBOX_BLOCKING_CALL(uploadSessionFinishBatchCheck_Async, UploadSessionFinishBatchJobStatus, arg);
+    DROPBOX_BLOCKING_CALL(uploadSessionFinishBatchCheck_AsyncCB, UploadSessionFinishBatchJobStatus, arg);
 }
 
-void FilesRoutes::uploadSessionFinishBatchCheck_Async(
+DropboxTask<UploadSessionFinishBatchJobStatus>* FilesRoutes::uploadSessionFinishBatchCheck_Async(const async::PollArg& arg)
+{
+    DropboxTask<UploadSessionFinishBatchJobStatus>* t = new DropboxTask<UploadSessionFinishBatchJobStatus>();
+    m_end_point->rpcStyle<
+        async::PollArg,
+        UploadSessionFinishBatchJobStatus,
+        UploadSessionFinishBatchJobStatus::factory,
+        PollErrorException>
+        ("2/files/upload_session/finish_batch/check",
+        arg,
+        t);
+    return t;
+}
+
+void FilesRoutes::uploadSessionFinishBatchCheck_AsyncCB(
     const async::PollArg& arg,
     std::function<void(std::unique_ptr<UploadSessionFinishBatchJobStatus>)> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
     m_end_point->rpcStyle<
         async::PollArg,
-        std::unique_ptr<UploadSessionFinishBatchJobStatus>,
+        UploadSessionFinishBatchJobStatus,
         UploadSessionFinishBatchJobStatus::factory,
         PollErrorException>
         ("2/files/upload_session/finish_batch/check",
@@ -709,10 +1191,25 @@ void FilesRoutes::uploadSessionFinishBatchCheck_Async(
 }
 
 std::unique_ptr<UploadSessionStartResult> FilesRoutes::uploadSessionStart(const UploadSessionStartArg& arg , QIODevice* data){
-    DATA_DBC(uploadSessionStart_Async, UploadSessionStartResult, arg, data);
+    DATA_DBC(uploadSessionStart_AsyncCB, UploadSessionStartResult, arg, data);
 }
 
-void FilesRoutes::uploadSessionStart_Async(
+DropboxTask<UploadSessionStartResult>* FilesRoutes::uploadSessionStart_Async(const UploadSessionStartArg& arg, QIODevice* data)
+{
+    DropboxTask<UploadSessionStartResult>* t = new DropboxTask<UploadSessionStartResult>();
+    m_end_point->uploadStyle<
+        UploadSessionStartArg,
+        UploadSessionStartResult,
+        UploadSessionStartResult::factory,
+        DropboxException>
+        ("2/files/upload_session/start",
+        arg,
+        data,
+        t);
+    return t;
+}
+
+void FilesRoutes::uploadSessionStart_AsyncCB(
     const UploadSessionStartArg& arg,
     QIODevice* data,
     std::function<void(std::unique_ptr<UploadSessionStartResult>)> completed_callback ,
@@ -720,7 +1217,7 @@ void FilesRoutes::uploadSessionStart_Async(
 {
     m_end_point->uploadStyle<
         UploadSessionStartArg,
-        std::unique_ptr<UploadSessionStartResult>,
+        UploadSessionStartResult,
         UploadSessionStartResult::factory,
         DropboxException>
         ("2/files/upload_session/start",

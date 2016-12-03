@@ -10,10 +10,20 @@ using namespace dropboxQt;
 using namespace auth;
 
 void AuthRoutes::tokenRevoke(){
-    VOID_ARG_VOID_RESULT_DBC(tokenRevoke_Async);
+    VOID_ARG_VOID_RESULT_DBC(tokenRevoke_AsyncCB);
 }
 
-void AuthRoutes::tokenRevoke_Async(
+DropboxVoidTask* AuthRoutes::tokenRevoke_Async()
+{
+    DropboxVoidTask* t = new DropboxVoidTask();
+    m_end_point->rpcStyle<
+        DropboxException>
+        ("2/auth/token/revoke",
+        t);
+    return t;
+}
+
+void AuthRoutes::tokenRevoke_AsyncCB(
     std::function<void()> completed_callback ,
     std::function<void(std::unique_ptr<DropboxException>)> failed_callback)
 {
