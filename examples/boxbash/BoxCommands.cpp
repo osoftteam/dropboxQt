@@ -39,22 +39,27 @@ void BoxCommands::account(QString)
         }
 };
 
+void BoxCommands::printFileInfo(files::Metadata* md)
+{
+    files::FileMetadata* asFile = dynamic_cast<files::FileMetadata*>(md);
+    if(asFile != NULL){
+        std::cout << "FILE id=" << asFile->id().toStdString() << " size=" << asFile->size() << std::endl;
+    }
+    else{
+        files::FolderMetadata* asFolder = dynamic_cast<files::FolderMetadata*>(md);
+        if(asFolder != NULL){
+            std::cout << "FOLDER id=" << asFolder->id().toStdString() << std::endl;
+        }
+    }
+    std::cout << md->toString().toStdString() << std::endl;
+};
+
 void BoxCommands::info(QString fileName)
 {
     try
         {
             std::unique_ptr<files::Metadata> md  = m_c.getFiles()->getMetadata(m_curr_dir + fileName);
-            files::FileMetadata* asFile = dynamic_cast<files::FileMetadata*>(md.get());
-            if(asFile != NULL){
-                std::cout << "FILE id=" << asFile->id().toStdString() << " size=" << asFile->size() << std::endl;
-            }
-            else{
-                files::FolderMetadata* asFolder = dynamic_cast<files::FolderMetadata*>(md.get());
-                if(asFolder != NULL){
-                    std::cout << "FOLDER id=" << asFolder->id().toStdString() << std::endl;
-                }
-            }
-            std::cout << md->toString().toStdString() << std::endl;
+            printFileInfo(md.get());
             printLastApiCall();
         }
     catch(DropboxException& e)
@@ -62,6 +67,34 @@ void BoxCommands::info(QString fileName)
             std::cout << "Exception: " << e.what() << std::endl;
         }
 };
+
+void BoxCommands::info_async(QString fileName)
+{
+    DropboxTask<files::Metadata>* t = m_c.getFiles()->getMetadata_Async(m_curr_dir + fileName);
+    connect(t, &DropboxBaseTask::completed, this, &BoxCommands::infoAsyncCompleted);
+    connect(t, &DropboxBaseTask::failed, this, &BoxCommands::infoAsyncFailed);
+};
+
+void BoxCommands::infoAsyncCompleted()
+{
+    DropboxTask<files::Metadata>* t = dynamic_cast<DropboxTask<files::Metadata>*>
+        (sender());
+    if(t != nullptr)
+        {
+            files::Metadata* md = t->get();
+            printFileInfo(md);
+        }
+};
+
+void BoxCommands::infoAsyncFailed()
+{
+    DropboxBaseTask* t = dynamic_cast<DropboxBaseTask*>(sender());
+    if(t != nullptr)
+        {
+            std::cout << "InfoAsync Exception: " << t->error()->what() << std::endl;
+        }
+};
+
 
 
 void BoxCommands::pwd(QString)

@@ -2,8 +2,9 @@
 
 #include "dropbox/DropboxClient.h"
 
-class BoxCommands
+class BoxCommands: public QObject
 {
+    Q_OBJECT;
 public:
     BoxCommands(dropboxQt::DropboxClient& c);
 
@@ -28,6 +29,7 @@ public:
        info - get metadata on a file or folder
     */
     void info   (QString path);
+    void info_async(QString path);
     
     /**
        mkdir - create a new directory
@@ -67,6 +69,13 @@ public:
        printLastApiCall - print on the screen last API call if succeded
      */
     void printLastApiCall();
+
+protected slots:
+    void infoAsyncCompleted();
+    void infoAsyncFailed();
+
+protected:    
+    void printFileInfo(dropboxQt::files::Metadata* md);
     
 protected:
     dropboxQt::DropboxClient&   m_c;
