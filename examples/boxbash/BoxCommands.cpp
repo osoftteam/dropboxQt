@@ -83,6 +83,7 @@ void BoxCommands::infoAsyncCompleted()
         {
             files::Metadata* md = t->get();
             printFileInfo(md);
+            t->deleteLater();
         }
 };
 
@@ -92,6 +93,7 @@ void BoxCommands::infoAsyncFailed()
     if(t != nullptr)
         {
             std::cout << "InfoAsync Exception: " << t->error()->what() << std::endl;
+            t->deleteLater();
         }
 };
 
