@@ -69,11 +69,7 @@ public:
        printLastApiCall - print on the screen last API call if succeded
      */
     void printLastApiCall();
-
-protected slots:
-    void infoAsyncCompleted();
-    void infoAsyncFailed();
-
+    
 protected:    
     void printFileInfo(dropboxQt::files::Metadata* md);
     

@@ -71,33 +71,18 @@ void BoxCommands::info(QString fileName)
 void BoxCommands::info_async(QString fileName)
 {
     DropboxTask<files::Metadata>* t = m_c.getFiles()->getMetadata_Async(m_curr_dir + fileName);
-    connect(t, &DropboxBaseTask::completed, this, &BoxCommands::infoAsyncCompleted);
-    connect(t, &DropboxBaseTask::failed, this, &BoxCommands::infoAsyncFailed);
-};
-
-void BoxCommands::infoAsyncCompleted()
-{
-    DropboxTask<files::Metadata>* t = dynamic_cast<DropboxTask<files::Metadata>*>
-        (sender());
-    if(t != nullptr)
-        {
-            files::Metadata* md = t->get();
-            printFileInfo(md);
-            t->deleteLater();
+    try
+        {    
+            std::unique_ptr<files::Metadata> md  = t->waitForResultAndRelease();
+            std::cout << "async-result" << std::endl;
+            printFileInfo(md.get());
+            printLastApiCall();
         }
-};
-
-void BoxCommands::infoAsyncFailed()
-{
-    DropboxBaseTask* t = dynamic_cast<DropboxBaseTask*>(sender());
-    if(t != nullptr)
+    catch(DropboxException& e)
         {
-            std::cout << "InfoAsync Exception: " << t->error()->what() << std::endl;
-            t->deleteLater();
-        }
+            std::cout << "Exception: " << e.what() << std::endl;
+        }            
 };
-
-
 
 void BoxCommands::pwd(QString)
 {
