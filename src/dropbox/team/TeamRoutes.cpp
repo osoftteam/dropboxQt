@@ -10,12 +10,12 @@ using namespace dropboxQt;
 using namespace team;
 
 std::unique_ptr<GroupFullInfo> TeamRoutes::alphaGroupsCreate(const GroupCreateArg& arg ){
-    DROPBOX_BLOCKING_CALL(alphaGroupsCreate_AsyncCB, GroupFullInfo, arg);
+    return alphaGroupsCreate_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GroupFullInfo>* TeamRoutes::alphaGroupsCreate_Async(const GroupCreateArg& arg)
 {
-    DropboxTask<GroupFullInfo>* t = new DropboxTask<GroupFullInfo>();
+    DropboxTask<GroupFullInfo>* t = m_end_point->produceTask<GroupFullInfo>();
     m_end_point->rpcStyle<
         GroupCreateArg,
         GroupFullInfo,
@@ -44,12 +44,12 @@ void TeamRoutes::alphaGroupsCreate_AsyncCB(
 }
 
 std::unique_ptr<std::list <GroupsGetInfoItem>> TeamRoutes::alphaGroupsGetInfo(const GroupsSelector& arg ){
-    DROPBOX_BLOCKING_CALL(alphaGroupsGetInfo_AsyncCB, std::list <GroupsGetInfoItem>, arg);
+    return alphaGroupsGetInfo_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<std::list <GroupsGetInfoItem>>* TeamRoutes::alphaGroupsGetInfo_Async(const GroupsSelector& arg)
 {
-    DropboxTask<std::list <GroupsGetInfoItem>>* t = new DropboxTask<std::list <GroupsGetInfoItem>>();
+    DropboxTask<std::list <GroupsGetInfoItem>>* t = m_end_point->produceTask<std::list <GroupsGetInfoItem>>();
     m_end_point->rpcStyle<
         GroupsSelector,
         std::list <GroupsGetInfoItem>,
@@ -78,12 +78,12 @@ void TeamRoutes::alphaGroupsGetInfo_AsyncCB(
 }
 
 std::unique_ptr<GroupsListResult> TeamRoutes::alphaGroupsList(const GroupsListArg& arg ){
-    DROPBOX_BLOCKING_CALL(alphaGroupsList_AsyncCB, GroupsListResult, arg);
+    return alphaGroupsList_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GroupsListResult>* TeamRoutes::alphaGroupsList_Async(const GroupsListArg& arg)
 {
-    DropboxTask<GroupsListResult>* t = new DropboxTask<GroupsListResult>();
+    DropboxTask<GroupsListResult>* t = m_end_point->produceTask<GroupsListResult>();
     m_end_point->rpcStyle<
         GroupsListArg,
         GroupsListResult,
@@ -112,12 +112,12 @@ void TeamRoutes::alphaGroupsList_AsyncCB(
 }
 
 std::unique_ptr<GroupsListResult> TeamRoutes::alphaGroupsListContinue(const GroupsListContinueArg& arg ){
-    DROPBOX_BLOCKING_CALL(alphaGroupsListContinue_AsyncCB, GroupsListResult, arg);
+    return alphaGroupsListContinue_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GroupsListResult>* TeamRoutes::alphaGroupsListContinue_Async(const GroupsListContinueArg& arg)
 {
-    DropboxTask<GroupsListResult>* t = new DropboxTask<GroupsListResult>();
+    DropboxTask<GroupsListResult>* t = m_end_point->produceTask<GroupsListResult>();
     m_end_point->rpcStyle<
         GroupsListContinueArg,
         GroupsListResult,
@@ -146,12 +146,12 @@ void TeamRoutes::alphaGroupsListContinue_AsyncCB(
 }
 
 std::unique_ptr<GroupFullInfo> TeamRoutes::alphaGroupsUpdate(const GroupUpdateArgs& arg ){
-    DROPBOX_BLOCKING_CALL(alphaGroupsUpdate_AsyncCB, GroupFullInfo, arg);
+    return alphaGroupsUpdate_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GroupFullInfo>* TeamRoutes::alphaGroupsUpdate_Async(const GroupUpdateArgs& arg)
 {
-    DropboxTask<GroupFullInfo>* t = new DropboxTask<GroupFullInfo>();
+    DropboxTask<GroupFullInfo>* t = m_end_point->produceTask<GroupFullInfo>();
     m_end_point->rpcStyle<
         GroupUpdateArgs,
         GroupFullInfo,
@@ -180,12 +180,12 @@ void TeamRoutes::alphaGroupsUpdate_AsyncCB(
 }
 
 std::unique_ptr<ListMemberDevicesResult> TeamRoutes::devicesListMemberDevices(const ListMemberDevicesArg& arg ){
-    DROPBOX_BLOCKING_CALL(devicesListMemberDevices_AsyncCB, ListMemberDevicesResult, arg);
+    return devicesListMemberDevices_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<ListMemberDevicesResult>* TeamRoutes::devicesListMemberDevices_Async(const ListMemberDevicesArg& arg)
 {
-    DropboxTask<ListMemberDevicesResult>* t = new DropboxTask<ListMemberDevicesResult>();
+    DropboxTask<ListMemberDevicesResult>* t = m_end_point->produceTask<ListMemberDevicesResult>();
     m_end_point->rpcStyle<
         ListMemberDevicesArg,
         ListMemberDevicesResult,
@@ -214,12 +214,12 @@ void TeamRoutes::devicesListMemberDevices_AsyncCB(
 }
 
 std::unique_ptr<ListMembersDevicesResult> TeamRoutes::devicesListMembersDevices(const ListMembersDevicesArg& arg ){
-    DROPBOX_BLOCKING_CALL(devicesListMembersDevices_AsyncCB, ListMembersDevicesResult, arg);
+    return devicesListMembersDevices_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<ListMembersDevicesResult>* TeamRoutes::devicesListMembersDevices_Async(const ListMembersDevicesArg& arg)
 {
-    DropboxTask<ListMembersDevicesResult>* t = new DropboxTask<ListMembersDevicesResult>();
+    DropboxTask<ListMembersDevicesResult>* t = m_end_point->produceTask<ListMembersDevicesResult>();
     m_end_point->rpcStyle<
         ListMembersDevicesArg,
         ListMembersDevicesResult,
@@ -248,12 +248,12 @@ void TeamRoutes::devicesListMembersDevices_AsyncCB(
 }
 
 std::unique_ptr<ListTeamDevicesResult> TeamRoutes::devicesListTeamDevices(const ListTeamDevicesArg& arg ){
-    DROPBOX_BLOCKING_CALL(devicesListTeamDevices_AsyncCB, ListTeamDevicesResult, arg);
+    return devicesListTeamDevices_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<ListTeamDevicesResult>* TeamRoutes::devicesListTeamDevices_Async(const ListTeamDevicesArg& arg)
 {
-    DropboxTask<ListTeamDevicesResult>* t = new DropboxTask<ListTeamDevicesResult>();
+    DropboxTask<ListTeamDevicesResult>* t = m_end_point->produceTask<ListTeamDevicesResult>();
     m_end_point->rpcStyle<
         ListTeamDevicesArg,
         ListTeamDevicesResult,
@@ -282,12 +282,12 @@ void TeamRoutes::devicesListTeamDevices_AsyncCB(
 }
 
 void TeamRoutes::devicesRevokeDeviceSession(const RevokeDeviceSessionArg& arg ){
-    VOID_RESULT_DBC(devicesRevokeDeviceSession_AsyncCB, arg);
+    devicesRevokeDeviceSession_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxVoidTask* TeamRoutes::devicesRevokeDeviceSession_Async(const RevokeDeviceSessionArg& arg)
 {
-    DropboxVoidTask* t = new DropboxVoidTask();
+    DropboxVoidTask* t = m_end_point->produceVoidTask();
     m_end_point->rpcStyle<
         RevokeDeviceSessionArg,
         RevokeDeviceSessionErrorException>
@@ -312,12 +312,12 @@ void TeamRoutes::devicesRevokeDeviceSession_AsyncCB(
 }
 
 std::unique_ptr<RevokeDeviceSessionBatchResult> TeamRoutes::devicesRevokeDeviceSessionBatch(const RevokeDeviceSessionBatchArg& arg ){
-    DROPBOX_BLOCKING_CALL(devicesRevokeDeviceSessionBatch_AsyncCB, RevokeDeviceSessionBatchResult, arg);
+    return devicesRevokeDeviceSessionBatch_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<RevokeDeviceSessionBatchResult>* TeamRoutes::devicesRevokeDeviceSessionBatch_Async(const RevokeDeviceSessionBatchArg& arg)
 {
-    DropboxTask<RevokeDeviceSessionBatchResult>* t = new DropboxTask<RevokeDeviceSessionBatchResult>();
+    DropboxTask<RevokeDeviceSessionBatchResult>* t = m_end_point->produceTask<RevokeDeviceSessionBatchResult>();
     m_end_point->rpcStyle<
         RevokeDeviceSessionBatchArg,
         RevokeDeviceSessionBatchResult,
@@ -346,12 +346,12 @@ void TeamRoutes::devicesRevokeDeviceSessionBatch_AsyncCB(
 }
 
 std::unique_ptr<TeamGetInfoResult> TeamRoutes::getInfo(void){
-    VOID_ARG_DBC(getInfo_AsyncCB, TeamGetInfoResult);
+    return getInfo_Async()->waitForResultAndRelease();
 }
 
 DropboxTask<TeamGetInfoResult>* TeamRoutes::getInfo_Async()
 {
-    DropboxTask<TeamGetInfoResult>* t = new DropboxTask<TeamGetInfoResult>();
+    DropboxTask<TeamGetInfoResult>* t = m_end_point->produceTask<TeamGetInfoResult>();
     m_end_point->rpcStyle<
         TeamGetInfoResult,
         TeamGetInfoResult::factory,
@@ -375,12 +375,12 @@ void TeamRoutes::getInfo_AsyncCB(
 }
 
 std::unique_ptr<GroupFullInfo> TeamRoutes::groupsCreate(const GroupCreateArg& arg ){
-    DROPBOX_BLOCKING_CALL(groupsCreate_AsyncCB, GroupFullInfo, arg);
+    return groupsCreate_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GroupFullInfo>* TeamRoutes::groupsCreate_Async(const GroupCreateArg& arg)
 {
-    DropboxTask<GroupFullInfo>* t = new DropboxTask<GroupFullInfo>();
+    DropboxTask<GroupFullInfo>* t = m_end_point->produceTask<GroupFullInfo>();
     m_end_point->rpcStyle<
         GroupCreateArg,
         GroupFullInfo,
@@ -409,12 +409,12 @@ void TeamRoutes::groupsCreate_AsyncCB(
 }
 
 std::unique_ptr<async::LaunchEmptyResult> TeamRoutes::groupsDelete(const GroupSelector& arg ){
-    DROPBOX_BLOCKING_CALL(groupsDelete_AsyncCB, async::LaunchEmptyResult, arg);
+    return groupsDelete_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<async::LaunchEmptyResult>* TeamRoutes::groupsDelete_Async(const GroupSelector& arg)
 {
-    DropboxTask<async::LaunchEmptyResult>* t = new DropboxTask<async::LaunchEmptyResult>();
+    DropboxTask<async::LaunchEmptyResult>* t = m_end_point->produceTask<async::LaunchEmptyResult>();
     m_end_point->rpcStyle<
         GroupSelector,
         async::LaunchEmptyResult,
@@ -443,12 +443,12 @@ void TeamRoutes::groupsDelete_AsyncCB(
 }
 
 std::unique_ptr<std::list <GroupsGetInfoItem>> TeamRoutes::groupsGetInfo(const GroupsSelector& arg ){
-    DROPBOX_BLOCKING_CALL(groupsGetInfo_AsyncCB, std::list <GroupsGetInfoItem>, arg);
+    return groupsGetInfo_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<std::list <GroupsGetInfoItem>>* TeamRoutes::groupsGetInfo_Async(const GroupsSelector& arg)
 {
-    DropboxTask<std::list <GroupsGetInfoItem>>* t = new DropboxTask<std::list <GroupsGetInfoItem>>();
+    DropboxTask<std::list <GroupsGetInfoItem>>* t = m_end_point->produceTask<std::list <GroupsGetInfoItem>>();
     m_end_point->rpcStyle<
         GroupsSelector,
         std::list <GroupsGetInfoItem>,
@@ -477,12 +477,12 @@ void TeamRoutes::groupsGetInfo_AsyncCB(
 }
 
 std::unique_ptr<async::PollEmptyResult> TeamRoutes::groupsJobStatusGet(const async::PollArg& arg ){
-    DROPBOX_BLOCKING_CALL(groupsJobStatusGet_AsyncCB, async::PollEmptyResult, arg);
+    return groupsJobStatusGet_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<async::PollEmptyResult>* TeamRoutes::groupsJobStatusGet_Async(const async::PollArg& arg)
 {
-    DropboxTask<async::PollEmptyResult>* t = new DropboxTask<async::PollEmptyResult>();
+    DropboxTask<async::PollEmptyResult>* t = m_end_point->produceTask<async::PollEmptyResult>();
     m_end_point->rpcStyle<
         async::PollArg,
         async::PollEmptyResult,
@@ -511,12 +511,12 @@ void TeamRoutes::groupsJobStatusGet_AsyncCB(
 }
 
 std::unique_ptr<GroupsListResult> TeamRoutes::groupsList(const GroupsListArg& arg ){
-    DROPBOX_BLOCKING_CALL(groupsList_AsyncCB, GroupsListResult, arg);
+    return groupsList_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GroupsListResult>* TeamRoutes::groupsList_Async(const GroupsListArg& arg)
 {
-    DropboxTask<GroupsListResult>* t = new DropboxTask<GroupsListResult>();
+    DropboxTask<GroupsListResult>* t = m_end_point->produceTask<GroupsListResult>();
     m_end_point->rpcStyle<
         GroupsListArg,
         GroupsListResult,
@@ -545,12 +545,12 @@ void TeamRoutes::groupsList_AsyncCB(
 }
 
 std::unique_ptr<GroupsListResult> TeamRoutes::groupsListContinue(const GroupsListContinueArg& arg ){
-    DROPBOX_BLOCKING_CALL(groupsListContinue_AsyncCB, GroupsListResult, arg);
+    return groupsListContinue_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GroupsListResult>* TeamRoutes::groupsListContinue_Async(const GroupsListContinueArg& arg)
 {
-    DropboxTask<GroupsListResult>* t = new DropboxTask<GroupsListResult>();
+    DropboxTask<GroupsListResult>* t = m_end_point->produceTask<GroupsListResult>();
     m_end_point->rpcStyle<
         GroupsListContinueArg,
         GroupsListResult,
@@ -579,12 +579,12 @@ void TeamRoutes::groupsListContinue_AsyncCB(
 }
 
 std::unique_ptr<GroupMembersChangeResult> TeamRoutes::groupsMembersAdd(const GroupMembersAddArg& arg ){
-    DROPBOX_BLOCKING_CALL(groupsMembersAdd_AsyncCB, GroupMembersChangeResult, arg);
+    return groupsMembersAdd_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GroupMembersChangeResult>* TeamRoutes::groupsMembersAdd_Async(const GroupMembersAddArg& arg)
 {
-    DropboxTask<GroupMembersChangeResult>* t = new DropboxTask<GroupMembersChangeResult>();
+    DropboxTask<GroupMembersChangeResult>* t = m_end_point->produceTask<GroupMembersChangeResult>();
     m_end_point->rpcStyle<
         GroupMembersAddArg,
         GroupMembersChangeResult,
@@ -613,12 +613,12 @@ void TeamRoutes::groupsMembersAdd_AsyncCB(
 }
 
 std::unique_ptr<GroupsMembersListResult> TeamRoutes::groupsMembersList(const GroupsMembersListArg& arg ){
-    DROPBOX_BLOCKING_CALL(groupsMembersList_AsyncCB, GroupsMembersListResult, arg);
+    return groupsMembersList_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GroupsMembersListResult>* TeamRoutes::groupsMembersList_Async(const GroupsMembersListArg& arg)
 {
-    DropboxTask<GroupsMembersListResult>* t = new DropboxTask<GroupsMembersListResult>();
+    DropboxTask<GroupsMembersListResult>* t = m_end_point->produceTask<GroupsMembersListResult>();
     m_end_point->rpcStyle<
         GroupsMembersListArg,
         GroupsMembersListResult,
@@ -647,12 +647,12 @@ void TeamRoutes::groupsMembersList_AsyncCB(
 }
 
 std::unique_ptr<GroupsMembersListResult> TeamRoutes::groupsMembersListContinue(const GroupsMembersListContinueArg& arg ){
-    DROPBOX_BLOCKING_CALL(groupsMembersListContinue_AsyncCB, GroupsMembersListResult, arg);
+    return groupsMembersListContinue_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GroupsMembersListResult>* TeamRoutes::groupsMembersListContinue_Async(const GroupsMembersListContinueArg& arg)
 {
-    DropboxTask<GroupsMembersListResult>* t = new DropboxTask<GroupsMembersListResult>();
+    DropboxTask<GroupsMembersListResult>* t = m_end_point->produceTask<GroupsMembersListResult>();
     m_end_point->rpcStyle<
         GroupsMembersListContinueArg,
         GroupsMembersListResult,
@@ -681,12 +681,12 @@ void TeamRoutes::groupsMembersListContinue_AsyncCB(
 }
 
 std::unique_ptr<GroupMembersChangeResult> TeamRoutes::groupsMembersRemove(const GroupMembersRemoveArg& arg ){
-    DROPBOX_BLOCKING_CALL(groupsMembersRemove_AsyncCB, GroupMembersChangeResult, arg);
+    return groupsMembersRemove_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GroupMembersChangeResult>* TeamRoutes::groupsMembersRemove_Async(const GroupMembersRemoveArg& arg)
 {
-    DropboxTask<GroupMembersChangeResult>* t = new DropboxTask<GroupMembersChangeResult>();
+    DropboxTask<GroupMembersChangeResult>* t = m_end_point->produceTask<GroupMembersChangeResult>();
     m_end_point->rpcStyle<
         GroupMembersRemoveArg,
         GroupMembersChangeResult,
@@ -715,12 +715,12 @@ void TeamRoutes::groupsMembersRemove_AsyncCB(
 }
 
 std::unique_ptr<std::list <GroupsGetInfoItem>> TeamRoutes::groupsMembersSetAccessType(const GroupMembersSetAccessTypeArg& arg ){
-    DROPBOX_BLOCKING_CALL(groupsMembersSetAccessType_AsyncCB, std::list <GroupsGetInfoItem>, arg);
+    return groupsMembersSetAccessType_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<std::list <GroupsGetInfoItem>>* TeamRoutes::groupsMembersSetAccessType_Async(const GroupMembersSetAccessTypeArg& arg)
 {
-    DropboxTask<std::list <GroupsGetInfoItem>>* t = new DropboxTask<std::list <GroupsGetInfoItem>>();
+    DropboxTask<std::list <GroupsGetInfoItem>>* t = m_end_point->produceTask<std::list <GroupsGetInfoItem>>();
     m_end_point->rpcStyle<
         GroupMembersSetAccessTypeArg,
         std::list <GroupsGetInfoItem>,
@@ -749,12 +749,12 @@ void TeamRoutes::groupsMembersSetAccessType_AsyncCB(
 }
 
 std::unique_ptr<GroupFullInfo> TeamRoutes::groupsUpdate(const GroupUpdateArgs& arg ){
-    DROPBOX_BLOCKING_CALL(groupsUpdate_AsyncCB, GroupFullInfo, arg);
+    return groupsUpdate_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GroupFullInfo>* TeamRoutes::groupsUpdate_Async(const GroupUpdateArgs& arg)
 {
-    DropboxTask<GroupFullInfo>* t = new DropboxTask<GroupFullInfo>();
+    DropboxTask<GroupFullInfo>* t = m_end_point->produceTask<GroupFullInfo>();
     m_end_point->rpcStyle<
         GroupUpdateArgs,
         GroupFullInfo,
@@ -783,12 +783,12 @@ void TeamRoutes::groupsUpdate_AsyncCB(
 }
 
 std::unique_ptr<ListMemberAppsResult> TeamRoutes::linkedAppsListMemberLinkedApps(const ListMemberAppsArg& arg ){
-    DROPBOX_BLOCKING_CALL(linkedAppsListMemberLinkedApps_AsyncCB, ListMemberAppsResult, arg);
+    return linkedAppsListMemberLinkedApps_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<ListMemberAppsResult>* TeamRoutes::linkedAppsListMemberLinkedApps_Async(const ListMemberAppsArg& arg)
 {
-    DropboxTask<ListMemberAppsResult>* t = new DropboxTask<ListMemberAppsResult>();
+    DropboxTask<ListMemberAppsResult>* t = m_end_point->produceTask<ListMemberAppsResult>();
     m_end_point->rpcStyle<
         ListMemberAppsArg,
         ListMemberAppsResult,
@@ -817,12 +817,12 @@ void TeamRoutes::linkedAppsListMemberLinkedApps_AsyncCB(
 }
 
 std::unique_ptr<ListMembersAppsResult> TeamRoutes::linkedAppsListMembersLinkedApps(const ListMembersAppsArg& arg ){
-    DROPBOX_BLOCKING_CALL(linkedAppsListMembersLinkedApps_AsyncCB, ListMembersAppsResult, arg);
+    return linkedAppsListMembersLinkedApps_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<ListMembersAppsResult>* TeamRoutes::linkedAppsListMembersLinkedApps_Async(const ListMembersAppsArg& arg)
 {
-    DropboxTask<ListMembersAppsResult>* t = new DropboxTask<ListMembersAppsResult>();
+    DropboxTask<ListMembersAppsResult>* t = m_end_point->produceTask<ListMembersAppsResult>();
     m_end_point->rpcStyle<
         ListMembersAppsArg,
         ListMembersAppsResult,
@@ -851,12 +851,12 @@ void TeamRoutes::linkedAppsListMembersLinkedApps_AsyncCB(
 }
 
 std::unique_ptr<ListTeamAppsResult> TeamRoutes::linkedAppsListTeamLinkedApps(const ListTeamAppsArg& arg ){
-    DROPBOX_BLOCKING_CALL(linkedAppsListTeamLinkedApps_AsyncCB, ListTeamAppsResult, arg);
+    return linkedAppsListTeamLinkedApps_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<ListTeamAppsResult>* TeamRoutes::linkedAppsListTeamLinkedApps_Async(const ListTeamAppsArg& arg)
 {
-    DropboxTask<ListTeamAppsResult>* t = new DropboxTask<ListTeamAppsResult>();
+    DropboxTask<ListTeamAppsResult>* t = m_end_point->produceTask<ListTeamAppsResult>();
     m_end_point->rpcStyle<
         ListTeamAppsArg,
         ListTeamAppsResult,
@@ -885,12 +885,12 @@ void TeamRoutes::linkedAppsListTeamLinkedApps_AsyncCB(
 }
 
 void TeamRoutes::linkedAppsRevokeLinkedApp(const RevokeLinkedApiAppArg& arg ){
-    VOID_RESULT_DBC(linkedAppsRevokeLinkedApp_AsyncCB, arg);
+    linkedAppsRevokeLinkedApp_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxVoidTask* TeamRoutes::linkedAppsRevokeLinkedApp_Async(const RevokeLinkedApiAppArg& arg)
 {
-    DropboxVoidTask* t = new DropboxVoidTask();
+    DropboxVoidTask* t = m_end_point->produceVoidTask();
     m_end_point->rpcStyle<
         RevokeLinkedApiAppArg,
         RevokeLinkedAppErrorException>
@@ -915,12 +915,12 @@ void TeamRoutes::linkedAppsRevokeLinkedApp_AsyncCB(
 }
 
 std::unique_ptr<RevokeLinkedAppBatchResult> TeamRoutes::linkedAppsRevokeLinkedAppBatch(const RevokeLinkedApiAppBatchArg& arg ){
-    DROPBOX_BLOCKING_CALL(linkedAppsRevokeLinkedAppBatch_AsyncCB, RevokeLinkedAppBatchResult, arg);
+    return linkedAppsRevokeLinkedAppBatch_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<RevokeLinkedAppBatchResult>* TeamRoutes::linkedAppsRevokeLinkedAppBatch_Async(const RevokeLinkedApiAppBatchArg& arg)
 {
-    DropboxTask<RevokeLinkedAppBatchResult>* t = new DropboxTask<RevokeLinkedAppBatchResult>();
+    DropboxTask<RevokeLinkedAppBatchResult>* t = m_end_point->produceTask<RevokeLinkedAppBatchResult>();
     m_end_point->rpcStyle<
         RevokeLinkedApiAppBatchArg,
         RevokeLinkedAppBatchResult,
@@ -949,12 +949,12 @@ void TeamRoutes::linkedAppsRevokeLinkedAppBatch_AsyncCB(
 }
 
 std::unique_ptr<MembersAddLaunch> TeamRoutes::membersAdd(const MembersAddArg& arg ){
-    DROPBOX_BLOCKING_CALL(membersAdd_AsyncCB, MembersAddLaunch, arg);
+    return membersAdd_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<MembersAddLaunch>* TeamRoutes::membersAdd_Async(const MembersAddArg& arg)
 {
-    DropboxTask<MembersAddLaunch>* t = new DropboxTask<MembersAddLaunch>();
+    DropboxTask<MembersAddLaunch>* t = m_end_point->produceTask<MembersAddLaunch>();
     m_end_point->rpcStyle<
         MembersAddArg,
         MembersAddLaunch,
@@ -983,12 +983,12 @@ void TeamRoutes::membersAdd_AsyncCB(
 }
 
 std::unique_ptr<MembersAddJobStatus> TeamRoutes::membersAddJobStatusGet(const async::PollArg& arg ){
-    DROPBOX_BLOCKING_CALL(membersAddJobStatusGet_AsyncCB, MembersAddJobStatus, arg);
+    return membersAddJobStatusGet_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<MembersAddJobStatus>* TeamRoutes::membersAddJobStatusGet_Async(const async::PollArg& arg)
 {
-    DropboxTask<MembersAddJobStatus>* t = new DropboxTask<MembersAddJobStatus>();
+    DropboxTask<MembersAddJobStatus>* t = m_end_point->produceTask<MembersAddJobStatus>();
     m_end_point->rpcStyle<
         async::PollArg,
         MembersAddJobStatus,
@@ -1017,12 +1017,12 @@ void TeamRoutes::membersAddJobStatusGet_AsyncCB(
 }
 
 std::unique_ptr<std::list <MembersGetInfoItem>> TeamRoutes::membersGetInfo(const MembersGetInfoArgs& arg ){
-    DROPBOX_BLOCKING_CALL(membersGetInfo_AsyncCB, std::list <MembersGetInfoItem>, arg);
+    return membersGetInfo_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<std::list <MembersGetInfoItem>>* TeamRoutes::membersGetInfo_Async(const MembersGetInfoArgs& arg)
 {
-    DropboxTask<std::list <MembersGetInfoItem>>* t = new DropboxTask<std::list <MembersGetInfoItem>>();
+    DropboxTask<std::list <MembersGetInfoItem>>* t = m_end_point->produceTask<std::list <MembersGetInfoItem>>();
     m_end_point->rpcStyle<
         MembersGetInfoArgs,
         std::list <MembersGetInfoItem>,
@@ -1051,12 +1051,12 @@ void TeamRoutes::membersGetInfo_AsyncCB(
 }
 
 std::unique_ptr<MembersListResult> TeamRoutes::membersList(const MembersListArg& arg ){
-    DROPBOX_BLOCKING_CALL(membersList_AsyncCB, MembersListResult, arg);
+    return membersList_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<MembersListResult>* TeamRoutes::membersList_Async(const MembersListArg& arg)
 {
-    DropboxTask<MembersListResult>* t = new DropboxTask<MembersListResult>();
+    DropboxTask<MembersListResult>* t = m_end_point->produceTask<MembersListResult>();
     m_end_point->rpcStyle<
         MembersListArg,
         MembersListResult,
@@ -1085,12 +1085,12 @@ void TeamRoutes::membersList_AsyncCB(
 }
 
 std::unique_ptr<MembersListResult> TeamRoutes::membersListContinue(const MembersListContinueArg& arg ){
-    DROPBOX_BLOCKING_CALL(membersListContinue_AsyncCB, MembersListResult, arg);
+    return membersListContinue_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<MembersListResult>* TeamRoutes::membersListContinue_Async(const MembersListContinueArg& arg)
 {
-    DropboxTask<MembersListResult>* t = new DropboxTask<MembersListResult>();
+    DropboxTask<MembersListResult>* t = m_end_point->produceTask<MembersListResult>();
     m_end_point->rpcStyle<
         MembersListContinueArg,
         MembersListResult,
@@ -1119,12 +1119,12 @@ void TeamRoutes::membersListContinue_AsyncCB(
 }
 
 void TeamRoutes::membersRecover(const MembersRecoverArg& arg ){
-    VOID_RESULT_DBC(membersRecover_AsyncCB, arg);
+    membersRecover_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxVoidTask* TeamRoutes::membersRecover_Async(const MembersRecoverArg& arg)
 {
-    DropboxVoidTask* t = new DropboxVoidTask();
+    DropboxVoidTask* t = m_end_point->produceVoidTask();
     m_end_point->rpcStyle<
         MembersRecoverArg,
         MembersRecoverErrorException>
@@ -1149,12 +1149,12 @@ void TeamRoutes::membersRecover_AsyncCB(
 }
 
 std::unique_ptr<async::LaunchEmptyResult> TeamRoutes::membersRemove(const MembersRemoveArg& arg ){
-    DROPBOX_BLOCKING_CALL(membersRemove_AsyncCB, async::LaunchEmptyResult, arg);
+    return membersRemove_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<async::LaunchEmptyResult>* TeamRoutes::membersRemove_Async(const MembersRemoveArg& arg)
 {
-    DropboxTask<async::LaunchEmptyResult>* t = new DropboxTask<async::LaunchEmptyResult>();
+    DropboxTask<async::LaunchEmptyResult>* t = m_end_point->produceTask<async::LaunchEmptyResult>();
     m_end_point->rpcStyle<
         MembersRemoveArg,
         async::LaunchEmptyResult,
@@ -1183,12 +1183,12 @@ void TeamRoutes::membersRemove_AsyncCB(
 }
 
 std::unique_ptr<async::PollEmptyResult> TeamRoutes::membersRemoveJobStatusGet(const async::PollArg& arg ){
-    DROPBOX_BLOCKING_CALL(membersRemoveJobStatusGet_AsyncCB, async::PollEmptyResult, arg);
+    return membersRemoveJobStatusGet_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<async::PollEmptyResult>* TeamRoutes::membersRemoveJobStatusGet_Async(const async::PollArg& arg)
 {
-    DropboxTask<async::PollEmptyResult>* t = new DropboxTask<async::PollEmptyResult>();
+    DropboxTask<async::PollEmptyResult>* t = m_end_point->produceTask<async::PollEmptyResult>();
     m_end_point->rpcStyle<
         async::PollArg,
         async::PollEmptyResult,
@@ -1217,12 +1217,12 @@ void TeamRoutes::membersRemoveJobStatusGet_AsyncCB(
 }
 
 void TeamRoutes::membersSendWelcomeEmail(const UserSelectorArg& arg ){
-    VOID_RESULT_DBC(membersSendWelcomeEmail_AsyncCB, arg);
+    membersSendWelcomeEmail_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxVoidTask* TeamRoutes::membersSendWelcomeEmail_Async(const UserSelectorArg& arg)
 {
-    DropboxVoidTask* t = new DropboxVoidTask();
+    DropboxVoidTask* t = m_end_point->produceVoidTask();
     m_end_point->rpcStyle<
         UserSelectorArg,
         MembersSendWelcomeErrorException>
@@ -1247,12 +1247,12 @@ void TeamRoutes::membersSendWelcomeEmail_AsyncCB(
 }
 
 std::unique_ptr<MembersSetPermissionsResult> TeamRoutes::membersSetAdminPermissions(const MembersSetPermissionsArg& arg ){
-    DROPBOX_BLOCKING_CALL(membersSetAdminPermissions_AsyncCB, MembersSetPermissionsResult, arg);
+    return membersSetAdminPermissions_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<MembersSetPermissionsResult>* TeamRoutes::membersSetAdminPermissions_Async(const MembersSetPermissionsArg& arg)
 {
-    DropboxTask<MembersSetPermissionsResult>* t = new DropboxTask<MembersSetPermissionsResult>();
+    DropboxTask<MembersSetPermissionsResult>* t = m_end_point->produceTask<MembersSetPermissionsResult>();
     m_end_point->rpcStyle<
         MembersSetPermissionsArg,
         MembersSetPermissionsResult,
@@ -1281,12 +1281,12 @@ void TeamRoutes::membersSetAdminPermissions_AsyncCB(
 }
 
 std::unique_ptr<TeamMemberInfo> TeamRoutes::membersSetProfile(const MembersSetProfileArg& arg ){
-    DROPBOX_BLOCKING_CALL(membersSetProfile_AsyncCB, TeamMemberInfo, arg);
+    return membersSetProfile_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<TeamMemberInfo>* TeamRoutes::membersSetProfile_Async(const MembersSetProfileArg& arg)
 {
-    DropboxTask<TeamMemberInfo>* t = new DropboxTask<TeamMemberInfo>();
+    DropboxTask<TeamMemberInfo>* t = m_end_point->produceTask<TeamMemberInfo>();
     m_end_point->rpcStyle<
         MembersSetProfileArg,
         TeamMemberInfo,
@@ -1315,12 +1315,12 @@ void TeamRoutes::membersSetProfile_AsyncCB(
 }
 
 void TeamRoutes::membersSuspend(const MembersDeactivateArg& arg ){
-    VOID_RESULT_DBC(membersSuspend_AsyncCB, arg);
+    membersSuspend_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxVoidTask* TeamRoutes::membersSuspend_Async(const MembersDeactivateArg& arg)
 {
-    DropboxVoidTask* t = new DropboxVoidTask();
+    DropboxVoidTask* t = m_end_point->produceVoidTask();
     m_end_point->rpcStyle<
         MembersDeactivateArg,
         MembersSuspendErrorException>
@@ -1345,12 +1345,12 @@ void TeamRoutes::membersSuspend_AsyncCB(
 }
 
 void TeamRoutes::membersUnsuspend(const MembersUnsuspendArg& arg ){
-    VOID_RESULT_DBC(membersUnsuspend_AsyncCB, arg);
+    membersUnsuspend_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxVoidTask* TeamRoutes::membersUnsuspend_Async(const MembersUnsuspendArg& arg)
 {
-    DropboxVoidTask* t = new DropboxVoidTask();
+    DropboxVoidTask* t = m_end_point->produceVoidTask();
     m_end_point->rpcStyle<
         MembersUnsuspendArg,
         MembersUnsuspendErrorException>
@@ -1375,12 +1375,12 @@ void TeamRoutes::membersUnsuspend_AsyncCB(
 }
 
 std::unique_ptr<AddPropertyTemplateResult> TeamRoutes::propertiesTemplateAdd(const AddPropertyTemplateArg& arg ){
-    DROPBOX_BLOCKING_CALL(propertiesTemplateAdd_AsyncCB, AddPropertyTemplateResult, arg);
+    return propertiesTemplateAdd_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<AddPropertyTemplateResult>* TeamRoutes::propertiesTemplateAdd_Async(const AddPropertyTemplateArg& arg)
 {
-    DropboxTask<AddPropertyTemplateResult>* t = new DropboxTask<AddPropertyTemplateResult>();
+    DropboxTask<AddPropertyTemplateResult>* t = m_end_point->produceTask<AddPropertyTemplateResult>();
     m_end_point->rpcStyle<
         AddPropertyTemplateArg,
         AddPropertyTemplateResult,
@@ -1409,12 +1409,12 @@ void TeamRoutes::propertiesTemplateAdd_AsyncCB(
 }
 
 std::unique_ptr<properties::GetPropertyTemplateResult> TeamRoutes::propertiesTemplateGet(const properties::GetPropertyTemplateArg& arg ){
-    DROPBOX_BLOCKING_CALL(propertiesTemplateGet_AsyncCB, properties::GetPropertyTemplateResult, arg);
+    return propertiesTemplateGet_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<properties::GetPropertyTemplateResult>* TeamRoutes::propertiesTemplateGet_Async(const properties::GetPropertyTemplateArg& arg)
 {
-    DropboxTask<properties::GetPropertyTemplateResult>* t = new DropboxTask<properties::GetPropertyTemplateResult>();
+    DropboxTask<properties::GetPropertyTemplateResult>* t = m_end_point->produceTask<properties::GetPropertyTemplateResult>();
     m_end_point->rpcStyle<
         properties::GetPropertyTemplateArg,
         properties::GetPropertyTemplateResult,
@@ -1443,12 +1443,12 @@ void TeamRoutes::propertiesTemplateGet_AsyncCB(
 }
 
 std::unique_ptr<properties::ListPropertyTemplateIds> TeamRoutes::propertiesTemplateList(void){
-    VOID_ARG_DBC(propertiesTemplateList_AsyncCB, properties::ListPropertyTemplateIds);
+    return propertiesTemplateList_Async()->waitForResultAndRelease();
 }
 
 DropboxTask<properties::ListPropertyTemplateIds>* TeamRoutes::propertiesTemplateList_Async()
 {
-    DropboxTask<properties::ListPropertyTemplateIds>* t = new DropboxTask<properties::ListPropertyTemplateIds>();
+    DropboxTask<properties::ListPropertyTemplateIds>* t = m_end_point->produceTask<properties::ListPropertyTemplateIds>();
     m_end_point->rpcStyle<
         properties::ListPropertyTemplateIds,
         properties::ListPropertyTemplateIds::factory,
@@ -1472,12 +1472,12 @@ void TeamRoutes::propertiesTemplateList_AsyncCB(
 }
 
 std::unique_ptr<UpdatePropertyTemplateResult> TeamRoutes::propertiesTemplateUpdate(const UpdatePropertyTemplateArg& arg ){
-    DROPBOX_BLOCKING_CALL(propertiesTemplateUpdate_AsyncCB, UpdatePropertyTemplateResult, arg);
+    return propertiesTemplateUpdate_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<UpdatePropertyTemplateResult>* TeamRoutes::propertiesTemplateUpdate_Async(const UpdatePropertyTemplateArg& arg)
 {
-    DropboxTask<UpdatePropertyTemplateResult>* t = new DropboxTask<UpdatePropertyTemplateResult>();
+    DropboxTask<UpdatePropertyTemplateResult>* t = m_end_point->produceTask<UpdatePropertyTemplateResult>();
     m_end_point->rpcStyle<
         UpdatePropertyTemplateArg,
         UpdatePropertyTemplateResult,
@@ -1506,12 +1506,12 @@ void TeamRoutes::propertiesTemplateUpdate_AsyncCB(
 }
 
 std::unique_ptr<GetActivityReport> TeamRoutes::reportsGetActivity(const DateRange& arg ){
-    DROPBOX_BLOCKING_CALL(reportsGetActivity_AsyncCB, GetActivityReport, arg);
+    return reportsGetActivity_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GetActivityReport>* TeamRoutes::reportsGetActivity_Async(const DateRange& arg)
 {
-    DropboxTask<GetActivityReport>* t = new DropboxTask<GetActivityReport>();
+    DropboxTask<GetActivityReport>* t = m_end_point->produceTask<GetActivityReport>();
     m_end_point->rpcStyle<
         DateRange,
         GetActivityReport,
@@ -1540,12 +1540,12 @@ void TeamRoutes::reportsGetActivity_AsyncCB(
 }
 
 std::unique_ptr<GetDevicesReport> TeamRoutes::reportsGetDevices(const DateRange& arg ){
-    DROPBOX_BLOCKING_CALL(reportsGetDevices_AsyncCB, GetDevicesReport, arg);
+    return reportsGetDevices_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GetDevicesReport>* TeamRoutes::reportsGetDevices_Async(const DateRange& arg)
 {
-    DropboxTask<GetDevicesReport>* t = new DropboxTask<GetDevicesReport>();
+    DropboxTask<GetDevicesReport>* t = m_end_point->produceTask<GetDevicesReport>();
     m_end_point->rpcStyle<
         DateRange,
         GetDevicesReport,
@@ -1574,12 +1574,12 @@ void TeamRoutes::reportsGetDevices_AsyncCB(
 }
 
 std::unique_ptr<GetMembershipReport> TeamRoutes::reportsGetMembership(const DateRange& arg ){
-    DROPBOX_BLOCKING_CALL(reportsGetMembership_AsyncCB, GetMembershipReport, arg);
+    return reportsGetMembership_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GetMembershipReport>* TeamRoutes::reportsGetMembership_Async(const DateRange& arg)
 {
-    DropboxTask<GetMembershipReport>* t = new DropboxTask<GetMembershipReport>();
+    DropboxTask<GetMembershipReport>* t = m_end_point->produceTask<GetMembershipReport>();
     m_end_point->rpcStyle<
         DateRange,
         GetMembershipReport,
@@ -1608,12 +1608,12 @@ void TeamRoutes::reportsGetMembership_AsyncCB(
 }
 
 std::unique_ptr<GetStorageReport> TeamRoutes::reportsGetStorage(const DateRange& arg ){
-    DROPBOX_BLOCKING_CALL(reportsGetStorage_AsyncCB, GetStorageReport, arg);
+    return reportsGetStorage_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GetStorageReport>* TeamRoutes::reportsGetStorage_Async(const DateRange& arg)
 {
-    DropboxTask<GetStorageReport>* t = new DropboxTask<GetStorageReport>();
+    DropboxTask<GetStorageReport>* t = m_end_point->produceTask<GetStorageReport>();
     m_end_point->rpcStyle<
         DateRange,
         GetStorageReport,

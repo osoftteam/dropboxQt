@@ -433,6 +433,18 @@ namespace dropboxQt{
 
         const DropboxHost& getHost()const { return DropboxHost::DEFAULT(); }
 
+		template <class T>
+		DropboxTask<T>* produceTask() 
+		{
+			DropboxTask<T>* rv = new DropboxTask<T>(*this);
+			return rv;
+		};
+
+		DropboxVoidTask* produceVoidTask() 
+		{
+			return new DropboxVoidTask(*this);			
+		}
+
     protected:
 
         QString prepareErrorInfo(int status_code, const QUrl& url, const QByteArray& data);

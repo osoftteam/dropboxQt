@@ -10,12 +10,12 @@ using namespace dropboxQt;
 using namespace auth;
 
 void AuthRoutes::tokenRevoke(){
-    VOID_ARG_VOID_RESULT_DBC(tokenRevoke_AsyncCB);
+    tokenRevoke_Async()->waitForResultAndRelease();
 }
 
 DropboxVoidTask* AuthRoutes::tokenRevoke_Async()
 {
-    DropboxVoidTask* t = new DropboxVoidTask();
+    DropboxVoidTask* t = m_end_point->produceVoidTask();
     m_end_point->rpcStyle<
         DropboxException>
         ("2/auth/token/revoke",

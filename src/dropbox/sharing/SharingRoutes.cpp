@@ -10,12 +10,12 @@ using namespace dropboxQt;
 using namespace sharing;
 
 std::unique_ptr<std::list <FileMemberActionResult>> SharingRoutes::addFileMember(const AddFileMemberArgs& arg ){
-    DROPBOX_BLOCKING_CALL(addFileMember_AsyncCB, std::list <FileMemberActionResult>, arg);
+    return addFileMember_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<std::list <FileMemberActionResult>>* SharingRoutes::addFileMember_Async(const AddFileMemberArgs& arg)
 {
-    DropboxTask<std::list <FileMemberActionResult>>* t = new DropboxTask<std::list <FileMemberActionResult>>();
+    DropboxTask<std::list <FileMemberActionResult>>* t = m_end_point->produceTask<std::list <FileMemberActionResult>>();
     m_end_point->rpcStyle<
         AddFileMemberArgs,
         std::list <FileMemberActionResult>,
@@ -44,12 +44,12 @@ void SharingRoutes::addFileMember_AsyncCB(
 }
 
 void SharingRoutes::addFolderMember(const AddFolderMemberArg& arg ){
-    VOID_RESULT_DBC(addFolderMember_AsyncCB, arg);
+    addFolderMember_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxVoidTask* SharingRoutes::addFolderMember_Async(const AddFolderMemberArg& arg)
 {
-    DropboxVoidTask* t = new DropboxVoidTask();
+    DropboxVoidTask* t = m_end_point->produceVoidTask();
     m_end_point->rpcStyle<
         AddFolderMemberArg,
         AddFolderMemberErrorException>
@@ -74,12 +74,12 @@ void SharingRoutes::addFolderMember_AsyncCB(
 }
 
 std::unique_ptr<FileMemberActionResult> SharingRoutes::changeFileMemberAccess(const ChangeFileMemberAccessArgs& arg ){
-    DROPBOX_BLOCKING_CALL(changeFileMemberAccess_AsyncCB, FileMemberActionResult, arg);
+    return changeFileMemberAccess_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<FileMemberActionResult>* SharingRoutes::changeFileMemberAccess_Async(const ChangeFileMemberAccessArgs& arg)
 {
-    DropboxTask<FileMemberActionResult>* t = new DropboxTask<FileMemberActionResult>();
+    DropboxTask<FileMemberActionResult>* t = m_end_point->produceTask<FileMemberActionResult>();
     m_end_point->rpcStyle<
         ChangeFileMemberAccessArgs,
         FileMemberActionResult,
@@ -108,12 +108,12 @@ void SharingRoutes::changeFileMemberAccess_AsyncCB(
 }
 
 std::unique_ptr<JobStatus> SharingRoutes::checkJobStatus(const async::PollArg& arg ){
-    DROPBOX_BLOCKING_CALL(checkJobStatus_AsyncCB, JobStatus, arg);
+    return checkJobStatus_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<JobStatus>* SharingRoutes::checkJobStatus_Async(const async::PollArg& arg)
 {
-    DropboxTask<JobStatus>* t = new DropboxTask<JobStatus>();
+    DropboxTask<JobStatus>* t = m_end_point->produceTask<JobStatus>();
     m_end_point->rpcStyle<
         async::PollArg,
         JobStatus,
@@ -142,12 +142,12 @@ void SharingRoutes::checkJobStatus_AsyncCB(
 }
 
 std::unique_ptr<RemoveMemberJobStatus> SharingRoutes::checkRemoveMemberJobStatus(const async::PollArg& arg ){
-    DROPBOX_BLOCKING_CALL(checkRemoveMemberJobStatus_AsyncCB, RemoveMemberJobStatus, arg);
+    return checkRemoveMemberJobStatus_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<RemoveMemberJobStatus>* SharingRoutes::checkRemoveMemberJobStatus_Async(const async::PollArg& arg)
 {
-    DropboxTask<RemoveMemberJobStatus>* t = new DropboxTask<RemoveMemberJobStatus>();
+    DropboxTask<RemoveMemberJobStatus>* t = m_end_point->produceTask<RemoveMemberJobStatus>();
     m_end_point->rpcStyle<
         async::PollArg,
         RemoveMemberJobStatus,
@@ -176,12 +176,12 @@ void SharingRoutes::checkRemoveMemberJobStatus_AsyncCB(
 }
 
 std::unique_ptr<ShareFolderJobStatus> SharingRoutes::checkShareJobStatus(const async::PollArg& arg ){
-    DROPBOX_BLOCKING_CALL(checkShareJobStatus_AsyncCB, ShareFolderJobStatus, arg);
+    return checkShareJobStatus_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<ShareFolderJobStatus>* SharingRoutes::checkShareJobStatus_Async(const async::PollArg& arg)
 {
-    DropboxTask<ShareFolderJobStatus>* t = new DropboxTask<ShareFolderJobStatus>();
+    DropboxTask<ShareFolderJobStatus>* t = m_end_point->produceTask<ShareFolderJobStatus>();
     m_end_point->rpcStyle<
         async::PollArg,
         ShareFolderJobStatus,
@@ -210,12 +210,12 @@ void SharingRoutes::checkShareJobStatus_AsyncCB(
 }
 
 std::unique_ptr<PathLinkMetadata> SharingRoutes::createSharedLink(const CreateSharedLinkArg& arg ){
-    DROPBOX_BLOCKING_CALL(createSharedLink_AsyncCB, PathLinkMetadata, arg);
+    return createSharedLink_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<PathLinkMetadata>* SharingRoutes::createSharedLink_Async(const CreateSharedLinkArg& arg)
 {
-    DropboxTask<PathLinkMetadata>* t = new DropboxTask<PathLinkMetadata>();
+    DropboxTask<PathLinkMetadata>* t = m_end_point->produceTask<PathLinkMetadata>();
     m_end_point->rpcStyle<
         CreateSharedLinkArg,
         PathLinkMetadata,
@@ -244,12 +244,12 @@ void SharingRoutes::createSharedLink_AsyncCB(
 }
 
 std::unique_ptr<SharedLinkMetadata> SharingRoutes::createSharedLinkWithSettings(const CreateSharedLinkWithSettingsArg& arg ){
-    DROPBOX_BLOCKING_CALL(createSharedLinkWithSettings_AsyncCB, SharedLinkMetadata, arg);
+    return createSharedLinkWithSettings_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<SharedLinkMetadata>* SharingRoutes::createSharedLinkWithSettings_Async(const CreateSharedLinkWithSettingsArg& arg)
 {
-    DropboxTask<SharedLinkMetadata>* t = new DropboxTask<SharedLinkMetadata>();
+    DropboxTask<SharedLinkMetadata>* t = m_end_point->produceTask<SharedLinkMetadata>();
     m_end_point->rpcStyle<
         CreateSharedLinkWithSettingsArg,
         SharedLinkMetadata,
@@ -278,12 +278,12 @@ void SharingRoutes::createSharedLinkWithSettings_AsyncCB(
 }
 
 std::unique_ptr<SharedFileMetadata> SharingRoutes::getFileMetadata(const GetFileMetadataArg& arg ){
-    DROPBOX_BLOCKING_CALL(getFileMetadata_AsyncCB, SharedFileMetadata, arg);
+    return getFileMetadata_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<SharedFileMetadata>* SharingRoutes::getFileMetadata_Async(const GetFileMetadataArg& arg)
 {
-    DropboxTask<SharedFileMetadata>* t = new DropboxTask<SharedFileMetadata>();
+    DropboxTask<SharedFileMetadata>* t = m_end_point->produceTask<SharedFileMetadata>();
     m_end_point->rpcStyle<
         GetFileMetadataArg,
         SharedFileMetadata,
@@ -312,12 +312,12 @@ void SharingRoutes::getFileMetadata_AsyncCB(
 }
 
 std::unique_ptr<std::list <GetFileMetadataBatchResult>> SharingRoutes::getFileMetadataBatch(const GetFileMetadataBatchArg& arg ){
-    DROPBOX_BLOCKING_CALL(getFileMetadataBatch_AsyncCB, std::list <GetFileMetadataBatchResult>, arg);
+    return getFileMetadataBatch_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<std::list <GetFileMetadataBatchResult>>* SharingRoutes::getFileMetadataBatch_Async(const GetFileMetadataBatchArg& arg)
 {
-    DropboxTask<std::list <GetFileMetadataBatchResult>>* t = new DropboxTask<std::list <GetFileMetadataBatchResult>>();
+    DropboxTask<std::list <GetFileMetadataBatchResult>>* t = m_end_point->produceTask<std::list <GetFileMetadataBatchResult>>();
     m_end_point->rpcStyle<
         GetFileMetadataBatchArg,
         std::list <GetFileMetadataBatchResult>,
@@ -346,12 +346,12 @@ void SharingRoutes::getFileMetadataBatch_AsyncCB(
 }
 
 std::unique_ptr<SharedFolderMetadata> SharingRoutes::getFolderMetadata(const GetMetadataArgs& arg ){
-    DROPBOX_BLOCKING_CALL(getFolderMetadata_AsyncCB, SharedFolderMetadata, arg);
+    return getFolderMetadata_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<SharedFolderMetadata>* SharingRoutes::getFolderMetadata_Async(const GetMetadataArgs& arg)
 {
-    DropboxTask<SharedFolderMetadata>* t = new DropboxTask<SharedFolderMetadata>();
+    DropboxTask<SharedFolderMetadata>* t = m_end_point->produceTask<SharedFolderMetadata>();
     m_end_point->rpcStyle<
         GetMetadataArgs,
         SharedFolderMetadata,
@@ -380,12 +380,12 @@ void SharingRoutes::getFolderMetadata_AsyncCB(
 }
 
 std::unique_ptr<SharedLinkMetadata> SharingRoutes::getSharedLinkFile(const GetSharedLinkMetadataArg& arg , QIODevice* data){
-    DATA_DBC(getSharedLinkFile_AsyncCB, SharedLinkMetadata, arg, data);
+    return getSharedLinkFile_Async(arg, data)->waitForResultAndRelease();
 }
 
 DropboxTask<SharedLinkMetadata>* SharingRoutes::getSharedLinkFile_Async(const GetSharedLinkMetadataArg& arg, QIODevice* data)
 {
-    DropboxTask<SharedLinkMetadata>* t = new DropboxTask<SharedLinkMetadata>();
+    DropboxTask<SharedLinkMetadata>* t = m_end_point->produceTask<SharedLinkMetadata>();
     m_end_point->downloadStyle<
         GetSharedLinkMetadataArg,
         SharedLinkMetadata,
@@ -417,12 +417,12 @@ void SharingRoutes::getSharedLinkFile_AsyncCB(
 }
 
 std::unique_ptr<SharedLinkMetadata> SharingRoutes::getSharedLinkMetadata(const GetSharedLinkMetadataArg& arg ){
-    DROPBOX_BLOCKING_CALL(getSharedLinkMetadata_AsyncCB, SharedLinkMetadata, arg);
+    return getSharedLinkMetadata_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<SharedLinkMetadata>* SharingRoutes::getSharedLinkMetadata_Async(const GetSharedLinkMetadataArg& arg)
 {
-    DropboxTask<SharedLinkMetadata>* t = new DropboxTask<SharedLinkMetadata>();
+    DropboxTask<SharedLinkMetadata>* t = m_end_point->produceTask<SharedLinkMetadata>();
     m_end_point->rpcStyle<
         GetSharedLinkMetadataArg,
         SharedLinkMetadata,
@@ -451,12 +451,12 @@ void SharingRoutes::getSharedLinkMetadata_AsyncCB(
 }
 
 std::unique_ptr<GetSharedLinksResult> SharingRoutes::getSharedLinks(const GetSharedLinksArg& arg ){
-    DROPBOX_BLOCKING_CALL(getSharedLinks_AsyncCB, GetSharedLinksResult, arg);
+    return getSharedLinks_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<GetSharedLinksResult>* SharingRoutes::getSharedLinks_Async(const GetSharedLinksArg& arg)
 {
-    DropboxTask<GetSharedLinksResult>* t = new DropboxTask<GetSharedLinksResult>();
+    DropboxTask<GetSharedLinksResult>* t = m_end_point->produceTask<GetSharedLinksResult>();
     m_end_point->rpcStyle<
         GetSharedLinksArg,
         GetSharedLinksResult,
@@ -485,12 +485,12 @@ void SharingRoutes::getSharedLinks_AsyncCB(
 }
 
 std::unique_ptr<SharedFileMembers> SharingRoutes::listFileMembers(const ListFileMembersArg& arg ){
-    DROPBOX_BLOCKING_CALL(listFileMembers_AsyncCB, SharedFileMembers, arg);
+    return listFileMembers_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<SharedFileMembers>* SharingRoutes::listFileMembers_Async(const ListFileMembersArg& arg)
 {
-    DropboxTask<SharedFileMembers>* t = new DropboxTask<SharedFileMembers>();
+    DropboxTask<SharedFileMembers>* t = m_end_point->produceTask<SharedFileMembers>();
     m_end_point->rpcStyle<
         ListFileMembersArg,
         SharedFileMembers,
@@ -519,12 +519,12 @@ void SharingRoutes::listFileMembers_AsyncCB(
 }
 
 std::unique_ptr<std::list <ListFileMembersBatchResult>> SharingRoutes::listFileMembersBatch(const ListFileMembersBatchArg& arg ){
-    DROPBOX_BLOCKING_CALL(listFileMembersBatch_AsyncCB, std::list <ListFileMembersBatchResult>, arg);
+    return listFileMembersBatch_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<std::list <ListFileMembersBatchResult>>* SharingRoutes::listFileMembersBatch_Async(const ListFileMembersBatchArg& arg)
 {
-    DropboxTask<std::list <ListFileMembersBatchResult>>* t = new DropboxTask<std::list <ListFileMembersBatchResult>>();
+    DropboxTask<std::list <ListFileMembersBatchResult>>* t = m_end_point->produceTask<std::list <ListFileMembersBatchResult>>();
     m_end_point->rpcStyle<
         ListFileMembersBatchArg,
         std::list <ListFileMembersBatchResult>,
@@ -553,12 +553,12 @@ void SharingRoutes::listFileMembersBatch_AsyncCB(
 }
 
 std::unique_ptr<SharedFileMembers> SharingRoutes::listFileMembersContinue(const ListFileMembersContinueArg& arg ){
-    DROPBOX_BLOCKING_CALL(listFileMembersContinue_AsyncCB, SharedFileMembers, arg);
+    return listFileMembersContinue_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<SharedFileMembers>* SharingRoutes::listFileMembersContinue_Async(const ListFileMembersContinueArg& arg)
 {
-    DropboxTask<SharedFileMembers>* t = new DropboxTask<SharedFileMembers>();
+    DropboxTask<SharedFileMembers>* t = m_end_point->produceTask<SharedFileMembers>();
     m_end_point->rpcStyle<
         ListFileMembersContinueArg,
         SharedFileMembers,
@@ -587,12 +587,12 @@ void SharingRoutes::listFileMembersContinue_AsyncCB(
 }
 
 std::unique_ptr<SharedFolderMembers> SharingRoutes::listFolderMembers(const ListFolderMembersArgs& arg ){
-    DROPBOX_BLOCKING_CALL(listFolderMembers_AsyncCB, SharedFolderMembers, arg);
+    return listFolderMembers_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<SharedFolderMembers>* SharingRoutes::listFolderMembers_Async(const ListFolderMembersArgs& arg)
 {
-    DropboxTask<SharedFolderMembers>* t = new DropboxTask<SharedFolderMembers>();
+    DropboxTask<SharedFolderMembers>* t = m_end_point->produceTask<SharedFolderMembers>();
     m_end_point->rpcStyle<
         ListFolderMembersArgs,
         SharedFolderMembers,
@@ -621,12 +621,12 @@ void SharingRoutes::listFolderMembers_AsyncCB(
 }
 
 std::unique_ptr<SharedFolderMembers> SharingRoutes::listFolderMembersContinue(const ListFolderMembersContinueArg& arg ){
-    DROPBOX_BLOCKING_CALL(listFolderMembersContinue_AsyncCB, SharedFolderMembers, arg);
+    return listFolderMembersContinue_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<SharedFolderMembers>* SharingRoutes::listFolderMembersContinue_Async(const ListFolderMembersContinueArg& arg)
 {
-    DropboxTask<SharedFolderMembers>* t = new DropboxTask<SharedFolderMembers>();
+    DropboxTask<SharedFolderMembers>* t = m_end_point->produceTask<SharedFolderMembers>();
     m_end_point->rpcStyle<
         ListFolderMembersContinueArg,
         SharedFolderMembers,
@@ -655,12 +655,12 @@ void SharingRoutes::listFolderMembersContinue_AsyncCB(
 }
 
 std::unique_ptr<ListFoldersResult> SharingRoutes::listFolders(const ListFoldersArgs& arg ){
-    DROPBOX_BLOCKING_CALL(listFolders_AsyncCB, ListFoldersResult, arg);
+    return listFolders_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<ListFoldersResult>* SharingRoutes::listFolders_Async(const ListFoldersArgs& arg)
 {
-    DropboxTask<ListFoldersResult>* t = new DropboxTask<ListFoldersResult>();
+    DropboxTask<ListFoldersResult>* t = m_end_point->produceTask<ListFoldersResult>();
     m_end_point->rpcStyle<
         ListFoldersArgs,
         ListFoldersResult,
@@ -689,12 +689,12 @@ void SharingRoutes::listFolders_AsyncCB(
 }
 
 std::unique_ptr<ListFoldersResult> SharingRoutes::listFoldersContinue(const ListFoldersContinueArg& arg ){
-    DROPBOX_BLOCKING_CALL(listFoldersContinue_AsyncCB, ListFoldersResult, arg);
+    return listFoldersContinue_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<ListFoldersResult>* SharingRoutes::listFoldersContinue_Async(const ListFoldersContinueArg& arg)
 {
-    DropboxTask<ListFoldersResult>* t = new DropboxTask<ListFoldersResult>();
+    DropboxTask<ListFoldersResult>* t = m_end_point->produceTask<ListFoldersResult>();
     m_end_point->rpcStyle<
         ListFoldersContinueArg,
         ListFoldersResult,
@@ -723,12 +723,12 @@ void SharingRoutes::listFoldersContinue_AsyncCB(
 }
 
 std::unique_ptr<ListFoldersResult> SharingRoutes::listMountableFolders(const ListFoldersArgs& arg ){
-    DROPBOX_BLOCKING_CALL(listMountableFolders_AsyncCB, ListFoldersResult, arg);
+    return listMountableFolders_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<ListFoldersResult>* SharingRoutes::listMountableFolders_Async(const ListFoldersArgs& arg)
 {
-    DropboxTask<ListFoldersResult>* t = new DropboxTask<ListFoldersResult>();
+    DropboxTask<ListFoldersResult>* t = m_end_point->produceTask<ListFoldersResult>();
     m_end_point->rpcStyle<
         ListFoldersArgs,
         ListFoldersResult,
@@ -757,12 +757,12 @@ void SharingRoutes::listMountableFolders_AsyncCB(
 }
 
 std::unique_ptr<ListFoldersResult> SharingRoutes::listMountableFoldersContinue(const ListFoldersContinueArg& arg ){
-    DROPBOX_BLOCKING_CALL(listMountableFoldersContinue_AsyncCB, ListFoldersResult, arg);
+    return listMountableFoldersContinue_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<ListFoldersResult>* SharingRoutes::listMountableFoldersContinue_Async(const ListFoldersContinueArg& arg)
 {
-    DropboxTask<ListFoldersResult>* t = new DropboxTask<ListFoldersResult>();
+    DropboxTask<ListFoldersResult>* t = m_end_point->produceTask<ListFoldersResult>();
     m_end_point->rpcStyle<
         ListFoldersContinueArg,
         ListFoldersResult,
@@ -791,12 +791,12 @@ void SharingRoutes::listMountableFoldersContinue_AsyncCB(
 }
 
 std::unique_ptr<ListFilesResult> SharingRoutes::listReceivedFiles(const ListFilesArg& arg ){
-    DROPBOX_BLOCKING_CALL(listReceivedFiles_AsyncCB, ListFilesResult, arg);
+    return listReceivedFiles_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<ListFilesResult>* SharingRoutes::listReceivedFiles_Async(const ListFilesArg& arg)
 {
-    DropboxTask<ListFilesResult>* t = new DropboxTask<ListFilesResult>();
+    DropboxTask<ListFilesResult>* t = m_end_point->produceTask<ListFilesResult>();
     m_end_point->rpcStyle<
         ListFilesArg,
         ListFilesResult,
@@ -825,12 +825,12 @@ void SharingRoutes::listReceivedFiles_AsyncCB(
 }
 
 std::unique_ptr<ListFilesResult> SharingRoutes::listReceivedFilesContinue(const ListFilesContinueArg& arg ){
-    DROPBOX_BLOCKING_CALL(listReceivedFilesContinue_AsyncCB, ListFilesResult, arg);
+    return listReceivedFilesContinue_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<ListFilesResult>* SharingRoutes::listReceivedFilesContinue_Async(const ListFilesContinueArg& arg)
 {
-    DropboxTask<ListFilesResult>* t = new DropboxTask<ListFilesResult>();
+    DropboxTask<ListFilesResult>* t = m_end_point->produceTask<ListFilesResult>();
     m_end_point->rpcStyle<
         ListFilesContinueArg,
         ListFilesResult,
@@ -859,12 +859,12 @@ void SharingRoutes::listReceivedFilesContinue_AsyncCB(
 }
 
 std::unique_ptr<ListSharedLinksResult> SharingRoutes::listSharedLinks(const ListSharedLinksArg& arg ){
-    DROPBOX_BLOCKING_CALL(listSharedLinks_AsyncCB, ListSharedLinksResult, arg);
+    return listSharedLinks_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<ListSharedLinksResult>* SharingRoutes::listSharedLinks_Async(const ListSharedLinksArg& arg)
 {
-    DropboxTask<ListSharedLinksResult>* t = new DropboxTask<ListSharedLinksResult>();
+    DropboxTask<ListSharedLinksResult>* t = m_end_point->produceTask<ListSharedLinksResult>();
     m_end_point->rpcStyle<
         ListSharedLinksArg,
         ListSharedLinksResult,
@@ -893,12 +893,12 @@ void SharingRoutes::listSharedLinks_AsyncCB(
 }
 
 std::unique_ptr<SharedLinkMetadata> SharingRoutes::modifySharedLinkSettings(const ModifySharedLinkSettingsArgs& arg ){
-    DROPBOX_BLOCKING_CALL(modifySharedLinkSettings_AsyncCB, SharedLinkMetadata, arg);
+    return modifySharedLinkSettings_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<SharedLinkMetadata>* SharingRoutes::modifySharedLinkSettings_Async(const ModifySharedLinkSettingsArgs& arg)
 {
-    DropboxTask<SharedLinkMetadata>* t = new DropboxTask<SharedLinkMetadata>();
+    DropboxTask<SharedLinkMetadata>* t = m_end_point->produceTask<SharedLinkMetadata>();
     m_end_point->rpcStyle<
         ModifySharedLinkSettingsArgs,
         SharedLinkMetadata,
@@ -927,12 +927,12 @@ void SharingRoutes::modifySharedLinkSettings_AsyncCB(
 }
 
 std::unique_ptr<SharedFolderMetadata> SharingRoutes::mountFolder(const MountFolderArg& arg ){
-    DROPBOX_BLOCKING_CALL(mountFolder_AsyncCB, SharedFolderMetadata, arg);
+    return mountFolder_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<SharedFolderMetadata>* SharingRoutes::mountFolder_Async(const MountFolderArg& arg)
 {
-    DropboxTask<SharedFolderMetadata>* t = new DropboxTask<SharedFolderMetadata>();
+    DropboxTask<SharedFolderMetadata>* t = m_end_point->produceTask<SharedFolderMetadata>();
     m_end_point->rpcStyle<
         MountFolderArg,
         SharedFolderMetadata,
@@ -961,12 +961,12 @@ void SharingRoutes::mountFolder_AsyncCB(
 }
 
 void SharingRoutes::relinquishFileMembership(const RelinquishFileMembershipArg& arg ){
-    VOID_RESULT_DBC(relinquishFileMembership_AsyncCB, arg);
+    relinquishFileMembership_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxVoidTask* SharingRoutes::relinquishFileMembership_Async(const RelinquishFileMembershipArg& arg)
 {
-    DropboxVoidTask* t = new DropboxVoidTask();
+    DropboxVoidTask* t = m_end_point->produceVoidTask();
     m_end_point->rpcStyle<
         RelinquishFileMembershipArg,
         RelinquishFileMembershipErrorException>
@@ -991,12 +991,12 @@ void SharingRoutes::relinquishFileMembership_AsyncCB(
 }
 
 std::unique_ptr<async::LaunchEmptyResult> SharingRoutes::relinquishFolderMembership(const RelinquishFolderMembershipArg& arg ){
-    DROPBOX_BLOCKING_CALL(relinquishFolderMembership_AsyncCB, async::LaunchEmptyResult, arg);
+    return relinquishFolderMembership_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<async::LaunchEmptyResult>* SharingRoutes::relinquishFolderMembership_Async(const RelinquishFolderMembershipArg& arg)
 {
-    DropboxTask<async::LaunchEmptyResult>* t = new DropboxTask<async::LaunchEmptyResult>();
+    DropboxTask<async::LaunchEmptyResult>* t = m_end_point->produceTask<async::LaunchEmptyResult>();
     m_end_point->rpcStyle<
         RelinquishFolderMembershipArg,
         async::LaunchEmptyResult,
@@ -1025,12 +1025,12 @@ void SharingRoutes::relinquishFolderMembership_AsyncCB(
 }
 
 std::unique_ptr<FileMemberActionIndividualResult> SharingRoutes::removeFileMember(const RemoveFileMemberArg& arg ){
-    DROPBOX_BLOCKING_CALL(removeFileMember_AsyncCB, FileMemberActionIndividualResult, arg);
+    return removeFileMember_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<FileMemberActionIndividualResult>* SharingRoutes::removeFileMember_Async(const RemoveFileMemberArg& arg)
 {
-    DropboxTask<FileMemberActionIndividualResult>* t = new DropboxTask<FileMemberActionIndividualResult>();
+    DropboxTask<FileMemberActionIndividualResult>* t = m_end_point->produceTask<FileMemberActionIndividualResult>();
     m_end_point->rpcStyle<
         RemoveFileMemberArg,
         FileMemberActionIndividualResult,
@@ -1059,12 +1059,12 @@ void SharingRoutes::removeFileMember_AsyncCB(
 }
 
 std::unique_ptr<FileMemberRemoveActionResult> SharingRoutes::removeFileMember2(const RemoveFileMemberArg& arg ){
-    DROPBOX_BLOCKING_CALL(removeFileMember2_AsyncCB, FileMemberRemoveActionResult, arg);
+    return removeFileMember2_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<FileMemberRemoveActionResult>* SharingRoutes::removeFileMember2_Async(const RemoveFileMemberArg& arg)
 {
-    DropboxTask<FileMemberRemoveActionResult>* t = new DropboxTask<FileMemberRemoveActionResult>();
+    DropboxTask<FileMemberRemoveActionResult>* t = m_end_point->produceTask<FileMemberRemoveActionResult>();
     m_end_point->rpcStyle<
         RemoveFileMemberArg,
         FileMemberRemoveActionResult,
@@ -1093,12 +1093,12 @@ void SharingRoutes::removeFileMember2_AsyncCB(
 }
 
 std::unique_ptr<async::LaunchResultBase> SharingRoutes::removeFolderMember(const RemoveFolderMemberArg& arg ){
-    DROPBOX_BLOCKING_CALL(removeFolderMember_AsyncCB, async::LaunchResultBase, arg);
+    return removeFolderMember_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<async::LaunchResultBase>* SharingRoutes::removeFolderMember_Async(const RemoveFolderMemberArg& arg)
 {
-    DropboxTask<async::LaunchResultBase>* t = new DropboxTask<async::LaunchResultBase>();
+    DropboxTask<async::LaunchResultBase>* t = m_end_point->produceTask<async::LaunchResultBase>();
     m_end_point->rpcStyle<
         RemoveFolderMemberArg,
         async::LaunchResultBase,
@@ -1127,12 +1127,12 @@ void SharingRoutes::removeFolderMember_AsyncCB(
 }
 
 void SharingRoutes::revokeSharedLink(const RevokeSharedLinkArg& arg ){
-    VOID_RESULT_DBC(revokeSharedLink_AsyncCB, arg);
+    revokeSharedLink_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxVoidTask* SharingRoutes::revokeSharedLink_Async(const RevokeSharedLinkArg& arg)
 {
-    DropboxVoidTask* t = new DropboxVoidTask();
+    DropboxVoidTask* t = m_end_point->produceVoidTask();
     m_end_point->rpcStyle<
         RevokeSharedLinkArg,
         RevokeSharedLinkErrorException>
@@ -1157,12 +1157,12 @@ void SharingRoutes::revokeSharedLink_AsyncCB(
 }
 
 std::unique_ptr<ShareFolderLaunch> SharingRoutes::shareFolder(const ShareFolderArg& arg ){
-    DROPBOX_BLOCKING_CALL(shareFolder_AsyncCB, ShareFolderLaunch, arg);
+    return shareFolder_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<ShareFolderLaunch>* SharingRoutes::shareFolder_Async(const ShareFolderArg& arg)
 {
-    DropboxTask<ShareFolderLaunch>* t = new DropboxTask<ShareFolderLaunch>();
+    DropboxTask<ShareFolderLaunch>* t = m_end_point->produceTask<ShareFolderLaunch>();
     m_end_point->rpcStyle<
         ShareFolderArg,
         ShareFolderLaunch,
@@ -1191,12 +1191,12 @@ void SharingRoutes::shareFolder_AsyncCB(
 }
 
 void SharingRoutes::transferFolder(const TransferFolderArg& arg ){
-    VOID_RESULT_DBC(transferFolder_AsyncCB, arg);
+    transferFolder_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxVoidTask* SharingRoutes::transferFolder_Async(const TransferFolderArg& arg)
 {
-    DropboxVoidTask* t = new DropboxVoidTask();
+    DropboxVoidTask* t = m_end_point->produceVoidTask();
     m_end_point->rpcStyle<
         TransferFolderArg,
         TransferFolderErrorException>
@@ -1221,12 +1221,12 @@ void SharingRoutes::transferFolder_AsyncCB(
 }
 
 void SharingRoutes::unmountFolder(const UnmountFolderArg& arg ){
-    VOID_RESULT_DBC(unmountFolder_AsyncCB, arg);
+    unmountFolder_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxVoidTask* SharingRoutes::unmountFolder_Async(const UnmountFolderArg& arg)
 {
-    DropboxVoidTask* t = new DropboxVoidTask();
+    DropboxVoidTask* t = m_end_point->produceVoidTask();
     m_end_point->rpcStyle<
         UnmountFolderArg,
         UnmountFolderErrorException>
@@ -1251,12 +1251,12 @@ void SharingRoutes::unmountFolder_AsyncCB(
 }
 
 void SharingRoutes::unshareFile(const UnshareFileArg& arg ){
-    VOID_RESULT_DBC(unshareFile_AsyncCB, arg);
+    unshareFile_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxVoidTask* SharingRoutes::unshareFile_Async(const UnshareFileArg& arg)
 {
-    DropboxVoidTask* t = new DropboxVoidTask();
+    DropboxVoidTask* t = m_end_point->produceVoidTask();
     m_end_point->rpcStyle<
         UnshareFileArg,
         UnshareFileErrorException>
@@ -1281,12 +1281,12 @@ void SharingRoutes::unshareFile_AsyncCB(
 }
 
 std::unique_ptr<async::LaunchEmptyResult> SharingRoutes::unshareFolder(const UnshareFolderArg& arg ){
-    DROPBOX_BLOCKING_CALL(unshareFolder_AsyncCB, async::LaunchEmptyResult, arg);
+    return unshareFolder_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<async::LaunchEmptyResult>* SharingRoutes::unshareFolder_Async(const UnshareFolderArg& arg)
 {
-    DropboxTask<async::LaunchEmptyResult>* t = new DropboxTask<async::LaunchEmptyResult>();
+    DropboxTask<async::LaunchEmptyResult>* t = m_end_point->produceTask<async::LaunchEmptyResult>();
     m_end_point->rpcStyle<
         UnshareFolderArg,
         async::LaunchEmptyResult,
@@ -1315,12 +1315,12 @@ void SharingRoutes::unshareFolder_AsyncCB(
 }
 
 std::unique_ptr<MemberAccessLevelResult> SharingRoutes::updateFolderMember(const UpdateFolderMemberArg& arg ){
-    DROPBOX_BLOCKING_CALL(updateFolderMember_AsyncCB, MemberAccessLevelResult, arg);
+    return updateFolderMember_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<MemberAccessLevelResult>* SharingRoutes::updateFolderMember_Async(const UpdateFolderMemberArg& arg)
 {
-    DropboxTask<MemberAccessLevelResult>* t = new DropboxTask<MemberAccessLevelResult>();
+    DropboxTask<MemberAccessLevelResult>* t = m_end_point->produceTask<MemberAccessLevelResult>();
     m_end_point->rpcStyle<
         UpdateFolderMemberArg,
         MemberAccessLevelResult,
@@ -1349,12 +1349,12 @@ void SharingRoutes::updateFolderMember_AsyncCB(
 }
 
 std::unique_ptr<SharedFolderMetadata> SharingRoutes::updateFolderPolicy(const UpdateFolderPolicyArg& arg ){
-    DROPBOX_BLOCKING_CALL(updateFolderPolicy_AsyncCB, SharedFolderMetadata, arg);
+    return updateFolderPolicy_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<SharedFolderMetadata>* SharingRoutes::updateFolderPolicy_Async(const UpdateFolderPolicyArg& arg)
 {
-    DropboxTask<SharedFolderMetadata>* t = new DropboxTask<SharedFolderMetadata>();
+    DropboxTask<SharedFolderMetadata>* t = m_end_point->produceTask<SharedFolderMetadata>();
     m_end_point->rpcStyle<
         UpdateFolderPolicyArg,
         SharedFolderMetadata,

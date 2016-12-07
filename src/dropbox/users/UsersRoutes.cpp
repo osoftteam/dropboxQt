@@ -10,12 +10,12 @@ using namespace dropboxQt;
 using namespace users;
 
 std::unique_ptr<BasicAccount> UsersRoutes::getAccount(const GetAccountArg& arg ){
-    DROPBOX_BLOCKING_CALL(getAccount_AsyncCB, BasicAccount, arg);
+    return getAccount_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<BasicAccount>* UsersRoutes::getAccount_Async(const GetAccountArg& arg)
 {
-    DropboxTask<BasicAccount>* t = new DropboxTask<BasicAccount>();
+    DropboxTask<BasicAccount>* t = m_end_point->produceTask<BasicAccount>();
     m_end_point->rpcStyle<
         GetAccountArg,
         BasicAccount,
@@ -44,12 +44,12 @@ void UsersRoutes::getAccount_AsyncCB(
 }
 
 std::unique_ptr<std::list <BasicAccount>> UsersRoutes::getAccountBatch(const GetAccountBatchArg& arg ){
-    DROPBOX_BLOCKING_CALL(getAccountBatch_AsyncCB, std::list <BasicAccount>, arg);
+    return getAccountBatch_Async(arg)->waitForResultAndRelease();
 }
 
 DropboxTask<std::list <BasicAccount>>* UsersRoutes::getAccountBatch_Async(const GetAccountBatchArg& arg)
 {
-    DropboxTask<std::list <BasicAccount>>* t = new DropboxTask<std::list <BasicAccount>>();
+    DropboxTask<std::list <BasicAccount>>* t = m_end_point->produceTask<std::list <BasicAccount>>();
     m_end_point->rpcStyle<
         GetAccountBatchArg,
         std::list <BasicAccount>,
@@ -78,12 +78,12 @@ void UsersRoutes::getAccountBatch_AsyncCB(
 }
 
 std::unique_ptr<FullAccount> UsersRoutes::getCurrentAccount(void){
-    VOID_ARG_DBC(getCurrentAccount_AsyncCB, FullAccount);
+    return getCurrentAccount_Async()->waitForResultAndRelease();
 }
 
 DropboxTask<FullAccount>* UsersRoutes::getCurrentAccount_Async()
 {
-    DropboxTask<FullAccount>* t = new DropboxTask<FullAccount>();
+    DropboxTask<FullAccount>* t = m_end_point->produceTask<FullAccount>();
     m_end_point->rpcStyle<
         FullAccount,
         FullAccount::factory,
@@ -107,12 +107,12 @@ void UsersRoutes::getCurrentAccount_AsyncCB(
 }
 
 std::unique_ptr<SpaceUsage> UsersRoutes::getSpaceUsage(void){
-    VOID_ARG_DBC(getSpaceUsage_AsyncCB, SpaceUsage);
+    return getSpaceUsage_Async()->waitForResultAndRelease();
 }
 
 DropboxTask<SpaceUsage>* UsersRoutes::getSpaceUsage_Async()
 {
-    DropboxTask<SpaceUsage>* t = new DropboxTask<SpaceUsage>();
+    DropboxTask<SpaceUsage>* t = m_end_point->produceTask<SpaceUsage>();
     m_end_point->rpcStyle<
         SpaceUsage,
         SpaceUsage::factory,

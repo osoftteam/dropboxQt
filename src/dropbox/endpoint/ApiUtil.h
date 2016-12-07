@@ -177,152 +177,17 @@ namespace dropboxQt {
         }
     };
 
-    /**
-       DROPBOX_BLOCKING_CALL or DBC - macross converts 2 async callbacks into one blocking call
-       that returns value of the first callback and throws exception in case of second callback.
-    */
-
-#define DROPBOX_BLOCKING_CALL(AFUNC, REST, ARGV)    \
-    std::unique_ptr<DropboxException> ex;           \
-    std::unique_ptr<REST> result;                   \
-    AFUNC(ARGV,                                     \
-          [this, &result](std::unique_ptr<REST> r)  \
-          {                                         \
-              result = std::move(r);                \
-              m_end_point->exitEventsLoop();        \
-          },                                        \
-          [&](std::unique_ptr<DropboxException> e)  \
-          {                                         \
-              ex = std::move(e);                    \
-              m_end_point->exitEventsLoop();        \
-          }                                         \
-          );                                        \
-    if(!ex && !result)                              \
-        m_end_point->runEventsLoop();               \
-    if (ex)                                         \
-        ex->raise();                                \
-    return result;                                  \
-
-#define DATA_DBC(AFUNC, REST, ARGV, DATA)           \
-    std::unique_ptr<DropboxException> ex;           \
-    std::unique_ptr<REST> result;                   \
-    AFUNC(ARGV,                                     \
-        DATA,                                       \
-        [this, &result](std::unique_ptr<REST> r)    \
-    {                                               \
-    result = std::move(r);                          \
-    m_end_point->exitEventsLoop();                  \
-},                                                  \
-        [&](std::unique_ptr<DropboxException> e)    \
-    {                                               \
-    ex = std::move(e);                              \
-    m_end_point->exitEventsLoop();                  \
-}                                                   \
-        );                                          \
-    if(!ex && !result)                              \
-        m_end_point->runEventsLoop();               \
-    if (ex)                                         \
-        ex->raise();                                \
-    return result;                                  \
-
-
-
-#define VOID_RESULT_ARG_WITH_DATA_DBC(AFUNC, ARGV, DATA)    \
-    std::unique_ptr<DropboxException> ex;                   \
-    bool completed = false;                                 \
-    AFUNC(ARGV,                                             \
-          DATA,                                             \
-          [this, &completed](void)                          \
-          {                                                 \
-              completed = true;                             \
-              m_end_point->exitEventsLoop();                \
-          },                                                \
-          [&](std::unique_ptr<DropboxException> e)          \
-          {                                                 \
-              ex = std::move(e);                            \
-              m_end_point->exitEventsLoop();                \
-          }                                                 \
-          );                                                \
-    if(!ex && !completed)                                   \
-        m_end_point->runEventsLoop();                       \
-    if (ex)                                                 \
-        ex->raise();                                        \
-
-
-
-#define VOID_ARG_DBC(AFUNC, REST)                   \
-    std::unique_ptr<DropboxException> ex;           \
-    std::unique_ptr<REST> result;                   \
-    AFUNC([this, &result](std::unique_ptr<REST> r)  \
-    {                                               \
-    result = std::move(r);                          \
-    m_end_point->exitEventsLoop();                  \
-},                                                  \
-        [&](std::unique_ptr<DropboxException> e)    \
-    {                                               \
-    ex = std::move(e);                              \
-    m_end_point->exitEventsLoop();                  \
-}                                                   \
-        );                                          \
-    if(!ex && !result)                              \
-        m_end_point->runEventsLoop();               \
-    if (ex)                                         \
-        ex->raise();                                \
-    return result;                                  \
-
-
-#define VOID_RESULT_DBC(AFUNC, ARGV)                \
-    std::unique_ptr<DropboxException> ex;           \
-    bool completed = false;                         \
-    AFUNC(ARGV,                                     \
-          [this, &completed](void)                  \
-          {                                         \
-              completed = true;                     \
-              m_end_point->exitEventsLoop();        \
-          },                                        \
-          [&](std::unique_ptr<DropboxException> e)  \
-          {                                         \
-              ex = std::move(e);                    \
-              m_end_point->exitEventsLoop();        \
-          }                                         \
-          );                                        \
-    if(!ex && !completed)                           \
-        m_end_point->runEventsLoop();               \
-    if (ex)                                         \
-        ex->raise();                                \
-
-
-#define VOID_ARG_VOID_RESULT_DBC(AFUNC)             \
-    std::unique_ptr<DropboxException> ex;           \
-    bool completed = false;                         \
-    AFUNC([this, &completed](void)                  \
-    {                                               \
-    completed = true;                               \
-    m_end_point->exitEventsLoop();                  \
-},                                                  \
-        [&](std::unique_ptr<DropboxException> e)    \
-    {                                               \
-    ex = std::move(e);                              \
-    m_end_point->exitEventsLoop();                  \
-}                                                   \
-        );                                          \
-    if(!ex && !completed)                           \
-        m_end_point->runEventsLoop();               \
-    if (ex)                                         \
-        ex->raise();                                \
-
-
-
 
 #define EXPECT(E, M) if(!E)qWarning() << M;
 #define API_CHECK_STATE(E, M, S) if(!E){throw IllegalStateException(M, S); }
 
+    class ApiEndpoint;
+    
     class DropboxBaseTask : public QObject
     {
         Q_OBJECT;
         friend class Endpoint;
     public:
-        DropboxBaseTask() {};
         virtual ~DropboxBaseTask() {};
 
         virtual bool isCompleted()const = 0;
@@ -338,17 +203,26 @@ namespace dropboxQt {
             return rv;
         };
 
+		bool waitForResult()const;
+
     signals:
-        void completed();
-        void failed();
+        void finished();
+
     protected:
+		DropboxBaseTask(ApiEndpoint& ept):m_endpoint(ept){};
+
         void failed_callback(std::unique_ptr<DropboxException> ex) 
         {
             m_failed = std::move(ex);
-            emit failed();
+			notifyOnFinished();
         };
+
+		void notifyOnFinished();
+        void waitUntillFinishedOrCancelled();
     protected:
         std::unique_ptr<DropboxException> m_failed;
+		ApiEndpoint& m_endpoint;
+		mutable bool m_in_wait_loop					{ false };
     };
 
     template <class RESULT>
@@ -356,9 +230,6 @@ namespace dropboxQt {
     {
         friend class Endpoint;
     public:
-        DropboxTask() {};
-        virtual ~DropboxTask() {};
-
         RESULT* get() 
         {
             RESULT* rv = nullptr;
@@ -371,11 +242,40 @@ namespace dropboxQt {
 
         virtual bool isCompleted()const override { return (m_completed != nullptr); };
 
+		///this function will block execution (via event loop) and return
+		///object in case os success or raise exception in case of error
+		///also this function will schedule dispose of the object via deleteLater
+		std::unique_ptr<RESULT> waitForResultAndRelease()
+		{
+			std::unique_ptr<RESULT> res;
+			if (!isCompleted() && !isFailed())
+                {
+                    m_in_wait_loop = true;
+                    waitUntillFinishedOrCancelled();
+                }
+			
+			if (isCompleted())
+                {
+                    res = std::move(m_completed);
+                }
+			else if (isFailed())
+                {
+                    std::unique_ptr<DropboxException> ex;
+                    ex = std::move(m_failed);
+                    deleteLater();
+                    if (ex)
+                        ex->raise();
+                }
+			deleteLater();
+			return res;
+		};
+
     protected:
+		DropboxTask(ApiEndpoint& ept):DropboxBaseTask(ept){};
         void completed_callback(std::unique_ptr<RESULT> r) 
         {
             m_completed = std::move(r);
-            emit completed();
+			notifyOnFinished();            
         };
     protected:
         std::unique_ptr<RESULT> m_completed;
@@ -385,17 +285,21 @@ namespace dropboxQt {
     {
         friend class Endpoint;
     public:
-        DropboxVoidTask() {};
-        virtual ~DropboxVoidTask() {};
-
         virtual bool isCompleted()const override { return m_completed; };
 
+		///this function will block execution (via event loop) and return
+		///object in case os success or raise exception in case of error
+		///also this function will schedule dispose of the object via deleteLater
+		void waitForResultAndRelease();
+
     protected:
+		DropboxVoidTask(ApiEndpoint& ept):DropboxBaseTask(ept) {};
         void completed_callback(void)
         {
             m_completed = true;
-            emit completed();
+			notifyOnFinished();
         };
+
     protected:
         bool m_completed = {false};
     };

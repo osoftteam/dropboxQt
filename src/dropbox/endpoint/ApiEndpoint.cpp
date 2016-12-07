@@ -1,3 +1,4 @@
+#include "ApiUtil.h"
 #include "ApiEndpoint.h"
 
 #ifdef API_QT_AUTOTEST
