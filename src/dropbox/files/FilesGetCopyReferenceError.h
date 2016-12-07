@@ -15,10 +15,10 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		GetCopyReferenceError_PATH,
-		/*None*/
-		GetCopyReferenceError_OTHER
+        /*None*/
+        GetCopyReferenceError_PATH,
+        /*None*/
+        GetCopyReferenceError_OTHER
         };
 
         GetCopyReferenceError(){}

@@ -21,12 +21,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Dropbox account, team member, or group ID of member.*/
-		MemberSelector_DROPBOX_ID,
-		/*E-mail address of member.*/
-		MemberSelector_EMAIL,
-		/*None*/
-		MemberSelector_OTHER
+        /*Dropbox account, team member, or group ID of member.*/
+        MemberSelector_DROPBOX_ID,
+        /*E-mail address of member.*/
+        MemberSelector_EMAIL,
+        /*None*/
+        MemberSelector_OTHER
         };
 
         MemberSelector(){}

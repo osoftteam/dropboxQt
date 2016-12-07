@@ -15,10 +15,10 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		ListRevisionsError_PATH,
-		/*None*/
-		ListRevisionsError_OTHER
+        /*None*/
+        ListRevisionsError_PATH,
+        /*None*/
+        ListRevisionsError_OTHER
         };
 
         ListRevisionsError(){}

@@ -21,18 +21,18 @@ namespace team{
     public:
         enum Tag{
 
-		/*Official Dropbox iPhone client*/
-		MobileClientPlatform_IPHONE,
-		/*Official Dropbox iPad client*/
-		MobileClientPlatform_IPAD,
-		/*Official Dropbox Android client*/
-		MobileClientPlatform_ANDROID,
-		/*Official Dropbox Windows phone client*/
-		MobileClientPlatform_WINDOWS_PHONE,
-		/*Official Dropbox Blackberry client*/
-		MobileClientPlatform_BLACKBERRY,
-		/*None*/
-		MobileClientPlatform_OTHER
+        /*Official Dropbox iPhone client*/
+        MobileClientPlatform_IPHONE,
+        /*Official Dropbox iPad client*/
+        MobileClientPlatform_IPAD,
+        /*Official Dropbox Android client*/
+        MobileClientPlatform_ANDROID,
+        /*Official Dropbox Windows phone client*/
+        MobileClientPlatform_WINDOWS_PHONE,
+        /*Official Dropbox Blackberry client*/
+        MobileClientPlatform_BLACKBERRY,
+        /*None*/
+        MobileClientPlatform_OTHER
         };
 
         MobileClientPlatform(){}

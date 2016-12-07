@@ -30,22 +30,22 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*User is not on the same team as the folder owner.*/
-		PermissionDeniedReason_USER_NOT_SAME_TEAM_AS_OWNER,
-		/*User is prohibited by the owner from taking the action.*/
-		PermissionDeniedReason_USER_NOT_ALLOWED_BY_OWNER,
-		/*Target is indirectly a member of the folder, for example by being part of a group.*/
-		PermissionDeniedReason_TARGET_IS_INDIRECT_MEMBER,
-		/*Target is the owner of the folder.*/
-		PermissionDeniedReason_TARGET_IS_OWNER,
-		/*Target is the user itself.*/
-		PermissionDeniedReason_TARGET_IS_SELF,
-		/*Target is not an active member of the team.*/
-		PermissionDeniedReason_TARGET_NOT_ACTIVE,
-		/*Folder is team folder for a limited team.*/
-		PermissionDeniedReason_FOLDER_IS_LIMITED_TEAM_FOLDER,
-		/*None*/
-		PermissionDeniedReason_OTHER
+        /*User is not on the same team as the folder owner.*/
+        PermissionDeniedReason_USER_NOT_SAME_TEAM_AS_OWNER,
+        /*User is prohibited by the owner from taking the action.*/
+        PermissionDeniedReason_USER_NOT_ALLOWED_BY_OWNER,
+        /*Target is indirectly a member of the folder, for example by being part of a group.*/
+        PermissionDeniedReason_TARGET_IS_INDIRECT_MEMBER,
+        /*Target is the owner of the folder.*/
+        PermissionDeniedReason_TARGET_IS_OWNER,
+        /*Target is the user itself.*/
+        PermissionDeniedReason_TARGET_IS_SELF,
+        /*Target is not an active member of the team.*/
+        PermissionDeniedReason_TARGET_NOT_ACTIVE,
+        /*Folder is team folder for a limited team.*/
+        PermissionDeniedReason_FOLDER_IS_LIMITED_TEAM_FOLDER,
+        /*None*/
+        PermissionDeniedReason_OTHER
         };
 
         PermissionDeniedReason(){}

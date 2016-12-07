@@ -22,12 +22,12 @@ namespace team{
     public:
         enum Tag{
 
-		/*No matching group found. No groups match the specified group ID.*/
-		GroupSelectorError_GROUP_NOT_FOUND,
-		/*None*/
-		GroupSelectorError_OTHER,
-		/*At least one of the specified users is not a member of the group.*/
-		GroupMembersSelectorError_MEMBER_NOT_IN_GROUP
+        /*No matching group found. No groups match the specified group ID.*/
+        GroupSelectorError_GROUP_NOT_FOUND,
+        /*None*/
+        GroupSelectorError_OTHER,
+        /*At least one of the specified users is not a member of the group.*/
+        GroupMembersSelectorError_MEMBER_NOT_IN_GROUP
         };
 
         GroupMembersSelectorError(){}

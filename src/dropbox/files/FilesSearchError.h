@@ -15,10 +15,10 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		SearchError_PATH,
-		/*None*/
-		SearchError_OTHER
+        /*None*/
+        SearchError_PATH,
+        /*None*/
+        SearchError_OTHER
         };
 
         SearchError(){}

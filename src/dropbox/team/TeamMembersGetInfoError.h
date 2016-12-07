@@ -14,8 +14,8 @@ namespace team{
     public:
         enum Tag{
 
-		/*None*/
-		MembersGetInfoError_OTHER
+        /*None*/
+        MembersGetInfoError_OTHER
         };
 
         MembersGetInfoError(){}

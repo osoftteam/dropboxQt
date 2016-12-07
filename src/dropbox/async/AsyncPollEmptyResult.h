@@ -22,10 +22,10 @@ namespace async{
     public:
         enum Tag{
 
-		/*The asynchronous job is still in progress.*/
-		PollResultBase_IN_PROGRESS,
-		/*The asynchronous job has completed successfully.*/
-		PollEmptyResult_COMPLETE
+        /*The asynchronous job is still in progress.*/
+        PollResultBase_IN_PROGRESS,
+        /*The asynchronous job has completed successfully.*/
+        PollEmptyResult_COMPLETE
         };
 
         PollEmptyResult(){}

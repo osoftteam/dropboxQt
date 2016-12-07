@@ -28,20 +28,20 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		MountFolderError_ACCESS_ERROR,
-		/*Mounting would cause a shared folder to be inside another, which is disallowed.*/
-		MountFolderError_INSIDE_SHARED_FOLDER,
-		/*The current user does not have enough space to mount the shared folder.*/
-		MountFolderError_INSUFFICIENT_QUOTA,
-		/*The shared folder is already mounted.*/
-		MountFolderError_ALREADY_MOUNTED,
-		/*The current user does not have permission to perform this action.*/
-		MountFolderError_NO_PERMISSION,
-		/*The shared folder is not mountable. One example where this can occur is when the shared folder belongs within a team folder in the user's Dropbox.*/
-		MountFolderError_NOT_MOUNTABLE,
-		/*None*/
-		MountFolderError_OTHER
+        /*None*/
+        MountFolderError_ACCESS_ERROR,
+        /*Mounting would cause a shared folder to be inside another, which is disallowed.*/
+        MountFolderError_INSIDE_SHARED_FOLDER,
+        /*The current user does not have enough space to mount the shared folder.*/
+        MountFolderError_INSUFFICIENT_QUOTA,
+        /*The shared folder is already mounted.*/
+        MountFolderError_ALREADY_MOUNTED,
+        /*The current user does not have permission to perform this action.*/
+        MountFolderError_NO_PERMISSION,
+        /*The shared folder is not mountable. One example where this can occur is when the shared folder belongs within a team folder in the user's Dropbox.*/
+        MountFolderError_NOT_MOUNTABLE,
+        /*None*/
+        MountFolderError_OTHER
         };
 
         MountFolderError(){}

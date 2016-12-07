@@ -17,10 +17,10 @@ namespace team{
     public:
         enum Tag{
 
-		/*The cursor is invalid.*/
-		GroupsListContinueError_INVALID_CURSOR,
-		/*None*/
-		GroupsListContinueError_OTHER
+        /*The cursor is invalid.*/
+        GroupsListContinueError_INVALID_CURSOR,
+        /*None*/
+        GroupsListContinueError_OTHER
         };
 
         GroupsListContinueError(){}

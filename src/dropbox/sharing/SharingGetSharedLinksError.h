@@ -14,10 +14,10 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		GetSharedLinksError_PATH,
-		/*None*/
-		GetSharedLinksError_OTHER
+        /*None*/
+        GetSharedLinksError_PATH,
+        /*None*/
+        GetSharedLinksError_OTHER
         };
 
         GetSharedLinksError(){}

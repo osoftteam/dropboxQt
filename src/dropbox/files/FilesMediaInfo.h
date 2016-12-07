@@ -20,10 +20,10 @@ namespace files{
     public:
         enum Tag{
 
-		/*Indicate the photo/video is still under processing and metadata is not available yet.*/
-		MediaInfo_PENDING,
-		/*The metadata for the photo/video.*/
-		MediaInfo_METADATA
+        /*Indicate the photo/video is still under processing and metadata is not available yet.*/
+        MediaInfo_PENDING,
+        /*The metadata for the photo/video.*/
+        MediaInfo_METADATA
         };
 
         MediaInfo(){}

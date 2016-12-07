@@ -14,10 +14,10 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		ThumbnailFormat_JPEG,
-		/*None*/
-		ThumbnailFormat_PNG
+        /*None*/
+        ThumbnailFormat_JPEG,
+        /*None*/
+        ThumbnailFormat_PNG
         };
 
         ThumbnailFormat(){}

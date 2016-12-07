@@ -22,10 +22,10 @@ namespace team{
     public:
         enum Tag{
 
-		/*An ID that was provided as a parameter to :route:`groups/get_info`, and did not match a corresponding group. The ID can be a group ID, or an external ID, depending on how the method was called.*/
-		GroupsGetInfoItem_ID_NOT_FOUND,
-		/*Info about a group.*/
-		GroupsGetInfoItem_GROUP_INFO
+        /*An ID that was provided as a parameter to :route:`groups/get_info`, and did not match a corresponding group. The ID can be a group ID, or an external ID, depending on how the method was called.*/
+        GroupsGetInfoItem_ID_NOT_FOUND,
+        /*Info about a group.*/
+        GroupsGetInfoItem_GROUP_INFO
         };
 
         GroupsGetInfoItem(){}

@@ -23,12 +23,12 @@ namespace team_policies{
     public:
         enum Tag{
 
-		/*Only a teammate can be a member of a folder shared by a team member.*/
-		SharedFolderMemberPolicy_TEAM,
-		/*Anyone can be a member of a folder shared by a team member.*/
-		SharedFolderMemberPolicy_ANYONE,
-		/*None*/
-		SharedFolderMemberPolicy_OTHER
+        /*Only a teammate can be a member of a folder shared by a team member.*/
+        SharedFolderMemberPolicy_TEAM,
+        /*Anyone can be a member of a folder shared by a team member.*/
+        SharedFolderMemberPolicy_ANYONE,
+        /*None*/
+        SharedFolderMemberPolicy_OTHER
         };
 
         SharedFolderMemberPolicy(){}

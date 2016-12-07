@@ -22,12 +22,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*The asynchronous job is still in progress.*/
-		PollResultBase_IN_PROGRESS,
-		/*Removing the folder member has finished. The value is information about whether the member has another form of access.*/
-		RemoveMemberJobStatus_COMPLETE,
-		/*None*/
-		RemoveMemberJobStatus_FAILED
+        /*The asynchronous job is still in progress.*/
+        PollResultBase_IN_PROGRESS,
+        /*Removing the folder member has finished. The value is information about whether the member has another form of access.*/
+        RemoveMemberJobStatus_COMPLETE,
+        /*None*/
+        RemoveMemberJobStatus_FAILED
         };
 
         RemoveMemberJobStatus(){}

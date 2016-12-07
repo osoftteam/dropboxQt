@@ -24,12 +24,12 @@ namespace team{
     public:
         enum Tag{
 
-		/*The asynchronous job is still in progress.*/
-		PollResultBase_IN_PROGRESS,
-		/*The asynchronous job has finished. For each member that was specified in the parameter :type:`MembersAddArg` that was provided to :route:`members/add`, a corresponding item is returned in this list.*/
-		MembersAddJobStatus_COMPLETE,
-		/*The asynchronous job returned an error. The string contains an error message.*/
-		MembersAddJobStatus_FAILED
+        /*The asynchronous job is still in progress.*/
+        PollResultBase_IN_PROGRESS,
+        /*The asynchronous job has finished. For each member that was specified in the parameter :type:`MembersAddArg` that was provided to :route:`members/add`, a corresponding item is returned in this list.*/
+        MembersAddJobStatus_COMPLETE,
+        /*The asynchronous job returned an error. The string contains an error message.*/
+        MembersAddJobStatus_FAILED
         };
 
         MembersAddJobStatus(){}

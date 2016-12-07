@@ -16,12 +16,12 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		DeleteError_PATH_LOOKUP,
-		/*None*/
-		DeleteError_PATH_WRITE,
-		/*None*/
-		DeleteError_OTHER
+        /*None*/
+        DeleteError_PATH_LOOKUP,
+        /*None*/
+        DeleteError_PATH_WRITE,
+        /*None*/
+        DeleteError_OTHER
         };
 
         DeleteError(){}

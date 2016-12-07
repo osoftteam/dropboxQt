@@ -18,10 +18,10 @@ namespace users{
     public:
         enum Tag{
 
-		/*The value is an account ID specified in :field:`GetAccountBatchArg.account_ids` that does not exist.*/
-		GetAccountBatchError_NO_ACCOUNT,
-		/*None*/
-		GetAccountBatchError_OTHER
+        /*The value is an account ID specified in :field:`GetAccountBatchArg.account_ids` that does not exist.*/
+        GetAccountBatchError_NO_ACCOUNT,
+        /*None*/
+        GetAccountBatchError_OTHER
         };
 
         GetAccountBatchError(){}

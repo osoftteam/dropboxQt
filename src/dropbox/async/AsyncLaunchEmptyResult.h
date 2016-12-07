@@ -22,10 +22,10 @@ namespace async{
     public:
         enum Tag{
 
-		/*This response indicates that the processing is asynchronous. The string is an id that can be used to obtain the status of the asynchronous job.*/
-		LaunchResultBase_ASYNC_JOB_ID,
-		/*The job finished synchronously and successfully.*/
-		LaunchEmptyResult_COMPLETE
+        /*This response indicates that the processing is asynchronous. The string is an id that can be used to obtain the status of the asynchronous job.*/
+        LaunchResultBase_ASYNC_JOB_ID,
+        /*The job finished synchronously and successfully.*/
+        LaunchEmptyResult_COMPLETE
         };
 
         LaunchEmptyResult(){}

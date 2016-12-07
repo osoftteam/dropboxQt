@@ -21,14 +21,14 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		UnshareFolderError_ACCESS_ERROR,
-		/*This action cannot be performed on a team shared folder.*/
-		UnshareFolderError_TEAM_FOLDER,
-		/*The current user does not have permission to perform this action.*/
-		UnshareFolderError_NO_PERMISSION,
-		/*None*/
-		UnshareFolderError_OTHER
+        /*None*/
+        UnshareFolderError_ACCESS_ERROR,
+        /*This action cannot be performed on a team shared folder.*/
+        UnshareFolderError_TEAM_FOLDER,
+        /*The current user does not have permission to perform this action.*/
+        UnshareFolderError_NO_PERMISSION,
+        /*None*/
+        UnshareFolderError_OTHER
         };
 
         UnshareFolderError(){}

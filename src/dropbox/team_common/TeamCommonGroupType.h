@@ -22,12 +22,12 @@ namespace team_common{
     public:
         enum Tag{
 
-		/*A group to which team members are automatically added. Applicable to :link:`team folders https://www.dropbox.com/help/986` only.*/
-		GroupType_TEAM,
-		/*A group is created and managed by a user.*/
-		GroupType_USER_MANAGED,
-		/*None*/
-		GroupType_OTHER
+        /*A group to which team members are automatically added. Applicable to :link:`team folders https://www.dropbox.com/help/986` only.*/
+        GroupType_TEAM,
+        /*A group is created and managed by a user.*/
+        GroupType_USER_MANAGED,
+        /*None*/
+        GroupType_OTHER
         };
 
         GroupType(){}

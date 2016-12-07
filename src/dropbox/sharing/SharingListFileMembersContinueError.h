@@ -22,14 +22,14 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		ListFileMembersContinueError_USER_ERROR,
-		/*None*/
-		ListFileMembersContinueError_ACCESS_ERROR,
-		/*:field:`ListFileMembersContinueArg.cursor` is invalid.*/
-		ListFileMembersContinueError_INVALID_CURSOR,
-		/*None*/
-		ListFileMembersContinueError_OTHER
+        /*None*/
+        ListFileMembersContinueError_USER_ERROR,
+        /*None*/
+        ListFileMembersContinueError_ACCESS_ERROR,
+        /*:field:`ListFileMembersContinueArg.cursor` is invalid.*/
+        ListFileMembersContinueError_INVALID_CURSOR,
+        /*None*/
+        ListFileMembersContinueError_OTHER
         };
 
         ListFileMembersContinueError(){}

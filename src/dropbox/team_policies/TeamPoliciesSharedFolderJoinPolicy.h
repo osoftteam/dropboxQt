@@ -22,12 +22,12 @@ namespace team_policies{
     public:
         enum Tag{
 
-		/*Team members can only join folders shared by teammates.*/
-		SharedFolderJoinPolicy_FROM_TEAM_ONLY,
-		/*Team members can join any shared folder, including those shared by users outside the team.*/
-		SharedFolderJoinPolicy_FROM_ANYONE,
-		/*None*/
-		SharedFolderJoinPolicy_OTHER
+        /*Team members can only join folders shared by teammates.*/
+        SharedFolderJoinPolicy_FROM_TEAM_ONLY,
+        /*Team members can join any shared folder, including those shared by users outside the team.*/
+        SharedFolderJoinPolicy_FROM_ANYONE,
+        /*None*/
+        SharedFolderJoinPolicy_OTHER
         };
 
         SharedFolderJoinPolicy(){}

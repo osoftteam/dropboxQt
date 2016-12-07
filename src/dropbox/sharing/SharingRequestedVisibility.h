@@ -28,12 +28,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Anyone who has received the link can access it. No login required.*/
-		RequestedVisibility_PUBLIC,
-		/*Only members of the same team can access the link. Login is required.*/
-		RequestedVisibility_TEAM_ONLY,
-		/*A link-specific password is required to access the link. Login is not required.*/
-		RequestedVisibility_PASSWORD
+        /*Anyone who has received the link can access it. No login required.*/
+        RequestedVisibility_PUBLIC,
+        /*Only members of the same team can access the link. Login is required.*/
+        RequestedVisibility_TEAM_ONLY,
+        /*A link-specific password is required to access the link. Login is not required.*/
+        RequestedVisibility_PASSWORD
         };
 
         RequestedVisibility(){}

@@ -25,8 +25,8 @@ namespace async{
     public:
         enum Tag{
 
-		/*This response indicates that the processing is asynchronous. The string is an id that can be used to obtain the status of the asynchronous job.*/
-		LaunchResultBase_ASYNC_JOB_ID
+        /*This response indicates that the processing is asynchronous. The string is an id that can be used to obtain the status of the asynchronous job.*/
+        LaunchResultBase_ASYNC_JOB_ID
         };
 
         LaunchResultBase(){}

@@ -17,10 +17,10 @@ namespace team{
     public:
         enum Tag{
 
-		/*Member not found.*/
-		ListMemberDevicesError_MEMBER_NOT_FOUND,
-		/*None*/
-		ListMemberDevicesError_OTHER
+        /*Member not found.*/
+        ListMemberDevicesError_MEMBER_NOT_FOUND,
+        /*None*/
+        ListMemberDevicesError_OTHER
         };
 
         ListMemberDevicesError(){}

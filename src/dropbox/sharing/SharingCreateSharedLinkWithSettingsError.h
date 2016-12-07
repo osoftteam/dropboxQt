@@ -22,16 +22,16 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		CreateSharedLinkWithSettingsError_PATH,
-		/*User's email should be verified*/
-		CreateSharedLinkWithSettingsError_EMAIL_NOT_VERIFIED,
-		/*The shared link already exists*/
-		CreateSharedLinkWithSettingsError_SHARED_LINK_ALREADY_EXISTS,
-		/*There is an error with the given settings*/
-		CreateSharedLinkWithSettingsError_SETTINGS_ERROR,
-		/*Access to the requested path is forbidden*/
-		CreateSharedLinkWithSettingsError_ACCESS_DENIED
+        /*None*/
+        CreateSharedLinkWithSettingsError_PATH,
+        /*User's email should be verified*/
+        CreateSharedLinkWithSettingsError_EMAIL_NOT_VERIFIED,
+        /*The shared link already exists*/
+        CreateSharedLinkWithSettingsError_SHARED_LINK_ALREADY_EXISTS,
+        /*There is an error with the given settings*/
+        CreateSharedLinkWithSettingsError_SETTINGS_ERROR,
+        /*Access to the requested path is forbidden*/
+        CreateSharedLinkWithSettingsError_ACCESS_DENIED
         };
 
         CreateSharedLinkWithSettingsError(){}

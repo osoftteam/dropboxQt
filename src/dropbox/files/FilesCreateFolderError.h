@@ -15,8 +15,8 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		CreateFolderError_PATH
+        /*None*/
+        CreateFolderError_PATH
         };
 
         CreateFolderError(){}

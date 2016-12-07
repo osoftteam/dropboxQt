@@ -22,12 +22,12 @@ namespace team{
     public:
         enum Tag{
 
-		/*List of member IDs.*/
-		UsersSelectorArg_TEAM_MEMBER_IDS,
-		/*List of external user IDs.*/
-		UsersSelectorArg_EXTERNAL_IDS,
-		/*List of email addresses.*/
-		UsersSelectorArg_EMAILS
+        /*List of member IDs.*/
+        UsersSelectorArg_TEAM_MEMBER_IDS,
+        /*List of external user IDs.*/
+        UsersSelectorArg_EXTERNAL_IDS,
+        /*List of email addresses.*/
+        UsersSelectorArg_EMAILS
         };
 
         UsersSelectorArg(){}

@@ -25,10 +25,10 @@ namespace team{
     public:
         enum Tag{
 
-		/*An ID that was provided as a parameter to :route:`members/get_info`, and did not match a corresponding user. This might be a team_member_id, an email, or an external ID, depending on how the method was called.*/
-		MembersGetInfoItem_ID_NOT_FOUND,
-		/*Info about a team member.*/
-		MembersGetInfoItem_MEMBER_INFO
+        /*An ID that was provided as a parameter to :route:`members/get_info`, and did not match a corresponding user. This might be a team_member_id, an email, or an external ID, depending on how the method was called.*/
+        MembersGetInfoItem_ID_NOT_FOUND,
+        /*Info about a team member.*/
+        MembersGetInfoItem_MEMBER_INFO
         };
 
         MembersGetInfoItem(){}

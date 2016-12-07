@@ -22,12 +22,12 @@ namespace files{
     public:
         enum Tag{
 
-		/*This item was matched on its file or folder name.*/
-		SearchMatchType_FILENAME,
-		/*This item was matched based on its file contents.*/
-		SearchMatchType_CONTENT,
-		/*This item was matched based on both its contents and its file name.*/
-		SearchMatchType_BOTH
+        /*This item was matched on its file or folder name.*/
+        SearchMatchType_FILENAME,
+        /*This item was matched based on its file contents.*/
+        SearchMatchType_CONTENT,
+        /*This item was matched based on both its contents and its file name.*/
+        SearchMatchType_BOTH
         };
 
         SearchMatchType(){}

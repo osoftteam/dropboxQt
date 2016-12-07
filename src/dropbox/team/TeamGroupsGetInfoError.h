@@ -17,10 +17,10 @@ namespace team{
     public:
         enum Tag{
 
-		/*The group is not on your team.*/
-		GroupsGetInfoError_GROUP_NOT_ON_TEAM,
-		/*None*/
-		GroupsGetInfoError_OTHER
+        /*The group is not on your team.*/
+        GroupsGetInfoError_GROUP_NOT_ON_TEAM,
+        /*None*/
+        GroupsGetInfoError_OTHER
         };
 
         GroupsGetInfoError(){}

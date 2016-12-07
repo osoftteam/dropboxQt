@@ -22,10 +22,10 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Member was successfully removed from this file. If AccessLevel is given, the member still has access via a parent shared folder.*/
-		FileMemberActionIndividualResult_SUCCESS,
-		/*User was not able to perform this action.*/
-		FileMemberActionIndividualResult_MEMBER_ERROR
+        /*Member was successfully removed from this file. If AccessLevel is given, the member still has access via a parent shared folder.*/
+        FileMemberActionIndividualResult_SUCCESS,
+        /*User was not able to perform this action.*/
+        FileMemberActionIndividualResult_MEMBER_ERROR
         };
 
         FileMemberActionIndividualResult(){}

@@ -20,10 +20,10 @@ namespace files{
     public:
         enum Tag{
 
-		/*The asynchronous job is still in progress.*/
-		PollResultBase_IN_PROGRESS,
-		/*The :route:`upload_session/finish_batch` has finished.*/
-		UploadSessionFinishBatchJobStatus_COMPLETE
+        /*The asynchronous job is still in progress.*/
+        PollResultBase_IN_PROGRESS,
+        /*The :route:`upload_session/finish_batch` has finished.*/
+        UploadSessionFinishBatchJobStatus_COMPLETE
         };
 
         UploadSessionFinishBatchJobStatus(){}

@@ -19,14 +19,14 @@ namespace team{
     public:
         enum Tag{
 
-		/*No matching user found. The provided team_member_id, email, or external_id does not exist on this team.*/
-		UserSelectorError_USER_NOT_FOUND,
-		/*The user is not recoverable.*/
-		MembersRecoverError_USER_UNRECOVERABLE,
-		/*The user is not a member of the team.*/
-		MembersRecoverError_USER_NOT_IN_TEAM,
-		/*None*/
-		MembersRecoverError_OTHER
+        /*No matching user found. The provided team_member_id, email, or external_id does not exist on this team.*/
+        UserSelectorError_USER_NOT_FOUND,
+        /*The user is not recoverable.*/
+        MembersRecoverError_USER_UNRECOVERABLE,
+        /*The user is not a member of the team.*/
+        MembersRecoverError_USER_NOT_IN_TEAM,
+        /*None*/
+        MembersRecoverError_OTHER
         };
 
         MembersRecoverError(){}

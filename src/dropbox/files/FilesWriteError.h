@@ -25,18 +25,18 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		WriteError_MALFORMED_PATH,
-		/*Couldn't write to the target path because there was something in the way.*/
-		WriteError_CONFLICT,
-		/*The user doesn't have permissions to write to the target location.*/
-		WriteError_NO_WRITE_PERMISSION,
-		/*The user doesn't have enough available space (bytes) to write more data.*/
-		WriteError_INSUFFICIENT_SPACE,
-		/*Dropbox will not save the file or folder because of its name.*/
-		WriteError_DISALLOWED_NAME,
-		/*None*/
-		WriteError_OTHER
+        /*None*/
+        WriteError_MALFORMED_PATH,
+        /*Couldn't write to the target path because there was something in the way.*/
+        WriteError_CONFLICT,
+        /*The user doesn't have permissions to write to the target location.*/
+        WriteError_NO_WRITE_PERMISSION,
+        /*The user doesn't have enough available space (bytes) to write more data.*/
+        WriteError_INSUFFICIENT_SPACE,
+        /*Dropbox will not save the file or folder because of its name.*/
+        WriteError_DISALLOWED_NAME,
+        /*None*/
+        WriteError_OTHER
         };
 
         WriteError(){}

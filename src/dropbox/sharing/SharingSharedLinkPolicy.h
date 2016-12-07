@@ -21,12 +21,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Links can be shared with anyone.*/
-		SharedLinkPolicy_ANYONE,
-		/*Links can only be shared among members of the shared folder.*/
-		SharedLinkPolicy_MEMBERS,
-		/*None*/
-		SharedLinkPolicy_OTHER
+        /*Links can be shared with anyone.*/
+        SharedLinkPolicy_ANYONE,
+        /*Links can only be shared among members of the shared folder.*/
+        SharedLinkPolicy_MEMBERS,
+        /*None*/
+        SharedLinkPolicy_OTHER
         };
 
         SharedLinkPolicy(){}

@@ -22,14 +22,14 @@ namespace team{
     public:
         enum Tag{
 
-		/*There is already an existing group with the requested name.*/
-		GroupCreateError_GROUP_NAME_ALREADY_USED,
-		/*Group name is empty or has invalid characters.*/
-		GroupCreateError_GROUP_NAME_INVALID,
-		/*The new external ID is already being used by another group.*/
-		GroupCreateError_EXTERNAL_ID_ALREADY_IN_USE,
-		/*None*/
-		GroupCreateError_OTHER
+        /*There is already an existing group with the requested name.*/
+        GroupCreateError_GROUP_NAME_ALREADY_USED,
+        /*Group name is empty or has invalid characters.*/
+        GroupCreateError_GROUP_NAME_INVALID,
+        /*The new external ID is already being used by another group.*/
+        GroupCreateError_EXTERNAL_ID_ALREADY_IN_USE,
+        /*None*/
+        GroupCreateError_OTHER
         };
 
         GroupCreateError(){}

@@ -21,12 +21,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*User account had a problem.*/
-		ListFilesContinueError_USER_ERROR,
-		/*:field:`ListFilesContinueArg.cursor` is invalid.*/
-		ListFilesContinueError_INVALID_CURSOR,
-		/*None*/
-		ListFilesContinueError_OTHER
+        /*User account had a problem.*/
+        ListFilesContinueError_USER_ERROR,
+        /*:field:`ListFilesContinueArg.cursor` is invalid.*/
+        ListFilesContinueError_INVALID_CURSOR,
+        /*None*/
+        ListFilesContinueError_OTHER
         };
 
         ListFilesContinueError(){}

@@ -21,12 +21,12 @@ namespace users{
     public:
         enum Tag{
 
-		/*The basic account type.*/
-		AccountType_BASIC,
-		/*The Dropbox Pro account type.*/
-		AccountType_PRO,
-		/*The Dropbox Business account type.*/
-		AccountType_BUSINESS
+        /*The basic account type.*/
+        AccountType_BASIC,
+        /*The Dropbox Pro account type.*/
+        AccountType_PRO,
+        /*The Dropbox Business account type.*/
+        AccountType_BUSINESS
         };
 
         AccountType(){}

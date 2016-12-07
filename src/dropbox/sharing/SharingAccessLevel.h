@@ -26,16 +26,16 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*The collaborator is the owner of the shared folder. Owners can view and edit the shared folder as well as set the folder's policies using :route:`update_folder_policy`.*/
-		AccessLevel_OWNER,
-		/*The collaborator can both view and edit the shared folder.*/
-		AccessLevel_EDITOR,
-		/*The collaborator can only view the shared folder.*/
-		AccessLevel_VIEWER,
-		/*The collaborator can only view the shared folder and does not have any access to comments.*/
-		AccessLevel_VIEWER_NO_COMMENT,
-		/*None*/
-		AccessLevel_OTHER
+        /*The collaborator is the owner of the shared folder. Owners can view and edit the shared folder as well as set the folder's policies using :route:`update_folder_policy`.*/
+        AccessLevel_OWNER,
+        /*The collaborator can both view and edit the shared folder.*/
+        AccessLevel_EDITOR,
+        /*The collaborator can only view the shared folder.*/
+        AccessLevel_VIEWER,
+        /*The collaborator can only view the shared folder and does not have any access to comments.*/
+        AccessLevel_VIEWER_NO_COMMENT,
+        /*None*/
+        AccessLevel_OTHER
         };
 
         AccessLevel(){}

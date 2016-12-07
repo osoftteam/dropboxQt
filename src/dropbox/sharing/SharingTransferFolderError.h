@@ -29,22 +29,22 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		TransferFolderError_ACCESS_ERROR,
-		/*:field:`TransferFolderArg.to_dropbox_id` is invalid.*/
-		TransferFolderError_INVALID_DROPBOX_ID,
-		/*The new designated owner is not currently a member of the shared folder.*/
-		TransferFolderError_NEW_OWNER_NOT_A_MEMBER,
-		/*The new designated owner has not added the folder to their Dropbox.*/
-		TransferFolderError_NEW_OWNER_UNMOUNTED,
-		/*The new designated owner's e-mail address is unverified.*/
-		TransferFolderError_NEW_OWNER_EMAIL_UNVERIFIED,
-		/*This action cannot be performed on a team shared folder.*/
-		TransferFolderError_TEAM_FOLDER,
-		/*The current user does not have permission to perform this action.*/
-		TransferFolderError_NO_PERMISSION,
-		/*None*/
-		TransferFolderError_OTHER
+        /*None*/
+        TransferFolderError_ACCESS_ERROR,
+        /*:field:`TransferFolderArg.to_dropbox_id` is invalid.*/
+        TransferFolderError_INVALID_DROPBOX_ID,
+        /*The new designated owner is not currently a member of the shared folder.*/
+        TransferFolderError_NEW_OWNER_NOT_A_MEMBER,
+        /*The new designated owner has not added the folder to their Dropbox.*/
+        TransferFolderError_NEW_OWNER_UNMOUNTED,
+        /*The new designated owner's e-mail address is unverified.*/
+        TransferFolderError_NEW_OWNER_EMAIL_UNVERIFIED,
+        /*This action cannot be performed on a team shared folder.*/
+        TransferFolderError_TEAM_FOLDER,
+        /*The current user does not have permission to perform this action.*/
+        TransferFolderError_NO_PERMISSION,
+        /*None*/
+        TransferFolderError_OTHER
         };
 
         TransferFolderError(){}

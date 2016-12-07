@@ -19,10 +19,10 @@ namespace team{
     public:
         enum Tag{
 
-		/*Member not found.*/
-		ListMemberAppsError_MEMBER_NOT_FOUND,
-		/*None*/
-		ListMemberAppsError_OTHER
+        /*Member not found.*/
+        ListMemberAppsError_MEMBER_NOT_FOUND,
+        /*None*/
+        ListMemberAppsError_OTHER
         };
 
         ListMemberAppsError(){}

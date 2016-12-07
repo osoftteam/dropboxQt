@@ -20,16 +20,16 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*The shared link wasn't found*/
-		SharedLinkError_SHARED_LINK_NOT_FOUND,
-		/*The caller is not allowed to access this shared link*/
-		SharedLinkError_SHARED_LINK_ACCESS_DENIED,
-		/*None*/
-		SharedLinkError_OTHER,
-		/*There is an error with the given settings*/
-		ModifySharedLinkSettingsError_SETTINGS_ERROR,
-		/*The caller's email should be verified*/
-		ModifySharedLinkSettingsError_EMAIL_NOT_VERIFIED
+        /*The shared link wasn't found*/
+        SharedLinkError_SHARED_LINK_NOT_FOUND,
+        /*The caller is not allowed to access this shared link*/
+        SharedLinkError_SHARED_LINK_ACCESS_DENIED,
+        /*None*/
+        SharedLinkError_OTHER,
+        /*There is an error with the given settings*/
+        ModifySharedLinkSettingsError_SETTINGS_ERROR,
+        /*The caller's email should be verified*/
+        ModifySharedLinkSettingsError_EMAIL_NOT_VERIFIED
         };
 
         ModifySharedLinkSettingsError(){}

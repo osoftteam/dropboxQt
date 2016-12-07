@@ -19,12 +19,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		ListFileMembersError_USER_ERROR,
-		/*None*/
-		ListFileMembersError_ACCESS_ERROR,
-		/*None*/
-		ListFileMembersError_OTHER
+        /*None*/
+        ListFileMembersError_USER_ERROR,
+        /*None*/
+        ListFileMembersError_ACCESS_ERROR,
+        /*None*/
+        ListFileMembersError_OTHER
         };
 
         ListFileMembersError(){}

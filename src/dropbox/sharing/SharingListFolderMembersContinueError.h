@@ -19,12 +19,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		ListFolderMembersContinueError_ACCESS_ERROR,
-		/*:field:`ListFolderMembersContinueArg.cursor` is invalid.*/
-		ListFolderMembersContinueError_INVALID_CURSOR,
-		/*None*/
-		ListFolderMembersContinueError_OTHER
+        /*None*/
+        ListFolderMembersContinueError_ACCESS_ERROR,
+        /*:field:`ListFolderMembersContinueArg.cursor` is invalid.*/
+        ListFolderMembersContinueError_INVALID_CURSOR,
+        /*None*/
+        ListFolderMembersContinueError_OTHER
         };
 
         ListFolderMembersContinueError(){}

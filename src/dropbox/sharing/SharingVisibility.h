@@ -31,18 +31,18 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Anyone who has received the link can access it. No login required.*/
-		Visibility_PUBLIC,
-		/*Only members of the same team can access the link. Login is required.*/
-		Visibility_TEAM_ONLY,
-		/*A link-specific password is required to access the link. Login is not required.*/
-		Visibility_PASSWORD,
-		/*Only members of the same team who have the link-specific password can access the link.*/
-		Visibility_TEAM_AND_PASSWORD,
-		/*Only members of the shared folder containing the linked file can access the link. Login is required.*/
-		Visibility_SHARED_FOLDER_ONLY,
-		/*None*/
-		Visibility_OTHER
+        /*Anyone who has received the link can access it. No login required.*/
+        Visibility_PUBLIC,
+        /*Only members of the same team can access the link. Login is required.*/
+        Visibility_TEAM_ONLY,
+        /*A link-specific password is required to access the link. Login is not required.*/
+        Visibility_PASSWORD,
+        /*Only members of the same team who have the link-specific password can access the link.*/
+        Visibility_TEAM_AND_PASSWORD,
+        /*Only members of the shared folder containing the linked file can access the link. Login is required.*/
+        Visibility_SHARED_FOLDER_ONLY,
+        /*None*/
+        Visibility_OTHER
         };
 
         Visibility(){}

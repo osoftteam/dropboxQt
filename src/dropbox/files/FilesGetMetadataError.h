@@ -15,8 +15,8 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		GetMetadataError_PATH
+        /*None*/
+        GetMetadataError_PATH
         };
 
         GetMetadataError(){}

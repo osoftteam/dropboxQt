@@ -18,14 +18,14 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*The shared link wasn't found*/
-		SharedLinkError_SHARED_LINK_NOT_FOUND,
-		/*The caller is not allowed to access this shared link*/
-		SharedLinkError_SHARED_LINK_ACCESS_DENIED,
-		/*None*/
-		SharedLinkError_OTHER,
-		/*Shared link is malformed.*/
-		RevokeSharedLinkError_SHARED_LINK_MALFORMED
+        /*The shared link wasn't found*/
+        SharedLinkError_SHARED_LINK_NOT_FOUND,
+        /*The caller is not allowed to access this shared link*/
+        SharedLinkError_SHARED_LINK_ACCESS_DENIED,
+        /*None*/
+        SharedLinkError_OTHER,
+        /*Shared link is malformed.*/
+        RevokeSharedLinkError_SHARED_LINK_MALFORMED
         };
 
         RevokeSharedLinkError(){}

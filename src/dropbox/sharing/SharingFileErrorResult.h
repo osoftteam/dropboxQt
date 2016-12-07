@@ -21,14 +21,14 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*File specified by id was not found.*/
-		FileErrorResult_FILE_NOT_FOUND_ERROR,
-		/*User does not have permission to take the specified action on the file.*/
-		FileErrorResult_INVALID_FILE_ACTION_ERROR,
-		/*User does not have permission to access file specified by file.Id.*/
-		FileErrorResult_PERMISSION_DENIED_ERROR,
-		/*None*/
-		FileErrorResult_OTHER
+        /*File specified by id was not found.*/
+        FileErrorResult_FILE_NOT_FOUND_ERROR,
+        /*User does not have permission to take the specified action on the file.*/
+        FileErrorResult_INVALID_FILE_ACTION_ERROR,
+        /*User does not have permission to access file specified by file.Id.*/
+        FileErrorResult_PERMISSION_DENIED_ERROR,
+        /*None*/
+        FileErrorResult_OTHER
         };
 
         FileErrorResult(){}

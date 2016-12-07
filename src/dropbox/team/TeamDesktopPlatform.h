@@ -19,14 +19,14 @@ namespace team{
     public:
         enum Tag{
 
-		/*Official Windows Dropbox desktop client*/
-		DesktopPlatform_WINDOWS,
-		/*Official Mac Dropbox desktop client*/
-		DesktopPlatform_MAC,
-		/*Official Linux Dropbox desktop client*/
-		DesktopPlatform_LINUX,
-		/*None*/
-		DesktopPlatform_OTHER
+        /*Official Windows Dropbox desktop client*/
+        DesktopPlatform_WINDOWS,
+        /*Official Mac Dropbox desktop client*/
+        DesktopPlatform_MAC,
+        /*Official Linux Dropbox desktop client*/
+        DesktopPlatform_LINUX,
+        /*None*/
+        DesktopPlatform_OTHER
         };
 
         DesktopPlatform(){}

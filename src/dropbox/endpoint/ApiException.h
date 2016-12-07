@@ -34,20 +34,20 @@ namespace dropboxQt{
         const std::string& errSummary()const { return m_error_summary; }
         
         static  std::unique_ptr<DropboxException> create(const QByteArray& data, int status_code, const std::string& message);
-		template<class E, class F>
-		static std::unique_ptr<E> createSpecialized(const QByteArray& data, int status_code, const std::string& message) 
-		{
-			F err; 
+        template<class E, class F>
+        static std::unique_ptr<E> createSpecialized(const QByteArray& data, int status_code, const std::string& message) 
+        {
+            F err; 
             std::string summary;
             if (!data.isEmpty())
-				{
+                {
                     QJsonDocument doc = QJsonDocument::fromJson(data);
                     QJsonObject js_in = doc.object();
                     err.fromJson(js_in["error"].toObject());
                     summary = js_in["error_summary"].toString().toStdString();
-				}
-			return std::unique_ptr<E>(new E(err, summary, status_code, message));
-		};
+                }
+            return std::unique_ptr<E>(new E(err, summary, status_code, message));
+        };
 
         ///Polymorphic exception idiom
         virtual void raise() { throw *this; }
@@ -89,7 +89,7 @@ namespace dropboxQt{
 }                                                                       \
         std::unique_ptr<E> E::create(const QByteArray& data, int status_code, const std::string& message) \
         {                                                               \
-	return createSpecialized<E, F>(data, status_code, message);         \
+    return createSpecialized<E, F>(data, status_code, message);         \
 }                                                                       \
 
 

@@ -23,12 +23,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Only the owner can update the ACL.*/
-		AclUpdatePolicy_OWNER,
-		/*Any editor can update the ACL. This may be further restricted to editors on the same team.*/
-		AclUpdatePolicy_EDITORS,
-		/*None*/
-		AclUpdatePolicy_OTHER
+        /*Only the owner can update the ACL.*/
+        AclUpdatePolicy_OWNER,
+        /*Any editor can update the ACL. This may be further restricted to editors on the same team.*/
+        AclUpdatePolicy_EDITORS,
+        /*None*/
+        AclUpdatePolicy_OTHER
         };
 
         AclUpdatePolicy(){}

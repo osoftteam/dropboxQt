@@ -32,22 +32,22 @@ namespace team{
     public:
         enum Tag{
 
-		/*No matching group found. No groups match the specified group ID.*/
-		GroupSelectorError_GROUP_NOT_FOUND,
-		/*None*/
-		GroupSelectorError_OTHER,
-		/*You cannot add duplicate users. One or more of the members you are trying to add is already a member of the group.*/
-		GroupMembersAddError_DUPLICATE_USER,
-		/*Group is not in this team. You cannot add members to a group that is outside of your team.*/
-		GroupMembersAddError_GROUP_NOT_IN_TEAM,
-		/*These members are not part of your team. Currently, you cannot add members to a group if they are not part of your team, though this may change in a subsequent version. To add new members to your Dropbox Business team, use the :route:`members/add` endpoint.*/
-		GroupMembersAddError_MEMBERS_NOT_IN_TEAM,
-		/*These users were not found in Dropbox.*/
-		GroupMembersAddError_USERS_NOT_FOUND,
-		/*A suspended user cannot be added to a group as :field:`GroupAccessType.owner`.*/
-		GroupMembersAddError_USER_MUST_BE_ACTIVE_TO_BE_OWNER,
-		/*A company-managed group cannot be managed by a user.*/
-		GroupMembersAddError_USER_CANNOT_BE_MANAGER_OF_COMPANY_MANAGED_GROUP
+        /*No matching group found. No groups match the specified group ID.*/
+        GroupSelectorError_GROUP_NOT_FOUND,
+        /*None*/
+        GroupSelectorError_OTHER,
+        /*You cannot add duplicate users. One or more of the members you are trying to add is already a member of the group.*/
+        GroupMembersAddError_DUPLICATE_USER,
+        /*Group is not in this team. You cannot add members to a group that is outside of your team.*/
+        GroupMembersAddError_GROUP_NOT_IN_TEAM,
+        /*These members are not part of your team. Currently, you cannot add members to a group if they are not part of your team, though this may change in a subsequent version. To add new members to your Dropbox Business team, use the :route:`members/add` endpoint.*/
+        GroupMembersAddError_MEMBERS_NOT_IN_TEAM,
+        /*These users were not found in Dropbox.*/
+        GroupMembersAddError_USERS_NOT_FOUND,
+        /*A suspended user cannot be added to a group as :field:`GroupAccessType.owner`.*/
+        GroupMembersAddError_USER_MUST_BE_ACTIVE_TO_BE_OWNER,
+        /*A company-managed group cannot be managed by a user.*/
+        GroupMembersAddError_USER_CANNOT_BE_MANAGER_OF_COMPANY_MANAGED_GROUP
         };
 
         GroupMembersAddError(){}

@@ -18,12 +18,12 @@ namespace team{
     public:
         enum Tag{
 
-		/*No matching group found. No groups match the specified group ID.*/
-		GroupSelectorError_GROUP_NOT_FOUND,
-		/*None*/
-		GroupSelectorError_OTHER,
-		/*This group has already been deleted.*/
-		GroupDeleteError_GROUP_ALREADY_DELETED
+        /*No matching group found. No groups match the specified group ID.*/
+        GroupSelectorError_GROUP_NOT_FOUND,
+        /*None*/
+        GroupSelectorError_OTHER,
+        /*This group has already been deleted.*/
+        GroupDeleteError_GROUP_ALREADY_DELETED
         };
 
         GroupDeleteError(){}

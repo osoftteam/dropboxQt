@@ -27,20 +27,20 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		RemoveFolderMemberError_ACCESS_ERROR,
-		/*None*/
-		RemoveFolderMemberError_MEMBER_ERROR,
-		/*The target user is the owner of the shared folder. You can't remove this user until ownership has been transferred to another member.*/
-		RemoveFolderMemberError_FOLDER_OWNER,
-		/*The target user has access to the shared folder via a group.*/
-		RemoveFolderMemberError_GROUP_ACCESS,
-		/*This action cannot be performed on a team shared folder.*/
-		RemoveFolderMemberError_TEAM_FOLDER,
-		/*The current user does not have permission to perform this action.*/
-		RemoveFolderMemberError_NO_PERMISSION,
-		/*None*/
-		RemoveFolderMemberError_OTHER
+        /*None*/
+        RemoveFolderMemberError_ACCESS_ERROR,
+        /*None*/
+        RemoveFolderMemberError_MEMBER_ERROR,
+        /*The target user is the owner of the shared folder. You can't remove this user until ownership has been transferred to another member.*/
+        RemoveFolderMemberError_FOLDER_OWNER,
+        /*The target user has access to the shared folder via a group.*/
+        RemoveFolderMemberError_GROUP_ACCESS,
+        /*This action cannot be performed on a team shared folder.*/
+        RemoveFolderMemberError_TEAM_FOLDER,
+        /*The current user does not have permission to perform this action.*/
+        RemoveFolderMemberError_NO_PERMISSION,
+        /*None*/
+        RemoveFolderMemberError_OTHER
         };
 
         RemoveFolderMemberError(){}

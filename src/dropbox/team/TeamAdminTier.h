@@ -25,14 +25,14 @@ namespace team{
     public:
         enum Tag{
 
-		/*User is an administrator of the team - has all permissions.*/
-		AdminTier_TEAM_ADMIN,
-		/*User can do most user provisioning, de-provisioning and management.*/
-		AdminTier_USER_MANAGEMENT_ADMIN,
-		/*User can do a limited set of common support tasks for existing users.*/
-		AdminTier_SUPPORT_ADMIN,
-		/*User is not an admin of the team.*/
-		AdminTier_MEMBER_ONLY
+        /*User is an administrator of the team - has all permissions.*/
+        AdminTier_TEAM_ADMIN,
+        /*User can do most user provisioning, de-provisioning and management.*/
+        AdminTier_USER_MANAGEMENT_ADMIN,
+        /*User can do a limited set of common support tasks for existing users.*/
+        AdminTier_SUPPORT_ADMIN,
+        /*User is not an admin of the team.*/
+        AdminTier_MEMBER_ONLY
         };
 
         AdminTier(){}

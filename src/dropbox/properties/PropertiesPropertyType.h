@@ -21,10 +21,10 @@ namespace properties{
     public:
         enum Tag{
 
-		/*The associated property will be of type string. Unicode is supported.*/
-		PropertyType_STRING,
-		/*None*/
-		PropertyType_OTHER
+        /*The associated property will be of type string. Unicode is supported.*/
+        PropertyType_STRING,
+        /*None*/
+        PropertyType_OTHER
         };
 
         PropertyType(){}

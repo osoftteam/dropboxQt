@@ -29,20 +29,20 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		RelinquishFolderMembershipError_ACCESS_ERROR,
-		/*The current user is the owner of the shared folder. Owners cannot relinquish membership to their own folders. Try unsharing or transferring ownership first.*/
-		RelinquishFolderMembershipError_FOLDER_OWNER,
-		/*The shared folder is currently mounted.  Unmount the shared folder before relinquishing membership.*/
-		RelinquishFolderMembershipError_MOUNTED,
-		/*The current user has access to the shared folder via a group.  You can't relinquish membership to folders shared via groups.*/
-		RelinquishFolderMembershipError_GROUP_ACCESS,
-		/*This action cannot be performed on a team shared folder.*/
-		RelinquishFolderMembershipError_TEAM_FOLDER,
-		/*The current user does not have permission to perform this action.*/
-		RelinquishFolderMembershipError_NO_PERMISSION,
-		/*None*/
-		RelinquishFolderMembershipError_OTHER
+        /*None*/
+        RelinquishFolderMembershipError_ACCESS_ERROR,
+        /*The current user is the owner of the shared folder. Owners cannot relinquish membership to their own folders. Try unsharing or transferring ownership first.*/
+        RelinquishFolderMembershipError_FOLDER_OWNER,
+        /*The shared folder is currently mounted.  Unmount the shared folder before relinquishing membership.*/
+        RelinquishFolderMembershipError_MOUNTED,
+        /*The current user has access to the shared folder via a group.  You can't relinquish membership to folders shared via groups.*/
+        RelinquishFolderMembershipError_GROUP_ACCESS,
+        /*This action cannot be performed on a team shared folder.*/
+        RelinquishFolderMembershipError_TEAM_FOLDER,
+        /*The current user does not have permission to perform this action.*/
+        RelinquishFolderMembershipError_NO_PERMISSION,
+        /*None*/
+        RelinquishFolderMembershipError_OTHER
         };
 
         RelinquishFolderMembershipError(){}

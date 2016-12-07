@@ -20,10 +20,10 @@ namespace team{
     public:
         enum Tag{
 
-		/*User uses a license and has full access to team resources like the shared quota.*/
-		TeamMembershipType_FULL,
-		/*User does not have access to the shared quota and team admins have restricted administrative control.*/
-		TeamMembershipType_LIMITED
+        /*User uses a license and has full access to team resources like the shared quota.*/
+        TeamMembershipType_FULL,
+        /*User does not have access to the shared quota and team admins have restricted administrative control.*/
+        TeamMembershipType_LIMITED
         };
 
         TeamMembershipType(){}

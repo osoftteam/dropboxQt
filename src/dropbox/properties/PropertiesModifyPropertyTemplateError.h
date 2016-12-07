@@ -26,20 +26,20 @@ namespace properties{
     public:
         enum Tag{
 
-		/*Property template does not exist for given identifier.*/
-		PropertyTemplateError_TEMPLATE_NOT_FOUND,
-		/*You do not have the permissions to modify this property template.*/
-		PropertyTemplateError_RESTRICTED_CONTENT,
-		/*None*/
-		PropertyTemplateError_OTHER,
-		/*A property field name already exists in the template.*/
-		ModifyPropertyTemplateError_CONFLICTING_PROPERTY_NAMES,
-		/*There are too many properties in the changed template. The maximum number of properties per template is 32.*/
-		ModifyPropertyTemplateError_TOO_MANY_PROPERTIES,
-		/*There are too many templates for the team.*/
-		ModifyPropertyTemplateError_TOO_MANY_TEMPLATES,
-		/*The template name, description or field names is too large.*/
-		ModifyPropertyTemplateError_TEMPLATE_ATTRIBUTE_TOO_LARGE
+        /*Property template does not exist for given identifier.*/
+        PropertyTemplateError_TEMPLATE_NOT_FOUND,
+        /*You do not have the permissions to modify this property template.*/
+        PropertyTemplateError_RESTRICTED_CONTENT,
+        /*None*/
+        PropertyTemplateError_OTHER,
+        /*A property field name already exists in the template.*/
+        ModifyPropertyTemplateError_CONFLICTING_PROPERTY_NAMES,
+        /*There are too many properties in the changed template. The maximum number of properties per template is 32.*/
+        ModifyPropertyTemplateError_TOO_MANY_PROPERTIES,
+        /*There are too many templates for the team.*/
+        ModifyPropertyTemplateError_TOO_MANY_TEMPLATES,
+        /*The template name, description or field names is too large.*/
+        ModifyPropertyTemplateError_TEMPLATE_ATTRIBUTE_TOO_LARGE
         };
 
         ModifyPropertyTemplateError(){}

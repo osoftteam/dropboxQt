@@ -18,10 +18,10 @@ namespace users{
     public:
         enum Tag{
 
-		/*The specified :field:`GetAccountArg.account_id` does not exist.*/
-		GetAccountError_NO_ACCOUNT,
-		/*None*/
-		GetAccountError_OTHER
+        /*The specified :field:`GetAccountArg.account_id` does not exist.*/
+        GetAccountError_NO_ACCOUNT,
+        /*None*/
+        GetAccountError_OTHER
         };
 
         GetAccountError(){}

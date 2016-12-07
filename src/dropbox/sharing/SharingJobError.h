@@ -28,14 +28,14 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Error occurred while performing :route:`unshare_folder` action.*/
-		JobError_UNSHARE_FOLDER_ERROR,
-		/*Error occurred while performing :route:`remove_folder_member` action.*/
-		JobError_REMOVE_FOLDER_MEMBER_ERROR,
-		/*Error occurred while performing :route:`relinquish_folder_membership` action.*/
-		JobError_RELINQUISH_FOLDER_MEMBERSHIP_ERROR,
-		/*None*/
-		JobError_OTHER
+        /*Error occurred while performing :route:`unshare_folder` action.*/
+        JobError_UNSHARE_FOLDER_ERROR,
+        /*Error occurred while performing :route:`remove_folder_member` action.*/
+        JobError_REMOVE_FOLDER_MEMBER_ERROR,
+        /*Error occurred while performing :route:`relinquish_folder_membership` action.*/
+        JobError_RELINQUISH_FOLDER_MEMBERSHIP_ERROR,
+        /*None*/
+        JobError_OTHER
         };
 
         JobError(){}

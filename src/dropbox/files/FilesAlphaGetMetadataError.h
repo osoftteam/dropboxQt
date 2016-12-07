@@ -16,10 +16,10 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		GetMetadataError_PATH,
-		/*None*/
-		AlphaGetMetadataError_PROPERTIES_ERROR
+        /*None*/
+        GetMetadataError_PATH,
+        /*None*/
+        AlphaGetMetadataError_PROPERTIES_ERROR
         };
 
         AlphaGetMetadataError(){}

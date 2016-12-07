@@ -22,12 +22,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*The results of the query for this file if it was successful*/
-		ListFileMembersIndividualResult_RESULT,
-		/*The result of the query for this file if it was an error.*/
-		ListFileMembersIndividualResult_ACCESS_ERROR,
-		/*None*/
-		ListFileMembersIndividualResult_OTHER
+        /*The results of the query for this file if it was successful*/
+        ListFileMembersIndividualResult_RESULT,
+        /*The result of the query for this file if it was an error.*/
+        ListFileMembersIndividualResult_ACCESS_ERROR,
+        /*None*/
+        ListFileMembersIndividualResult_OTHER
         };
 
         ListFileMembersIndividualResult(){}

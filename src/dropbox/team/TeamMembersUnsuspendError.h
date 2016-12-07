@@ -21,16 +21,16 @@ namespace team{
     public:
         enum Tag{
 
-		/*No matching user found. The provided team_member_id, email, or external_id does not exist on this team.*/
-		UserSelectorError_USER_NOT_FOUND,
-		/*The user is not a member of the team.*/
-		MembersDeactivateError_USER_NOT_IN_TEAM,
-		/*None*/
-		MembersDeactivateError_OTHER,
-		/*The user is unsuspended, so it cannot be unsuspended again.*/
-		MembersUnsuspendError_UNSUSPEND_NON_SUSPENDED_MEMBER,
-		/*Team is full. The organization has no available licenses.*/
-		MembersUnsuspendError_TEAM_LICENSE_LIMIT
+        /*No matching user found. The provided team_member_id, email, or external_id does not exist on this team.*/
+        UserSelectorError_USER_NOT_FOUND,
+        /*The user is not a member of the team.*/
+        MembersDeactivateError_USER_NOT_IN_TEAM,
+        /*None*/
+        MembersDeactivateError_OTHER,
+        /*The user is unsuspended, so it cannot be unsuspended again.*/
+        MembersUnsuspendError_UNSUSPEND_NON_SUSPENDED_MEMBER,
+        /*Team is full. The organization has no available licenses.*/
+        MembersUnsuspendError_TEAM_LICENSE_LIMIT
         };
 
         MembersUnsuspendError(){}

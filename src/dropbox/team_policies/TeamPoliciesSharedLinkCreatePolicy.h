@@ -27,14 +27,14 @@ namespace team_policies{
     public:
         enum Tag{
 
-		/*By default, anyone can access newly created shared links. No login will be required to access the shared links unless overridden.*/
-		SharedLinkCreatePolicy_DEFAULT_PUBLIC,
-		/*By default, only members of the same team can access newly created shared links. Login will be required to access the shared links unless overridden.*/
-		SharedLinkCreatePolicy_DEFAULT_TEAM_ONLY,
-		/*Only members of the same team can access newly created shared links. Login will be required to access the shared links.*/
-		SharedLinkCreatePolicy_TEAM_ONLY,
-		/*None*/
-		SharedLinkCreatePolicy_OTHER
+        /*By default, anyone can access newly created shared links. No login will be required to access the shared links unless overridden.*/
+        SharedLinkCreatePolicy_DEFAULT_PUBLIC,
+        /*By default, only members of the same team can access newly created shared links. Login will be required to access the shared links unless overridden.*/
+        SharedLinkCreatePolicy_DEFAULT_TEAM_ONLY,
+        /*Only members of the same team can access newly created shared links. Login will be required to access the shared links.*/
+        SharedLinkCreatePolicy_TEAM_ONLY,
+        /*None*/
+        SharedLinkCreatePolicy_OTHER
         };
 
         SharedLinkCreatePolicy(){}

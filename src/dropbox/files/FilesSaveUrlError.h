@@ -21,16 +21,16 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		SaveUrlError_PATH,
-		/*Failed downloading the given URL.*/
-		SaveUrlError_DOWNLOAD_FAILED,
-		/*The given URL is invalid.*/
-		SaveUrlError_INVALID_URL,
-		/*The file where the URL is saved to no longer exists.*/
-		SaveUrlError_NOT_FOUND,
-		/*None*/
-		SaveUrlError_OTHER
+        /*None*/
+        SaveUrlError_PATH,
+        /*Failed downloading the given URL.*/
+        SaveUrlError_DOWNLOAD_FAILED,
+        /*The given URL is invalid.*/
+        SaveUrlError_INVALID_URL,
+        /*The file where the URL is saved to no longer exists.*/
+        SaveUrlError_NOT_FOUND,
+        /*None*/
+        SaveUrlError_OTHER
         };
 
         SaveUrlError(){}

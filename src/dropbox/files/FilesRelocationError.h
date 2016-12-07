@@ -25,22 +25,22 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		RelocationError_FROM_LOOKUP,
-		/*None*/
-		RelocationError_FROM_WRITE,
-		/*None*/
-		RelocationError_TO,
-		/*Shared folders can't be copied.*/
-		RelocationError_CANT_COPY_SHARED_FOLDER,
-		/*Your move operation would result in nested shared folders.  This is not allowed.*/
-		RelocationError_CANT_NEST_SHARED_FOLDER,
-		/*You cannot move a folder into itself.*/
-		RelocationError_CANT_MOVE_FOLDER_INTO_ITSELF,
-		/*The operation would involve more than 10,000 files and folders.*/
-		RelocationError_TOO_MANY_FILES,
-		/*None*/
-		RelocationError_OTHER
+        /*None*/
+        RelocationError_FROM_LOOKUP,
+        /*None*/
+        RelocationError_FROM_WRITE,
+        /*None*/
+        RelocationError_TO,
+        /*Shared folders can't be copied.*/
+        RelocationError_CANT_COPY_SHARED_FOLDER,
+        /*Your move operation would result in nested shared folders.  This is not allowed.*/
+        RelocationError_CANT_NEST_SHARED_FOLDER,
+        /*You cannot move a folder into itself.*/
+        RelocationError_CANT_MOVE_FOLDER_INTO_ITSELF,
+        /*The operation would involve more than 10,000 files and folders.*/
+        RelocationError_TOO_MANY_FILES,
+        /*None*/
+        RelocationError_OTHER
         };
 
         RelocationError(){}

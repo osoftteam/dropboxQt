@@ -21,12 +21,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*The asynchronous job is still in progress.*/
-		PollResultBase_IN_PROGRESS,
-		/*The share job has finished. The value is the metadata for the folder.*/
-		ShareFolderJobStatus_COMPLETE,
-		/*None*/
-		ShareFolderJobStatus_FAILED
+        /*The asynchronous job is still in progress.*/
+        PollResultBase_IN_PROGRESS,
+        /*The share job has finished. The value is the metadata for the folder.*/
+        ShareFolderJobStatus_COMPLETE,
+        /*None*/
+        ShareFolderJobStatus_FAILED
         };
 
         ShareFolderJobStatus(){}

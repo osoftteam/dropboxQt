@@ -23,14 +23,14 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		UnmountFolderError_ACCESS_ERROR,
-		/*The current user does not have permission to perform this action.*/
-		UnmountFolderError_NO_PERMISSION,
-		/*The shared folder can't be unmounted. One example where this can occur is when the shared folder's parent folder is also a shared folder that resides in the current user's Dropbox.*/
-		UnmountFolderError_NOT_UNMOUNTABLE,
-		/*None*/
-		UnmountFolderError_OTHER
+        /*None*/
+        UnmountFolderError_ACCESS_ERROR,
+        /*The current user does not have permission to perform this action.*/
+        UnmountFolderError_NO_PERMISSION,
+        /*The shared folder can't be unmounted. One example where this can occur is when the shared folder's parent folder is also a shared folder that resides in the current user's Dropbox.*/
+        UnmountFolderError_NOT_UNMOUNTABLE,
+        /*None*/
+        UnmountFolderError_OTHER
         };
 
         UnmountFolderError(){}

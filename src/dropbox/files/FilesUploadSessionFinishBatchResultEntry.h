@@ -16,10 +16,10 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		UploadSessionFinishBatchResultEntry_SUCCESS,
-		/*None*/
-		UploadSessionFinishBatchResultEntry_FAILURE
+        /*None*/
+        UploadSessionFinishBatchResultEntry_SUCCESS,
+        /*None*/
+        UploadSessionFinishBatchResultEntry_FAILURE
         };
 
         UploadSessionFinishBatchResultEntry(){}

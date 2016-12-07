@@ -20,10 +20,10 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*The current user must verify the account e-mail address before performing this action.*/
-		SharingUserError_EMAIL_UNVERIFIED,
-		/*None*/
-		SharingUserError_OTHER
+        /*The current user must verify the account e-mail address before performing this action.*/
+        SharingUserError_EMAIL_UNVERIFIED,
+        /*None*/
+        SharingUserError_OTHER
         };
 
         SharingUserError(){}

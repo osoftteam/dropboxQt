@@ -27,18 +27,18 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Current user does not have sufficient privileges to perform the desired action.*/
-		SharingFileAccessError_NO_PERMISSION,
-		/*File specified was not found.*/
-		SharingFileAccessError_INVALID_FILE,
-		/*A folder can't be shared this way. Use folder sharing or a shared link instead.*/
-		SharingFileAccessError_IS_FOLDER,
-		/*A file inside a public folder can't be shared this way. Use a public link instead.*/
-		SharingFileAccessError_INSIDE_PUBLIC_FOLDER,
-		/*A Mac OS X package can't be shared this way. Use a shared link instead.*/
-		SharingFileAccessError_INSIDE_OSX_PACKAGE,
-		/*None*/
-		SharingFileAccessError_OTHER
+        /*Current user does not have sufficient privileges to perform the desired action.*/
+        SharingFileAccessError_NO_PERMISSION,
+        /*File specified was not found.*/
+        SharingFileAccessError_INVALID_FILE,
+        /*A folder can't be shared this way. Use folder sharing or a shared link instead.*/
+        SharingFileAccessError_IS_FOLDER,
+        /*A file inside a public folder can't be shared this way. Use a public link instead.*/
+        SharingFileAccessError_INSIDE_PUBLIC_FOLDER,
+        /*A Mac OS X package can't be shared this way. Use a shared link instead.*/
+        SharingFileAccessError_INSIDE_OSX_PACKAGE,
+        /*None*/
+        SharingFileAccessError_OTHER
         };
 
         SharingFileAccessError(){}

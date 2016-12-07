@@ -23,12 +23,12 @@ namespace users{
     public:
         enum Tag{
 
-		/*The user's space allocation applies only to their individual account.*/
-		SpaceAllocation_INDIVIDUAL,
-		/*The user shares space with other members of their team.*/
-		SpaceAllocation_TEAM,
-		/*None*/
-		SpaceAllocation_OTHER
+        /*The user's space allocation applies only to their individual account.*/
+        SpaceAllocation_INDIVIDUAL,
+        /*The user shares space with other members of their team.*/
+        SpaceAllocation_TEAM,
+        /*None*/
+        SpaceAllocation_OTHER
         };
 
         SpaceAllocation(){}

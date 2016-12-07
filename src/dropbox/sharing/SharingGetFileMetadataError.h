@@ -19,12 +19,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		GetFileMetadataError_USER_ERROR,
-		/*None*/
-		GetFileMetadataError_ACCESS_ERROR,
-		/*None*/
-		GetFileMetadataError_OTHER
+        /*None*/
+        GetFileMetadataError_USER_ERROR,
+        /*None*/
+        GetFileMetadataError_ACCESS_ERROR,
+        /*None*/
+        GetFileMetadataError_OTHER
         };
 
         GetFileMetadataError(){}

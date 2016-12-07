@@ -19,10 +19,10 @@ namespace files{
     public:
         enum Tag{
 
-		/*This response indicates that the processing is asynchronous. The string is an id that can be used to obtain the status of the asynchronous job.*/
-		LaunchResultBase_ASYNC_JOB_ID,
-		/*Metadata of the file where the URL is saved to.*/
-		SaveUrlResult_COMPLETE
+        /*This response indicates that the processing is asynchronous. The string is an id that can be used to obtain the status of the asynchronous job.*/
+        LaunchResultBase_ASYNC_JOB_ID,
+        /*Metadata of the file where the URL is saved to.*/
+        SaveUrlResult_COMPLETE
         };
 
         SaveUrlResult(){}

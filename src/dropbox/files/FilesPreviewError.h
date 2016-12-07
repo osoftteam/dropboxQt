@@ -24,14 +24,14 @@ namespace files{
     public:
         enum Tag{
 
-		/*An error occurs when downloading metadata for the file.*/
-		PreviewError_PATH,
-		/*This preview generation is still in progress and the file is not ready  for preview yet.*/
-		PreviewError_IN_PROGRESS,
-		/*The file extension is not supported preview generation.*/
-		PreviewError_UNSUPPORTED_EXTENSION,
-		/*The file content is not supported for preview generation.*/
-		PreviewError_UNSUPPORTED_CONTENT
+        /*An error occurs when downloading metadata for the file.*/
+        PreviewError_PATH,
+        /*This preview generation is still in progress and the file is not ready  for preview yet.*/
+        PreviewError_IN_PROGRESS,
+        /*The file extension is not supported preview generation.*/
+        PreviewError_UNSUPPORTED_EXTENSION,
+        /*The file content is not supported for preview generation.*/
+        PreviewError_UNSUPPORTED_CONTENT
         };
 
         PreviewError(){}

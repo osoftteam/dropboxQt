@@ -22,18 +22,18 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*User is not logged in.*/
-		SharedLinkAccessFailureReason_LOGIN_REQUIRED,
-		/*User's email is not verified.*/
-		SharedLinkAccessFailureReason_EMAIL_VERIFY_REQUIRED,
-		/*The link is password protected.*/
-		SharedLinkAccessFailureReason_PASSWORD_REQUIRED,
-		/*Access is allowed for team members only.*/
-		SharedLinkAccessFailureReason_TEAM_ONLY,
-		/*Access is allowed for the shared link's owner only.*/
-		SharedLinkAccessFailureReason_OWNER_ONLY,
-		/*None*/
-		SharedLinkAccessFailureReason_OTHER
+        /*User is not logged in.*/
+        SharedLinkAccessFailureReason_LOGIN_REQUIRED,
+        /*User's email is not verified.*/
+        SharedLinkAccessFailureReason_EMAIL_VERIFY_REQUIRED,
+        /*The link is password protected.*/
+        SharedLinkAccessFailureReason_PASSWORD_REQUIRED,
+        /*Access is allowed for team members only.*/
+        SharedLinkAccessFailureReason_TEAM_ONLY,
+        /*Access is allowed for the shared link's owner only.*/
+        SharedLinkAccessFailureReason_OWNER_ONLY,
+        /*None*/
+        SharedLinkAccessFailureReason_OTHER
         };
 
         SharedLinkAccessFailureReason(){}

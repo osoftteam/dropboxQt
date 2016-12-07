@@ -41,36 +41,36 @@ namespace team{
     public:
         enum Tag{
 
-		/*No matching user found. The provided team_member_id, email, or external_id does not exist on this team.*/
-		UserSelectorError_USER_NOT_FOUND,
-		/*The user is not a member of the team.*/
-		MembersDeactivateError_USER_NOT_IN_TEAM,
-		/*None*/
-		MembersDeactivateError_OTHER,
-		/*The user is the last admin of the team, so it cannot be removed from it.*/
-		MembersRemoveError_REMOVE_LAST_ADMIN,
-		/*Expected removed user and transfer_dest user to be different*/
-		MembersRemoveError_REMOVED_AND_TRANSFER_DEST_SHOULD_DIFFER,
-		/*Expected removed user and transfer_admin user to be different.*/
-		MembersRemoveError_REMOVED_AND_TRANSFER_ADMIN_SHOULD_DIFFER,
-		/*No matching user found for the argument transfer_dest_id.*/
-		MembersRemoveError_TRANSFER_DEST_USER_NOT_FOUND,
-		/*The provided transfer_dest_id does not exist on this team.*/
-		MembersRemoveError_TRANSFER_DEST_USER_NOT_IN_TEAM,
-		/*No matching user found for the argument transfer_admin_id.*/
-		MembersRemoveError_TRANSFER_ADMIN_USER_NOT_FOUND,
-		/*The provided transfer_admin_id does not exist on this team.*/
-		MembersRemoveError_TRANSFER_ADMIN_USER_NOT_IN_TEAM,
-		/*The transfer_admin_id argument must be provided when file transfer is requested.*/
-		MembersRemoveError_UNSPECIFIED_TRANSFER_ADMIN_ID,
-		/*Specified transfer_admin user is not a team admin.*/
-		MembersRemoveError_TRANSFER_ADMIN_IS_NOT_ADMIN,
-		/*Cannot keep account and transfer the data to another user at the same time.*/
-		MembersRemoveError_CANNOT_KEEP_ACCOUNT_AND_TRANSFER,
-		/*Cannot keep account and delete the data at the same time.*/
-		MembersRemoveError_CANNOT_KEEP_ACCOUNT_AND_DELETE_DATA,
-		/*The email address of the user is too long to be disabled.*/
-		MembersRemoveError_EMAIL_ADDRESS_TOO_LONG_TO_BE_DISABLED
+        /*No matching user found. The provided team_member_id, email, or external_id does not exist on this team.*/
+        UserSelectorError_USER_NOT_FOUND,
+        /*The user is not a member of the team.*/
+        MembersDeactivateError_USER_NOT_IN_TEAM,
+        /*None*/
+        MembersDeactivateError_OTHER,
+        /*The user is the last admin of the team, so it cannot be removed from it.*/
+        MembersRemoveError_REMOVE_LAST_ADMIN,
+        /*Expected removed user and transfer_dest user to be different*/
+        MembersRemoveError_REMOVED_AND_TRANSFER_DEST_SHOULD_DIFFER,
+        /*Expected removed user and transfer_admin user to be different.*/
+        MembersRemoveError_REMOVED_AND_TRANSFER_ADMIN_SHOULD_DIFFER,
+        /*No matching user found for the argument transfer_dest_id.*/
+        MembersRemoveError_TRANSFER_DEST_USER_NOT_FOUND,
+        /*The provided transfer_dest_id does not exist on this team.*/
+        MembersRemoveError_TRANSFER_DEST_USER_NOT_IN_TEAM,
+        /*No matching user found for the argument transfer_admin_id.*/
+        MembersRemoveError_TRANSFER_ADMIN_USER_NOT_FOUND,
+        /*The provided transfer_admin_id does not exist on this team.*/
+        MembersRemoveError_TRANSFER_ADMIN_USER_NOT_IN_TEAM,
+        /*The transfer_admin_id argument must be provided when file transfer is requested.*/
+        MembersRemoveError_UNSPECIFIED_TRANSFER_ADMIN_ID,
+        /*Specified transfer_admin user is not a team admin.*/
+        MembersRemoveError_TRANSFER_ADMIN_IS_NOT_ADMIN,
+        /*Cannot keep account and transfer the data to another user at the same time.*/
+        MembersRemoveError_CANNOT_KEEP_ACCOUNT_AND_TRANSFER,
+        /*Cannot keep account and delete the data at the same time.*/
+        MembersRemoveError_CANNOT_KEEP_ACCOUNT_AND_DELETE_DATA,
+        /*The email address of the user is too long to be disabled.*/
+        MembersRemoveError_EMAIL_ADDRESS_TOO_LONG_TO_BE_DISABLED
         };
 
         MembersRemoveError(){}

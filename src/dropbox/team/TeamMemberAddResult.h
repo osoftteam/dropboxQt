@@ -42,24 +42,24 @@ namespace team{
     public:
         enum Tag{
 
-		/*Describes a user that was successfully added to the team.*/
-		MemberAddResult_SUCCESS,
-		/*Team is already full. The organization has no available licenses.*/
-		MemberAddResult_TEAM_LICENSE_LIMIT,
-		/*Team is already full. The free team member limit has been reached.*/
-		MemberAddResult_FREE_TEAM_MEMBER_LIMIT_REACHED,
-		/*User is already on this team. The provided email address is associated with a user who is already a member of (including in recoverable state) or invited to the team.*/
-		MemberAddResult_USER_ALREADY_ON_TEAM,
-		/*User is already on another team. The provided email address is associated with a user that is already a member or invited to another team.*/
-		MemberAddResult_USER_ON_ANOTHER_TEAM,
-		/*User is already paired.*/
-		MemberAddResult_USER_ALREADY_PAIRED,
-		/*User migration has failed.*/
-		MemberAddResult_USER_MIGRATION_FAILED,
-		/*A user with the given external member ID already exists on the team (including in recoverable state).*/
-		MemberAddResult_DUPLICATE_EXTERNAL_MEMBER_ID,
-		/*User creation has failed.*/
-		MemberAddResult_USER_CREATION_FAILED
+        /*Describes a user that was successfully added to the team.*/
+        MemberAddResult_SUCCESS,
+        /*Team is already full. The organization has no available licenses.*/
+        MemberAddResult_TEAM_LICENSE_LIMIT,
+        /*Team is already full. The free team member limit has been reached.*/
+        MemberAddResult_FREE_TEAM_MEMBER_LIMIT_REACHED,
+        /*User is already on this team. The provided email address is associated with a user who is already a member of (including in recoverable state) or invited to the team.*/
+        MemberAddResult_USER_ALREADY_ON_TEAM,
+        /*User is already on another team. The provided email address is associated with a user that is already a member or invited to another team.*/
+        MemberAddResult_USER_ON_ANOTHER_TEAM,
+        /*User is already paired.*/
+        MemberAddResult_USER_ALREADY_PAIRED,
+        /*User migration has failed.*/
+        MemberAddResult_USER_MIGRATION_FAILED,
+        /*A user with the given external member ID already exists on the team (including in recoverable state).*/
+        MemberAddResult_DUPLICATE_EXTERNAL_MEMBER_ID,
+        /*User creation has failed.*/
+        MemberAddResult_USER_CREATION_FAILED
         };
 
         MemberAddResult(){}

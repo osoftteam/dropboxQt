@@ -20,12 +20,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*The result for this file if it was successful.*/
-		GetFileMetadataIndividualResult_METADATA,
-		/*The result for this file if it was an error.*/
-		GetFileMetadataIndividualResult_ACCESS_ERROR,
-		/*None*/
-		GetFileMetadataIndividualResult_OTHER
+        /*The result for this file if it was successful.*/
+        GetFileMetadataIndividualResult_METADATA,
+        /*The result for this file if it was an error.*/
+        GetFileMetadataIndividualResult_ACCESS_ERROR,
+        /*None*/
+        GetFileMetadataIndividualResult_OTHER
         };
 
         GetFileMetadataIndividualResult(){}

@@ -22,8 +22,8 @@ namespace async{
     public:
         enum Tag{
 
-		/*The asynchronous job is still in progress.*/
-		PollResultBase_IN_PROGRESS
+        /*The asynchronous job is still in progress.*/
+        PollResultBase_IN_PROGRESS
         };
 
         PollResultBase(){}

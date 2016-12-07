@@ -14,8 +14,8 @@ namespace team{
     public:
         enum Tag{
 
-		/*None*/
-		RevokeDeviceSessionBatchError_OTHER
+        /*None*/
+        RevokeDeviceSessionBatchError_OTHER
         };
 
         RevokeDeviceSessionBatchError(){}

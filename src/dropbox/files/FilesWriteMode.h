@@ -36,12 +36,12 @@ namespace files{
     public:
         enum Tag{
 
-		/*Never overwrite the existing file. The autorename strategy is to append a number to the file name. For example, "document.txt" might become "document (2).txt".*/
-		WriteMode_ADD,
-		/*Always overwrite the existing file. The autorename strategy is the same as it is for :field:`add`.*/
-		WriteMode_OVERWRITE,
-		/*Overwrite if the given "rev" matches the existing file's "rev". The autorename strategy is to append the string "conflicted copy" to the file name. For example, "document.txt" might become "document (conflicted copy).txt" or "document (Panda's conflicted copy).txt".*/
-		WriteMode_UPDATE
+        /*Never overwrite the existing file. The autorename strategy is to append a number to the file name. For example, "document.txt" might become "document (2).txt".*/
+        WriteMode_ADD,
+        /*Always overwrite the existing file. The autorename strategy is the same as it is for :field:`add`.*/
+        WriteMode_OVERWRITE,
+        /*Overwrite if the given "rev" matches the existing file's "rev". The autorename strategy is to append the string "conflicted copy" to the file name. For example, "document.txt" might become "document (conflicted copy).txt" or "document (Panda's conflicted copy).txt".*/
+        WriteMode_UPDATE
         };
 
         WriteMode(){}

@@ -26,20 +26,20 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Allow the member to keep a copy of the folder when removing.*/
-		MemberAction_LEAVE_A_COPY,
-		/*Make the member an editor of the folder.*/
-		MemberAction_MAKE_EDITOR,
-		/*Make the member an owner of the folder.*/
-		MemberAction_MAKE_OWNER,
-		/*Make the member a viewer of the folder.*/
-		MemberAction_MAKE_VIEWER,
-		/*Make the member a viewer of the folder without commenting permissions.*/
-		MemberAction_MAKE_VIEWER_NO_COMMENT,
-		/*Remove the member from the folder.*/
-		MemberAction_REMOVE,
-		/*None*/
-		MemberAction_OTHER
+        /*Allow the member to keep a copy of the folder when removing.*/
+        MemberAction_LEAVE_A_COPY,
+        /*Make the member an editor of the folder.*/
+        MemberAction_MAKE_EDITOR,
+        /*Make the member an owner of the folder.*/
+        MemberAction_MAKE_OWNER,
+        /*Make the member a viewer of the folder.*/
+        MemberAction_MAKE_VIEWER,
+        /*Make the member a viewer of the folder without commenting permissions.*/
+        MemberAction_MAKE_VIEWER_NO_COMMENT,
+        /*Remove the member from the folder.*/
+        MemberAction_REMOVE,
+        /*None*/
+        MemberAction_OTHER
         };
 
         MemberAction(){}

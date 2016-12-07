@@ -26,18 +26,18 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		UpdateFolderPolicyError_ACCESS_ERROR,
-		/*:field:`UpdateFolderPolicyArg.member_policy` was set even though user is not on a team.*/
-		UpdateFolderPolicyError_NOT_ON_TEAM,
-		/*Team policy is more restrictive than :field:`ShareFolderArg.member_policy`.*/
-		UpdateFolderPolicyError_TEAM_POLICY_DISALLOWS_MEMBER_POLICY,
-		/*The current account is not allowed to select the specified :field:`ShareFolderArg.shared_link_policy`.*/
-		UpdateFolderPolicyError_DISALLOWED_SHARED_LINK_POLICY,
-		/*The current user does not have permission to perform this action.*/
-		UpdateFolderPolicyError_NO_PERMISSION,
-		/*None*/
-		UpdateFolderPolicyError_OTHER
+        /*None*/
+        UpdateFolderPolicyError_ACCESS_ERROR,
+        /*:field:`UpdateFolderPolicyArg.member_policy` was set even though user is not on a team.*/
+        UpdateFolderPolicyError_NOT_ON_TEAM,
+        /*Team policy is more restrictive than :field:`ShareFolderArg.member_policy`.*/
+        UpdateFolderPolicyError_TEAM_POLICY_DISALLOWS_MEMBER_POLICY,
+        /*The current account is not allowed to select the specified :field:`ShareFolderArg.shared_link_policy`.*/
+        UpdateFolderPolicyError_DISALLOWED_SHARED_LINK_POLICY,
+        /*The current user does not have permission to perform this action.*/
+        UpdateFolderPolicyError_NO_PERMISSION,
+        /*None*/
+        UpdateFolderPolicyError_OTHER
         };
 
         UpdateFolderPolicyError(){}

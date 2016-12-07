@@ -19,12 +19,12 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		ListFolderContinueError_PATH,
-		/*Indicates that the cursor has been invalidated. Call :route:`list_folder` to obtain a new cursor.*/
-		ListFolderContinueError_RESET,
-		/*None*/
-		ListFolderContinueError_OTHER
+        /*None*/
+        ListFolderContinueError_PATH,
+        /*Indicates that the cursor has been invalidated. Call :route:`list_folder` to obtain a new cursor.*/
+        ListFolderContinueError_RESET,
+        /*None*/
+        ListFolderContinueError_OTHER
         };
 
         ListFolderContinueError(){}

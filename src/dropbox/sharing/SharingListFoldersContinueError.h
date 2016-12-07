@@ -17,10 +17,10 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*:field:`ListFoldersContinueArg.cursor` is invalid.*/
-		ListFoldersContinueError_INVALID_CURSOR,
-		/*None*/
-		ListFoldersContinueError_OTHER
+        /*:field:`ListFoldersContinueArg.cursor` is invalid.*/
+        ListFoldersContinueError_INVALID_CURSOR,
+        /*None*/
+        ListFoldersContinueError_OTHER
         };
 
         ListFoldersContinueError(){}

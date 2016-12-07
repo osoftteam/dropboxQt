@@ -203,26 +203,26 @@ namespace dropboxQt {
             return rv;
         };
 
-		bool waitForResult()const;
+        bool waitForResult()const;
 
     signals:
         void finished();
 
     protected:
-		DropboxBaseTask(ApiEndpoint& ept):m_endpoint(ept){};
+        DropboxBaseTask(ApiEndpoint& ept):m_endpoint(ept){};
 
         void failed_callback(std::unique_ptr<DropboxException> ex) 
         {
             m_failed = std::move(ex);
-			notifyOnFinished();
+            notifyOnFinished();
         };
 
-		void notifyOnFinished();
+        void notifyOnFinished();
         void waitUntillFinishedOrCancelled();
     protected:
         std::unique_ptr<DropboxException> m_failed;
-		ApiEndpoint& m_endpoint;
-		mutable bool m_in_wait_loop					{ false };
+        ApiEndpoint& m_endpoint;
+        mutable bool m_in_wait_loop                 { false };
     };
 
     template <class RESULT>
@@ -242,23 +242,23 @@ namespace dropboxQt {
 
         virtual bool isCompleted()const override { return (m_completed != nullptr); };
 
-		///this function will block execution (via event loop) and return
-		///object in case os success or raise exception in case of error
-		///also this function will schedule dispose of the object via deleteLater
-		std::unique_ptr<RESULT> waitForResultAndRelease()
-		{
-			std::unique_ptr<RESULT> res;
-			if (!isCompleted() && !isFailed())
+        ///this function will block execution (via event loop) and return
+        ///object in case os success or raise exception in case of error
+        ///also this function will schedule dispose of the object via deleteLater
+        std::unique_ptr<RESULT> waitForResultAndRelease()
+        {
+            std::unique_ptr<RESULT> res;
+            if (!isCompleted() && !isFailed())
                 {
                     m_in_wait_loop = true;
                     waitUntillFinishedOrCancelled();
                 }
-			
-			if (isCompleted())
+            
+            if (isCompleted())
                 {
                     res = std::move(m_completed);
                 }
-			else if (isFailed())
+            else if (isFailed())
                 {
                     std::unique_ptr<DropboxException> ex;
                     ex = std::move(m_failed);
@@ -266,16 +266,16 @@ namespace dropboxQt {
                     if (ex)
                         ex->raise();
                 }
-			deleteLater();
-			return res;
-		};
+            deleteLater();
+            return res;
+        };
 
     protected:
-		DropboxTask(ApiEndpoint& ept):DropboxBaseTask(ept){};
+        DropboxTask(ApiEndpoint& ept):DropboxBaseTask(ept){};
         void completed_callback(std::unique_ptr<RESULT> r) 
         {
             m_completed = std::move(r);
-			notifyOnFinished();            
+            notifyOnFinished();            
         };
     protected:
         std::unique_ptr<RESULT> m_completed;
@@ -287,17 +287,17 @@ namespace dropboxQt {
     public:
         virtual bool isCompleted()const override { return m_completed; };
 
-		///this function will block execution (via event loop) and return
-		///object in case os success or raise exception in case of error
-		///also this function will schedule dispose of the object via deleteLater
-		void waitForResultAndRelease();
+        ///this function will block execution (via event loop) and return
+        ///object in case os success or raise exception in case of error
+        ///also this function will schedule dispose of the object via deleteLater
+        void waitForResultAndRelease();
 
     protected:
-		DropboxVoidTask(ApiEndpoint& ept):DropboxBaseTask(ept) {};
+        DropboxVoidTask(ApiEndpoint& ept):DropboxBaseTask(ept) {};
         void completed_callback(void)
         {
             m_completed = true;
-			notifyOnFinished();
+            notifyOnFinished();
         };
 
     protected:

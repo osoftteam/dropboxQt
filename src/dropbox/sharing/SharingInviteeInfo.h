@@ -19,10 +19,10 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*E-mail address of invited user.*/
-		InviteeInfo_EMAIL,
-		/*None*/
-		InviteeInfo_OTHER
+        /*E-mail address of invited user.*/
+        InviteeInfo_EMAIL,
+        /*None*/
+        InviteeInfo_OTHER
         };
 
         InviteeInfo(){}

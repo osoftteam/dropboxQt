@@ -41,30 +41,30 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Unable to access shared folder.*/
-		AddFolderMemberError_ACCESS_ERROR,
-		/*The current user's e-mail address is unverified.*/
-		AddFolderMemberError_EMAIL_UNVERIFIED,
-		/*:field:`AddFolderMemberArg.members` contains a bad invitation recipient.*/
-		AddFolderMemberError_BAD_MEMBER,
-		/*Your team policy does not allow sharing outside of the team.*/
-		AddFolderMemberError_CANT_SHARE_OUTSIDE_TEAM,
-		/*The value is the member limit that was reached.*/
-		AddFolderMemberError_TOO_MANY_MEMBERS,
-		/*The value is the pending invite limit that was reached.*/
-		AddFolderMemberError_TOO_MANY_PENDING_INVITES,
-		/*The current user has hit the limit of invites they can send per day. Try again in 24 hours.*/
-		AddFolderMemberError_RATE_LIMIT,
-		/*The current user is trying to share with too many people at once.*/
-		AddFolderMemberError_TOO_MANY_INVITEES,
-		/*The current user's account doesn't support this action. An example of this is when adding a read-only member. This action can only be performed by users that have upgraded to a Pro or Business plan.*/
-		AddFolderMemberError_INSUFFICIENT_PLAN,
-		/*This action cannot be performed on a team shared folder.*/
-		AddFolderMemberError_TEAM_FOLDER,
-		/*The current user does not have permission to perform this action.*/
-		AddFolderMemberError_NO_PERMISSION,
-		/*None*/
-		AddFolderMemberError_OTHER
+        /*Unable to access shared folder.*/
+        AddFolderMemberError_ACCESS_ERROR,
+        /*The current user's e-mail address is unverified.*/
+        AddFolderMemberError_EMAIL_UNVERIFIED,
+        /*:field:`AddFolderMemberArg.members` contains a bad invitation recipient.*/
+        AddFolderMemberError_BAD_MEMBER,
+        /*Your team policy does not allow sharing outside of the team.*/
+        AddFolderMemberError_CANT_SHARE_OUTSIDE_TEAM,
+        /*The value is the member limit that was reached.*/
+        AddFolderMemberError_TOO_MANY_MEMBERS,
+        /*The value is the pending invite limit that was reached.*/
+        AddFolderMemberError_TOO_MANY_PENDING_INVITES,
+        /*The current user has hit the limit of invites they can send per day. Try again in 24 hours.*/
+        AddFolderMemberError_RATE_LIMIT,
+        /*The current user is trying to share with too many people at once.*/
+        AddFolderMemberError_TOO_MANY_INVITEES,
+        /*The current user's account doesn't support this action. An example of this is when adding a read-only member. This action can only be performed by users that have upgraded to a Pro or Business plan.*/
+        AddFolderMemberError_INSUFFICIENT_PLAN,
+        /*This action cannot be performed on a team shared folder.*/
+        AddFolderMemberError_TEAM_FOLDER,
+        /*The current user does not have permission to perform this action.*/
+        AddFolderMemberError_NO_PERMISSION,
+        /*None*/
+        AddFolderMemberError_OTHER
         };
 
         AddFolderMemberError(){}

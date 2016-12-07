@@ -18,8 +18,8 @@ namespace files{
     public:
         enum Tag{
 
-		/*This property group does not exist for this file.*/
-		LookUpPropertiesError_PROPERTY_GROUP_NOT_FOUND
+        /*This property group does not exist for this file.*/
+        LookUpPropertiesError_PROPERTY_GROUP_NOT_FOUND
         };
 
         LookUpPropertiesError(){}

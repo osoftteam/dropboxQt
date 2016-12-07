@@ -15,10 +15,10 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		CreateSharedLinkError_PATH,
-		/*None*/
-		CreateSharedLinkError_OTHER
+        /*None*/
+        CreateSharedLinkError_PATH,
+        /*None*/
+        CreateSharedLinkError_OTHER
         };
 
         CreateSharedLinkError(){}

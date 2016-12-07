@@ -46,49 +46,49 @@ namespace dropboxQt{
         return js;
     };
 
-	///DropboxBaseTask
-	bool DropboxBaseTask::waitForResult()const
-	{
-		if (!isCompleted() && !isFailed())
-		{
-			m_in_wait_loop = true;
-			m_endpoint.runEventsLoop();
-		}
+    ///DropboxBaseTask
+    bool DropboxBaseTask::waitForResult()const
+    {
+        if (!isCompleted() && !isFailed())
+        {
+            m_in_wait_loop = true;
+            m_endpoint.runEventsLoop();
+        }
 
-		return isCompleted();
-	};
+        return isCompleted();
+    };
 
-	void DropboxBaseTask::notifyOnFinished()
-	{
-		emit finished();
-		if (m_in_wait_loop)
-		{
-			m_endpoint.exitEventsLoop();
-		}
-	};
+    void DropboxBaseTask::notifyOnFinished()
+    {
+        emit finished();
+        if (m_in_wait_loop)
+        {
+            m_endpoint.exitEventsLoop();
+        }
+    };
 
     void DropboxBaseTask::waitUntillFinishedOrCancelled()
     {
         m_endpoint.runEventsLoop();
     };
     
-	void DropboxVoidTask::waitForResultAndRelease()
-	{
-		if (!isCompleted() && !isFailed())
-		{
-			m_in_wait_loop = true;
-			m_endpoint.runEventsLoop();
-		}
+    void DropboxVoidTask::waitForResultAndRelease()
+    {
+        if (!isCompleted() && !isFailed())
+        {
+            m_in_wait_loop = true;
+            m_endpoint.runEventsLoop();
+        }
 
-		if (isFailed())
-		{
-			std::unique_ptr<DropboxException> ex;
-			ex = std::move(m_failed);
-			deleteLater();
-			if (ex)
-				ex->raise();
-		}
-		deleteLater();
-	};
+        if (isFailed())
+        {
+            std::unique_ptr<DropboxException> ex;
+            ex = std::move(m_failed);
+            deleteLater();
+            if (ex)
+                ex->raise();
+        }
+        deleteLater();
+    };
 
 }

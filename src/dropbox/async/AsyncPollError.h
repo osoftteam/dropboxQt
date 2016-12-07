@@ -24,12 +24,12 @@ namespace async{
     public:
         enum Tag{
 
-		/*The job ID is invalid.*/
-		PollError_INVALID_ASYNC_JOB_ID,
-		/*Something went wrong with the job on Dropbox's end. You'll need to verify that the action you were taking succeeded, and if not, try again. This should happen very rarely.*/
-		PollError_INTERNAL_ERROR,
-		/*None*/
-		PollError_OTHER
+        /*The job ID is invalid.*/
+        PollError_INVALID_ASYNC_JOB_ID,
+        /*Something went wrong with the job on Dropbox's end. You'll need to verify that the action you were taking succeeded, and if not, try again. This should happen very rarely.*/
+        PollError_INTERNAL_ERROR,
+        /*None*/
+        PollError_OTHER
         };
 
         PollError(){}

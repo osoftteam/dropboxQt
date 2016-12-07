@@ -23,14 +23,14 @@ namespace auth{
     public:
         enum Tag{
 
-		/*The access token is invalid.*/
-		AuthError_INVALID_ACCESS_TOKEN,
-		/*The user specified in 'Dropbox-API-Select-User' is no longer on the team.*/
-		AuthError_INVALID_SELECT_USER,
-		/*The user specified in 'Dropbox-API-Select-Admin' is not a Dropbox Business team admin.*/
-		AuthError_INVALID_SELECT_ADMIN,
-		/*None*/
-		AuthError_OTHER
+        /*The access token is invalid.*/
+        AuthError_INVALID_ACCESS_TOKEN,
+        /*The user specified in 'Dropbox-API-Select-User' is no longer on the team.*/
+        AuthError_INVALID_SELECT_USER,
+        /*The user specified in 'Dropbox-API-Select-Admin' is not a Dropbox Business team admin.*/
+        AuthError_INVALID_SELECT_ADMIN,
+        /*None*/
+        AuthError_OTHER
         };
 
         AuthError(){}

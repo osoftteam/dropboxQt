@@ -21,16 +21,16 @@ namespace files{
     public:
         enum Tag{
 
-		/*32 by 32 px.*/
-		ThumbnailSize_W32H32,
-		/*64 by 64 px.*/
-		ThumbnailSize_W64H64,
-		/*128 by 128 px.*/
-		ThumbnailSize_W128H128,
-		/*640 by 480 px.*/
-		ThumbnailSize_W640H480,
-		/*1024 by 768*/
-		ThumbnailSize_W1024H768
+        /*32 by 32 px.*/
+        ThumbnailSize_W32H32,
+        /*64 by 64 px.*/
+        ThumbnailSize_W64H64,
+        /*128 by 128 px.*/
+        ThumbnailSize_W128H128,
+        /*640 by 480 px.*/
+        ThumbnailSize_W640H480,
+        /*1024 by 768*/
+        ThumbnailSize_W1024H768
         };
 
         ThumbnailSize(){}

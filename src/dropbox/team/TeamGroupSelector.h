@@ -21,10 +21,10 @@ namespace team{
     public:
         enum Tag{
 
-		/*Group ID.*/
-		GroupSelector_GROUP_ID,
-		/*External ID of the group.*/
-		GroupSelector_GROUP_EXTERNAL_ID
+        /*Group ID.*/
+        GroupSelector_GROUP_ID,
+        /*External ID of the group.*/
+        GroupSelector_GROUP_EXTERNAL_ID
         };
 
         GroupSelector(){}

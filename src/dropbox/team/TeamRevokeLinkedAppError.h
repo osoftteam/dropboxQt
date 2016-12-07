@@ -20,12 +20,12 @@ namespace team{
     public:
         enum Tag{
 
-		/*Application not found.*/
-		RevokeLinkedAppError_APP_NOT_FOUND,
-		/*Member not found.*/
-		RevokeLinkedAppError_MEMBER_NOT_FOUND,
-		/*None*/
-		RevokeLinkedAppError_OTHER
+        /*Application not found.*/
+        RevokeLinkedAppError_APP_NOT_FOUND,
+        /*Member not found.*/
+        RevokeLinkedAppError_MEMBER_NOT_FOUND,
+        /*None*/
+        RevokeLinkedAppError_OTHER
         };
 
         RevokeLinkedAppError(){}

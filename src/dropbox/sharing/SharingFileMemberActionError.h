@@ -22,14 +22,14 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Specified member was not found.*/
-		FileMemberActionError_INVALID_MEMBER,
-		/*User does not have permission to perform this action on this member.*/
-		FileMemberActionError_NO_PERMISSION,
-		/*Specified file was invalid or user does not have access.*/
-		FileMemberActionError_ACCESS_ERROR,
-		/*None*/
-		FileMemberActionError_OTHER
+        /*Specified member was not found.*/
+        FileMemberActionError_INVALID_MEMBER,
+        /*User does not have permission to perform this action on this member.*/
+        FileMemberActionError_NO_PERMISSION,
+        /*Specified file was invalid or user does not have access.*/
+        FileMemberActionError_ACCESS_ERROR,
+        /*None*/
+        FileMemberActionError_OTHER
         };
 
         FileMemberActionError(){}

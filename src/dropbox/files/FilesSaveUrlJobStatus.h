@@ -20,12 +20,12 @@ namespace files{
     public:
         enum Tag{
 
-		/*The asynchronous job is still in progress.*/
-		PollResultBase_IN_PROGRESS,
-		/*Metadata of the file where the URL is saved to.*/
-		SaveUrlJobStatus_COMPLETE,
-		/*None*/
-		SaveUrlJobStatus_FAILED
+        /*The asynchronous job is still in progress.*/
+        PollResultBase_IN_PROGRESS,
+        /*Metadata of the file where the URL is saved to.*/
+        SaveUrlJobStatus_COMPLETE,
+        /*None*/
+        SaveUrlJobStatus_FAILED
         };
 
         SaveUrlJobStatus(){}

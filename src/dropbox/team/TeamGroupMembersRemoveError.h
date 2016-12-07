@@ -19,14 +19,14 @@ namespace team{
     public:
         enum Tag{
 
-		/*No matching group found. No groups match the specified group ID.*/
-		GroupSelectorError_GROUP_NOT_FOUND,
-		/*None*/
-		GroupSelectorError_OTHER,
-		/*At least one of the specified users is not a member of the group.*/
-		GroupMembersSelectorError_MEMBER_NOT_IN_GROUP,
-		/*Group is not in this team. You cannot remove members from a group that is outside of your team.*/
-		GroupMembersRemoveError_GROUP_NOT_IN_TEAM
+        /*No matching group found. No groups match the specified group ID.*/
+        GroupSelectorError_GROUP_NOT_FOUND,
+        /*None*/
+        GroupSelectorError_OTHER,
+        /*At least one of the specified users is not a member of the group.*/
+        GroupMembersSelectorError_MEMBER_NOT_IN_GROUP,
+        /*Group is not in this team. You cannot remove members from a group that is outside of your team.*/
+        GroupMembersRemoveError_GROUP_NOT_IN_TEAM
         };
 
         GroupMembersRemoveError(){}

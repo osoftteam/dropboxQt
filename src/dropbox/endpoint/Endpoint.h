@@ -433,17 +433,17 @@ namespace dropboxQt{
 
         const DropboxHost& getHost()const { return DropboxHost::DEFAULT(); }
 
-		template <class T>
-		DropboxTask<T>* produceTask() 
-		{
-			DropboxTask<T>* rv = new DropboxTask<T>(*this);
-			return rv;
-		};
+        template <class T>
+        DropboxTask<T>* produceTask() 
+        {
+            DropboxTask<T>* rv = new DropboxTask<T>(*this);
+            return rv;
+        };
 
-		DropboxVoidTask* produceVoidTask() 
-		{
-			return new DropboxVoidTask(*this);			
-		}
+        DropboxVoidTask* produceVoidTask() 
+        {
+            return new DropboxVoidTask(*this);          
+        }
 
     protected:
 

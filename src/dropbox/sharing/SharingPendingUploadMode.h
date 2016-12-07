@@ -21,10 +21,10 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Assume pending uploads are files.*/
-		PendingUploadMode_FILE,
-		/*Assume pending uploads are folders.*/
-		PendingUploadMode_FOLDER
+        /*Assume pending uploads are files.*/
+        PendingUploadMode_FILE,
+        /*Assume pending uploads are folders.*/
+        PendingUploadMode_FOLDER
         };
 
         PendingUploadMode(){}

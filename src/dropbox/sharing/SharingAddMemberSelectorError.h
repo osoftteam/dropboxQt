@@ -29,20 +29,20 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Automatically created groups can only be added to team folders.*/
-		AddMemberSelectorError_AUTOMATIC_GROUP,
-		/*The value is the ID that could not be identified.*/
-		AddMemberSelectorError_INVALID_DROPBOX_ID,
-		/*The value is the e-email address that is malformed.*/
-		AddMemberSelectorError_INVALID_EMAIL,
-		/*The value is the ID of the Dropbox user with an unverified e-mail address.  Invite unverified users by e-mail address instead of by their Dropbox ID.*/
-		AddMemberSelectorError_UNVERIFIED_DROPBOX_ID,
-		/*At least one of the specified groups in :field:`AddFolderMemberArg.members` is deleted.*/
-		AddMemberSelectorError_GROUP_DELETED,
-		/*Sharing to a group that is not on the current user's team.*/
-		AddMemberSelectorError_GROUP_NOT_ON_TEAM,
-		/*None*/
-		AddMemberSelectorError_OTHER
+        /*Automatically created groups can only be added to team folders.*/
+        AddMemberSelectorError_AUTOMATIC_GROUP,
+        /*The value is the ID that could not be identified.*/
+        AddMemberSelectorError_INVALID_DROPBOX_ID,
+        /*The value is the e-email address that is malformed.*/
+        AddMemberSelectorError_INVALID_EMAIL,
+        /*The value is the ID of the Dropbox user with an unverified e-mail address.  Invite unverified users by e-mail address instead of by their Dropbox ID.*/
+        AddMemberSelectorError_UNVERIFIED_DROPBOX_ID,
+        /*At least one of the specified groups in :field:`AddFolderMemberArg.members` is deleted.*/
+        AddMemberSelectorError_GROUP_DELETED,
+        /*Sharing to a group that is not on the current user's team.*/
+        AddMemberSelectorError_GROUP_NOT_ON_TEAM,
+        /*None*/
+        AddMemberSelectorError_OTHER
         };
 
         AddMemberSelectorError(){}

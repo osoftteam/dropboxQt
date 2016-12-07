@@ -20,12 +20,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Member was successfully removed from this file.*/
-		FileMemberRemoveActionResult_SUCCESS,
-		/*User was not able to remove this member.*/
-		FileMemberRemoveActionResult_MEMBER_ERROR,
-		/*None*/
-		FileMemberRemoveActionResult_OTHER
+        /*Member was successfully removed from this file.*/
+        FileMemberRemoveActionResult_SUCCESS,
+        /*User was not able to remove this member.*/
+        FileMemberRemoveActionResult_MEMBER_ERROR,
+        /*None*/
+        FileMemberRemoveActionResult_OTHER
         };
 
         FileMemberRemoveActionResult(){}

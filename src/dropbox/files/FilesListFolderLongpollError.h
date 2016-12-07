@@ -18,10 +18,10 @@ namespace files{
     public:
         enum Tag{
 
-		/*Indicates that the cursor has been invalidated. Call :route:`list_folder` to obtain a new cursor.*/
-		ListFolderLongpollError_RESET,
-		/*None*/
-		ListFolderLongpollError_OTHER
+        /*Indicates that the cursor has been invalidated. Call :route:`list_folder` to obtain a new cursor.*/
+        ListFolderLongpollError_RESET,
+        /*None*/
+        ListFolderLongpollError_OTHER
         };
 
         ListFolderLongpollError(){}

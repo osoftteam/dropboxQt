@@ -19,10 +19,10 @@ namespace team{
     public:
         enum Tag{
 
-		/*Indicates that the cursor has been invalidated. Call :route:`devices/list_members_devices` again with an empty cursor to obtain a new cursor.*/
-		ListMembersDevicesError_RESET,
-		/*None*/
-		ListMembersDevicesError_OTHER
+        /*Indicates that the cursor has been invalidated. Call :route:`devices/list_members_devices` again with an empty cursor to obtain a new cursor.*/
+        ListMembersDevicesError_RESET,
+        /*None*/
+        ListMembersDevicesError_OTHER
         };
 
         ListMembersDevicesError(){}

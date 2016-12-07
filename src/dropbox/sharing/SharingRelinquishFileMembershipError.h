@@ -22,14 +22,14 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		RelinquishFileMembershipError_ACCESS_ERROR,
-		/*The current user has access to the shared file via a group.  You can't relinquish membership to a file shared via groups.*/
-		RelinquishFileMembershipError_GROUP_ACCESS,
-		/*The current user does not have permission to perform this action.*/
-		RelinquishFileMembershipError_NO_PERMISSION,
-		/*None*/
-		RelinquishFileMembershipError_OTHER
+        /*None*/
+        RelinquishFileMembershipError_ACCESS_ERROR,
+        /*The current user has access to the shared file via a group.  You can't relinquish membership to a file shared via groups.*/
+        RelinquishFileMembershipError_GROUP_ACCESS,
+        /*The current user does not have permission to perform this action.*/
+        RelinquishFileMembershipError_NO_PERMISSION,
+        /*None*/
+        RelinquishFileMembershipError_OTHER
         };
 
         RelinquishFileMembershipError(){}

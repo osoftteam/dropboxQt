@@ -15,10 +15,10 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		DownloadError_PATH,
-		/*None*/
-		DownloadError_OTHER
+        /*None*/
+        DownloadError_PATH,
+        /*None*/
+        DownloadError_OTHER
         };
 
         DownloadError(){}

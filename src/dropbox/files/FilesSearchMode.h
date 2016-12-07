@@ -20,12 +20,12 @@ namespace files{
     public:
         enum Tag{
 
-		/*Search file and folder names.*/
-		SearchMode_FILENAME,
-		/*Search file and folder names as well as file contents.*/
-		SearchMode_FILENAME_AND_CONTENT,
-		/*Search for deleted file and folder names.*/
-		SearchMode_DELETED_FILENAME
+        /*Search file and folder names.*/
+        SearchMode_FILENAME,
+        /*Search file and folder names as well as file contents.*/
+        SearchMode_FILENAME_AND_CONTENT,
+        /*Search for deleted file and folder names.*/
+        SearchMode_DELETED_FILENAME
         };
 
         SearchMode(){}

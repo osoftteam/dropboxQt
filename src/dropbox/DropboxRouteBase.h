@@ -4,7 +4,7 @@
 
 namespace dropboxQt{
 
-	class Endpoint;
+    class Endpoint;
 
     class DropboxRouteBase
     {        

@@ -21,12 +21,12 @@ namespace team_common{
     public:
         enum Tag{
 
-		/*A group which is managed by team admins only.*/
-		GroupManagementType_COMPANY_MANAGED,
-		/*A group which is managed by selected users.*/
-		GroupManagementType_USER_MANAGED,
-		/*None*/
-		GroupManagementType_OTHER
+        /*A group which is managed by team admins only.*/
+        GroupManagementType_COMPANY_MANAGED,
+        /*A group which is managed by selected users.*/
+        GroupManagementType_USER_MANAGED,
+        /*None*/
+        GroupManagementType_OTHER
         };
 
         GroupManagementType(){}

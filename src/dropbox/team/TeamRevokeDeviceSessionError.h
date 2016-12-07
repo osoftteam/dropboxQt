@@ -18,12 +18,12 @@ namespace team{
     public:
         enum Tag{
 
-		/*Device session not found.*/
-		RevokeDeviceSessionError_DEVICE_SESSION_NOT_FOUND,
-		/*Member not found.*/
-		RevokeDeviceSessionError_MEMBER_NOT_FOUND,
-		/*None*/
-		RevokeDeviceSessionError_OTHER
+        /*Device session not found.*/
+        RevokeDeviceSessionError_DEVICE_SESSION_NOT_FOUND,
+        /*Member not found.*/
+        RevokeDeviceSessionError_MEMBER_NOT_FOUND,
+        /*None*/
+        RevokeDeviceSessionError_OTHER
         };
 
         RevokeDeviceSessionError(){}

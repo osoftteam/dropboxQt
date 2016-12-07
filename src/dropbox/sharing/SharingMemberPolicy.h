@@ -21,12 +21,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Only a teammate can become a member.*/
-		MemberPolicy_TEAM,
-		/*Anyone can become a member.*/
-		MemberPolicy_ANYONE,
-		/*None*/
-		MemberPolicy_OTHER
+        /*Only a teammate can become a member.*/
+        MemberPolicy_TEAM,
+        /*Anyone can become a member.*/
+        MemberPolicy_ANYONE,
+        /*None*/
+        MemberPolicy_OTHER
         };
 
         MemberPolicy(){}

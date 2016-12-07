@@ -21,10 +21,10 @@ namespace team{
     public:
         enum Tag{
 
-		/*Indicates that the cursor has been invalidated. Call :route:`linked_apps/list_team_linked_apps` again with an empty cursor to obtain a new cursor.*/
-		ListTeamAppsError_RESET,
-		/*None*/
-		ListTeamAppsError_OTHER
+        /*Indicates that the cursor has been invalidated. Call :route:`linked_apps/list_team_linked_apps` again with an empty cursor to obtain a new cursor.*/
+        ListTeamAppsError_RESET,
+        /*None*/
+        ListTeamAppsError_OTHER
         };
 
         ListTeamAppsError(){}

@@ -20,14 +20,14 @@ namespace files{
     public:
         enum Tag{
 
-		/*There's a file in the way.*/
-		WriteConflictError_FILE,
-		/*There's a folder in the way.*/
-		WriteConflictError_FOLDER,
-		/*There's a file at an ancestor path, so we couldn't create the required parent folders.*/
-		WriteConflictError_FILE_ANCESTOR,
-		/*None*/
-		WriteConflictError_OTHER
+        /*There's a file in the way.*/
+        WriteConflictError_FILE,
+        /*There's a folder in the way.*/
+        WriteConflictError_FOLDER,
+        /*There's a file at an ancestor path, so we couldn't create the required parent folders.*/
+        WriteConflictError_FILE_ANCESTOR,
+        /*None*/
+        WriteConflictError_OTHER
         };
 
         WriteConflictError(){}

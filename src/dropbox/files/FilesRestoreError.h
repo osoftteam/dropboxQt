@@ -24,14 +24,14 @@ namespace files{
     public:
         enum Tag{
 
-		/*An error occurs when downloading metadata for the file.*/
-		RestoreError_PATH_LOOKUP,
-		/*An error occurs when trying to restore the file to that path.*/
-		RestoreError_PATH_WRITE,
-		/*The revision is invalid. It may point to a different file.*/
-		RestoreError_INVALID_REVISION,
-		/*None*/
-		RestoreError_OTHER
+        /*An error occurs when downloading metadata for the file.*/
+        RestoreError_PATH_LOOKUP,
+        /*An error occurs when trying to restore the file to that path.*/
+        RestoreError_PATH_WRITE,
+        /*The revision is invalid. It may point to a different file.*/
+        RestoreError_INVALID_REVISION,
+        /*None*/
+        RestoreError_OTHER
         };
 
         RestoreError(){}

@@ -18,12 +18,12 @@ namespace team{
     public:
         enum Tag{
 
-		/*None*/
-		UserSelectorArg_TEAM_MEMBER_ID,
-		/*None*/
-		UserSelectorArg_EXTERNAL_ID,
-		/*None*/
-		UserSelectorArg_EMAIL
+        /*None*/
+        UserSelectorArg_TEAM_MEMBER_ID,
+        /*None*/
+        UserSelectorArg_EXTERNAL_ID,
+        /*None*/
+        UserSelectorArg_EMAIL
         };
 
         UserSelectorArg(){}

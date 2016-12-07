@@ -24,14 +24,14 @@ namespace files{
     public:
         enum Tag{
 
-		/*The session arguments are incorrect; the value explains the reason.*/
-		UploadSessionFinishError_LOOKUP_FAILED,
-		/*Unable to save the uploaded contents to a file.*/
-		UploadSessionFinishError_PATH,
-		/*The batch request commits files into too many different shared folders. Please limit your batch request to files contained in a single shared folder.*/
-		UploadSessionFinishError_TOO_MANY_SHARED_FOLDER_TARGETS,
-		/*None*/
-		UploadSessionFinishError_OTHER
+        /*The session arguments are incorrect; the value explains the reason.*/
+        UploadSessionFinishError_LOOKUP_FAILED,
+        /*Unable to save the uploaded contents to a file.*/
+        UploadSessionFinishError_PATH,
+        /*The batch request commits files into too many different shared folders. Please limit your batch request to files contained in a single shared folder.*/
+        UploadSessionFinishError_TOO_MANY_SHARED_FOLDER_TARGETS,
+        /*None*/
+        UploadSessionFinishError_OTHER
         };
 
         UploadSessionFinishError(){}

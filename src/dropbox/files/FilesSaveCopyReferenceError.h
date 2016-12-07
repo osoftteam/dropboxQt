@@ -26,18 +26,18 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		SaveCopyReferenceError_PATH,
-		/*The copy reference is invalid.*/
-		SaveCopyReferenceError_INVALID_COPY_REFERENCE,
-		/*You don't have permission to save the given copy reference. Please make sure this app is same app which created the copy reference and the source user is still linked to the app.*/
-		SaveCopyReferenceError_NO_PERMISSION,
-		/*The file referenced by the copy reference cannot be found.*/
-		SaveCopyReferenceError_NOT_FOUND,
-		/*The operation would involve more than 10,000 files and folders.*/
-		SaveCopyReferenceError_TOO_MANY_FILES,
-		/*None*/
-		SaveCopyReferenceError_OTHER
+        /*None*/
+        SaveCopyReferenceError_PATH,
+        /*The copy reference is invalid.*/
+        SaveCopyReferenceError_INVALID_COPY_REFERENCE,
+        /*You don't have permission to save the given copy reference. Please make sure this app is same app which created the copy reference and the source user is still linked to the app.*/
+        SaveCopyReferenceError_NO_PERMISSION,
+        /*The file referenced by the copy reference cannot be found.*/
+        SaveCopyReferenceError_NOT_FOUND,
+        /*The operation would involve more than 10,000 files and folders.*/
+        SaveCopyReferenceError_TOO_MANY_FILES,
+        /*None*/
+        SaveCopyReferenceError_OTHER
         };
 
         SaveCopyReferenceError(){}

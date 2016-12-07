@@ -21,18 +21,18 @@ namespace files{
     public:
         enum Tag{
 
-		/*Property template does not exist for given identifier.*/
-		PropertyTemplateError_TEMPLATE_NOT_FOUND,
-		/*You do not have the permissions to modify this property template.*/
-		PropertyTemplateError_RESTRICTED_CONTENT,
-		/*None*/
-		PropertyTemplateError_OTHER,
-		/*None*/
-		PropertiesError_PATH,
-		/*A field value in this property group is too large.*/
-		InvalidPropertyGroupError_PROPERTY_FIELD_TOO_LARGE,
-		/*The property group specified does not conform to the property template.*/
-		InvalidPropertyGroupError_DOES_NOT_FIT_TEMPLATE
+        /*Property template does not exist for given identifier.*/
+        PropertyTemplateError_TEMPLATE_NOT_FOUND,
+        /*You do not have the permissions to modify this property template.*/
+        PropertyTemplateError_RESTRICTED_CONTENT,
+        /*None*/
+        PropertyTemplateError_OTHER,
+        /*None*/
+        PropertiesError_PATH,
+        /*A field value in this property group is too large.*/
+        InvalidPropertyGroupError_PROPERTY_FIELD_TOO_LARGE,
+        /*The property group specified does not conform to the property template.*/
+        InvalidPropertyGroupError_DOES_NOT_FIT_TEMPLATE
         };
 
         InvalidPropertyGroupError(){}

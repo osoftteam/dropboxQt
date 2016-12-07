@@ -28,14 +28,14 @@ namespace team{
     public:
         enum Tag{
 
-		/*User has successfully joined the team.*/
-		TeamMemberStatus_ACTIVE,
-		/*User has been invited to a team, but has not joined the team yet.*/
-		TeamMemberStatus_INVITED,
-		/*User is no longer a member of the team, but the account can be un-suspended, re-establishing the user as a team member.*/
-		TeamMemberStatus_SUSPENDED,
-		/*User is no longer a member of the team. Removed users are only listed when include_removed is true in members/list.*/
-		TeamMemberStatus_REMOVED
+        /*User has successfully joined the team.*/
+        TeamMemberStatus_ACTIVE,
+        /*User has been invited to a team, but has not joined the team yet.*/
+        TeamMemberStatus_INVITED,
+        /*User is no longer a member of the team, but the account can be un-suspended, re-establishing the user as a team member.*/
+        TeamMemberStatus_SUSPENDED,
+        /*User is no longer a member of the team. Removed users are only listed when include_removed is true in members/list.*/
+        TeamMemberStatus_REMOVED
         };
 
         TeamMemberStatus(){}

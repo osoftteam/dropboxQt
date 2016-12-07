@@ -21,12 +21,12 @@ namespace team{
     public:
         enum Tag{
 
-		/*End an active session*/
-		RevokeDeviceSessionArg_WEB_SESSION,
-		/*Unlink a linked desktop device*/
-		RevokeDeviceSessionArg_DESKTOP_CLIENT,
-		/*Unlink a linked mobile device*/
-		RevokeDeviceSessionArg_MOBILE_CLIENT
+        /*End an active session*/
+        RevokeDeviceSessionArg_WEB_SESSION,
+        /*Unlink a linked desktop device*/
+        RevokeDeviceSessionArg_DESKTOP_CLIENT,
+        /*Unlink a linked mobile device*/
+        RevokeDeviceSessionArg_MOBILE_CLIENT
         };
 
         RevokeDeviceSessionArg(){}

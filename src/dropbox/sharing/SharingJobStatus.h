@@ -20,12 +20,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*The asynchronous job is still in progress.*/
-		PollResultBase_IN_PROGRESS,
-		/*The asynchronous job has finished.*/
-		JobStatus_COMPLETE,
-		/*The asynchronous job returned an error.*/
-		JobStatus_FAILED
+        /*The asynchronous job is still in progress.*/
+        PollResultBase_IN_PROGRESS,
+        /*The asynchronous job has finished.*/
+        JobStatus_COMPLETE,
+        /*The asynchronous job returned an error.*/
+        JobStatus_FAILED
         };
 
         JobStatus(){}

@@ -24,16 +24,16 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*This shared folder ID is invalid.*/
-		SharedFolderAccessError_INVALID_ID,
-		/*The user is not a member of the shared folder thus cannot access it.*/
-		SharedFolderAccessError_NOT_A_MEMBER,
-		/*The current user's e-mail address is unverified.*/
-		SharedFolderAccessError_EMAIL_UNVERIFIED,
-		/*The shared folder is unmounted.*/
-		SharedFolderAccessError_UNMOUNTED,
-		/*None*/
-		SharedFolderAccessError_OTHER
+        /*This shared folder ID is invalid.*/
+        SharedFolderAccessError_INVALID_ID,
+        /*The user is not a member of the shared folder thus cannot access it.*/
+        SharedFolderAccessError_NOT_A_MEMBER,
+        /*The current user's e-mail address is unverified.*/
+        SharedFolderAccessError_EMAIL_UNVERIFIED,
+        /*The shared folder is unmounted.*/
+        SharedFolderAccessError_UNMOUNTED,
+        /*None*/
+        SharedFolderAccessError_OTHER
         };
 
         SharedFolderAccessError(){}

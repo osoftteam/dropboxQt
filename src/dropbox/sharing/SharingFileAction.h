@@ -28,22 +28,22 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Change or edit contents of the file.*/
-		FileAction_EDIT_CONTENTS,
-		/*Add a member with view permissions.*/
-		FileAction_INVITE_VIEWER,
-		/*Add a member with view permissions but no comment permissions.*/
-		FileAction_INVITE_VIEWER_NO_COMMENT,
-		/*Stop sharing this file.*/
-		FileAction_UNSHARE,
-		/*Relinquish one's own membership to the file.*/
-		FileAction_RELINQUISH_MEMBERSHIP,
-		/*This action is deprecated. Use create_link instead.*/
-		FileAction_SHARE_LINK,
-		/*Create a shared link to the file.*/
-		FileAction_CREATE_LINK,
-		/*None*/
-		FileAction_OTHER
+        /*Change or edit contents of the file.*/
+        FileAction_EDIT_CONTENTS,
+        /*Add a member with view permissions.*/
+        FileAction_INVITE_VIEWER,
+        /*Add a member with view permissions but no comment permissions.*/
+        FileAction_INVITE_VIEWER_NO_COMMENT,
+        /*Stop sharing this file.*/
+        FileAction_UNSHARE,
+        /*Relinquish one's own membership to the file.*/
+        FileAction_RELINQUISH_MEMBERSHIP,
+        /*This action is deprecated. Use create_link instead.*/
+        FileAction_SHARE_LINK,
+        /*Create a shared link to the file.*/
+        FileAction_CREATE_LINK,
+        /*None*/
+        FileAction_OTHER
         };
 
         FileAction(){}

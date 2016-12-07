@@ -20,12 +20,12 @@ namespace auth{
     public:
         enum Tag{
 
-		/*You are making too many requests in the past few minutes.*/
-		RateLimitReason_TOO_MANY_REQUESTS,
-		/*There are currently too many write operations happening in the user's Dropbox.*/
-		RateLimitReason_TOO_MANY_WRITE_OPERATIONS,
-		/*None*/
-		RateLimitReason_OTHER
+        /*You are making too many requests in the past few minutes.*/
+        RateLimitReason_TOO_MANY_REQUESTS,
+        /*There are currently too many write operations happening in the user's Dropbox.*/
+        RateLimitReason_TOO_MANY_WRITE_OPERATIONS,
+        /*None*/
+        RateLimitReason_OTHER
         };
 
         RateLimitReason(){}

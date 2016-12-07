@@ -19,18 +19,18 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*The current user's e-mail address is unverified.*/
-		ShareFolderErrorBase_EMAIL_UNVERIFIED,
-		/*:field:`ShareFolderArg.path` is invalid.*/
-		ShareFolderErrorBase_BAD_PATH,
-		/*Team policy is more restrictive than :field:`ShareFolderArg.member_policy`.*/
-		ShareFolderErrorBase_TEAM_POLICY_DISALLOWS_MEMBER_POLICY,
-		/*The current user's account is not allowed to select the specified :field:`ShareFolderArg.shared_link_policy`.*/
-		ShareFolderErrorBase_DISALLOWED_SHARED_LINK_POLICY,
-		/*None*/
-		ShareFolderErrorBase_OTHER,
-		/*The current user does not have permission to perform this action.*/
-		ShareFolderError_NO_PERMISSION
+        /*The current user's e-mail address is unverified.*/
+        ShareFolderErrorBase_EMAIL_UNVERIFIED,
+        /*:field:`ShareFolderArg.path` is invalid.*/
+        ShareFolderErrorBase_BAD_PATH,
+        /*Team policy is more restrictive than :field:`ShareFolderArg.member_policy`.*/
+        ShareFolderErrorBase_TEAM_POLICY_DISALLOWS_MEMBER_POLICY,
+        /*The current user's account is not allowed to select the specified :field:`ShareFolderArg.shared_link_policy`.*/
+        ShareFolderErrorBase_DISALLOWED_SHARED_LINK_POLICY,
+        /*None*/
+        ShareFolderErrorBase_OTHER,
+        /*The current user does not have permission to perform this action.*/
+        ShareFolderError_NO_PERMISSION
         };
 
         ShareFolderError(){}

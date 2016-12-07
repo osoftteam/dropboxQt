@@ -21,10 +21,10 @@ namespace team{
     public:
         enum Tag{
 
-		/*User is a member of the group, but has no special permissions.*/
-		GroupAccessType_MEMBER,
-		/*User can rename the group, and add/remove members.*/
-		GroupAccessType_OWNER
+        /*User is a member of the group, but has no special permissions.*/
+        GroupAccessType_MEMBER,
+        /*User can rename the group, and add/remove members.*/
+        GroupAccessType_OWNER
         };
 
         GroupAccessType(){}

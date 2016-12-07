@@ -24,16 +24,16 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		AddFileMemberError_USER_ERROR,
-		/*None*/
-		AddFileMemberError_ACCESS_ERROR,
-		/*The user has reached the rate limit for invitations.*/
-		AddFileMemberError_RATE_LIMIT,
-		/*The custom message did not pass comment permissions checks.*/
-		AddFileMemberError_INVALID_COMMENT,
-		/*None*/
-		AddFileMemberError_OTHER
+        /*None*/
+        AddFileMemberError_USER_ERROR,
+        /*None*/
+        AddFileMemberError_ACCESS_ERROR,
+        /*The user has reached the rate limit for invitations.*/
+        AddFileMemberError_RATE_LIMIT,
+        /*The custom message did not pass comment permissions checks.*/
+        AddFileMemberError_INVALID_COMMENT,
+        /*None*/
+        AddFileMemberError_OTHER
         };
 
         AddFileMemberError(){}

@@ -19,12 +19,12 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		ListSharedLinksError_PATH,
-		/*Indicates that the cursor has been invalidated. Call :route:`list_shared_links` to obtain a new cursor.*/
-		ListSharedLinksError_RESET,
-		/*None*/
-		ListSharedLinksError_OTHER
+        /*None*/
+        ListSharedLinksError_PATH,
+        /*Indicates that the cursor has been invalidated. Call :route:`list_shared_links` to obtain a new cursor.*/
+        ListSharedLinksError_RESET,
+        /*None*/
+        ListSharedLinksError_OTHER
         };
 
         ListSharedLinksError(){}

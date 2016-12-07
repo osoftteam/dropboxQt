@@ -17,8 +17,8 @@ namespace team{
     public:
         enum Tag{
 
-		/*None*/
-		RevokeLinkedAppBatchError_OTHER
+        /*None*/
+        RevokeLinkedAppBatchError_OTHER
         };
 
         RevokeLinkedAppBatchError(){}

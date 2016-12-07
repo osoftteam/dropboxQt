@@ -18,10 +18,10 @@ namespace files{
     public:
         enum Tag{
 
-		/*Unable to save the uploaded contents to a file.*/
-		UploadError_PATH,
-		/*None*/
-		UploadError_OTHER
+        /*Unable to save the uploaded contents to a file.*/
+        UploadError_PATH,
+        /*None*/
+        UploadError_OTHER
         };
 
         UploadError(){}

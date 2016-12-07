@@ -19,14 +19,14 @@ namespace team_policies{
     public:
         enum Tag{
 
-		/*Emm token is disabled*/
-		EmmState_DISABLED,
-		/*Emm token is optional*/
-		EmmState_OPTIONAL,
-		/*Emm token is required*/
-		EmmState_REQUIRED,
-		/*None*/
-		EmmState_OTHER
+        /*Emm token is disabled*/
+        EmmState_DISABLED,
+        /*Emm token is optional*/
+        EmmState_OPTIONAL,
+        /*Emm token is required*/
+        EmmState_REQUIRED,
+        /*None*/
+        EmmState_OTHER
         };
 
         EmmState(){}

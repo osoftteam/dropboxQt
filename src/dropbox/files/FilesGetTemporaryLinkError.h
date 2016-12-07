@@ -15,10 +15,10 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		GetTemporaryLinkError_PATH,
-		/*None*/
-		GetTemporaryLinkError_OTHER
+        /*None*/
+        GetTemporaryLinkError_PATH,
+        /*None*/
+        GetTemporaryLinkError_OTHER
         };
 
         GetTemporaryLinkError(){}

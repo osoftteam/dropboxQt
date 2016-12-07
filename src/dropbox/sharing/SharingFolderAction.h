@@ -36,30 +36,30 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*Change folder options, such as who can be invited to join the folder.*/
-		FolderAction_CHANGE_OPTIONS,
-		/*Change or edit contents of the folder.*/
-		FolderAction_EDIT_CONTENTS,
-		/*Invite a user or group to join the folder with read and write permission.*/
-		FolderAction_INVITE_EDITOR,
-		/*Invite a user or group to join the folder with read permission.*/
-		FolderAction_INVITE_VIEWER,
-		/*Invite a user or group to join the folder with read permission but no comment permissions.*/
-		FolderAction_INVITE_VIEWER_NO_COMMENT,
-		/*Relinquish one's own membership in the folder.*/
-		FolderAction_RELINQUISH_MEMBERSHIP,
-		/*Unmount the folder.*/
-		FolderAction_UNMOUNT,
-		/*Stop sharing this folder.*/
-		FolderAction_UNSHARE,
-		/*Keep a copy of the contents upon leaving or being kicked from the folder.*/
-		FolderAction_LEAVE_A_COPY,
-		/*This action is deprecated. Use create_link instead.*/
-		FolderAction_SHARE_LINK,
-		/*Create a shared link for folder.*/
-		FolderAction_CREATE_LINK,
-		/*None*/
-		FolderAction_OTHER
+        /*Change folder options, such as who can be invited to join the folder.*/
+        FolderAction_CHANGE_OPTIONS,
+        /*Change or edit contents of the folder.*/
+        FolderAction_EDIT_CONTENTS,
+        /*Invite a user or group to join the folder with read and write permission.*/
+        FolderAction_INVITE_EDITOR,
+        /*Invite a user or group to join the folder with read permission.*/
+        FolderAction_INVITE_VIEWER,
+        /*Invite a user or group to join the folder with read permission but no comment permissions.*/
+        FolderAction_INVITE_VIEWER_NO_COMMENT,
+        /*Relinquish one's own membership in the folder.*/
+        FolderAction_RELINQUISH_MEMBERSHIP,
+        /*Unmount the folder.*/
+        FolderAction_UNMOUNT,
+        /*Stop sharing this folder.*/
+        FolderAction_UNSHARE,
+        /*Keep a copy of the contents upon leaving or being kicked from the folder.*/
+        FolderAction_LEAVE_A_COPY,
+        /*This action is deprecated. Use create_link instead.*/
+        FolderAction_SHARE_LINK,
+        /*Create a shared link for folder.*/
+        FolderAction_CREATE_LINK,
+        /*None*/
+        FolderAction_OTHER
         };
 
         FolderAction(){}

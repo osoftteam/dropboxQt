@@ -20,12 +20,12 @@ namespace properties{
     public:
         enum Tag{
 
-		/*Property template does not exist for given identifier.*/
-		PropertyTemplateError_TEMPLATE_NOT_FOUND,
-		/*You do not have the permissions to modify this property template.*/
-		PropertyTemplateError_RESTRICTED_CONTENT,
-		/*None*/
-		PropertyTemplateError_OTHER
+        /*Property template does not exist for given identifier.*/
+        PropertyTemplateError_TEMPLATE_NOT_FOUND,
+        /*You do not have the permissions to modify this property template.*/
+        PropertyTemplateError_RESTRICTED_CONTENT,
+        /*None*/
+        PropertyTemplateError_OTHER
         };
 
         PropertyTemplateError(){}

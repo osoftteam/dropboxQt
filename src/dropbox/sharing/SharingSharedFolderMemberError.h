@@ -22,14 +22,14 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*The target dropbox_id is invalid.*/
-		SharedFolderMemberError_INVALID_DROPBOX_ID,
-		/*The target dropbox_id is not a member of the shared folder.*/
-		SharedFolderMemberError_NOT_A_MEMBER,
-		/*The target member only has inherited access to the shared folder.*/
-		SharedFolderMemberError_NO_EXPLICIT_ACCESS,
-		/*None*/
-		SharedFolderMemberError_OTHER
+        /*The target dropbox_id is invalid.*/
+        SharedFolderMemberError_INVALID_DROPBOX_ID,
+        /*The target dropbox_id is not a member of the shared folder.*/
+        SharedFolderMemberError_NOT_A_MEMBER,
+        /*The target member only has inherited access to the shared folder.*/
+        SharedFolderMemberError_NO_EXPLICIT_ACCESS,
+        /*None*/
+        SharedFolderMemberError_OTHER
         };
 
         SharedFolderMemberError(){}

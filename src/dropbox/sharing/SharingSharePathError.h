@@ -35,30 +35,30 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*A file is at the specified path.*/
-		SharePathError_IS_FILE,
-		/*We do not support sharing a folder inside a shared folder.*/
-		SharePathError_INSIDE_SHARED_FOLDER,
-		/*We do not support shared folders that contain shared folders.*/
-		SharePathError_CONTAINS_SHARED_FOLDER,
-		/*We do not support sharing an app folder.*/
-		SharePathError_IS_APP_FOLDER,
-		/*We do not support sharing a folder inside an app folder.*/
-		SharePathError_INSIDE_APP_FOLDER,
-		/*A public folder can't be shared this way. Use a public link instead.*/
-		SharePathError_IS_PUBLIC_FOLDER,
-		/*A folder inside a public folder can't be shared this way. Use a public link instead.*/
-		SharePathError_INSIDE_PUBLIC_FOLDER,
-		/*Folder is already shared. Contains metadata about the existing shared folder.*/
-		SharePathError_ALREADY_SHARED,
-		/*Path is not valid.*/
-		SharePathError_INVALID_PATH,
-		/*We do not support sharing a Mac OS X package.*/
-		SharePathError_IS_OSX_PACKAGE,
-		/*We do not support sharing a folder inside a Mac OS X package.*/
-		SharePathError_INSIDE_OSX_PACKAGE,
-		/*None*/
-		SharePathError_OTHER
+        /*A file is at the specified path.*/
+        SharePathError_IS_FILE,
+        /*We do not support sharing a folder inside a shared folder.*/
+        SharePathError_INSIDE_SHARED_FOLDER,
+        /*We do not support shared folders that contain shared folders.*/
+        SharePathError_CONTAINS_SHARED_FOLDER,
+        /*We do not support sharing an app folder.*/
+        SharePathError_IS_APP_FOLDER,
+        /*We do not support sharing a folder inside an app folder.*/
+        SharePathError_INSIDE_APP_FOLDER,
+        /*A public folder can't be shared this way. Use a public link instead.*/
+        SharePathError_IS_PUBLIC_FOLDER,
+        /*A folder inside a public folder can't be shared this way. Use a public link instead.*/
+        SharePathError_INSIDE_PUBLIC_FOLDER,
+        /*Folder is already shared. Contains metadata about the existing shared folder.*/
+        SharePathError_ALREADY_SHARED,
+        /*Path is not valid.*/
+        SharePathError_INVALID_PATH,
+        /*We do not support sharing a Mac OS X package.*/
+        SharePathError_IS_OSX_PACKAGE,
+        /*We do not support sharing a folder inside a Mac OS X package.*/
+        SharePathError_INSIDE_OSX_PACKAGE,
+        /*None*/
+        SharePathError_OTHER
         };
 
         SharePathError(){}

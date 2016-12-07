@@ -23,18 +23,18 @@ namespace team{
     public:
         enum Tag{
 
-		/*No matching user found. The provided team_member_id, email, or external_id does not exist on this team.*/
-		UserSelectorError_USER_NOT_FOUND,
-		/*Cannot remove the admin setting of the last admin.*/
-		MembersSetPermissionsError_LAST_ADMIN,
-		/*The user is not a member of the team.*/
-		MembersSetPermissionsError_USER_NOT_IN_TEAM,
-		/*Cannot remove/grant permissions.*/
-		MembersSetPermissionsError_CANNOT_SET_PERMISSIONS,
-		/*Team is full. The organization has no available licenses.*/
-		MembersSetPermissionsError_TEAM_LICENSE_LIMIT,
-		/*None*/
-		MembersSetPermissionsError_OTHER
+        /*No matching user found. The provided team_member_id, email, or external_id does not exist on this team.*/
+        UserSelectorError_USER_NOT_FOUND,
+        /*Cannot remove the admin setting of the last admin.*/
+        MembersSetPermissionsError_LAST_ADMIN,
+        /*The user is not a member of the team.*/
+        MembersSetPermissionsError_USER_NOT_IN_TEAM,
+        /*Cannot remove/grant permissions.*/
+        MembersSetPermissionsError_CANNOT_SET_PERMISSIONS,
+        /*Team is full. The organization has no available licenses.*/
+        MembersSetPermissionsError_TEAM_LICENSE_LIMIT,
+        /*None*/
+        MembersSetPermissionsError_OTHER
         };
 
         MembersSetPermissionsError(){}

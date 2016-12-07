@@ -25,14 +25,14 @@ namespace files{
     public:
         enum Tag{
 
-		/*An error occurs when downloading metadata for the image.*/
-		ThumbnailError_PATH,
-		/*The file extension doesn't allow conversion to a thumbnail.*/
-		ThumbnailError_UNSUPPORTED_EXTENSION,
-		/*The image cannot be converted to a thumbnail.*/
-		ThumbnailError_UNSUPPORTED_IMAGE,
-		/*An error occurs during thumbnail conversion.*/
-		ThumbnailError_CONVERSION_ERROR
+        /*An error occurs when downloading metadata for the image.*/
+        ThumbnailError_PATH,
+        /*The file extension doesn't allow conversion to a thumbnail.*/
+        ThumbnailError_UNSUPPORTED_EXTENSION,
+        /*The image cannot be converted to a thumbnail.*/
+        ThumbnailError_UNSUPPORTED_IMAGE,
+        /*An error occurs during thumbnail conversion.*/
+        ThumbnailError_CONVERSION_ERROR
         };
 
         ThumbnailError(){}

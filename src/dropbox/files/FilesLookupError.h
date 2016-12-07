@@ -24,18 +24,18 @@ namespace files{
     public:
         enum Tag{
 
-		/*None*/
-		LookupError_MALFORMED_PATH,
-		/*There is nothing at the given path.*/
-		LookupError_NOT_FOUND,
-		/*We were expecting a file, but the given path refers to something that isn't a file.*/
-		LookupError_NOT_FILE,
-		/*We were expecting a folder, but the given path refers to something that isn't a folder.*/
-		LookupError_NOT_FOLDER,
-		/*The file cannot be transferred because the content is restricted.  For example, sometimes there are legal restrictions due to copyright claims.*/
-		LookupError_RESTRICTED_CONTENT,
-		/*None*/
-		LookupError_OTHER
+        /*None*/
+        LookupError_MALFORMED_PATH,
+        /*There is nothing at the given path.*/
+        LookupError_NOT_FOUND,
+        /*We were expecting a file, but the given path refers to something that isn't a file.*/
+        LookupError_NOT_FILE,
+        /*We were expecting a folder, but the given path refers to something that isn't a folder.*/
+        LookupError_NOT_FOLDER,
+        /*The file cannot be transferred because the content is restricted.  For example, sometimes there are legal restrictions due to copyright claims.*/
+        LookupError_RESTRICTED_CONTENT,
+        /*None*/
+        LookupError_OTHER
         };
 
         LookupError(){}

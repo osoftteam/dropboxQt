@@ -27,16 +27,16 @@ namespace files{
     public:
         enum Tag{
 
-		/*The upload session id was not found.*/
-		UploadSessionLookupError_NOT_FOUND,
-		/*The specified offset was incorrect. See the value for the correct offset. (This error may occur when a previous request was received and processed successfully but the client did not receive the response, e.g. due to a network error.)*/
-		UploadSessionLookupError_INCORRECT_OFFSET,
-		/*You are attempting to append data to an upload session that has alread been closed (i.e. committed).*/
-		UploadSessionLookupError_CLOSED,
-		/*The session must be closed before calling upload_session/finish_batch.*/
-		UploadSessionLookupError_NOT_CLOSED,
-		/*None*/
-		UploadSessionLookupError_OTHER
+        /*The upload session id was not found.*/
+        UploadSessionLookupError_NOT_FOUND,
+        /*The specified offset was incorrect. See the value for the correct offset. (This error may occur when a previous request was received and processed successfully but the client did not receive the response, e.g. due to a network error.)*/
+        UploadSessionLookupError_INCORRECT_OFFSET,
+        /*You are attempting to append data to an upload session that has alread been closed (i.e. committed).*/
+        UploadSessionLookupError_CLOSED,
+        /*The session must be closed before calling upload_session/finish_batch.*/
+        UploadSessionLookupError_NOT_CLOSED,
+        /*None*/
+        UploadSessionLookupError_OTHER
         };
 
         UploadSessionLookupError(){}

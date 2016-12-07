@@ -25,14 +25,14 @@ namespace sharing{
     public:
         enum Tag{
 
-		/*None*/
-		RemoveFileMemberError_USER_ERROR,
-		/*None*/
-		RemoveFileMemberError_ACCESS_ERROR,
-		/*This member does not have explicit access to the file and therefore cannot be removed. The return value is the access that a user might have to the file from a parent folder.*/
-		RemoveFileMemberError_NO_EXPLICIT_ACCESS,
-		/*None*/
-		RemoveFileMemberError_OTHER
+        /*None*/
+        RemoveFileMemberError_USER_ERROR,
+        /*None*/
+        RemoveFileMemberError_ACCESS_ERROR,
+        /*This member does not have explicit access to the file and therefore cannot be removed. The return value is the access that a user might have to the file from a parent folder.*/
+        RemoveFileMemberError_NO_EXPLICIT_ACCESS,
+        /*None*/
+        RemoveFileMemberError_OTHER
         };
 
         RemoveFileMemberError(){}

@@ -23,18 +23,18 @@ namespace team{
     public:
         enum Tag{
 
-		/*No matching user found. The provided team_member_id, email, or external_id does not exist on this team.*/
-		UserSelectorError_USER_NOT_FOUND,
-		/*The user is not a member of the team.*/
-		MembersDeactivateError_USER_NOT_IN_TEAM,
-		/*None*/
-		MembersDeactivateError_OTHER,
-		/*The user is not active, so it cannot be suspended.*/
-		MembersSuspendError_SUSPEND_INACTIVE_USER,
-		/*The user is the last admin of the team, so it cannot be suspended.*/
-		MembersSuspendError_SUSPEND_LAST_ADMIN,
-		/*Team is full. The organization has no available licenses.*/
-		MembersSuspendError_TEAM_LICENSE_LIMIT
+        /*No matching user found. The provided team_member_id, email, or external_id does not exist on this team.*/
+        UserSelectorError_USER_NOT_FOUND,
+        /*The user is not a member of the team.*/
+        MembersDeactivateError_USER_NOT_IN_TEAM,
+        /*None*/
+        MembersDeactivateError_OTHER,
+        /*The user is not active, so it cannot be suspended.*/
+        MembersSuspendError_SUSPEND_INACTIVE_USER,
+        /*The user is the last admin of the team, so it cannot be suspended.*/
+        MembersSuspendError_SUSPEND_LAST_ADMIN,
+        /*Team is full. The organization has no available licenses.*/
+        MembersSuspendError_TEAM_LICENSE_LIMIT
         };
 
         MembersSuspendError(){}
