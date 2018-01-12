@@ -108,7 +108,7 @@ namespace dropboxQt {
         }
 
 #endif
-    }
+    };
 
     template<class T>
     void jsonarray2list(const QJsonArray& arr, std::list<T>& lst, std::false_type)
@@ -118,7 +118,7 @@ namespace dropboxQt {
             T v = arr[i].toString();
             lst.push_back(v);
         }
-    }
+    };
 
     template<class T>
     void jsonarray2ingrl_list(const QJsonArray& arr, std::list<T >& lst)
