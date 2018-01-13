@@ -41,6 +41,7 @@ namespace files{
 
         WriteError(){}
         WriteError(Tag v):m_tag(v){}
+        virtual ~WriteError(){}
 
         Tag tag()const{return m_tag;}
         ///None

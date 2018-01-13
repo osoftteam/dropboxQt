@@ -20,6 +20,8 @@ namespace files{
 
         RestoreArg(const QString& arg){ m_path = arg; };
 
+        virtual ~RestoreArg(){};
+
     public:
             /**
                 The path to the file you want to restore.

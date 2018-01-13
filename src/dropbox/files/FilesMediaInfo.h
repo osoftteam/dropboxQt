@@ -28,6 +28,7 @@ namespace files{
 
         MediaInfo(){}
         MediaInfo(Tag v):m_tag(v){}
+        virtual ~MediaInfo(){}
 
         Tag tag()const{return m_tag;}
         ///The metadata for the photo/video.

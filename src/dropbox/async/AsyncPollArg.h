@@ -22,6 +22,8 @@ namespace async{
 
         PollArg(const QString& arg){ m_async_job_id = arg; };
 
+        virtual ~PollArg(){};
+
     public:
             /**
                 Id of the asynchronous job. This is the value of a response

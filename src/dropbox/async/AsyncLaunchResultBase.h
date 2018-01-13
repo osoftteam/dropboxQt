@@ -31,6 +31,7 @@ namespace async{
 
         LaunchResultBase(){}
         LaunchResultBase(Tag v):m_tag(v){}
+        virtual ~LaunchResultBase(){}
 
         Tag tag()const{return m_tag;}
         ///This response indicates that the processing is asynchronous. The string is an id that can be used to obtain the status of the asynchronous job.

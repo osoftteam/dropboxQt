@@ -24,6 +24,8 @@ namespace team{
 
         MemberLinkedApps(const QString& arg){ m_team_member_id = arg; };
 
+        virtual ~MemberLinkedApps(){};
+
     public:
             /**
                 The member unique Id

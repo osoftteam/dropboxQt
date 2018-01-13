@@ -28,6 +28,7 @@ namespace async{
 
         PollResultBase(){}
         PollResultBase(Tag v):m_tag(v){}
+        virtual ~PollResultBase(){}
 
         Tag tag()const{return m_tag;}
     public:

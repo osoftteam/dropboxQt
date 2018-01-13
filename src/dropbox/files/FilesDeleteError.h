@@ -26,6 +26,7 @@ namespace files{
 
         DeleteError(){}
         DeleteError(Tag v):m_tag(v){}
+        virtual ~DeleteError(){}
 
         Tag tag()const{return m_tag;}
         ///None

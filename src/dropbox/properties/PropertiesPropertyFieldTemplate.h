@@ -30,6 +30,8 @@ namespace properties{
 
         PropertyFieldTemplate(const QString& arg){ m_name = arg; };
 
+        virtual ~PropertyFieldTemplate(){};
+
     public:
             /**
                 This is the name or key of a custom property in a property

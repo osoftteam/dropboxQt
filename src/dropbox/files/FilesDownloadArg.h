@@ -20,6 +20,8 @@ namespace files{
 
         DownloadArg(const QString& arg){ m_path = arg; };
 
+        virtual ~DownloadArg(){};
+
     public:
             /**
                 The path of the file to download.

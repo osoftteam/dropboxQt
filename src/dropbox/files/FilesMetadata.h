@@ -34,6 +34,8 @@ namespace files{
 
         Metadata(const QString& arg){ m_name = arg; };
 
+        virtual ~Metadata(){};
+
     public:
             /**
                 The last component of the path (including extension). This never

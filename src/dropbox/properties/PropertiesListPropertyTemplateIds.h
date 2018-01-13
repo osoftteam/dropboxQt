@@ -20,6 +20,8 @@ namespace properties{
 
         ListPropertyTemplateIds(const std::list <QString>& arg){ m_template_ids = arg; };
 
+        virtual ~ListPropertyTemplateIds(){};
+
     public:
             /**
                 List of identifiers for templates added by route

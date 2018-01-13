@@ -25,6 +25,8 @@ namespace team_common{
 
         GroupSummary(const QString& arg){ m_group_name = arg; };
 
+        virtual ~GroupSummary(){};
+
     public:
         QString groupName()const{return m_group_name;};
         GroupSummary& setGroupname(const QString& arg){m_group_name=arg;return *this;};

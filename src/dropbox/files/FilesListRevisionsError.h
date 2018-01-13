@@ -23,6 +23,7 @@ namespace files{
 
         ListRevisionsError(){}
         ListRevisionsError(Tag v):m_tag(v){}
+        virtual ~ListRevisionsError(){}
 
         Tag tag()const{return m_tag;}
         ///None

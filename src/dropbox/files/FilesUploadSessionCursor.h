@@ -23,6 +23,8 @@ namespace files{
 
         UploadSessionCursor(const QString& arg){ m_session_id = arg; };
 
+        virtual ~UploadSessionCursor(){};
+
     public:
             /**
                 The upload session ID (returned by

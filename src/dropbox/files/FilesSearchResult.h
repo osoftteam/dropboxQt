@@ -25,6 +25,8 @@ namespace files{
 
         SearchResult(const std::list <SearchMatch>& arg){ m_matches = arg; };
 
+        virtual ~SearchResult(){};
+
     public:
             /**
                 A list (possibly empty) of matches for the query.

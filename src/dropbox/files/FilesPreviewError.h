@@ -36,6 +36,7 @@ namespace files{
 
         PreviewError(){}
         PreviewError(Tag v):m_tag(v){}
+        virtual ~PreviewError(){}
 
         Tag tag()const{return m_tag;}
         ///An error occurs when downloading metadata for the file.

@@ -23,6 +23,7 @@ namespace files{
 
         GetCopyReferenceError(){}
         GetCopyReferenceError(Tag v):m_tag(v){}
+        virtual ~GetCopyReferenceError(){}
 
         Tag tag()const{return m_tag;}
         ///None

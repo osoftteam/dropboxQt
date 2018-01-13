@@ -20,6 +20,8 @@ namespace files{
 
         SaveUrlArg(const QString& arg){ m_path = arg; };
 
+        virtual ~SaveUrlArg(){};
+
     public:
             /**
                 The path in Dropbox where the URL will be saved to.

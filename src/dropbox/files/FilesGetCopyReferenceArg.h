@@ -20,6 +20,8 @@ namespace files{
 
         GetCopyReferenceArg(const QString& arg){ m_path = arg; };
 
+        virtual ~GetCopyReferenceArg(){};
+
     public:
             /**
                 The path to the file or folder you want to get a copy reference

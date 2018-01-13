@@ -25,6 +25,8 @@ namespace team{
 
         DeviceSession(const QString& arg){ m_session_id = arg; };
 
+        virtual ~DeviceSession(){};
+
     public:
             /**
                 The session id

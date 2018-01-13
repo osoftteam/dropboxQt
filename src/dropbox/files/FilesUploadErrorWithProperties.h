@@ -26,6 +26,7 @@ namespace files{
 
         UploadErrorWithProperties(){}
         UploadErrorWithProperties(Tag v):m_tag(v){}
+        virtual ~UploadErrorWithProperties(){}
 
         Tag tag()const{return m_tag;}
         ///Unable to save the uploaded contents to a file.

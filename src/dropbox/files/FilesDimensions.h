@@ -22,6 +22,8 @@ namespace files{
 
         Dimensions(const int& arg){ m_height = arg; };
 
+        virtual ~Dimensions(){};
+
     public:
             /**
                 Height of the photo/video.

@@ -40,6 +40,8 @@ namespace sharing{
 
         SharedLinkMetadata(const QString& arg){ m_url = arg; };
 
+        virtual ~SharedLinkMetadata(){};
+
     public:
             /**
                 URL of the shared link.

@@ -35,6 +35,7 @@ namespace files{
 
         SaveUrlError(){}
         SaveUrlError(Tag v):m_tag(v){}
+        virtual ~SaveUrlError(){}
 
         Tag tag()const{return m_tag;}
         ///None

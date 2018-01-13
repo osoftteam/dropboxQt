@@ -22,6 +22,8 @@ namespace files{
 
         UpdatePropertyGroupArg(const QString& arg){ m_path = arg; };
 
+        virtual ~UpdatePropertyGroupArg(){};
+
     public:
             /**
                 A unique identifier for the file.

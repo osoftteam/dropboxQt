@@ -21,6 +21,8 @@ namespace files{
 
         SaveCopyReferenceResult(const Metadata& arg){ m_metadata = arg; };
 
+        virtual ~SaveCopyReferenceResult(){};
+
     public:
             /**
                 The metadata of the saved file or folder in the user's Dropbox.

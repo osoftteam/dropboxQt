@@ -40,6 +40,7 @@ namespace files{
 
         LookupError(){}
         LookupError(Tag v):m_tag(v){}
+        virtual ~LookupError(){}
 
         Tag tag()const{return m_tag;}
         ///None

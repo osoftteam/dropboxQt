@@ -21,6 +21,8 @@ namespace files{
 
         UploadSessionStartResult(const QString& arg){ m_session_id = arg; };
 
+        virtual ~UploadSessionStartResult(){};
+
     public:
             /**
                 A unique identifier for the upload session. Pass this to

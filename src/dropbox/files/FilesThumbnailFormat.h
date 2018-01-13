@@ -22,6 +22,7 @@ namespace files{
 
         ThumbnailFormat(){}
         ThumbnailFormat(Tag v):m_tag(v){}
+        virtual ~ThumbnailFormat(){}
 
         Tag tag()const{return m_tag;}
     public:

@@ -21,6 +21,8 @@ namespace files{
 
         SaveCopyReferenceArg(const QString& arg){ m_copy_reference = arg; };
 
+        virtual ~SaveCopyReferenceArg(){};
+
     public:
             /**
                 A copy reference returned by :meth:`copy_reference_get`.

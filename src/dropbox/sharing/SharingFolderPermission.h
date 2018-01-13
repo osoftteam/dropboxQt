@@ -27,6 +27,8 @@ namespace sharing{
 
         FolderPermission(const FolderAction& arg){ m_action = arg; };
 
+        virtual ~FolderPermission(){};
+
     public:
             /**
                 The action that the user may wish to take on the folder.

@@ -20,6 +20,8 @@ namespace files{
 
         UploadSessionOffsetError(const int& arg){ m_correct_offset = arg; };
 
+        virtual ~UploadSessionOffsetError(){};
+
     public:
             /**
                 The offset up to which data has been collected.

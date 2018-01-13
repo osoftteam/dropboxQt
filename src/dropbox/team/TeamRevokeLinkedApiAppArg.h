@@ -26,6 +26,8 @@ namespace team{
         m_keep_app_folder(false)
         { m_app_id = arg; };
 
+        virtual ~RevokeLinkedApiAppArg(){};
+
     public:
             /**
                 The application's unique id

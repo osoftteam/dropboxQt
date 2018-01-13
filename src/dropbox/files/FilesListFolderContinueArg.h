@@ -20,6 +20,8 @@ namespace files{
 
         ListFolderContinueArg(const QString& arg){ m_cursor = arg; };
 
+        virtual ~ListFolderContinueArg(){};
+
     public:
             /**
                 The cursor returned by your last call to :meth:`list_folder` or

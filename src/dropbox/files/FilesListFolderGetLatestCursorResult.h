@@ -20,6 +20,8 @@ namespace files{
 
         ListFolderGetLatestCursorResult(const QString& arg){ m_cursor = arg; };
 
+        virtual ~ListFolderGetLatestCursorResult(){};
+
     public:
             /**
                 Pass the cursor into :meth:`list_folder_continue` to see what's

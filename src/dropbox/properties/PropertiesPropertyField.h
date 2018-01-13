@@ -22,6 +22,8 @@ namespace properties{
 
         PropertyField(const QString& arg){ m_name = arg; };
 
+        virtual ~PropertyField(){};
+
     public:
             /**
                 This is the name or key of a custom property in a property

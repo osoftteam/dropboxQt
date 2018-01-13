@@ -29,6 +29,7 @@ namespace properties{
 
         PropertyType(){}
         PropertyType(Tag v):m_tag(v){}
+        virtual ~PropertyType(){}
 
         Tag tag()const{return m_tag;}
     public:

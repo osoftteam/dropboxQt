@@ -30,6 +30,7 @@ namespace properties{
 
         PropertyTemplateError(){}
         PropertyTemplateError(Tag v):m_tag(v){}
+        virtual ~PropertyTemplateError(){}
 
         Tag tag()const{return m_tag;}
         ///Property template does not exist for given identifier.

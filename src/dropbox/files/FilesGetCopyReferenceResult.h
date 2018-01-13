@@ -24,6 +24,8 @@ namespace files{
 
         GetCopyReferenceResult(const Metadata& arg){ m_metadata = arg; };
 
+        virtual ~GetCopyReferenceResult(){};
+
     public:
             /**
                 Metadata of the file or folder.

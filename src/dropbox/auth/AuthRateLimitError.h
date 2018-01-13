@@ -28,6 +28,8 @@ namespace auth{
         m_retry_after(1)
         { m_reason = arg; };
 
+        virtual ~RateLimitError(){};
+
     public:
             /**
                 The reason why the app is being rate limited.

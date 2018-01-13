@@ -23,6 +23,7 @@ namespace files{
 
         SearchError(){}
         SearchError(Tag v):m_tag(v){}
+        virtual ~SearchError(){}
 
         Tag tag()const{return m_tag;}
         ///None

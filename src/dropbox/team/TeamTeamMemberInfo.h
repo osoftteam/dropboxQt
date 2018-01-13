@@ -24,6 +24,8 @@ namespace team{
 
         TeamMemberInfo(const TeamMemberProfile& arg){ m_profile = arg; };
 
+        virtual ~TeamMemberInfo(){};
+
     public:
             /**
                 Profile of a user as a member of a team.

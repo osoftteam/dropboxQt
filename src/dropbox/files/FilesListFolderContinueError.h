@@ -29,6 +29,7 @@ namespace files{
 
         ListFolderContinueError(){}
         ListFolderContinueError(Tag v):m_tag(v){}
+        virtual ~ListFolderContinueError(){}
 
         Tag tag()const{return m_tag;}
         ///None

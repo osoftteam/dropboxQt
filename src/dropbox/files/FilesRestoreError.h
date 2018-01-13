@@ -36,6 +36,7 @@ namespace files{
 
         RestoreError(){}
         RestoreError(Tag v):m_tag(v){}
+        virtual ~RestoreError(){}
 
         Tag tag()const{return m_tag;}
         ///An error occurs when downloading metadata for the file.

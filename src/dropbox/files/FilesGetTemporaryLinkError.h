@@ -23,6 +23,7 @@ namespace files{
 
         GetTemporaryLinkError(){}
         GetTemporaryLinkError(Tag v):m_tag(v){}
+        virtual ~GetTemporaryLinkError(){}
 
         Tag tag()const{return m_tag;}
         ///None

@@ -25,6 +25,8 @@ namespace files{
 
         PropertyGroupUpdate(const QString& arg){ m_template_id = arg; };
 
+        virtual ~PropertyGroupUpdate(){};
+
     public:
             /**
                 A unique identifier for a property template.

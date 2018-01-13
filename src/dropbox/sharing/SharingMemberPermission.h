@@ -28,6 +28,8 @@ namespace sharing{
 
         MemberPermission(const MemberAction& arg){ m_action = arg; };
 
+        virtual ~MemberPermission(){};
+
     public:
             /**
                 The action that the user may wish to take on the member.

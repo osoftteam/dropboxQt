@@ -21,6 +21,7 @@ namespace files{
 
         GetMetadataError(){}
         GetMetadataError(Tag v):m_tag(v){}
+        virtual ~GetMetadataError(){}
 
         Tag tag()const{return m_tag;}
         ///None

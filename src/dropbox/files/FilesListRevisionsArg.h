@@ -24,6 +24,8 @@ namespace files{
         m_limit(10)
         { m_path = arg; };
 
+        virtual ~ListRevisionsArg(){};
+
     public:
             /**
                 The path to the file you want to see the revisions of.
