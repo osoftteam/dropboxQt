@@ -19,6 +19,8 @@ namespace files{
 
         CreateFolderArg(const QString& arg){ m_path = arg; };
 
+        virtual ~CreateFolderArg(){};
+
     public:
             /**
                 Path in the user's Dropbox to create.

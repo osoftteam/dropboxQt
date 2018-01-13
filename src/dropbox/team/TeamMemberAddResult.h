@@ -64,6 +64,7 @@ namespace team{
 
         MemberAddResult(){}
         MemberAddResult(Tag v):m_tag(v){}
+        virtual ~MemberAddResult(){}
 
         Tag tag()const{return m_tag;}
         ///Describes a user that was successfully added to the team.

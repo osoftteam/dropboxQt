@@ -24,6 +24,8 @@ namespace team{
 
         StorageBucket(const QString& arg){ m_bucket = arg; };
 
+        virtual ~StorageBucket(){};
+
     public:
             /**
                 The name of the storage bucket. For example, '1G' is a bucket of

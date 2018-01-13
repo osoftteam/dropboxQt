@@ -20,6 +20,8 @@ namespace files{
 
         UploadSessionFinishBatchResult(const std::list <UploadSessionFinishBatchResultEntry>& arg){ m_entries = arg; };
 
+        virtual ~UploadSessionFinishBatchResult(){};
+
     public:
             /**
                 Commit result for each file in the batch.

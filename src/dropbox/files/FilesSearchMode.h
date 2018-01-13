@@ -30,6 +30,7 @@ namespace files{
 
         SearchMode(){}
         SearchMode(Tag v):m_tag(v){}
+        virtual ~SearchMode(){}
 
         Tag tag()const{return m_tag;}
     public:

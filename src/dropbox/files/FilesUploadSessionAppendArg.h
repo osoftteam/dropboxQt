@@ -27,6 +27,8 @@ namespace files{
         m_close(false)
         { m_cursor = arg; };
 
+        virtual ~UploadSessionAppendArg(){};
+
     public:
             /**
                 Contains the upload session ID and the offset.

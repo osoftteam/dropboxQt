@@ -35,6 +35,7 @@ namespace auth{
 
         AuthError(){}
         AuthError(Tag v):m_tag(v){}
+        virtual ~AuthError(){}
 
         Tag tag()const{return m_tag;}
     public:

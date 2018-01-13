@@ -22,6 +22,8 @@ namespace files{
 
         UploadWriteFailed(const WriteError& arg){ m_reason = arg; };
 
+        virtual ~UploadWriteFailed(){};
+
     public:
             /**
                 The reason why the file couldn't be saved.

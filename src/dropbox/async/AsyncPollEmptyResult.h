@@ -30,6 +30,7 @@ namespace async{
 
         PollEmptyResult(){}
         PollEmptyResult(Tag v):m_tag(v){}
+        virtual ~PollEmptyResult(){}
 
         Tag tag()const{return m_tag;}
     public:

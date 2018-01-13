@@ -31,6 +31,8 @@ namespace files{
         ,m_size(ThumbnailSize::ThumbnailSize_W64H64)
         { m_path = arg; };
 
+        virtual ~ThumbnailArg(){};
+
     public:
             /**
                 The path to the image file you want to thumbnail.

@@ -21,6 +21,8 @@ namespace team{
 
         RevokeLinkedAppStatus(const bool& arg){ m_success = arg; };
 
+        virtual ~RevokeLinkedAppStatus(){};
+
     public:
             /**
                 Result of the revoking request

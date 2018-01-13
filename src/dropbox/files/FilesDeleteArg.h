@@ -19,6 +19,8 @@ namespace files{
 
         DeleteArg(const QString& arg){ m_path = arg; };
 
+        virtual ~DeleteArg(){};
+
     public:
             /**
                 Path in the user's Dropbox to delete.

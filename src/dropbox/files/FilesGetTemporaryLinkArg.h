@@ -19,6 +19,8 @@ namespace files{
 
         GetTemporaryLinkArg(const QString& arg){ m_path = arg; };
 
+        virtual ~GetTemporaryLinkArg(){};
+
     public:
             /**
                 The path to the file you want a temporary link to.

@@ -23,6 +23,8 @@ namespace files{
 
         UploadSessionFinishArg(const UploadSessionCursor& arg){ m_cursor = arg; };
 
+        virtual ~UploadSessionFinishArg(){};
+
     public:
             /**
                 Contains the upload session ID and the offset.

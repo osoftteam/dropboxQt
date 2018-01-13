@@ -35,6 +35,8 @@ namespace files{
         ,m_include_has_explicit_shared_members(false)
         { m_path = arg; };
 
+        virtual ~GetMetadataArg(){};
+
     public:
             /**
                 The path of a file or folder on Dropbox.

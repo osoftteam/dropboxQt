@@ -34,6 +34,7 @@ namespace files{
 
         UpdatePropertiesError(){}
         UpdatePropertiesError(Tag v):m_tag(v){}
+        virtual ~UpdatePropertiesError(){}
 
         Tag tag()const{return m_tag;}
         ///Property template does not exist for given identifier.

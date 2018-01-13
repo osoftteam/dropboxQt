@@ -37,6 +37,7 @@ namespace files{
 
         AddPropertiesError(){}
         AddPropertiesError(Tag v):m_tag(v){}
+        virtual ~AddPropertiesError(){}
 
         Tag tag()const{return m_tag;}
         ///Property template does not exist for given identifier.

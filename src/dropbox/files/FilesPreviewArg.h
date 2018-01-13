@@ -20,6 +20,8 @@ namespace files{
 
         PreviewArg(const QString& arg){ m_path = arg; };
 
+        virtual ~PreviewArg(){};
+
     public:
             /**
                 The path of the file to preview.

@@ -37,6 +37,7 @@ namespace files{
 
         InvalidPropertyGroupError(){}
         InvalidPropertyGroupError(Tag v):m_tag(v){}
+        virtual ~InvalidPropertyGroupError(){}
 
         Tag tag()const{return m_tag;}
         ///Property template does not exist for given identifier.

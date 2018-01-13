@@ -33,6 +33,8 @@ namespace sharing{
 
         SharedFolderMetadataBase(const AccessLevel& arg){ m_access_type = arg; };
 
+        virtual ~SharedFolderMetadataBase(){};
+
     public:
             /**
                 The current user's access level for this shared folder.

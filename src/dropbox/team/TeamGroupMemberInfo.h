@@ -24,6 +24,8 @@ namespace team{
 
         GroupMemberInfo(const MemberProfile& arg){ m_profile = arg; };
 
+        virtual ~GroupMemberInfo(){};
+
     public:
             /**
                 Profile of group member.

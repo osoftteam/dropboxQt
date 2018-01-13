@@ -22,6 +22,8 @@ namespace files{
 
         GpsCoordinates(const float& arg){ m_latitude = arg; };
 
+        virtual ~GpsCoordinates(){};
+
     public:
             /**
                 Latitude of the GPS coordinates.

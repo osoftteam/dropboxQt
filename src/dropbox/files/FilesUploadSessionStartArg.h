@@ -25,6 +25,8 @@ namespace files{
         m_close(false)
         { m_close = arg; };
 
+        virtual ~UploadSessionStartArg(){};
+
     public:
             /**
                 If true, the current session will be closed, at which point you

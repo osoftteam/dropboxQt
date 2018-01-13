@@ -33,6 +33,8 @@ namespace sharing{
         m_is_inherited(false)
         { m_access_type = arg; };
 
+        virtual ~MembershipInfo(){};
+
     public:
             /**
                 The access type for this member.

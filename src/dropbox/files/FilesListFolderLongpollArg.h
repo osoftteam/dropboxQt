@@ -31,6 +31,8 @@ namespace files{
         m_timeout(30)
         { m_cursor = arg; };
 
+        virtual ~ListFolderLongpollArg(){};
+
     public:
             /**
                 A cursor as returned by :meth:`list_folder` or

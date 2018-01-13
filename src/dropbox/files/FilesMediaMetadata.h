@@ -25,6 +25,8 @@ namespace files{
 
         MediaMetadata(const Dimensions& arg){ m_dimensions = arg; };
 
+        virtual ~MediaMetadata(){};
+
     public:
             /**
                 Dimension of the photo/video.

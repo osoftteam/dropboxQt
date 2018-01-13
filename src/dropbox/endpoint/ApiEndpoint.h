@@ -17,6 +17,7 @@ namespace dropboxQt{
 
     public:
         ApiEndpoint(ApiClient* c);
+        virtual ~ApiEndpoint(){}
         QString       lastRequestInfo()const{return m_last_request_info;}
         void          cancelAll();
         void          runEventsLoop()const;

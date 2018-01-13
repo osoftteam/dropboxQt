@@ -42,6 +42,7 @@ namespace files{
 
         SaveCopyReferenceError(){}
         SaveCopyReferenceError(Tag v):m_tag(v){}
+        virtual ~SaveCopyReferenceError(){}
 
         Tag tag()const{return m_tag;}
         ///None

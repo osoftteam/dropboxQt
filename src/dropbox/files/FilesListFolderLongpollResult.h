@@ -22,6 +22,8 @@ namespace files{
 
         ListFolderLongpollResult(const bool& arg){ m_changes = arg; };
 
+        virtual ~ListFolderLongpollResult(){};
+
     public:
             /**
                 Indicates whether new changes are available. If true, call

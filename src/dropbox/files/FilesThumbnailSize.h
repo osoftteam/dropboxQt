@@ -35,6 +35,7 @@ namespace files{
 
         ThumbnailSize(){}
         ThumbnailSize(Tag v):m_tag(v){}
+        virtual ~ThumbnailSize(){}
 
         Tag tag()const{return m_tag;}
     public:

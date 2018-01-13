@@ -30,6 +30,7 @@ namespace files{
 
         RemovePropertiesError(){}
         RemovePropertiesError(Tag v):m_tag(v){}
+        virtual ~RemovePropertiesError(){}
 
         Tag tag()const{return m_tag;}
         ///Property template does not exist for given identifier.

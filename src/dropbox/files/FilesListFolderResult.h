@@ -22,7 +22,7 @@ namespace files{
 
     public:
         ListFolderResult(){};
-
+        virtual ~ListFolderResult(){};
 
     public:
             /**

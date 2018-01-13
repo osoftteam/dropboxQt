@@ -22,6 +22,8 @@ namespace files{
 
         GetTemporaryLinkResult(const FileMetadata& arg){ m_metadata = arg; };
 
+        virtual ~GetTemporaryLinkResult(){};
+
     public:
             /**
                 Metadata of the file.

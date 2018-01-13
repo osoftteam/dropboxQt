@@ -32,6 +32,7 @@ namespace files{
 
         WriteConflictError(){}
         WriteConflictError(Tag v):m_tag(v){}
+        virtual ~WriteConflictError(){}
 
         Tag tag()const{return m_tag;}
     public:

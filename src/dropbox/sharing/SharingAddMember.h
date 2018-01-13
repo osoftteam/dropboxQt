@@ -30,6 +30,8 @@ namespace sharing{
         m_access_level(AccessLevel::AccessLevel_VIEWER)
         { m_member = arg; };
 
+        virtual ~AddMember(){};
+
     public:
             /**
                 The member to add to the shared folder.

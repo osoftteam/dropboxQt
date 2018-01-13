@@ -24,6 +24,8 @@ namespace team{
 
         MemberAccess(const UserSelectorArg& arg){ m_user = arg; };
 
+        virtual ~MemberAccess(){};
+
     public:
             /**
                 Identity of a user.

@@ -27,6 +27,8 @@ namespace team{
 
         MemberDevices(const QString& arg){ m_team_member_id = arg; };
 
+        virtual ~MemberDevices(){};
+
     public:
             /**
                 The member unique Id

@@ -27,6 +27,8 @@ namespace team{
 
         ApiApp(const QString& arg){ m_app_id = arg; };
 
+        virtual ~ApiApp(){};
+
     public:
             /**
                 The application unique id

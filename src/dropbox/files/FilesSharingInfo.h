@@ -22,6 +22,8 @@ namespace files{
 
         SharingInfo(const bool& arg){ m_read_only = arg; };
 
+        virtual ~SharingInfo(){};
+
     public:
             /**
                 True if the file or folder is inside a read-only shared folder.

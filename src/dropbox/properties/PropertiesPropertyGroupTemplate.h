@@ -29,6 +29,8 @@ namespace properties{
 
         PropertyGroupTemplate(const QString& arg){ m_name = arg; };
 
+        virtual ~PropertyGroupTemplate(){};
+
     public:
             /**
                 A display name for the property template. Property template

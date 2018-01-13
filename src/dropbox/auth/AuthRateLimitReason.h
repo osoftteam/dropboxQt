@@ -30,6 +30,7 @@ namespace auth{
 
         RateLimitReason(){}
         RateLimitReason(Tag v):m_tag(v){}
+        virtual ~RateLimitReason(){}
 
         Tag tag()const{return m_tag;}
     public:

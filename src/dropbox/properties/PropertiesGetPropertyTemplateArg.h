@@ -20,6 +20,8 @@ namespace properties{
 
         GetPropertyTemplateArg(const QString& arg){ m_template_id = arg; };
 
+        virtual ~GetPropertyTemplateArg(){};
+
     public:
             /**
                 An identifier for property template added by route

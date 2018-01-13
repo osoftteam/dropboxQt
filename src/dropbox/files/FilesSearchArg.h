@@ -39,6 +39,8 @@ namespace files{
         ,m_mode(SearchMode::SearchMode_FILENAME)
         { m_path = arg; };
 
+        virtual ~SearchArg(){};
+
     public:
             /**
                 The path in the user's Dropbox to search. Should probably be a

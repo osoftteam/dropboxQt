@@ -33,6 +33,8 @@ namespace team{
         ,m_role(AdminTier::AdminTier_MEMBER_ONLY)
         { m_member_email = arg; };
 
+        virtual ~MemberAddArg(){};
+
     public:
         QString memberEmail()const{return m_member_email;};
         MemberAddArg& setMemberemail(const QString& arg){m_member_email=arg;return *this;};

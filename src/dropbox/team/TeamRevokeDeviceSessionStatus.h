@@ -21,6 +21,8 @@ namespace team{
 
         RevokeDeviceSessionStatus(const bool& arg){ m_success = arg; };
 
+        virtual ~RevokeDeviceSessionStatus(){};
+
     public:
             /**
                 Result of the revoking request

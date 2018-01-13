@@ -21,6 +21,8 @@ namespace files{
 
         RemovePropertiesArg(const QString& arg){ m_path = arg; };
 
+        virtual ~RemovePropertiesArg(){};
+
     public:
             /**
                 A unique identifier for the file.

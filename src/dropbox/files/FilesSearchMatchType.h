@@ -32,6 +32,7 @@ namespace files{
 
         SearchMatchType(){}
         SearchMatchType(Tag v):m_tag(v){}
+        virtual ~SearchMatchType(){}
 
         Tag tag()const{return m_tag;}
     public:

@@ -27,6 +27,8 @@ namespace sharing{
 
         FilePermission(const FileAction& arg){ m_action = arg; };
 
+        virtual ~FilePermission(){};
+
     public:
             /**
                 The action that the user may wish to take on the file.

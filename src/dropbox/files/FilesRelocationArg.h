@@ -20,6 +20,8 @@ namespace files{
 
         RelocationArg(const QString& arg){ m_from_path = arg; };
 
+        virtual ~RelocationArg(){};
+
     public:
             /**
                 Path in the user's Dropbox to be copied or moved.

@@ -25,6 +25,8 @@ namespace properties{
 
         PropertyGroup(const QString& arg){ m_template_id = arg; };
 
+        virtual ~PropertyGroup(){};
+
     public:
             /**
                 A unique identifier for a property template type.

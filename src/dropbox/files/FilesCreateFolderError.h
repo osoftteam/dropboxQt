@@ -21,6 +21,7 @@ namespace files{
 
         CreateFolderError(){}
         CreateFolderError(Tag v):m_tag(v){}
+        virtual ~CreateFolderError(){}
 
         Tag tag()const{return m_tag;}
         ///None

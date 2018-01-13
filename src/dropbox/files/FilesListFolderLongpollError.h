@@ -26,6 +26,7 @@ namespace files{
 
         ListFolderLongpollError(){}
         ListFolderLongpollError(Tag v):m_tag(v){}
+        virtual ~ListFolderLongpollError(){}
 
         Tag tag()const{return m_tag;}
     public:
