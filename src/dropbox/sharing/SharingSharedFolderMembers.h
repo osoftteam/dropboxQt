@@ -28,6 +28,7 @@ namespace sharing{
         SharedFolderMembers(){};
 
         SharedFolderMembers(const std::list <UserMembershipInfo>& arg){ m_users = arg; };
+        virtual ~SharedFolderMembers(){};
 
     public:
             /**

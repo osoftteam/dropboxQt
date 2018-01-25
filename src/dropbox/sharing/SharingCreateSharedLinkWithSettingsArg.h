@@ -21,6 +21,7 @@ namespace sharing{
         CreateSharedLinkWithSettingsArg(){};
 
         CreateSharedLinkWithSettingsArg(const QString& arg){ m_path = arg; };
+        virtual ~CreateSharedLinkWithSettingsArg(){};
 
     public:
             /**

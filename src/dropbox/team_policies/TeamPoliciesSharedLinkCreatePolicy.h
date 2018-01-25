@@ -39,6 +39,7 @@ namespace team_policies{
 
         SharedLinkCreatePolicy(){}
         SharedLinkCreatePolicy(Tag v):m_tag(v){}
+        virtual ~SharedLinkCreatePolicy(){}
 
         Tag tag()const{return m_tag;}
     public:

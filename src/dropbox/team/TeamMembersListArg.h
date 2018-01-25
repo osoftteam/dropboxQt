@@ -25,6 +25,7 @@ namespace team{
         m_limit(1000)
         ,m_include_removed(false)
         { m_limit = arg; };
+        virtual ~MembersListArg(){};
 
     public:
             /**

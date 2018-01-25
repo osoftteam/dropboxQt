@@ -23,6 +23,7 @@ namespace sharing{
         ListFileMembersBatchResult(){};
 
         ListFileMembersBatchResult(const QString& arg){ m_file = arg; };
+        virtual ~ListFileMembersBatchResult(){};
 
     public:
             /**

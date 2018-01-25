@@ -16,6 +16,7 @@ namespace team{
         RevokeLinkedAppBatchResult(){};
 
         RevokeLinkedAppBatchResult(const std::list <RevokeLinkedAppStatus>& arg){ m_revoke_linked_app_status = arg; };
+        virtual ~RevokeLinkedAppBatchResult(){};
 
     public:
         const std::list <RevokeLinkedAppStatus>& revokeLinkedAppStatus()const{return m_revoke_linked_app_status;};

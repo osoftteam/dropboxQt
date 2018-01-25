@@ -37,6 +37,7 @@ namespace team{
 
         MobileClientPlatform(){}
         MobileClientPlatform(Tag v):m_tag(v){}
+        virtual ~MobileClientPlatform(){}
 
         Tag tag()const{return m_tag;}
     public:

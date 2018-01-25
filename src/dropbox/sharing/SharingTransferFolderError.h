@@ -49,6 +49,7 @@ namespace sharing{
 
         TransferFolderError(){}
         TransferFolderError(Tag v):m_tag(v){}
+        virtual ~TransferFolderError(){}
 
         Tag tag()const{return m_tag;}
         ///None

@@ -24,6 +24,7 @@ namespace files{
 
         AlphaGetMetadataError(){}
         AlphaGetMetadataError(Tag v):m_tag(v){}
+        virtual ~AlphaGetMetadataError(){}
 
         Tag tag()const{return m_tag;}
         ///None

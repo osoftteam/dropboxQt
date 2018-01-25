@@ -32,6 +32,7 @@ namespace sharing{
         FileLinkMetadata(){};
 
         FileLinkMetadata(const QDateTime& arg){ m_client_modified = arg; };
+        virtual ~FileLinkMetadata(){};
 
     public:
             /**

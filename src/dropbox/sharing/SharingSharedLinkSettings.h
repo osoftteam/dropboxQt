@@ -25,6 +25,7 @@ namespace sharing{
         SharedLinkSettings(){};
 
         SharedLinkSettings(const RequestedVisibility& arg){ m_requested_visibility = arg; };
+        virtual ~SharedLinkSettings(){};
 
     public:
             /**

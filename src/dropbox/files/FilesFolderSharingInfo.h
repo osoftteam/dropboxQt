@@ -37,6 +37,7 @@ namespace files{
         m_traverse_only(false)
         ,m_no_access(false)
         { m_parent_shared_folder_id = arg; };
+        virtual ~FolderSharingInfo(){};
 
     public:
             /**

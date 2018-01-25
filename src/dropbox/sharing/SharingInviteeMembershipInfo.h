@@ -24,6 +24,7 @@ namespace sharing{
         InviteeMembershipInfo(){};
 
         InviteeMembershipInfo(const InviteeInfo& arg){ m_invitee = arg; };
+        virtual ~InviteeMembershipInfo(){};
 
     public:
             /**

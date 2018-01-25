@@ -42,6 +42,7 @@ namespace sharing{
         ,m_shared_link_policy(SharedLinkPolicy::SharedLinkPolicy_ANYONE)
         ,m_force_async(false)
         { m_path = arg; };
+        virtual ~ShareFolderArg(){};
 
     public:
             /**

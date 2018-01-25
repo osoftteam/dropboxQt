@@ -19,6 +19,7 @@ namespace files{
         ListFolderGetLatestCursorResult(){};
 
         ListFolderGetLatestCursorResult(const QString& arg){ m_cursor = arg; };
+        virtual ~ListFolderGetLatestCursorResult(){};
 
     public:
             /**

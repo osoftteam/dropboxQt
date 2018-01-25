@@ -26,6 +26,7 @@ namespace team{
         MemberDevices(){};
 
         MemberDevices(const QString& arg){ m_team_member_id = arg; };
+        virtual ~MemberDevices(){};
 
     public:
             /**

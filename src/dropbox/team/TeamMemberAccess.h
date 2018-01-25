@@ -23,6 +23,7 @@ namespace team{
         MemberAccess(){};
 
         MemberAccess(const UserSelectorArg& arg){ m_user = arg; };
+        virtual ~MemberAccess(){};
 
     public:
             /**

@@ -21,6 +21,7 @@ namespace team{
         TeamMemberProfile(){};
 
         TeamMemberProfile(const std::list <QString>& arg){ m_groups = arg; };
+        virtual ~TeamMemberProfile(){};
 
     public:
             /**

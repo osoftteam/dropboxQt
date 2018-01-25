@@ -28,7 +28,7 @@ void FileLinkMetadata::toJson(QJsonObject& js)const{
         js["server_modified"] = m_server_modified.toString("yyyy-MM-ddThh:mm:ssZ");
     if(!m_rev.isEmpty())
         js["rev"] = QString(m_rev);
-    js["size"] = m_size;
+    js["size"] = QString("%1").arg(m_size);
 }
 
 void FileLinkMetadata::fromJson(const QJsonObject& js){
@@ -37,7 +37,7 @@ void FileLinkMetadata::fromJson(const QJsonObject& js){
     m_client_modified = QDateTime::fromString(js["client_modified"].toString(), "yyyy-MM-ddThh:mm:ssZ");
     m_server_modified = QDateTime::fromString(js["server_modified"].toString(), "yyyy-MM-ddThh:mm:ssZ");
     m_rev = js["rev"].toString();
-    m_size = js["size"].toVariant().toInt();
+    m_size = js["size"].toVariant().toString().toULongLong();
 }
 
 QString FileLinkMetadata::toString(bool multiline)const

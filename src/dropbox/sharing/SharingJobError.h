@@ -40,6 +40,7 @@ namespace sharing{
 
         JobError(){}
         JobError(Tag v):m_tag(v){}
+        virtual ~JobError(){}
 
         Tag tag()const{return m_tag;}
         ///Error occurred while performing :route:`unshare_folder` action.

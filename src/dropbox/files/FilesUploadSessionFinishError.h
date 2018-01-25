@@ -36,6 +36,7 @@ namespace files{
 
         UploadSessionFinishError(){}
         UploadSessionFinishError(Tag v):m_tag(v){}
+        virtual ~UploadSessionFinishError(){}
 
         Tag tag()const{return m_tag;}
         ///The session arguments are incorrect; the value explains the reason.

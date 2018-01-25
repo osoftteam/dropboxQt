@@ -21,13 +21,13 @@ ListFilesArg::operator QJsonObject()const{
 
 void ListFilesArg::toJson(QJsonObject& js)const{
 
-    js["limit"] = m_limit;
+    js["limit"] = QString("%1").arg(m_limit);
     js["actions"] = struct_list2jsonarray(m_actions);
 }
 
 void ListFilesArg::fromJson(const QJsonObject& js){
 
-    m_limit = js["limit"].toVariant().toInt();
+    m_limit = js["limit"].toVariant().toString().toULongLong();
     jsonarray2struct_list(js["actions"].toArray(), m_actions);
 }
 

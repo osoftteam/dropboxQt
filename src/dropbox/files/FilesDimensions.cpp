@@ -21,14 +21,14 @@ Dimensions::operator QJsonObject()const{
 
 void Dimensions::toJson(QJsonObject& js)const{
 
-    js["height"] = m_height;
-    js["width"] = m_width;
+    js["height"] = QString("%1").arg(m_height);
+    js["width"] = QString("%1").arg(m_width);
 }
 
 void Dimensions::fromJson(const QJsonObject& js){
 
-    m_height = js["height"].toVariant().toInt();
-    m_width = js["width"].toVariant().toInt();
+    m_height = js["height"].toVariant().toString().toULongLong();
+    m_width = js["width"].toVariant().toString().toULongLong();
 }
 
 QString Dimensions::toString(bool multiline)const

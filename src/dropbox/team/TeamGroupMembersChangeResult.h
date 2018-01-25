@@ -25,6 +25,7 @@ namespace team{
         GroupMembersChangeResult(){};
 
         GroupMembersChangeResult(const GroupFullInfo& arg){ m_group_info = arg; };
+        virtual ~GroupMembersChangeResult(){};
 
     public:
             /**

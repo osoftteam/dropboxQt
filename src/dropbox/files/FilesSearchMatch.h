@@ -21,6 +21,7 @@ namespace files{
         SearchMatch(){};
 
         SearchMatch(const SearchMatchType& arg){ m_match_type = arg; };
+        virtual ~SearchMatch(){};
 
     public:
             /**

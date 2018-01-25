@@ -31,6 +31,7 @@ namespace sharing{
 
         ListFilesContinueError(){}
         ListFilesContinueError(Tag v):m_tag(v){}
+        virtual ~ListFilesContinueError(){}
 
         Tag tag()const{return m_tag;}
         ///User account had a problem.

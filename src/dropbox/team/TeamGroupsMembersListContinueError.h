@@ -25,6 +25,7 @@ namespace team{
 
         GroupsMembersListContinueError(){}
         GroupsMembersListContinueError(Tag v):m_tag(v){}
+        virtual ~GroupsMembersListContinueError(){}
 
         Tag tag()const{return m_tag;}
     public:

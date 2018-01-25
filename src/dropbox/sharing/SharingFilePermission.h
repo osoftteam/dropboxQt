@@ -26,6 +26,7 @@ namespace sharing{
         FilePermission(){};
 
         FilePermission(const FileAction& arg){ m_action = arg; };
+        virtual ~FilePermission(){};
 
     public:
             /**

@@ -16,6 +16,7 @@ namespace team{
         RevokeLinkedApiAppBatchArg(){};
 
         RevokeLinkedApiAppBatchArg(const std::list <RevokeLinkedApiAppArg>& arg){ m_revoke_linked_app = arg; };
+        virtual ~RevokeLinkedApiAppBatchArg(){};
 
     public:
         const std::list <RevokeLinkedApiAppArg>& revokeLinkedApp()const{return m_revoke_linked_app;};

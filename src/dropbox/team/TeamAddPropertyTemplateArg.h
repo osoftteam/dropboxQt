@@ -18,6 +18,7 @@ namespace team{
     public:
         AddPropertyTemplateArg(){};
 
+        virtual ~AddPropertyTemplateArg(){};
 
     public:
     public:

@@ -21,6 +21,7 @@ namespace team{
         BaseDfbReport(){};
 
         BaseDfbReport(const QString& arg){ m_start_date = arg; };
+        virtual ~BaseDfbReport(){};
 
     public:
             /**

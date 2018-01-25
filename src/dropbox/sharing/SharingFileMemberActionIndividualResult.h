@@ -30,6 +30,7 @@ namespace sharing{
 
         FileMemberActionIndividualResult(){}
         FileMemberActionIndividualResult(Tag v):m_tag(v){}
+        virtual ~FileMemberActionIndividualResult(){}
 
         Tag tag()const{return m_tag;}
         ///Member was successfully removed from this file. If AccessLevel is given, the member still has access via a parent shared folder.

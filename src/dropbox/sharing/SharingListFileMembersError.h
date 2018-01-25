@@ -29,6 +29,7 @@ namespace sharing{
 
         ListFileMembersError(){}
         ListFileMembersError(Tag v):m_tag(v){}
+        virtual ~ListFileMembersError(){}
 
         Tag tag()const{return m_tag;}
         ///None

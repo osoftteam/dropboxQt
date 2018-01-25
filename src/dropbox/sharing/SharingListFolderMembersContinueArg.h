@@ -20,6 +20,7 @@ namespace sharing{
         ListFolderMembersContinueArg(){};
 
         ListFolderMembersContinueArg(const QString& arg){ m_cursor = arg; };
+        virtual ~ListFolderMembersContinueArg(){};
 
     public:
             /**

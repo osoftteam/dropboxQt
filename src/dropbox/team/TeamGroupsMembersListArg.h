@@ -24,6 +24,7 @@ namespace team{
         GroupsMembersListArg(const GroupSelector& arg):
         m_limit(1000)
         { m_group = arg; };
+        virtual ~GroupsMembersListArg(){};
 
     public:
             /**

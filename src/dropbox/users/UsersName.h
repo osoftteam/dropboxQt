@@ -29,6 +29,7 @@ namespace users{
         Name(){};
 
         Name(const QString& arg){ m_given_name = arg; };
+        virtual ~Name(){};
 
     public:
             /**

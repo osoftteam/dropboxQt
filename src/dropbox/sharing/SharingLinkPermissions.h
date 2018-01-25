@@ -35,6 +35,7 @@ namespace sharing{
         LinkPermissions(){};
 
         LinkPermissions(const ResolvedVisibility& arg){ m_resolved_visibility = arg; };
+        virtual ~LinkPermissions(){};
 
     public:
             /**

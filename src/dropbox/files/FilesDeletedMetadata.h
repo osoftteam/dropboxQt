@@ -19,6 +19,7 @@ namespace files{
     public:
         DeletedMetadata(){};
 
+        virtual ~DeletedMetadata(){};
 
     public:
     public:

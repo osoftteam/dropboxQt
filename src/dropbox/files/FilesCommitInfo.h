@@ -41,6 +41,7 @@ namespace files{
         ,m_autorename(false)
         ,m_mute(false)
         { m_path = arg; };
+        virtual ~CommitInfo(){};
 
     public:
             /**

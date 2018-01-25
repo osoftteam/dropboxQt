@@ -28,6 +28,7 @@ namespace team{
         GroupMembersSetAccessTypeArg(const GroupAccessType& arg):
         m_return_members(false)
         { m_access_type = arg; };
+        virtual ~GroupMembersSetAccessTypeArg(){};
 
     public:
             /**

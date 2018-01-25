@@ -31,6 +31,7 @@ namespace sharing{
 
         MemberSelector(){}
         MemberSelector(Tag v):m_tag(v){}
+        virtual ~MemberSelector(){}
 
         Tag tag()const{return m_tag;}
         ///Dropbox account, team member, or group ID of member.

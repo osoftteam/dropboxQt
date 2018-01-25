@@ -24,6 +24,7 @@ namespace sharing{
         RelinquishFolderMembershipArg(const QString& arg):
         m_leave_a_copy(false)
         { m_shared_folder_id = arg; };
+        virtual ~RelinquishFolderMembershipArg(){};
 
     public:
             /**

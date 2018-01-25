@@ -20,6 +20,7 @@ namespace sharing{
         TransferFolderArg(){};
 
         TransferFolderArg(const QString& arg){ m_shared_folder_id = arg; };
+        virtual ~TransferFolderArg(){};
 
     public:
             /**

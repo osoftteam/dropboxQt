@@ -44,6 +44,7 @@ namespace properties{
 
         ModifyPropertyTemplateError(){}
         ModifyPropertyTemplateError(Tag v):m_tag(v){}
+        virtual ~ModifyPropertyTemplateError(){}
 
         Tag tag()const{return m_tag;}
         ///Property template does not exist for given identifier.

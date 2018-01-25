@@ -40,6 +40,7 @@ namespace team{
 
         TeamMemberStatus(){}
         TeamMemberStatus(Tag v):m_tag(v){}
+        virtual ~TeamMemberStatus(){}
 
         Tag tag()const{return m_tag;}
         ///User is no longer a member of the team. Removed users are only listed when include_removed is true in members/list.

@@ -29,6 +29,7 @@ namespace sharing{
 
         UnshareFileError(){}
         UnshareFileError(Tag v):m_tag(v){}
+        virtual ~UnshareFileError(){}
 
         Tag tag()const{return m_tag;}
         ///None

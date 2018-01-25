@@ -23,13 +23,13 @@ void ListFolderLongpollArg::toJson(QJsonObject& js)const{
 
     if(!m_cursor.isEmpty())
         js["cursor"] = QString(m_cursor);
-    js["timeout"] = m_timeout;
+    js["timeout"] = QString("%1").arg(m_timeout);
 }
 
 void ListFolderLongpollArg::fromJson(const QJsonObject& js){
 
     m_cursor = js["cursor"].toString();
-    m_timeout = js["timeout"].toVariant().toInt();
+    m_timeout = js["timeout"].toVariant().toString().toULongLong();
 }
 
 QString ListFolderLongpollArg::toString(bool multiline)const

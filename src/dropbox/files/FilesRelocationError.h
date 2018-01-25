@@ -45,6 +45,7 @@ namespace files{
 
         RelocationError(){}
         RelocationError(Tag v):m_tag(v){}
+        virtual ~RelocationError(){}
 
         Tag tag()const{return m_tag;}
         ///None

@@ -31,6 +31,7 @@ namespace sharing{
 
         ShareFolderJobStatus(){}
         ShareFolderJobStatus(Tag v):m_tag(v){}
+        virtual ~ShareFolderJobStatus(){}
 
         Tag tag()const{return m_tag;}
         ///The share job has finished. The value is the metadata for the folder.

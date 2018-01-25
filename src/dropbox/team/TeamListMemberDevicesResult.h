@@ -26,6 +26,7 @@ namespace team{
         ListMemberDevicesResult(){};
 
         ListMemberDevicesResult(const std::list <ActiveWebSession>& arg){ m_active_web_sessions = arg; };
+        virtual ~ListMemberDevicesResult(){};
 
     public:
             /**

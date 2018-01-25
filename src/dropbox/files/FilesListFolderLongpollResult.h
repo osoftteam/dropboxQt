@@ -21,6 +21,7 @@ namespace files{
         ListFolderLongpollResult(){};
 
         ListFolderLongpollResult(const bool& arg){ m_changes = arg; };
+        virtual ~ListFolderLongpollResult(){};
 
     public:
             /**

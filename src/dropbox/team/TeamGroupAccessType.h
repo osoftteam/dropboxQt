@@ -29,6 +29,7 @@ namespace team{
 
         GroupAccessType(){}
         GroupAccessType(Tag v):m_tag(v){}
+        virtual ~GroupAccessType(){}
 
         Tag tag()const{return m_tag;}
     public:

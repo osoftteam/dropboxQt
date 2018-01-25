@@ -21,6 +21,7 @@ namespace users{
         TeamSpaceAllocation(){};
 
         TeamSpaceAllocation(const int& arg){ m_used = arg; };
+        virtual ~TeamSpaceAllocation(){};
 
     public:
             /**

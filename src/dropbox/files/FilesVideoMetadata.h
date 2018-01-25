@@ -21,6 +21,7 @@ namespace files{
         VideoMetadata(){};
 
         VideoMetadata(const int& arg){ m_duration = arg; };
+        virtual ~VideoMetadata(){};
 
     public:
             /**

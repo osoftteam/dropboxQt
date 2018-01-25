@@ -38,6 +38,7 @@ namespace sharing{
 
         RequestedVisibility(){}
         RequestedVisibility(Tag v):m_tag(v){}
+        virtual ~RequestedVisibility(){}
 
         Tag tag()const{return m_tag;}
     public:

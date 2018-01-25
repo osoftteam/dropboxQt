@@ -22,6 +22,7 @@ namespace sharing{
         GetFileMetadataArg(){};
 
         GetFileMetadataArg(const QString& arg){ m_file = arg; };
+        virtual ~GetFileMetadataArg(){};
 
     public:
             /**

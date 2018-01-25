@@ -23,13 +23,13 @@ void UploadSessionCursor::toJson(QJsonObject& js)const{
 
     if(!m_session_id.isEmpty())
         js["session_id"] = QString(m_session_id);
-    js["offset"] = m_offset;
+    js["offset"] = QString("%1").arg(m_offset);
 }
 
 void UploadSessionCursor::fromJson(const QJsonObject& js){
 
     m_session_id = js["session_id"].toString();
-    m_offset = js["offset"].toVariant().toInt();
+    m_offset = js["offset"].toVariant().toString().toULongLong();
 }
 
 QString UploadSessionCursor::toString(bool multiline)const

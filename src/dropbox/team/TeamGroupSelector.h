@@ -29,6 +29,7 @@ namespace team{
 
         GroupSelector(){}
         GroupSelector(Tag v):m_tag(v){}
+        virtual ~GroupSelector(){}
 
         Tag tag()const{return m_tag;}
         ///Group ID.

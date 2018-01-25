@@ -34,6 +34,7 @@ namespace team{
 
         GroupCreateError(){}
         GroupCreateError(Tag v):m_tag(v){}
+        virtual ~GroupCreateError(){}
 
         Tag tag()const{return m_tag;}
     public:

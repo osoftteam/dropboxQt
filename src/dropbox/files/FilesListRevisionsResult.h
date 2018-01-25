@@ -21,6 +21,7 @@ namespace files{
         ListRevisionsResult(){};
 
         ListRevisionsResult(const bool& arg){ m_is_deleted = arg; };
+        virtual ~ListRevisionsResult(){};
 
     public:
             /**

@@ -29,6 +29,7 @@ namespace sharing{
         AddMember(const MemberSelector& arg):
         m_access_level(AccessLevel::AccessLevel_VIEWER)
         { m_member = arg; };
+        virtual ~AddMember(){};
 
     public:
             /**

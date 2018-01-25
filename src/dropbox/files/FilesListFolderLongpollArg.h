@@ -30,6 +30,7 @@ namespace files{
         ListFolderLongpollArg(const QString& arg):
         m_timeout(30)
         { m_cursor = arg; };
+        virtual ~ListFolderLongpollArg(){};
 
     public:
             /**

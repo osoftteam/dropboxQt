@@ -29,6 +29,7 @@ namespace sharing{
 
         GetFileMetadataError(){}
         GetFileMetadataError(Tag v):m_tag(v){}
+        virtual ~GetFileMetadataError(){}
 
         Tag tag()const{return m_tag;}
         ///None

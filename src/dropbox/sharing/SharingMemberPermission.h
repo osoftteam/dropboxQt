@@ -27,6 +27,7 @@ namespace sharing{
         MemberPermission(){};
 
         MemberPermission(const MemberAction& arg){ m_action = arg; };
+        virtual ~MemberPermission(){};
 
     public:
             /**

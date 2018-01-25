@@ -18,6 +18,7 @@ namespace files{
         DeleteArg(){};
 
         DeleteArg(const QString& arg){ m_path = arg; };
+        virtual ~DeleteArg(){};
 
     public:
             /**

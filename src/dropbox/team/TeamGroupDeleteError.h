@@ -28,6 +28,7 @@ namespace team{
 
         GroupDeleteError(){}
         GroupDeleteError(Tag v):m_tag(v){}
+        virtual ~GroupDeleteError(){}
 
         Tag tag()const{return m_tag;}
     public:

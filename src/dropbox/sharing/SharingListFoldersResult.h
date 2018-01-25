@@ -31,6 +31,7 @@ namespace sharing{
         ListFoldersResult(){};
 
         ListFoldersResult(const std::list <SharedFolderMetadata>& arg){ m_entries = arg; };
+        virtual ~ListFoldersResult(){};
 
     public:
             /**

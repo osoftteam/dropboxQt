@@ -24,6 +24,7 @@ namespace sharing{
         UpdateFolderMemberArg(){};
 
         UpdateFolderMemberArg(const QString& arg){ m_shared_folder_id = arg; };
+        virtual ~UpdateFolderMemberArg(){};
 
     public:
             /**

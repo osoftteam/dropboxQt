@@ -27,6 +27,7 @@ namespace sharing{
         ListFilesArg(const int& arg):
         m_limit(100)
         { m_limit = arg; };
+        virtual ~ListFilesArg(){};
 
     public:
             /**

@@ -23,6 +23,7 @@ namespace team{
         GroupCreateArg(){};
 
         GroupCreateArg(const QString& arg){ m_group_name = arg; };
+        virtual ~GroupCreateArg(){};
 
     public:
             /**

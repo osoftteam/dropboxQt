@@ -21,6 +21,7 @@ namespace files{
         AlphaGetMetadataArg(){};
 
         AlphaGetMetadataArg(const std::list <QString>& arg){ m_include_property_templates = arg; };
+        virtual ~AlphaGetMetadataArg(){};
 
     public:
             /**

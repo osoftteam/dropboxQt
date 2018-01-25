@@ -26,6 +26,7 @@ namespace users{
 
         GetAccountError(){}
         GetAccountError(Tag v):m_tag(v){}
+        virtual ~GetAccountError(){}
 
         Tag tag()const{return m_tag;}
     public:

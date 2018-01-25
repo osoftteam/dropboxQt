@@ -31,6 +31,7 @@ namespace team{
         GetMembershipReport(){};
 
         GetMembershipReport(const std::list <int>& arg){ m_team_size = arg; };
+        virtual ~GetMembershipReport(){};
 
     public:
             /**

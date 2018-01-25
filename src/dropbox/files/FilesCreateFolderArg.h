@@ -18,6 +18,7 @@ namespace files{
         CreateFolderArg(){};
 
         CreateFolderArg(const QString& arg){ m_path = arg; };
+        virtual ~CreateFolderArg(){};
 
     public:
             /**

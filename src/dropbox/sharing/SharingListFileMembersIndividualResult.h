@@ -32,6 +32,7 @@ namespace sharing{
 
         ListFileMembersIndividualResult(){}
         ListFileMembersIndividualResult(Tag v):m_tag(v){}
+        virtual ~ListFileMembersIndividualResult(){}
 
         Tag tag()const{return m_tag;}
         ///The results of the query for this file if it was successful

@@ -20,6 +20,7 @@ namespace files{
         CommitInfoWithProperties(){};
 
         CommitInfoWithProperties(const std::list <properties::PropertyGroup>& arg){ m_property_groups = arg; };
+        virtual ~CommitInfoWithProperties(){};
 
     public:
             /**

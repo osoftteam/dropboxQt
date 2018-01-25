@@ -31,6 +31,7 @@ namespace sharing{
 
         GetSharedLinkFileError(){}
         GetSharedLinkFileError(Tag v):m_tag(v){}
+        virtual ~GetSharedLinkFileError(){}
 
         Tag tag()const{return m_tag;}
     public:

@@ -36,6 +36,7 @@ namespace sharing{
 
         CreateSharedLinkWithSettingsError(){}
         CreateSharedLinkWithSettingsError(Tag v):m_tag(v){}
+        virtual ~CreateSharedLinkWithSettingsError(){}
 
         Tag tag()const{return m_tag;}
         ///None

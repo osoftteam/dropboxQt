@@ -34,6 +34,7 @@ namespace sharing{
 
         RelinquishFileMembershipError(){}
         RelinquishFileMembershipError(Tag v):m_tag(v){}
+        virtual ~RelinquishFileMembershipError(){}
 
         Tag tag()const{return m_tag;}
         ///None

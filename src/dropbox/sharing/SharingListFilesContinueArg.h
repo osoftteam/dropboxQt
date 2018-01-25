@@ -20,6 +20,7 @@ namespace sharing{
         ListFilesContinueArg(){};
 
         ListFilesContinueArg(const QString& arg){ m_cursor = arg; };
+        virtual ~ListFilesContinueArg(){};
 
     public:
             /**

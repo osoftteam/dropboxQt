@@ -21,12 +21,12 @@ IndividualSpaceAllocation::operator QJsonObject()const{
 
 void IndividualSpaceAllocation::toJson(QJsonObject& js)const{
 
-    js["allocated"] = m_allocated;
+    js["allocated"] = QString("%1").arg(m_allocated);
 }
 
 void IndividualSpaceAllocation::fromJson(const QJsonObject& js){
 
-    m_allocated = js["allocated"].toVariant().toInt();
+    m_allocated = js["allocated"].toVariant().toString().toULongLong();
 }
 
 QString IndividualSpaceAllocation::toString(bool multiline)const

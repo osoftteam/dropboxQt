@@ -20,6 +20,7 @@ namespace team{
 
         MembersGetInfoError(){}
         MembersGetInfoError(Tag v):m_tag(v){}
+        virtual ~MembersGetInfoError(){}
 
         Tag tag()const{return m_tag;}
     public:

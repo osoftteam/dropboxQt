@@ -26,6 +26,7 @@ namespace users{
 
         GetAccountBatchError(){}
         GetAccountBatchError(Tag v):m_tag(v){}
+        virtual ~GetAccountBatchError(){}
 
         Tag tag()const{return m_tag;}
         ///The value is an account ID specified in :field:`GetAccountBatchArg.account_ids` that does not exist.

@@ -21,6 +21,7 @@ namespace files{
         UpdatePropertyGroupArg(){};
 
         UpdatePropertyGroupArg(const QString& arg){ m_path = arg; };
+        virtual ~UpdatePropertyGroupArg(){};
 
     public:
             /**

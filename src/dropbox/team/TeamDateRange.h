@@ -21,6 +21,7 @@ namespace team{
         DateRange(){};
 
         DateRange(const QDateTime& arg){ m_start_date = arg; };
+        virtual ~DateRange(){};
 
     public:
             /**

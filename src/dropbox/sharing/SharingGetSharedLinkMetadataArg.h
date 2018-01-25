@@ -23,6 +23,7 @@ namespace sharing{
         GetSharedLinkMetadataArg(){};
 
         GetSharedLinkMetadataArg(const QString& arg){ m_url = arg; };
+        virtual ~GetSharedLinkMetadataArg(){};
 
     public:
             /**

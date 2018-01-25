@@ -18,6 +18,7 @@ namespace team{
         ListMemberAppsArg(){};
 
         ListMemberAppsArg(const QString& arg){ m_team_member_id = arg; };
+        virtual ~ListMemberAppsArg(){};
 
     public:
             /**

@@ -18,6 +18,7 @@ namespace sharing{
         GetSharedLinksArg(){};
 
         GetSharedLinksArg(const QString& arg){ m_path = arg; };
+        virtual ~GetSharedLinksArg(){};
 
     public:
             /**

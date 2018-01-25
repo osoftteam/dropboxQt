@@ -39,6 +39,7 @@ namespace team{
 
         MembersSetPermissionsError(){}
         MembersSetPermissionsError(Tag v):m_tag(v){}
+        virtual ~MembersSetPermissionsError(){}
 
         Tag tag()const{return m_tag;}
     public:

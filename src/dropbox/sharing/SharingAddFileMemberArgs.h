@@ -41,6 +41,7 @@ namespace sharing{
         ,m_access_level(AccessLevel::AccessLevel_VIEWER)
         ,m_add_message_as_comment(false)
         { m_file = arg; };
+        virtual ~AddFileMemberArgs(){};
 
     public:
             /**

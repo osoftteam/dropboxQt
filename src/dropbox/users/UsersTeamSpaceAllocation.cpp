@@ -21,14 +21,14 @@ TeamSpaceAllocation::operator QJsonObject()const{
 
 void TeamSpaceAllocation::toJson(QJsonObject& js)const{
 
-    js["used"] = m_used;
-    js["allocated"] = m_allocated;
+    js["used"] = QString("%1").arg(m_used);
+    js["allocated"] = QString("%1").arg(m_allocated);
 }
 
 void TeamSpaceAllocation::fromJson(const QJsonObject& js){
 
-    m_used = js["used"].toVariant().toInt();
-    m_allocated = js["allocated"].toVariant().toInt();
+    m_used = js["used"].toVariant().toString().toULongLong();
+    m_allocated = js["allocated"].toVariant().toString().toULongLong();
 }
 
 QString TeamSpaceAllocation::toString(bool multiline)const

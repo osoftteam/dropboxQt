@@ -29,6 +29,7 @@ namespace sharing{
         MemberAccessLevelResult(){};
 
         MemberAccessLevelResult(const AccessLevel& arg){ m_access_level = arg; };
+        virtual ~MemberAccessLevelResult(){};
 
     public:
             /**

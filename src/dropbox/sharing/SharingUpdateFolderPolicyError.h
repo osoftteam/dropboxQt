@@ -42,6 +42,7 @@ namespace sharing{
 
         UpdateFolderPolicyError(){}
         UpdateFolderPolicyError(Tag v):m_tag(v){}
+        virtual ~UpdateFolderPolicyError(){}
 
         Tag tag()const{return m_tag;}
         ///None

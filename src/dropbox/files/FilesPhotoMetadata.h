@@ -18,6 +18,7 @@ namespace files{
     public:
         PhotoMetadata(){};
 
+        virtual ~PhotoMetadata(){};
 
     public:
     public:

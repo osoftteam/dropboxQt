@@ -21,6 +21,7 @@ namespace sharing{
         ListFileMembersCountResult(){};
 
         ListFileMembersCountResult(const SharedFileMembers& arg){ m_members = arg; };
+        virtual ~ListFileMembersCountResult(){};
 
     public:
             /**

@@ -31,6 +31,7 @@ namespace team{
 
         RevokeDeviceSessionArg(){}
         RevokeDeviceSessionArg(Tag v):m_tag(v){}
+        virtual ~RevokeDeviceSessionArg(){}
 
         Tag tag()const{return m_tag;}
         ///End an active session

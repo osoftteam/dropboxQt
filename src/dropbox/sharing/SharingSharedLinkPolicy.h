@@ -31,6 +31,7 @@ namespace sharing{
 
         SharedLinkPolicy(){}
         SharedLinkPolicy(Tag v):m_tag(v){}
+        virtual ~SharedLinkPolicy(){}
 
         Tag tag()const{return m_tag;}
     public:

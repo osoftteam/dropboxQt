@@ -28,6 +28,7 @@ namespace sharing{
         ListFolderMembersCursorArg(const std::list <MemberAction>& arg):
         m_limit(1000)
         { m_actions = arg; };
+        virtual ~ListFolderMembersCursorArg(){};
 
     public:
             /**

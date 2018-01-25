@@ -18,6 +18,7 @@ namespace files{
         GetTemporaryLinkArg(){};
 
         GetTemporaryLinkArg(const QString& arg){ m_path = arg; };
+        virtual ~GetTemporaryLinkArg(){};
 
     public:
             /**

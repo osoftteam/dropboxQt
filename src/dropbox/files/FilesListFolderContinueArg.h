@@ -19,6 +19,7 @@ namespace files{
         ListFolderContinueArg(){};
 
         ListFolderContinueArg(const QString& arg){ m_cursor = arg; };
+        virtual ~ListFolderContinueArg(){};
 
     public:
             /**

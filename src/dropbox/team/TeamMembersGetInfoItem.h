@@ -33,6 +33,7 @@ namespace team{
 
         MembersGetInfoItem(){}
         MembersGetInfoItem(Tag v):m_tag(v){}
+        virtual ~MembersGetInfoItem(){}
 
         Tag tag()const{return m_tag;}
         ///An ID that was provided as a parameter to :route:`members/get_info`, and did not match a corresponding user. This might be a team_member_id, an email, or an external ID, depending on how the method was called.

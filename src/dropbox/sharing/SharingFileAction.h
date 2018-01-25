@@ -48,6 +48,7 @@ namespace sharing{
 
         FileAction(){}
         FileAction(Tag v):m_tag(v){}
+        virtual ~FileAction(){}
 
         Tag tag()const{return m_tag;}
     public:

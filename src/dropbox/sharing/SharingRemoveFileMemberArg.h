@@ -25,6 +25,7 @@ namespace sharing{
         RemoveFileMemberArg(){};
 
         RemoveFileMemberArg(const QString& arg){ m_file = arg; };
+        virtual ~RemoveFileMemberArg(){};
 
     public:
             /**

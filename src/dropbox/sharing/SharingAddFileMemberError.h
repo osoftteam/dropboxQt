@@ -38,6 +38,7 @@ namespace sharing{
 
         AddFileMemberError(){}
         AddFileMemberError(Tag v):m_tag(v){}
+        virtual ~AddFileMemberError(){}
 
         Tag tag()const{return m_tag;}
         ///None

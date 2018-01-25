@@ -22,13 +22,13 @@ ListFolderLongpollResult::operator QJsonObject()const{
 void ListFolderLongpollResult::toJson(QJsonObject& js)const{
 
     js["changes"] = m_changes;
-    js["backoff"] = m_backoff;
+    js["backoff"] = QString("%1").arg(m_backoff);
 }
 
 void ListFolderLongpollResult::fromJson(const QJsonObject& js){
 
     m_changes = js["changes"].toVariant().toBool();
-    m_backoff = js["backoff"].toVariant().toInt();
+    m_backoff = js["backoff"].toVariant().toString().toULongLong();
 }
 
 QString ListFolderLongpollResult::toString(bool multiline)const

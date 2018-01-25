@@ -23,6 +23,7 @@ namespace team{
         GroupMemberSelector(){};
 
         GroupMemberSelector(const GroupSelector& arg){ m_group = arg; };
+        virtual ~GroupMemberSelector(){};
 
     public:
             /**

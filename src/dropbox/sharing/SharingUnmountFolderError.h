@@ -35,6 +35,7 @@ namespace sharing{
 
         UnmountFolderError(){}
         UnmountFolderError(Tag v):m_tag(v){}
+        virtual ~UnmountFolderError(){}
 
         Tag tag()const{return m_tag;}
         ///None

@@ -21,6 +21,7 @@ namespace files{
         UploadWriteFailed(){};
 
         UploadWriteFailed(const WriteError& arg){ m_reason = arg; };
+        virtual ~UploadWriteFailed(){};
 
     public:
             /**

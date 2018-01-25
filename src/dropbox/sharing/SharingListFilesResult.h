@@ -23,6 +23,7 @@ namespace sharing{
         ListFilesResult(){};
 
         ListFilesResult(const std::list <SharedFileMetadata>& arg){ m_entries = arg; };
+        virtual ~ListFilesResult(){};
 
     public:
             /**

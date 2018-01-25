@@ -25,8 +25,8 @@ void SearchArg::toJson(QJsonObject& js)const{
         js["path"] = QString(m_path);
     if(!m_query.isEmpty())
         js["query"] = QString(m_query);
-    js["start"] = m_start;
-    js["max_results"] = m_max_results;
+    js["start"] = QString("%1").arg(m_start);
+    js["max_results"] = QString("%1").arg(m_max_results);
     m_mode.toJson(js, "mode");
 }
 
@@ -34,8 +34,8 @@ void SearchArg::fromJson(const QJsonObject& js){
 
     m_path = js["path"].toString();
     m_query = js["query"].toString();
-    m_start = js["start"].toVariant().toInt();
-    m_max_results = js["max_results"].toVariant().toInt();
+    m_start = js["start"].toVariant().toString().toULongLong();
+    m_max_results = js["max_results"].toVariant().toString().toULongLong();
     m_mode.fromJson(js["mode"].toObject());
 }
 

@@ -47,6 +47,7 @@ namespace sharing{
 
         RelinquishFolderMembershipError(){}
         RelinquishFolderMembershipError(Tag v):m_tag(v){}
+        virtual ~RelinquishFolderMembershipError(){}
 
         Tag tag()const{return m_tag;}
         ///None

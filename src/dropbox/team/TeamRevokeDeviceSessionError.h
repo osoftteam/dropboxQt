@@ -28,6 +28,7 @@ namespace team{
 
         RevokeDeviceSessionError(){}
         RevokeDeviceSessionError(Tag v):m_tag(v){}
+        virtual ~RevokeDeviceSessionError(){}
 
         Tag tag()const{return m_tag;}
     public:

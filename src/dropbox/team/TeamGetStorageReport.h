@@ -38,6 +38,7 @@ namespace team{
         GetStorageReport(){};
 
         GetStorageReport(const std::list <int>& arg){ m_total_usage = arg; };
+        virtual ~GetStorageReport(){};
 
     public:
             /**

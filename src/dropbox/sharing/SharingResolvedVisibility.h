@@ -44,6 +44,7 @@ namespace sharing{
 
         ResolvedVisibility(){}
         ResolvedVisibility(Tag v):m_tag(v){}
+        virtual ~ResolvedVisibility(){}
 
         Tag tag()const{return m_tag;}
     public:

@@ -25,6 +25,7 @@ namespace team{
 
         MembersListContinueError(){}
         MembersListContinueError(Tag v):m_tag(v){}
+        virtual ~MembersListContinueError(){}
 
         Tag tag()const{return m_tag;}
     public:

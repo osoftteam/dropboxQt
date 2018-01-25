@@ -19,6 +19,7 @@ namespace team{
         MembersGetInfoArgs(){};
 
         MembersGetInfoArgs(const std::list <UserSelectorArg>& arg){ m_members = arg; };
+        virtual ~MembersGetInfoArgs(){};
 
     public:
             /**

@@ -23,6 +23,7 @@ namespace team{
         GroupsListResult(){};
 
         GroupsListResult(const std::list <team_common::GroupSummary>& arg){ m_groups = arg; };
+        virtual ~GroupsListResult(){};
 
     public:
         const std::list <team_common::GroupSummary>& groups()const{return m_groups;};

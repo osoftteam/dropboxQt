@@ -18,6 +18,7 @@ namespace sharing{
         RevokeSharedLinkArg(){};
 
         RevokeSharedLinkArg(const QString& arg){ m_url = arg; };
+        virtual ~RevokeSharedLinkArg(){};
 
     public:
             /**

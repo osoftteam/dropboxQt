@@ -19,6 +19,7 @@ namespace files{
         UploadSessionFinishBatchArg(){};
 
         UploadSessionFinishBatchArg(const std::list <UploadSessionFinishArg>& arg){ m_entries = arg; };
+        virtual ~UploadSessionFinishBatchArg(){};
 
     public:
             /**

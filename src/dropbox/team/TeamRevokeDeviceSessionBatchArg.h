@@ -16,6 +16,7 @@ namespace team{
         RevokeDeviceSessionBatchArg(){};
 
         RevokeDeviceSessionBatchArg(const std::list <RevokeDeviceSessionArg>& arg){ m_revoke_devices = arg; };
+        virtual ~RevokeDeviceSessionBatchArg(){};
 
     public:
         const std::list <RevokeDeviceSessionArg>& revokeDevices()const{return m_revoke_devices;};

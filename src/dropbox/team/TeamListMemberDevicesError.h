@@ -25,6 +25,7 @@ namespace team{
 
         ListMemberDevicesError(){}
         ListMemberDevicesError(Tag v):m_tag(v){}
+        virtual ~ListMemberDevicesError(){}
 
         Tag tag()const{return m_tag;}
     public:

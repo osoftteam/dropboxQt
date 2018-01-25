@@ -31,6 +31,7 @@ namespace team{
 
         GroupMembersRemoveError(){}
         GroupMembersRemoveError(Tag v):m_tag(v){}
+        virtual ~GroupMembersRemoveError(){}
 
         Tag tag()const{return m_tag;}
     public:

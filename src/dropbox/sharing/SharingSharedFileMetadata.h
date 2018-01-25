@@ -46,6 +46,7 @@ namespace sharing{
         SharedFileMetadata(){};
 
         SharedFileMetadata(const FolderPolicy& arg){ m_policy = arg; };
+        virtual ~SharedFileMetadata(){};
 
     public:
             /**

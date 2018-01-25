@@ -26,6 +26,7 @@ namespace team{
 
         MemberSelectorError(){}
         MemberSelectorError(Tag v):m_tag(v){}
+        virtual ~MemberSelectorError(){}
 
         Tag tag()const{return m_tag;}
     public:

@@ -26,6 +26,7 @@ namespace sharing{
         ListFileMembersBatchArg(const std::list <QString>& arg):
         m_limit(10)
         { m_files = arg; };
+        virtual ~ListFileMembersBatchArg(){};
 
     public:
             /**

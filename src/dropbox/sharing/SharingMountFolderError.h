@@ -46,6 +46,7 @@ namespace sharing{
 
         MountFolderError(){}
         MountFolderError(Tag v):m_tag(v){}
+        virtual ~MountFolderError(){}
 
         Tag tag()const{return m_tag;}
         ///None

@@ -22,13 +22,13 @@ ListFolderMembersCursorArg::operator QJsonObject()const{
 void ListFolderMembersCursorArg::toJson(QJsonObject& js)const{
 
     js["actions"] = struct_list2jsonarray(m_actions);
-    js["limit"] = m_limit;
+    js["limit"] = QString("%1").arg(m_limit);
 }
 
 void ListFolderMembersCursorArg::fromJson(const QJsonObject& js){
 
     jsonarray2struct_list(js["actions"].toArray(), m_actions);
-    m_limit = js["limit"].toVariant().toInt();
+    m_limit = js["limit"].toVariant().toString().toULongLong();
 }
 
 QString ListFolderMembersCursorArg::toString(bool multiline)const

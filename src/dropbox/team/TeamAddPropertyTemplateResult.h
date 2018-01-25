@@ -19,6 +19,7 @@ namespace team{
         AddPropertyTemplateResult(){};
 
         AddPropertyTemplateResult(const QString& arg){ m_template_id = arg; };
+        virtual ~AddPropertyTemplateResult(){};
 
     public:
             /**

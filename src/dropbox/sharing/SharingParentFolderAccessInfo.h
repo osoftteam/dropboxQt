@@ -25,6 +25,7 @@ namespace sharing{
         ParentFolderAccessInfo(){};
 
         ParentFolderAccessInfo(const QString& arg){ m_folder_name = arg; };
+        virtual ~ParentFolderAccessInfo(){};
 
     public:
             /**

@@ -32,6 +32,7 @@ namespace team{
 
         UsersSelectorArg(){}
         UsersSelectorArg(Tag v):m_tag(v){}
+        virtual ~UsersSelectorArg(){}
 
         Tag tag()const{return m_tag;}
         ///List of member IDs.

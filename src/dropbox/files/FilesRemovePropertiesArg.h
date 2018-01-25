@@ -20,6 +20,7 @@ namespace files{
         RemovePropertiesArg(){};
 
         RemovePropertiesArg(const QString& arg){ m_path = arg; };
+        virtual ~RemovePropertiesArg(){};
 
     public:
             /**

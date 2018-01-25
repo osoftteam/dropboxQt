@@ -31,6 +31,7 @@ namespace users{
 
         AccountType(){}
         AccountType(Tag v):m_tag(v){}
+        virtual ~AccountType(){}
 
         Tag tag()const{return m_tag;}
     public:

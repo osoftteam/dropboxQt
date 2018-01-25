@@ -23,6 +23,7 @@ namespace files{
 
         DownloadError(){}
         DownloadError(Tag v):m_tag(v){}
+        virtual ~DownloadError(){}
 
         Tag tag()const{return m_tag;}
         ///None

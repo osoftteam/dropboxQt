@@ -47,6 +47,7 @@ namespace files{
         FileMetadata(){};
 
         FileMetadata(const QString& arg){ m_id = arg; };
+        virtual ~FileMetadata(){};
 
     public:
             /**

@@ -22,6 +22,7 @@ namespace team{
         MembersRecoverArg(){};
 
         MembersRecoverArg(const UserSelectorArg& arg){ m_user = arg; };
+        virtual ~MembersRecoverArg(){};
 
     public:
             /**

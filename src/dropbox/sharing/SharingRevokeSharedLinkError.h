@@ -30,6 +30,7 @@ namespace sharing{
 
         RevokeSharedLinkError(){}
         RevokeSharedLinkError(Tag v):m_tag(v){}
+        virtual ~RevokeSharedLinkError(){}
 
         Tag tag()const{return m_tag;}
     public:

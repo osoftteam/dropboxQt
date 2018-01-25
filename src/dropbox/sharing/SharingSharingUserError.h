@@ -28,6 +28,7 @@ namespace sharing{
 
         SharingUserError(){}
         SharingUserError(Tag v):m_tag(v){}
+        virtual ~SharingUserError(){}
 
         Tag tag()const{return m_tag;}
     public:

@@ -23,13 +23,13 @@ void StorageBucket::toJson(QJsonObject& js)const{
 
     if(!m_bucket.isEmpty())
         js["bucket"] = QString(m_bucket);
-    js["users"] = m_users;
+    js["users"] = QString("%1").arg(m_users);
 }
 
 void StorageBucket::fromJson(const QJsonObject& js){
 
     m_bucket = js["bucket"].toString();
-    m_users = js["users"].toVariant().toInt();
+    m_users = js["users"].toVariant().toString().toULongLong();
 }
 
 QString StorageBucket::toString(bool multiline)const

@@ -30,6 +30,7 @@ namespace files{
         m_format(ThumbnailFormat::ThumbnailFormat_JPEG)
         ,m_size(ThumbnailSize::ThumbnailSize_W64H64)
         { m_path = arg; };
+        virtual ~ThumbnailArg(){};
 
     public:
             /**

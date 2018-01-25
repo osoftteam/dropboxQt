@@ -22,6 +22,7 @@ namespace team{
         GroupsListArg(const int& arg):
         m_limit(1000)
         { m_limit = arg; };
+        virtual ~GroupsListArg(){};
 
     public:
             /**

@@ -18,6 +18,7 @@ namespace sharing{
         MountFolderArg(){};
 
         MountFolderArg(const QString& arg){ m_shared_folder_id = arg; };
+        virtual ~MountFolderArg(){};
 
     public:
             /**

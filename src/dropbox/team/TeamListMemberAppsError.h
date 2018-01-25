@@ -27,6 +27,7 @@ namespace team{
 
         ListMemberAppsError(){}
         ListMemberAppsError(Tag v):m_tag(v){}
+        virtual ~ListMemberAppsError(){}
 
         Tag tag()const{return m_tag;}
     public:

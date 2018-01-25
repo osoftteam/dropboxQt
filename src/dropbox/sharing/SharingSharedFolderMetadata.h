@@ -33,6 +33,7 @@ namespace sharing{
         SharedFolderMetadata(){};
 
         SharedFolderMetadata(const QString& arg){ m_path_lower = arg; };
+        virtual ~SharedFolderMetadata(){};
 
     public:
             /**

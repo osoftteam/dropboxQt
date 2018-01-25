@@ -19,6 +19,7 @@ namespace sharing{
         GetSharedLinksResult(){};
 
         GetSharedLinksResult(const std::list <LinkMetadata>& arg){ m_links = arg; };
+        virtual ~GetSharedLinksResult(){};
 
     public:
             /**

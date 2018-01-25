@@ -31,6 +31,7 @@ namespace team{
 
         GroupMemberSetAccessTypeError(){}
         GroupMemberSetAccessTypeError(Tag v):m_tag(v){}
+        virtual ~GroupMemberSetAccessTypeError(){}
 
         Tag tag()const{return m_tag;}
     public:

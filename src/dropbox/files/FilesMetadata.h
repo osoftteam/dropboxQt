@@ -33,6 +33,7 @@ namespace files{
         Metadata(){};
 
         Metadata(const QString& arg){ m_name = arg; };
+        virtual ~Metadata(){};
 
     public:
             /**

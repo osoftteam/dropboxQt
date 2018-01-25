@@ -43,6 +43,7 @@ namespace sharing{
 
         SharingFileAccessError(){}
         SharingFileAccessError(Tag v):m_tag(v){}
+        virtual ~SharingFileAccessError(){}
 
         Tag tag()const{return m_tag;}
     public:

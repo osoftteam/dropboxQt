@@ -34,6 +34,7 @@ namespace sharing{
 
         ListFileMembersContinueError(){}
         ListFileMembersContinueError(Tag v):m_tag(v){}
+        virtual ~ListFileMembersContinueError(){}
 
         Tag tag()const{return m_tag;}
         ///None

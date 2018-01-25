@@ -18,6 +18,7 @@ namespace sharing{
         UnmountFolderArg(){};
 
         UnmountFolderArg(const QString& arg){ m_shared_folder_id = arg; };
+        virtual ~UnmountFolderArg(){};
 
     public:
             /**

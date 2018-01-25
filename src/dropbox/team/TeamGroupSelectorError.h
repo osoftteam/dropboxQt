@@ -28,6 +28,7 @@ namespace team{
 
         GroupSelectorError(){}
         GroupSelectorError(Tag v):m_tag(v){}
+        virtual ~GroupSelectorError(){}
 
         Tag tag()const{return m_tag;}
     public:

@@ -19,6 +19,7 @@ namespace files{
         SaveUrlArg(){};
 
         SaveUrlArg(const QString& arg){ m_path = arg; };
+        virtual ~SaveUrlArg(){};
 
     public:
             /**

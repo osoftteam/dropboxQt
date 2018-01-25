@@ -24,6 +24,7 @@ namespace team{
         MembersListResult(){};
 
         MembersListResult(const std::list <TeamMemberInfo>& arg){ m_members = arg; };
+        virtual ~MembersListResult(){};
 
     public:
             /**

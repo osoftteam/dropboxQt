@@ -32,6 +32,7 @@ namespace team_policies{
 
         SharedFolderJoinPolicy(){}
         SharedFolderJoinPolicy(Tag v):m_tag(v){}
+        virtual ~SharedFolderJoinPolicy(){}
 
         Tag tag()const{return m_tag;}
     public:

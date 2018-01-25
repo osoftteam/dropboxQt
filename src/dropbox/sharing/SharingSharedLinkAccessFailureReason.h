@@ -38,6 +38,7 @@ namespace sharing{
 
         SharedLinkAccessFailureReason(){}
         SharedLinkAccessFailureReason(Tag v):m_tag(v){}
+        virtual ~SharedLinkAccessFailureReason(){}
 
         Tag tag()const{return m_tag;}
     public:

@@ -20,6 +20,7 @@ namespace files{
         SaveCopyReferenceArg(){};
 
         SaveCopyReferenceArg(const QString& arg){ m_copy_reference = arg; };
+        virtual ~SaveCopyReferenceArg(){};
 
     public:
             /**

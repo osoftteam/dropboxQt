@@ -22,13 +22,13 @@ VideoMetadata::operator QJsonObject()const{
 void VideoMetadata::toJson(QJsonObject& js)const{
 
     MediaMetadata::toJson(js);
-    js["duration"] = m_duration;
+    js["duration"] = QString("%1").arg(m_duration);
 }
 
 void VideoMetadata::fromJson(const QJsonObject& js){
 
     MediaMetadata::fromJson(js);
-    m_duration = js["duration"].toVariant().toInt();
+    m_duration = js["duration"].toVariant().toString().toULongLong();
 }
 
 QString VideoMetadata::toString(bool multiline)const

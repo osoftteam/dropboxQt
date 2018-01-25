@@ -23,14 +23,14 @@ void SearchResult::toJson(QJsonObject& js)const{
 
     js["matches"] = struct_list2jsonarray(m_matches);
     js["more"] = m_more;
-    js["start"] = m_start;
+    js["start"] = QString("%1").arg(m_start);
 }
 
 void SearchResult::fromJson(const QJsonObject& js){
 
     jsonarray2struct_list(js["matches"].toArray(), m_matches);
     m_more = js["more"].toVariant().toBool();
-    m_start = js["start"].toVariant().toInt();
+    m_start = js["start"].toVariant().toString().toULongLong();
 }
 
 QString SearchResult::toString(bool multiline)const

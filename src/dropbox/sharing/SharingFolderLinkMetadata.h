@@ -18,6 +18,7 @@ namespace sharing{
     public:
         FolderLinkMetadata(){};
 
+        virtual ~FolderLinkMetadata(){};
 
     public:
     public:

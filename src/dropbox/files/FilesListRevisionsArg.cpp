@@ -23,13 +23,13 @@ void ListRevisionsArg::toJson(QJsonObject& js)const{
 
     if(!m_path.isEmpty())
         js["path"] = QString(m_path);
-    js["limit"] = m_limit;
+    js["limit"] = QString("%1").arg(m_limit);
 }
 
 void ListRevisionsArg::fromJson(const QJsonObject& js){
 
     m_path = js["path"].toString();
-    m_limit = js["limit"].toVariant().toInt();
+    m_limit = js["limit"].toVariant().toString().toULongLong();
 }
 
 QString ListRevisionsArg::toString(bool multiline)const

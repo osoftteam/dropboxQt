@@ -32,6 +32,7 @@ namespace sharing{
         UpdateFolderPolicyArg(){};
 
         UpdateFolderPolicyArg(const QString& arg){ m_shared_folder_id = arg; };
+        virtual ~UpdateFolderPolicyArg(){};
 
     public:
             /**

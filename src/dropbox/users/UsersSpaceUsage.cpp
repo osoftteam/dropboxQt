@@ -21,13 +21,13 @@ SpaceUsage::operator QJsonObject()const{
 
 void SpaceUsage::toJson(QJsonObject& js)const{
 
-    js["used"] = m_used;
+    js["used"] = QString("%1").arg(m_used);
     m_allocation.toJson(js, "allocation");
 }
 
 void SpaceUsage::fromJson(const QJsonObject& js){
 
-    m_used = js["used"].toVariant().toInt();
+    m_used = js["used"].toVariant().toString().toULongLong();
     m_allocation.fromJson(js["allocation"].toObject());
 }
 

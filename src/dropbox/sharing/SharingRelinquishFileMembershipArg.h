@@ -18,6 +18,7 @@ namespace sharing{
         RelinquishFileMembershipArg(){};
 
         RelinquishFileMembershipArg(const QString& arg){ m_file = arg; };
+        virtual ~RelinquishFileMembershipArg(){};
 
     public:
             /**

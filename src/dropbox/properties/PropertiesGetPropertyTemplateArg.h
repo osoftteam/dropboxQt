@@ -19,6 +19,7 @@ namespace properties{
         GetPropertyTemplateArg(){};
 
         GetPropertyTemplateArg(const QString& arg){ m_template_id = arg; };
+        virtual ~GetPropertyTemplateArg(){};
 
     public:
             /**

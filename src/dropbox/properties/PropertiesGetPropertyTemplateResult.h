@@ -18,6 +18,7 @@ namespace properties{
     public:
         GetPropertyTemplateResult(){};
 
+        virtual ~GetPropertyTemplateResult(){};
 
     public:
     public:

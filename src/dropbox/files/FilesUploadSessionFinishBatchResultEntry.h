@@ -24,6 +24,7 @@ namespace files{
 
         UploadSessionFinishBatchResultEntry(){}
         UploadSessionFinishBatchResultEntry(Tag v):m_tag(v){}
+        virtual ~UploadSessionFinishBatchResultEntry(){}
 
         Tag tag()const{return m_tag;}
         ///None

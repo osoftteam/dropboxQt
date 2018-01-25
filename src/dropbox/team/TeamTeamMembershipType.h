@@ -28,6 +28,7 @@ namespace team{
 
         TeamMembershipType(){}
         TeamMembershipType(Tag v):m_tag(v){}
+        virtual ~TeamMembershipType(){}
 
         Tag tag()const{return m_tag;}
     public:

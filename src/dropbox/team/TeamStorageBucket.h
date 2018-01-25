@@ -23,6 +23,7 @@ namespace team{
         StorageBucket(){};
 
         StorageBucket(const QString& arg){ m_bucket = arg; };
+        virtual ~StorageBucket(){};
 
     public:
             /**

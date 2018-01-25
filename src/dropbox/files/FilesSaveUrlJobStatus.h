@@ -30,6 +30,7 @@ namespace files{
 
         SaveUrlJobStatus(){}
         SaveUrlJobStatus(Tag v):m_tag(v){}
+        virtual ~SaveUrlJobStatus(){}
 
         Tag tag()const{return m_tag;}
         ///Metadata of the file where the URL is saved to.

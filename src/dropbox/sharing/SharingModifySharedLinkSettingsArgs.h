@@ -26,6 +26,7 @@ namespace sharing{
         ModifySharedLinkSettingsArgs(const QString& arg):
         m_remove_expiration(false)
         { m_url = arg; };
+        virtual ~ModifySharedLinkSettingsArgs(){};
 
     public:
             /**

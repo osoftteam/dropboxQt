@@ -25,6 +25,7 @@ namespace team{
         RevokeDesktopClientArg(const bool& arg):
         m_delete_on_unlink(false)
         { m_delete_on_unlink = arg; };
+        virtual ~RevokeDesktopClientArg(){};
 
     public:
             /**

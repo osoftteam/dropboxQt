@@ -24,6 +24,7 @@ namespace sharing{
         UserInfo(){};
 
         UserInfo(const QString& arg){ m_account_id = arg; };
+        virtual ~UserInfo(){};
 
     public:
             /**

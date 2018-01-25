@@ -19,6 +19,7 @@ namespace files{
         RelocationArg(){};
 
         RelocationArg(const QString& arg){ m_from_path = arg; };
+        virtual ~RelocationArg(){};
 
     public:
             /**

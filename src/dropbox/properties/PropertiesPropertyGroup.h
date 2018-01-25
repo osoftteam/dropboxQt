@@ -24,6 +24,7 @@ namespace properties{
         PropertyGroup(){};
 
         PropertyGroup(const QString& arg){ m_template_id = arg; };
+        virtual ~PropertyGroup(){};
 
     public:
             /**

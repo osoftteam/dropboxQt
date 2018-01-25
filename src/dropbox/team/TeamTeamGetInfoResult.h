@@ -24,6 +24,7 @@ namespace team{
         TeamGetInfoResult(){};
 
         TeamGetInfoResult(const QString& arg){ m_name = arg; };
+        virtual ~TeamGetInfoResult(){};
 
     public:
             /**

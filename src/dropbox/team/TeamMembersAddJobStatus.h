@@ -34,6 +34,7 @@ namespace team{
 
         MembersAddJobStatus(){}
         MembersAddJobStatus(Tag v):m_tag(v){}
+        virtual ~MembersAddJobStatus(){}
 
         Tag tag()const{return m_tag;}
         ///The asynchronous job has finished. For each member that was specified in the parameter :type:`MembersAddArg` that was provided to :route:`members/add`, a corresponding item is returned in this list.

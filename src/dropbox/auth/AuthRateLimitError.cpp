@@ -22,13 +22,13 @@ RateLimitError::operator QJsonObject()const{
 void RateLimitError::toJson(QJsonObject& js)const{
 
     m_reason.toJson(js, "reason");
-    js["retry_after"] = m_retry_after;
+    js["retry_after"] = QString("%1").arg(m_retry_after);
 }
 
 void RateLimitError::fromJson(const QJsonObject& js){
 
     m_reason.fromJson(js["reason"].toObject());
-    m_retry_after = js["retry_after"].toVariant().toInt();
+    m_retry_after = js["retry_after"].toVariant().toString().toULongLong();
 }
 
 QString RateLimitError::toString(bool multiline)const

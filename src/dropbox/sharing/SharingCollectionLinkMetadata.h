@@ -18,6 +18,7 @@ namespace sharing{
     public:
         CollectionLinkMetadata(){};
 
+        virtual ~CollectionLinkMetadata(){};
 
     public:
     public:

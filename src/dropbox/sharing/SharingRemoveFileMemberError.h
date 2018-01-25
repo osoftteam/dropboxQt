@@ -37,6 +37,7 @@ namespace sharing{
 
         RemoveFileMemberError(){}
         RemoveFileMemberError(Tag v):m_tag(v){}
+        virtual ~RemoveFileMemberError(){}
 
         Tag tag()const{return m_tag;}
         ///None

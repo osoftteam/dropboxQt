@@ -24,6 +24,7 @@ namespace files{
         FileSharingInfo(){};
 
         FileSharingInfo(const QString& arg){ m_parent_shared_folder_id = arg; };
+        virtual ~FileSharingInfo(){};
 
     public:
             /**

@@ -69,6 +69,7 @@ namespace sharing{
 
         AddFolderMemberError(){}
         AddFolderMemberError(Tag v):m_tag(v){}
+        virtual ~AddFolderMemberError(){}
 
         Tag tag()const{return m_tag;}
         ///Unable to access shared folder.

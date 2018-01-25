@@ -35,6 +35,7 @@ namespace sharing{
         FolderPolicy(){};
 
         FolderPolicy(const MemberPolicy& arg){ m_member_policy = arg; };
+        virtual ~FolderPolicy(){};
 
     public:
             /**

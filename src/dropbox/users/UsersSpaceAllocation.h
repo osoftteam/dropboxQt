@@ -33,6 +33,7 @@ namespace users{
 
         SpaceAllocation(){}
         SpaceAllocation(Tag v):m_tag(v){}
+        virtual ~SpaceAllocation(){}
 
         Tag tag()const{return m_tag;}
         ///The user's space allocation applies only to their individual account.

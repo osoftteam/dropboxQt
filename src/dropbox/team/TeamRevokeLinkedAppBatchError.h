@@ -23,6 +23,7 @@ namespace team{
 
         RevokeLinkedAppBatchError(){}
         RevokeLinkedAppBatchError(Tag v):m_tag(v){}
+        virtual ~RevokeLinkedAppBatchError(){}
 
         Tag tag()const{return m_tag;}
     public:

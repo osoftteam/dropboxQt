@@ -39,6 +39,7 @@ namespace users{
         FullAccount(){};
 
         FullAccount(const QString& arg){ m_country = arg; };
+        virtual ~FullAccount(){};
 
     public:
             /**

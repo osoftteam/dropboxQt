@@ -24,6 +24,7 @@ namespace files{
         UploadSessionStartArg(const bool& arg):
         m_close(false)
         { m_close = arg; };
+        virtual ~UploadSessionStartArg(){};
 
     public:
             /**

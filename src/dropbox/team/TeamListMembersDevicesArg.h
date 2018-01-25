@@ -36,6 +36,7 @@ namespace team{
         ,m_include_desktop_clients(false)
         ,m_include_mobile_clients(false)
         { m_cursor = arg; };
+        virtual ~ListMembersDevicesArg(){};
 
     public:
             /**

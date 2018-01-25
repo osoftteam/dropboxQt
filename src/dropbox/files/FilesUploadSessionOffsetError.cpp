@@ -21,12 +21,12 @@ UploadSessionOffsetError::operator QJsonObject()const{
 
 void UploadSessionOffsetError::toJson(QJsonObject& js)const{
 
-    js["correct_offset"] = m_correct_offset;
+    js["correct_offset"] = QString("%1").arg(m_correct_offset);
 }
 
 void UploadSessionOffsetError::fromJson(const QJsonObject& js){
 
-    m_correct_offset = js["correct_offset"].toVariant().toInt();
+    m_correct_offset = js["correct_offset"].toVariant().toString().toULongLong();
 }
 
 QString UploadSessionOffsetError::toString(bool multiline)const

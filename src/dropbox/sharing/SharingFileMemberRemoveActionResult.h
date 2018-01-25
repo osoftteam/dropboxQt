@@ -30,6 +30,7 @@ namespace sharing{
 
         FileMemberRemoveActionResult(){}
         FileMemberRemoveActionResult(Tag v):m_tag(v){}
+        virtual ~FileMemberRemoveActionResult(){}
 
         Tag tag()const{return m_tag;}
         ///Member was successfully removed from this file.

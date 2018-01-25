@@ -20,6 +20,7 @@ namespace team{
 
         MembersListError(){}
         MembersListError(Tag v):m_tag(v){}
+        virtual ~MembersListError(){}
 
         Tag tag()const{return m_tag;}
     public:

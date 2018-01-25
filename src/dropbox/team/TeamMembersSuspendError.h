@@ -39,6 +39,7 @@ namespace team{
 
         MembersSuspendError(){}
         MembersSuspendError(Tag v):m_tag(v){}
+        virtual ~MembersSuspendError(){}
 
         Tag tag()const{return m_tag;}
     public:

@@ -52,6 +52,7 @@ namespace team{
 
         GroupMembersAddError(){}
         GroupMembersAddError(Tag v):m_tag(v){}
+        virtual ~GroupMembersAddError(){}
 
         Tag tag()const{return m_tag;}
         ///These members are not part of your team. Currently, you cannot add members to a group if they are not part of your team, though this may change in a subsequent version. To add new members to your Dropbox Business team, use the :route:`members/add` endpoint.

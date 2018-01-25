@@ -28,6 +28,7 @@ namespace team{
 
         UserSelectorArg(){}
         UserSelectorArg(Tag v):m_tag(v){}
+        virtual ~UserSelectorArg(){}
 
         Tag tag()const{return m_tag;}
         ///None

@@ -19,6 +19,7 @@ namespace files{
         GetCopyReferenceArg(){};
 
         GetCopyReferenceArg(const QString& arg){ m_path = arg; };
+        virtual ~GetCopyReferenceArg(){};
 
     public:
             /**

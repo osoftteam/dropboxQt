@@ -22,6 +22,7 @@ namespace users{
         FullTeam(){};
 
         FullTeam(const team_policies::TeamSharingPolicies& arg){ m_sharing_policies = arg; };
+        virtual ~FullTeam(){};
 
     public:
             /**

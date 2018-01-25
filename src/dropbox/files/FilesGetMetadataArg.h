@@ -34,6 +34,7 @@ namespace files{
         ,m_include_deleted(false)
         ,m_include_has_explicit_shared_members(false)
         { m_path = arg; };
+        virtual ~GetMetadataArg(){};
 
     public:
             /**

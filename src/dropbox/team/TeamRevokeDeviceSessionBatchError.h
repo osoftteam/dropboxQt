@@ -20,6 +20,7 @@ namespace team{
 
         RevokeDeviceSessionBatchError(){}
         RevokeDeviceSessionBatchError(Tag v):m_tag(v){}
+        virtual ~RevokeDeviceSessionBatchError(){}
 
         Tag tag()const{return m_tag;}
     public:

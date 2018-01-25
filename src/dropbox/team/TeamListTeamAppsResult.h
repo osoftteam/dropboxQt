@@ -27,6 +27,7 @@ namespace team{
         ListTeamAppsResult(){};
 
         ListTeamAppsResult(const std::list <MemberLinkedApps>& arg){ m_apps = arg; };
+        virtual ~ListTeamAppsResult(){};
 
     public:
             /**

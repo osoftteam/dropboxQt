@@ -32,6 +32,7 @@ namespace sharing{
         SharedFolderMetadataBase(){};
 
         SharedFolderMetadataBase(const AccessLevel& arg){ m_access_type = arg; };
+        virtual ~SharedFolderMetadataBase(){};
 
     public:
             /**

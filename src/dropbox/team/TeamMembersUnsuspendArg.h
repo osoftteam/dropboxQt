@@ -22,6 +22,7 @@ namespace team{
         MembersUnsuspendArg(){};
 
         MembersUnsuspendArg(const UserSelectorArg& arg){ m_user = arg; };
+        virtual ~MembersUnsuspendArg(){};
 
     public:
             /**

@@ -51,6 +51,7 @@ namespace team{
         GetActivityReport(){};
 
         GetActivityReport(const std::list <int>& arg){ m_adds = arg; };
+        virtual ~GetActivityReport(){};
 
     public:
             /**

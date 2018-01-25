@@ -22,6 +22,7 @@ namespace sharing{
         GroupMembershipInfo(){};
 
         GroupMembershipInfo(const GroupInfo& arg){ m_group = arg; };
+        virtual ~GroupMembershipInfo(){};
 
     public:
             /**

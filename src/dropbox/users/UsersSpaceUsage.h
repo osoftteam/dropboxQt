@@ -22,6 +22,7 @@ namespace users{
         SpaceUsage(){};
 
         SpaceUsage(const int& arg){ m_used = arg; };
+        virtual ~SpaceUsage(){};
 
     public:
             /**

@@ -32,6 +32,7 @@ namespace sharing{
 
         RemoveMemberJobStatus(){}
         RemoveMemberJobStatus(Tag v):m_tag(v){}
+        virtual ~RemoveMemberJobStatus(){}
 
         Tag tag()const{return m_tag;}
         ///Removing the folder member has finished. The value is information about whether the member has another form of access.

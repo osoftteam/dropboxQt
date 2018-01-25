@@ -47,6 +47,7 @@ namespace sharing{
 
         AddMemberSelectorError(){}
         AddMemberSelectorError(Tag v):m_tag(v){}
+        virtual ~AddMemberSelectorError(){}
 
         Tag tag()const{return m_tag;}
         ///The value is the ID that could not be identified.

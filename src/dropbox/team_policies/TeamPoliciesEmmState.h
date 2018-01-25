@@ -31,6 +31,7 @@ namespace team_policies{
 
         EmmState(){}
         EmmState(Tag v):m_tag(v){}
+        virtual ~EmmState(){}
 
         Tag tag()const{return m_tag;}
     public:

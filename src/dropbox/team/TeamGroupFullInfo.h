@@ -24,6 +24,7 @@ namespace team{
         GroupFullInfo(){};
 
         GroupFullInfo(const std::list <GroupMemberInfo>& arg){ m_members = arg; };
+        virtual ~GroupFullInfo(){};
 
     public:
             /**

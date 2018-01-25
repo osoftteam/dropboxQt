@@ -25,6 +25,7 @@ namespace team{
         ListMembersAppsArg(){};
 
         ListMembersAppsArg(const QString& arg){ m_cursor = arg; };
+        virtual ~ListMembersAppsArg(){};
 
     public:
             /**

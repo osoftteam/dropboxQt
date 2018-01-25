@@ -26,6 +26,7 @@ namespace files{
         UploadSessionAppendArg(const UploadSessionCursor& arg):
         m_close(false)
         { m_cursor = arg; };
+        virtual ~UploadSessionAppendArg(){};
 
     public:
             /**

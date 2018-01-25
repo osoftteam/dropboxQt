@@ -38,6 +38,7 @@ namespace files{
         ,m_max_results(100)
         ,m_mode(SearchMode::SearchMode_FILENAME)
         { m_path = arg; };
+        virtual ~SearchArg(){};
 
     public:
             /**

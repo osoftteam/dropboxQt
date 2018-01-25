@@ -23,6 +23,7 @@ namespace sharing{
         InsufficientQuotaAmounts(){};
 
         InsufficientQuotaAmounts(const int& arg){ m_space_needed = arg; };
+        virtual ~InsufficientQuotaAmounts(){};
 
     public:
             /**

@@ -23,6 +23,7 @@ namespace files{
 
         ListFolderError(){}
         ListFolderError(Tag v):m_tag(v){}
+        virtual ~ListFolderError(){}
 
         Tag tag()const{return m_tag;}
         ///None

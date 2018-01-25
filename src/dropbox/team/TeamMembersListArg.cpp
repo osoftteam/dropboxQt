@@ -21,13 +21,13 @@ MembersListArg::operator QJsonObject()const{
 
 void MembersListArg::toJson(QJsonObject& js)const{
 
-    js["limit"] = m_limit;
+    js["limit"] = QString("%1").arg(m_limit);
     js["include_removed"] = m_include_removed;
 }
 
 void MembersListArg::fromJson(const QJsonObject& js){
 
-    m_limit = js["limit"].toVariant().toInt();
+    m_limit = js["limit"].toVariant().toString().toULongLong();
     m_include_removed = js["include_removed"].toVariant().toBool();
 }
 

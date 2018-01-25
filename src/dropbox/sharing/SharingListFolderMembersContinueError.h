@@ -29,6 +29,7 @@ namespace sharing{
 
         ListFolderMembersContinueError(){}
         ListFolderMembersContinueError(Tag v):m_tag(v){}
+        virtual ~ListFolderMembersContinueError(){}
 
         Tag tag()const{return m_tag;}
         ///None

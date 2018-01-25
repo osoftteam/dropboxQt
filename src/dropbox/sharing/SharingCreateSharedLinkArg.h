@@ -28,6 +28,7 @@ namespace sharing{
         CreateSharedLinkArg(const QString& arg):
         m_short_url(false)
         { m_path = arg; };
+        virtual ~CreateSharedLinkArg(){};
 
     public:
             /**

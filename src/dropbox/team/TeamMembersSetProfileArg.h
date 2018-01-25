@@ -28,6 +28,7 @@ namespace team{
         MembersSetProfileArg(){};
 
         MembersSetProfileArg(const UserSelectorArg& arg){ m_user = arg; };
+        virtual ~MembersSetProfileArg(){};
 
     public:
             /**

@@ -30,6 +30,7 @@ namespace sharing{
 
         GetFileMetadataIndividualResult(){}
         GetFileMetadataIndividualResult(Tag v):m_tag(v){}
+        virtual ~GetFileMetadataIndividualResult(){}
 
         Tag tag()const{return m_tag;}
         ///The result for this file if it was successful.

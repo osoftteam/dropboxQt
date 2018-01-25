@@ -22,6 +22,7 @@ namespace files{
         UploadSessionFinishArg(){};
 
         UploadSessionFinishArg(const UploadSessionCursor& arg){ m_cursor = arg; };
+        virtual ~UploadSessionFinishArg(){};
 
     public:
             /**

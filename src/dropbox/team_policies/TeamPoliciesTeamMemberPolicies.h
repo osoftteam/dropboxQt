@@ -29,6 +29,7 @@ namespace team_policies{
         TeamMemberPolicies(){};
 
         TeamMemberPolicies(const TeamSharingPolicies& arg){ m_sharing = arg; };
+        virtual ~TeamMemberPolicies(){};
 
     public:
             /**

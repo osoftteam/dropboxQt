@@ -22,6 +22,7 @@ namespace sharing{
         GetFileMetadataBatchArg(){};
 
         GetFileMetadataBatchArg(const std::list <QString>& arg){ m_files = arg; };
+        virtual ~GetFileMetadataBatchArg(){};
 
     public:
             /**

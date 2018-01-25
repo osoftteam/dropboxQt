@@ -23,6 +23,7 @@ namespace team{
         ActiveWebSession(){};
 
         ActiveWebSession(const QString& arg){ m_user_agent = arg; };
+        virtual ~ActiveWebSession(){};
 
     public:
             /**

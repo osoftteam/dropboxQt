@@ -26,6 +26,7 @@ namespace users{
         BasicAccount(){};
 
         BasicAccount(const bool& arg){ m_is_teammate = arg; };
+        virtual ~BasicAccount(){};
 
     public:
             /**

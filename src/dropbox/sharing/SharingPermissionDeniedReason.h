@@ -50,6 +50,7 @@ namespace sharing{
 
         PermissionDeniedReason(){}
         PermissionDeniedReason(Tag v):m_tag(v){}
+        virtual ~PermissionDeniedReason(){}
 
         Tag tag()const{return m_tag;}
     public:

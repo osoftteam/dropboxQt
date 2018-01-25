@@ -25,6 +25,7 @@ namespace team{
 
         MembersSendWelcomeError(){}
         MembersSendWelcomeError(Tag v):m_tag(v){}
+        virtual ~MembersSendWelcomeError(){}
 
         Tag tag()const{return m_tag;}
     public:

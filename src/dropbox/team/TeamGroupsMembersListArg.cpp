@@ -22,13 +22,13 @@ GroupsMembersListArg::operator QJsonObject()const{
 void GroupsMembersListArg::toJson(QJsonObject& js)const{
 
     m_group.toJson(js, "group");
-    js["limit"] = m_limit;
+    js["limit"] = QString("%1").arg(m_limit);
 }
 
 void GroupsMembersListArg::fromJson(const QJsonObject& js){
 
     m_group.fromJson(js["group"].toObject());
-    m_limit = js["limit"].toVariant().toInt();
+    m_limit = js["limit"].toVariant().toString().toULongLong();
 }
 
 QString GroupsMembersListArg::toString(bool multiline)const

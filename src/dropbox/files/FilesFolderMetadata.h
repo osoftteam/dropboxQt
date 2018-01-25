@@ -27,6 +27,7 @@ namespace files{
         FolderMetadata(){};
 
         FolderMetadata(const QString& arg){ m_id = arg; };
+        virtual ~FolderMetadata(){};
 
     public:
             /**

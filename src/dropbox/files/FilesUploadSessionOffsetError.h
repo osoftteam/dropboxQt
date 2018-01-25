@@ -19,6 +19,7 @@ namespace files{
         UploadSessionOffsetError(){};
 
         UploadSessionOffsetError(const int& arg){ m_correct_offset = arg; };
+        virtual ~UploadSessionOffsetError(){};
 
     public:
             /**

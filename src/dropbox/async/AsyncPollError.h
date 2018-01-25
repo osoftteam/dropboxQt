@@ -34,6 +34,7 @@ namespace async{
 
         PollError(){}
         PollError(Tag v):m_tag(v){}
+        virtual ~PollError(){}
 
         Tag tag()const{return m_tag;}
     public:

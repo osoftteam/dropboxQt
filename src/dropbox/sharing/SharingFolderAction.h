@@ -64,6 +64,7 @@ namespace sharing{
 
         FolderAction(){}
         FolderAction(Tag v):m_tag(v){}
+        virtual ~FolderAction(){}
 
         Tag tag()const{return m_tag;}
     public:

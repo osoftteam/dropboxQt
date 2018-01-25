@@ -24,6 +24,7 @@ namespace files{
         SearchResult(){};
 
         SearchResult(const std::list <SearchMatch>& arg){ m_matches = arg; };
+        virtual ~SearchResult(){};
 
     public:
             /**

@@ -32,6 +32,7 @@ namespace team_common{
 
         GroupType(){}
         GroupType(Tag v):m_tag(v){}
+        virtual ~GroupType(){}
 
         Tag tag()const{return m_tag;}
     public:

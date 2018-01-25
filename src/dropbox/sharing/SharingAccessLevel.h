@@ -40,6 +40,7 @@ namespace sharing{
 
         AccessLevel(){}
         AccessLevel(Tag v):m_tag(v){}
+        virtual ~AccessLevel(){}
 
         Tag tag()const{return m_tag;}
     public:

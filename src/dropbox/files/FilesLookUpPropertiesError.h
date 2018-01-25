@@ -24,6 +24,7 @@ namespace files{
 
         LookUpPropertiesError(){}
         LookUpPropertiesError(Tag v):m_tag(v){}
+        virtual ~LookUpPropertiesError(){}
 
         Tag tag()const{return m_tag;}
     public:

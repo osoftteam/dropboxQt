@@ -20,6 +20,7 @@ namespace sharing{
         UnshareFileArg(){};
 
         UnshareFileArg(const QString& arg){ m_file = arg; };
+        virtual ~UnshareFileArg(){};
 
     public:
             /**

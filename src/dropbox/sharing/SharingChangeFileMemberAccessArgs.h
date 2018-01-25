@@ -24,6 +24,7 @@ namespace sharing{
         ChangeFileMemberAccessArgs(){};
 
         ChangeFileMemberAccessArgs(const QString& arg){ m_file = arg; };
+        virtual ~ChangeFileMemberAccessArgs(){};
 
     public:
             /**

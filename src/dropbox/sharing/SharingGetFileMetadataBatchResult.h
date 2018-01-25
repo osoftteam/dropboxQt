@@ -23,6 +23,7 @@ namespace sharing{
         GetFileMetadataBatchResult(){};
 
         GetFileMetadataBatchResult(const QString& arg){ m_file = arg; };
+        virtual ~GetFileMetadataBatchResult(){};
 
     public:
             /**

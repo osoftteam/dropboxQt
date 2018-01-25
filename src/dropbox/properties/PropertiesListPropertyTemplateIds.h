@@ -19,6 +19,7 @@ namespace properties{
         ListPropertyTemplateIds(){};
 
         ListPropertyTemplateIds(const std::list <QString>& arg){ m_template_ids = arg; };
+        virtual ~ListPropertyTemplateIds(){};
 
     public:
             /**

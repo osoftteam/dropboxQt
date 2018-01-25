@@ -37,6 +37,7 @@ namespace team{
 
         AdminTier(){}
         AdminTier(Tag v):m_tag(v){}
+        virtual ~AdminTier(){}
 
         Tag tag()const{return m_tag;}
     public:

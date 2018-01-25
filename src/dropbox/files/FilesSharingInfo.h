@@ -21,6 +21,7 @@ namespace files{
         SharingInfo(){};
 
         SharingInfo(const bool& arg){ m_read_only = arg; };
+        virtual ~SharingInfo(){};
 
     public:
             /**

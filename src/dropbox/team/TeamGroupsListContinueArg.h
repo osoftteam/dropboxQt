@@ -19,6 +19,7 @@ namespace team{
         GroupsListContinueArg(){};
 
         GroupsListContinueArg(const QString& arg){ m_cursor = arg; };
+        virtual ~GroupsListContinueArg(){};
 
     public:
             /**

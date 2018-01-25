@@ -21,16 +21,16 @@ InsufficientQuotaAmounts::operator QJsonObject()const{
 
 void InsufficientQuotaAmounts::toJson(QJsonObject& js)const{
 
-    js["space_needed"] = m_space_needed;
-    js["space_shortage"] = m_space_shortage;
-    js["space_left"] = m_space_left;
+    js["space_needed"] = QString("%1").arg(m_space_needed);
+    js["space_shortage"] = QString("%1").arg(m_space_shortage);
+    js["space_left"] = QString("%1").arg(m_space_left);
 }
 
 void InsufficientQuotaAmounts::fromJson(const QJsonObject& js){
 
-    m_space_needed = js["space_needed"].toVariant().toInt();
-    m_space_shortage = js["space_shortage"].toVariant().toInt();
-    m_space_left = js["space_left"].toVariant().toInt();
+    m_space_needed = js["space_needed"].toVariant().toString().toULongLong();
+    m_space_shortage = js["space_shortage"].toVariant().toString().toULongLong();
+    m_space_left = js["space_left"].toVariant().toString().toULongLong();
 }
 
 QString InsufficientQuotaAmounts::toString(bool multiline)const

@@ -46,6 +46,7 @@ namespace files{
 
         WriteMode(){}
         WriteMode(Tag v):m_tag(v){}
+        virtual ~WriteMode(){}
 
         Tag tag()const{return m_tag;}
         ///Overwrite if the given "rev" matches the existing file's "rev". The autorename strategy is to append the string "conflicted copy" to the file name. For example, "document.txt" might become "document (conflicted copy).txt" or "document (Panda's conflicted copy).txt".

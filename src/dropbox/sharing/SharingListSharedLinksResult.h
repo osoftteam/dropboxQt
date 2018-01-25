@@ -25,6 +25,7 @@ namespace sharing{
         ListSharedLinksResult(){};
 
         ListSharedLinksResult(const std::list <SharedLinkMetadata>& arg){ m_links = arg; };
+        virtual ~ListSharedLinksResult(){};
 
     public:
             /**

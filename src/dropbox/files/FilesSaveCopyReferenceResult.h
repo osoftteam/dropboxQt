@@ -20,6 +20,7 @@ namespace files{
         SaveCopyReferenceResult(){};
 
         SaveCopyReferenceResult(const Metadata& arg){ m_metadata = arg; };
+        virtual ~SaveCopyReferenceResult(){};
 
     public:
             /**

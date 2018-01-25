@@ -22,6 +22,7 @@ namespace sharing{
         UserMembershipInfo(){};
 
         UserMembershipInfo(const UserInfo& arg){ m_user = arg; };
+        virtual ~UserMembershipInfo(){};
 
     public:
             /**

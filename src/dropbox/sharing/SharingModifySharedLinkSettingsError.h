@@ -34,6 +34,7 @@ namespace sharing{
 
         ModifySharedLinkSettingsError(){}
         ModifySharedLinkSettingsError(Tag v):m_tag(v){}
+        virtual ~ModifySharedLinkSettingsError(){}
 
         Tag tag()const{return m_tag;}
         ///There is an error with the given settings

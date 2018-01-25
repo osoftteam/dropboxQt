@@ -28,6 +28,7 @@ namespace team{
 
         MembersDeactivateError(){}
         MembersDeactivateError(Tag v):m_tag(v){}
+        virtual ~MembersDeactivateError(){}
 
         Tag tag()const{return m_tag;}
     public:

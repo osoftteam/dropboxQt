@@ -33,6 +33,7 @@ namespace sharing{
 
         AclUpdatePolicy(){}
         AclUpdatePolicy(Tag v):m_tag(v){}
+        virtual ~AclUpdatePolicy(){}
 
         Tag tag()const{return m_tag;}
     public:

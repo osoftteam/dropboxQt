@@ -25,6 +25,7 @@ namespace sharing{
         GroupInfo(){};
 
         GroupInfo(const team_common::GroupType& arg){ m_group_type = arg; };
+        virtual ~GroupInfo(){};
 
     public:
             /**

@@ -24,6 +24,7 @@ namespace files{
         PropertyGroupUpdate(){};
 
         PropertyGroupUpdate(const QString& arg){ m_template_id = arg; };
+        virtual ~PropertyGroupUpdate(){};
 
     public:
             /**

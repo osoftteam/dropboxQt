@@ -21,6 +21,7 @@ namespace files{
         PropertyGroupWithPath(){};
 
         PropertyGroupWithPath(const QString& arg){ m_path = arg; };
+        virtual ~PropertyGroupWithPath(){};
 
     public:
             /**

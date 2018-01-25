@@ -22,6 +22,7 @@ namespace files{
         UploadSessionCursor(){};
 
         UploadSessionCursor(const QString& arg){ m_session_id = arg; };
+        virtual ~UploadSessionCursor(){};
 
     public:
             /**

@@ -25,7 +25,7 @@ void ListFileMembersArg::toJson(QJsonObject& js)const{
         js["file"] = QString(m_file);
     js["actions"] = struct_list2jsonarray(m_actions);
     js["include_inherited"] = m_include_inherited;
-    js["limit"] = m_limit;
+    js["limit"] = QString("%1").arg(m_limit);
 }
 
 void ListFileMembersArg::fromJson(const QJsonObject& js){
@@ -33,7 +33,7 @@ void ListFileMembersArg::fromJson(const QJsonObject& js){
     m_file = js["file"].toString();
     jsonarray2struct_list(js["actions"].toArray(), m_actions);
     m_include_inherited = js["include_inherited"].toVariant().toBool();
-    m_limit = js["limit"].toVariant().toInt();
+    m_limit = js["limit"].toVariant().toString().toULongLong();
 }
 
 QString ListFileMembersArg::toString(bool multiline)const

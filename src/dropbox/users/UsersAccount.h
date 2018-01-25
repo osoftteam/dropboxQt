@@ -31,6 +31,7 @@ namespace users{
         Account(){};
 
         Account(const QString& arg){ m_account_id = arg; };
+        virtual ~Account(){};
 
     public:
             /**

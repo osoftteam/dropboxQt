@@ -27,6 +27,7 @@ namespace team{
         DesktopClientSession(){};
 
         DesktopClientSession(const QString& arg){ m_host_name = arg; };
+        virtual ~DesktopClientSession(){};
 
     public:
             /**

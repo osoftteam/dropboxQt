@@ -28,6 +28,7 @@ namespace files{
 
         PropertiesError(){}
         PropertiesError(Tag v):m_tag(v){}
+        virtual ~PropertiesError(){}
 
         Tag tag()const{return m_tag;}
         ///Property template does not exist for given identifier.

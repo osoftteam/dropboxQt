@@ -29,6 +29,7 @@ namespace properties{
         PropertyFieldTemplate(){};
 
         PropertyFieldTemplate(const QString& arg){ m_name = arg; };
+        virtual ~PropertyFieldTemplate(){};
 
     public:
             /**

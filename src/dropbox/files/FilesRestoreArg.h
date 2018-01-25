@@ -19,6 +19,7 @@ namespace files{
         RestoreArg(){};
 
         RestoreArg(const QString& arg){ m_path = arg; };
+        virtual ~RestoreArg(){};
 
     public:
             /**

@@ -21,6 +21,7 @@ namespace users{
         Team(){};
 
         Team(const QString& arg){ m_id = arg; };
+        virtual ~Team(){};
 
     public:
             /**

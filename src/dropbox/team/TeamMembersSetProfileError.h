@@ -49,6 +49,7 @@ namespace team{
 
         MembersSetProfileError(){}
         MembersSetProfileError(Tag v):m_tag(v){}
+        virtual ~MembersSetProfileError(){}
 
         Tag tag()const{return m_tag;}
     public:

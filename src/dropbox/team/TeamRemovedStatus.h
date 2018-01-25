@@ -19,6 +19,7 @@ namespace team{
         RemovedStatus(){};
 
         RemovedStatus(const bool& arg){ m_is_recoverable = arg; };
+        virtual ~RemovedStatus(){};
 
     public:
             /**

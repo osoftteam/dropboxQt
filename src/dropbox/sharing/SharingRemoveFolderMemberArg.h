@@ -24,6 +24,7 @@ namespace sharing{
         RemoveFolderMemberArg(){};
 
         RemoveFolderMemberArg(const QString& arg){ m_shared_folder_id = arg; };
+        virtual ~RemoveFolderMemberArg(){};
 
     public:
             /**

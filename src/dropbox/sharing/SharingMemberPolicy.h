@@ -31,6 +31,7 @@ namespace sharing{
 
         MemberPolicy(){}
         MemberPolicy(Tag v):m_tag(v){}
+        virtual ~MemberPolicy(){}
 
         Tag tag()const{return m_tag;}
     public:

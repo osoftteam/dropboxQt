@@ -21,6 +21,7 @@ namespace files{
         Dimensions(){};
 
         Dimensions(const int& arg){ m_height = arg; };
+        virtual ~Dimensions(){};
 
     public:
             /**

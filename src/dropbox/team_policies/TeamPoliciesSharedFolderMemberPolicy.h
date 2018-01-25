@@ -33,6 +33,7 @@ namespace team_policies{
 
         SharedFolderMemberPolicy(){}
         SharedFolderMemberPolicy(Tag v):m_tag(v){}
+        virtual ~SharedFolderMemberPolicy(){}
 
         Tag tag()const{return m_tag;}
     public:

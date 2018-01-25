@@ -39,6 +39,7 @@ namespace sharing{
 
         ShareFolderErrorBase(){}
         ShareFolderErrorBase(Tag v):m_tag(v){}
+        virtual ~ShareFolderErrorBase(){}
 
         Tag tag()const{return m_tag;}
         ///:field:`ShareFolderArg.path` is invalid.

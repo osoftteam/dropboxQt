@@ -25,6 +25,7 @@ namespace sharing{
         TeamMemberInfo(){};
 
         TeamMemberInfo(const users::Team& arg){ m_team_info = arg; };
+        virtual ~TeamMemberInfo(){};
 
     public:
             /**

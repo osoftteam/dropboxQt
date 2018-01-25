@@ -35,6 +35,7 @@ namespace team{
 
         MembersUnsuspendError(){}
         MembersUnsuspendError(Tag v):m_tag(v){}
+        virtual ~MembersUnsuspendError(){}
 
         Tag tag()const{return m_tag;}
     public:

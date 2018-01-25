@@ -25,6 +25,7 @@ namespace team{
         ListTeamDevicesResult(){};
 
         ListTeamDevicesResult(const std::list <MemberDevices>& arg){ m_devices = arg; };
+        virtual ~ListTeamDevicesResult(){};
 
     public:
             /**

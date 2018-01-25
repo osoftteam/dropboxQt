@@ -25,6 +25,7 @@ namespace team{
         MembersAddArg(const std::list <MemberAddArg>& arg):
         m_force_async(false)
         { m_new_members = arg; };
+        virtual ~MembersAddArg(){};
 
     public:
             /**

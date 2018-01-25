@@ -30,6 +30,7 @@ namespace sharing{
 
         JobStatus(){}
         JobStatus(Tag v):m_tag(v){}
+        virtual ~JobStatus(){}
 
         Tag tag()const{return m_tag;}
         ///The asynchronous job returned an error.

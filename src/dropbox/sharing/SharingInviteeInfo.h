@@ -27,6 +27,7 @@ namespace sharing{
 
         InviteeInfo(){}
         InviteeInfo(Tag v):m_tag(v){}
+        virtual ~InviteeInfo(){}
 
         Tag tag()const{return m_tag;}
         ///E-mail address of invited user.

@@ -19,6 +19,7 @@ namespace users{
         IndividualSpaceAllocation(){};
 
         IndividualSpaceAllocation(const int& arg){ m_allocated = arg; };
+        virtual ~IndividualSpaceAllocation(){};
 
     public:
             /**

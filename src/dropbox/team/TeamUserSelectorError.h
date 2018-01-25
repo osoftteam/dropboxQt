@@ -28,6 +28,7 @@ namespace team{
 
         UserSelectorError(){}
         UserSelectorError(Tag v):m_tag(v){}
+        virtual ~UserSelectorError(){}
 
         Tag tag()const{return m_tag;}
     public:

@@ -24,6 +24,7 @@ namespace sharing{
         FileMemberActionResult(){};
 
         FileMemberActionResult(const MemberSelector& arg){ m_member = arg; };
+        virtual ~FileMemberActionResult(){};
 
     public:
             /**

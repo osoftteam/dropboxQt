@@ -33,6 +33,7 @@ namespace team{
         MembersRemoveArg(const UserSelectorArg& arg):
         m_keep_account(false)
         { m_transfer_dest_id = arg; };
+        virtual ~MembersRemoveArg(){};
 
     public:
             /**

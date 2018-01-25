@@ -34,6 +34,7 @@ namespace sharing{
 
         FileMemberActionError(){}
         FileMemberActionError(Tag v):m_tag(v){}
+        virtual ~FileMemberActionError(){}
 
         Tag tag()const{return m_tag;}
         ///Specified file was invalid or user does not have access.

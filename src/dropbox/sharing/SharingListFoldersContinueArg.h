@@ -19,6 +19,7 @@ namespace sharing{
         ListFoldersContinueArg(){};
 
         ListFoldersContinueArg(const QString& arg){ m_cursor = arg; };
+        virtual ~ListFoldersContinueArg(){};
 
     public:
             /**

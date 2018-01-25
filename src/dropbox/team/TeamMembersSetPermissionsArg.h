@@ -24,6 +24,7 @@ namespace team{
         MembersSetPermissionsArg(){};
 
         MembersSetPermissionsArg(const UserSelectorArg& arg){ m_user = arg; };
+        virtual ~MembersSetPermissionsArg(){};
 
     public:
             /**

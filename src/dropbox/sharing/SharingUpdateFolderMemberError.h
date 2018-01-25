@@ -44,6 +44,7 @@ namespace sharing{
 
         UpdateFolderMemberError(){}
         UpdateFolderMemberError(Tag v):m_tag(v){}
+        virtual ~UpdateFolderMemberError(){}
 
         Tag tag()const{return m_tag;}
         ///None

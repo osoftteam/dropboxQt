@@ -21,6 +21,7 @@ namespace team{
         MembersSetPermissionsResult(){};
 
         MembersSetPermissionsResult(const QString& arg){ m_team_member_id = arg; };
+        virtual ~MembersSetPermissionsResult(){};
 
     public:
             /**

@@ -32,6 +32,7 @@ namespace sharing{
         MembershipInfo(const AccessLevel& arg):
         m_is_inherited(false)
         { m_access_type = arg; };
+        virtual ~MembershipInfo(){};
 
     public:
             /**

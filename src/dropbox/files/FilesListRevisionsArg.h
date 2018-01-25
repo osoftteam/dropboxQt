@@ -23,6 +23,7 @@ namespace files{
         ListRevisionsArg(const QString& arg):
         m_limit(10)
         { m_path = arg; };
+        virtual ~ListRevisionsArg(){};
 
     public:
             /**

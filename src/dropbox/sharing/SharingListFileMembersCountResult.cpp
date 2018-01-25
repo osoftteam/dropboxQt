@@ -22,13 +22,13 @@ ListFileMembersCountResult::operator QJsonObject()const{
 void ListFileMembersCountResult::toJson(QJsonObject& js)const{
 
     js["members"] = (QJsonObject)m_members;
-    js["member_count"] = m_member_count;
+    js["member_count"] = QString("%1").arg(m_member_count);
 }
 
 void ListFileMembersCountResult::fromJson(const QJsonObject& js){
 
     m_members.fromJson(js["members"].toObject());
-    m_member_count = js["member_count"].toVariant().toInt();
+    m_member_count = js["member_count"].toVariant().toString().toULongLong();
 }
 
 QString ListFileMembersCountResult::toString(bool multiline)const

@@ -19,6 +19,7 @@ namespace team{
         UpdatePropertyTemplateResult(){};
 
         UpdatePropertyTemplateResult(const QString& arg){ m_template_id = arg; };
+        virtual ~UpdatePropertyTemplateResult(){};
 
     public:
             /**

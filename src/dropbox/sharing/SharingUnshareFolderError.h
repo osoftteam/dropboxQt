@@ -33,6 +33,7 @@ namespace sharing{
 
         UnshareFolderError(){}
         UnshareFolderError(Tag v):m_tag(v){}
+        virtual ~UnshareFolderError(){}
 
         Tag tag()const{return m_tag;}
         ///None

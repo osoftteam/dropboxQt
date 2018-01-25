@@ -29,6 +29,7 @@ namespace team{
 
         GroupUpdateError(){}
         GroupUpdateError(Tag v):m_tag(v){}
+        virtual ~GroupUpdateError(){}
 
         Tag tag()const{return m_tag;}
     public:

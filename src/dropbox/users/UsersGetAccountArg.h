@@ -18,6 +18,7 @@ namespace users{
         GetAccountArg(){};
 
         GetAccountArg(const QString& arg){ m_account_id = arg; };
+        virtual ~GetAccountArg(){};
 
     public:
             /**

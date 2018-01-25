@@ -22,6 +22,7 @@ namespace team{
         GroupMembersRemoveArg(){};
 
         GroupMembersRemoveArg(const GroupSelector& arg){ m_group = arg; };
+        virtual ~GroupMembersRemoveArg(){};
 
     public:
             /**

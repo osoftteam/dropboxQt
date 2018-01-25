@@ -29,6 +29,7 @@ namespace team{
         GroupUpdateArgs(){};
 
         GroupUpdateArgs(const GroupSelector& arg){ m_group = arg; };
+        virtual ~GroupUpdateArgs(){};
 
     public:
             /**

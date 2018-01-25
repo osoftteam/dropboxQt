@@ -42,12 +42,12 @@ void AddFolderMemberError::toJson(QJsonObject& js, QString name)const{
         case AddFolderMemberError_TOO_MANY_MEMBERS:{
             if(!name.isEmpty())
                 js[name] = QString("too_many_members");
-            js["too_many_members"] = m_too_many_members;
+            js["too_many_members"] = QString("%1").arg(m_too_many_members);
         }break;
         case AddFolderMemberError_TOO_MANY_PENDING_INVITES:{
             if(!name.isEmpty())
                 js[name] = QString("too_many_pending_invites");
-            js["too_many_pending_invites"] = m_too_many_pending_invites;
+            js["too_many_pending_invites"] = QString("%1").arg(m_too_many_pending_invites);
         }break;
         case AddFolderMemberError_RATE_LIMIT:{
             if(!name.isEmpty())
@@ -97,11 +97,11 @@ void AddFolderMemberError::fromJson(const QJsonObject& js){
     }
     else if(s.compare("too_many_members") == 0){
         m_tag = AddFolderMemberError_TOO_MANY_MEMBERS;
-        m_too_many_members = js["too_many_members"].toVariant().toInt();
+        m_too_many_members = js["too_many_members"].toVariant().toString().toULongLong();
     }
     else if(s.compare("too_many_pending_invites") == 0){
         m_tag = AddFolderMemberError_TOO_MANY_PENDING_INVITES;
-        m_too_many_pending_invites = js["too_many_pending_invites"].toVariant().toInt();
+        m_too_many_pending_invites = js["too_many_pending_invites"].toVariant().toString().toULongLong();
     }
     else if(s.compare("rate_limit") == 0){
         m_tag = AddFolderMemberError_RATE_LIMIT;

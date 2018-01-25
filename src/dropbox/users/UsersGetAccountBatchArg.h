@@ -19,6 +19,7 @@ namespace users{
         GetAccountBatchArg(){};
 
         GetAccountBatchArg(const std::list <QString>& arg){ m_account_ids = arg; };
+        virtual ~GetAccountBatchArg(){};
 
     public:
             /**

@@ -28,6 +28,7 @@ namespace team{
         MembersDeactivateArg(const UserSelectorArg& arg):
         m_wipe_data(false)
         { m_user = arg; };
+        virtual ~MembersDeactivateArg(){};
 
     public:
             /**

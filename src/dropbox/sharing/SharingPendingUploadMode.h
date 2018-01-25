@@ -29,6 +29,7 @@ namespace sharing{
 
         PendingUploadMode(){}
         PendingUploadMode(Tag v):m_tag(v){}
+        virtual ~PendingUploadMode(){}
 
         Tag tag()const{return m_tag;}
     public:

@@ -26,6 +26,7 @@ namespace team{
         MobileClientSession(){};
 
         MobileClientSession(const QString& arg){ m_device_name = arg; };
+        virtual ~MobileClientSession(){};
 
     public:
             /**

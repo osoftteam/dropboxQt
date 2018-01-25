@@ -38,6 +38,7 @@ namespace sharing{
 
         SharedFolderAccessError(){}
         SharedFolderAccessError(Tag v):m_tag(v){}
+        virtual ~SharedFolderAccessError(){}
 
         Tag tag()const{return m_tag;}
     public:

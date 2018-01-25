@@ -22,13 +22,13 @@ ListFileMembersBatchArg::operator QJsonObject()const{
 void ListFileMembersBatchArg::toJson(QJsonObject& js)const{
 
     js["files"] = ingrl_list2jsonarray(m_files);
-    js["limit"] = m_limit;
+    js["limit"] = QString("%1").arg(m_limit);
 }
 
 void ListFileMembersBatchArg::fromJson(const QJsonObject& js){
 
     jsonarray2ingrl_list(js["files"].toArray(), m_files);
-    m_limit = js["limit"].toVariant().toInt();
+    m_limit = js["limit"].toVariant().toString().toULongLong();
 }
 
 QString ListFileMembersBatchArg::toString(bool multiline)const

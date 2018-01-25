@@ -27,7 +27,7 @@ void GroupSummary::toJson(QJsonObject& js)const{
         js["group_id"] = QString(m_group_id);
     if(!m_group_external_id.isEmpty())
         js["group_external_id"] = QString(m_group_external_id);
-    js["member_count"] = m_member_count;
+    js["member_count"] = QString("%1").arg(m_member_count);
     m_group_management_type.toJson(js, "group_management_type");
 }
 
@@ -36,7 +36,7 @@ void GroupSummary::fromJson(const QJsonObject& js){
     m_group_name = js["group_name"].toString();
     m_group_id = js["group_id"].toString();
     m_group_external_id = js["group_external_id"].toString();
-    m_member_count = js["member_count"].toVariant().toInt();
+    m_member_count = js["member_count"].toVariant().toString().toULongLong();
     m_group_management_type.fromJson(js["group_management_type"].toObject());
 }
 

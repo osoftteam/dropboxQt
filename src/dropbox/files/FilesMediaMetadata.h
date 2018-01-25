@@ -24,6 +24,7 @@ namespace files{
         MediaMetadata(){};
 
         MediaMetadata(const Dimensions& arg){ m_dimensions = arg; };
+        virtual ~MediaMetadata(){};
 
     public:
             /**

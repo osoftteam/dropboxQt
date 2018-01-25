@@ -20,6 +20,7 @@ namespace files{
         UploadSessionStartResult(){};
 
         UploadSessionStartResult(const QString& arg){ m_session_id = arg; };
+        virtual ~UploadSessionStartResult(){};
 
     public:
             /**

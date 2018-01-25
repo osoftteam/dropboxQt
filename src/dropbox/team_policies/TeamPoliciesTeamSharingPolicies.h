@@ -28,6 +28,7 @@ namespace team_policies{
         TeamSharingPolicies(){};
 
         TeamSharingPolicies(const SharedFolderMemberPolicy& arg){ m_shared_folder_member_policy = arg; };
+        virtual ~TeamSharingPolicies(){};
 
     public:
             /**

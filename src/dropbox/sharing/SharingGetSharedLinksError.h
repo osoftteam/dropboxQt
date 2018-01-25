@@ -22,6 +22,7 @@ namespace sharing{
 
         GetSharedLinksError(){}
         GetSharedLinksError(Tag v):m_tag(v){}
+        virtual ~GetSharedLinksError(){}
 
         Tag tag()const{return m_tag;}
         ///None

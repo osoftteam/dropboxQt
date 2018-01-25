@@ -23,6 +23,7 @@ namespace sharing{
         GetMetadataArgs(){};
 
         GetMetadataArgs(const QString& arg){ m_shared_folder_id = arg; };
+        virtual ~GetMetadataArgs(){};
 
     public:
             /**

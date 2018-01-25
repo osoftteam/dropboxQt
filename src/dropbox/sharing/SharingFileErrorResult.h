@@ -33,6 +33,7 @@ namespace sharing{
 
         FileErrorResult(){}
         FileErrorResult(Tag v):m_tag(v){}
+        virtual ~FileErrorResult(){}
 
         Tag tag()const{return m_tag;}
         ///File specified by id was not found.

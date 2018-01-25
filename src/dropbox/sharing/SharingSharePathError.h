@@ -63,6 +63,7 @@ namespace sharing{
 
         SharePathError(){}
         SharePathError(Tag v):m_tag(v){}
+        virtual ~SharePathError(){}
 
         Tag tag()const{return m_tag;}
         ///Folder is already shared. Contains metadata about the existing shared folder.

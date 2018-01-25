@@ -24,6 +24,7 @@ namespace team{
         GroupsMembersListResult(){};
 
         GroupsMembersListResult(const std::list <GroupMemberInfo>& arg){ m_members = arg; };
+        virtual ~GroupsMembersListResult(){};
 
     public:
         const std::list <GroupMemberInfo>& members()const{return m_members;};

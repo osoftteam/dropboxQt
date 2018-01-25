@@ -30,6 +30,7 @@ namespace team{
         GetDevicesReport(){};
 
         GetDevicesReport(const DevicesActive& arg){ m_active_1_day = arg; };
+        virtual ~GetDevicesReport(){};
 
     public:
             /**

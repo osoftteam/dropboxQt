@@ -31,6 +31,7 @@ namespace team{
 
         MembersRecoverError(){}
         MembersRecoverError(Tag v):m_tag(v){}
+        virtual ~MembersRecoverError(){}
 
         Tag tag()const{return m_tag;}
     public:

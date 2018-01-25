@@ -44,6 +44,7 @@ namespace sharing{
 
         MemberAction(){}
         MemberAction(Tag v):m_tag(v){}
+        virtual ~MemberAction(){}
 
         Tag tag()const{return m_tag;}
     public:

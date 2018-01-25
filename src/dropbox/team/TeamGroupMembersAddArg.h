@@ -22,6 +22,7 @@ namespace team{
         GroupMembersAddArg(){};
 
         GroupMembersAddArg(const GroupSelector& arg){ m_group = arg; };
+        virtual ~GroupMembersAddArg(){};
 
     public:
             /**

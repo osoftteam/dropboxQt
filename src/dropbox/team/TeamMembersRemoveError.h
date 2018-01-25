@@ -75,6 +75,7 @@ namespace team{
 
         MembersRemoveError(){}
         MembersRemoveError(Tag v):m_tag(v){}
+        virtual ~MembersRemoveError(){}
 
         Tag tag()const{return m_tag;}
     public:

@@ -45,6 +45,7 @@ namespace sharing{
 
         RemoveFolderMemberError(){}
         RemoveFolderMemberError(Tag v):m_tag(v){}
+        virtual ~RemoveFolderMemberError(){}
 
         Tag tag()const{return m_tag;}
         ///None

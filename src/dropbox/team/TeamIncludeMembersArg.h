@@ -25,6 +25,7 @@ namespace team{
         IncludeMembersArg(const bool& arg):
         m_return_members(false)
         { m_return_members = arg; };
+        virtual ~IncludeMembersArg(){};
 
     public:
             /**

@@ -21,6 +21,7 @@ namespace sharing{
         ListSharedLinksArg(){};
 
         ListSharedLinksArg(const QString& arg){ m_path = arg; };
+        virtual ~ListSharedLinksArg(){};
 
     public:
             /**

@@ -30,6 +30,7 @@ namespace team{
 
         GroupsPollError(){}
         GroupsPollError(Tag v):m_tag(v){}
+        virtual ~GroupsPollError(){}
 
         Tag tag()const{return m_tag;}
     public:

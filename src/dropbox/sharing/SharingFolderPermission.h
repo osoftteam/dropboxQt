@@ -26,6 +26,7 @@ namespace sharing{
         FolderPermission(){};
 
         FolderPermission(const FolderAction& arg){ m_action = arg; };
+        virtual ~FolderPermission(){};
 
     public:
             /**

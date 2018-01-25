@@ -27,6 +27,7 @@ namespace auth{
         RateLimitError(const RateLimitReason& arg):
         m_retry_after(1)
         { m_reason = arg; };
+        virtual ~RateLimitError(){};
 
     public:
             /**

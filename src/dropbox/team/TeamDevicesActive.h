@@ -34,6 +34,7 @@ namespace team{
         DevicesActive(){};
 
         DevicesActive(const std::list <int>& arg){ m_windows = arg; };
+        virtual ~DevicesActive(){};
 
     public:
             /**

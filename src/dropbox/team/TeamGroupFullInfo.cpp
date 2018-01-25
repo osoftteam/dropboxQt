@@ -23,14 +23,14 @@ void GroupFullInfo::toJson(QJsonObject& js)const{
 
     GroupSummary::toJson(js);
     js["members"] = struct_list2jsonarray(m_members);
-    js["created"] = m_created;
+    js["created"] = QString("%1").arg(m_created);
 }
 
 void GroupFullInfo::fromJson(const QJsonObject& js){
 
     GroupSummary::fromJson(js);
     jsonarray2struct_list(js["members"].toArray(), m_members);
-    m_created = js["created"].toVariant().toInt();
+    m_created = js["created"].toVariant().toString().toULongLong();
 }
 
 QString GroupFullInfo::toString(bool multiline)const

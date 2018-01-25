@@ -27,6 +27,7 @@ namespace team{
         UpdatePropertyTemplateArg(){};
 
         UpdatePropertyTemplateArg(const QString& arg){ m_template_id = arg; };
+        virtual ~UpdatePropertyTemplateArg(){};
 
     public:
             /**

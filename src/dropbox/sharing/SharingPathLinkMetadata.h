@@ -21,6 +21,7 @@ namespace sharing{
         PathLinkMetadata(){};
 
         PathLinkMetadata(const QString& arg){ m_path = arg; };
+        virtual ~PathLinkMetadata(){};
 
     public:
             /**

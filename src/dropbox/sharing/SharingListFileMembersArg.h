@@ -33,6 +33,7 @@ namespace sharing{
         m_include_inherited(false)
         ,m_limit(100)
         { m_file = arg; };
+        virtual ~ListFileMembersArg(){};
 
     public:
             /**

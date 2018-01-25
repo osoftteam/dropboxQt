@@ -34,6 +34,7 @@ namespace sharing{
 
         SharedFolderMemberError(){}
         SharedFolderMemberError(Tag v):m_tag(v){}
+        virtual ~SharedFolderMemberError(){}
 
         Tag tag()const{return m_tag;}
         ///The target member only has inherited access to the shared folder.

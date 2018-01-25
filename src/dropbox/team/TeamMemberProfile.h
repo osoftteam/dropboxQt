@@ -35,6 +35,7 @@ namespace team{
         MemberProfile(){};
 
         MemberProfile(const QString& arg){ m_team_member_id = arg; };
+        virtual ~MemberProfile(){};
 
     public:
             /**

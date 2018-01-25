@@ -25,6 +25,7 @@ namespace sharing{
 
         ListFoldersContinueError(){}
         ListFoldersContinueError(Tag v):m_tag(v){}
+        virtual ~ListFoldersContinueError(){}
 
         Tag tag()const{return m_tag;}
     public:

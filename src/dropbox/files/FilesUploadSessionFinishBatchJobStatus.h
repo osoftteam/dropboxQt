@@ -28,6 +28,7 @@ namespace files{
 
         UploadSessionFinishBatchJobStatus(){}
         UploadSessionFinishBatchJobStatus(Tag v):m_tag(v){}
+        virtual ~UploadSessionFinishBatchJobStatus(){}
 
         Tag tag()const{return m_tag;}
         ///The :route:`upload_session/finish_batch` has finished.
