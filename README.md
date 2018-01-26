@@ -133,6 +133,4 @@ Public interfaces are stabilized (unlikely to be changed in such a way that woul
 - request OAuth2 token
 - functions & classes to work with API from files, team, user namespaces.
 
-###License
- LGPL v3
 
