@@ -2,13 +2,13 @@ dropboxQt is C++11/Qt adaptation of Dropbox v2 API. Underneath is simple web API
 
 There are two flavors of API functions - asynchronous and blocking. The blocking calls return unique_ptr of result object and can throw exceptions derived from DropboxException. The asynchronous companion functions (with Async suffix) don't throw exception but provide two callbacks - for result and error. The regular GUI Qt application may take advantage of asynchronous functions as they fit better into event driven model. The blocking APIs functions are convenient for algorithms running in background thread as they allow to create more compact and clean code.
 
-##Create Folder example
+###Create Folder example
 ```
 using namespace dropboxQt;
 DropboxClient dbox("ACCESS_TOKEN");
 files::CreateFolderArg arg("path_to_new_folder");
 ```
-###1.Async call, no exceptions, callback on completed
+####1.Async call, no exceptions, callback on completed
 ```
 dbox.getFiles()->createFolder_Async(arg, 
 [](std::unique_ptr<files::FolderMetadata> res)
